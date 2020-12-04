@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>jQuery finderSelect Plugin Examples</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link href="prettify.css" rel="stylesheet">
+<style>
+body {
+background: #f8f8f8;
+}
+tr.selected {
+background-color: #3875d7;
+color: #FFF;
+}
+tr.selected td {
+background-color: #3875d7;
+color: #FFF;
+}
+.safezone {
+background-color: #dff0d8;
+border-color: #d6e9c6;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="jumbotron">
+<h1>jQuery finderSelect Plugin Examples</h1>
+</div>
+<div class="col-lg-12">
+<h2>Advanced Usage</h2>
+<p>This advanced demo shows how finderSelect can be used as a component to create a file explorer. Make sure to try Ctrl/Cmd+Click, Ctrl+A/Cmd+A & Ctrl+Alt+A/Cmd+Opt+A (Activates only when cursor is over table), Shift+Click, Ctrl/Cmd+Click&Drag and Right Click on the table after you have made a selection.</p>
+<table class="table table-condensed" id="demo1">
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+<tr data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png">
+<td><i class="icon-file"></i></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+</tr>
+</table>
+<span><span class="demo1-count">0</span> File(s) Selected &nbsp;</span><br>
+<br>
+<button class="btn btn-primary btn-mini demo1-trash">Send Selected to Trash</button>
+<br>
+<br>
+<pre class="prettyprint lang-js">$(function() {
+        var demo1 = $('#demo1').finderSelect({children:"tr",totalSelector:".demo1-count",menuSelector:"#demo1-menu"});
+
+        $(".demo1-trash").click(function(){
+            demo1.finderSelect("selected").remove();
+            demo1.finderSelect("update");
+        });
+             
+        // Opens Preview in Window. Opens with browser only. (There is a 90% chance a popup blocker will stop multiple windows. Working on a better solution)       
+        $(".demo1-preview").click(function(){
+            demo1.finderSelect("selected").each(function(index){
+                OpenInNewTab($(this).attr('data-url'));
+            });
+        });
+
+        // Opens Edit in Window. Opens using Web Based Pixlr editor. (There is a 90% chance a popup blocker will stop multiple windows. Working on a better solution)     
+        $(".demo1-edit").click(function(){
+            demo1.finderSelect("selected").each(function(){
+                OpenInNewTab('http://pixlr.com/editor/?image='+$(this).attr('data-url'));
+            });
+        });
+});</pre>
+</div>
+<div class="col-lg-12">
+<h2>Extending</h2>
+<p>finderSelect was design to be easily extended. See the example below to see how the highlighting functions can be overridden to provide new functionality.</p>
+<table class="table table-condensed" id="demo5">
+<thead>
+<tr>
+<td><input type="checkbox"></td>
+<td>Name</td>
+<td>Type</td>
+<td>Last Accessed</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><input type="checkbox"></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+<td>Unsafe Zone. <a href="https://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+<td>Unsafe Zone. <a href="https://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+<td class="safezone">Click Safe Zone. <a href="https://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+<td class="safezone">Click Safe Zone. <a href="https://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td>hello.png</td>
+<td>Portable Networks Graphic image</td>
+<td>Friday, 24 July 2013 4:59PM</td>
+<td class="safezone">Click Safe Zone. <a href="https://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td class="safezone">hello.png</td>
+<td class="safezone">Portable Networks Graphic image</td>
+<td class="safezone">Friday, 24 July 2013 4:59PM</td>
+<td class="safezone">Click Safe Zone. <a href="https://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+</tr>
+<tr>
+<td><input type="checkbox"></td>
+<td class="safezone">hello.png</td>
+<td class="safezone">Portable Networks Graphic image</td>
+<td class="safezone">Friday, 24 July 2013 4:59PM</td>
+<td class="safezone">Click Safe Zone. <a href="https://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+</tr>
+</tbody>
+</table>
+<pre class="prettyprint lang-js">$(function() {
+                
+        // Initialise the Demo with the Ctrl Click Functionality as the Default
+        var demo5 = $('#demo5 tbody').finderSelect({enableDesktopCtrlDefault:true});
+
+        // Add a hook to the highlight function so that checkboxes in the selection are also checked.
+        demo5.finderSelect('addHook','highlight:before', function(el) {
+            el.find('input').prop('checked', true);
+        });
+
+        // Add a hook to the unHighlight function so that checkboxes in the selection are also unchecked.
+        demo5.finderSelect('addHook','unHighlight:before', function(el) {
+            el.find('input').prop('checked', false);
+        });
+
+        // Enable Double Click Event.
+        demo5.finderSelect("children").dblclick(function() {
+            alert( "Double Click detected. Useful for linking to detail page." );
+        });
+
+        // Prevent Checkboxes from being triggered twice when click on directly.
+        demo5.on("click", ":checkbox", function(e){
+            e.preventDefault();
+        });
+
+        // Add Select All functionality to the checkbox in the table header row.
+        $('#demo5').find("thead input[type='checkbox']").change(function () {
+            if ($(this).is(':checked')) {
+                demo5.finderSelect('highlightAll');
+            } else {
+                demo5.finderSelect('unHighlightAll');
+
+            }
+        });
+                
+        // Add a Safe Zone to show not all child elements have to be active.
+        $(".safezone").on("mousedown", function(e){
+            return false;
+        });
+
+});</pre>
+</div>
+<div class="col-lg-12">
+<h2>TBODY Only</h2>
+<p>To enable selecting on only tbody rows simply call</p>
+<table class="table" id="demo2">
+<thead>
+<tr>
+<th>#</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Username</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Test</td>
+<td>Data</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Test</td>
+<td>Data</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Test</td>
+<td>Data</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Test</td>
+<td>Data</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Test</td>
+<td>Data</td>
+<td>Set</td>
+</tr>
+</tbody>
+</table>
+<pre class="prettyprint lang-js">$(function() {
+    $('#demo2').find('tbody').finderSelect();
+});</pre>
+</div>
+<div class="col-lg-12">
+<h2>Custom Class</h2>
+<p>If you want to use a custom class for highlighting such as using Twitter Bootstrap</p>
+<table class="table" id="demo3">
+<thead>
+<tr>
+<th>#</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Username</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Test</td>
+<td>Data</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Test</td>
+<td>Data</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Test</td>
+<td>Data</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Test</td>
+<td>Data</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Test</td>
+<td>Data</td>
+<td>Set</td>
+</tr>
+</tbody>
+</table>
+<pre class="prettyprint lang-js">$(function() {
+    $('#demo3').find('tbody').finderSelect({selectClass:'danger'});
+});</pre>
+</div>
+<div class="col-lg-12">
+<h2>Other Elements</h2>
+<p>This plugin works on all nested elements. The example below shows span tags within a parent div.</p>
+<div id="demo4"> <span class="label">Label</span> <span class="label">Label</span> <span class="label">Label</span> <span class="label">Label</span> <span class="label">Label</span> <span class="label">Label</span> <span class="label">Label</span> <span class="label">Label</span> <span class="label">Label</span> <span class="label">Label</span> <span class="label">Label</span> <span class="label">Label</span> </div>
+<p></p>
+<pre class="prettyprint lang-js">$(function() {
+     $('#demo4').finderSelect({selectClass:'label-success'});
+});</pre>
+</div>
+<div class="col-lg-12">
+<h2>Configuration Options</h2>
+<p>The following configuration options are available.</p>
+<div class="panel">
+<div class="panel-body">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selectClass</td>
+<td>string</td>
+<td>The Class applied to selected elements.</td>
+<td>"selected"</td>
+</tr>
+<tr>
+<td>unSelectClass</td>
+<td>string</td>
+<td>The Class applied to un-selected elements.</td>
+<td>"un-selected"</td>
+</tr>
+<tr>
+<td>currentClass</td>
+<td>string</td>
+<td>The Class applied to the current selected element.</td>
+<td>"selected-current"</td>
+</tr>
+<tr>
+<td>lastClass</td>
+<td>string</td>
+<td>The Class applied to the last selected element.</td>
+<td>"selected-last"</td>
+</tr>
+<tr>
+<td>shiftClass</td>
+<td>string</td>
+<td>The Class applied to the last shift selected element.</td>
+<td>"selected-shift"</td>
+</tr>
+<tr>
+<td>ctrlClass</td>
+<td>string</td>
+<td>The Class applied to the last ctrl selected element.</td>
+<td>"selected-ctrl"</td>
+</tr>
+<tr>
+<td>triggerUpdate</td>
+<td>string</td>
+<td>The Event omitted whenever finderSelect is updated.</td>
+<td>"finderSelectUpdate"</td>
+</tr>
+<tr>
+<td>children</td>
+<td>selector string</td>
+<td>Manually set the child element selector. Eg "li" for list elements</td>
+<td>"selected"</td>
+</tr>
+<tr>
+<td>event</td>
+<td>event string</td>
+<td>The Event which triggers a selection.</td>
+<td>"mousedown"</td>
+</tr>
+<tr>
+<td>cursor</td>
+<td>css string</td>
+<td>The cursor applied to the finderSelect element</td>
+<td>"pointer"</td>
+</tr>
+<tr>
+<td>dragEvent</td>
+<td>string</td>
+<td>The Event which triggers a drag selection.</td>
+<td>"mouseenter"</td>
+</tr>
+<tr>
+<td>enableClickDrag</td>
+<td>boolean</td>
+<td>Enable/Disable Ctrl + Click + Drag.</td>
+<td>true</td>
+</tr>
+<tr>
+<td>enableShiftClick</td>
+<td>boolean</td>
+<td>Enable/Disable Shift + Click bulk selection.</td>
+<td>true</td>
+</tr>
+<tr>
+<td>enableCtrlClick</td>
+<td>boolean</td>
+<td>Enable/Disable Ctrl + Click Toggle Click.</td>
+<td>true</td>
+</tr>
+<tr>
+<td>enableSingleClick</td>
+<td>boolean</td>
+<td>Enable/Disable The standard Single Click.</td>
+<td>true</td>
+</tr>
+<tr>
+<td>enableSelectAll</td>
+<td>boolean</td>
+<td>Enable/Disable Select All Keyboard Shortcuts.</td>
+<td>true</td>
+</tr>
+<tr>
+<td>enableDisableSelection</td>
+<td>boolean</td>
+<td>Enable/Disable Disabling Text Selection when needed.</td>
+<td>true</td>
+</tr>
+<tr>
+<td>enableTouchCtrlDefault</td>
+<td>boolean</td>
+<td>Enable/Disable Ctrl + Click as the default on touch devices.</td>
+<td>true</td>
+</tr>
+<tr>
+<td>enableDesktopCtrlDefault</td>
+<td>boolean</td>
+<td>Enable/Disable Ctrl + Click as the default.</td>
+<td>false</td>
+</tr>
+<tr>
+<td>totalSelector</td>
+<td>selector string</td>
+<td>The Selector used to update row counts.  eg ".demo-count"</td>
+<td>false</td>
+</tr>
+<tr>
+<td>menuSelector</td>
+<td>string</td>
+<td>The Selector used to show the menu elemenet. eg "#demo-menu"</td>
+<td>false</td>
+</tr>
+<tr>
+<td>menuXOffset</td>
+<td>integer</td>
+<td>The X Offset for the menu element</td>
+<td>0</td>
+</tr>
+<tr>
+<td>menuYOffset</td>
+<td>integer</td>
+<td>The Y Offset for the menu element</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="col-lg-12">
+<h2>Methods</h2>
+<p>The following methods are available.</p>
+<div class="panel">
+<div class="panel-body">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Parameters</th>
+<th>Description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>highlight</td>
+<td>element</td>
+<td>Highlights elements</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('highlight', $('ul'));</pre></td>
+</tr>
+<tr>
+<td>unHighlight</td>
+<td>-</td>
+<td>UnHighlights elements</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('unHighlight', $('ul'));</pre></td>
+</tr>
+<tr>
+<td>highlightAll</td>
+<td>-</td>
+<td>Highlights all child elements.</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('highlightAll');</pre></td>
+</tr>
+<tr>
+<td>unHighlightAll</td>
+<td>-</td>
+<td>UnHighlights all child elements</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('unHighlightAll');</pre></td>
+</tr>
+<tr>
+<td>selected</td>
+<td>-</td>
+<td>Returns all the selected elements.</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('selected');</pre></td>
+</tr>
+<tr>
+<td>children</td>
+<td>-</td>
+<td>Returns all the child elements</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('children');</pre></td>
+</tr>
+<tr>
+<td>update</td>
+<td>-</td>
+<td>Forces an update on element. Useful for when dom changes occur outside finderSelect.</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('update');</pre></td>
+</tr>
+<tr>
+<td>addHook</td>
+<td>hook, function</td>
+<td>Adds a hook to the finderSelect instance. Allows multiple assignment.</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('addHook','unHighlight:before', function() { /* do something */ });</pre></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="col-lg-12">
+<h2>Hooks</h2>
+<p>The following hooks are available.</p>
+<div class="panel">
+<div class="panel-body">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Name</th>
+<th>Parameters</th>
+<th>Description</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>highlight:before</td>
+<td>element, options</td>
+<td>Called before the Highlight event</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('addHook','highlight:before', function(element, options) { /* do something */ });</pre></td>
+</tr>
+<tr>
+<td>highlight:after</td>
+<td>element, options</td>
+<td>Called after the Highlight event</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('addHook','highlight:after', function(element, options) { /* do something */ });</pre></td>
+</tr>
+<tr>
+<td>unHighlight:before</td>
+<td>element, options</td>
+<td>Called before the unHighlight event</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('addHook','unHighlight:before', function(element, options) { /* do something */ });</pre></td>
+</tr>
+<tr>
+<td>unHighlight:after</td>
+<td>element, options</td>
+<td>Called after the unHighlight event</td>
+<td><pre class="prettyprint">$('#demo').finderSelect('addHook','unHighlight:after', function(element, options) { /* do something */ });</pre></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="col-lg-12">
+<p></p>
+</div>
+<div class="col-lg-12">
+<p></p>
+</div>
+<div class="col-lg-12">
+<p>&copy; Michael Angell 2013</p>
+</div>
+</div>
+<!-- /container -->
+<ul class="dropdown-menu" id="demo1-menu">
+<li><a class="demo1-preview">Preview <span class="demo1-count">0</span> File(s)</a></li>
+<li><a class="demo1-edit">Edit <span class="demo1-count">0</span> File(s)</a></li>
+<li><a class="demo1-trash">Trash <span class="demo1-count">0</span> File(s)</a></li>
+</ul>
+<div id="Modal" class="modal fade">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-body"> <img src="https://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png"> </div>
+</div>
+<!-- /.modal-content --> 
+</div>
+<!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+<script src="https://code.jquery.com/jquery.js"></script> 
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>--> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.3/jquery.colorbox-min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.finderselect/0.6.0/jquery.finderselect.min.js"></script> 
+<script>
+    $(function() {
+        var demo1 = $('#demo1').finderSelect({children:"tr",totalSelector:".demo1-count",menuSelector:"#demo1-menu"});
+
+        $(".demo1-trash").click(function(){
+            demo1.finderSelect("selected").remove();
+            demo1.finderSelect("update");
+        });
+
+        $(".demo1-preview").click(function(){
+            demo1.finderSelect("selected").each(function(index){
+                OpenInNewTab($(this).attr('data-url')+"?rand="+index);
+            });
+        });
+
+        $(".demo1-edit").click(function(){
+            demo1.finderSelect("selected").each(function(){
+                OpenInNewTab('http://pixlr.com/editor/?image='+$(this).attr('data-url'));
+            });
+        });
+
+        $('#demo2').find('tbody').finderSelect();
+        $('#demo3').find('tbody').finderSelect({selectClass:"danger"});
+        $('#demo4').finderSelect({selectClass:'label-success'});
+        
+        // Initialise the Demo with the Ctrl Click Functionality as the Default
+        var demo5 = $('#demo5 tbody').finderSelect({enableDesktopCtrlDefault:true});
+
+        // Add a hook to the highlight function so that checkboxes in the selection are also checked.
+        demo5.finderSelect('addHook','highlight:before', function(el) {
+            el.find('input').prop('checked', true);
+        });
+
+
+        // Add a hook to the unHighlight function so that checkboxes in the selection are also unchecked.
+        demo5.finderSelect('addHook','unHighlight:before', function(el) {
+            el.find('input').prop('checked', false);
+        });
+
+        // Enable Double Click Event.
+        demo5.finderSelect("children").dblclick(function() {
+            alert( "Double Click detected. Useful for linking to detail page." );
+        });
+
+        // Add a Safe Zone to show not all child elements have to be active.
+        $(".safezone").on("mousedown", function(e){
+            return false;
+        });
+
+        // Prevent Checkboxes from being triggered twice when click on directly.
+        demo5.on("click", "input[type='checkbox']", function(e){
+            e.preventDefault();
+        });
+
+        // Add Select All functionality to the checkbox in the table header row.
+        $('#demo5').find("thead input[type='checkbox']").change(function () {
+            if ($(this).is(':checked')) {
+                demo5.finderSelect('highlightAll');          
+            } else {
+                demo5.finderSelect('unHighlightAll');
+            }
+        });
+
+
+        prettyPrint();
+
+
+    });
+
+    function OpenInNewTab(url )
+    {
+        var win=window.open(url, '_blank');
+        win.focus();
+    }
+
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

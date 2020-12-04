@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div data-controller="hello">
+    <input data-target="hello.name" type="text">
+
+    <button data-action="click->hello#greet">Greet</button>
+
+    <span data-target="hello.output"></span>
+</div>
+
+<div data-controller="wowan">
+    <input  data-target="wowan.name" type="text">
+    <button data-action="click->wowan#greet">Greet</button>
+</div>
+
+<div>
+    PIN: <input type="text" value="1234" readonly>
+    <button>Copy to Clipboard</button>
+</div>
+
+<div data-controller="clipboard">
+PIN: <input data-target="clipboard.source" type="text" value="1234" readonly>
+</div>
+<button data-action="clipboard#copy">Copy to Clipboard</button>
+<button data-action="clipboard#copy" class="clipboard-button">Copy to Clipboard</button>
+
+<div data-controller="clipboard">
+    PIN: <input data-target="clipboard.source" type="text" value="3737" readonly>
+    <button data-action="clipboard#copy" class="clipboard-button">Copy to Clipboard</button>
+</div>
+<div data-controller="clipboard">
+    PIN: <input data-target="clipboard.source" type="text" value="3737" readonly>
+    <a href="#" data-action="clipboard#copy" class="clipboard-button">Copy to Clipboard</a>
+</div>
+<textarea data-target="clipboard.source" readonly>3737</textarea>
+<div data-controller="slideshow">
+    <button data-action="slideshow#previous">←</button>
+    <button data-action="slideshow#next">→</button>
+
+    <div data-target="slideshow.slide" class="slide">🐵</div>
+    <div data-target="slideshow.slide" class="slide">🙈</div>
+    <div data-target="slideshow.slide" class="slide">🙉</div>
+    <div data-target="slideshow.slide" class="slide">🙊</div>
+</div>
+<div data-controller="slideshow" data-slideshow-index="1">
+</div>
+<div data-controller="content-loader"
+     data-content-loader-url="clean2.html">
+
+    <ol>
+        <li>New Message: Stimulus Launch Party</li>
+        <li>Overdue: Finish Stimulus 1.0</li>
+    </ol>
+</div>
+<div data-controller="content-loader"
+     data-content-loader-url="clean2.html"
+     data-content-loader-refresh-interval="5000"></div>
+<div data-controller="hello">
+    <input data-target="clean2.html" type="text">
+    …
+</div>
+
+
+<!--<style>
+    .clipboard-button {
+        display: none;
+    }
+
+    .clipboard&#45;&#45;supported .clipboard-button {
+        display: initial;
+    }
+    .slide {
+        display: none;
+    }
+
+    .slide.slide&#45;&#45;current {
+        display: block;
+    }
+</style>-->
+
+<!--<script src="wowan_controller.js"></script>-->
+</body>
+</html>

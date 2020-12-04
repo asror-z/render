@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/publish/yarner/blueimp-file-upload/css/jquery.fileupload.css">
+
+    <script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+    <script src="/publish/yarner/jquery-file-upload/js/jquery.uploadfile.min.js"></script>
+</head>
+<body>
+
+<div class="col-lg-7">
+    <div class="row fileupload-buttonbar">
+            <span class="btn btn-success ml-2" id="fileuploader">
+              <span>Add files...</span>
+              <input type="file" name="files[]" multiple="">
+            </span>
+        <button type="submit" class="btn btn-primary ml-2 start">
+            <span>Start upload</span>
+        </button>
+        <button type="reset" class="btn btn-warning ml-2 cancel">
+            <span>Cancel upload</span>
+        </button>
+        <button type="button" class="btn btn-danger ml-2 delete">
+            <span>Delete selected</span>
+        </button>
+        <input type="checkbox" class="toggle">
+        <!-- The global file processing state -->
+        <span class="fileupload-process"></span>
+
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#fileuploader').uploadFile({
+            dataType: 'json',
+            dropzone: 'myfile',
+            pastzone: undefined,
+            fileinput: $('input:file'),
+            replaceFileInput: true,
+            paramName: 'attachments[]',
+            formAcceptCharset: 'utf-8',
+            singleFileUploads: 'true',
+            limitMultiFileUploads: undefined,
+            limitMultiFileUploadSize: undefined,
+            limitMultiFileUploadSizeOverhead: 512,
+            sequentialUploads: false,
+            limitConcurrentUploads: undefined,
+            forceIframeTransport: false,
+            initialIframeSrc: 'javascript:false;',
+            redirect: 'http://example.org/cors/result.html?%s',
+            redirectParamName: 'rediret-url',
+            postMessage: 'http://example.org/upload/postmessage.html',
+            multipart: true,
+            maxChunkSize: undefined,
+            uploadedBytes: undefined,
+            recalculateProgress: true,
+            progressInterval: true,
+            bitrateInterval: 500,
+            autoUpload: false,
+            formDate: function (form) {
+                return form.serializeArray(
+                    [
+                        {
+                            name: 'a',
+                            value: 1
+                        },
+                        {
+                            name: 'b',
+                            value: 2
+                        }
+                    ]);
+            },
+            processQueue: [
+                {
+                    action: 'loadVideo',
+                    // Use the action as prefix for the "@" options:
+                    prefix: true,
+                    fileTypes: '@',
+                    disabled: '@disableVideoPreview'
+                },
+                {
+                    action: 'validate',
+                    // Always trigger this action,
+                    // even if the previous action was rejected:
+                    always: true,
+                    acceptFileTypes: '@'
+                }
+            ],
+
+            //Image Preview & Resize Options
+            disableImageHead: false,
+            disableExif: false,
+            disableExifThumbnail: false,
+            disableExifSub: false,
+            disableExifGps: false,
+            disableImageMetaDataLoad: false,
+            disableImageMetaDataSave: false,
+            loadImageFileTypes: /^image\/(gif|jpeg|png)$/,
+            loadImageNoRevoke: 1000000,
+            disableImageLoad: false,
+            imageMaxWidth: 1920,
+            imageMaxHeight: 1080,
+            imageMinWidth: undefined,
+            imageMinHeight: undefined,
+            imageCrop: false,
+            imageOrientation: false,
+            imageForceResize: undefined,
+            disableImageResize: true,
+            imageQuality: true,
+            imageQuality: undefined,
+            previewMaxWidth: 80,
+            previewMaxHeight: 80,
+            previewMinWidth: undefined,
+            previewMinHeight: undefined,
+            previewCrop: true,
+            previewOrientation: true,
+            previewThumbnail: true,
+            previewCanvas: true,
+            imagePreviewName: 'preview',
+            disableImagePreview: false,
+            loadAudioFileTypes: /^audio\/.*$/,
+            audioPreviewName: 'preview',
+            disableAudioPreview: false,
+            loadVideoFileTypes: /^video\/.*$/,
+            videoPreviewName: 'preview',
+            maxNumberOfFiles: 10,
+            disableValidation: false,
+
+            //Additional Options for the UI version
+            getFilesFromResponse: function (data) {
+                return data.result.files;
+            },
+            getNumberOfFiles: function () {
+                return 5;
+            },
+            filesContainer: '#files',
+            prependFiles: false,
+            uploadTemplated: 'template-upload',
+            downloadTemplateId: 'template-download',
+        });
+    });
+</script>
+</body>
+</html>

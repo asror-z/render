@@ -1,0 +1,34 @@
+ <!--use the link to enable invisible recaptcha for the site
+ https://docs.whmcs.com/Google_reCAPTCHA
+ -->
+ <!--use the link to enable invisible recaptcha for the site
+ https://docs.whmcs.com/Google_reCAPTCHA
+ -->
+ <!--use the link to enable invisible recaptcha for the site
+https://docs.whmcs.com/Google_reCAPTCHA
+-->
+<html>
+<head>
+    <title>reCAPTCHA demo: Explicit render after an onload callback</title>
+    <script>
+        var onSubmit = function(token) {
+            console.log('success!');
+        };
+
+        var onloadCallback = function() {
+            grecaptcha.render('submit', {
+                'sitekey' : '6LcJutwUAAAAAH7-i5KCFG504hrLZ01KyM_Wgujh',
+                'callback' : onSubmit,
+            });
+        };
+    </script>
+</head>
+<body>
+<form action="?" method="POST">
+    <input id='submit' type="submit" value="Submit">
+</form>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+</script>
+</body>
+</html>

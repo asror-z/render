@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null                           
+    option = {
+        title: {
+            id: '',
+            show: true,
+            text: 'text for you',
+            link: '',
+            target: 'blank',
+
+            textStyle: {
+                color: '#333',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 18,
+                lineHeight: 15,
+                width: 15,
+                height: 15,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+            },
+
+            rich: {
+                a: {
+                    color: '#999',
+                    lineHeight: 22,
+                    align: 'center'
+                },
+                // abg: {
+                //     backgroundColor: '#333',
+                //     width: '100%',
+                //     align: 'right',
+                //     height: 22,
+                //     borderRadius: [4, 4, 0, 0]
+                // },
+                hr: {
+                    borderColor: '#aaa',
+                    width: '100%',
+                    borderWidth: 0.5,
+                    height: 0.5,
+                },
+                b: {
+                    fontSize: 16,
+                    lineHeight: 33
+                },
+                per: {
+                    color: '#eee',
+                    backgroundColor: '#334455',
+                    padding: [2, 4],
+                    borderRadius: 2
+                }
+            },
+
+            subtext: 'subetext for you',
+            sublink: '',
+            subtarget: 'blank',
+
+            subtextStyle: {
+                color: '#aaa',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: 'center',
+                verticalAlign: '',
+                lineHeight: '',
+                width: "",
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+            },
+
+            textAlign: 'auto',
+            textVerticalAlign: 'auto',
+            triggerEvent: false,
+            padding: 5,
+            itemGap: 10,
+            zlevel: 0,
+            z: 2,
+            left: 'auto',
+            top: 'auto',
+            right: 'auto',
+            bottom: 'auto',
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            borderRadius: 0,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+        },
+        legend: {
+            type: '',
+            id: '',
+            show: true,
+            zlevel: 0,
+            z: 2,
+            left: 'auto',
+            top: 'auto',
+            right: 'auto',
+            bottom: 'auto',
+            width: 'auto',
+            height: 'auto',
+            orient: 'horizontal',
+            align: 'auto',
+            padding: 5,
+            itemGap: 10,
+            itemWidth: 25,
+            itemHeight: 14,
+            symbolKeepAspect: true,
+            formatter: '',
+            selectedMode: true,
+            inactiveColor: '#ccc',
+            selected: '',
+            textStyle: {
+                color: "#fff",
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: '',
+                verticalAlign: '',
+                lineHeight: '',
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: '',
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+            },
+
+            tooltip: '',
+            icon: '',
+
+            data: [{
+                name: '',
+                icon: '',
+                textStyle: '',
+            }],
+
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            borderRadius: 0,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+            scrollDataIndex: 0,
+            pageButtonItemGap: 5,
+            pageButtonGap: '',
+            pageButtonPosition: 'end',
+            pageFormatter: '{current}/{total}',
+
+            pageIcons: {
+                horizontal: '',
+                vertical: '',
+            },
+            pageIconColor: '#2f4554',
+            pageIconInactiveColor: '#aaa',
+            pageIconSize: 15,
+            pageTextStyle: {
+                color: ' #333',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                lineHeight: '',
+                width: '',
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+                selectorPosition: 'auto',
+                selectorItemGap: 7,
+                selectorButtonGap: 10,
+            },
+
+            animation: '',
+            animationDurationUpdate: 800,
+            selector: false,
+            selectorLabel: {
+                show: true,
+                distance: 5,
+                rotate: '',
+                offset: '',
+                color: "#fff",
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: '',
+                verticalAlign: '',
+                lineHeight: '',
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: '',
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+            },
+
+            selectorPosition: 'auto',
+            selectorItemGap: 7,
+            selectorButtonGap: 10,
+        },
+        xAxis: {
+            show: true, //x- Axis ni ocirib qoyiw
+            gridIndex: 0,
+            position: 'top',  //'bottom'
+            offset: 0,
+            type: 'category', // 'value' | 'category' | 'time' | 'log'
+            name: 'time',
+            nameLocation: 'end',  // 'start' | ( 'middle' | 'centrer')
+
+            nameTextStyle: {
+                color: '#000213',
+                fontStyle: 'normal',  // 'normal' | 'italic' | 'oblique'
+                fontWeight: 'normal',  // 'bold' | 'bolder' | 'lighter'
+                fontFamily: 'sans-serif',  // 'serif' | 'monospace' and etc.
+                fontSize: 12,
+                align: 'right', // 'left' | 'center'
+                verticalAlign: 'bottom', // 'top'  | 'middle'
+                lineHeight: 56,
+                backgroundColor: 'transparent', // '#123234' | 'red' | 'rgba(0,23,11,0.3)'
+                borderColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: 25,
+                height: 25,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+            }
+        },
+        yAxis: {
+            show: true,
+            gridIndex: 0,
+            position: 'top',
+            offset: 0,
+            type: 'value',  // 'category' | 'time' | 'log'
+            name: 'rate',
+            nameLocation: 'end',  // 'start' | 'middle' | 'center'
+            nameTextStyle: {
+                color: '',
+                fontStyle: 'normal', // 'italic' | 'oblique'
+                fontWeight: 'normal', // 'bold' | 'bolder' | 'lighter' | 100 | 200 | 300 | 400..
+                fontFamily: 'sans-serif', // 'serif' | 'monospace'
+                fontSize: 12,
+                align: 'center',   // 'right' | 'center' | 'left'
+                verticalAlign: '',
+                lineHeight: '',
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: 50,
+                height: 50,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                rich: {
+                    color: "",
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontSize: 12,
+                    align: 'center',
+                    verticalAlign: 'top',
+                    lineHeight: 56,
+                    backgroundColor: 'transparent',
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0,
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: 50,
+                    height: 50,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                },
+
+                nameGap: 15,
+                nameRotate: 15,
+                inverse: false,
+                boundaryGap: ['20%', '20%'],
+                min: function (value) {
+                    return value.min - 20;
+                },
+                max: function (value) {
+                    return value.max - 20;
+                },
+                scale: false,
+                splitNumber: 5,
+                minInterval: 0,
+                maxInterval: 3600 * 1000 * 24,
+                interval: '',
+                logBase: 10,
+                silent: false,
+                triggerEvent: false,
+            },
+            axisLine: {
+                show: true,
+                onZero: true,
+                onZeroAxisIndex: 0,
+                symbol: 'none',
+                symbolSize: [10, 15],
+                symbolOffset: [0, 0],
+
+                lineStyle: {
+                    color: '#333',
+                    width: 1,
+                    type: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                }
+            },
+            axisTick: {
+                show: true,
+                alignWithLabel: false,
+                interval: 'auto',
+                inside: false,
+                length: 5,
+                lineStyle: {
+                    color: '',
+                    width: 1,
+                    type: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                }
+            },
+
+            splitArea: {
+                interval: 'auto',
+                show: false,
+                reaStyle: {
+                    color: ['rgba(250,250,250,0.3)', 'rgba(200,200,200,0.3)'],
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                }
+            },
+
+            axisPointer: {
+                show: false,
+                type: 'line',
+                snap: true,
+                z: 1,
+                label: {
+                    show: false,
+                    precision: 'auto',
+                    formatter: '',
+                    margin: 3,
+                    color: '#fff',
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontSize: 12,
+                    lineHeight: '',
+                    width: '',
+                    height: '',
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    padding: [5, 7, 5, 7],
+                    backgroundColor: 'auto',
+                    borderColor: '',
+                    borderWidth: 0,
+                    shadowBlur: 3,
+                    shadowColor: '#aaa',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                },
+                lineStyle: {
+
+                    color: '#555',
+                    width: 1,
+                    type: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                shadowStyle: {
+
+                    color: 'rgba(150,150,150,0.3)' ,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0 ,
+                    shadowOffsetY: 0 ,
+                    opacity :1 ,
+                },
+                triggerTooltip: true,
+                value: 1,
+                status: 'show',
+                handle: {
+
+                    show: false,
+                    icon: '',
+                    size: 45,
+                    margin: 50,
+                    color: '#333',
+                    throttle: 40,
+                    shadowBlur: 3,
+                    shadowColor: '#aaa',
+                    shadowOffsetX: 2,
+                    shadowOffsetY: 0,
+                },
+            },
+
+            zlevel: 0,
+            z: 0,
+        },
+        grid: {
+            id: '',
+            show: false,
+            zlevel: 0,
+            z: 2,
+            left: '10%',
+            top: 60,
+            right: '10%',
+            bottom: 60,
+            width: 'auto',
+            height: 'auto',
+            containLabel: false,
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+        },
+        dataset: {
+            id: '',
+            source: [
+                ['product', '2015', '2016', '2017'],
+                ['Matcha Latte', 43.3, 85.8, 93.7],
+                ['Milk Tea', 83.1, 73.4, 55.1],
+                ['Cheese Cocoa', 86.4, 65.2, 82.5],
+                ['Walnut Brownie', 72.4, 53.9, 39.1]
+            ],
+            sourceHeader: true,
+            dimensions: ['date', '2015', '2016', '2017', 'lowest']
+        },
+        series: [
+            {type: 'bar'},
+            {type: 'bar'},
+            {type: 'bar'}
+        ],
+
+        toolbox: {
+            show: true,
+            orient: 'horizontal',
+            itemSize: 15,
+            itemGap: 10,
+            showTitle: true,
+
+            feature: {
+                saveAsImage: {
+                    type: '/publish/image/layer2.png',
+                    name: '',  /* string*/
+                    backgroundColor: 'auto',
+                    connectedBackgroundColor: '#f0f0e4',
+                    excludeComponents: [''],
+                    show: true,
+                    title: 'save as image',
+                    icon: '/publish/image/logo-eyuf.jpg',
+                    iconStyle: {
+                        color: '#f0f0e4',
+                        borderColor: '#666',
+                        borderWidth: 1,
+                        borderType: 'solid',
+                        shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                        shadowColor: '#f0f0e4',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            color: '#f0f0e4',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            borderType: 'solid',
+                            shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                            shadowColor: '#f0f0e4',
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1  /*or 0*/
+                        },
+
+
+                    },
+                    pixelRatio: 1,    /*Values larger than 1 (e.g.: 2) is supported when you need higher resolution.*/
+                },
+                restore: {
+                    show: true,
+                    title: 'restore',
+                    icon: '/publish/image/layer6.png',
+                    iconStyle: {
+                        color: '#f0f0e4',
+                        borderColor: '#e8e831',
+                        borderWidth: 1,
+                        borderType: 'solid',
+                        shadowBlur: 10,
+                        shadowColor: '#8aabf2',
+                        shadowOffsetX: 1,
+                        shadowOffsetY: 1,
+                        opacity: 1, /*or 2*/
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            color: '#8aabf2',
+                            borderColor: "#366ad9",
+                            borderWidth: 999,
+                            borderType: 'solid',
+                            shadowBlur: 10,
+                            shadowColor: '#666',
+                            shadowOffsetX: 3,
+                            shadowOffsetY: 2,
+                            opacity: 0,
+                            textPosition: 'bottom',
+                            textFill: '#edbbd4',
+                            textAlign: 'center',
+                            textBackgroundColor: '#910f50',
+                            textBorderRadius: 50,
+                            textPadding: 12,
+                        },
+                    },
+                },
+                dataView: {
+                    show: true,
+                    title: 'data view',
+                    icon: '/publish/image/nature2.jpg',
+
+                    iconStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 1, color: '#38c25d' // color at 0% position
+                            }, {
+                                offset: 1, color: '#38c25d' // color at 100% position
+                            }],
+
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            borderType: 'solid',
+                            shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                            shadowColor: '#38c25d',
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1 /*or 2*/,
+
+
+                        },
+                    },
+
+                    emphasis: {
+                        iconStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 1, color: '#38c25d' // color at 0% position
+                                }, {
+                                    offset: 1, color: '#38c25d' // color at 100% position
+                                }],
+
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                borderType: 'solid',
+                                shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                                shadowColor: '#38c25d',
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1 /*or 2*/,
+
+                                textPosition: 'bottom', /*top*/
+                                textFill: '',   /*string*/
+                                textAlign: 'center', /*'center' / 'right'.*/
+                                textBackgroundColor: '',
+                                textBorderRadius: '',
+                                textPadding: '',
+                                borderColor: '#c43d81',
+                                borderWidth: 1,
+                                borderType: 'solid',
+                                shadowBlur: 10,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                emphasis: {
+                                    iconStyle: {
+                                        color: '#bbc4bd',
+                                        borderColor: "#9fe3b1",
+                                        borderWidth: 10,
+                                        borderType: 'solid',
+                                        shadowBlur: 11,
+                                        shadowColor: 'rgba(0, 0, 0,0.5)',
+                                        shadowOffsetX: 41,
+                                        shadowOffsetY: 42,
+                                        opacity: '1',
+                                        textPosition: 'bottom',
+                                        textFill: '#38c25d',
+                                        textAlign: 'center',
+                                        textBackgroundColor: 'string',
+                                        textBorderRadius: 12,
+                                        textPadding: 40,
+                                    },
+
+                                    readOnly: false,
+                                    lang: ['data view', 'turn off', 'refresh'],
+                                    backgroundColor: '#c23531',
+                                    textareaColor: '#c23531',
+                                    textareaBorderColor: '#295936',
+                                    textColor: '#666',
+                                    buttonColor: '#c23531',
+                                    buttonTextColor: '#c23531',
+                                },
+
+                            },
+
+                            readOnly: false, /*true*/
+                            optionToContent: '',   /*(option:Object) => HTMLDomElement|string*/
+                            contentToOption: '',
+                            lang: ['data view', 'turn off', 'refresh'],
+                            backgroundColor: '#fff',
+                            textareaColor: '#fff',
+                            textareaBorderColor: '#333',
+                            textColor: '#000',
+                            buttonColor: '#c23531',
+                            buttonTextColor: '#fff',
+                        },
+                    },
+
+                    readOnly: false,
+                    optionToContent: '',   /*Define a function to present dataView. It is used to replace default textarea for richer data editing. It can return a DOM object, or an HTML string.
+                    contentToOption ... ,*/
+                    lang: ['data view', 'turn off', 'refresh'],
+                    backgroundColor: '#fff',
+                    textareaColor: '#fff',
+                    textareaBorderColor: '#333',
+                    textColor: '#000',
+                    buttonColor: '#c23531',
+                    buttonTextColor: '#fff',
+                },
+
+
+                /*  Data area zooming, which only supports rectangular coordinate by now.*/
+                /*dataZoom: {
+                    show: true,
+
+                    title: {
+                        zoom: '',         /!*area zooming*!/
+                        back: ''          /!*restore area zooming*!/
+                    },
+
+                    icon: {
+                        zoom: '',  /!* 'image://url'*!/
+                        back: '',   /!* 'image://url'*!/
+                    },
+                    iconStyle: {
+                        color: '#8aabf2',
+                        borderColor: "#366ad9",
+                        borderWidth: '999',
+                        borderType: 'solid',
+                        shadowBlur: 10,
+                        shadowColor: '#666',
+                        shadowOffsetX: 3,
+                        shadowOffsetY: 2,
+                        opacity: 1 /!*or 0*!/
+
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            color: '#f0f0e4',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            borderType: '',   /!*Border type, which can be 'solid', 'dashed', or 'dotted'. 'solid' by default.*!/
+                            shadowBlur: 10,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowOffsetX: 1,
+                            shadowOffsetY: 1,
+                            opacity: 1  /!*or 0*!/,
+                            textPosition: 'bottom',
+                            textFill: '#000',
+                            textAlign: 'center',
+                            textBackgroundColor: '',
+                            textBorderRadius: '',
+                            textPadding: '',
+                        },
+
+                        xAxisIndex: true,        /!*boolen*!/
+                        yAxisIndex: true,        /!*boolen*!/
+                    },
+                },*/
+                magicType: {
+                    show: true,
+                    type: '', /*Enabled magic types, including 'line' (for line charts), 'bar' (for bar charts), 'stack' (for stacked charts), and 'tiled' (for tiled charts).*/
+
+                    title: {
+                        line: 'for line charts',
+                        bar: 'for bar charts',
+                        stack: 'for stacked charts',
+                        tiled: 'for tiled charts',
+                    },
+
+                    icon: {
+                        line: '',    /*'image://url'*/
+                        bar: '',     /*'image://url'*/
+                        stack: '',    /*'image://url'*/
+                        tiled: '',  /*'image://url'*/
+                    },
+                    iconStyle: {
+                        color: '#f0f0e4',
+                        borderColor: '#666',
+                        borderWidth: 1,
+                        borderType: 'solid',
+                        shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                        shadowColor: '#f0f0e4',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1  /*or 0*/
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            color: '#f0f0e4',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            borderType: 'solid',
+                            shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                            shadowColor: '#f0f0e4',
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1  /*or 0*/
+                        },
+                    },
+                    option: {
+                        line: '',
+                        bar: '',
+                        stack: '',
+                        tiled: ''
+                    },
+                    seriesIndex: {
+                        line: '',
+                        bar: '',
+                        stack: '',
+                        tiled: '',
+
+                    },
+
+
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        }
+                    },
+                    textStyle: {
+                        color: '#333', /*#364a6b, #364a6b #edf0f5*/
+                        fontStyle: 'normal', /*font style Options are:'normal','italic','oblique'*/
+                        fontWeight: 'normal',
+
+                        /*font thick weight
+                            Options are:
+                            'normal'
+                            'bold'
+                            'bolder'
+                            'lighter'
+                            100 | 200 | 300 | 400...*/
+
+                        fontFamily: 'sans-serif',
+                        /* font family Can also be 'serif' , 'monospace'*/
+                        fontSize: 18,
+                        lineHeight: 15,
+                        width: 15,
+                        height: 15,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent', //Shadow color of the text itself.
+
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                    },
+                    axisPointer: {
+                        type: 'shadow',
+                        shadowStyle: {
+                            color: 'rgba(150,150,150,0.3)', // Linear gradient. First four parameters are x0, y0, x2, and y2, each ranged from 0 to 1, standing for percentage in the bounding box. If global is `true`, then the first four parameters are in absolute pixel positions.
+                            shadowBlur: 10,                    /*This attribute should be used along with shadowColor,shadowOffsetX, shadowOffsetY to set shadow to component.*/
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 10,
+
+                        },
+
+                        triggerTooltip: true,
+                        value: 1,
+                        status: 'show',//'hide'
+                        handle: {
+                            show: false,
+                            icon: "image://http://echarts.baidu.com/images/favicon.png",
+                            size: 45,
+                            margin: 50,
+                            color: '#333',
+                            throttle: 40,
+                            shadowBlur: 3,
+                            shadowColor: '#aaa',
+                            shadowOffsetX: 2,
+                            shadowOffsetY: 0,
+                        },
+                        link: [
+                            {
+                                // All axes with xAxisIndex 0, 3, 4 and yAxisName 'sameName' will be linked.
+                                xAxisIndex: [0, 3, 4],
+                                yAxisName: 'radius'
+                            },
+                            {
+                                // All axes with xAxisId 'aa', 'cc' and all angleAxis will be linked.
+                                xAxisId: ['aa', 'cc'],
+                                angleAxis: 'all'
+                            },
+                        ],
+                        triggerOn: 'mousemove|click', //'mousemove','click','none'
+                    },
+
+                    visualMap: {
+                        type: 'continuous',
+                        dimension: 1,
+                        text: ['High', 'Low'],
+                        inverse: true,
+                        itemHeight: 200,
+                        calculable: true,
+                        min: 0,
+                        max: 100,
+                        top: 60,
+                        left: 10,
+                        inRange: {
+                            colorLightness: [0.4, 0.8]
+                        },
+                        outOfRange: {
+                            color: '#bbb'
+                        },
+                        controller: {
+                            inRange: {
+                                color: '#2f4554'
+                            }
+                        }
+                    },
+                    dataZoom: [{
+                        type: 'slider',
+                        filterMode: 'weakFilter',
+                        showDataShadow: true,
+                        bottom: 20,
+                        height: 10,
+                        borderColor: 'transparent',
+                        backgroundColor: '#e2e2e2',
+                        handleIcon: 'M10.7,11.9H9.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z', // jshint ignore:line
+                        handleSize: 20,
+                        handleStyle: {
+                            shadowBlur: 6,
+                            shadowOffsetX: 1,
+                            shadowOffsetY: 2,
+                            shadowColor: '#aaa'
+                        },
+                        labelFormatter: ''
+                    }, {
+                        type: 'inside',
+                        filterMode: 'weakFilter'
+                    }],
+
+                    color: ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'],
+                    backgroundColor: '#fff',
+                    animation: true,
+                    animationThreshold: 2000,
+                    animationDuration: 1000,
+                    animationEasing: function (k) {
+                        return --k * k * k + 1;
+                    },
+                    animationDelay: 0,
+                    animationDurationUpdate: 300,
+                    animationEasingUpdate: function (k) {
+                        return --k * k * k + 1;
+                    },
+                    animationDelayUpdate: 0,
+                    blendMode: 'source-over',
+                    useUTC: false,
+                },
+                brush: {
+                    type: '',
+                    /*    'rect': Enabling selecting with rectangle area.
+                    'polygon': Enabling selecting with any shape.
+                    'lineX': Enabling horizontal selecting.
+                    'lineY': Enabling vertical selecting.
+                    'keep': Switching between single selecting and multiple selecting. The latter one can select multiple areas, while the former one cancels previous selection.
+                    'clear': Clearing all selection.*/
+
+                    icon: {
+                        rect: '',    /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                        polygon: '',   /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                        lineX: '',    /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                        lineY: '',     /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                        keep: '',      /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                        clear: '',      /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                    },
+
+                    title: {
+                        rect: 'Rectangle selection',
+                        polygon: 'Polygon selection',
+                        lineX: 'Horizontal selection',
+                        lineY: 'Vertical selection',
+                        keep: 'Keep previous selection',
+                        clear: 'Clear selection',
+                    },
+                },
+                option: {
+                    line: '',
+                    bar: '',
+                    stack: '',
+                    tiled: ''
+                },
+                seriesIndex: {
+                    line: '',
+                    bar: '',
+                    stack: '',
+                    tiled: '',
+
+                },
+            },
+            iconStyle: {
+                color: '#f0f0e4',
+                borderColor: '#666',
+                borderWidth: 1,
+                borderType: 'solid',
+                shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                shadowColor: '#f0f0e4',
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                opacity: 1
+            },
+            emphasis: {
+                iconStyle: {
+                    color: '#f0f0e4',
+                    borderColor: '#666',
+                    borderWidth: 1,
+                    borderType: 'solid',
+                    shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                    shadowColor: '#f0f0e4',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 0  /*or 1*/
+                },
+            },
+            zlevel: 0 ,
+            z: 2 ,
+            left: 'auto' ,
+            top: 'auto' ,
+            right: 'auto' ,
+            bottom: 'auto' ,
+            width: 'auto' ,
+            height: 'auto' ,
+            tooltip:'', /*Tooltip configuration for toolbox tooltip, which is similar to tooltip.*/
+
+
+        },
+        textStyle: {
+            color: '#333', /*#364a6b, #364a6b #edf0f5*/
+            fontStyle: 'normal', /*font style Options are:'normal','italic','oblique'*/
+            fontWeight: 'normal',
+
+            /*font thick weight
+            Options are:
+            'normal'
+            'bold'
+            'bolder'
+            'lighter'
+            100 | 200 | 300 | 400...*/
+
+            fontFamily: 'sans-serif',
+            /* font family Can also be 'serif' , 'monospace'*/
+            fontSize: 18,
+            lineHeight: 15,
+            width: 15,
+            height: 15,
+            textBorderColor: 'transparent',
+            textBorderWidth: 0,
+            textShadowColor: 'transparent', //Shadow color of the text itself.
+
+            textShadowBlur: 0,
+            textShadowOffsetX: 0,
+            textShadowOffsetY: 0,
+        },
+        axisPointer: {
+            id: 'axisPointer',
+            show: false, // true, 'axis', 'cross'
+            type: 'shadow', // 'shadow', 'none'
+            snap: true, // false, 'auto',
+            z: 1,
+            label: {
+                show: false, // true, 'cross',
+                precision: 'auto', // '2'
+                formatter: '',
+                /*formatter:  function (params) {
+    // If axis.type is 'time'
+    return 'some text' + echarts.format.formatTime(params.value);
+},*/
+                margin: 3,
+                color: '#fff',
+                fontStyle: 'normal', // 'italic', 'oblique'
+                fontWeight: 'normal', // 'bold', 'bolder', 'lighter'
+                fontFamily: 'sans-serif', // 'serif', 'monospace' ...
+                fontSize: 12,
+                lineHeight: 0,
+                /*lineHeight: {
+                    lineHeight: 56,
+                        rich: {
+                            a: {
+            // `lineHeight` is not set, then it will be 56
+                                }
+                               }
+                              } */
+                width: 0, // '100%'
+                height: 0, // '100%'
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                padding: '5px',
+                /* padding: [
+                        5,  // up
+                        10, // right
+                        5,  // down
+                        10, // left
+                    ] */
+                backgroundColor: 'auto',
+                borderColor: 'transparent',
+                borderWidth: 0,  // '1px'
+                shadowBlur: 3,
+                /*shadowBlur: {
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10
+                }*/
+                shadowColor: '#aaa',
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+            },
+            lineStyle: {
+                color: '#555', /* 'rgb(128, 128, 128)',
+                    'rgba(128, 128, 128, 0.5)', '#ccc'*/
+
+                width: 1,
+                type: 'solid', // 'dashed', 'dotted'
+                shadowBlur: 10,
+                /*shadowBlur: {
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10
+                }, */
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                opacity: 0,   // 1
+            },
+            shadowStyle: {
+                color: 'rgba(150,150,150,0.3)', // Linear gradient. First four parameters are x0, y0, x2, and y2, each ranged from 0 to 1, standing for percentage in the bounding box. If global is `true`, then the first four parameters are in absolute pixel positions.
+                shadowBlur: 10,                    /*This attribute should be used along with shadowColor,shadowOffsetX, shadowOffsetY to set shadow to component.*/
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                opacity: 10,
+
+            },
+
+            triggerTooltip: true,
+            value: 1,
+            status: 'show',//'hide'
+            handle: {
+                show: false,
+                icon: "image://http://echarts.baidu.com/images/favicon.png",
+                size: 45,
+                margin: 50,
+                color: '#333',
+                throttle: 40,
+                shadowBlur: 3,
+                shadowColor: '#aaa',
+                shadowOffsetX: 2,
+                shadowOffsetY: 0,
+            },
+            link: [
+                {
+                    // All axes with xAxisIndex 0, 3, 4 and yAxisName 'sameName' will be linked.
+                    xAxisIndex: [0, 3, 4],
+                    yAxisName: 'radius'
+                },
+                {
+                    // All axes with xAxisId 'aa', 'cc' and all angleAxis will be linked.
+                    xAxisId: ['aa', 'cc'],
+                    angleAxis: 'all'
+                },
+            ],
+            triggerOn: 'mousemove|click', //'mousemove','click','none'
+        },
+        brush: {
+            id: 'brush',
+            toolbox: ['rect', 'polygon', 'keep', 'clear'],
+            // 'lineX': for horizontal selection-box
+            // 'lineY': for vertical selection-box;
+            brushLink: [3, 4, 5], // 'all', 'none', null, undefined
+            seriesIndex: 'all', // 'Array', 'number'
+            geoIndex: 'all', // number: 0, Array: [0, 4, 2], 'none', or null, or undefined
+            xAxisIndex: 'all', // number: 0, Array: [0, 4, 2], 'none', or null, or undefined
+            yAxisIndex: 'all', // number: 0, Array: [0, 4, 2], 'none', or null, or undefined
+            brushType: 'rect',
+            // 'polygon': for selection-box in polygon shape;
+            // 'lineX': for horizontal selection-box;
+            // 'lineY': for vertical selection-box;
+            brushMode: 'single',
+            // 'single': for single selection;
+            // 'multiple': for multiple selection.
+            transformable: true,  // false
+            brushStyle: {
+                borderWidth: 1,
+                color: 'rgba(120,140,180,0.3)',
+                borderColor: 'rgba(120,140,180,0.8)'
+            },
+            throttleType: 'fixRate', // 'debounce'
+            throttleDelay: 0, // 'debounce', 'fixRate'
+            removeOnClick: true, // 'single', false
+            inBrush: {
+                symbol: 0,  // Type of symbol.
+                symbolSize: 0, // Symbol size.
+                color: '#aaa',// Symbol color.
+                colorAlpha: 0,// Symbol alpha channel.
+                opacity: 0, // Opacity of symbol and others (like labels).
+                colorLightness: 0,// Lightness in HSL.
+                colorSaturation: 0,// Saturation in HSL.
+                colorHue: 0,// Hue in HSL.
+            },
+            outOfBrush: {
+                symbol: 0,  // Type of symbol.
+                symbolSize: 0, // Symbol size.
+                color: '#aaa',// Symbol color.
+                colorAlpha: 0,// Symbol alpha channel.
+                opacity: 0, // Opacity of symbol and others (like labels).
+                colorLightness: 0,// Lightness in HSL.
+                colorSaturation: 0,// Saturation in HSL.
+                colorHue: 0,// Hue in HSL.
+            },
+            z: 10000,
+
+
+
+
+        },
+        
+        visualMap: [{
+            type: 'continuous',
+            dimension: 1,
+            text: ['High', 'Low'],
+            inverse: true,
+            itemHeight: 200,
+            calculable: true,
+            min: 0,
+            max: 100,
+            top: 60,
+            left: 10,
+            inRange: {
+                colorLightness: [0.4, 0.8]
+            },
+            outOfRange: {
+                color: '#bbb'
+            },
+            controller: {
+                inRange: {
+                    color: '#2f4554'
+                }
+            }
+        }],
+        dataZoom: [
+            {
+             type: 'slider',
+             filterMode: 'weakFilter',
+             showDataShadow: true,
+             bottom: 20,
+             height: 10,
+             borderColor: 'transparent',
+             backgroundColor: '#e2e2e2',
+             handleIcon: 'M10.7,11.9H9.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z', // jshint ignore:line
+             handleSize: 20,
+             handleStyle: {
+             shadowBlur: 6,
+             shadowOffsetX: 1,
+             shadowOffsetY: 2,
+             shadowColor: '#aaa'
+             },
+             labelFormatter: ''
+             },
+
+             {
+             type: 'inside',
+             filterMode: 'weakFilter'
+ }
+
+
+                    ],
+        parallel: {
+            id: 'parallel',
+            zlevel: 0,
+            z: 2,
+            left: 80, // 20, '20%', 'left', 'center', 'right'
+            top: 60, //  20, '20%', 'top', 'middle', 'bottom'
+            right: 80, // 20, '20%'
+            bottom: 60, // 20, '20%'
+            width: 'auto', // number
+            height: 'auto', // number
+            layout: 'horizontal', // vertical
+            axisExpandable: false, // true
+            axisExpandCenter: 0,
+            axisExpandCount: 0,
+            axisExpandWidth: 50,
+            axisExpandTriggerOn: 'click', // 'mousemove'
+            parallelAxisDefault: {
+                type: 'value', // 'category', 'time', 'log'
+                name: 'parallelAxisDefault',
+                nameLocation: 'end', // 'start', 'middle' or 'center'
+                nameTextStyle: {
+                    color: '#aaa',
+                    fontStyle: 'normal', // 'italic', 'oblique'
+                    fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                    fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                    fontSize: 12,
+                    align: 'left', // 'center', 'right'
+                    verticalAlign: 'top', // 'middle', 'bottom'
+                    lineHeight: 56,
+                    backgroundColor: 'transparent', // object
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0, // array
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: '100%', // string
+                    height: '100%', // string
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        style_name: {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'italic', 'oblique'
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif', //'serif' , 'monospace', ...
+                            fontSize: 12,
+                            align: 'left', // 'center', 'right'
+                            verticalAlign: 'top', // 'middle', 'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent', // object
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            padding: 0, // array
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: '100%', // string
+                            height: '100%', // string
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+
+
+
+                        }
+                    },
+
+
+                },
+                nameGap: 15,
+                nameRotate: 0,
+                inverse: false, // true
+                boundaryGap: true, // false, boundaryGap: ['20%', '20%']
+                min: 'dataMin',
+                max: 'dataMax',
+                scale: false, // true
+                splitNumber: 5,
+                minInterval: 0, // 1
+                maxInterval: 0,
+                interval: 0,
+                logBase: 10,
+                silent: false, // true
+                triggerEvent: false, // true
+                axisLine: {
+                    show: true, // false
+                    symbol: 'none', // 'arrow', ['none', 'arrow']
+                    symbolSize: [10, 15],
+                    symbolOffset: [0, 0],
+                },
+                axisTick:  {
+                    show: true, // false
+                    alignWithLabel: false, // true
+                    interval: 'auto', // number, function
+                    inside: false, // true
+                    length: 5
+                },
+                minorTick: {
+                    show: false, // true
+                    splitNumber: 5,
+                    length: 3,
+                    lineStyle: {
+                        color: '#aaa',
+                        width: 1,
+                        type: 'solid', // 'dashed', 'dotted'
+                        shadowBlur: 10,
+                        shadowColor: '#aaa',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 0, // 1
+
+                    }
+                },
+                axisLabel: {
+                    show: true, // false
+                    interval: 'auto', // 0, 1, 2,
+                    // function(index:number, value: string)
+                    inside: false, // true
+                    rotate: 0, // Rotation degree is from -90 to 90.
+                    margin: 8,
+                    formatter: '',
+                    /* formatter: function (value, index) {
+// Formatted to be month/day; display year only in the first label
+var date = new Date(value);
+var texts = [(date.getMonth() + 1), date.getDate()];
+if (idx === 0) {
+    texts.unshift(date.getYear());
+}
+return texts.join('/');
+} */
+                    showMinLabel: true, // false, null
+                    showMaxLabel: true, // false, null
+                    color: '#aaa',
+                    /* color: function (value, index) {
+                    return value >= 0 ? 'green' : 'red';
+                    } */
+                    fontStyle: 'normal', // 'italic', 'oblique'
+                    fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                    fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                    fontSize: 12,
+                    align: 'left', //'center', 'right'
+                    verticalAlign: 'top', //'middle', 'bottom'
+                    lineHeight: 56,
+                    backgroundColor: 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0, // [3, 4, 5, 6]
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: '100%', // number
+                    height: '100%', // number
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        style_name: {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'italic', 'oblique'
+                            fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                            fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                            fontSize: 12,
+                            align: 'left', //'center', 'right'
+                            verticalAlign: 'top', //'middle', 'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0, // [3, 4, 5, 6]
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: '100%', // number
+                            height: '100%', // number
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                        }
+                    }
+
+
+
+                },
+                data: [{
+                    value: 'Monday',
+                    // Highlight Monday
+                    textStyle: {
+                        color: "#fff",
+                        fontStyle: 'normal', // 'italic', 'oblique'
+                        fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                        fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                        fontSize: 12,
+                        align: 'left', //'center', 'right'
+                        verticalAlign: 'top', //'middle', 'bottom'
+                        lineHeight: 56,
+                        backgroundColor: 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0, // [3, 4, 5, 6]
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: '100%', // number
+                        height: '100%', // number
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            style_name: {
+                                color: "#fff",
+                                fontStyle: 'normal', // 'italic', 'oblique'
+                                fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                                fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                                fontSize: 12,
+                                align: 'left', //'center', 'right'
+                                verticalAlign: 'top', //'middle', 'bottom'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0, // [3, 4, 5, 6]
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: '100%', // number
+                                height: '100%', // number
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,          textShadowOffsetY: 0,
+                            }
+                        }
+                    }
+                }],
+            }
+        },
+        
+        color: ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'],
+        backgroundColor: '#fff',
+        animation: true,
+        animationThreshold: 2000,
+        animationDuration: 1000,
+        animationEasing: function (k) {
+            return --k * k * k + 1;
+        },
+        animationDelay: 0,
+        animationDurationUpdate: 300,
+        animationEasingUpdate: function (k) {
+            return --k * k * k + 1;
+        },
+        animationDelayUpdate: 0,
+        blendMode: 'source-over',
+        useUTC: false,
+    }
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>
+
+

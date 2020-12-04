@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="zetsoft\service\smart\Migra" namespace="zetsoft\service\smart" name="Migra" abstract="false" final="false" start="45" end="689">
+  <file path="D:/Develop/Projects/ALL/asrorz/zetsoft/service/smart" file="Migra.php" realpath="D:/Develop/Projects/ALL/asrorz/zetsoft/service/smart/Migra.php" size="17362" time="2020-10-04T23:08:33+05:00" unixtime="1601834913" sha1="caaf4793b459ba60cffaa925266bab6ebc72a8bf" relative="Migra.php"/>
+  <extends full="zetsoft\system\kernels\ZFrame" namespace="zetsoft\system\kernels" name="ZFrame" unresolved="true"/>
+  <member name="secondAttempt" default="true" type="boolean" visibility="public" static="false" line="49"/>
+  <member name="db" visibility="public" static="false" line="52">
+    <docblock>
+      <var description="$db" type="object">
+        <type full="yii\db\Connection" namespace="yii\db" name="Connection"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="schema" visibility="public" static="false" line="55">
+    <docblock>
+      <var description="$schema" type="object">
+        <type full="zetsoft\system\schema\PgSqlSchema" namespace="zetsoft\system\schema" name="PgSqlSchema"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="tables" visibility="public" static="false" line="58">
+    <docblock>
+      <var description="$tables" type="array" of="object">
+        <type full="zetsoft\service\smart\TableSchema" namespace="zetsoft\service\smart" name="TableSchema"/>
+      </var>
+    </docblock>
+  </member>
+  <constant type="array" name="Path" value="">
+    <docblock>
+      <description compact="Constansts"/>
+    </docblock>
+  </constant>
+  <member name="path" visibility="private" static="false" line="76">
+    <docblock>
+      <description compact="Private vars"/>
+    </docblock>
+  </member>
+  <member name="pathAll" visibility="private" static="false" line="77"/>
+  <member name="classes" visibility="private" static="false" line="78"/>
+  <method name="init" start="84" end="106" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="Path Fixes" line="93"/>
+    </inline>
+  </method>
+  <method name="getAttributesFromTable" start="114" end="136" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="modelId" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="scanFromTable" start="139" end="152" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getModelAttributesFromTable" start="160" end="172" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="type" byreference="false" type="string" default="'model'"/>
+  </method>
+  <method name="getAttrs" start="174" end="192" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="modelName" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAttrsOfModel" start="195" end="206" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="scan" start="212" end="266" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="indexClass" byreference="false" type="boolean" default="false"/>
+    <inline>
+      <comment value="Fill folders" line="218"/>
+      <comment value="For App" line="234"/>
+    </inline>
+  </method>
+  <method name="category" start="277" end="293" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Function  appCategories to get models used in app"/>
+      <param description="if true array keys are models categories, and values are category titles, else array values are models categories" type="object" variable="$withTitles">
+        <type full="zetsoft\service\smart\bool" namespace="zetsoft\service\smart" name="bool"/>
+      </param>
+      <return type="array"/>
+      <author value="Dilshodjon Olimov"/>
+      <since value="16.08.2020"/>
+    </docblock>
+    <parameter name="withTitles" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="allModels" start="296" end="329" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="Fill folders" line="300"/>
+      <comment value="For App" line="311"/>
+    </inline>
+  </method>
+  <method name="appScan" start="332" end="357" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="value" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="baseModels" start="363" end="372" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="scanName" start="374" end="385" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="scanTitle" start="387" end="402" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="run" start="411" end="534" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="clean" start="537" end="593" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="removeIndexes" start="603" end="620" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeTable" start="622" end="634" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="table" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="schema" start="636" end="660" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="migration" byreference="false" type="object">
+      <type full="zetsoft\system\kernels\ZMigration" namespace="zetsoft\system\kernels" name="ZMigration"/>
+    </parameter>
+    <parameter name="formDB" byreference="false" type="object">
+      <type full="zetsoft\dbitem\data\FormDb" namespace="zetsoft\dbitem\data" name="FormDb"/>
+    </parameter>
+  </method>
+  <method name="sequence" start="663" end="668" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="tablename" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="exec" start="675" end="686" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <param type="object" variable="$db">
+        <type full="yii\db\Connection" namespace="yii\db" name="Connection"/>
+      </param>
+      <param type="string" variable="$sql"/>
+      <return type="object">
+        <type full="zetsoft\service\smart\bool" namespace="zetsoft\service\smart" name="bool"/>
+      </return>
+    </docblock>
+    <return type="bool" nullable="false"/>
+    <parameter name="sql" byreference="false" type="{unknown}"/>
+  </method>
+</class>

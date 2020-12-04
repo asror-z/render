@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<HTML>
+<LINK href="Demo_files/phone.css"
+      rel="stylesheet" type="text/css">
+<SCRIPT type="text/javascript">
+    function $(name) {
+        return document.getElementById(name);
+    }
+
+    function log(msg, type) {
+        var log_text = $("log-text");
+        if (log_text) {
+            log_text.value += "\n" + msg;
+            if (phone && phone.log_scroll)
+                log_text.scrollTop = log_text.scrollHeight;
+        }
+    };
+</SCRIPT>
+
+<SCRIPT src="Demo_files/swfobject.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="Demo_files/json2.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="Demo_files/base64.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="Demo_files/flash-network.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="Demo_files/sip.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="Demo_files/phone.js" type="text/javascript"></SCRIPT>
+
+
+</HEAD>
+<BODY>
+<DIV class="content-box has-shadow" id="config-box">
+    <DIV class="content-header">Configuration
+        <DIV class="help-div"><A title="Save configuration" onclick="return phone.enableBox('config', false);"
+                                 href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img"
+                                                                                        id="save_config"
+                                                                                        style="visibility: hidden;"
+                                                                                        src="Demo_files/save.png"></A>
+            <A
+                    title="Edit configuration" onclick="return phone.enableBox('config', true);"
+                    href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img" id="edit_config"
+                                                                           style="visibility: visible;"
+                                                                           src="Demo_files/edit.png"></A> <A
+                    title="How to configure your phone?" onclick="return phone.help('configuration');"
+                    href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img"
+                                                                           src="Demo_files/help.png"></A>
+        </DIV>
+    </DIV>
+    <TABLE>
+        <TBODY>
+        <TR>
+            <TD align="right">Display Name:</TD>
+            <TD><INPUT disabled="disabled" class="text" id="displayname" style="width: 130px;"
+                       onkeyup="setTimeout(phone.setProperty('displayname', $('displayname').value),100)" type="text">
+            </TD>
+        </TR>
+        <TR>
+            <TD align="right">User Name:</TD>
+            <TD><INPUT disabled="disabled" class="text" id="username" style="width: 130px;"
+                       onkeyup="setTimeout(phone.setProperty('username', $('username').value),100)" type="text">
+            </TD>
+        </TR>
+        <TR>
+            <TD align="right">Domain:</TD>
+            <TD><INPUT disabled="disabled" class="text" id="domain" style="width: 130px;"
+                       onkeyup="setTimeout(phone.setProperty('domain', $('domain').value),100)" type="text">
+            </TD>
+        </TR>
+        <TR>
+            <TD align="right">Auth Name:</TD>
+            <TD><INPUT disabled="disabled" class="text" id="authname" style="width: 130px;"
+                       onkeyup="setTimeout(phone.setProperty('authname', $('authname').value),100)" type="text">
+            </TD>
+        </TR>
+        <TR>
+            <TD align="right">Password:</TD>
+            <TD><INPUT disabled="disabled" class="text" id="password" style="width: 130px;"
+                       onkeyup="setTimeout(phone.setProperty('password', $('password').value),100)" type="password">
+            </TD>
+        </TR>
+        <TR>
+            <TD align="right" colspan="2">Transport: <INPUT name="transport"
+                                                            disabled="disabled" class="radio" id="transport_udp"
+                                                            onclick="phone.setProperty('transport', 'udp')"
+                                                            type="radio" value="udp">UDP, <INPUT name="transport"
+                                                                                                 disabled="disabled"
+                                                                                                 class="radio"
+                                                                                                 id="transport_tcp"
+                                                                                                 onclick="phone.setProperty('transport', 'tcp')"
+                                                                                                 type="radio"
+                                                                                                 value="tcp">TCP, <INPUT
+                    name="transport"
+                    disabled="disabled" class="radio" id="transport_ws" onclick="phone.setProperty('transport', 'ws')"
+                    type="radio" value="ws">WS
+            </TD>
+        </TR>
+        </TBODY>
+    </TABLE>
+</DIV>
+<DIV class="content-box has-shadow" id="register-box">
+    <DIV class="content-header">Register
+        <DIV class="help-div"><A title="Save register parameters" onclick="return phone.enableBox('register', false);"
+                                 href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img"
+                                                                                        id="save_register"
+                                                                                        style="visibility: hidden;"
+                                                                                        src="Demo_files/save.png"></A>
+            <A
+                    title="Edit register parameters" onclick="return phone.enableBox('register', true);"
+                    href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img" id="edit_register"
+                                                                           style="visibility: visible;"
+                                                                           src="Demo_files/edit.png"></A> <A
+                    title="How to register/login?" onclick="return phone.help('register');"
+                    href="http://theintencity.com/sip-js/phone.html#"><IMG
+                    class="help-img" src="Demo_files/help.png"> </A></DIV>
+    </DIV>
+    <DIV style="padding: 2px;"> Send outbound via:<BR>
+        <DIV style="padding-left: 10px;"><!--
+                <input type="radio" class="radio" id="outbound_domain" name="outbound" value="domain" disabled="disabled"
+                    onclick="phone.setProperty('outbound', 'domain')"/> domain,
+                -->
+            <INPUT name="outbound" disabled="disabled" class="radio" id="outbound_target"
+                   onclick="phone.setProperty('outbound', 'target')" type="radio" value="target">
+            target domain, or<BR><INPUT name="outbound" disabled="disabled" class="radio"
+                                        id="outbound_proxy" onclick="phone.setProperty('outbound', 'proxy')"
+                                        type="radio"
+                                        value="proxy"> proxy address:
+            <INPUT disabled="disabled" class="text" id="outbound_proxy_address" style="width: 94px;"
+                   onkeyup="setTimeout(phone.setProperty('outbound_proxy_address', $('outbound_proxy_address').value),100)"
+                   type="text">
+        </DIV>
+        Register every <INPUT disabled="disabled" class="text" id="register_interval" style="width: 40px;"
+                              onclick="phone.setProperty('register_interval', parseInt($('register_interval')).value)"
+                              type="text">
+        seconds<BR><INPUT disabled="disabled" class="radio" id="rport"
+                          onclick="phone.setProperty('rport', $('rport').checked)"
+                          type="checkbox">Use rport, <INPUT disabled="disabled" class="radio"
+                                                            id="sipoutbound"
+                                                            onclick="phone.setProperty('sipoutbound', $('sipoutbound').checked)"
+                                                            type="checkbox">Use sip-outbound<BR> AoR:
+        <INPUT disabled="disabled" class="text" id="local_aor" style="width: 190px;" type="text" readonly="readonly">
+
+        <DIV style="left: 4px; right: 0px; bottom: 0px; position: absolute;"><SPAN id="sock_state">idle</SPAN>,
+            <SPAN id="register_state">not registered</SPAN>
+            <DIV
+                    style="float: right;"><INPUT title="click to register or unregister" disabled="disabled"
+                                                 class="button" id="register_button" onclick="return phone.register();"
+                                                 type="button" value="Register">
+            </DIV>
+        </DIV>
+    </DIV>
+</DIV>
+<DIV class="content-box has-shadow" id="call-box">
+    <DIV class="content-header">Call
+        <DIV class="help-div"><A title="Save call capabilities" onclick="return phone.enableBox('call', false);"
+                                 href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img" id="save_call"
+                                                                                        style="visibility: hidden;"
+                                                                                        src="Demo_files/save.png"></A>
+            <A
+                    title="Edit call capabilities" onclick="return phone.enableBox('call', true);"
+                    href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img" id="edit_call"
+                                                                           style="visibility: visible;"
+                                                                           src="Demo_files/edit.png"></A> <A
+                    title="How to make/receive call?" onclick="return phone.help('call');"
+                    href="http://theintencity.com/sip-js/phone.html#"><IMG
+                    class="help-img" src="Demo_files/help.png"> </A></DIV>
+    </DIV>
+    <DIV style="padding: 4px;"><SELECT disabled="disabled" class="uri-scheme" id="target_scheme"
+                                       onchange="phone.setProperty('target_scheme', ['sip', 'tel', 'urn'][$('target_scheme').selectedIndex])">
+        <OPTION
+                id="target_scheme_sip" value="sip">sip
+        </OPTION>
+        <OPTION id="target_scheme_tel"
+                value="tel">tel
+        </OPTION>
+        <OPTION id="target_scheme_urn" value="urn">urn</OPTION>
+    </SELECT> : <INPUT disabled="disabled" class="uri-value" id="target_value"
+                       onkeyup="setTimeout(phone.setProperty('target_value', $('target_value').value), 100)"
+                       type="text">
+
+        <DIV style="left: 81px; top: 50px; right: 2px; overflow: hidden; position: absolute;">
+            <TABLE width="100%" cellspacing="0" cellpadding="0">
+                <TBODY>
+                <TR>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('1')"><SPAN class="dialnumber">1</SPAN>
+                        </DIV>
+                    </TD>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('2')"><SPAN class="dialnumber">2</SPAN>
+                            <SPAN class="dialletter">abc</SPAN>
+                        </DIV>
+                    </TD>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('3')"><SPAN class="dialnumber">3</SPAN>
+                            <SPAN class="dialletter">def</SPAN>
+                        </DIV>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('4')"><SPAN class="dialnumber">4</SPAN>
+                            <SPAN class="dialletter">ghi</SPAN>
+                        </DIV>
+                    </TD>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('5')"><SPAN class="dialnumber">5</SPAN>
+                            <SPAN class="dialletter">jkl</SPAN>
+                        </DIV>
+                    </TD>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('6')"><SPAN class="dialnumber">6</SPAN>
+                            <SPAN class="dialletter">mno</SPAN>
+                        </DIV>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('7')"><SPAN class="dialnumber">7</SPAN>
+                            <SPAN class="dialletter">pqrs</SPAN>
+                        </DIV>
+                    </TD>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('8')"><SPAN class="dialnumber">8</SPAN>
+                            <SPAN class="dialletter">tuv</SPAN>
+                        </DIV>
+                    </TD>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('9')"><SPAN class="dialnumber">9</SPAN>
+                            <SPAN class="dialletter">wxyz</SPAN>
+                        </DIV>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <DIV class="dialdiv" style="overflow: hidden;" onclick="phone.sendDigit('*')"><SPAN
+                                class="dialnumber"
+                                style="font-size: 20pt; display: block;">*</SPAN></DIV>
+                    </TD>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('0')"><SPAN class="dialnumber">0</SPAN>
+                        </DIV>
+                    </TD>
+                    <TD>
+                        <DIV class="dialdiv" onclick="phone.sendDigit('#')"><SPAN class="dialnumber">#</SPAN>
+                            <SPAN class="dialletter">abc</SPAN>
+                        </DIV>
+                    </TD>
+                </TR>
+                </TBODY>
+            </TABLE>
+        </DIV>
+        <DIV style="left: 80px; right: 2px; bottom: 2px; overflow: hidden; position: absolute;"><INPUT
+                title="click to call or answer" disabled="disabled" class="callbutton" id="call_button"
+                onclick="return phone.call();" type="button" value="Call">
+            <INPUT title="click to cancel, decline or hang up" disabled="disabled" class="endbutton" id="end_button"
+                   onclick="return phone.end();" type="button" value="End">
+        </DIV>
+        <DIV
+                style="left: 2px; top: 50px; width: 77px; bottom: 2px; position: absolute;"><INPUT
+                title="Audio codec using pcmu, pcma and speex" disabled="disabled" class="checkbox"
+                id="has_audio" onclick="phone.setProperty('has_audio', $('has_audio').checked)"
+                type="checkbox">Audio<BR><INPUT title="DTMF tones using RFC 4733" disabled="disabled"
+                                                class="checkbox" id="has_tones"
+                                                onclick="phone.setProperty('has_tones', $('has_tones').checked)"
+                                                type="checkbox">Tones<BR><INPUT title="Video codec using h264"
+                                                                                disabled="disabled"
+                                                                                class="checkbox" id="has_video"
+                                                                                onclick="phone.setProperty('has_video', $('has_video').checked)"
+                                                                                type="checkbox">Video<BR><INPUT
+                title="Real-time text using t140 and RFC 4351"
+                disabled="disabled" class="checkbox" id="has_text"
+                onclick="phone.setProperty('has_text', $('has_text').checked)"
+                type="checkbox">Text<BR><INPUT title="Caller location for emergency calls"
+                                               disabled="disabled" class="checkbox" id="has_location"
+                                               onclick="phone.setProperty('has_location', $('has_location').checked)"
+                                               type="checkbox"> <SPAN title="Set your location"
+                                                                      onclick="phone.setLocation()">Location<BR></SPAN>
+        </DIV>
+        <DIV style="left: 6px; bottom: 6px; position: absolute;"><SPAN
+                id="call_state">idle</SPAN></DIV>
+    </DIV>
+</DIV>
+<DIV class="content-box has-shadow" id="im-box">
+    <DIV class="content-header">Text Chat
+        <DIV class="help-div"><A title="Print text chat" onclick="return phone.print($('im-history').value)"
+                                 href="http://theintencity.com/sip-js/phone.html#"><IMG class="print-img"
+                                                                                        src="Demo_files/print.png"></A>
+            <A title="How to send/receive text chat?" onclick="return phone.help('im');"
+               href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img" src="Demo_files/help.png"></A>
+        </DIV>
+    </DIV>
+    <DIV style="width: 100%; height: 170px; bottom: 0px;">
+        <DIV
+                id="im-history-box"><TEXTAREA id="im-history"
+                                              readonly="readonly">This area displays the text messages.</TEXTAREA>
+
+        </DIV>
+        <INPUT id="im-input" onkeyup="return phone.sendChar(event);"
+               onchange="phone.sendText($('im-input').value); $('im-input').value=''; return false;" type="text">
+        <INPUT id="im-button" onclick="phone.sendText($('im-input').value); $('im-input').value=''; return false;"
+               type="button" value="send">
+    </DIV>
+</DIV>
+<DIV class="content-box has-shadow" id="local-video-box">
+    <DIV class="content-header">Local Video <INPUT id="local-video-on"
+                                                   style="margin: 0px; padding: 0px; height: 12px;"
+                                                   onclick="phone.setVideoProperty('local-video', 'live', $('local-video-on').checked)"
+                                                   type="checkbox">
+        <DIV class="help-div"><A title="Toggle control panel" onclick="return phone.toggleControls('local-video')"
+                                 href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img"
+                                                                                        style="visibility: visible;"
+                                                                                        src="Demo_files/edit.png"></A>
+            <A title="What is local video?"
+               onclick="return phone.help('local-video');" href="http://theintencity.com/sip-js/phone.html#"><IMG
+                    class="help-img" src="Demo_files/help.png"></A></DIV>
+    </DIV>
+    <DIV id="local-video">
+        <H2>Alternative content</H2>
+        <P><A href="http://www.adobe.com/go/getflashplayer"><IMG alt="Get Adobe Flash player"
+                                                                 src="Demo_files/get_flash_player.gif"></A></P></DIV>
+</DIV>
+<DIV class="content-box has-shadow" id="remote-video-box">
+    <DIV class="content-header">Remote Video
+        <DIV class="help-div"><A title="Toggle control panel"
+                                 onclick="phone.setVideoProperty('remote-video', 'controls', !phone.getVideoProperty('remote-video', 'controls')); return false;"
+                                 href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img"
+                                                                                        style="visibility: visible;"
+                                                                                        src="Demo_files/edit.png"></A>
+            <A title="What is remote video?"
+               onclick="return phone.help('remote-video');" href="http://theintencity.com/sip-js/phone.html#"><IMG
+                    class="help-img" src="Demo_files/help.png"></A></DIV>
+    </DIV>
+    <DIV id="remote-video">
+        <H2>Alternative content</H2>
+        <P><A href="http://www.adobe.com/go/getflashplayer"><IMG alt="Get Adobe Flash player"
+                                                                 src="Demo_files/get_flash_player.gif"></A></P></DIV>
+</DIV>
+<DIV class="content-box has-shadow" id="flash-network-box">
+    <DIV class="content-header"><SPAN id="network_type"></SPAN> Network
+        (<A onclick="phone.changeNetworkType()" href="http://theintencity.com/sip-js/phone.html#">change</A>)
+
+        <DIV class="help-div"><A title="Save network properties" onclick="return phone.enableBox('network', false);"
+                                 href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img"
+                                                                                        id="save_network"
+                                                                                        style="visibility: hidden;"
+                                                                                        src="Demo_files/save.png"></A>
+            <A
+                    title="Edit network properties" onclick="return phone.enableBox('network', true);"
+                    href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img" id="edit_network"
+                                                                           style="visibility: visible;"
+                                                                           src="Demo_files/edit.png"></A> <A
+                    title="What is Flash Network?" onclick="return phone.help('flash-network');"
+                    href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img" src="Demo_files/help.png">
+            </A></DIV>
+    </DIV>
+    <DIV style="left: 4px; position: absolute;"><INPUT disabled="disabled" class="text" id="listen_ip"
+                                                       style="width: 100px;"
+                                                       onkeyup="setTimeout(phone.setProperty('listen_ip', $('listen_ip').value),100)"
+                                                       type="text">
+    </DIV>
+    <DIV id="network_status" style="right: 4px; position: absolute;"></DIV>
+    <DIV style="left: 12px; top: 46px; position: absolute;">
+        <DIV id="flash-network">
+            <H2>Alternative content</H2>
+            <P><A href="http://www.adobe.com/go/getflashplayer"><IMG alt="Get Adobe Flash player"
+                                                                     src="Demo_files/get_flash_player.gif"></A></P>
+        </DIV>
+    </DIV>
+    <DIV id="webrtc-network"
+         style="left: 12px; top: 22px; width: 215px; height: 138px; visibility: hidden; position: absolute;">
+        Path: <INPUT title="websocket path to the SIP proxy application" disabled="disabled" class="text"
+                     id="websocket_path" style="width: 40px;"
+                     onkeyup="setTimeout(phone.setProperty('websocket_path', $('websocket_path').value),100)"
+                     type="text">
+        <INPUT title="enable or disable sound alert for text messages and call"
+               disabled="disabled" id="enable_sound_alert"
+               onclick="phone.setProperty('enable_sound_alert', $('enable_sound_alert').checked)"
+               type="checkbox">Alert <BR><BR> Detecting HTML5 support:
+
+        <OL style="margin-top: 0px; margin-bottom: 0px;">
+            <LI>video - <B><SPAN id="has_html5_video"></SPAN></B></LI>
+            <LI>websocket - <B><SPAN id="has_html5_websocket"></SPAN></B></LI>
+            <LI>webrtc - <B><SPAN id="has_html5_webrtc"></SPAN></B></LI>
+        </OL>
+    </DIV>
+</DIV>
+<DIV class="content-box has-shadow" id="help-box">
+    <DIV class="content-header">Getting Started
+        <DIV class="help-div"><A title="Getting started guide" onclick="return phone.help('default');"
+                                 href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img"
+                                                                                        src="Demo_files/help.png"></A>
+        </DIV>
+    </DIV>
+    <DIV id="help" style="padding: 4px; width: 232px; height: 160px; text-align: justify; overflow: auto;"></DIV>
+</DIV>
+<DIV class="content-box has-shadow" id="log-box">
+    <DIV class="content-header">Program Log (auto-scroll?<INPUT id="log_scroll"
+                                                                style="font-size: small;"
+                                                                onclick="phone.setProperty('log_scroll', $('log_scroll').checked)"
+                                                                type="checkbox">)
+        <DIV class="help-div"><A title="Print text chat" onclick="return phone.print($('log-text').value)"
+                                 href="http://theintencity.com/sip-js/phone.html#"><IMG class="print-img"
+                                                                                        src="Demo_files/print.png"></A>
+            <A title="What is Program Log?" onclick="return phone.help('program-log');"
+               href="http://theintencity.com/sip-js/phone.html#"><IMG class="help-img" src="Demo_files/help.png"></A>
+        </DIV>
+    </DIV>
+    <DIV
+            id="log-text-div"><TEXTAREA id="log-text" readonly="readonly">This box displays the program trace</TEXTAREA>
+    </DIV>
+</DIV>
+<SCRIPT type="text/javascript">
+    var phone = new Phone();
+
+    //network._debug = true;
+    network.onstatus = function (value) {
+        phone.statusChanged(value);
+    };
+    network.onnetworkchange = function () {
+        phone.networkChanged();
+    };
+
+    phone.addEventListener("propertyChange", function (event) {
+        var value = event.newValue;
+        var property = event.property;
+        var subprop = "";
+        if (property.indexOf(".") >= 0) {
+            var parts = property.split(".");
+            property = parts[0];
+            if (parts.length > 0)
+                subprop = parts[1];
+        }
+
+        var input = $(property);
+        if (!input) {
+            var inputs = document.getElementsByName(property);
+            // this may be radio buttons.
+            for (var j = 0; j < inputs.length; ++j) {
+                var input1 = inputs[j];
+                if (subprop) {
+                    input1[subprop] = value;
+                } else if (input1.value == value) {
+                    input = input1;
+                    input.checked = true;
+                    break;
+                }
+            }
+        } else {
+            if (input.localName == "input") {
+                if (input.type == "text" || input.type == "password" || input.type == "button") {
+                    if (subprop)
+                        input[subprop] = value;
+                    else
+                        input.value = value;
+                } else if (input.type == "checkbox") {
+                    if (subprop)
+                        input[subprop] = value;
+                    else
+                        input.checked = (value && value != "false" ? true : false);
+                } else if (input.type == "radio") {
+                    if (subprop) {
+                        input[subprop] = value;
+                    }
+                }
+            } else if (input.localName == "span" || input.localName == "div") {
+                if (!subprop)
+                    input.innerHTML = cleanHTML(value);
+            } else if (input.localName == "select") {
+                if (subprop)
+                    input[subprop] = value;
+                else
+                    input.value = value;
+            } else {
+                log("ignoring propertyChange for " + event.property);
+            }
+        }
+    });
+
+    phone.addEventListener("message", function (event) {
+        var msg = "";
+        if (event.sender) {
+            msg += event.sender + ": ";
+        }
+        if (event.text) {
+            msg += event.text;
+        }
+        if (msg) {
+            var history = $('im-history');
+            history.value += "\n" + msg;
+            history.scrollTop = history.scrollHeight;
+        }
+    });
+
+    phone.populate();
+    phone.help("default");
+
+    if (phone.network_type != "WebRTC") {
+        swfobject.embedSWF("http://theintencity.com/flash-network/NetworkIO.swf", "flash-network", "215", "138", "10.0.0", "http://theintencity.com/flash-network/expressInstall.swf",
+            {"apiVersion": "1.0", "prefix": "network."},
+            {"allowScriptAccess": "always", "bgcolor": "#f0f0f0"},
+            {"id": "flash-network", "name": "flash-network"});
+        network.movieName = "flash-network";
+
+        swfobject.embedSWF("http://theintencity.com/flash-network/VideoIO11.swf", "local-video", "240", "168", "11.0.0", "http://theintencity.com/flash-network/expressInstall.swf",
+            {"videoCodec": "H264Avc", "codec": "pcmu", "framesPerPacket": "2", "prefix": "network."},
+            {"allowScriptAccess": "always", "allowFullScreen": "true", "bgcolor": "#f0f0f0"},
+            {"id": "local-video", "name": "local-video"});
+
+        swfobject.embedSWF("http://theintencity.com/flash-network/VideoIO11.swf", "remote-video", "240", "168", "11.0.0", "http://theintencity.com/flash-network/expressInstall.swf",
+            {"videoCodec": "H264Avc", "codec": "pcmu", "framesPerPacket": "2", "prefix": "network."},
+            {"allowScriptAccess": "always", "allowFullScreen": "true", "bgcolor": "#f0f0f0"},
+            {"id": "remote-video", "name": "remote-video"});
+    } else {
+        $('local-video').innerHTML = "";
+        $('remote-video').innerHTML = "";
+        $('flash-network').innerHTML = "";
+
+        phone.detectHTML5();
+        $('webrtc-network').style.visibility = "visible";
+    }
+
+</SCRIPT>
+</BODY>
+</HTML>

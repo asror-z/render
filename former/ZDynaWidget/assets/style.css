@@ -1,0 +1,50 @@
+/*
+ * Responsive Tables plugin 2.2.1
+ * Ryan Wells
+ * Copyright 2019, Ryan Wells (https://ryanwells.com)
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+*/
+
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.23, autoprefixer: v9.7.3) */
+@media only screen and (max-width: 800px) {
+    /* change media query width to suit needs */
+    /* force table markup to behave like divs */
+
+    .jrt table,
+    .jrt thead,
+    .jrt tbody,
+    .jrt th,
+    .jrt td,
+    .jrt tr {
+        display: block;
+        text-align: left;
+    }
+    /* hide table headers (but not display: none;, for accessibility) */
+    .jrt thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .jrt tr {
+        border: 1px solid #ccc;
+    }
+    .jrt td {
+        /* behave  like a "row" */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        border: none;
+        border-bottom: 1px solid #eee;
+        font-weight: normal;
+    }
+    .jrt td:before {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        max-width: 45%;
+        padding-right: 6px;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://anthonyterrien.com/demo/knob/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>jQuery Knob demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+    <script src="./demo_files/jquery.knob.min.js.Без названия"></script>
+    <script>
+        $('.dial').trigger(
+            'configure',
+            {
+                "min":10,
+                "max":40,
+                "fgColor":"#FF0000",
+                "skin":"tron",
+                "cursor":true
+            }
+        );
+    </script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0px 50px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            text-rendering: optimizelegibility;
+        }
+
+        p {
+            font-size: 30px;
+            line-height: 30px
+        }
+
+        div.demo {
+            text-align: center;
+            width: 280px;
+            float: left
+        }
+
+        div.demo > p {
+            font-size: 20px
+        }
+    </style>
+</head>
+<body class="clickup-chrome-ext_installed" cz-shortcut-listen="true" style="zoom: 1;">
+
+
+
+
+<div class="demo">
+    <p>× Angle offset and arc</p>
+    <pre>data-fgColor="#66CC66"
+data-angleOffset=-125
+data-angleArc=250
+data-rotation=anticlockwise
+            </pre>
+    <div style="display:inline;width:200px;height:200px;">
+        <canvas width="200" height="200"></canvas>
+        <input class="knob" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#66EE66"
+               data-rotation="anticlockwise" value="35"
+               style="width: 104px; height: 66px; position: absolute; vertical-align: middle; margin-top: 66px; margin-left: -152px; border: 0px; background: none; font: bold 40px Arial; text-align: center; color: rgb(102, 238, 102); padding: 0px; -webkit-appearance: none;">
+    </div>
+</div>
+
+<div class="demo" style="width:100%">
+    <p>× Responsive</p>
+    <pre>data-width="80%"
+            </pre>
+    <div style="width: 30%; border: 3px dashed; margin-bottom: 20px">
+        <i>
+            Current div width is 30% of window width.<br>
+            Knob width is 80% of current div.<br>
+            Knob width is 80% of 30% of window width.<br>
+            Test resizing window.
+        </i>
+        <br>
+        <br>
+        <div style="display: inline; height: 296px; width: 296px;">
+            <canvas width="296" height="296"></canvas>
+            <input class="knob" data-width="80%" value="35"
+                   style="width: 152px; height: 98px; position: absolute; vertical-align: middle; margin-top: 98px; margin-left: -224px; border: 0px; background: none; font: bold 59px Arial; text-align: center; color: rgb(135, 206, 235); padding: 0px; -webkit-appearance: none;">
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+<script>
+    function clock() {
+        var $s = $(".second"),
+            $m = $(".minute"),
+            $h = $(".hour");
+        d = new Date(),
+            s = d.getSeconds(),
+            m = d.getMinutes(),
+            h = d.getHours();
+        $s.val(s).trigger("change");
+        $m.val(m).trigger("change");
+        $h.val(h).trigger("change");
+        setTimeout("clock()", 1000);
+    }
+
+    clock();
+</script>
+<div class="demo" style="color:#EEE;background:#222;height:420px;width:100%">
+    <p>× Superpose (clock)</p>
+    <div style="position:relative;width:350px;margin:auto">
+        <div style="position:absolute;left:10px;top:10px">
+            <div style="display:inline;width:300px;height:300px;">
+                <canvas width="300" height="300"></canvas>
+                <input class="knob hour" data-min="0" data-max="24" data-bgcolor="#333" data-fgcolor="#ffec03"
+                       data-displayinput="false" data-width="300" data-height="300" data-thickness=".3"
+                       style="display: none; width: 0px; visibility: hidden;"></div>
+        </div>
+        <div style="position:absolute;left:60px;top:60px">
+            <div style="display:inline;width:200px;height:200px;">
+                <canvas width="200" height="200"></canvas>
+                <input class="knob minute" data-min="0" data-max="60" data-bgcolor="#333" data-displayinput="false"
+                       data-width="200" data-height="200" data-thickness=".45"
+                       style="display: none; width: 0px; visibility: hidden;"></div>
+        </div>
+        <div style="position:absolute;left:110px;top:110px">
+            <div style="display:inline;width:100px;height:100px;">
+                <canvas width="100" height="100"></canvas>
+                <input class="knob second" data-min="0" data-max="60" data-bgcolor="#333"
+                       data-fgcolor="rgb(127, 255, 0)" data-displayinput="false" data-width="100" data-height="100"
+                       data-thickness=".3" style="display: none; width: 0px; visibility: hidden;"></div>
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+<div class="demo">
+    <p>× Readonly</p>
+    <pre>readonly (or data-readOnly=true)
+data-thickness=".4"
+data-fgColor="chartreuse"
+            </pre>
+    <div style="display:inline;width:200px;height:200px;">
+        <canvas width="200" height="200"></canvas>
+        <input class="knob" data-fgcolor="chartreuse" data-thickness=".4" readonly="readonly" value="22"
+               style="width: 104px; height: 66px; position: absolute; vertical-align: middle; margin-top: 66px; margin-left: -152px; border: 0px; background: none; font: bold 40px Arial; text-align: center; color: chartreuse; padding: 0px; -webkit-appearance: none;">
+    </div>
+</div>
+<div class="demo">
+    <p>× Dynamic</p>
+    <pre>data-width="200"
+            </pre>
+    <input type="button" onclick="$(&#39;.knob-dyn&#39;).knob();" value="knobify!">
+    <input type="text" class="knob-dyn" data-width="200" data-cursor="true" value="56">
+    <pre>data-width="50"
+data-cursor=true
+            </pre>
+    <input type="button" onclick="$(&#39;.knob-dyn2&#39;).knob();" value="knobify!">
+    <input type="text" class="knob-dyn2" data-width="50" data-thickness=".4" value="56">
+</div>
+<div class="demo" style="height:440px;width:300px">
+    <p>× Infinite || iPod click wheel</p>
+    <div style="float:left;width:180px;height:320px;padding:20px;background-color:#EEEEEE;text-align:center;">
+                <pre>data-width="150"
+data-cursor=true
+data-thickness=".5"
+data-fgColor="#AAAAAA"
+data-bgColor="#FFFFFF"
+data-displayInput="false"
++ some code
+                </pre>
+        <div style="display:inline;width:150px;height:200px;">
+            <canvas width="150" height="200"></canvas>
+            <input class="infinite" value="0" data-width="150" data-thickness=".5" data-fgcolor="#AAAAAA"
+                   data-bgcolor="#FFFFFF" data-displayinput="false" data-cursor="true"
+                   style="display: none; width: 0px; visibility: hidden;"></div>
+    </div>
+    <div style="float:left;margin-top:200px;">
+        <div class="ival" style="width:80px;text-align:center;font-size:50px;color:#AAA">0</div>
+        <div class="idir" style="width:80px;text-align:center;font-size:50px;"></div>
+    </div>
+</div>
+<div style="clear:both"></div>
+<div style="margin-top:30px;text-align:center">
+    <img src="./demo_files/secretplan.jpg">
+    <p style="font-size:20px;">jQuery Knob is © 2012 Anthony Terrien - MIT License</p>
+</div>
+<div style="border: 0 none; position: absolute; right: 0; top: 0;"><a href="https://github.com/aterrien"
+                                                                      target="_blank"><img
+        src="./demo_files/github-ribbon.png" style="border: 0 none;"></a></div>
+
+</body>
+</html>                           

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://catc.github.io/displace/#demo -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>displace.js</title>
+    <link rel="stylesheet" href="./displace_files/style.css">
+</head>
+
+<body>
+<div class="demo__wrapper">
+    <div class="demo__actions">
+        <button class="selected">Standard</button>
+        <button class="">Constrain</button>
+        <button class="">Relative to</button>
+        <button class="">Events</button>
+        <button class="">Handle</button>
+        <button class="">Ignore</button>
+    </div>
+
+    <div class="demo__selected-example">
+					<pre class="demo__code code-block"><code class="javascript hljs"><span class="hljs-comment"><span
+                            class="hljs-comment">// regular instantiation</span></span>
+<span class="hljs-keyword"><span class="hljs-keyword">const</span></span> el = <span class="hljs-built_in"><span
+                                class="hljs-built_in">document</span></span>.querySelector(<span
+                                class="hljs-string"><span class="hljs-string">'.moveable'</span></span>);
+displace(el);
+</code></pre>
+
+        <div class="demo__boxes box-1">
+            <span class="demo__tag">Box 1</span>
+            <div class="demo__one box-2">
+                <span class="demo__tag">Box 2</span>
+                <div class="demo__two box-3" style="top: 50px; left: 50px; position: relative;">
+                    <span class="demo__tag">Box 3</span>
+                    <span class="moveable" style="top: 17px; left: 113px; position: absolute;"><span
+                            class="moveable__msg">Drag me</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Magnifier</h3>
+<div class="magnifier-demo">
+    <div class="magnifier-demo__image-wrapper">
+        <img id="magnifier-img" src="./displace_files/city-scape.jpg">
+        <span class="magnifier-demo__zoomer" style="width: 50px; height: 66.75px; position: absolute;"></span>
+    </div>
+    <div class="magnifier-demo__zoom-preview"></div>
+
+</div>
+
+<h3>Sorting</h3>
+<div class="sorting-demo">
+    <div class="sorting-demo__wrapper">
+					<span class="sorting-demo__corner top-left">
+						<span data-name="top left" class="sorting-demo__progress">Contains: <strong>0</strong></span>
+					</span>
+        <span class="sorting-demo__corner top-right">
+						<span data-name="top right" class="sorting-demo__progress">Contains: <strong>0</strong></span>
+					</span>
+        <span class="sorting-demo__corner bottom-left">
+						<span data-name="bottom left" class="sorting-demo__progress">Contains: <strong>0</strong></span>
+					</span>
+        <span class="sorting-demo__corner bottom-right">
+						<span data-name="bottom right"
+                              class="sorting-demo__progress">Contains: <strong>0</strong></span>
+					</span>
+
+        <span class="sorting-demo__sortable one"></span>
+        <span class="sorting-demo__sortable two"></span>
+        <span class="sorting-demo__sortable three"></span>
+        <span class="sorting-demo__sortable four"></span>
+    </div>
+</div>
+
+<div class="sorting-demo__options">
+    <button class="sorting-demo__reset-button">Reset demo</button>
+</div>
+
+<h3>Align to grid (via customFn)</h3>
+<div class="custom-fn">
+    <div class="custom-fn__wrapper">
+
+            <span class="custom-fn__line" style="
+            top: 0px; left: 49px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="
+             top: 0px; left: 99px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="top: 0px; left: 149px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="top: 0px; left: 199px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="top: 0px; left: 249px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="top: 0px; left: 299px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="top: 0px; left: 349px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="top: 0px; left: 399px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="top: 0px; left: 449px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="top: 0px; left: 499px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="top: 0px; left: 549px; width: 1px; height: 400px;"></span>
+            <span class="custom-fn__line" style="left: 0px; top: 49px; height: 1px; width: 600px;"></span>
+            <span class="custom-fn__line" style="left: 0px; top: 99px; height: 1px; width: 600px;"></span>
+            <span class="custom-fn__line" style="left: 0px; top: 149px; height: 1px; width: 600px;"></span>
+            <span class="custom-fn__line" style="left: 0px; top: 199px; height: 1px; width: 600px;"></span>
+            <span class="custom-fn__line" style="left: 0px; top: 249px; height: 1px; width: 600px;"></span>
+            <span class="custom-fn__line" style="left: 0px; top: 299px; height: 1px; width: 600px;"></span>
+            <span class="custom-fn__line" style="
+            left: 0px; top: 349px; height: 1px; width: 600px;"></span>
+            <span class="custom-fn__div"  style="position: absolute;"></span>
+    </div>
+</div>
+
+
+</section>
+
+
+<script src="./displace_files/bundle.js.download"></script>
+
+</body>
+</html>

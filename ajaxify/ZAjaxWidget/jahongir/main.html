@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<h1>KLLKlkllk</h1>
+
+<button id="btn1">Get New Page</button>
+<button id="btn2">Click</button>
+
+
+<div id="newPage">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $('#btn1').click(function () {
+            $.ajax({
+                url: '/kernel/widgettest/widget.aspx?widgetClass=zetsoft\\widgets\\inputes\\ZFileInputWidget',
+                method: 'get',
+                success: function (data) {
+                    $('#newPage').html(data);
+                }
+            });
+
+            
+        });
+
+
+    });
+
+</script>
+</body>
+
+
+</html>

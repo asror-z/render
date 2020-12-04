@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://cdn.statically.io/gh/alepolidori/jssip-webrtc-phone/master/src/css/style.css">
+
+</head>
+<body>
+<!--
+<audio id="calling" src="https://cdn.statically.io/gh/alepolidori/jssip-webrtc-phone/292f88b2/sounds/calling.mp3"></audio>
+<audio id="ringing" src="https://cdn.statically.io/gh/alepolidori/jssip-webrtc-phone/292f88b2/sounds/ringing.mp3"></audio>
+-->
+
+<div class="container">
+    <div class="row p-3 bg-white rounded" id="output-lbl">Ready</div>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+        <div class="col-md-4 register">
+            <form >
+                <div class="form-group">
+                    <label for="server-address">Server address</label>
+                    <input type="text" class="form-control" id="server-address" aria-describedby="serverAddressHelp"
+                           placeholder="address" value="10.10.3.30">
+                </div>
+                <div class="form-group">
+                    <label for="name">Display name</label>
+                    <input type="text" class="form-control" id="name" placeholder="e.g. Astricon" value="300">
+                </div>
+                <div class="form-group">
+                    <label for="exten">Extension</label>
+                    <input type="text" class="form-control" id="exten" placeholder="Extension" value="300">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" value="300">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button id="login-btn" class="btn btn-success w-100" type="button">Login</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="logout-btn" class="btn btn-danger w-100" type="button" disabled>Logout</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <form class="call-section mx-auto">
+                <div class="form-group">
+                    <label>Call</label>
+                    <div class="input-group">
+                        <input value="" type="text" id="call-to" class="form-control" aria-label="Text input with dropdown button"
+                               placeholder="Enter phone number to call" disabled>
+                        <div class="input-group-append">
+                            <!--<button id="call-btn" class="btn btn-outline-secondary " type="button"
+                                    aria-haspopup="true" aria-expanded="false" disabled>Call</button>-->
+                            <button class="btn btn-primary" id="call-audio-btn" href="#"><i class="fas fa-phone"></i></button>
+
+                            <!--<div class="dropdown-menu">
+                                <button class="dropdown-item" id="call-audio-btn" href="#">Audio</button>
+                                <a class="dropdown-item" id="call-audio-video-btn" href="#">Audio/Video</a>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button id="answer-btn" class="btn btn-success w-100" type="button" disabled>Answer</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button id="hangup-btn" class="btn btn-danger w-100" type="button" disabled>Hangup</button>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="row">
+                    <div class="form-group col">
+                        <div class="input-group embed-responsive embed-responsive-16by9">
+                            <span class="local-text">Remote</span>
+                            <video controls autoplay id="remote-stream-video" class="embed-responsive-item"></video>
+                        </div>
+                        <div class="input-group embed-responsive embed-responsive-16by9 remote">
+                            <span class="remote-text">Local</span>
+                            <video  autoplay id="local-stream-video" class="embed-responsive-item"></video>
+                            <audio autoplay id="remote-stream-audio"></audio>
+                        </div>
+                    </div>
+                </div>-->
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .register {
+        display: none;
+    }
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!--<script src="./assets/app.js"></script>-->
+<!--<script src="./assets/jssip-3.3.6.js"></script>-->
+
+<script src="https://cdn.statically.io/gh/alepolidori/jssip-webrtc-phone/master/lib/jssip-3.3.6.js"></script>
+<!--<script src="https://cdn.statically.io/gh/alepolidori/jssip-webrtc-phone/master/src/js/app.js"></script>-->
+<script src="https://cdn.statically.io/gh/alepolidori/jssip-webrtc-phone/master/src/js/webrtc-phone.js"></script>
+
+<script>
+    $( document ).ready(function() {
+
+        let ringing = new Audio('sounds/ringing.mp3');
+        let calling = new Audio('sounds/calling.mp3');
+        ringing.loop = true;
+        calling.loop = true;
+
+        $(document).on('registered', function (ev) {
+            noRingtone();
+            $('#login-btn, #server-address, #name, #exten, #password').attr('disabled','disabled');
+            $('#logout-btn,#call-to,#call-btn').removeAttr('disabled');
+            $('#call-to').focus();
+            $('#output-lbl').text('Registered');
+        });
+
+        $(document).on('unregistered', function (ev) {
+            noRingtone();
+            $('#login-btn, #server-address, #name, #exten, #password').removeAttr('disabled');
+            $('#logout-btn,#call-to,#call-btn').attr('disabled','disabled');
+            $('#output-lbl').text('Unregistered');
+        });
+
+        $(document).on('calling', function (ev) {
+            noRingtone();
+            calling.play();
+            $('#hangup-btn').removeAttr('disabled');
+            $('#call-btn,#call-to').attr('disabled','disabled');
+            $('#output-lbl').text('Calling ' + webrtcPhone.getCounterpartNum() + '...');
+        });
+
+        $(document).on('incomingcall', function (ev, from) {
+            noRingtone();
+            ringing.play();
+            $('#hangup-btn,#answer-btn').removeAttr('disabled');
+            $('#call-btn,#call-to').attr('disabled','disabled');
+            $('#output-lbl').text('...incoming call from ' + from);
+        });
+
+        $(document).on('callaccepted', function (ev) {
+            noRingtone();
+            $('#hangup-btn').removeAttr('disabled');
+            $('#call-btn,#call-to,#answer-btn').attr('disabled','disabled');
+            $('#output-lbl').text('...in conversation with ' + webrtcPhone.getCounterpartNum());
+        });
+
+        $(document).on('hangup', function (ev) {
+            noRingtone();
+            $('#hangup-btn,#answer-btn').attr('disabled','disabled');
+            $('#call-btn,#call-to').removeAttr('disabled');
+            $('#output-lbl').text('Registered');
+        });
+
+
+        // $('#login-btn').click(function () {
+
+        $.when().then(function() {
+            webrtcPhone.initAndLogin({
+                server: $('#server-address').val(),
+                name: $('#name').val(),
+                exten: $('#exten').val(),
+                password: $('#password').val(),
+                audioId: 'remote-stream-audio',
+                localVideoId: 'local-stream-video',
+                remoteVideoId: 'remote-stream-video'
+            });
+        });
+
+
+        $('#logout-btn').click(function () {
+            noRingtone();
+            webrtcPhone.hangup();
+            webrtcPhone.logout();
+        });
+
+        $('#hangup-btn').click(function () {
+            webrtcPhone.hangup();
+        });
+
+        $('#answer-btn').click(function () {
+            webrtcPhone.answer();
+        });
+
+        $('#call-audio-video-btn').click(function () {
+            var to = $('#call-to').val();
+            webrtcPhone.call(to, false);
+        });
+
+        $('#call-audio-btn').click(function () {
+            var to = $('#call-to').val();
+            webrtcPhone.call(to, false);
+        });
+
+        let noRingtone = () => {
+            calling.pause();
+            ringing.pause();
+        };
+    });
+</script>
+
+</body>
+</html>

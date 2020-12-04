@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Map4</title>
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    
+  </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+    var map;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 41.3, lng: 69.25},
+            zoom: 12,
+            backgroundColor: 'none',
+            panControl: true,
+            rotateControl: true,
+            clickableIcons: true,
+            controlSize: 28,
+            draggable: true,
+            disableDefaultUI: false,
+            disableDoubleClickZoom: false,
+            draggableCursor: '',
+            draggingCursor: '',
+            fullscreenControl: true,
+
+            /**
+             BOTTOM_CENTER |TOP_RIGHT |  BOTTOM_LEFT |BOTTOM_RIGHT |LEFT_BOTTOM  | LEFT_CENTER |LEFT_TOP  |RIGHT_BOTTOM |RIGHT_CENTER  |RIGHT_TOP |TOP_CENTER  |TOP_LEFT
+             */
+            fullscreenControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_TOP
+            },
+            gestureHandling: "auto",
+            heading: 90,
+           /* tilt: 45,*/
+            keyboardShortcuts: true,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                /**
+                 DEFAULT | DROPDOWN_MENU | HORIZONTAL_BAR
+                 */
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                /***
+                 BOTTOM_CENTER |TOP_RIGHT |  BOTTOM_LEFT |BOTTOM_RIGHT |LEFT_BOTTOM  | LEFT_CENTER |LEFT_TOP  |RIGHT_BOTTOM |RIGHT_CENTER  |RIGHT_TOP |TOP_CENTER  |TOP_LEFT
+
+                 */
+                position: google.maps.ControlPosition.TOP_LEFT,
+                /**
+                 HYBRID | ROADMAP| TERRAIN | SATELLITE
+                 */
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+            },
+            maxZoom: 30,
+            minZoom: 2,
+            noClear: false,
+            scrollwheel: true,
+            zoomControl: true,
+            /***
+             BOTTOM_CENTER |TOP_RIGHT |  BOTTOM_LEFT |BOTTOM_RIGHT |LEFT_BOTTOM  | LEFT_CENTER |LEFT_TOP  |RIGHT_BOTTOM |RIGHT_CENTER  |RIGHT_TOP |TOP_CENTER  |TOP_LEFT
+
+             */
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_BOTTOM
+            },
+            scaleControl: true,
+
+            streetViewControl: true,
+            /***
+             BOTTOM_CENTER |TOP_RIGHT |  BOTTOM_LEFT |BOTTOM_RIGHT |LEFT_BOTTOM  | LEFT_CENTER |LEFT_TOP  |RIGHT_BOTTOM |RIGHT_CENTER  |RIGHT_TOP |TOP_CENTER  |TOP_LEFT
+
+             */
+            streetViewControlOptions: {
+                position: google.maps.ControlPosition.LEFT_BOTTOM
+            },
+            /* restriction: {
+                /!* latLngBounds: {
+                     north: 100,
+                     south: -100,
+                     west: -80,
+                     east: 100
+                 },
+                 strictBounds: false,*!/
+             },*/
+            styles: [
+                {
+
+                    /**
+                     *The feature, or group of features, to which a styler should be applied. Optional. If featureType is not specified, the value is assumed to be 'all'. For details of usage and allowed values, see the style reference.
+                     */
+                    featureType: 'poi.park',
+                    /**
+                     * The element to which a styler should be applied. An element is a visual aspect of a feature on the map. Example: a label, an icon, the stroke or fill applied to the geometry, and more. Optional. If elementType is not specified, the value is assumed to be 'all'. For details of usage and allowed values, see the style reference.
+                     */
+                    elementType: 'geometry',
+                    /**
+                     * The style rules to apply to the selected map features and elements. The rules are applied in the order that you specify in this array. For guidelines on usage and allowed values, see the style reference.
+                     */
+                    /* stylers: [{color: '#'}]*/
+                }
+            ]
+        });
+        var marker = new google.maps.Marker({
+            anchorPoint: {
+                Point: google.maps.Point(55, 35)
+            },
+            /**
+             * DROP | BOUNCE
+             */
+            animation: google.maps.Animation.DROP,
+            clickable: true,
+            crossOnDrag: true,
+            /**
+             *  auto | crosshair | default | e-resize | help | move | n-resize | ne-resize | nw-resize | pointer | progress | s-resize | se-resize | sw-resize | text | w-resize | wait | inherit
+             */
+            cursor: 'pointer',
+            draggable: false,
+            icon: '',
+            map: map,
+            position: {
+                lat: 41.3,
+                lng: 69.25
+            },
+            opacity: 1.1,
+            optimized: true,
+            shape: {},
+            title: "Tashkent",
+            visible: true,
+            zIndex: 2
+
+
+        })
+        var info = new google.maps.InfoWindow({
+            content: "This is sample for you",
+            map: map,
+            title: "Tashkent",
+            disableAutoPan: false,
+            maxWidth: 200,
+            pixelOffset: {
+                height: 50,
+                width: 55
+            }
+        })
+        marker.addListener('click', function () {
+            info.open(map, marker);
+        });
+        var bermudaTriangle = new google.maps.Polygon({
+            paths: [
+                {lat: 25.774, lng: -80.190},
+                {lat: 18.466, lng: -66.118},
+                {lat: 32.321, lng: -64.757},
+                {lat: 25.774, lng: -80.190}
+            ],
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 0.5,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            clickable: true,
+            draggable: true,
+            editable: false,
+            geodesic: false,
+            map: map,
+            icon: '',
+            visible: true,
+            zIndex: 5
+        });
+        bermudaTriangle.setMap(map);
+        // Load GeoJSON.
+        map.data.loadGeoJson(
+            'https://storage.googleapis.com/mapsdevsite/json/google.json');
+
+        // Color each letter gray. Change the color when the isColorful property
+        // is set to true.
+        map.data.setStyle(function (feature) {
+            var color = 'gray';
+            if (feature.getProperty('isColorful')) {
+                color = feature.getProperty('color');
+            }
+            return /** @type {!google.maps.Data.StyleOptions} */({
+                fillColor: color,
+                strokeColor: color,
+                strokeWeight: 0.5,
+                clickable: true,
+                cursor: 'pointer',
+                draggable: false,
+                editable: false,
+                icon: '',
+                shape: '',
+                title: '',
+                visible: true,
+                zIndex: 6
+            });
+        });
+
+        // When the user clicks, set 'isColorful', changing the color of the letters.
+        map.data.addListener('click', function (event) {
+            event.feature.setProperty('isColorful', true);
+        });
+
+        // When the user hovers, tempt them to click by outlining the letters.
+        // Call revertStyle() to remove all overrides. This will use the style rules
+        // defined in the function passed to setStyle()
+        map.data.addListener('mouseover', function (event) {
+            map.data.revertStyle();
+            map.data.overrideStyle(event.feature, {strokeWeight: 8});
+        });
+
+        map.data.addListener('mouseout', function (event) {
+            map.data.revertStyle();
+        });
+        var kmlLayer = new google.maps.KmlLayer( {
+            suppressInfoWindows: true,
+            preserveViewport: false,
+            map: map,
+            screenOverlays: false,
+            zIndex: 5,
+            clickable:true,
+            url:'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml'
+        });
+        map.setTilt(45);
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkxS5l87lclaC6MIWSGejdCXL13wSShRo&callback=initMap"
+        async defer></script>
+
+</body>
+</html>

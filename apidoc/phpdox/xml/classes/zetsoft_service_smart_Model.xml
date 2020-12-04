@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="zetsoft\service\smart\Model" namespace="zetsoft\service\smart" name="Model" abstract="false" final="false" start="55" end="925">
+  <file path="D:/Develop/Projects/ALL/asrorz/zetsoft/service/smart" file="Model.php" realpath="D:/Develop/Projects/ALL/asrorz/zetsoft/service/smart/Model.php" size="23728" time="2020-09-24T16:55:16+05:00" unixtime="1600948516" sha1="fd1b5c25cf7c9be577b63400394836cc65dd1377" relative="Model.php"/>
+  <docblock>
+    <description/>
+  </docblock>
+  <extends full="zetsoft\system\kernels\ZFrame" namespace="zetsoft\system\kernels" name="ZFrame" unresolved="true"/>
+  <member name="fromTable" visibility="public" static="false" line="65"/>
+  <constant type="array" name="Path" value=""/>
+  <member name="db" visibility="public" static="false" line="86"/>
+  <member name="dbase" visibility="public" static="false" line="92">
+    <docblock>
+      <description/>
+      <var>Given DB Name</var>
+    </docblock>
+  </member>
+  <member name="dbName" visibility="private" static="false" line="94"/>
+  <member name="allApp" visibility="public" static="false" line="98"/>
+  <member name="setter" visibility="public" static="false" line="101"/>
+  <member name="schema" visibility="private" static="false" line="110">
+    <docblock>
+      <var description="$schema" type="object">
+        <type full="zetsoft\system\schema\PgSqlSchema" namespace="zetsoft\system\schema" name="PgSqlSchema"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="dbNames" visibility="private" static="false" line="111"/>
+  <member name="tables" visibility="private" static="false" line="115">
+    <docblock>
+      <var description="$tables" type="array" of="object">
+        <type full="zetsoft\service\smart\TableSchema" namespace="zetsoft\service\smart" name="TableSchema"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="table" visibility="private" static="false" line="118">
+    <docblock>
+      <var description="$table" type="object">
+        <type full="yii\db\TableSchema" namespace="yii\db" name="TableSchema"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="comment" visibility="private" static="false" line="120"/>
+  <member name="path" visibility="private" static="false" line="122"/>
+  <member name="pathAll" visibility="private" static="false" line="123"/>
+  <method name="init" start="130" end="146" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="clean" start="155" end="161" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="run" start="163" end="167" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="table" start="170" end="175" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="all" start="178" end="210" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="dbase" start="219" end="260" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="tableNames" start="263" end="281" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="classes" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="item" start="284" end="323" abstract="false" final="false" static="false" visibility="private">
+    <inline>
+      <comment value="Initing" line="287"/>
+      <comment value="$this-&gt;className" line="293"/>
+      <comment value="$this-&gt;comments" line="297"/>
+      <comment value="Settings" line="301"/>
+      <comment value="$setter-&gt;namespace = 'zetsoft\\models\\' . App;" line="314"/>
+      <comment value="$setter-&gt;namespace = 'zetsoft\\models\\test2';" line="315"/>
+      <comment value="$setter-&gt;namespace = 'zetsoft\\models' . $this-&gt;nameSpace();" line="321"/>
+    </inline>
+  </method>
+  <method name="fromTable" start="331" end="340" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="fromJson" start="342" end="365" abstract="false" final="false" static="false" visibility="private">
+    <inline>
+      <comment value="Casting Types" line="352"/>
+    </inline>
+  </method>
+  <method name="getColumns" start="373" end="479" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="class" byreference="false" type="{unknown}"/>
+    <parameter name="array" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="allapp" start="488" end="495" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="configs" start="498" end="528" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="cards" start="531" end="557" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="columns" start="560" end="638" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="defaultValue" start="646" end="654" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="column" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="defaultExpression" start="656" end="666" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="column" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isAddID" start="669" end="680" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isDel" start="682" end="693" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isAddBy" start="695" end="709" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="isExcluded" start="712" end="728" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="isIndexAddBy" start="731" end="743" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="allApp" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="isIndexCode" start="745" end="759" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="allApp" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="isIndexSort" start="761" end="774" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="allApp" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="isIndexName" start="776" end="789" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="allApp" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="isIndexIsDel" start="791" end="804" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="allApp" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="isIndexAddId" start="806" end="819" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="allApp" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="isIndexLang" start="821" end="827" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="allApp" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="isIndexSlug" start="829" end="835" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="allApp" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="isIndexHistory" start="837" end="843" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="index" byreference="false" type="{unknown}"/>
+    <parameter name="allApp" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="getClass" start="846" end="851" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="baseClass" start="853" end="876" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="classname" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="nameSpace" start="879" end="887" abstract="false" final="false" static="false" visibility="private"/>
+  <method name="comments" start="889" end="919" abstract="false" final="false" static="false" visibility="private"/>
+</class>

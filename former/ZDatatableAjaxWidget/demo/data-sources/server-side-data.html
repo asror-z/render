@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://github.com/downloads/lafeber/world-flags-sprite/flags32.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"> </script>
+
+
+    <script>
+
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "processing": true,
+                "serverSide": true,
+                "ajax": "../server_side/scripts/server_processing.php"
+            } );
+        } );
+        
+    </script>
+</head>
+<body>
+
+<!--https://datatables.net/examples/data_sources/server_side.html
+
+There are many ways to get your data into DataTables, and if you are working with seriously large databases, you might want to consider using the server-side options that DataTables provides. With server-side processing enabled, all paging, searching, ordering actions that DataTables performs are handed off to a server where an SQL engine (or similar) can perform these actions on the large data set (after all, that's what the database engine is designed for!). As such, each draw of the table will result in a new Ajax request being made to get the required data.
+
+Server-side processing is enabled by setting the serverSide option to true and providing an Ajax data source through the ajax option.
+
+This example shows a very simple table, matching the other examples, but in this instance using server-side processing. For further and more complex examples of using server-side processing, please refer to the server-side processing exampl
+-->
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

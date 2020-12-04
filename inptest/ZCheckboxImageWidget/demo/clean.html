@@ -1,0 +1,46 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+    <img class="checkable" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQYh-gwkaik2hwrBRWcjqm-LHucQGKcqVGdE6B5pMuAjzz_zLGb"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/imgcheckbox@0.5.3/jquery.imgcheckbox.js"></script>
+    <script>
+        /*$("img").imgCheckbox({
+            graySelected: true,
+            scaleSelected: true,
+            fixedImageSize: false,
+            checkMarkSize: "30px",
+            checkMarkPosition: 'top-left',
+            scaleCheckMark: true,
+            fadeCheckMark: false,
+            addToForm: true,
+            preselect: [], // { preselect: [0,1,2] }, { preselect: true }
+            radio: false,
+            canDeselect: false,
+
+        });*/
+
+        $("img").imgCheckbox({
+            onload: function(){
+                // Do something fantastic!
+            },
+            onclick: function(el){
+                var isChecked = el.hasClass("imgChked"),
+                    imgEl = el.children()[0];  // the img element
+                console.log(imgEl.name + " is now " + (isChecked? "checked": "not-checked") + "!");
+            }
+        });
+
+
+    </script>
+    </body>
+    </html>
+    
+
+    

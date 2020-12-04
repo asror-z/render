@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://www.jqueryscript.net/demo/jQuery-Plugin-For-Interactive-Search-Filter-sieve/ -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Demo for Sieve jQuery Plugin</title>
+    <link href="./demo_files/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        margin-left: 30%;
+    }
+</style>
+
+<body>
+
+
+    <h2>Demo</h2>
+    <p>
+        Start typing in one of the search fields to filter the associated datasets.
+    </p>
+    <!-- 
+    <div class="row">
+        <div class="span4">
+            <h4>US President Birthplaces</h4>
+            <div id="presidents">
+
+                <table class="table table-hover table-bordered table-sieve">
+                    <thead>
+                        <tr>
+                            <th>President</th>
+                            <th>Birthplace</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Zachary Taylor</td>
+                            <td>Barboursville, Virginia</td>
+                        </tr>
+                        <tr>
+                            <td>Warren G. Harding</td>
+                            <td>Blooming Grove, Ohio</td>
+                        </tr>
+                        <tr>
+                            <td>John Quincy Adams</td>
+                            <td>Braintree, Massachusetts</td>
+                        </tr>
+                        <tr>
+                            <td>John F. Kennedy</td>
+                            <td>Brookline, Massachusetts</td>
+                        </tr>
+                        <tr>
+                            <td>Grover Cleveland</td>
+                            <td>Caldwell, New Jersey</td>
+                        </tr>
+                        <tr>
+                            <td>William Henry Harrison</td>
+                            <td>Charles City County, Virginia</td>
+                        </tr>
+                        <tr>
+                            <td>John Tyler</td>
+                            <td>Charles City County, Virginia</td>
+                        </tr>
+                        <tr>
+                            <td>William Howard Taft</td>
+                            <td>Cincinnati, Ohio</td>
+                        </tr>
+                        <tr>
+                            <td>James Buchanan</td>
+                            <td>Cove Gap, Pennsylvania</td>
+                        </tr>
+                        <tr>
+                            <td>Rutherford B. Hayes</td>
+                            <td>Delaware, Ohio</td>
+                        </tr>
+                        <tr>
+                            <td>Dwight D. Eisenhower</td>
+                            <td>Denison, Texas</td>
+                        </tr>
+                        <tr>
+                            <td>Chester A. Arthur</td>
+                            <td>Fairfield, Vermont</td>
+                        </tr>
+                        <tr>
+                            <td>Franklin Pierce</td>
+                            <td>Hillsborough, New Hampshire</td>
+                        </tr>
+                        <tr>
+                            <td>Barack Obama</td>
+                            <td>Honolulu, Hawaii</td>
+                        </tr>
+                        <tr>
+                            <td>Bill Clinton</td>
+                            <td>Hope, Arkansas</td>
+                        </tr>
+                        <tr>
+                            <td>Franklin D. Roosevelt</td>
+                            <td>Hyde Park, New York</td>
+                        </tr>
+                        <tr>
+                            <td>Martin Van Buren</td>
+                            <td>Kinderhook, New York</td>
+                        </tr>
+                        <tr>
+                            <td>Harry S. Truman</td>
+                            <td>Lamar, Missouri</td>
+                        </tr>
+                        <tr>
+                            <td>Andrew Jackson</td>
+                            <td>Lancaster County, South Carolina</td>
+                        </tr>
+                        <tr>
+                            <td>George H. W. Bush</td>
+                            <td>Milton, Massachusetts</td>
+                        </tr>
+                        <tr>
+                            <td>James A. Garfield</td>
+                            <td>Moreland Hills, Ohio</td>
+                        </tr>
+                        <tr>
+                            <td>George W. Bush</td>
+                            <td>New Haven, Connecticut</td>
+                        </tr>
+                        <tr>
+                            <td>Theodore Roosevelt</td>
+                            <td>New York City, New York</td>
+                        </tr>
+                        <tr>
+                            <td>William McKinley</td>
+                            <td>Niles, Ohio</td>
+                        </tr>
+                        <tr>
+                            <td>Abraham Lincoln</td>
+                            <td>Nolin Creek, Kentucky</td>
+                        </tr>
+                        <tr>
+                            <td>Benjamin Harrison</td>
+                            <td>North Bend, Ohio</td>
+                        </tr>
+                        <tr>
+                            <td>Gerald Ford</td>
+                            <td>Omaha, Nebraska</td>
+                        </tr>
+                        <tr>
+                            <td>James K. Polk</td>
+                            <td>Pineville, North Carolina</td>
+                        </tr>
+                        <tr>
+                            <td>Jimmy Carter</td>
+                            <td>Plains, Georgia</td>
+                        </tr>
+                        <tr>
+                            <td>Calvin Coolidge</td>
+                            <td>Plymouth, Vermont</td>
+                        </tr>
+                        <tr>
+                            <td>Ulysses S. Grant</td>
+                            <td>Point Pleasant, Ohio</td>
+                        </tr>
+                        <tr>
+                            <td>James Madison</td>
+                            <td>Port Conway, Virginia</td>
+                        </tr>
+                        <tr>
+                            <td>John Adams</td>
+                            <td>Braintree, Massachusetts</td>
+                        </tr>
+                        <tr>
+                            <td>Andrew Johnson</td>
+                            <td>Raleigh, North Carolina</td>
+                        </tr>
+                        <tr>
+                            <td>Thomas Jefferson</td>
+                            <td>Shadwell, Virginia</td>
+                        </tr>
+                        <tr>
+                            <td>Lyndon B. Johnson</td>
+                            <td>Stonewall, Texas</td>
+                        </tr>
+                        <tr>
+                            <td>Woodrow Wilson</td>
+                            <td>Staunton, Virginia</td>
+                        </tr>
+                        <tr>
+                            <td>Millard Fillmore</td>
+                            <td>Moravia, New York</td>
+                        </tr>
+                        <tr>
+                            <td>Ronald Reagan</td>
+                            <td>Tampico, Illinois</td>
+                        </tr>
+                        <tr>
+                            <td>Herbert Hoover</td>
+                            <td>West Branch, Iowa</td>
+                        </tr>
+                        <tr>
+                            <td>George Washington</td>
+                            <td>Westmoreland County, Virginia</td>
+                        </tr>
+                        <tr>
+                            <td>James Monroe</td>
+                            <td>Westmoreland County, Virginia</td>
+                        </tr>
+                        <tr>
+                            <td>Richard Nixon</td>
+                            <td>Yorba Linda, California</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+    <div class="table-sieve">
+        <p>first</p>
+        <p>two</p>
+        <p>three</p>
+        <p>four</p>
+        <p>five</p>
+    </div>
+
+    <div class=< script type="text/javascript" async="" src="./demo_files/ga.js.download">
+        </script>
+        <script src="./demo_files/jquery-1.9.1.min.js.download" type="text/javascript"></script>
+        <script src="./demo_files/jquery.sieve.js.download" type="text/javascript"></script>
+        <script>
+            var searchTemplate = "<div class='row form-inline'><label style='float: right;'>Search: <input type='text' placeholder='(start typing)'></label></div>"
+            $(".table-sieve").sieve({
+                searchTemplate: searchTemplate,
+                itemSelector: "p"
+            });
+            searchTemplate = "<div class='row form-inline'><label style='float: right;'>Find a Quote: <input type='text' placeholder='(try typing &quot;einstein&quot;)'></label></div>"
+            $(".p-sieve").sieve({
+                searchTemplate: searchTemplate,
+                itemSelector: "p"
+            });
+        </script>
+
+
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36251023-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+
+
+
+</body>
+
+</html>

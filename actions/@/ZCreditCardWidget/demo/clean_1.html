@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://www.jqueryscript.net/demo/Filter-Shuffle-A-Grid-Of-Items-with-jQuery-CSS3/# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Credit Card</title>
+    <style>
+        body { background: #e67e22; }
+
+        .main {
+            width: 832px;
+            margin: auto;
+        }
+
+        .filter {
+            font-family: calibri, sans-serif;
+            font-size: 13px;
+            margin-bottom: 30px;
+            margin-left: -7px;
+        }
+
+        .filter li {
+            display: inline;
+            color: #fff;
+        }
+
+        .filter a {
+            margin-right: 7px;
+            margin-left: 7px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .filter .on { text-decoration: underline; }
+
+        .grid a {
+            display: inline-block;
+            font-size: 0;
+            float: left;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            -moz-transition: all 0.4s ease;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        .grid .hidden {
+            opacity: 0;
+            -moz-transform: scale(0);
+            -webkit-transform: scale(0);
+            -o-transform: scale(0);
+            -ms-transform: scale(0);
+            transform: scale(0);
+        }
+
+        .grid img {
+            width: 203px;
+            height: 128px;
+        }
+    </style>
+    <link href="./demo_1_files/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<div id="jquery-script-menu">
+
+</div>
+<h1 style="margin:150px auto 50px auto; color:#fff;" align="center">Credit Card</h1>
+<div class="main">
+    <ul class="filter">
+        <li><a href="#" class="on">All</a></li>
+        <li>/</li>
+        <li><a href="#" data-filter=".type-1" class="">Type One</a></li>
+        <li>/</li>
+        <li><a href="#" data-filter=".type-2" class="">Type Two</a></li>
+        <li>/</li>
+        <li><a href="#" data-filter=".type-3" class="">Type Three</a></li>
+        <li>/</li>
+        <li><a href="#" data-filter=".type-4" class="">Type Four</a></li>
+        <li>/</li>
+        <li><a href="#" data-filter=".type-5" class="">Type Five</a></li>
+        <li>/</li>
+        <li><a href="#" data-filter=".type-6" class="">Type Six</a></li>
+    </ul>
+    <div class="grid">
+        <a href="#" class="type-1"><img src="./demo_1_files/1.png"></a>
+        <a href="#" class="type-2 type-3 type-4 type-5"><img src="./demo_1_files/2.png"></a>
+        <a href="#" class="type-2 type-6"><img src="./demo_1_files/3.png"></a>
+        <a href="#" class="type-3 type-2"><img src="./demo_1_files/4.png"></a>
+        <a href="#" class="type-4"><img src="./demo_1_files/5.png"></a> <a href="#" class="type-1"><img src="./demo_1_files/6.png"></a> <a href="#" class="type-5 type-2"><img src="./demo_1_files/7.png"></a>
+        <a href="#" class="type-6"><img src="./demo_1_files/8.png"></a>
+        <a href="#" class="type-4 type-2 type-1"><img src="./demo_1_files/9.png"></a>
+        <a href="#" class="type-5 type-1"><img src="./demo_1_files/10.png"></a>
+        <a href="#" class="type-6 type-4"><img src="./demo_1_files/11.png"></a>
+        <a href="#" class="type-5 type-3 type-4"><img src="./demo_1_files/12.png"></a> </div>
+</div>
+<script src="./demo_1_files/jquery.min.js.Без названия"></script>
+<script>
+    $(document).ready(function(){
+        $(".filter a").click(function(e){
+            var $this = $(this),
+                data = $this.data("filter");
+
+            $(".filter").find(".on").removeClass("on");
+            $this.addClass("on");
+            $(".grid").find(".hidden").removeClass("hidden");
+            if(data){
+                $(".grid a").not(data).addClass("hidden");
+            };
+
+            e.preventDefault();
+        });
+    });
+</script>
+
+</body>
+</html>

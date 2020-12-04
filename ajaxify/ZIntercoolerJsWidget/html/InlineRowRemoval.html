@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intercooler@1.2.3/dist/intercooler.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-mockjax@2.5.0/dist/jquery.mockjax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody ic-confirm="Are you sure?" ic-target="closest tr">
+    <tr id="row-0">
+        <td>Joe Smith</td>
+        <td>joe@smith.org</td>
+        <td>Active</td>
+        <td>
+            <button class="btn btn-danger" ic-delete-from="/contacts/0">
+                Delete
+                <i class="ic-indicator fa fa-spinner fa-spin" style="display: none"></i>
+            </button>
+        </td>
+    </tr>
+    <tr id="row-1">
+        <td>Angie MacDowell</td><td>angie@macdowell.org</td><td>Active</td>
+        <td>
+            <button class="btn btn-danger" ic-delete-from="/contacts/1">
+                Delete
+                <i class="ic-indicator fa fa-spinner fa-spin" style="display: none"></i>
+            </button>
+        </td>
+    </tr>
+    <tr id="row-2">
+        <td>Fuqua Tarkenton</td><td>fuqua@tarkenton.org</td><td>Active</td>
+        <td>
+            <button class="btn btn-danger" ic-delete-from="/contacts/2">
+                Delete
+                <i class="ic-indicator fa fa-spinner fa-spin" style="display: none"></i>
+            </button>
+        </td>
+    </tr>
+    <tr id="row-3">
+        <td>Kim Yee</td><td>kim@yee.org</td><td>Inactive</td>
+        <td>
+            <button class="btn btn-danger" ic-delete-from="/contacts/3">
+                Delete
+                <i class="ic-indicator fa fa-spinner fa-spin" style="display: none"></i>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    
+    $.mockjax({
+        url: /\/contacts\/.*/,
+        responseTime: 750,
+        headers : { 'X-IC-Remove' : "1s" }
+    });
+</script>
+
+
+<style>
+    tr.ic-removing td {
+        opacity: 0;
+        transition: all 1s ease;
+    }
+</style>
+
+</body>
+</html>

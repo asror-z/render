@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>LazyLoad</title>
+        <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js">
+
+            
+        </script>
+        <style>
+            ul li {
+                display: block;
+            }
+        </style>
+    </head>
+<body>
+
+
+    <ul>
+        <li>
+            <div>
+
+                <img class="lazyload" data-src="https://images.squarespace-cdn.com/content/v1/5a5906400abd0406785519dd/1552662149940-G6MMFW3JC2J61UBPROJ5/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/baelen.jpg?format=1500w" width="355" height="280" />
+
+            </div>
+        </li>                            
+        <li>
+            <img class="lazyload" data-src="https://earthsky.org/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg" width="355" height="280" />
+        </li>
+
+        <li>
+            <div class="lazy" src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" data-src="img/light_1.jpg" alt="Aziz"></div>
+        </li>
+
+        <li>
+            <img class="lazyload" data-src="https://filedn.com/ltOdFv1aqz1YIFhf4gTY8D7/ingus-info/BLOGS/Photography-stocks3/stock-photography-slider.jpg" width="355" height="280" />
+        </li>
+        <li>
+            <img class="lazyload" data-src="https://davidwalsh.name/demo/herrera-wtf-once.gif?" width="335" height="280" />
+        </li>
+        <li>
+            <img class="lazyload" data-src="https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg" width="355" height="280" />
+        </li>
+        <li>
+            <img class="lazyload" data-src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" width="355" height="280" />
+        </li>
+
+    </ul>
+
+    <script>
+        lazyload();
+        let images = document.querySelectorAll(".branwdo");
+        new LazyLoad(images, {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0
+        });
+        let videos = document.querySelectorAll(".branwdo");
+        lazyload(videos);
+        new LazyLoad(videos, {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0
+        });
+        
+    </script>
+</body>
+</html>

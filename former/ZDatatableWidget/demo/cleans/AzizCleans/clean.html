@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://github.com/downloads/lafeber/world-flags-sprite/flags32.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"> </script>
+
+    <style>
+        .f32 .flag {
+            vertical-align: middle;
+            margin: -8px 0;
+        }
+
+        progress {
+            width: 100%;
+        }
+    </style>
+
+
+</head>
+
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10
+.21/type-detection/file-size.js"></script>
+
+
+<!--Numbers with HTML
+Detect data which is a mix of HTML and numeric data.-->
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/type-detection/num-html.js"></script>
+
+<!--Currency
+Detect data of numeric type with a leading currency symbol.-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/type-detection/currency.js"></script>
+
+
+
+
+<!--Numbers with HTML
+Detect data which is a mix of HTML and numeric data.-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/type-detection/num-html.js"></script>
+
+
+<!--Date (`dd/mm/yyyy`)
+Detect data which is in the date format dd/mm/yyyy-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/type-detection/date-uk.js"></script>
+
+
+<!--IP address detection
+Detect data which is in IP address notation-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/type-detection/ip-address.js"></script>
+
+
+<!--Formatted numbers
+formatted_numbers-->
+<script src="//cdn.datatables.net/plug-ins/1.10.21/type-detection/formatted-num.js"></script>
+
+
+
+
+<!--percentBar
+Display percentage value as a bar-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/dataRender/percentageBars.js"></script>
+
+
+
+<!--datetime
+Convert date / time source data into one suitable for display-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js"></script>
+
+
+<!--ellipsis
+Restrict output data to a particular length, showing anything longer with ellipsis and a browser provided tooltip on hover.-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/dataRender/ellipsis.js"></script>
+
+
+<!--row().show()
+See the row in datable by display the right pagination page-->
+<script src="//cdn.datatables.net/plug-ins/1.10.21/api/row().show().js"></script>
+
+
+<!--average()
+Average the values in a data set.-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/api/average().js"></script>
+
+<!--column().title()
+Get the title of a column-->
+<script src="//cdn.datatables.net/plug-ins/1.10.21/api/column().title().js"></script>
+
+<!--order.neutral()
+Change ordering of the table to its data load order-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/api/order.neutral().js"></script>
+
+
+<!--columns().order()
+Apply multi-column ordering through the columns() API method.-->
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/api/columns().order().js"></script>
+
+
+
+<!--rows().generate()
+Create tr elements for rows which have not yet had their nodes created.-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/api/rows().generate().js"></script>
+
+
+<!--page.JumpToData()
+Jump to a page by searching for data from a column-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/api/page.jumpToData().js"></script>
+
+
+<!--processing()
+Show / hide the processing indicator via the API-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/api/processing().js"></script>
+
+
+<!--sum()
+Sum the values in a data set.-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/api/sum().js"></script>
+
+
+<!--Four button navigation
+Display forward, back, first and last buttons.-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/pagination/four_button.js"></script>
+
+
+
+
+<!--ExtJS style
+Pagination in the styling of ExtJS-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/pagination/extjs.js"></script>
+
+<!--Scrolling navigation
+Show page changes as a redraw of the table, scrolling records-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/pagination/scrolling.js"></script>
+
+
+<!--Simple Incremental navigation (Bootstrap)
+Shows forward/back buttons and all known page numbers.-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/pagination/simple_incremental_bootstrap.js"></script>
+
+
+<!--Select list
+Show a select list of pages the user can pick from.-->
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/pagination/select.js"></script>
+
+
+
+<!--Full Numbers - No Ellipses
+Same pagination as 'full_numbers' but without ellipses-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/pagination/full_numbers_no_ellipses.js"></script>
+
+
+
+<!--Simple Numbers - No Ellipses
+Same pagination as 'simple_numbers' but without ellipses-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10
+.21/pagination/simple_numbers_no_ellipses.js"></script>
+
+
+<!--Navigation with text input
+Shows an input element into which the user can type a page number-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/pagination/input.js"></script>
+
+
+<!--html
+Strip HTML using DOM methods-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/filtering/type-based/html.js"></script>
+
+
+<!--Phone number
+Make phone numbers searchable formatted or unformatted-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/filtering/type-based/phoneNumber.js"></script>
+<!--Accent neutralise
+Replace accented characters with unaccented counterparts-->
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/filtering/type-based/accent-neutralise.js"></script>
+<!--Date range filter
+Filter the table based on two dates in different columns-->
+<script src="//cdn.datatables.net/plug-ins/1.10.21/filtering/row-based/range_dates.js"></script>
+
+<!--Range filtering (numbers)
+Filter the data between two numbers (inclusive)-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/filtering/row-based/range_numbers.js"></script>
+
+<!--Show selected only
+Show only selected rows, or all rows, through filtering-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/filtering/row-based/TableTools.ShowSelectedOnly.js"></script>
+
+
+<!--time-elapsed-dhms
+Created by caochenghua on 2016/12/22.
+
+-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/time-elapsed-dhms.js"></script>
+
+
+<!--Nepali numbers
+Sorts columns containing UTF8 nepali numbers-->
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/nepali-numbers.js"></script>
+
+<!--Czech
+
+Sort locale aware sorting for Czech-->
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/czech-string.js"></script>
+
+
+<!--chapter
+Sort book chapters numerically-->
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/chapter.js"></script>
+
+<!--Natural sorting
+Sort data with a mix of numbers and letters naturally.-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/natural.js"></script>
+
+
+
+<!--Any number
+Sort column with mixed numerical content by number-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/any-number.js"></script>
+
+
+<!--Date (MM YY)-->
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/monthYear.js"></script>
+
+
+\
+<!--File size
+Sort abbreviated file sizes correctly (8MB, 4KB, etc)-->
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/file-size.js"></script>
+
+
+<!--enum
+Dynamically create enum sorting options for a DataTable-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/enum.js"></script>
+
+
+<!--Diacritics-neutralise-sort
+Better sort of strings containing accented characters (diacritical marks)-->
+
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/diacritics-sort.js"></script>
+
+
+<!--Date (dd/mm/YYYY hh:ii:ss)
+Sort date / time in the format dd/mm/YYYY hh:ii:ss-->
+
+<script src="//cdn.datatables.net/plug-ins/1.10.21/sorting/date-euro.js"></script>
+
+
+<body>
+
+<!--https://datatables.net/examples/basic_init/data_rendering.html
+
+Data within DataTables can be easily rendered to add graphics or colour to your tables, as demonstrated in the example on this page. These examples make use of columns.render to customise the cells in three ways:
+
+A flag is added to the Office column
+a HTML5 progress bar is added to the Progress column
+and the built-in number renderer is used to format the Salary.
+See the data rendering manual page for more details on how to use data renderers. Also, this example uses Ajax to load the data. More Ajax examples are available.
+-->
+
+<table id="example" class="display nowrap" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Progress</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Progress</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            ajax: '../../ajax/data/objects_salary',
+        /*    "ajax": {
+                "url": "data.json",
+                "type": "POST",
+                "dataSrc": "tableData"
+            },*/
+
+            /*deferRender: true,
+            scrollY:     300,
+            scroller: false,*/ /*  {
+            boundaryScale: 0.75,
+            displayBuffer: 20,
+            loadingIndicator: true,
+            rowHeight: 30,
+             serverWait: 500,
+
+        },*/
+            columns: [
+                {
+                    data: 'name'
+                },
+                {
+                    data: 'position'
+                },
+                {
+                    className: 'f32', // used by world-flags-sprite library
+                    data: 'office',
+                    render: function(data, type) {
+                        if (type === 'display') {
+                            var country = '';
+
+                            switch (data) {
+                                case 'Argentina':
+                                    country = 'ar';
+                                    break;
+                                case 'Edinburgh':
+                                    country = '_Scotland';
+                                    break;
+                                case 'London':
+                                    country = '_England';
+                                    break;
+                                case 'New York':
+                                case 'San Francisco':
+                                    country = 'us';
+                                    break;
+                                case 'Sydney':
+                                    country = 'au';
+                                    break;
+                                case 'Tokyo':
+                                    country = 'jp';
+                                    break;
+                            }
+
+                            return '<span class="flag ' + country + '"></span> ' + data;
+                        }
+
+                        return data;
+                    }
+                },
+                {
+                    data: 'extn',
+                    render: function(data, type, row, meta) {
+                        return type === 'display' ?
+                            '<progress value="' + data + '" max="9999"></progress>' :
+                            data;
+                    }
+                },
+                {
+                    data: "start_date"
+                },
+                {
+                    data: "salary",
+                    render: $.fn.dataTable.render.number( ',', '.', 2, '$' )
+                }
+            ],
+            language: {
+                select: {
+                    cells: "%d cells selected"
+                },
+                paginate: {
+                    first:    '«',
+                    previous: '‹',
+                    next:     '›',
+                    last:     '»'
+                },
+                aria: {
+                    paginate: {
+                        first:    'First',
+                        previous: 'Previous',
+                        next:     'Next',
+                        last:     'Last'
+                    }
+                },
+                "decimal": ",",
+                "infoPostFix": "All records shown are derived from real information.",
+                "processing": "DataTables is currently busy",
+
+
+                /*"decimal": "-",
+                "thousands": "."*/
+            },
+            select: {
+                info: false,
+                items: 'cells',
+              /*  blurable: true,
+                style:    'os',
+                selector: 'td:first-child',
+                blurable: true,
+                style:    'os',
+                selector: 'td:not(:last-child)',
+                style: 'api',*/
+                toggleable: false,
+                
+            },
+            style:     'os',
+            className: 'row-selected',
+            buttons:[
+                {
+                    extend: 'searchPanes',
+                    config: {
+                        cascadePanes: true
+                    }
+                }
+            ],
+            dom: 'Bfrtip',
+            columnDefs:[
+                {
+                    columnDefs:[
+                        {
+                            searchPanes: {
+                                header: 'Length of Life',
+                                combiner: 'and',
+                                hideCount: true,
+                                options:[
+                                    {
+                                        label: 'Under 20',
+                                        value: function(rowData, rowIdx){
+                                            return rowData[4] < 20;
+                                        }
+                                    },
+                                    {
+                                        label: '20 to 30',
+                                        value: function(rowData, rowIdx){
+                                            return rowData[4] <= 30 && rowData[4] >=20;
+                                        }
+                                    },
+                                    {
+                                        label: '30 to 40',
+                                        value: function(rowData, rowIdx){
+                                            return rowData[4] <= 40 && rowData[4] >=30;
+                                        }
+                                    },
+                                    {
+                                        label: '40 to 50',
+                                        value: function(rowData, rowIdx){
+                                            return rowData[4] <= 50 && rowData[4] >=40;
+                                        }
+                                    },
+                                    {
+                                        label: '50 to 60',
+                                        value: function(rowData, rowIdx){
+                                            return rowData[4] <= 60 && rowData[4] >=50;
+                                        }
+                                    },
+                                    {
+                                        label: 'Over 60',
+                                        value: function(rowData, rowIdx){
+                                            return rowData[4] > 60;
+                                        }
+                                    },
+                                                                                        {
+                                                                                            label: 'Not Edinburgh',
+                                                                                            value: function(rowData, rowIdx){
+                                                                                                return rowData[3] !== 'Edinburgh';
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            label: 'Not London',
+                                                                                            value: function(rowData, rowIdx){
+                                                                                                return rowData[3] !== 'London';
+                                                                                            }
+                                                                                        }
+                                ],
+                                panes: [
+                                    {
+                                        header:'Custom',
+                                        options:[
+                                            {
+                                                label:'Accountants from Tokyo',
+                                                value: function(rowData, rowIdx){
+                                                    return rowData[1] === 'Accountant' && rowData[2] === 'Tokyo';
+                                                }
+                                            }
+                                        ],
+                                        className:"PaneSpecific"
+                                    }
+                                ],
+                                preSelect: ['Edinburgh','London'],
+                                viewTotal: true,
+                                columns: [0, 3, 4],
+                                buttons:[
+                                    'searchPanes'
+                                ],
+                                title: {
+                                    _: 'Filters Selected - %d',
+                                    0: 'No Filters Selected',
+                                    1: 'One Filter Selected'
+                                },
+                                count: '{total} found',
+                                countFiltered: '{shown} ({total})',
+                                collapse: {
+                                    0: 'Search Options',
+                                    1: 'Search (one selected)',
+                                    _: 'Search Options (%d)'
+                                },
+                                emptyPanes: 'There are no panes to display. :/',
+
+
+                                /*threshold: 0.99,*/
+                            },
+                            targets:[4],
+                        },
+
+                    ],
+                    dtOpts:{
+                        searching:false,
+                        info: true,
+                    },
+                    targets:[2],
+                }
+             ],
+            rowReorder: true,
+            keys: {
+                columns: ':not(:first-child)',
+                blurable: false,
+                className: 'highlight',
+                clipboard: false,
+                clipboardOrthogonal: 'export',
+               /* columns: [ 1, 2, 3, 4 ],*/
+                focus: ':eq(0)',
+                keys: [ "\t".charCodeAt(0) ],
+                tabIndex: 2,
+
+            },
+            fixedHeader: {
+                footer: true,
+                header: false,
+                footerOffset: 40,
+                /*footerOffset: $('#navMenu').outerHeight()*/
+
+
+            },
+            fixedColumns: {
+                leftColumns: 2,
+                heightMatch: 'none',
+                rightColumns: 1,
+            },
+            "deferRender": true,
+            "info": true,
+            "lengthChange": true,
+            "ordering": true,
+            "paging": true,
+            "serverSide": true, ////////////////////////,
+            stateSave: true,
+
+
+
+
+     /*   {
+            selector: ':last-child',
+            dataSrc: 'sequence', 'race.order',
+            dataSrc: 'sequence',
+            editor:  editor,
+            enable: false,
+            snapX: true, //snapX: -5,
+            update: false,
+
+
+        }   */
+            rowGroup: true,
+            dataSrc: 'group',
+            /*enable: false,*/
+
+            responsive: {
+                breakpoints: [
+                    {name: 'bigdesktop', width: Infinity},
+                    {name: 'meddesktop', width: 1480},
+                    {name: 'smalldesktop', width: 1280},
+                    {name: 'medium', width: 1188},
+                    {name: 'tabletl', width: 1024},
+                    {name: 'btwtabllandp', width: 848},
+                    {name: 'tabletp', width: 768},
+                    {name: 'mobilel', width: 480},
+                    {name: 'mobilep', width: 320}
+                ],
+                orthogonal: 'responsive'
+            },
+            pagingType: 'full',
+           
+     /*   {
+            dataSrc: 'group',
+            className: 'table-group',
+        }*/
+
+
+        });
+    });
+</script>
+
+</body>
+</html>

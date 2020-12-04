@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML5 File API</title>
+    <link rel="stylesheet" href="/publish/yarner/mdbootstrap/css/mdb.min.css">
+</head>
+<body>
+
+<input type="file" id="fileUpload" class="file"/>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="/publish/yarner/mdbootstrap/js/bootstrap.min.js"></script>
+
+<script>
+$('.clickMeBtn').click(function () {
+    var prop = document.getElementById('fileUpload').files[0];
+    var formData = new FormData();
+    formData.append('file', prop);
+    $.ajax({
+        url: "documentPHP",
+        data: formData,
+        method: 'POST',
+        beforeSend: function(){
+            $.html('sending')
+        },
+        success: function(){
+            alert('OK all files uploaded')
+        }
+    });
+})
+</script>
+</body>
+</html>

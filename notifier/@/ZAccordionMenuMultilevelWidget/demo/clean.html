@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+ <html lang="en">
+   <head>
+         <meta charset="utf-8"/>
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+         <title>jQuery Accordion Menu </title>
+         <link href="/testing/Notifier/Accordeon/_____/____Best/thanhnhan2tn jquery-accordion-menu-multilevel/demo_files/font-awesome.min.css" rel="stylesheet"/>
+
+       <link href="/testing/Notifier/Accordeon/_____/____Best/thanhnhan2tn jquery-accordion-menu-multilevel/demo_files/css.css" rel="stylesheet"/>
+
+       <link href="/testing/Notifier/Accordeon/_____/____Best/thanhnhan2tn jquery-accordion-menu-multilevel/demo_files/jquerysctipttop.css" rel="stylesheet"/>
+
+        <link href="/testing/Notifier/Accordeon/_____/____Best/thanhnhan2tn jquery-accordion-menu-multilevel/demo_files/style.css" rel="stylesheet"/>
+
+        <script type="text/javascript" src="/testing/Notifier/Accordeon/_____/____Best/thanhnhan2tn jquery-accordion-menu-multilevel/demo_files/jquery-2.1.4.min.js"></script>
+
+         <script type="text/javascript" src="/testing/Notifier/Accordeon/_____/____Best/thanhnhan2tn jquery-accordion-menu-multilevel/demo_files/script.js"></script>
+
+       <script type="text/javascript">
+           jQuery(document).ready(function($) {
+               $("#menu").accordion();
+               $(".colors a").click(function() {
+                   if ($(this).attr("class") != "default") {
+                       $("#menu").removeClass();
+                       $("#menu").addClass("menu").addClass($(this).attr("class"));
+                   } else {
+                       $("#menu").removeClass();
+                       $("#menu").addClass("menu");
+                   }
+               });
+           });
+       </script>
+
+       </head>
+   <body>
+     <div class="content">
+           <div class="colors"><a href="javascript:void(0)" class="default"> </a><a href="javascript:void(0)" class="blue"> </a><a href="javascript:void(0)" class="white"></a></div>
+           <nav>
+             <div id="menu" class="menu">
+               <div class="menu-header"> ACCORDION MENU </div>
+               <ul>
+                 <li class="active"><a href="#"><i class="fa fa-home"> </i>Home</a></li>
+                 <li><a href="#"><i class="fa fa-file-image-o"> </i>Gallery</a>
+                   <ul class="submenu">
+                         <li><a href="#"> Graphics</a></li>
+                         <li><a href="#"> Photoshop</a></li>
+                      </ul>
+                 </li>
+                 <li><a href="#"><i class="fa fa-cog"> </i>Services</a>
+                   <ul class="submenu">
+                         <li><a href="#"> Web Design </a>
+                           <ul class="submenu">
+                                 <li><a href="#"> WordPress</a></li>
+                                 <li><a href="#"> Joomla</a></li>
+                               </ul>
+                         </li>
+                         <li><a href="#"> Hosting</a></li>
+                         <li><a href="#"> Design </a></li>
+                       </ul>
+</li>
+                <li><a href="#"><i class="fa fa-newspaper-o"> </i>News<span class="menu-label"> 8 </span></a></li>
+                 <li><a href="#"><i class="fa fa-user"> </i>About</a></li>
+                 <li><a href="#"><i class="fa fa-envelope"> </i> Contact</a></li>
+               </ul>
+               <div class="menu-footer"> @ Test</div>
+</div>
+</nav>
+        </div>
+
+  </body>
+  </html>
+
+

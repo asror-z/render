@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script>
+        (function(window, factory) {
+            var globalInstall = function(){
+                factory(window.lazySizes);
+                window.removeEventListener('lazyunveilread', globalInstall, true);
+            };
+
+            factory = factory.bind(null, window, window.document);
+
+            if(typeof module == 'object' && module.exports){
+                factory(require('lazysizes'));
+            } else if (typeof define == 'function' && define.amd) {
+                require(['lazysizes'], factory);
+            } else if(window.lazySizes) {
+                globalInstall();
+            } else {
+                window.addEventListener('lazyunveilread', globalInstall, true);
+            }
+        }(window, function(window, document, lazySizes) {
+            /*jshint eqnull:true */
+            'use strict';
+            var bgLoad, regBgUrlEscape;
+            var uniqueUrls = {};
+
+            if(document.addEventListener){
+                regBgUrlEscape = /\(|\)|\s|'/;
+
+                bgLoad = function (url, cb){
+                    var img = document.createElement('img');
+                    img.onload = function(){
+                        img.onload = null;
+                        img.onerror = null;
+                        img = null;
+                        cb();
+                    };
+                    img.onerror = img.onload;
+
+                    img.src = url;
+
+                    if(img && img.complete && img.onload){
+                        img.onload();
+                    }
+                };
+
+                addEventListener('lazybeforeunveil', function(e){
+                    if(e.detail.instance != lazySizes){return;}
+
+                    var tmp, load, bg, poster;
+                    if(!e.defaultPrevented) {
+
+                        var target = e.target;
+
+                        if(target.preload == 'none'){
+                            target.preload = target.getAttribute('data-preload') || 'auto';
+                        }
+
+                        if (target.getAttribute('data-autoplay') != null) {
+                            if (target.getAttribute('data-expand') && !target.autoplay) {
+                                try {
+                                    target.play();
+                                } catch (er) {}
+                            } else {
+                                requestAnimationFrame(function () {
+                                    target.setAttribute('data-expand', '-10');
+                                    lazySizes.aC(target, lazySizes.cfg.lazyClass);
+                                });
+                            }
+                        }
+
+                        tmp = target.getAttribute('data-link');
+                        if(tmp){
+                            addStyleScript(tmp, true);
+                        }
+
+                        // handle data-script
+                        tmp = target.getAttribute('data-script');
+                        if(tmp){
+                            addStyleScript(tmp);
+                        }
+
+                        // handle data-require
+                        tmp = target.getAttribute('data-require');
+                        if(tmp){
+                            if(lazySizes.cfg.requireJs){
+                                lazySizes.cfg.requireJs([tmp]);
+                            } else {
+                                addStyleScript(tmp);
+                            }
+                        }
+
+                        // handle data-bg
+                        bg = target.getAttribute('data-bg');
+                        if (bg) {
+                            e.detail.firesLoad = true;
+                            load = function(){
+                                target.style.backgroundImage = 'url(' + (regBgUrlEscape.test(bg) ? JSON.stringify(bg) : bg ) + ')';
+                                e.detail.firesLoad = false;
+                                lazySizes.fire(target, '_lazyloaded', {}, true, true);
+                            };
+
+                            bgLoad(bg, load);
+                        }
+
+                        // handle data-poster
+                        poster = target.getAttribute('data-poster');
+                        if(poster){
+                            e.detail.firesLoad = true;
+                            load = function(){
+                                target.poster = poster;
+                                e.detail.firesLoad = false;
+                                lazySizes.fire(target, '_lazyloaded', {}, true, true);
+                            };
+
+                            bgLoad(poster, load);
+
+                        }
+                    }
+                }, false);
+
+            }
+
+            function addStyleScript(src, style){
+                if(uniqueUrls[src]){
+                    return;
+                }
+                var elem = document.createElement(style ? 'link' : 'script');
+                var insertElem = document.getElementsByTagName('script')[0];
+
+                if(style){
+                    elem.rel = 'stylesheet';
+                    elem.href = src;
+                } else {
+                    elem.src = src;
+                }
+                uniqueUrls[src] = true;
+                uniqueUrls[elem.src || elem.href] = true;
+                insertElem.parentNode.insertBefore(elem, insertElem);
+            }
+        }));
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.1-rc1/lazysizes.min.js" type="application/javascript"></script>
+
+
+    <style>
+        .nav {
+            margin-bottom: 30px;
+        }
+        .intrinsic {
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+        }
+
+        .intrinsic-2 {
+            padding-bottom: 56.25%;
+        }
+        .intrinsic-3 {
+            padding-bottom: 133.333%;
+        }
+        .intrinsic img,
+        .intrinsic iframe,
+        .intrinsic .lazyload {
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border: none;
+            overflow: hidden;
+        }
+        .thumbnail-small {
+            width: 32%;
+            display: inline-block;
+            margin-bottom: 35px;
+        }
+        pre {
+            -moz-tab-size: 2;
+            tab-size: 2;
+        }
+
+        .scroll-view {
+            overflow: auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+            width: 100%;
+            padding: 2px 2px 10px;
+        }
+        .scroll-doc {
+            display: table;
+            position: relative;
+            text-align: left;
+        }
+        .scroll-item {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .scroll-item .thumbnail {
+            margin: 5px 10px;
+            width: 230px;
+        }
+        .scroll-item .thumbnail img {
+            width: 100%;
+            height: auto;
+        }
+
+        .no-src.lazyload,
+        .no-src.lazyloading {
+            opacity: 0;
+        }
+
+        .no-src.lazyloaded {
+            opacity: 1;
+            transition: opacity 300ms;
+        }
+
+        [data-expand].lazyload {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        [data-expand].lazyloaded {
+            opacity: 1;
+            transition: all 700ms;
+            transform: scale(1);
+        }
+        
+    </style>
+
+    <script>
+        (function(){
+            var docElem = document.documentElement;
+            
+            window.lazySizesConfig = window.lazySizesConfig || {};
+
+            window.lazySizesConfig.loadMode = 1;
+
+            //set expand to a higher value on larger displays
+            window.lazySizesConfig.expand = Math.max(Math.min(docElem.clientWidth, docElem.clientHeight, 1222) - 1, 359);
+            window.lazySizesConfig.expFactor = lazySizesConfig.expand < 380 ? 3 : 2;
+        })();
+    </script>
+
+</head>
+<body>
+
+<div class="row">
+    
+    <div class="row">
+        <div class="thumbnail thumbnail-small lazyloaded" data-expand="-40">
+            <div class="intrinsic">
+                <img class="no-src ls-is-cached lazyloaded" data-src="https://i.picsum.photos/id/134/460/345.jpg" alt="" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-lamborghini-aventador-svj-roadster-drive-107-1576871367.jpg?crop=0.708xw:0.796xh;0.237xw,0.204xh&resize=640:*">
+            </div>
+        </div>
+        <div class="thumbnail thumbnail-small lazyloaded" data-expand="-40">
+            <div class="intrinsic">
+                <img class="no-src ls-is-cached lazyloaded" data-src="https://i.picsum.photos/id/133/460/345.jpg" alt="" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-lamborghini-aventador-svj-roadster-drive-107-1576871367.jpg?crop=0.708xw:0.796xh;0.237xw,0.204xh&resize=640:*">
+            </div>
+        </div>
+        <div class="thumbnail thumbnail-small lazyloaded" data-expand="-40">
+            <div class="intrinsic">
+                <img class="no-src ls-is-cached lazyloaded" data-src="https://i.picsum.photos/id/137/460/345.jpg" alt="" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-lamborghini-aventador-svj-roadster-drive-107-1576871367.jpg?crop=0.708xw:0.796xh;0.237xw,0.204xh&resize=640:*">
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="add-new btn btn-primary">click to add new elements</button>
+    
+    <script>
+        $('.add-new').on('click', function(){
+            var $template = $('.template');
+            $template.after($template.html());
+        });
+    </script>
+
+</body>
+</html>

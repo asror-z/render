@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <style>
+        #selectCity{
+            margin-top: 2%;
+            margin-left: 2%;
+            background: #FFFFFF;
+        }
+        #parent {
+            list-style: none;
+            width: 100%;
+            height: 300px;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        #parent > li {
+            display: inline-block;
+            width: 10%;
+            height: 8%;
+            margin-top: 2%;
+        }
+        .city{
+            cursor: pointer;
+        }
+        #CityNameArea{
+           margin-left: 20%;
+        }
+        #btn_c{
+            height: 38px;
+        }
+    </style>
+</head>
+<body>
+
+<form class="form-inline" id="selectCity">
+    <div class="form-group mx-sm-3 mb-2">
+        <div class="input-group mb-3">
+             <label for="CityNameArea">Укажите город: </label>
+            <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon2" id="CityNameArea">
+            <div class="input-group-append">
+                <button class="btn btn-success" id="btn_c" type="button">Bыбрать</button>
+            </div>
+        </div>
+    </div>
+    <ul id="parent">
+        <li class="city">Маргилан</li>
+        <li class="city">Коканд</li>
+        <li class="city">Шахрисабз</li>
+        <li class="city">Хива</li>
+        <br>
+        <li class="city">Бекабад</li>
+        <li class="city">Ангрен</li>
+        <li class="city">Алмалык</li>
+        <li class="city">Чирчик</li>
+        <br>
+        <li class="city">Нукус</li>
+        <li class="city">Ургенч</li>
+        <li class="city">Термиз</li>
+        <li class="city">Карши</li>
+        <br>
+        <li class="city">Бухара</li>
+        <li class="city">Гулистан</li>
+        <li class="city">Джизак</li>
+        <li class="city">Фергана</li>
+        <br>
+        <li class="city">Наманган</li>
+        <li class="city">Андижан</li>
+        <li class="city">Самарканд</li>
+        <li class="city">Ташкент</li>
+
+    </ul>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+    $( ".city" ).click(function() {
+        var text = $( this ).text();
+        $( "#CityNameArea" ).val( text );
+    });
+</script>;
+</body>
+</html>

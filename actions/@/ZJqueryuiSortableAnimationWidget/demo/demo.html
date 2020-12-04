@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://angular-ui.github.io/ui-sortable/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+  
+  <title>Angular UI ~ UI.Sortable Doc</title>
+
+  <!-- Le css -->
+  <link rel="stylesheet" type="text/css" href="./demo_files/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./demo_files/prettify.css">
+  <link rel="stylesheet" type="text/css" href="./demo_files/style.css">
+
+      <link rel="stylesheet" type="text/css" href="./demo_files/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="./demo_files/demo.css">
+
+
+<script charset="utf-8" src="./demo_files/button.9a57558490548c2dde66afe19af6c010.js.download"></script></head>
+
+<body>
+
+<!-- Le navbar
+================================================== -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="navbar-header">
+      </div>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="http://angular-ui.github.io/ui-sortable/" class="navbar-brand">UI.Sortable</a>
+        </li>
+        <li class="pull-right">
+          <a href="http://angular-ui.github.io/">by AngularUI</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Le header
+================================================== -->
+<header class="bs-header">
+  <div class="container">
+
+    <h1>UI.Sortable</h1>
+
+    <p>This directive allows you to jQueryUI Sortable.</p>
+
+    <p>
+      <a class="btn btn-outline-inverse btn-lg" href="https://github.com/angular-ui/ui-sortable">Code on Github</a>
+      <a class="btn btn-outline-inverse btn-lg" href="https://github.com/angular-ui/ui-sortable/releases/tag/v0.19.0">
+        <i class="glyphicon glyphicon-download-alt"></i> Download <small>(0.19.0)</small>
+     </a>
+    </p>
+  </div>
+  <div class="bs-social container">
+      <ul class="bs-social-buttons list-inline list-unstyled">
+          <li>
+              <iframe src="./demo_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+          </li>
+          <li>
+             <iframe src="./demo_files/github-btn(1).html" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+          </li>
+          <li>
+              <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="./demo_files/tweet_button.6a44a9d26983bbb5b04ae399f9e496fe.en.html"></iframe>
+              <script src="./demo_files/cb=gapi.loaded_1" async=""></script><script src="./demo_files/cb=gapi(1).loaded_0" async=""></script><script type="text/javascript" async="" src="./demo_files/plusone.js.download" gapi_processed="true"></script><script id="twitter-wjs" src="./demo_files/widgets.js.download"></script><script>!function (d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = "//platform.twitter.com/widgets.js";
+                      fjs.parentNode.insertBefore(js, fjs);
+                  }
+              }(document, "script", "twitter-wjs");</script>
+          </li>
+          <li>
+              <!-- Place this tag where you want the +1 button to render. -->
+              <div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I0_1575806713487" name="I0_1575806713487" src="./demo_files/fastbutton.html" data-gapiattached="true"></iframe></div><div class="g-plusone" data-size="medium" data-gapiscan="true" data-onload="true" data-gapistub="true"></div>
+
+              <!-- Place this tag after the last +1 button tag. -->
+              <script type="text/javascript">
+                  (function () {
+                      var po = document.createElement('script');
+                      po.type = 'text/javascript';
+                      po.async = true;
+                      po.src = 'https://apis.google.com/js/plusone.js';
+                      var s = document.getElementsByTagName('script')[0];
+                      s.parentNode.insertBefore(po, s);
+                  })();
+              </script>
+          </li>
+      </ul>
+  </div>
+</header>
+
+<!-- Le main
+================================================== -->
+<div class="container">
+
+  <section ng-app="sortableApp" class="ng-scope">
+  <h1>Sortable items</h1>
+  <div ng-controller="sortableController" class="section row ng-scope">
+    <div class="col-sm-offset-2 col-sm-4">
+      <ul ui-sortable="sortableOptions" ng-model="list" class="list ng-pristine ng-untouched ng-valid ng-isolate-scope ui-sortable">
+        <!-- ngRepeat: item in list --><li ng-repeat="item in list" class="item ng-binding ng-scope ui-sortable-handle">Item 1</li><!-- end ngRepeat: item in list --><li ng-repeat="item in list" class="item ng-binding ng-scope ui-sortable-handle">Item 2</li><!-- end ngRepeat: item in list --><li ng-repeat="item in list" class="item ng-binding ng-scope ui-sortable-handle">Item 3</li><!-- end ngRepeat: item in list --><li ng-repeat="item in list" class="item ng-binding ng-scope ui-sortable-handle">Item 4</li><!-- end ngRepeat: item in list --><li ng-repeat="item in list" class="item ng-binding ng-scope ui-sortable-handle">Item 5</li><!-- end ngRepeat: item in list -->
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <ul class="list logList">
+        <!-- ngRepeat: entry in sortingLog -->
+      </ul>
+    </div>
+  </div>
+
+  <h1>Connected items</h1>
+  <div ng-controller="connectedController" class="section row connectedItemsExample ng-scope">
+    <div class="col-sm-offset-2 col-sm-4">
+      <ul ui-sortable="sortableOptions" ng-model="leftArray" class="list ng-pristine ng-untouched ng-valid ng-isolate-scope ui-sortable">
+        <!-- ngRepeat: item in leftArray --><li ng-repeat="item in leftArray" class="item ng-binding ng-scope ui-sortable-handle">Left 1</li><!-- end ngRepeat: item in leftArray --><li ng-repeat="item in leftArray" class="item ng-binding ng-scope ui-sortable-handle">Left 2</li><!-- end ngRepeat: item in leftArray --><li ng-repeat="item in leftArray" class="item ng-binding ng-scope ui-sortable-handle">Left 3</li><!-- end ngRepeat: item in leftArray --><li ng-repeat="item in leftArray" class="item ng-binding ng-scope ui-sortable-handle">Left 4</li><!-- end ngRepeat: item in leftArray --><li ng-repeat="item in leftArray" class="item ng-binding ng-scope ui-sortable-handle">Left 5</li><!-- end ngRepeat: item in leftArray -->
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <ul ui-sortable="sortableOptions" ng-model="rightArray" class="list ng-pristine ng-untouched ng-valid ng-isolate-scope ui-sortable">
+        <!-- ngRepeat: item in rightArray --><li ng-repeat="item in rightArray" class="item ng-binding ng-scope ui-sortable-handle">Right 1</li><!-- end ngRepeat: item in rightArray --><li ng-repeat="item in rightArray" class="item ng-binding ng-scope ui-sortable-handle">Right 2</li><!-- end ngRepeat: item in rightArray --><li ng-repeat="item in rightArray" class="item ng-binding ng-scope ui-sortable-handle">Right 3</li><!-- end ngRepeat: item in rightArray --><li ng-repeat="item in rightArray" class="item ng-binding ng-scope ui-sortable-handle">Right 4</li><!-- end ngRepeat: item in rightArray --><li ng-repeat="item in rightArray" class="item ng-binding ng-scope ui-sortable-handle">Right 5</li><!-- end ngRepeat: item in rightArray --><li ng-repeat="item in rightArray" class="item ng-binding ng-scope ui-sortable-handle">Right 6</li><!-- end ngRepeat: item in rightArray --><li ng-repeat="item in rightArray" class="item ng-binding ng-scope ui-sortable-handle">Right 7</li><!-- end ngRepeat: item in rightArray -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+</div>
+
+<!-- Le javascript
+================================================== -->
+<script src="./demo_files/jquery.js.download"></script>
+<script src="./demo_files/prettify.js.download"></script>
+<script src="./demo_files/angular.min.js.download"></script>
+<script src="./demo_files/ui-bootstrap-tpls.min.js.download"></script>
+<script src="./demo_files/prettifyDirective.js.download"></script>
+<script src="./demo_files/plunker.js.download"></script>
+<script src="./demo_files/jquery-ui.js.download"></script><iframe name="oauth2relay690603660" id="oauth2relay690603660" src="./demo_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe>
+<script src="./demo_files/sortable.js.download"></script>
+
+
+<script>
+  
+var myapp = angular.module('sortableApp', ['ui.sortable']);
+
+myapp.buildArray = function(name, size) {
+  var i, array = [];
+  for (i = 1; i <= size; i++){
+    array.push({
+      text: name + ' ' + i ,
+      value: i
+    });
+  }
+
+  return array;
+};
+
+myapp.controller('sortableController', function ($scope) {
+  'use strict';
+
+  $scope.list = myapp.buildArray('Item', 5);
+
+  $scope.sortingLog = [];
+
+  $scope.sortableOptions = {
+    // called after a node is dropped
+    stop: function(e, ui) {
+      var logEntry = {
+        ID: $scope.sortingLog.length + 1,
+        Text: 'Moved element: ' + ui.item.scope().item.text
+      };
+      $scope.sortingLog.push(logEntry);
+    }
+  };
+});
+
+myapp.controller('connectedController', function ($scope) {
+  $scope.leftArray = myapp.buildArray('Left', 5);
+  $scope.rightArray = myapp.buildArray('Right', 7);
+  $scope.sortableOptions = {
+    connectWith: '.connectedItemsExample .list'
+  };
+});
+
+</script>
+
+
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./demo_files/widget_iframe.6a44a9d26983bbb5b04ae399f9e496fe.html" title="Twitter settings iframe" style="display: none;"></iframe></body></html>

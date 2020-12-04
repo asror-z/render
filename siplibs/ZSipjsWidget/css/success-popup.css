@@ -1,0 +1,165 @@
+/* Note that on mobile, we don't use an actual popup because of scrolling
+ * issues. Instead, it redirects to a new page. We use the class popdown for
+ * special styling where the popup form should instead just be normally flowing
+ * page content. */
+
+.popup-container {
+    /* fixed position a zero-height full width container */
+    position: fixed;
+    top: 25%; /* or whatever position is desired */
+    left: 0;
+    right: 0;
+    /* center all inline content */
+    text-align: center;
+    z-index: 21;
+    display: none;
+}
+.popup-container > .popup {
+    /* make the block inline */
+    position: relative;
+    display: inline-block;
+    /* reset container's center alignment */
+    text-align: left;
+}
+#success-story {
+    width: 560px;
+    padding: 10px 0 4px 0;
+    border: solid rgb(240,240,240) 2px;
+    background-color: white;
+    overflow: auto;
+}
+#success-story.popdown {
+    border: 0;
+    margin: 0 auto;
+    padding-top: 2.5em;
+}
+.close-popup {
+    position: absolute;
+    top: 1%;
+    right: 2%;
+    padding: 1%;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: rgb(230,229,224);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.close-popup:hover {
+    color: rgb(190,189,184);
+}
+
+/* #success-story form { */
+.popup > * {
+    width: 96%;
+    margin: 0 auto;
+}
+.popup > .close-popup {
+    width: auto;
+    margin: 0;
+}
+#success-story form>* {
+    width: 46%;
+    margin: 2%;
+}
+#success-story form>input,
+#success-story form>textarea {
+    padding: 0.5em;
+    background-color: rgb(240,239,234);
+    border: none;
+}
+#success-story form>button {
+    width: auto;
+    padding: 10px 15px;
+}
+#success-app-desc {
+    float: left;
+    resize: none;
+}
+
+#success-story h2,
+#success-story h4 {
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#success-story h2 {
+    font-size: 28px;
+    margin-bottom: 0.5em;
+}
+#success-story h4 {
+    margin-top: 1em;
+}
+
+/* Changing placeholder font style */
+#success-story form>*::-webkit-input-placeholder {
+    color: #888;
+}
+#success-story form>*:-moz-placeholder {
+    color: #888;
+}
+#success-story form>*::-moz-placeholder {
+    color: #888;
+}
+#success-story form>*:-ms-input-placeholder {
+    color: #888;
+}
+
+
+/* Background dimmer overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+
+/* Hidden iframe to receive the POST action */
+#post-receiver {
+    display: none;
+}
+
+#email {
+    float: right;
+}
+
+#thank-you-popup {
+    width: 560px;
+    padding: 10px 0 4px 0;
+    border: solid rgb(240,240,240) 2px;
+    background-color: white;
+    overflow: auto;
+}
+#thank-you-popup #thank-you-heading {
+    padding-top: 1em;
+}
+
+
+@media all and (max-width: 700px) {
+    .popup {
+        top: 2.5%;
+    }
+    #success-story {
+        width: 90%;
+    }
+    #success-story form > * {
+        display: block;
+        width: 96%;
+        margin: 4% 2%;
+    }
+    #success-story form > button {
+        width: 96%;
+        margin: 2%;
+    }
+    #success-app-desc {
+        float: none;
+    }
+    #email {
+        float: none;
+    }
+}

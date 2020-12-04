@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://tympanus.net/Development/ElasticProgress/ -->
+<html lang="en" class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<title>Elastic Progress | Codrops</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="Codrops">
+		<link rel="shortcut icon" href="https://tympanus.net/Development/ElasticProgress/favicon.ico">
+		<link href="./demo_files/css" rel="stylesheet" type="text/css">
+		<link href="./demo_files/css(1)" rel="stylesheet" type="text/css">
+		<link href="./demo_files/css(2)" rel="stylesheet" type="text/css">
+		<link href="./demo_files/css(3)" rel="stylesheet" type="text/css">
+		<link href="./demo_files/css(4)" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="./demo_files/normalize.css">
+		<link rel="stylesheet" type="text/css" href="./demo_files/main.css">
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<script type="text/javascript" async="" src="./demo_files/ga.js.download"></script><script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<style>
+body.cda-noimg #cdawrap {
+	--cda-width: 280px;
+	--cda-left: auto;
+	--cda-right: 3rem;
+	--cda-top: 2rem;
+	--cda-bottom: auto;
+	--cda-background: transparent;
+	position: absolute;
+	padding: 0;
+	--cda-border-width: 0;
+	--cda-text-color: #444;
+	z-index: 0;
+	font-family: inherit;
+	font-size: inherit;
+	--cda-text-weight: 400;
+	--cda-sp-color: #666;
+	--cda-remove-color: #666;
+}
+</style>
+
+	<link rel="stylesheet" type="text/css" href="./demo_files/demoad.css"></head>
+	<body class="cda-noimg cda-alignright">
+		<div class="container">
+			<header class="codrops-header">
+				<div class="codrops-links">
+					<a class="codrops-icon codrops-icon--prev" href="http://tympanus.net/Tutorials/VideoOpeningAnimation/" title="Previous Demo"><span>Previous Demo</span></a>
+					<a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/?p=25030" title="Back to the article"><span>Back to the Codrops article</span></a>
+				</div>
+				<h1>Elastic Progress <span>Based on the <a href="https://dribbble.com/shots/1887815-Download">Dribbble shot 'Download'</a> by <a href="https://dribbble.com/xjw">xjw</a></span></h1>
+			</header>
+			<div class="content">
+				<div class="row">
+					<div class="box box--centered">
+						<div role="button" tabindex="0" aria-label="Download" class="Download" data-progressbar-label="Downloading item..." style="height: 60px; border: none; background: transparent; outline: none; pointer-events: none; -webkit-tap-highlight-color: transparent; text-align: left;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="420" height="210" style="position: relative; margin: -100px -60px -50px;"><g><g transform="translate(0,0)">
+<g id="container" data-svg-origin="150 30" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 60, 100);">
+	<g id="circle" data-svg-origin="0 30" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 150, 0);">
+		<g id="background">
+			<path id="bg" fill="#231F20" d="M0-50c27.614,0,50,22.386,50,50S27.614,50,0,50c-27.615,0-50-22.386-50-50S-27.615-50,0-50z" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(0.6, 0, 0, 0.6, 0, 30); fill: rgb(173, 236, 168);"></path>
+		</g>
+		<g id="overlay" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0); display: none;">
+			<path fill="#47FF03" d="M50,0c0,27.584-22.461,50-50,50c-27.636,0-50-22.416-50-50c0-27.594,22.364-50,50-50
+				C27.539-50,50-27.594,50,0z" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(0.6, 0, 0, 0.6, 0, 30); fill: rgb(248, 248, 248);"></path>
+		</g>
+		<g id="border">
+			<path fill="none" stroke="#231F20" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M0 3C-35.586 3 -35.586 57 0 57C35.586 57 35.586 3 0 3" style="stroke: rgb(173, 236, 168);"></path>
+		</g>
+		<g id="fill-line">
+			<path fill="none" stroke="#FF00FF" stroke-linecap="round" stroke-miterlimit="10" d="M-138.487,110.945l105,2" stroke-width="4.5" style="display: none; stroke: rgb(124, 197, 118);"></path>
+		</g>
+	</g>
+	<g id="arrow" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(0.48, 0, 0, 0.48, 150, 47.7072);">
+		<g id="head" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+			<polygon fill="#FF00FF" points="-30.035,-31.56 0,0 30.035,-31.56 			" style="fill: rgb(124, 197, 118);"></polygon>
+		</g>
+		<g id="line" data-svg-origin="0.0005006790161132812 -27.22800064086914" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+			<rect x="-12.374" y="-68.78" fill="#FF00FF" width="24.749" height="41.552" style="fill: rgb(124, 197, 118);"></rect>
+		</g>
+		<g id="label" data-svg-origin="3.7993000149726868 -47.58399963378906" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0); display: none;">
+			<text transform="matrix(1 0 0 1 -0.7007 -41.584)" fill="#231F20" font-family="Montserrat,&#39;Helvetica Neue&#39;,&#39;Helvetica&#39;,&#39;Arial&#39;" font-size="18" text-anchor="middle" font-weight="bold" style="fill: rgb(173, 236, 168);">1</text>
+		</g>
+	</g>
+</g>
+<g id="hit-area" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(0.6, 0, 0, 0.6, 210, 130); pointer-events: fill; cursor: pointer; display: inline;">
+	<path fill="#00FFDA" d="M50,0c0,27.584-22.461,50-50,50c-27.636,0-50-22.416-50-50c0-27.594,22.364-50,50-50
+		C27.539-50,50-27.594,50,0z" stroke-width="0" style="fill: transparent;"></path>
+</g>
+</g></g></svg></div><progress aria-label="Downloading item..." value="0" max="1" aria-hidden="true" style="position: absolute; left: -99999px;"></progress> <br>
+					</div>
+					<div class="box">
+						<pre><code>
+element.ElasticProgress({
+	buttonSize: 60,
+	fontFamily: "Montserrat",
+	colorBg: "#adeca8",
+	colorFg: "#7cc576",
+	onClick: function(event) {
+	console.log("onClick");
+	$(this).ElasticProgress("open");
+},
+onOpen: function(event) {
+	fakeLoading($(this));
+},
+onFail: function(event) {
+	$(this).ElasticProgress("open");
+},
+onCancel: function(event) {
+	$(this).ElasticProgress("open");
+}
+});
+						</code></pre>
+					</div>
+				</div>
+				<div class="row">
+					<div class="box box--centered">
+						<div role="button" tabindex="0" aria-label="Download" class="Download" data-progressbar-label="Downloading item..." style="height: 100px; border: none; background: transparent; outline: none; pointer-events: none; -webkit-tap-highlight-color: transparent; text-align: left;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="420" height="250" style="position: relative; margin: -110px -60px -40px;"><g><g transform="translate(0,0)">
+<g id="container" data-svg-origin="150 50" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 60, 110);">
+	<g id="circle" data-svg-origin="0 50" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 150, 0);">
+		<g id="background">
+			<path id="bg" fill="#231F20" d="M0-50c27.614,0,50,22.386,50,50S27.614,50,0,50c-27.615,0-50-22.386-50-50S-27.615-50,0-50z" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 50); fill: rgb(78, 128, 221);"></path>
+		</g>
+		<g id="overlay" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0); display: none;">
+			<path fill="#47FF03" d="M50,0c0,27.584-22.461,50-50,50c-27.636,0-50-22.416-50-50c0-27.594,22.364-50,50-50
+				C27.539-50,50-27.594,50,0z" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 50); fill: rgb(248, 248, 248);"></path>
+		</g>
+		<g id="border">
+			<path fill="none" stroke="#231F20" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M0 3C-61.946000000000005 3 -61.946000000000005 97 0 97C61.946000000000005 97 61.946000000000005 3 0 3" style="stroke: rgb(78, 128, 221);"></path>
+		</g>
+		<g id="fill-line">
+			<path fill="none" stroke="#FF00FF" stroke-linecap="round" stroke-miterlimit="10" d="M-138.487,110.945l105,2" stroke-width="4.5" style="display: none; stroke: rgb(119, 194, 255);"></path>
+		</g>
+	</g>
+	<g id="arrow" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(-0.8, 0, 0, -0.8, 150, 20.488);">
+		<g id="head" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+			<polygon fill="#FF00FF" points="-30.035,-31.56 0,0 30.035,-31.56 			" style="fill: rgb(119, 194, 255);"></polygon>
+		</g>
+		<g id="line" data-svg-origin="0.0005006790161132812 -27.22800064086914" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+			<rect x="-12.374" y="-68.78" fill="#FF00FF" width="24.749" height="41.552" style="fill: rgb(119, 194, 255);"></rect>
+		</g>
+		<g id="label" data-svg-origin="3.7993000149726868 -47.58399963378906" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0); display: none;">
+			<text transform="matrix(1 0 0 1 -0.7007 -41.584)" fill="#231F20" font-family="Roboto,&#39;Helvetica Neue&#39;,&#39;Helvetica&#39;,&#39;Arial&#39;" font-size="18" text-anchor="middle" font-weight="bold" style="fill: rgb(78, 128, 221);">1</text>
+		</g>
+	</g>
+</g>
+<g id="hit-area" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 210, 160); pointer-events: fill; cursor: pointer;">
+	<path fill="#00FFDA" d="M50,0c0,27.584-22.461,50-50,50c-27.636,0-50-22.416-50-50c0-27.594,22.364-50,50-50
+		C27.539-50,50-27.594,50,0z" style="fill: transparent;"></path>
+</g>
+</g></g></svg></div><progress aria-label="Downloading item..." value="0" max="1" aria-hidden="true" style="position: absolute; left: -99999px;"></progress> <br>
+					</div>
+					<div class="box">
+						<pre><code>
+element.ElasticProgress({
+	align: "center",
+	fontFamily: "Roboto",
+	colorFg: "#77c2ff",
+	colorBg: "#4e80dd",
+	bleedTop: 110,
+	bleedBottom: 40,
+	buttonSize: 100,
+	labelTilt: 70,
+	arrowDirection: "up",
+	onClick: function() {
+		$(this).ElasticProgress("open");
+	},
+	onOpen: function() {
+		fakeLoading($(this))
+	},
+	onCancel: function() {
+		$(this).ElasticProgress("close");
+	},
+	onComplete: function() {
+		var $obj = $(this)
+		$obj.ElasticProgress("close");
+	}
+});
+						</code></pre>
+					</div>
+				</div>
+				<div class="row">
+					<div class="box box--centered">
+						<div role="button" tabindex="0" aria-label="Download" class="Download" data-progressbar-label="Downloading item..." style="width: 574.5px; height: 60px; border: none; background: transparent; outline: none; pointer-events: none; -webkit-tap-highlight-color: transparent; text-align: left;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="734.5" height="230" style="position: relative; margin: -120px -100px -50px -60px;"><g><g transform="translate(0,0)">
+<g id="container" data-svg-origin="287.25 30" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 60, 120);">
+	<g id="circle" data-svg-origin="0 30" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 287.25, 0);">
+		<g id="background">
+			<path id="bg" fill="#231F20" d="M0-50c27.614,0,50,22.386,50,50S27.614,50,0,50c-27.615,0-50-22.386-50-50S-27.615-50,0-50z" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(0.6, 0, 0, 0.6, 0, 30); fill: rgb(180, 186, 210);"></path>
+		</g>
+		<g id="overlay" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0); display: none;">
+			<path fill="#47FF03" d="M50,0c0,27.584-22.461,50-50,50c-27.636,0-50-22.416-50-50c0-27.594,22.364-50,50-50
+				C27.539-50,50-27.594,50,0z" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(0.6, 0, 0, 0.6, 0, 30); fill: rgb(248, 248, 248);"></path>
+		</g>
+		<g id="border">
+			<path fill="none" stroke="#231F20" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" d="M0 6C-31.632 6 -31.632 54 0 54C31.632 54 31.632 6 0 6" style="stroke: rgb(180, 186, 210);"></path>
+		</g>
+		<g id="fill-line">
+			<path fill="none" stroke="#FF00FF" stroke-linecap="round" stroke-miterlimit="10" d="M-138.487,110.945l105,2" stroke-width="6" style="display: none; stroke: rgb(104, 110, 133);"></path>
+		</g>
+	</g>
+	<g id="arrow" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(0.48, 0, 0, 0.48, 287.25, 47.7072);">
+		<g id="head" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+			<polygon fill="#FF00FF" points="-30.035,-31.56 0,0 30.035,-31.56 			" style="fill: rgb(104, 110, 133);"></polygon>
+		</g>
+		<g id="line" data-svg-origin="0.0005006790161132812 -27.22800064086914" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+			<rect x="-12.374" y="-68.78" fill="#FF00FF" width="24.749" height="41.552" style="fill: rgb(104, 110, 133);"></rect>
+		</g>
+		<g id="label" data-svg-origin="3.7993000149726868 -47.58399963378906" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0); display: none;">
+			<text transform="matrix(1 0 0 1 -0.7007 -41.584)" fill="#231F20" font-family="Arvo,&#39;Helvetica Neue&#39;,&#39;Helvetica&#39;,&#39;Arial&#39;" font-size="18" text-anchor="middle" font-weight="bold" style="fill: rgb(180, 186, 210);">1</text>
+		</g>
+	</g>
+</g>
+<g id="hit-area" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(0.6, 0, 0, 0.6, 347.25, 150); pointer-events: fill; cursor: pointer;">
+	<path fill="#00FFDA" d="M50,0c0,27.584-22.461,50-50,50c-27.636,0-50-22.416-50-50c0-27.594,22.364-50,50-50
+		C27.539-50,50-27.594,50,0z" style="fill: transparent;"></path>
+</g>
+</g></g></svg></div><progress aria-label="Downloading item..." value="0" max="1" aria-hidden="true" style="position: absolute; left: -99999px;"></progress> <br>
+					</div>
+					<div class="box">
+						<pre><code>
+element.ElasticProgress({
+	align: "center",
+	colorFg: "#686e85",
+	colorBg: "#b4bad2",
+	highlightColor: "#ffab91",
+	width: Math.min($(window).width()/2 - 100, 600),
+	barHeight: 10,
+	labelHeight: 50,
+	labelWobbliness: 0,
+	bleedTop: 120,
+	bleedRight: 100,
+	buttonSize: 60,
+	fontFamily: "Arvo",
+	barStretch: 0,
+	barInset: 4,
+	barElasticOvershoot: 1,
+	barElasticPeriod: 0.6,
+	textFail: "Download Failed",
+	textComplete: "Download Complete",
+	arrowHangOnFail: false,
+	onClick: function() {
+			$(this).ElasticProgress("open");
+	},
+	onOpen: function() {
+			fakeLoading($(this))
+	},
+	onComplete: function() {
+			var $obj = $(this)
+
+			TweenMax.delayedCall(1.5, function() {
+					$obj.ElasticProgress("close");
+			})
+	}
+});
+						</code></pre>
+					</div>
+				</div>
+				<div class="row">
+					<div class="box box--centered">
+						<div role="button" tabindex="0" aria-label="Download" class="Download" data-progressbar-label="Downloading item..." style="border: none; background: transparent; outline: none; pointer-events: none; -webkit-tap-highlight-color: transparent; text-align: left;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="420" height="270" style="position: relative; margin: -100px -60px -50px;"><g><g transform="translate(0,0)">
+<g id="container" data-svg-origin="150 60" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 60, 100);">
+	<g id="circle" data-svg-origin="0 60" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 150, 0);">
+		<g id="background">
+			<path id="bg" fill="#231F20" d="M0-50c27.614,0,50,22.386,50,50S27.614,50,0,50c-27.615,0-50-22.386-50-50S-27.615-50,0-50z" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1.2, 0, 0, 1.2, 0, 60); fill: rgb(99, 92, 115);"></path>
+		</g>
+		<g id="overlay" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0); display: none;">
+			<path fill="#47FF03" d="M50,0c0,27.584-22.461,50-50,50c-27.636,0-50-22.416-50-50c0-27.594,22.364-50,50-50
+				C27.539-50,50-27.594,50,0z" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1.2, 0, 0, 1.2, 0, 60); fill: rgb(248, 248, 248);"></path>
+		</g>
+		<g id="border">
+			<path fill="none" stroke="#231F20" stroke-width="14" stroke-linecap="round" stroke-miterlimit="10" d="M0 8C-68.536 8 -68.536 112 0 112C68.536 112 68.536 8 0 8" style="stroke: rgb(99, 92, 115);"></path>
+		</g>
+		<g id="fill-line">
+			<path fill="none" stroke="#FF00FF" stroke-linecap="round" stroke-miterlimit="10" d="M-138.487,110.945l105,2" stroke-width="4" style="display: none; stroke: rgb(237, 116, 153);"></path>
+		</g>
+	</g>
+	<g id="arrow" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(0.96, 0, 0, 0.96, 150, 95.4144);">
+		<g id="head" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+			<polygon fill="#FF00FF" points="-30.035,-31.56 0,0 30.035,-31.56 			" style="fill: rgb(237, 116, 153);"></polygon>
+		</g>
+		<g id="line" data-svg-origin="0.0005006790161132812 -27.22800064086914" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+			<rect x="-12.374" y="-68.78" fill="#FF00FF" width="24.749" height="41.552" style="fill: rgb(237, 116, 153);"></rect>
+		</g>
+		<g id="label" data-svg-origin="3.7993000149726868 -47.58399963378906" style="transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0); display: none;">
+			<text transform="matrix(1 0 0 1 -0.7007 -41.584)" fill="#231F20" font-family="Indie Flower,&#39;Helvetica Neue&#39;,&#39;Helvetica&#39;,&#39;Arial&#39;" font-size="18" text-anchor="middle" font-weight="bold" style="fill: rgb(99, 92, 115);">1</text>
+		</g>
+	</g>
+</g>
+<g id="hit-area" data-svg-origin="0 0" style="transform-origin: 0px 0px 0px; transform: matrix(1.2, 0, 0, 1.2, 210, 160); pointer-events: fill; cursor: pointer;">
+	<path fill="#00FFDA" d="M50,0c0,27.584-22.461,50-50,50c-27.636,0-50-22.416-50-50c0-27.594,22.364-50,50-50
+		C27.539-50,50-27.594,50,0z" style="fill: transparent;"></path>
+</g>
+</g></g></svg></div><progress aria-label="Downloading item..." value="0" max="1" aria-hidden="true" style="position: absolute; left: -99999px;"></progress>
+					</div>
+					<div class="box">
+						<pre><code>
+var e = new ElasticProgress(document.querySelectorAll('.Download')[3], {
+	colorFg: "#ed7499",
+	colorBg: "#635c73",
+	highlightColor: "#ed7499",
+	barHeight: 14,
+	barInset: 10,
+	fontFamily: "Indie Flower"
+});
+e.onClick(function() {
+	e.open();
+})
+e.onOpen(function() {
+	fakeLoading(e, 2, 0.5);
+});
+e.onFail(function() {
+	e.close();
+})
+						</code></pre>
+				</div>
+			</div>
+			<!-- Related demos -->
+			<section class="content content--related">
+				<p>If you enjoyed this demo you might also like:</p>
+				<a class="media-item" href="http://tympanus.net/Tutorials/CircularProgressButton/">
+					<img class="media-item__img" src="./demo_files/AnimatedProgressButton.jpg">
+					<h3 class="media-item__title">Circular Progress Button</h3>
+				</a>
+				<a class="media-item" href="http://tympanus.net/Development/ProgressButtonStyles/">
+					<img class="media-item__img" src="./demo_files/ProgressButtonStyles.jpg">
+					<h3 class="media-item__title">Progress Button Styles</h3>
+				</a>
+			</section>
+		</div><!-- /container -->
+		<script src="./demo_files/jquery.min.js.download"></script>
+		<script src="./demo_files/TweenMax.min.js.download"></script>
+		<script src="./demo_files/elastic-progress.js.download"></script>
+		<script src="./demo_files/main.js.download"></script>
+		
+
+<!-- For the demo ad only -->   
+<script src="./demo_files/demoad.js.download"></script>
+
+	
+
+</div><div id="cdawrap" style="display: block;"><a href="https://www.elegantthemes.com/affiliates/idevaffiliate.php?id=17972_5_1_16" class="carbon-img" target="_blank" rel="noopener"><img src="./demo_files/Divi_Carbon.jpg" alt="Divi" border="0" height="100" width="130"></a><a href="https://www.elegantthemes.com/affiliates/idevaffiliate.php?id=17972_5_1_16" class="carbon-text" target="_blank" rel="noopener">From our sponsor: Divi is more than just a WordPress theme, it's a completely new website building platform. Try it.</a><div class="cda-footer"><a class="carbon-poweredby" href="https://tympanus.net/codrops/advertise/" target="_blank" rel="noopener">Become a sponsor</a><span class="cda-remove" id="cda-remove">Close</span></div></div></body></html>

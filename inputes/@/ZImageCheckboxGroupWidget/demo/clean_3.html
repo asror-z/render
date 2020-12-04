@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://jcuenod.github.io/imgCheckbox/ -->
+<!--Abdurakhmonov Umid-->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ZImageCheckboxWidget</title>
+
+
+
+	
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/imgcheckbox@0.5.3/jquery.imgcheckbox.min.js"></script>
+ 
+
+
+	
+<body id="top" class="">
+
+
+
+	
+	<div class="image imgCheckbox0">
+    	<span>
+	        <img src="./demo_files/redumbrella.jpg">
+
+        </span>
+
+	</div>
+        <span class=" imgCheckbox1">
+			<img src="./demo_files/image1.jpg">
+			<img src="./demo_files/image2.jpg">
+			<img src="./demo_files/image3.jpg">
+        </span>
+
+
+<!-- One -->
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var f = $("#imgCheckbox1").imgCheckbox({
+			"styles": {
+				"span.imgCheckbox img": {
+					"border-radius": "6px"
+				},
+				"span.imgCheckbox.imgChked img": {
+					"transform": "scale(0.95)",
+				},
+				"span.imgCheckbox": {
+					"border": "none",
+				}
+			},
+			"checkMarkSize": "50px",
+			//"checkMarkImage": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMzQ2LjM4NCkiPjxwYXRoIGQ9Ik0zMiAzNDYuMzg0YTMyIDMyIDAgMCAwLTMyIDMyIDMyIDMyIDAgMCAwIDMyIDMyIDMyIDMyIDAgMCAwIDMyLTMyIDMyIDMyIDAgMCAwLTMyLTMyem0yMS4yNTYgMTAuMzI3bC0yNC40NiA0MC44OTNMOS41IDM3NS4yMTNsMTcuNjkzIDkuNjA1IDI2LjA2LTI4LjEwN3oiIGZpbGw9IiNjODAwMDAiIGZpbGwtb3BhY2l0eT0iLjc4NCIvPjxwYXRoIGQ9Ik05LjUwMiAzNzUuMjEzbDE5LjI5NCAyMi4zOSAyNC40Ni00MC44OTMtMjYuMDYgMjguMTA3eiIgZmlsbD0iI2ZmZiIvPjwvZz48L3N2Zz4=",
+
+		});
+		$(".imgCheckbox0").imgCheckbox();
+		$(".imgCheckbox1").imgCheckbox({
+			"styles": {
+				"span.imgCheckbox.imgChked img": {
+					"filter": "blur(5px)",
+					"-webkit-filter": "blur(5px)",
+					"transform": "scale(0.9)"
+				}
+			},
+			"graySelected": "false",
+
+			"scaleSelected": "true",
+
+			"fixedImageSize": "false",
+			"checkMarkPosition": "top-left",
+			"scaleCheckMark": "false",
+			"fadeCheckMark": "false",
+			"addToForm": "false",
+			"preselect": '[0,1,2,3]',
+			//"radio": 'true',
+			"canDeselect":  "true",
+		});
+		$(".exampleone").submit(function() {
+			$("body").css({"opacity": 0}).animate({"opacity": 1}, "fast");
+			$(".formoutput").text($(this).serialize());
+			return false;
+		})
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > window.innerHeight -1){
+				$('#headermenu').addClass("scrollDown");
+			}
+			else{
+				$('#headermenu').removeClass("scrollDown");
+			}
+		});
+	})
+</script>
+
+
+
+
+
+
+
+</body></html>

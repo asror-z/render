@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Domenu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/domenu@0.99.77/jquery.domenu-0.99.77.css">
+  <style>
+    .item-remove {
+      position: absolute;
+      right: 7px;
+      height: 19px;
+      padding: 0 5px;
+      top: 6px;
+      overflow: auto;
+    }
+  </style>
+
+</head>
+<body>
+<div class="dd" id="domenu">
+  <button class="dd-new-item">+</button>
+  <li class="dd-item-blueprint">
+    <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+    <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+    <div class="dd-handle dd3-handle">Drag</div>
+    <div class="dd3-content"><span>[item_name]</span>
+      <button class="item-remove">×</button>
+      <div class="dd-edit-box" style="display: none;">
+        <input type="text" name="title" placeholder="name">
+        <input type="url" name="http" placeholder="http://">
+        <i>✎</i></div>
+    </div>
+  </li>
+  <ol class="dd-list">
+
+  </ol>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/domenu@0.99.77/jquery.domenu-0.99.77.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#domenu').domenu({
+      data: '[{"id":11,"title":"Item 11","http":""},{"id":10,"title":"Item 10","http":""},{"id":9,"title":"Item 9","http":""},{"id":6,"title":"Home","http":"","children":[{"id":5,"title":"Item 5","http":""},{"id":4,"title":"Item 4","http":"","children":[{"id":3,"title":"Item 3","http":""},{"id":2,"title":"Item 2","http":"","children":[{"id":7,"title":"Example","http":"http://google.com"},{"id":8,"title":"Item 8","http":""}]}]}]},{"id":1,"title":"Item 1","http":""}]'
+    }) .parseJson();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)https://www.jqueryscript.net/demo/Stacked-One-Page-Slider-with-jQuery-StickyStack-js/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>StickyStack</title>
+    <link href="./render/navigat/ZStickyStackWidget/asset/normalize.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700">
+    <style>
+        body { font: 16px/1.5em 'Open Sans', 'Open Sans', sans-serif; }
+
+        a {
+            color: #fff;
+            -webkit-transition: all 300ms;
+            -moz-transition: all 300ms;
+            -o-transition: all 300ms;
+            transition: all 300ms;
+        }
+
+        a:hover {
+            background-color: #fff;
+            color: #111;
+        }
+
+        small { font-size: 10px; }
+
+        section {
+            background-color: #303030;
+            color: #fff;
+            padding: 1em 2em;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        section:before {
+            content: '';
+            display: block;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.65);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        section:nth-child(1) {
+            pading-top: 200px;
+            text-align: center;
+            background-size: cover;
+            background-position: 50% 50%;
+            position: relative;
+        }
+
+        section:nth-child(1) h1 {
+            margin-top: 160px;
+            margin-bottom: 0;
+            line-height: 1em;
+            font: 300 48px/1.2em 'Open Sans', sans-serif;
+        }
+
+        section:nth-child(1) .helper {
+            font-size: 14px;
+            width: 50%;
+            margin: 1em auto;
+            line-height: 1.5em;
+        }
+
+        section:nth-child(2) { position: relative; }
+
+        section:nth-child(2):before { display: none; }
+
+        section:nth-child(2) h1 { font: 300 42px/1.2em 'Open Sans', sans-serif; }
+
+        section:nth-child(3) h1 {
+            font-weight: 300;
+            margin-bottom: 1em;
+            line-height: 1.2em;
+        }
+
+        section:nth-child(3):before { display: none; }
+
+        section:nth-child(4):before { display: none; }
+
+        section:nth-child(4) .shadow {
+            position: absolute;
+            bottom: 40px;
+            left: 20px;
+        }
+
+        section:nth-child(4) h1 {
+            font-weight: 300;
+            line-height: 1.2em;
+        }
+
+        section:nth-child(5) {
+            background-position: 50% 100%;
+            padding-top: 30%;
+            text-align: center;
+        }
+
+        /* Modular Styles */
+
+
+        h1 { font-size: 3em; }
+
+        .btn {
+            padding: 10px 20px;
+            font: bold 16px/1.2em sans-serif;
+            border: 2px solid #fff;
+            -webkit-border-radius: 5px;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 5px;
+            -moz-background-clip: padding;
+            border-radius: 5px;
+            background-clip: padding-box;
+            background-color: transparent;
+            text-decoration: none;
+            margin-top: 1em;
+            color: #fff;
+            -webkit-transition: 300ms all;
+            -moz-transition: 300ms all;
+            -o-transition: 300ms all;
+            transition: 300ms all;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            border-color: #111;
+            color: #111;
+            -webkit-box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.5);
+            -moz-box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.5);
+        }
+
+        .shadow {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1em;
+            border-radius: 5px;
+        }
+
+        .shadow:after { display: none; }
+
+        .shadow h1:first-of-type,
+        .shadow h2:first-of-type,
+        .shadow h3:first-of-type {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="main-content-wrapper">
+    <!-- section 1 -->
+    <section id="one" style="height: 535px; width: 1349px;" data-scrollto="0" data-height="535">
+        <h1>jQuery StickyStack.js Demo</h1>
+        <div class="jquery-script-ads" align="center">
+            </div>
+        <br>
+        <br><br>
+        <a href="#" class="btn">Download</a> </section>
+
+    <!-- section 2-->
+    <section id="two" style="height: 625px; width: 1349px;" data-scrollto="535" data-height="625">
+        <div class="shadow">
+            <h1>Make your Content Come to You</h1>
+        </div>
+        <!--/.shadow-->
+    </section>
+
+    <!-- section 3 -->
+    <section style="height: 625px; width: 1349px;" data-scrollto="1160" data-height="625">
+        <div class="shadow">
+            <h1>Usage</h1>
+
+        </div></section>
+
+    <!-- section 4 -->
+    <section style="height: 625px; width: 1349px;" data-scrollto="1785" data-height="625">
+        <div class="shadow">
+            <h1>Options</h1>
+            <p></p>
+        </div>
+        <!--/.shadow-->
+
+    </section>
+    <section style="height: 625px; width: 1349px;" data-scrollto="2410" data-height="625">
+        <p>Enjoy.</p>
+        <br>
+        <br>
+        <a href="#" class="btn">Download</a> <br>
+        <br>
+    </section>
+</div>
+<!--/.main-content-wrapper-->
+<script src="/render/navigat/ZStickyStackWidget/asset/jquery.min.js"></script>
+<script src="/render/navigat/ZStickyStackWidget/asset/jquery.stickystack.js"></script>
+<script>
+    $('section').css('height', $(window).height());
+
+    $('.main-content-wrapper').stickyStack();
+</script>
+
+
+</body></html>

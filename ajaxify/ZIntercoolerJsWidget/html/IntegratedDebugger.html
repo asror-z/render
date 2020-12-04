@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intercooler@1.2.3/dist/intercooler.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-mockjax@2.5.0/dist/jquery.mockjax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<button ic-post-to="/example1" ic-target="#a-div" ic-indicator="#ind">Button 1</button>
+<button ic-post-to="/example2" ic-target="a-div">Button 2</button>
+<button ic-post-to="/example3" ic-target="#a-div" ic-indicator="ind">Button 3</button>
+<i id="ind" class="fa fa-spinner fa-spin" style="display: none"></i>
+<div id="a-div">
+    Click A Button!
+</div>
+
+<script>
+    
+    $.mockjax({
+        url: "/example1",
+        responseText: "You clicked Button 1"
+    });
+    $.mockjax({
+        url: "/example2",
+        responseText: "You clicked Button 2"
+    });
+    $.mockjax({
+        url: "/example3",
+        responseText: "You clicked Button 3"
+    });
+</script>
+
+
+</body>
+</html>

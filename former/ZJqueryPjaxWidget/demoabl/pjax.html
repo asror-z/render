@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://pjax.herokuapp.com/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title> pjax</title>
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="apple-touch-icon" href="https://pjax.herokuapp.com/pjax-57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="https://pjax.herokuapp.com/pjax-72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="https://pjax.herokuapp.com/pjax-114.png" sizes="114x114">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!--<script src="/render/former/ZJqueryPjaxWidget/demo/pjax_files/pages.js"></script>-->
+
+    <!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>-->
+    <script src="pjax_files/jquery.js"></script>
+    <script src="pjax_files/pages.js"></script>
+    <script src="pjax_files/jquery.pjax.js"></script>
+    <!--<script src="https://raw.github.com/defunkt/jquery-pjax/master/jquery.pjax.js"></script>-->
+    <script type="text/javascript">
+        $(function () {
+            // pjax
+            $(document).pjax('ul a.asd', '#main', {fragment: '#main'});
+
+        })
+    </script>
+
+    <style>
+        pre {
+            float: left;
+        }
+
+        #main {
+            font-family: Helvetica, Arial, sans-serif;
+            float: left;
+            margin-left: -120px;
+            padding-top: 80px;
+            width: 30%;
+        }
+
+        ul {
+            padding-left: 15px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<pre>
+               ／￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣
+               |　<b>It's 07:34:45 AM</b>
+               ＼＿　 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+        .--.     (  )
+       /    \   ( )
+      ## a  a  .
+      (   '._)
+       |'-- |
+     _.\___/_   ___<label><input type="checkbox" name="pjax">pjax</label>___
+   ."\&gt; \Y/|&lt;'.  '._.-'
+  /  \ \_\/ /  '-' /
+  | --'\_/|/ |   _/
+  |___.-' |  |`'`
+    |     |  |
+    |    / './
+   /__./` | |
+      \   | |
+       \  | |
+       ;  | |
+       /  | |
+ jgs  |___\_.\_
+      `-"--'---'
+
+<a href="https://github.com/defunkt/jquery-pjax">github.com/defunkt/jquery-pjax</a>
+</pre>
+<div id="main">
+
+    <ul>
+        <li>home</li>
+        <li><a class="asd" href="#">2-fayl</a></li>
+        <li><a class="asd2" href="#">2-fay22</a></li>
+    </ul>
+
+    <h1>Bu birinchi fayl</h1>
+
+    <script>
+
+        $('.asd2').on('click', function () {
+
+            $.pjax({
+                container: "#main",
+                target: "a.asd",
+                url: "http://mplace.zoft.uz/render/former/ZJqueryPjaxWidget/demoabl/pjax2.html"
+            });
+
+            /*   var url = 'pjax2.html'
+
+               $(this).attr('href', url)*/
+
+        })
+
+        $('.asd').on('click', function () {
+            var url = 'pjax2.html'
+
+            $(this).attr('href', url)
+        });
+
+    </script>
+</div>
+
+
+</body>
+</html>

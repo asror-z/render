@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- jsPanel CSS -->
+    <link href="https://cdn.statically.io/gh/Flyer53/jsPanel4/master/es6module/jspanel.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- jsPanel JavaScript -->
+
+</head>
+<body>
+
+
+
+<div class="container">
+    <button type="button" class="btn btn-primary" style="position:relative ; top: 200px;">Create Modal</button>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.statically.io/gh/Flyer53/jsPanel4/2f5e756f/dist/jspanel.min.js" charset="utf-8"></script>
+<script src="https://cdn.statically.io/gh/Flyer53/jsPanel4/2f5e756f/dist/extensions/tooltip/jspanel.tooltip.min.js" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    jsPanel.tooltip.create({
+        content: '<p>tooltip relative to some other element</p>',
+        target: '.btn',
+        connector: true,
+        position: {
+            my: 'center-bottom',
+            at: 'center-top',
+            of: '.btn'  // would be the target by default
+        },
+        contentSize: 'auto',
+        border: 'none',
+        borderRadius: 6,
+        header: false,
+        theme: 'crimson filled'
+    });
+</script>
+</body>
+</html>

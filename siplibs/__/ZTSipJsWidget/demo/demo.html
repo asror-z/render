@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<!-- saved from url=(0018)https://sipjs.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <meta name="MSSmartTagsPreventParsing" content="true">
+  <meta name="description" content="Add SIP signaling to your WebRTC app with this simple, open source JavaScript library - SIP.js.">
+  <meta name="viewport" content="initial-scale=1">
+  <title>SIP Signaling JavaScript Library for WebRTC Developers | SIP.js</title>
+  <link rel="alternate" type="application/atom+xml" title="API Changes" href="https://sipjs.com/changes.atom">
+  <link href="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/css" rel="stylesheet" type="text/css">
+  <link href="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/reset.css" rel="stylesheet" type="text/css">
+  <link href="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/960.css" rel="stylesheet" type="text/css">
+  <link href="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/uv_active4d.css" rel="stylesheet" type="text/css">
+  <link href="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/documentation.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/adaptive.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/success-popup.css" media="screen" rel="stylesheet" type="text/css">
+  <script async="" src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/analytics.js.download"></script><script src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/jquery.js.download" type="text/javascript"></script>
+  <script src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/documentation.js.download" type="text/javascript"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://sipjs.com/shared/img/favicon-7.ico">
+</head>
+
+
+<body class="overview">
+	<div id="dev"></div>
+<header id="siteHeader">
+  <div class="wrapper">
+    <nav id="mainNav"><a id="logo-link" href="https://sipjs.com/"><img id="logo" src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/logo.png" alt="sip.js"></a>
+      <ul id="mobile-nav" class="horizontal desktop-hide">
+        <li id="mobile-menu" class="dead-center-container">
+          <span class="dead-center-content">Menu</span>
+        </li>
+        <li id="mobile-api" class="dead-center-container">
+          <a class="dead-center-content" href="https://sipjs.com/api/0.15.0/">API</a>
+        </li>
+      </ul>
+      <ul id="full-nav" class="horizontal mobile-hide">
+        <li><a href="https://sipjs.com/download/">Download</a></li>
+        <li><a id="api-nav" href="https://sipjs.com/api/0.15.0/">API</a></li>
+        <li><a href="https://sipjs.com/guides/">Guides</a></li>
+        <li><a href="https://github.com/onsip/sip.js" target="_blank">Github</a></li>
+        <li><a href="https://sipjs.com/aboutus/" class="nav-aboutus">About Us</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/sip_js" target="_blank">Support</a></li>
+        <li><a href="https://sipjs.com/faq/">FAQ</a></li>
+      </ul>
+    </nav>
+    <nav id="drawer-nav" class="desktop-hide" style="max-height: 0px; transition: max-height 0.4s ease-in-out 0s;">
+      <ul id="drawer-list" class="horizontal">
+        <li><a href="https://sipjs.com/download/">Download</a></li>
+        <li><a id="api-nav" href="https://sipjs.com/api/0.15.0/">API</a></li>
+        <li><a href="https://sipjs.com/guides/">Guides</a></li>
+        <li><a href="https://github.com/onsip/sip.js" target="_blank">Github</a></li>
+        <li><a href="https://sipjs.com/aboutus/" class="nav-aboutus">About Us</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/sip_js" target="_blank">Support</a></li>
+        <li><a href="https://sipjs.com/faq/">FAQ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div id="body">
+	  <div class="wrapper-bg-extend">
+  <article class="group home-feature">
+	<div class="feature">
+	  <h1>WebRTC Made Easy for JavaScript Developers</h1>
+	  <h4 class="intro">A simple yet powerful JS library that takes care of WebRTC and SIP signaling for you</h4>
+	</div>
+  </article>
+  <div class="full-width-divider group home-feature" id="feature-selector">
+    <div>
+      <ul class="highlights">
+        <li id="feature-video-audio">
+          <img class="icon-unselected" src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/video-audio.png" alt="video + audio" style="display: none;">
+          <img class="icon-selected" src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/video-audio-highlight.png" alt="video + audio highlight">
+          <h4 style="color: rgb(234, 75, 53);">video + audio</h4>
+        </li>
+        <li id="feature-message">
+          <img class="icon-unselected" src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/message.png" alt="message">
+          <img class="icon-selected" src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/message-highlight.png" alt="message highlight" style="display: none;">
+          <h4 style="color: rgb(138, 124, 122);">message</h4>
+        </li>
+      </ul>
+      <!-- This draws an arrow that we use to indicate the highlighted feature -->
+      <svg class="arrow mobile-hide" id="feature-arrow" width="60" height="34" viewBox="0 0 80 45" style="left: 200px;">
+        <polygon points="40,5 75,40 5,40" style="fill: rgb(193, 191, 182); stroke: rgb(193, 191, 182);"></polygon>
+      </svg>
+    </div>
+  </div>
+
+  <div class="full-width-divider mid-gray-bg feature" id="feature-demo">
+    <div id="demo-error" style="display: none;">
+      <h1>Oops!</h1>
+      <h2>Looks like your browser can't run this demo.</h2>
+      <p>
+        To get the full experience, download the latest version of
+        <em>Chrome</em> or <em>Firefox</em>
+      </p>
+    </div>
+    <div id="content-video-audio">
+      <h2>In-browser Video Chat is Now a Breeze</h2>
+      <h4 class="intro">Here's a demo. Start a video chat between Alice and Bob.</h4>
+      <div class="two-column-boxes">
+        <div class="column-box">
+          <div class="demo-window">
+            <div class="demo-view">
+              <video id="video-of-bob" muted="muted"></video>
+            </div>
+            <div class="left">
+              <h4>Alice's View</h4>
+              <h5>Demo user one</h5>
+            </div>
+            <button id="alice-video-button" class="right" type="button">video</button>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="column-box">
+          <div class="demo-window">
+            <div class="demo-view">
+              <video id="video-of-alice" muted="muted"></video>
+            </div>
+            <div class="left">
+              <h4>Bob's View</h4>
+              <h5>Demo user two</h5>
+            </div>
+            <button id="bob-video-button" class="right" type="button">video</button>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <svg class="arrow mobile-hide demo-arrow" width="60" height="34" viewBox="0 0 80 45">
+        <polygon points="40,5 75,40 5,40"></polygon>
+      </svg>
+    </div>
+    <div id="content-message" style="display: none;">
+      <h2>Real-Time Messaging with a Dozen Lines of Code</h2>
+      <h4 class="intro">Check it out. Instant message between Alice and Bob.</h4>
+      <div class="two-column-boxes">
+        <div class="column-box">
+          <div class="demo-window">
+            <div class="demo-view">
+              <div id="alice-message-display" class="message-display">
+                <p class="message"><span class="message-from">Bob:</span> <span class="message-body placeholder">No messages yet</span></p>
+              </div>
+              <textarea id="alice-message-input" class="message-input" placeholder="Enter your message to Bob here!"></textarea>
+            </div>
+            <div class="left">
+              <h4>Alice's View</h4>
+              <h5>Demo user one</h5>
+            </div>
+            <button id="alice-message-button" class="right" type="button">send message</button>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="column-box">
+          <div class="demo-window">
+            <div class="demo-view">
+              <div id="bob-message-display" class="message-display">
+                <p class="message"><span class="message-from">Alice:</span> <span class="message-body placeholder">No messages yet</span></p>
+              </div>
+              <textarea id="bob-message-input" class="message-input" placeholder="Enter your message to Alice here!"></textarea>
+            </div>
+            <div class="left">
+              <h4>Bob's View</h4>
+              <h5>Demo user two</h5>
+            </div>
+            <button id="bob-message-button" class="right" type="button">send message</button>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <svg class="arrow mobile-hide demo-arrow" width="60" height="34" viewBox="0 0 80 45">
+        <polygon points="40,5 75,40 5,40"></polygon>
+      </svg>
+    </div>
+  </div>
+  <div class="full-width-divider orange-bg">
+    <div id="code-intro" class="left">
+      <h3 class="homepage">See How It's Done</h3>
+      <p class="left mobile-hide">
+      The code displayed on the right is what powers the selected demo from Alice’s end, although Bob’s code would be very similar. SIP.js allows you to utilize WebRTC’s APIs using just JavaScript. To check out the full code for all three demos, click the button below.
+      </p>
+      <p class="desktop-hide">
+        SIP.js makes it easy to utilize WebRTC's APIs and set up SIP communication sessions. In no time at all, you can have two separate users talking to one another. To learn more about the SIP.js API, click the button below.
+      </p>
+    </div>
+<div class="code-wrapper mobile-hide">
+<div class="index-demo-code" id="code-video-audio">
+        <pre><code class="language-javascript"><span class="kd">var</span> <span class="nx">domain</span> <span class="o">=</span> <span class="s1">'sipjs.onsip.com'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">aliceURI</span>      <span class="o">=</span> <span class="s1">'alice.'</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">token</span> <span class="o">+</span> <span class="s1">'@'</span> <span class="o">+</span> <span class="nx">domain</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">aliceName</span>     <span class="o">=</span> <span class="s1">'Alice'</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">bobURI</span>        <span class="o">=</span> <span class="s1">'bob.'</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">token</span> <span class="o">+</span> <span class="s1">'@'</span> <span class="o">+</span> <span class="nx">domain</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">bobName</span>       <span class="o">=</span> <span class="s1">'Bob'</span><span class="p">;</span>
+
+<span class="c1">// Function: createSimple</span>
+<span class="c1">//   creates a SIP.js Simple instance with the given arguments plugged into the</span>
+<span class="c1">//   configuration. This is a standard Simple instance for WebRTC calls.</span>
+<span class="c1">//</span>
+<span class="c1">// Arguments:</span>
+<span class="c1">//   callerURI: the URI of the caller, aka, the URI that belongs to this user.</span>
+<span class="c1">//   displayName: what name we should display the user as</span>
+<span class="c1">//   remoteVideo: the DOM element id of the video for the remote</span>
+<span class="c1">//   buttonId: the DOM element id of the button for that user</span>
+<span class="kd">function</span> <span class="nx">createSimple</span><span class="p">(</span><span class="nx">callerURI</span><span class="p">,</span> <span class="nx">displayName</span><span class="p">,</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">remoteVideo</span><span class="p">,</span> <span class="nx">buttonId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">remoteVideoElement</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">remoteVideo</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">buttonId</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">configuration</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">media</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">remote</span><span class="o">:</span> <span class="p">{</span>
+                <span class="nx">video</span><span class="o">:</span> <span class="nx">remoteVideoElement</span><span class="p">,</span>
+                <span class="c1">// Need audio to be not null to do audio &amp; video instead of just video</span>
+                <span class="nx">audio</span><span class="o">:</span> <span class="nx">remoteVideoElement</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nx">ua</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">traceSip</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nx">uri</span><span class="o">:</span> <span class="nx">callerURI</span><span class="p">,</span>
+            <span class="nx">displayName</span><span class="o">:</span> <span class="nx">displayName</span><span class="p">,</span>
+            <span class="nx">userAgentString</span><span class="o">:</span> <span class="nx">SIP</span><span class="p">.</span><span class="nx">C</span><span class="p">.</span><span class="nx">USER_AGENT</span> <span class="o">+</span> <span class="s2">" sipjs.com"</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="kd">var</span> <span class="nx">simple</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SIP</span><span class="p">.</span><span class="nx">Web</span><span class="p">.</span><span class="nx">Simple</span><span class="p">(</span><span class="nx">configuration</span><span class="p">);</span>
+
+    <span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// No current call up</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">simple</span><span class="p">.</span><span class="nx">state</span> <span class="o">===</span> <span class="nx">SIP</span><span class="p">.</span><span class="nx">Web</span><span class="p">.</span><span class="nx">Simple</span><span class="p">.</span><span class="nx">C</span><span class="p">.</span><span class="nx">STATUS_NULL</span> <span class="o">||</span>
+            <span class="nx">simple</span><span class="p">.</span><span class="nx">state</span> <span class="o">===</span> <span class="nx">SIP</span><span class="p">.</span><span class="nx">Web</span><span class="p">.</span><span class="nx">Simple</span><span class="p">.</span><span class="nx">C</span><span class="p">.</span><span class="nx">STATUS_COMPLETED</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">simple</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">simple</span><span class="p">.</span><span class="nx">hangup</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="nx">simple</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">aliceSimple</span> <span class="o">=</span> <span class="nx">createSimple</span><span class="p">(</span><span class="nx">aliceURI</span><span class="p">,</span> <span class="nx">aliceName</span><span class="p">,</span> <span class="nx">bobURI</span><span class="p">,</span> <span class="s1">'video-of-bob'</span><span class="p">,</span> <span class="s1">'alice-video-button'</span><span class="p">);</span></code></pre>
+      </div>
+</div>
+<div class="code-wrapper mobile-hide">
+<div class="index-demo-code" id="code-message" style="display: none;">
+        <pre><code class="language-javascript"><span class="kd">var</span> <span class="nx">domain</span> <span class="o">=</span> <span class="s1">'sipjs.onsip.com'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">aliceURI</span>      <span class="o">=</span> <span class="s1">'alice'</span> <span class="o">+</span> <span class="s1">'@'</span> <span class="o">+</span> <span class="nx">domain</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">aliceName</span>     <span class="o">=</span> <span class="s1">'Alice'</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">bobURI</span>        <span class="o">=</span> <span class="s1">'bob'</span> <span class="o">+</span> <span class="s1">'@'</span> <span class="o">+</span> <span class="nx">domain</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">bobName</span>       <span class="o">=</span> <span class="s1">'Bob'</span><span class="p">;</span>
+
+<span class="c1">// Sets up the chat interface for text messaging</span>
+<span class="kd">function</span> <span class="nx">setUpMessageInterface</span><span class="p">(</span><span class="nx">simple</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Receive a message and put it in the message display div</span>
+    <span class="nx">simple</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+
+<span class="kd">var</span> <span class="nx">aliceSimple</span> <span class="o">=</span> <span class="nx">createSimple</span><span class="p">(</span><span class="nx">aliceURI</span><span class="p">,</span> <span class="nx">aliceName</span><span class="p">,</span> <span class="nx">bobURI</span><span class="p">,</span> <span class="s1">'video-of-bob'</span><span class="p">,</span> <span class="s1">'alice-video-button'</span><span class="p">);</span>
+
+<span class="nx">setUpMessageInterface</span><span class="p">(</span><span class="nx">aliceSimple</span><span class="p">);</span>
+<span class="nx">aliceSimple</span><span class="p">.</span><span class="nx">message</span><span class="p">(</span><span class="nx">bobURI</span><span class="p">,</span> <span class="s1">'Check out this palindrome: "Now sir, a war is never even. Sir, a war is won."'</span><span class="p">);</span></code></pre>
+      </div>
+</div>
+
+  <a class="mobile-hide button" href="https://sipjs.com/guides/full-demo-app/">
+    <span class="text-hover-left">See Full Demo Code</span>&nbsp;<span class="hover-arrow">⟩</span>
+  </a>
+  <a class="desktop-hide button" href="https://sipjs.com/api/0.6.0/">
+    <span class="text-hover-left">Check out the full API</span>&nbsp;<span class="hover-arrow">⟩</span>
+  </a>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="full-width-divider">
+    <h2 class="orange-fg">Don't Want to Bother with the Back End?</h2>
+    <p class="multicolumn">
+      If you’d like to identify and locate your user addresses on the Internet so they can participate in RTC sessions, you’ll need SIP servers. You can build your own using open source <a href="https://sipjs.com/guides/server-configuration/freeswitch/">FreeSWITCH</a> or <a href="https://sipjs.com/guides/server-configuration/asterisk/">Asterisk</a>, or you can try out OnSIP - no system setup, modifications, maintenance, or upfront capital required.
+      <a id="signup-button" class="mobile-hide button orange-bg left" href="https://signup.onsip.com/sipjs">
+        <span class="text-hover-left">Sign up for an OnSIP free trial</span>&nbsp;<span class="hover-arrow">⟩</span>
+      </a>
+    </p>
+    <div class="clearfix"></div>
+    <a class="desktop-hide button orange-bg" href="https://signup.onsip.com/sipjs">
+        <span class="text-hover-left">Sign up for an OnSIP free trial</span>&nbsp;<span class="hover-arrow">⟩</span>
+    </a>
+  </div>
+
+  <div class="full-width-divider light-gray-bg">
+    <div class="two-column-boxes highlights align-center">
+      <div class="column-box">
+        <div class="highlight-icon-wrapper">
+          <div class="highlight-icon icon-books" onclick="window.location=&#39;/guides/&#39;">
+            <div class="hoverstate">
+              <a href="https://sipjs.com/guides/">Guides</a>
+            </div>
+          </div>
+        </div>
+        <h3 class="homepage"><span>Learn</span></h3>
+        <p>New to SIP.js? Our guides and docs will have you up and running in a snap.</p>
+      </div>
+      <div class="column-box">
+        <div class="highlight-icon-wrapper">
+          <div class="highlight-icon icon-people" onclick="window.location=&#39;https://groups.google.com/forum/#!forum/sip_js&#39;">
+            <div class="hoverstate">
+              <a href="https://groups.google.com/forum/#!forum/sip_js">Support</a>
+            </div>
+          </div>
+        </div>
+        <h3 class="homepage"><span>Connect</span></h3>
+        <p>Get answers, stay up to date, and become part of the SIP.js community.</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+  <div class="full-width-divider">
+    <h2>Features</h2>
+
+    <ul class="multicolumn">
+      <li>Register <a href="https://sipjs.com/faq/#what-is-sip">SIP</a> User Agents using the <a href="http://tools.ietf.org/html/rfc7118">SIP over WebSocket</a> transport</li>
+      <li>Create Audio and Video sessions</li>
+      <li>Send <a href="https://sipjs.com/guides/send-message/">Instant Messages</a> and view Presence</li>
+      <li>Share your screen or desktop</li>
+      <li>Utilize advanced call features such as early media, call hold and resume, and transfers</li>
+      <li>Send DTMF with SIP INFO</li>
+      <li>100% open source, 100% JavaScript</li>
+      <li>All major browsers supported</li>
+    </ul>
+  </div>
+  <div class="full-width-divider light-gray-bg">
+    <h2>Trusted By</h2>
+    <div class="two-column-boxes align-center" id="git-mit-images">
+      <div class="column-box" style="width: 33%;">
+        <img src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/onsip-gray.png" alt="Trusted by OnSIP">
+      </div>
+      <div class="column-box" style="width: 33%;">
+        <img src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/firertc-gray.png" alt="Trusted by FireRTC">
+      </div>
+      <div class="column-box" style="width: 33%;">
+        <img src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/ringcentral-gray.png" alt="Trusted by RingCentral">
+      </div>
+    </div>
+  </div>
+  <div class="full-width-divider light-gray-bg">
+    <div class="two-column-boxes align-center" id="git-mit-images">
+      <div class="column-box" style="width: 33%;">
+        <img src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/twilio-gray.png" alt="Trusted by Twilio">
+      </div>
+      <div class="column-box" style="width: 33%;">
+        <img src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/spacivox-gray.png" alt="Trusted by Spacivox">
+      </div>
+      <div class="column-box" style="width: 33%;">
+        <img src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/hodusoft-gray.png" alt="Trusted by Spacivox">
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- <div class="full-width-divider light-gray-bg">
+    <div class="two-column-boxes align-center" id="git-mit-images">
+      <div class="column-box">
+        <img src="/shared/img/github.png" alt="github: social coding" />
+      </div>
+      <div class="column-box">
+        <img src="/shared/img/mit-license.png" alt="MIT open-source license" />
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div> -->
+  <div class="full-width-divider">
+    <h2>SIP Standards</h2>
+    <h4 class="intro">
+<strong>SIP.js</strong> implements the following standard RFCs:</h4>
+
+    <ul class="multicolumn">
+      <li><a href="http://tools.ietf.org/html/rfc3261">[3261] SIP: Session Initiation Protocol</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc3262">[3262] Reliability of Provisional Responses in SIP</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc3326">[3326] The Reason Header Field for SIP</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc3327">[3327] SIP Extension Header Field for Registering Non-Adjacent Contacts (Path)</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc3428">[3428] SIP Extension for Instant Messaging</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc3856">[3856] A Presence Event Package for SIP</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc3903">[3903] SIP Extension for Event State Publication</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc4235">[4235] An INVITE-Initiated Dialog Event Package for SIP</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc3515">[3515] SIP Refer Method</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc5626">[5626] Managing Client-Initiated Connections in SIP (SIP Outbound)</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc5954">[5954] Essential Correction for IPv6 ABNF and URI Comparison in RFC 3261</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc6026">[6026] Correct Transaction Handling for 2xx Responses to SIP INVITE Requests</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc6665">[6665] SIP-Specific Event Notification (SUBSCRIBE/NOTIFY, formerly RFC 3265)</a></li>
+      <li><a href="http://tools.ietf.org/html/rfc7118">[7118] The WebSocket Protocol as a Transport for SIP</a></li>
+    </ul>
+  </div>
+</div>
+
+    </div>
+
+	<footer class="light-gray-bg">
+  <div class="wrapper">
+    <div id="onsip-stamp">
+      <span id="made-by-prefix">made by</span>
+      <a href="http://developer.onsip.com/" id="onsip"></a>
+    </div>
+    <nav class="left">
+      <ul class="horizontal">
+        <li><a href="https://groups.google.com/forum/#!forum/sip_js" target="_blank">Mailing List</a></li>
+        <li><a href="https://github.com/onsip/sip.js/issues" target="_blank">Report Issues</a></li>
+        <li><a href="https://sipjs.com/license/">License</a></li>
+      </ul>
+    </nav>
+    <nav class="right">
+      <ul class="horizontal">
+        <li><a href="https://travis-ci.org/onsip/SIP.js"><img src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/passing.png"></a></li>
+        <li><a href="http://onsip.com/blog" target="_blank">Blog</a></li>
+        <li><a href="https://sipjs.com/aboutus/">About</a></li>
+        <li><a href="https://sipjs.com/faq/">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="clearfix"></div>
+  </div>
+</footer>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1008379-16', 'sipjs.com');
+  ga('send', 'pageview');
+</script>
+<script>
+  // Remove all 'no-js-hide' classes because Javascript is working
+  $(function () {
+      $('.no-js-hide').each(function (i, e) {
+          $(e).removeClass('no-js-hide');
+      });
+      $('.no-js-block').each(function (i, e) {
+          $(e).removeClass('no-js-block');
+      });
+  });
+</script>
+
+
+
+    <script src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/https_redirect.js.download" type="text/javascript"></script>
+    <script src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/mobile_nav.js.download" type="text/javascript"></script>
+    <script src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/sip-0.15.10.js.download" type="text/javascript"></script>
+    <script src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/feature_selector.js.download" type="text/javascript"></script>
+    <script src="./SIP Signaling JavaScript Library for WebRTC Developers _ SIP.js_files/sipjs_demos.js.download" type="text/javascript"></script>
+
+
+</body></html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://webcloud.se/jQuery-Collapse/ -->
+<html lang="en" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="description" content="A lightweight jQuery plugin that enables expanding and collapsing content">
+    <meta name="viewport" content="width=device-width">
+    <title>jQuery Collapse | webcloud</title>
+    <link href="./demo_files/style.css" rel="stylesheet">
+    <link href="./demo_files/prism.css" rel="stylesheet">
+    <script id="twitter-wjs" src="./demo_files/widgets.js.download"></script><script type="text/javascript" async="" src="./demo_files/ga.js.download"></script><script>document.documentElement.className = "js";</script>
+    <script src="./demo_files/jquery.min.js.download"></script>
+    <!--[if lt IE 8]>
+        <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <![endif]-->
+    <script src="./demo_files/prism.js.download"></script>
+    <script src="./demo_files/jquery.collapse.js.download"></script>
+    <script src="./demo_files/jquery.collapse_storage.js.download"></script>
+    <script src="./demo_files/jquery.collapse_cookie_storage.js.download"></script>
+    <script>
+    /*@cc_on(function(e,i){i=e.length;while(i--)document.createElement(e[i])})("abbr,article,aside,audio,canvas,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(','))@*/
+    </script>
+    <script>
+      if(/webcloud\.se$/.test(window.location.hostname)) {
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-4323373-5']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+      }
+    </script>
+  <script charset="utf-8" src="./demo_files/button.9a57558490548c2dde66afe19af6c010.js.download"></script></head>
+  <body>
+    <a href="https://github.com/danielstocks/jQuery-Collapse">
+      <img class="fork" src="./demo_files/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
+    <div id="wrap">
+      <div id="crumb">
+          <a href="http://webcloud.se/">webcloud</a> / jQuery Collapse
+      </div>
+      <div id="social">
+
+        <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 1px; height: 1px;" title="Twitter Tweet Button" src="./demo_files/tweet_button.6a44a9d26983bbb5b04ae399f9e496fe.en.html" __idm_frm__="344" data-url="http://webcloud.se/jQuery-Collapse/"></iframe>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+        <iframe id="github-star" src="./demo_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="84px" height="20px"></iframe>
+      </div>
+      <div id="header">
+        <h1>jQuery Collapse</h1>
+        <h2>A lightweight (~1kb) jQuery plugin that enables expanding and collapsing content</h2>
+      </div>
+      <div id="content">
+        <section id="info">
+          <h2>Collapsible Content with JavaScript</h2>
+          <p>This plugin provides you an accessible and lightweight solution to a widely adopted interface pattern known as <em>progressive disclosure.</em></p>
+          <p>Read the <a href="https://github.com/danielstocks/jQuery-Collapse">full documentation</a> for more info.</p>
+          <h3>Basic Usage</h3>
+<pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span>"demo"</span> <span class="token attr-name">data-collapse</span><span class="token attr-value"><span class="token punctuation">=</span>"accordion persist"</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Fruits<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>Apple<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>Pear<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>Orange<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Hint<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>One fruit a day keeps the doctor away<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Third<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Just a paragraph here<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+          <div id="demo" data-collapse="accordion persist">
+            <h2 data-collapse-summary="" class="open"><a href="http://webcloud.se/jQuery-Collapse/#">Fruits</a></h2>
+            <ul aria-hidden="false" style="display: block;">
+              <li>Apple</li>
+              <li>Pear</li>
+              <li>Orange</li>
+            </ul>
+            <h2 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Saying</a></h2>
+            <div aria-hidden="true" style="display: none;">
+              <p>One fruit a day keeps the doctor away</p>
+            </div>
+            <h2 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Third</a></h2>
+            <p aria-hidden="true" style="display: none;">Just a paragraph here</p>
+          </div>
+        </section>
+        <section id="links">
+          <div class="download">
+            <a class="btn btn-large" href="https://github.com/danielstocks/jQuery-Collapse/zipball/1.1.2">Download jQuery Collapse</a>
+            <small>Latest Release: 1.1.2</small>
+          </div>
+          <div class="view-on-github">
+            or
+            <a href="http://github.com/danielstocks/jQuery-Collapse/">view project on GitHub</a>
+          </div>
+        </section>
+        <section id="features">
+        <h2>Features</h2>
+          <div class="box">
+            <h3 class="open" data-collapse-summary=""><a href="http://webcloud.se/jQuery-Collapse/#">Persistence</a></h3>
+            <div aria-hidden="false">
+              <p>Remembers open sections on page reload using either HTML5 localStorage or cookies!</p>
+            </div>
+            <h3 class="open" data-collapse-summary=""><a href="http://webcloud.se/jQuery-Collapse/#">Accordion</a></h3>
+            <div aria-hidden="false">
+              <p>jQuery Collapse is packed with the classic 'accordion' behaviour that can be easily toggled on and off.</p>
+            </div>
+            <h3 class="open" data-collapse-summary=""><a href="http://webcloud.se/jQuery-Collapse/#">WAI-ARIA Compliance</a></h3>
+            <div aria-hidden="false">
+              <p>The plugin has been designed with <a href="http://www.w3.org/WAI/intro/aria">WAI-ARIA</a> in mind which defines a way to make Web content and Web applications more accessible to people with disabilities.</p>
+            </div>
+            <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Lightweight</a></h3>
+            <div aria-hidden="true" style="display: none;">
+              <p>jQuery-Collapse is designed to be lightweight with minimal bloat. It's only ~1kb when compiled and gzipped! </p>
+            </div>
+            <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Cross Browser</a></h3>
+            <div aria-hidden="true" style="display: none;">
+              <p>Fully tested in IE6+, Firefox3+, Chrome5+, Safari4+, Opera 10+. Degrades gracefully in unsupported browsers</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    <h1 id="examples-header"><span>—</span> A few examples <span>—</span></h1>
+    <p id="examples-info">To better understand how these examples work I recommend you to <a href="view-source:http://webcloud.se/jQuery-Collapse/">view the source</a>.
+
+    <!-- DEMO -->
+    </p><section id="examples">
+    <div class="col c1">
+      <h2>Default Example</h2>
+      <div id="default-example" data-collapse="">
+        <h3 data-collapse-summary="" class="open"><a href="http://webcloud.se/jQuery-Collapse/#">Fruits</a></h3>
+        <div aria-hidden="false" style="display: block;">I like fruits. This <a href="http://webcloud.se/jQuery-Collapse/#work">link should work</a></div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Info</a></h3>
+        <div aria-hidden="true" style="display: none;">This is some information</div>
+      </div>
+      <h2>Accordion Example</h2>
+      <div id="accordion-example" data-collapse="accordion">
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Accordions</a></h3>
+        <div aria-hidden="true" style="display: none;">Are fun and they make pleasent noises</div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Fruits</a></h3>
+        <div aria-hidden="true" style="display: none;">I like fruits</div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Info</a></h3>
+        <div aria-hidden="true" style="display: none;">This is some information</div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Yeah!!</a></h3>
+        <div aria-hidden="true" style="display: none;">eh</div>
+      </div>
+
+      <h2>Persistence Example</h2>
+      <div id="persistence-example" data-collapse="persist">
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">These</a></h3>
+        <div aria-hidden="true" style="display: none;">Well hello there</div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Sections</a></h3>
+        <div aria-hidden="true" style="display: none;">yabayaba</div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Should be</a></h3>
+        <div aria-hidden="true" style="display: none;">might be.</div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Persistant!!</a></h3>
+        <div aria-hidden="true" style="display: none;">eh</div>
+      </div>
+    </div>
+
+    <div class="col c2">
+      <!-- BEGIN Custom show and hide -->
+      <h2>Custom show &amp; hide</h2>
+      <div id="custom-show-hide-example">
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Hello</a></h3>
+        <div aria-hidden="true" style="display: none;">
+          <p>Hello Sir.</p>
+          <p>I'm sliding</p>
+        </div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Anarachy in the UK</a></h3>
+        <div aria-hidden="true" style="display: none;">I like tea</div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Indeed</a></h3>
+        <div aria-hidden="true" style="display: none;">This is some information</div>
+      </div>
+      <script>
+        new jQueryCollapse($("#custom-show-hide-example"), {
+          open: function() {
+            this.slideDown(150);
+          },
+          close: function() {
+            this.slideUp(150);
+          }
+        });
+      </script>
+      <!-- END Custom show and hide -->
+
+      <!-- BEGIN Showing and hiding with CSS -->
+      <h2>w/ CSS3 Animations</h2>
+      <div id="css3-animated-example">
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Hello</a></h3>
+        <div aria-hidden="true" style="display: none;">
+          <div class="content">
+            <p>This example simply sets a class attribute to the details and let's an
+            external stylesheet toggle the collapsed state.</p>
+            <p>Hello Sir.</p>
+            <p>I'm sliding</p>
+          </div>
+        </div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Friend</a></h3>
+        <div aria-hidden="true" style="display: none;">
+          <div class="content">
+            <p>This example simply sets a class attribute to the details and let's an
+            external stylesheet toggle the collapsed state.</p>
+            <p>Hello Sir.</p>
+          </div>
+        </div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Foe</a></h3>
+        <div aria-hidden="true" style="display: none;">
+          <div class="content">
+            <p>This example simply sets a class attribute to the details and let's an
+            external stylesheet toggle the collapsed state.</p>
+          </div>
+        </div>
+      </div>
+      <script>
+        $("#css3-animated-example").collapse({
+          accordion: true,
+          persist: true,
+          open: function() {
+            this.addClass("open");
+            this.css({ height: this.children().outerHeight() });
+          },
+          close: function() {
+            this.css({ height: "0px" });
+            this.removeClass("open");
+          }
+        });
+      </script>
+      <!-- END Showing and hiding with CSS -->
+
+
+      <!-- BEGIN custom markup example -->
+      <h2>Custom markup example</h2>
+      <div id="custom-markup-example">
+        <div>
+          <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Hello</a></h3>
+          <div aria-hidden="true" style="display: none;">
+            <div class="content">
+              <p>This example simply sets a class attribute to the details and let's an
+              external stylesheet toggle the collapsed state.</p>
+              <p>Hello Sir.</p>
+              <p>I'm sliding</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Friend</a></h3>
+          <div aria-hidden="true" style="display: none;">
+            <div class="content">
+              <p>This example simply sets a class attribute to the details and let's an
+              external stylesheet toggle the collapsed state.</p>
+              <p>Hello Sir.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Foe</a></h3>
+          <div aria-hidden="true" style="display: none;">
+            <div class="content">
+              <p>This example simply sets a class attribute to the details and let's an
+              external stylesheet toggle the collapsed state.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        $("#custom-markup-example").collapse({
+          query: "div h3"
+        });
+      </script>
+      <!-- END custom markup example -->
+    </div>
+
+    <div class="col c3">
+
+      <!-- BEGIN Events -->
+      <h2>Binding events</h2>
+      <pre id="event-log">Event log</pre>
+      <div class="example" id="events-example">
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Section 1</a></h3>
+        <div aria-hidden="true" style="display: none;">
+          <p>This example simply sets a class attribute to the details and let's an
+          external stylesheet toggle the collapsed state.</p>
+          <p>Hello Sir.</p>
+          <p>I'm sliding</p>
+        </div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Section 2</a></h3>
+        <div aria-hidden="true" style="display: none;">
+          <p>This example simply sets a class attribute to the details and let's an
+          external stylesheet toggle the collapsed state.</p>
+          <p>Hello Sir.</p>
+        </div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">Section 3</a></h3>
+        <div aria-hidden="true" style="display: none;">
+          <p>This example simply sets a class attribute to the details and let's an
+          external stylesheet toggle the collapsed state.</p>
+        </div>
+      </div>
+
+      <h2>Open section by default</h2>
+      <div id="open-by-default-example" data-collapse="">
+        <h3 class="open" data-collapse-summary=""><a href="http://webcloud.se/jQuery-Collapse/#">I'm open by default</a></h3>
+        <div aria-hidden="false" style="display: block;">Yay</div>
+        <h3 data-collapse-summary="" class="close"><a href="http://webcloud.se/jQuery-Collapse/#">I'm not open</a></h3>
+        <div aria-hidden="true" style="display: none;">booo :(</div>
+      </div>
+
+      <script>
+        var el = $("#events-example"),
+          log = $("#event-log");
+
+        el.collapse()
+          .bind("open", function(e, section) {
+            log.html("'" + section.$summary.text() + "' was opened");
+          })
+          .bind("close", function(e, section) {
+            log.html("'" + section.$summary.text() + "' was closed");
+          })
+      </script>
+      <!-- END Events -->
+
+      </div></section>
+    </div>
+
+    <script>
+      $("#features .box").collapse();
+    </script>
+  
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./demo_files/widget_iframe.6a44a9d26983bbb5b04ae399f9e496fe.html" title="Twitter settings iframe" style="display: none;"></iframe></body></html>

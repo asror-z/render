@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://labs.jagfx.fr/formJS/example/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+				
+				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+				
+				<title>jQuery feedback plugin - Example</title>
+				
+				<link rel="stylesheet" href="./demo1_files/bootstrap.min.css">
+				<link rel="stylesheet" href="./demo1_files/solid.css">
+				<link rel="stylesheet" href="./demo1_files/brands.css">
+				<link rel="stylesheet" href="./demo1_files/fontawesome.css">
+				
+				<!-- To import -->
+				<link rel="stylesheet" href="./demo1_files/formJS-flat.css" id="styleAlert">
+				<!-- ./ To import -->
+				
+				<style>
+					body { background: #f7f7f7; }
+					
+					
+					.author {
+						font-family: 'Quicksand', sans-serif;
+					}
+					
+					
+					.author > .btn {
+						border-radius: 0;
+						box-shadow:    0 2px 2px #d8d8d8;
+					}
+					
+					
+					.author .btn-web {
+						background: #2C97DE;
+						color:      #fff;
+					}
+					
+					
+					.author .btn-web > i {
+						background: #2c7ec5;
+						color:      #fff;
+					}
+					
+					
+					.author .btn-web:hover, .author .btn-web:active, .author .btn-web:focus {
+						background: #2c7ec5;
+						color:      #fff;
+					}
+					
+					
+					.author .btn-npm {
+						background: #cb3837;
+						color:      #fff;
+					}
+					
+					
+					.author .btn-npm > i {
+						background: #ba3837;
+						color:      #fff;
+					}
+					
+					
+					.author .btn-npm:hover, .author .btn-npm:active, .author .btn-npm:focus {
+						background: #ba3837;
+						color:      #fff;
+					}
+					
+					
+					.author .btn-git {
+						background: #24292e;
+						color:      #fff;
+					}
+					
+					
+					.author .btn-git > i {
+						background: #666d72;
+						color:      #fff;
+					}
+					
+					
+					.author .btn-git:hover, .author .btn-git:active, .author .btn-git:focus {
+						background: #666d72;
+						color:      #fff;
+					}
+				</style>
+			</head>
+			<body class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="card mt-5">
+							<div class="card-header d-flex justify-content-between align-items-center">
+								FormJS example
+								<div class="btn-group">
+									<button class="btn btn-secondary btn-sm" type="button">
+										Style: <span id="currentStyle">Flat</span>
+									</button>
+									<button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<div class="dropdown-menu  dropdown-menu-right">
+										<a class="dropdown-item style" href="https://labs.jagfx.fr/formJS/example/#" data-path="../dist/css/theme-bs/formJS-bs.css">Bootstrap
+											3/4</a>
+										<a class="dropdown-item style" href="https://labs.jagfx.fr/formJS/example/#" data-path="../dist/css/theme-cust/formJS-cust.css">Custom</a>
+										<a class="dropdown-item style" href="https://labs.jagfx.fr/formJS/example/#" data-path="../dist/css/theme-flat/formJS-flat.css">Flat</a>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="card-text">
+									<form action="https://labs.jagfx.fr/formJS/example/" id="formJS" method="post" class="col-12"><div class="formJS"><div class="alert formjs-success" role="alert" style=""><div class="ico">
+								<span class="fas fa-check"></span>
+							</div>
+							<div class="info">
+								<h4>Success</h4>
+								<p>You are powerful with formJS :D</p>
+							</div></div></div>
+										<div class="form-group">
+											<label for="typeFeedback">Type of feedback</label>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input" name="typeFeedback" id="Success" value="success" checked="">
+												<label class="custom-control-label" for="Success">
+													<span class="badge badge-info">Feedback</span>
+													Success
+												</label>
+											</div>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input" name="typeFeedback" id="Info" value="info">
+												<label class="custom-control-label" for="Info">
+													<span class="badge badge-info">Feedback</span>
+													Info
+												</label>
+											</div>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input" name="typeFeedback" id="Warning" value="warning">
+												<label class="custom-control-label" for="Warning">
+													<span class="badge badge-info">Feedback</span>
+													Warning
+												</label>
+											</div>
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input" name="typeFeedback" id="Error" value="error">
+												<label class="custom-control-label" for="Error">
+													<span class="badge badge-info">Feedback</span>
+													Error
+												</label>
+											</div>
+											
+											<hr>
+											
+											<div class="custom-control custom-radio">
+												<input type="radio" class="custom-control-input" name="typeFeedback" id="OtherView" value="other">
+												<label class="custom-control-label" for="OtherView">
+													<span class="badge badge-warning">View</span>
+													View response
+												</label>
+											</div>
+										</div>
+										
+										<button type="submit" class="btn btn-primary">Try</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="py-3 text-center author">
+							<h2>SMITH Emmanuel</h2>
+							<a class="btn btn-sm p-0 pr-2 btn-web" href="https://emmanuel-smith.me/" target="_blank" title="Personal website">
+								<i class="fas fa-globe p-2 mr-1"></i>
+								emmanuel-smith.me
+							</a>
+							<a class="btn btn-sm p-0 pr-2 btn-npm" href="https://www.npmjs.com/package/jagfx-formjs" target="_blank" title="NPM repository page">
+								<i class="fab fa-npm p-2 mr-1"></i>
+								jagfx-formjs
+							</a>
+							<a class="btn btn-sm p-0 pr-2 btn-git" href="https://github.com/JAGFx" target="_blank" title="Github repository">
+								<i class="fab fa-github p-2 mr-1"></i>
+								JAGFx
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<script src="./demo1_files/jquery.js.Без названия"></script>
+				<script src="./demo1_files/bootstrap.bundle.min.js.Без названия"></script>
+				<script src="./demo1_files/formJS.js.Без названия"></script>
+				
+				<script>
+					var $form = $( '#formJS' ).formJS(
+						{
+							icons: {
+								loading: '<span class="fas fa-circle-notch fa-spin"></span>',
+								success: '<span class="fas fa-check"></span>',
+								info:    '<span class="fas fa-info"></span>',
+								warning: '<span class="fas fa-exclamation-triangle"></span>',
+								error:   '<span class="fas fa-fire"></span>'
+							}
+						}
+					);
+					
+					$form.on( 'formjs:submit', function ( e, ajaxSetting, ajaxPending ) {
+						console.log( 'submit', ajaxSetting, ajaxPending );
+					} );
+					
+					$form.on( 'formjs:ajax-success', function ( e, feedback ) {
+						console.log( 'submit-success', feedback );
+					} );
+					
+					$form.on( 'formjs:error', function ( e, error, message, data ) {
+						console.log( 'error', error, message, data );
+					} );
+					
+					$form.on( 'formjs:write-alert', function ( e, currentAlert ) {
+						console.log( 'write-alert', currentAlert );
+					} );
+
+					$( '.style' ).click( function ( e ) {
+						var $this = $( this );
+						$( '#styleAlert' ).attr( 'href', $this.data( 'path' ) );
+						$( '#currentStyle' ).text( $this.text() );
+					} );
+				</script>
+			
+		
+		<!-- VIEW END -->
+    </body></html>

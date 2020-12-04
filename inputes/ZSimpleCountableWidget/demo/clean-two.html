@@ -1,0 +1,54 @@
+<!--
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <textarea id="my_textarea" cols="50" rows="4"></textarea>
+<p>You have used <span id="counter2" class="safe">0</span> words.</p>
+
+</p>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-migrate@3.1.0/dist/jquery-migrate.js"></script>
+<script src="/testing/inputs/ZJquerySimplyCountableWidget/asset/jquery.simplyCountable.js"></script>
+
+<!--
+<script type="text/javascript" src="./demo_files/jquery-migrate-1.2.1.min.js.download"></script>-->
+<!--<script type="text/javascript" charset="utf-8" src="./demo_files/jquery.simplyCountable.js.download"></script>-->
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#my_textarea').simplyCountable({
+            counter: '#counter2',
+            countType: 'characters',
+            maxCount: 140,
+            strictMax: false,
+            countDirection: 'down',
+            safeClass: 'safe',
+            overClass: 'over',
+            thousandSeparator: ',',
+            onOverCount: function (count, countable, counter) {
+            },
+            onSafeCount: function (count, countable, counter) {
+            },
+            onMaxCount: function (count, countable, counter) {
+            }
+        });
+    })
+
+</script>
+
+</body>
+</html>

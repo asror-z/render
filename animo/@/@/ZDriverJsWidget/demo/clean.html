@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/publish/yarner/driver.js/dist/driver.min.css">
+    <script src="/publish/yarner/driver.js/dist/driver.min.js"></script>
+    
+</head>
+<body>
+
+    <div class="section_example">
+        <div class="top-20 position-btns">
+            <a href="#" id="first-element-introduction">On my Left</a>
+            <a href="#" id="second-para-feature-introductions">On my Top</a>
+            <a href="#" id="third-para-feature-introductions">On my Bottom</a>
+            <a href="#" id="position-btn-right">On my Right</a>
+        </div>
+        <p class="top-20">If you don't specify the position or specify it to be auto, it will automatically find the suitable position for the popover and show it</p>
+    </div>
+
+
+    
+    <p id="second-para-feature-introductions">You can also make powerful feature introductions to guide the users
+        about the features. Just provide an array of steps where each step specifies an element to highlight.</p>
+    <p id="third-para-feature-introductions">Below is just a quick example showing you how to combine the steps in
+        introduction.</p>
+
+
+<script>
+    const driver = new Driver();
+
+    // Define the steps for introduction
+    driver.defineSteps([
+        {
+            element: '#first-element-introduction',
+            popover: {
+                title: 'Title on Popover',
+                description: 'Body of the popover',
+                position: 'left'
+            }
+        },
+        {
+            element: '#second-para-feature-introductions',
+            popover: {
+                title: 'Title on Popover',
+                description: 'Body of the popover',
+                position: 'top'
+            },
+            onNext: () => {
+                // Prevent moving to the next step
+                driver.preventMove();
+
+                // Perform some action or create the element to move to
+                // And then move to that element
+                setTimeout(() => {
+                    driver.moveNext();
+                }, 4000);
+            }
+        },
+        {
+            element: '#third-para-feature-introductions',
+            popover: {
+                title: 'Title on Popover',
+                description: 'Body of the popover',
+                position: 'right'
+            }
+        },
+    ]);
+
+    // Start the introduction
+    driver.start();
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/publish/leaflet/publish/leaflet/dist/leaflet.css">
+    <script src="/publish/leaflet/publish/leaflet/dist/leaflet-src.js" crossorigin="" type="text/javascript"></script>
+    <script src="https://releases.targomo.com/leaflet/latest-full.min.js"></script>
+    <title>Targomo Js</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        .congestion-mode-select-container {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 10px;
+            z-index: 400;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+<!--  checkbox used to change the congestion mode  -->
+<div class="congestion-mode-select-container">
+    <input type="checkbox" id="congestion-mode-select" checked="true" name="congestion"
+           onchange="switchmode(this);">
+    <label for="congestion">Congestion mode</label>
+</div>
+<script>
+    const checkbox = document.querySelector("#congestion-mode-select");
+
+    // create targomo client
+    const client = new tgm.TargomoClient('uzbekistan', 'S35ITJIAJPESZ7RDRZGJ212660601');
+    // define the basemap
+    const tilesUrl = 'https://api.maptiler.com/maps/positron/{z}/{x}/{y}@2x.png?key=__your_maptiler_api_key__';
+    const tileLayer = L.tileLayer(tilesUrl, {
+        tileSize: 512, zoomOffset: -1,
+        minZoom: 1, crossOrigin: true
+    });
+    // Coordinates to center the map
+    const center = [-33.870115, 151.208576];
+
+    // define the map
+    var map = L.map('map', {
+        layers: [tileLayer],
+        scrollWheelZoom: false
+    }).setView(center, 11);
+
+    // set the attribution
+    const attributionText = `<a href='https://targomo.com/developers/resources/attribution/' target='_blank'>&copy; Targomo</a>`
+    map.attributionControl.addAttribution(attributionText);
+
+    // Define the source location which is passed into the Targomo polygon service.
+    const source = { id: 1, lat: -33.870115, lng: 151.208576 };
+
+    // Add marker for the source on the map.
+    L.marker([source.lat, source.lng]).addTo(map)
+
+    // Set the traveloptions and options for the polygon service here. The 'rushHour' option will be changed everytime the checkbox is updated.
+    const options = {
+        travelType: 'car',
+        maxEdgeWeight: 1800,
+        edgeWeight: 'time',
+        srid: 4326,
+        simplify: 200,
+        serializer: 'json',
+        rushHour: true
+    };
+
+    // Using the Leaflet extension we can easily visualize the returned polygons on a Leaflet map.
+    const polygonOverlayLayer = new tgm.leaflet.TgmLeafletPolygonOverlay();
+    polygonOverlayLayer.addTo(map);
+    polygonOverlayLayer.setStrokeWidth(20)
+
+    // Requesting polygons from the Targomo API.
+    function refreshPolygons() {
+        client.polygons.fetch([source], options).then((result) => {
+            polygonOverlayLayer.setData(result);
+            // calculate bounding box for polygons
+            const bounds = result.getMaxBounds();
+            // zoom to the polygon bounds
+            map.fitBounds(new L.latLngBounds(bounds.northEast, bounds.southWest));
+        });
+    }
+
+    // Update the polygons each time the selection is updated.
+    function switchmode(v) {
+        options.rushHour = v.checked;
+        refreshPolygons();
+    }
+
+    // Request polygons once immediately on page load.
+    refreshPolygons();
+</script>
+</body>
+</html>

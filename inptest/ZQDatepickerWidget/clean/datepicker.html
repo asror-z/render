@@ -1,0 +1,51 @@
+<html lang="en" class="">
+<head>
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/css/datepicker.css">
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/css/iconfont.css">
+  <style>
+    .p20{padding:20px; }
+    .mt20{margin-top:20px; }
+    .mt40{margin-top:40px; }
+    .mt10{margin-top:10px; }
+    .hide{display: none; }
+    .c999{color:#999; font-size:12px; }
+  </style>
+</head>
+<body>
+ 
+
+  <div class="mt40">
+    <div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Single selection of year, month and day, no maximum and minimum value </font></font><span class="c999"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(YYYY-MM-DD single)</font></font></span></div>
+    <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-day mt10">
+      <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+      <input type="text" autocomplete="off" name="" placeholder="Select date" class=" c-datepicker-data-input only-date" value="">
+    </div>
+  </div>
+
+
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/plugins/jquery.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/plugins/moment.min.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/datepicker.all.min.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/datepicker.en.js"></script>
+  <script type="text/javascript">
+         //Year Month Day Single
+         $('.J-datepicker-day').datePicker({
+          hasShortcut: true,
+           min: '2018-01-01',
+          max: '2019-04-29',
+          format:'YYYY-MM-DD',
+          language: 'en',
+          shortcutOptions: [{
+            name: 'Nowadays',
+            day: '0'
+          }, {
+            name: 'yesterday',
+            day: '-1'
+          }, {
+            name: 'A week ago',
+            day: '-7'
+          }]
+        });
+      </script>
+    </body>
+    </html>

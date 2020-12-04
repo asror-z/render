@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>team</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.fajax@1.1.6/dist/jquery.fajax.js"></script>
+    <script src="https://cdn.statically.io/gh/aziev/jquery.fajax/v1.1.0/demo/main.js"></script>
+    <script src="https://cdn.statically.io/gh/aziev/jquery.fajax/master/demo/jquery.fajax.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <style>
+        .container {
+            margin: 100px;
+            width: 450px !important;
+        }
+    </style>
+</head>
+
+<body>
+<div class="ui container">
+    <div class="ui form">
+        <form action="https://httpbin.org/post" method="post">
+
+            <div class="field">
+                <label>Fullname</label>
+                <input type="text" name="fullname" placeholder="Amon Bower">
+            </div>
+
+            <div class="field">
+                <label>Phone</label>
+                <input type="text" name="phone" placeholder="+7 (999) 123-456-789">
+            </div>
+
+            <div class="field">
+                <label>Text</label>
+                <textarea name="text" placeholder="Enter your comments"></textarea>
+            </div>
+
+            <div class="field">
+                <label for="attach" style="color: #fff" class="ui green button">Attach file</label>
+                <input type="file" name="attach" id="attach" style="display:none">
+            </div>
+
+            <div class="inline fields">
+                <label>Choose your gender</label>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" value="male" name="gender" checked="checked">
+                        <label for="gender">Male</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" value="female" name="gender">
+                        <label>Female</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui segment">
+                <div class="field">
+                    <div class="ui toggle checkbox">
+                        <input type="checkbox" name="checkbox" tabindex="0" class="hidden">
+                        <label>Do you wana test the checkbox (toggle check)?</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <button type="submit" class="ui fluid big submit button">Send form</button>
+            </div>
+        </form>
+
+        <div class="ui hidden message">
+            <div class="header">Form Completed!</div>
+            <p>Your form successfully sent!</p>
+        </div>
+        <p>Check the response using your browsers JavaScript console.</p>
+    </div>
+</div>
+
+<script>
+    $('form').fajax({
+        success: function () {
+            alert('The form was successfully sent');
+        },
+        complete: function () {
+            console.log('complete')
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        beforeSend: function( xhr ) {
+            xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+        },
+
+       fail: function () {
+           alert( "error" );
+       },
+        always: function() {
+            alert( "complete" );
+        },
+        contents: {
+            mycustomtype: /mycustomtype/
+        },
+        converters: {
+            "mycustomtype json": function( result ) {
+                return newresult;
+            }
+        },
+        request:function( msg ) {
+            $( "#log" ).html( msg );
+        },
+        error: function(){
+            $('.message,.form').addClass('error');
+            $('.message .header').text('Action Forbidden!');
+            $('.message p').text('When sending a request, the server generated an error :(');
+        },
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <style>
+        #ajax-tippy {
+            -webkit-tap-highlight-color: transparent;
+            font-family: inherit;
+            line-height: 1.15;
+            overflow: visible;
+            text-transform: none;
+            -webkit-appearance: button;
+            border: 2px dashed #5183f5;
+            will-change: opacity;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.1s;
+            outline: 0px;
+            margin: 5px;
+            background: white;
+            color: #5183f5;
+        }
+
+        #ajax-tippy:hover {
+            background: #5183f5;
+            color: white;
+        }
+    </style>
+    <title>AJAX</title>
+</head>
+
+<body>
+<button id="ajax-tippy">Hover for a new image</button>
+<div id="container"></div>
+<script>
+    tippy('#ajax-tippy',
+     { content:'Loading...',
+         flipOnUpdate: true,
+        onShow(instance) {
+            fetch('https://unsplash.it/200/?random')
+                .then((response) => response.blob())
+                .then((blob) => {
+                    const url = URL.createObjectURL(blob);
+                    const image = new Image();
+                    image.width = 200;
+                    image.height = 200;
+                    image.style.display = 'block';
+                    image.src = url;
+                    instance.setContent(image);
+                })
+                .catch((error) => {
+                    instance.setContent(`Request failed. ${error}`);
+                });
+        },
+
+    });
+
+</script>
+</body>
+</html>

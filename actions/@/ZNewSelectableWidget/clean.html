@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobius Selectable</title>
+    <style>
+
+    a {
+        color: rgb(88, 88, 88);
+    }
+
+    body {
+        --google-blue-600: rgb(26, 115, 232);
+        --google-blue-700: rgb(25, 103, 210);
+        --google-gray-50: rgb(248, 249, 250);
+        --google-gray-300: rgb(218, 220, 224);
+        --google-gray-500: rgb(154, 160, 166);
+        --google-gray-600: rgb(128, 134, 139);
+        --google-gray-700: rgb(95, 99, 104);
+        background-color: #fff;
+        color: var(--google-gray-700);
+        word-wrap: break-word;
+    }
+
+    .nav-wrapper .secondary-button {
+        background: #fff;
+        border: 1px solid var(--google-gray-500);
+        color: var(--google-gray-700);
+        float: none;
+        margin: 0;
+        padding: 8px 16px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        font-size: 125%;
+    }
+
+    .icon {
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    </style>
+    <style>/* Copyright 2017 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+    a {
+        color: rgb(88, 88, 88);
+    }
+
+    body {
+        --google-blue-600: rgb(26, 115, 232);
+        --google-blue-700: rgb(25, 103, 210);
+        --google-gray-50: rgb(248, 249, 250);
+        --google-gray-300: rgb(218, 220, 224);
+        --google-gray-500: rgb(154, 160, 166);
+        --google-gray-600: rgb(128, 134, 139);
+        --google-gray-700: rgb(95, 99, 104);
+        background-color: #fff;
+        color: var(--google-gray-700);
+        word-wrap: break-word;
+    }
+
+    .nav-wrapper .secondary-button {
+        background: #fff;
+        border: 1px solid var(--google-gray-500);
+        color: var(--google-gray-700);
+        float: none;
+        margin: 0;
+        padding: 8px 16px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        font-size: 125%;
+    }
+
+    .icon {
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    </style>
+    <style id="theia-sticky-sidebar-stylesheet-TSS">.theiaStickySidebar:after {
+        content: "";
+        display: table;
+        clear: both;
+    }</style>
+
+
+    <link rel="stylesheet" href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./demo_files/github.min.css">
+    <link rel="stylesheet" href="./demo_files/lassoSelect.css">
+    <link rel="stylesheet" href="./demo_files/magnific-popup.min.css">
+    <link rel="stylesheet" href="./demo_files/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./demo_files/metisMenu.min.css">
+    <link rel="stylesheet" href="./demo_files/minibar.min.css">
+    <link rel="stylesheet" href="./demo_files/minibar.min.css">
+    <link rel="stylesheet" href="./demo_files/pace.min.css">
+    <link rel="stylesheet" href="./demo_files/style.css">
+    <link rel="stylesheet" href="./demo_files/themify-icons.min.css">
+
+
+    <style>
+        #feedback {
+            font-size: 1.4em;
+        }
+
+        #selectable .ui-selecting {
+            background: #FECA40;
+        }
+
+        #selectable .ui-selected {
+            background: #F39814;
+            color: white;
+        }
+
+        #selectable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+
+        #selectable li {
+            margin: 3px;
+            padding: 0.4em;
+            font-size: 1.4em;
+            height: 18px;
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="col-md-9 content">
+    <div class="doc-content">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Demo 1</h4>
+                <div id="demo-container" class="ui-container" style="position: relative;">
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">1</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">2</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">3</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">4</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">5</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">6</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">7</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">8</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">9</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable ui-selected">
+                        10
+                    </button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">11</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">12</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">13</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">14</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">15</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">16</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">17</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">18</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">19</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">20</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">21</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">22</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">23</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">24</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">25</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">26</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">27</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">28</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">29</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">30</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">31</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">32</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">33</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">34</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">35</button>
+                    <button type="button" class="btn btn-secondary mr-2 mb-2 btn-selectable ui-selectable">36</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Demo 2</h4>
+                <div id="demo-container-2" class="ui-container" style="position: relative;">
+                    <div class="ui-thumbnail ui-selectable ui-selected"><img src="./demo_files/avatar-1.png" alt="..."
+                                                                             class="img-thumbnail"></div>
+                    <div class="ui-thumbnail ui-selectable"><img src="./demo_files/avatar-2.png" alt="..."
+                                                                 class="img-thumbnail"></div>
+                    <div class="ui-thumbnail ui-selectable"><img src="./demo_files/avatar-3.png" alt="..."
+                                                                 class="img-thumbnail"></div>
+                    <div class="ui-thumbnail ui-selectable"><img src="./demo_files/avatar-4.png" alt="..."
+                                                                 class="img-thumbnail"></div>
+                    <div class="ui-thumbnail ui-selectable"><img src="./demo_files/avatar-5.png" alt="..."
+                                                                 class="img-thumbnail"></div>
+                    <div class="ui-thumbnail ui-selectable"><img src="./demo_files/avatar-6.png" alt="..."
+                                                                 class="img-thumbnail"></div>
+                    <div class="ui-thumbnail ui-selectable"><img src="./demo_files/avatar-7.png" alt="..."
+                                                                 class="img-thumbnail"></div>
+                    <div class="ui-thumbnail ui-selectable"><img src="./demo_files/avatar-8.png" alt="..."
+                                                                 class="img-thumbnail"></div>
+                    <div class="ui-thumbnail ui-selectable"><img src="./demo_files/avatar-9.png" alt="..."
+                                                                 class="img-thumbnail"></div>
+                </div>
+            </div>
+            <div id="demo-container-3">
+                <div id="calendar" class="ui-container ui-focused" style="position: relative;">
+
+                    <ul class="weekdays">
+                        <li>
+                            <abbr title="S">Sunday</abbr>
+                        </li>
+                        <li>
+                            <abbr title="M">Monday</abbr>
+                        </li>
+                        <li>
+                            <abbr title="T">Tuesday</abbr>
+                        </li>
+                        <li>
+                            <abbr title="W">Wednesday</abbr>
+                        </li>
+                        <li>
+                            <abbr title="T">Thursday</abbr>
+                        </li>
+                        <li>
+                            <abbr title="F">Friday</abbr>
+                        </li>
+                        <li>
+                            <abbr title="S">Saturday</abbr>
+                        </li>
+                    </ul>
+
+                    <ul class="day-grid">
+                        <li class="prev">29</li>
+                        <li class="prev">30</li>
+                        <li class="prev">31</li>
+                        <li class="day ui-selectable">1</li>
+                        <li class="day ui-selectable">2</li>
+                        <li class="day ui-selectable">3</li>
+                        <li class="day ui-selectable">4</li>
+                        <li class="day ui-selectable">5</li>
+                        <li class="day ui-selectable">6</li>
+                        <li class="day ui-selectable">7</li>
+                        <li class="day ui-selectable">8</li>
+                        <li class="day ui-selectable">9</li>
+                        <li class="day ui-selectable">10</li>
+                        <li class="day ui-selectable">11</li>
+                        <li class="day ui-selectable">12</li>
+                        <li class="day ui-selectable">13</li>
+                        <li class="day ui-selectable">14</li>
+                        <li class="day ui-selectable">15</li>
+                        <li class="day ui-selectable">16</li>
+                        <li class="day ui-selectable">17</li>
+                        <li class="day ui-selectable">18</li>
+                        <li class="day ui-selectable">19</li>
+                        <li class="day ui-selectable">20</li>
+                        <li class="day ui-selectable">21</li>
+                        <li class="day ui-selectable">22</li>
+                        <li class="day ui-selectable">23</li>
+                        <li class="day ui-selectable">24</li>
+                        <li class="day ui-selectable">25</li>
+                        <li class="day ui-selectable">26</li>
+                        <li class="day ui-selectable">27</li>
+                        <li class="day ui-selectable">28</li>
+                        <li class="day ui-selectable">29</li>
+                        <li class="day ui-selectable">30</li>
+                        <li class="next">1</li>
+                        <li class="next">2</li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+            <script src="/publish/yarner/mobius1-selectable/selectable.min.js"></script>
+            <script src="./demo_files/bootstrap.min.js"></script>
+            <script src="./demo_files/clipboard.min.js"></script>
+            <script src="./demo_files/jquery.dd.min.js"></script>
+            <script src="./demo_files/jquery-3.3.1.min.js"></script>
+            <script src="./demo_files/metisMenu.min.js"></script>
+            <script src="./demo_files/minibar.min.js"></script>
+            <script src="./demo_files/pace.min.js"></script>
+            <script src="./demo_files/popper.min.js"></script>
+            <script src="./demo_files/ResizeSensor.min.js"></script>
+            <script src="./demo_files/script.js"></script>
+            <script src="./demo_files/selectable.min.js"></script>
+            <script src="./demo_files/theia-sticky-sidebar.min.js"></script>
+            <script src="./demo_files/tocbot.min.js"></script>
+
+
+
+            <script>
+
+                $('.btn-selectable').click(function () {
+                    console.log('clicked')
+                });
+
+
+
+                new Selectable({
+                    autoRefresh:"#true",
+
+                    appendTo: "#container" ,
+
+                    autoScroll: {
+                        threshold: 0,
+                        increment: 20  },
+
+                    filter: "li",
+                {
+                    lasso: "ui-lasso",
+                        selected: "ui-selected",
+                    container: "ui-container",
+                    selecting: "ui-selecting",
+                    selectable: "ui-selectable",
+                    unselecting: "ui-unselecting"
+                }
+
+                });
+                $(function () {
+                    $("#selectable").selectable();
+                });
+
+
+                const selectable = new Selectable({
+    autoScroll: {
+        threshold: 0,
+        increment: 20,
+    }
+});
+            </script>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

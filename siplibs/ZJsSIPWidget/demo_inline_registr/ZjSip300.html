@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://tryit.jssip.net/ -->
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>tryit-jssip</title>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!--    <link rel="stylesheet" href="./try demo_files/tryit-jssip.css">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="css/style.css">
+    <script>
+        var call_config = {
+            display_name: "Utkir",
+            uri: "300@10.10.3.30:5160",
+            password: "300",
+            web_socket_uri: "wss://10.10.3.30:8089/ws"
+        };
+
+        (function (f) {
+            if (typeof exports === "object" && typeof module !== "undefined") {
+                module.exports = f()
+            } else if (typeof define === "function" && define.amd) {
+                define([], f)
+            } else {
+                var g;
+                if (typeof window !== "undefined") {
+                    g = window
+                } else if (typeof global !== "undefined") {
+                    g = global
+                } else if (typeof self !== "undefined") {
+                    g = self
+                } else {
+                    g = this
+                }
+                g.antiglobal = f()
+            }
+        })(function () {
+            var define, module, exports;
+            return (function e(t, n, r) {
+                function s(o, u) {
+                    if (!n[o]) {
+                        if (!t[o]) {
+                            var a = typeof require == "function" && require;
+                            if (!u && a) return a(o, !0);
+                            if (i) return i(o, !0);
+                            var f = new Error("Cannot find module '" + o + "'");
+                            throw f.code = "MODULE_NOT_FOUND", f
+                        }
+                        var l = n[o] = {exports: {}};
+                        t[o][0].call(l.exports, function (e) {
+                            var n = t[o][1][e];
+                            return s(n ? n : e)
+                        }, l, l.exports, e, t, n, r)
+                    }
+                    return n[o].exports
+                }
+
+                var i = typeof require == "function" && require;
+                for (var o = 0; o < r.length; o++) s(r[o]);
+                return s
+            })({
+                1: [function (require, module, exports) {
+                    (function (global) {
+                        var lastGlobals = getGlobals();
+                        var doLog = true;
+                        var doThrow = false;
+
+                        function antiglobal() {
+                            var globals = getGlobals(); // Get current globals
+                            var givenGlobals = Array.prototype.slice.call(arguments);
+                            var newGlobals = [];
+                            var removedGlobals = [];
+                            var changed = false;
+                            var i, len, elem;
+
+                            for (i = 0, len = globals.length; i < len; i++) {
+                                elem = globals[i];
+
+                                if (lastGlobals.indexOf(elem) === -1 && givenGlobals.indexOf(elem) === -1) {
+                                    newGlobals.push(elem);
+                                    changed = true;
+                                }
+                            }
+
+                            for (i = 0, len = lastGlobals.length; i < len; i++) {
+                                elem = lastGlobals[i];
+
+                                if (globals.indexOf(elem) === -1) {
+                                    removedGlobals.push(elem);
+                                    changed = true;
+                                }
+                            }
+
+                            // Update lastGlobals
+                            lastGlobals = globals.concat(givenGlobals);
+
+                            if (changed) {
+                                var msg = 'antiglobal() | globals do not match:';
+
+                                for (i = 0, len = newGlobals.length; i < len; i++) {
+                                    elem = newGlobals[i];
+                                    msg = msg + '\n+ ' + elem;
+                                }
+
+                                for (i = 0, len = removedGlobals.length; i < len; i++) {
+                                    elem = removedGlobals[i];
+                                    msg = msg + '\n- ' + elem;
+                                }
+
+                                if (doLog)
+                                    // console.error(msg);
+                                    if (doThrow)
+                                        throw new Error(msg);
+                            }
+
+                            return !changed;
+                        }
+
+                        /**
+                         * Reset current globals
+                         */
+                        antiglobal.reset = function () {
+                            lastGlobals = getGlobals();
+                        };
+
+                        /**
+                         * Public properties
+                         */
+                        Object.defineProperties(antiglobal,
+                            {
+                                log:
+                                    {
+                                        get: function () {
+                                            return doLog;
+                                        },
+                                        set: function (bool) {
+                                            doLog = Boolean(bool);
+                                        }
+                                    },
+                                throw:
+                                    {
+                                        get: function () {
+                                            return doThrow;
+                                        },
+                                        set: function (bool) {
+                                            doThrow = Boolean(bool);
+                                        }
+                                    }
+                            });
+
+                        /**
+                         * Private API
+                         */
+
+                        function getGlobals() {
+                            var globals = [];
+
+                            for (var key in global) {
+                                if (global.hasOwnProperty(key)) {
+                                    // Ignore this module
+                                    if (key !== 'antiglobal')
+                                        globals.push(key);
+                                }
+                            }
+
+                            return globals;
+                        }
+
+                        module.exports = antiglobal;
+
+                    }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+                }, {}]
+            }, {}, [1])(1)
+        });
+    </script>
+    <script>
+
+        // Set debug
+        window.localStorage.setItem('debug', '* -engine* -socket* *ERROR* *WARN*');
+
+        // Set antiglobal
+        window.antiglobal('___browserSync___oldSocketIo', 'JSON3', 'io', '___browserSync___', '__core-js_shared__', 'MediaStream', 'RTCPeerConnection', 'callstats', 'jssipCallstats');
+        setInterval(window.antiglobal, 5000);
+    </script>
+    <script src="./try demo_files/callstats.min.js.download"></script>
+    <script src="./try demo_files/callstats-jssip.min.js.download"></script>
+    <script src="./try demo_files/tryit-jssip.js"></script>
+</head>
+<style>
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline
+    }
+
+    body {
+        background: none;
+        line-height: 1
+    }
+
+    fieldset, textarea, input, button, select {
+        min-width: 0;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        font-family: inherit;
+        font-weight: inherit;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    fieldset::-ms-clear, textarea::-ms-clear, input::-ms-clear, button::-ms-clear, select::-ms-clear {
+        display: none
+    }
+
+    fieldset::-ms-expand, textarea::-ms-expand, input::-ms-expand, button::-ms-expand, select::-ms-expand {
+        display: none
+    }
+
+    button::-moz-focus-inner {
+        border: 0
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0
+    }
+
+    ol, ul {
+        list-style: none
+    }
+
+    * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+    }
+
+
+
+
+
+
+
+
+
+
+    html {
+        height: 100%;
+        overflow-x: hidden;
+        font-size: 16px;
+    }
+
+    body {
+        height: 100%;
+        background: none
+    }
+
+    * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: none
+    }
+
+    #tryit-jssip-container {
+        height: 100%;
+        width: 100%;
+    }
+
+    #tryit-jssip-container [data-component='Logo'].big {
+        font-size: 4rem
+    }
+
+    #tryit-jssip-container [data-component='Logo'].small {
+        font-size: 2rem
+    }
+
+    #tryit-jssip-container [data-component='Logo'] > h1 {
+        font-family: 'Poiret One';
+        font-weight: bold;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    #tryit-jssip-container [data-component='Logo'] > h1 span.colorized {
+        color: rgba(0, 239, 255, 0.85)
+    }
+
+    #tryit-jssip-container [data-component='Logo'] > h1 span.small {
+        font-size: .75em
+    }
+
+    #tryit-jssip-container [data-component='App'] {
+        position: relative;
+        height: 100%;
+        width: 100%
+    }
+
+    #tryit-jssip-container [data-component='Login'] {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        will-change: opacity;
+    }
+
+    #tryit-jssip-container [data-component='Login'].transition-appear {
+        opacity: 0
+    }
+
+    #tryit-jssip-container [data-component='Login'].transition-appear.transition-appear-active {
+        -webkit-transition-property: opacity;
+        transition-property: opacity;
+        -webkit-transition-duration: 1s;
+        transition-duration: 1s;
+        opacity: 1
+    }
+
+    #tryit-jssip-container [data-component='Login'] > .logo-container {
+        margin: 20px auto
+    }
+
+    #tryit-jssip-container [data-component='Login'] > form {
+        position: relative;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        min-height: 200px;
+        width: 300px;
+        margin: 50px auto;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 4px;
+        -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
+        padding: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    #tryit-jssip-container [data-component='Login'] > form > .settings-icon-container {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    #tryit-jssip-container [data-component='Login'] > form > .settings-icon-container > .icon:hover {
+        color: #111;
+        cursor: pointer
+    }
+
+    #tryit-jssip-container [data-component='Login'] > .submit-container {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin: 20px auto;
+    }
+
+    @media (min-device-width: 801px) {
+        #tryit-jssip-container [data-component='Login'] > .submit-container {
+            width: 80px;
+            height: 80px
+        }
+    }
+
+    @media (max-device-width: 800px) {
+        #tryit-jssip-container [data-component='Login'] > .submit-container {
+            width: 60px;
+            height: 60px
+        }
+    }
+
+    #tryit-jssip-container [data-component='Login'] > .submit-container > .submit-button {
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMDAwIDEwMDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPG1ldGFkYXRhPiBTdmcgVmVjdG9yIEljb25zIDogaHR0cDovL3d3dy5vbmxpbmV3ZWJmb250cy5jb20vaWNvbiA8L21ldGFkYXRhPg0KPGc+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTEwLDUwMGMwLDI3MC42LDIxOS40LDQ5MCw0OTAsNDkwczQ5MC0yMTkuNCw0OTAtNDkwYzAtMjcwLjctMjE5LjQtNDkwLTQ5MC00OTBTMTAsMjI5LjMsMTAsNTAweiBNNzEuMyw1MDBjMC0yMzYuOCwxOTItNDI4LjgsNDI4LjgtNDI4LjhjMjM2LjksMCw0MjguOCwxOTIsNDI4LjgsNDI4LjhjMCwyMzYuNy0xOTEuOSw0MjguOC00MjguOCw0MjguOEMyNjMuMyw5MjguOCw3MS4zLDczNi43LDcxLjMsNTAweiIvPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0yMTEsNDU0LjFoNDkwdjkxLjlIMjExVjQ1NC4xeiIvPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik00NTIuMiwyODUuNmgxMjIuNWwyMTQuNCwyMTlMNTc0LjcsNzE0LjRINDUyLjJsMjE0LjQtMjA5LjhMNDUyLjIsMjg1LjZ6Ii8+PC9nPg0KPC9zdmc+DQo=");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        cursor: pointer;
+        -webkit-transition-property: opacity transform;
+        transition-property: opacity transform;
+        -webkit-transition-duration: .5s;
+        transition-duration: .5s;
+    }
+
+    #tryit-jssip-container [data-component='Login'] > .submit-container > .submit-button.disabled {
+        opacity: .25;
+        pointer-events: none
+    }
+
+    #tryit-jssip-container [data-component='Login'] > .submit-container > .submit-button:hover {
+        opacity: .9;
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2)
+    }
+
+    #tryit-jssip-container [data-component='Login'] > .settings-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+    }
+
+    @media (min-device-width: 801px) {
+        #tryit-jssip-container [data-component='Login'] > .settings-container {
+            margin: 50px auto;
+            max-width: 500px;
+            min-width: 400px
+        }
+    }
+
+    #tryit-jssip-container [data-component='Settings'] {
+        height: 100%;
+        width: 100%;
+        padding: 20px;
+        overflow: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        background-color: rgba(255, 255, 255, 0.98);
+        will-change: opacity;
+    }
+
+    @media (min-device-width: 801px) {
+        #tryit-jssip-container [data-component='Settings'] {
+            border-radius: 4px;
+            -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9)
+        }
+    }
+
+    #tryit-jssip-container [data-component='Settings'].transition-appear {
+        opacity: 0
+    }
+
+    #tryit-jssip-container [data-component='Settings'].transition-appear.transition-appear-active {
+        -webkit-transition-property: opacity;
+        transition-property: opacity;
+        -webkit-transition-duration: 250ms;
+        transition-duration: 250ms;
+        opacity: 1
+    }
+
+    #tryit-jssip-container [data-component='Settings'] h1 {
+        margin: 20px 0 10px 0;
+        padding: 6px 16px;
+        background-color: #ddd;
+    }
+
+    #tryit-jssip-container [data-component='Settings'] h1:first-child {
+        margin-top: 0
+    }
+
+    #tryit-jssip-container [data-component='Settings'] .item {
+        margin: 0 16px
+    }
+
+    #tryit-jssip-container [data-component='Settings'] .separator {
+        width: 100%;
+        height: 20px
+    }
+
+    #tryit-jssip-container [data-component='Settings'] > .buttons {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        padding: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center
+    }
+
+    #tryit-jssip-container [data-component='Phone'] {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        overflow: hidden;
+        will-change: opacity;
+    }
+
+    #tryit-jssip-container [data-component='Phone'].transition-appear {
+        opacity: 0
+    }
+
+    #tryit-jssip-container [data-component='Phone'].transition-appear.transition-appear-active {
+        -webkit-transition-property: opacity;
+        transition-property: opacity;
+        -webkit-transition-duration: 1s;
+        transition-duration: 1s;
+        opacity: 1
+    }
+
+    #tryit-jssip-container [data-component='Phone'] > header {
+        position: relative;
+        z-index: 10;
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        width: 100%;
+        -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
+    }
+
+    #tryit-jssip-container [data-component='Phone'] > header > .topbar {
+        display: none;
+    }
+
+    @media (min-device-width: 801px) {
+        #tryit-jssip-container [data-component='Phone'] > header > .topbar {
+            display:none;
+        }
+    }
+
+    @media (max-device-width: 800px) {
+        #tryit-jssip-container [data-component='Phone'] > header > .topbar {
+            display:none;
+        }
+    }
+
+    #tryit-jssip-container [data-component='Phone'] > .content {
+        position: relative;
+        -webkit-box-flex: 100;
+        -ms-flex: 100 0 auto;
+        flex: 100 0 auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center
+    }
+
+    #tryit-jssip-container [data-component='UserChip'] {
+        max-width: 100%;
+    }
+
+    #tryit-jssip-container [data-component='UserChip'].full-width {
+        width: 100% !important
+    }
+
+    #tryit-jssip-container [data-component='UserChip'] .status {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+    }
+
+    #tryit-jssip-container [data-component='UserChip'] .status.disconnected {
+        background-color: #ccc !important
+    }
+
+    #tryit-jssip-container [data-component='UserChip'] .status.connecting {
+        background-color: #d4d01c !important;
+        -webkit-animation: UserChip-status-connecting 1s infinite ease-in;
+        animation: UserChip-status-connecting 1s infinite ease-in
+    }
+
+    #tryit-jssip-container [data-component='UserChip'] .status.connected {
+        background-color: #d4d01c !important
+    }
+
+    #tryit-jssip-container [data-component='UserChip'] .status.registered {
+        background-color: #47d41c !important
+    }
+
+    #tryit-jssip-container [data-component='UserChip'] > span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    #tryit-jssip-container [data-component='UserChip'] > span .uri {
+
+        display:none
+    }
+
+    @-webkit-keyframes UserChip-status-connecting {
+        50% {
+            opacity: 0
+        }
+    }
+
+    @keyframes UserChip-status-connecting {
+        50% {
+            opacity: 0
+        }
+    }
+
+    #tryit-jssip-container [data-component='Dialer'] {
+        background-color: #eee;
+    }
+
+    @media (min-device-width: 801px) {
+        #tryit-jssip-container [data-component='Dialer'] {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            padding: 10px
+        }
+    }
+
+    @media (max-device-width: 800px) {
+        #tryit-jssip-container [data-component='Dialer'] {
+            padding: 20px
+        }
+    }
+
+    #tryit-jssip-container [data-component='Dialer'] > .userchip-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    @media (min-device-width: 801px) {
+        #tryit-jssip-container [data-component='Dialer'] > .userchip-container {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 10 auto;
+            flex: 0 10 auto;
+            max-width: 40%;
+            margin-right: 10px
+        }
+    }
+
+    #tryit-jssip-container [data-component='Dialer'] > form.uri-form {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    @media (min-device-width: 801px) {
+        #tryit-jssip-container [data-component='Dialer'] > form.uri-form {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 10 auto;
+            flex: 0 10 auto;
+            max-width: 40%;
+            margin-left: 10px
+        }
+    }
+
+    @media (max-device-width: 800px) {
+        #tryit-jssip-container [data-component='Dialer'] > form.uri-form {
+            margin-top: 20px
+        }
+    }
+
+    #tryit-jssip-container [data-component='Dialer'] > form.uri-form.hidden {
+        display: none
+    }
+
+    #tryit-jssip-container [data-component='Dialer'] > form.uri-form > .uri-container {
+        -webkit-box-flex: 10;
+        -ms-flex: 10 10 auto;
+        flex: 10 10 auto;
+        margin-right: 20px;
+    }
+
+    @media (min-device-width: 801px) {
+        #tryit-jssip-container [data-component='Dialer'] > form.uri-form > .uri-container {
+            min-width: 300px;
+            max-width: 400px
+        }
+    }
+
+    #tryit-jssip-container [data-component='Session'] {
+        position: relative;
+        -webkit-box-flex: 100;
+        -ms-flex: 100 0 auto;
+        flex: 100 0 auto;
+        width: 100%;
+        overflow: hidden;
+        will-change: opacity;
+    }
+
+    #tryit-jssip-container [data-component='Session'].transition-appear {
+        opacity: 0
+    }
+
+    #tryit-jssip-container [data-component='Session'].transition-appear.transition-appear-active {
+        -webkit-transition-property: opacity;
+        transition-property: opacity;
+        -webkit-transition-duration: 1s;
+        transition-duration: 1s;
+        opacity: 1
+    }
+
+    #tryit-jssip-container [data-component='Session'] > video.local-video {
+        position: absolute;
+        z-index: 1000;
+        left: 15px;
+        top: 15px;
+        width: 22%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
+        -webkit-transition-property: opacity z-index;
+        transition-property: opacity z-index;
+        -webkit-transition-duration: .5s;
+        transition-duration: .5s;
+    }
+
+    #tryit-jssip-container [data-component='Session'] > video.local-video.hidden {
+        z-index: -1 !important;
+        opacity: 0
+    }
+
+    #tryit-jssip-container [data-component='Session'] > video.remote-video {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -webkit-transition-property: opacity z-index;
+        transition-property: opacity z-index;
+        -webkit-transition-duration: .25s;
+        transition-duration: .25s;
+    }
+
+    #tryit-jssip-container [data-component='Session'] > video.remote-video.hidden {
+        z-index: -1 !important;
+        opacity: 0
+    }
+
+    #tryit-jssip-container [data-component='Session'] > .no-remote-video-info {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        background-color: #333;
+        color: #888;
+        font-size: 20px
+    }
+
+    #tryit-jssip-container [data-component='Session'] > .controls-container {
+        position: absolute;
+        z-index: 100;
+        bottom: 0;
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    #tryit-jssip-container [data-component='Session'] > .controls-container > .controls {
+        width: auto;
+        margin: 0 auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    @media (min-device-width: 801px) {
+        #tryit-jssip-container [data-component='Session'] > .controls-container > .controls {
+            padding: 10px 30px
+        }
+    }
+
+    @media (max-device-width: 800px) {
+        #tryit-jssip-container [data-component='Session'] > .controls-container > .controls {
+            padding: 5px 20px
+        }
+    }
+
+    #tryit-jssip-container [data-component='Session'] > .controls-container > .controls > .control {
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0 10px;
+        -webkit-transition: opacity .15s ease-in-out 0s !important;
+        transition: opacity .15s ease-in-out 0s !important;
+        opacity: .6;
+    }
+
+    @media (min-device-width: 801px) {
+        #tryit-jssip-container [data-component='Session'] > .controls-container > .controls > .control {
+            height: 60px !important;
+            width: 60px !important
+        }
+    }
+
+    @media (max-device-width: 800px) {
+        #tryit-jssip-container [data-component='Session'] > .controls-container > .controls > .control {
+            height: 40px !important;
+            width: 40px !important
+        }
+    }
+
+    #tryit-jssip-container [data-component='Session'] > .controls-container > .controls > .control:hover {
+        opacity: .9;
+        cursor: pointer
+    }
+
+    #tryit-jssip-container [data-component='Session'] > .controls-container > .controls > .control.disabled {
+        pointer-events: none;
+        opacity: .25
+    }
+
+    #tryit-jssip-container [data-component='Incoming'] {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.25);
+        padding: 50px 10px;
+        will-change: opacity;
+    }
+
+    #tryit-jssip-container [data-component='Incoming'].transition-appear {
+        opacity: 0
+    }
+
+    #tryit-jssip-container [data-component='Incoming'].transition-appear.transition-appear-active {
+        -webkit-transition-property: opacity;
+        transition-property: opacity;
+        -webkit-transition-duration: 1s;
+        transition-duration: 1s;
+        opacity: 1
+    }
+
+    #tryit-jssip-container [data-component='Incoming'] > .buttons {
+        margin-top: 40px;
+    }
+
+    #tryit-jssip-container [data-component='Incoming'] > .buttons > div {
+        width: 120px !important
+    }
+
+    #tryit-jssip-container [data-component='Incoming'] > .buttons > div:first-child {
+        margin-right: 10px
+    }
+
+    #tryit-jssip-container [data-component='Incoming'] > .buttons > div:last-child {
+        margin-left: 10px
+    }
+
+    #tryit-jssip-media-query-detector {
+        position: relative;
+        z-index: -1000;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        width: 1px;
+    }
+
+    @media (max-device-width: 800px) {
+        #tryit-jssip-media-query-detector {
+            display: none;
+            position: fixed
+        }
+    }
+
+</style>
+
+<body>
+<div id="tryit-jssip-container">
+    <div data-component="App">
+        <div class="notifications-wrapper"></div>
+        <div class="" data-component="Login">
+            <!--            <div class="logo-container">-->
+            <!--                <div class="big" data-component="Logo">-->
+            <!--                    <h1><span class="colorized">TRYIT</span>J<span class="small">S</span>SIP</h1>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <form action="https://tryit.jssip.net/">
+                <div class="settings-icon-container">
+                    <svg class="icon" style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: rgb(102, 102, 102); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"
+                         viewBox="0 0 24 24">
+                        <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"></path>
+                    </svg>
+                </div>
+                <div class="form-container">
+                    <div style="font-size: 16px; line-height: 24px; width: 100%; height: 72px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;">
+                        <label for="undefined-undefined-YourName-23496"
+                               style="position: absolute; line-height: 22px; top: 38px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; z-index: 1; transform: scale(1) translate(0px, 0px); transform-origin: left top; pointer-events: none; user-select: none; color: rgba(0, 0, 0, 0.3);">Your
+                            Name</label><input id="undefined-undefined-YourName-23496" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font: inherit; opacity: 1; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; box-sizing: border-box; margin-top: 14px;" type="text"
+                                               value="">
+                        <div>
+                            <hr aria-hidden="true"
+                                style="border-top: none rgb(158, 158, 158); border-left: none rgb(158, 158, 158); border-right: none rgb(158, 158, 158); border-bottom: 1px solid rgb(158, 158, 158); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;">
+                            <hr aria-hidden="true"
+                                style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                        </div>
+                    </div>
+                    <button style="border: 10px; box-sizing: border-box; display: table; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 20px auto 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; height: 36px; line-height: 36px; min-width: 88px; color: rgb(0, 188, 212); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; border-radius: 2px; user-select: none; overflow: hidden; background-color: rgba(0, 0, 0, 0); text-align: center;" tabindex="0"
+                            type="button">
+                        <div><span
+                                style="position: relative; padding-left: 16px; padding-right: 16px; vertical-align: middle; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; font-size: 14px;">Reset</span>
+                        </div>
+                    </button>
+                </div>
+            </form>
+            <div class="submit-container">
+                <div class="submit-button disabled"></div>
+            </div>
+        </div>
+        <!--        <div style="position: fixed; left: 50%; display: flex; bottom: 0px; z-index: 2900; visibility: hidden; transform: translate(-50%, 48px); transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><div width="3" style="font-family: Roboto, sans-serif; background-color: rgba(0, 0, 0, 0.87); padding: 0px 24px; height: 48px; line-height: 48px; border-radius: 2px; max-width: 568px; min-width: 288px; width: auto; flex-grow: 0; text-align: center;"><div style="font-size: 14px; color: rgb(255, 255, 255); opacity: 0; transition: opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;"><span></span></div></div></div></div></div>-->
+        <div>
+            <div
+                    width="3">
+                <div style="font-size: 14px; color: rgb(255, 255, 255); opacity: 0; transition: opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                    <span></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tryit-jssip-media-query-detector"></div>
+<!--button Widget-->
+<div class="container ">
+    <div class="row input justify-content-center">
+        <div class="col-lg-4 col-6 mt-5">
+            <div class="opacity mr-lg-3 ml-lg-3">
+                <div class="number text-center border w-10">
+                    <div class="">
+                        <div class=" md-form input-with-post-icon ml-5 mr-5 mt-lg-5">
+                            <i class=" fas white-ic fa-user input-prefix text-center "></i>
+<!--                            <input type="text" id="undefined-undefined-YourName-23496" class="form-control text-white text-center">-->
+<!--                            <label for="edu"></label>-->
+
+                            <div class="form-container">
+                                <div style="font-size: 16px; line-height: 24px; width: 100%; height: 72px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;">
+                                    <label for="undefined-undefined-YourName-23496"
+                                           style="position: absolute; line-height: 22px; top: 38px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; z-index: 1; transform: scale(1) translate(0px, 0px); transform-origin: left top; pointer-events: none; user-select: none; color: rgba(0, 0, 0, 0.3);">Your
+                                        Name</label><input id="undefined-undefined-YourName-23496" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font: inherit; opacity: 1; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; box-sizing: border-box; margin-top: 14px;" type="text"
+                                                           value="">
+                                    <div>
+                                        <hr aria-hidden="true"
+                                            style="border-top: none rgb(158, 158, 158); border-left: none rgb(158, 158, 158); border-right: none rgb(158, 158, 158); border-bottom: 1px solid rgb(158, 158, 158); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;">
+                                        <hr aria-hidden="true"
+                                            style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class=" buuton-goup mb-lg-4 mb-3">
+                        <a type="button" class="btn-floating btn-lg btn-default" value="1" onclick="dis('1')">1</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="2" onclick="dis('2')">2</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="3" onclick="dis('3')">3</a>
+                        <br>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="4" onclick="dis('4')">4</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="5" onclick="dis('5')">5</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="6" onclick="dis('6')">6</a>
+                        <br>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="7" onclick="dis('7')">7</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="8" onclick="dis('8')">8</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="9" onclick="dis('9')">9</a>
+                        <br>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="+" onclick="dis('+')">+</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="0" onclick="dis('0')">0</a>
+                        <a type="button" class="btn-floating btn-lg btn-secondary" value="c" onclick="clr()">
+                            <i class="fas red-ic fa-backspace"></i></a>
+                        <div class="mb-lg-5 mb-4 mt-lg-4 mt-3">
+                            <a type="button" class="btn btn-success btn-rounded btn-default" value="c" onclick="clr()">
+                                <i class="fas success-ic fa-phone"></i></a>
+                            <a type="button" class="btn btn-success btn-rounded btn-default" value="c" onclick="clr()">
+                                <i class="fas success-ic fa-video"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+</style>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+
+<script>
+    //function for displaying values
+    function dis(val) {
+        document.getElementById("undefined-undefined-YourName-23496").value += val
+    }
+
+    //function for evaluation
+    /* function solve()
+     {
+         let x = document.getElementById("edu").value
+         let y = eval(x)
+         document.getElementById("edu").value = y
+     }*/
+    //function for clearing the display
+    function clr() {
+        document.getElementById("undefined-undefined-YourName-23496").value = ""
+    }
+</script>
+</body>
+</html>

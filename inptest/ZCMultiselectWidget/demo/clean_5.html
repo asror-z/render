@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/multiselect/2.2.9/js/multiselect.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<h4>First multiselect</h4>
+
+<div class="row">
+    <div class="col-xs-5">
+        <select name="from[]" id="multiselect1" class="form-control" size="8" multiple="multiple">
+            <option value="1">Item 1</option>
+            <option value="2">Item 5</option>
+            <option value="2">Item 2</option>
+            <option value="2">Item 4</option>
+            <option value="3">Item 3</option>
+        </select>
+    </div>
+
+    <div class="col-xs-2">
+        <button type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+        <button type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+        <button type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        <button type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+    </div>
+
+    <div class="col-xs-5">
+        <select name="to[]" id="multiselect1_to" class="form-control" size="8" multiple="multiple"></select>
+    </div>
+</div>
+
+<h4>Second multiselect</h4>
+
+<div class="row">
+    <div class="col-xs-5">
+        <select name="from[]" id="multiselect2" class="form-control" size="8" multiple="multiple">
+            <option value="1">Item 1</option>
+            <option value="2">Item 5</option>
+            <option value="2">Item 2</option>
+            <option value="2">Item 4</option>
+            <option value="3">Item 3</option>
+        </select>
+    </div>
+
+    <div class="col-xs-2">
+        <button type="button" id="multiselect2_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+        <button type="button" id="multiselect2_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+        <button type="button" id="multiselect2_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        <button type="button" id="multiselect2_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+    </div>
+
+    <div class="col-xs-5">
+        <select name="to[]" id="multiselect2_to" class="form-control" size="8" multiple="multiple"></select>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $('#multiselect1').multiselect();
+        $('#multiselect2').multiselect();
+    });
+</script>
+
+</body>
+</html>

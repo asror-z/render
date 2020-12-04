@@ -1,0 +1,3153 @@
+<div class="gjs-editor gjs-one-bg gjs-two-color">
+    <div class="gjs-cv-canvas">
+        <div class="gjs-cv-canvas__frames" data-frames="">
+            <div class="gjs-frames">
+                <div class="gjs-frame-wrapper" style="left: 0px; top: 0px;">
+                    <div class="gjs-frame-wrapper__top gjs-two-color" data-frame-top="">
+                        <div class="gjs-frame-wrapper__name" data-action-move="">
+
+                        </div>
+                        <div class="gjs-frame-wrapper__top-r">
+                            <div class="gjs-frame-wrapper__icon" data-action-remove="" style="display: none">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gjs-frame-wrapper__right" data-frame-right=""></div>
+                    <div class="gjs-frame-wrapper__left" data-frame-left=""></div>
+                    <div class="gjs-frame-wrapper__bottom" data-frame-bottom=""></div>
+                    <iframe allowfullscreen="allowfullscreen" data-frame-el="true" class="gjs-frame"></iframe>
+                </div>
+            </div>
+        </div>
+        <div id="gjs-cv-tools" class="gjs-cv-canvas__tools" data-tools="">
+            <div class="gjs-tools gjs-tools-gl" style="pointer-events:none">
+                <div class="gjs-placeholder">
+                    <div class="gjs-placeholder-int"></div>
+                </div>
+            </div>
+            <div id="gjs-tools" style="pointer-events: none; opacity: 0;">
+                <div class="gjs-badge"></div>
+                <div class="gjs-ghost"></div>
+                <div class="gjs-toolbar" style="pointer-events:all"></div>
+                <div class="gjs-resizer"></div>
+                <div class="gjs-offset-v"></div>
+                <div class="gjs-offset-fixed-v"></div>
+                <div class="gjs-rte-toolbar gjs-one-bg"
+                     style="pointer-events: all; top: -1000px; left: -1000px; display: none;">
+                    <div class="gjs-rte-actionbar"><span class="gjs-rte-action" title=""
+                                                         data-tooltip="Bold"><b>B</b></span><span
+                            class="gjs-rte-action" title="" data-tooltip="Italic"><i>I</i></span><span
+                            class="gjs-rte-action" title="" data-tooltip="Underline"><u>U</u></span><span
+                            class="gjs-rte-action" title=""
+                            data-tooltip="Strike-through"><strike>S</strike></span><span class="gjs-rte-action"
+                                                                                         style="font-size:1.4rem;padding:0 4px 2px;"
+                                                                                         title=""
+                                                                                         data-tooltip="Link"><span
+                            style="transform:rotate(45deg)">⫘</span></span></div>
+                </div>
+            </div>
+            <div class="gjs-tools"
+                 style="pointer-events: none; opacity: 0; top: 7px; left: 7px; width: 1608px; height: 1542px;">
+                <div class="gjs-highlighter" data-hl=""></div>
+                <div class="gjs-badge" data-badge="" style="display: block; top: -7px; left: 0px;">
+                    <div class="gjs-badge__name">Table cell</div>
+                </div>
+                <div class="gjs-placeholder">
+                    <div class="gjs-placeholder-int"></div>
+                </div>
+                <div class="gjs-ghost"></div>
+                <div class="gjs-toolbar" style="pointer-events:all"></div>
+                <div class="gjs-resizer"></div>
+                <div class="gjs-offset-v" data-offset="" style="opacity: 0;">
+                    <div class="gjs-marginName" data-offset-m="">
+                        <div class="gjs-margin-v-el gjs-margin-v-top" data-offset-m-t=""></div>
+                        <div class="gjs-margin-v-el gjs-margin-v-bottom" data-offset-m-b=""></div>
+                        <div class="gjs-margin-v-el gjs-margin-v-left" data-offset-m-l=""></div>
+                        <div class="gjs-margin-v-el gjs-margin-v-right" data-offset-m-r=""></div>
+                    </div>
+                    <div class="gjs-paddingName" data-offset-m="">
+                        <div class="gjs-padding-v-el gjs-padding-v-top" data-offset-p-t=""></div>
+                        <div class="gjs-padding-v-el gjs-padding-v-bottom" data-offset-p-b=""></div>
+                        <div class="gjs-padding-v-el gjs-padding-v-left" data-offset-p-l=""></div>
+                        <div class="gjs-padding-v-el gjs-padding-v-right" data-offset-p-r=""></div>
+                    </div>
+                </div>
+                <div class="gjs-offset-fixed-v"></div>
+            </div>
+        </div>
+    </div>
+    <div class="gjs-pn-panels">
+        <div class="gjs-pn-panel gjs-pn-commands gjs-one-bg gjs-two-color">
+            <div class="gjs-pn-buttons"><span title="" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-undo"
+                                              data-tooltip="Undo"></span><span title="" data-tooltip-pos="bottom"
+                                                                               class="gjs-pn-btn fa fa-repeat"
+                                                                               data-tooltip="Redo"></span></div>
+            <div class="gjs-logo-cont">
+                <a href="//grapesjs.com"><img class="gjs-logo" src="img/grapesjs-logo-cl.png"></a>
+                <div class="gjs-logo-version">v0.16.18</div>
+            </div>
+        </div>
+        <div class="gjs-pn-panel gjs-pn-options gjs-one-bg gjs-two-color">
+            <div class="gjs-pn-buttons"><span title="View components" data-tooltip-pos="bottom"
+                                              class="gjs-pn-btn fa fa-square-o gjs-pn-active gjs-four-color"
+                                              data-tooltip="View components"></span><span title="Fullscreen"
+                                                                                          data-tooltip-pos="bottom"
+                                                                                          class="gjs-pn-btn fa fa-arrows-alt"
+                                                                                          data-tooltip="Fullscreen"></span><span
+                    title="View code" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-code"
+                    data-tooltip="View code"></span><span title="" data-tooltip-pos="bottom"
+                                                          class="gjs-pn-btn fa fa-download"
+                                                          data-tooltip="Import template"></span><span title=""
+                                                                                                      data-tooltip-pos="bottom"
+                                                                                                      class="gjs-pn-btn fa fa-warning"
+                                                                                                      data-tooltip="Toggle Images"></span><span
+                    title="" class="gjs-pn-btn fa fa-undo" data-tooltip="Undo"></span><span title=""
+                                                                                            class="gjs-pn-btn fa fa-repeat"
+                                                                                            data-tooltip="Redo"></span><span
+                    title="" class="gjs-pn-btn fa fa-trash icon-blank" data-tooltip="Clear canvas"></span><span
+                    title="" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-question-circle"
+                    data-tooltip="About"></span></div>
+        </div>
+        <div class="gjs-pn-panel gjs-pn-views gjs-one-bg gjs-two-color">
+            <div class="gjs-pn-buttons"><span title="Open Style Manager" class="gjs-pn-btn fa fa-paint-brush"
+                                              data-tooltip="Open Style Manager"></span><span title="Settings"
+                                                                                             class="gjs-pn-btn fa fa-cog"
+                                                                                             data-tooltip="Settings"></span><span
+                    title="Open Layer Manager" class="gjs-pn-btn fa fa-bars"
+                    data-tooltip="Open Layer Manager"></span><span title="Open Blocks"
+                                                                   class="gjs-pn-btn fa fa-th-large gjs-pn-active gjs-four-color"
+                                                                   data-tooltip="Open Blocks"></span></div>
+        </div>
+        <div class="gjs-pn-panel gjs-pn-devices-c gjs-one-bg gjs-two-color">
+            <div class="gjs-pn-buttons"><span title="" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-desktop"
+                                              data-tooltip="Desktop"></span><span title="" data-tooltip-pos="bottom"
+                                                                                  class="gjs-pn-btn fa fa-tablet"
+                                                                                  data-tooltip="Tablet"></span><span
+                    title="" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-mobile" data-tooltip="Mobile"></span>
+            </div>
+        </div>
+        <div class="gjs-pn-panel gjs-pn-views-container gjs-one-bg gjs-two-color">
+            <div>
+                <div style="display: none;">
+                    <div class="gjs-clm-tags gjs-one-bg gjs-two-color">
+                        <div id="gjs-clm-up" class="gjs-clm-header">
+                            <div id="gjs-clm-label" class="gjs-clm-header-label">Classes</div>
+                            <div id="gjs-clm-status-c" class="gjs-clm-header-status">
+        <span id="gjs-clm-input-c" data-states-c="">
+          <div class="gjs-field gjs-select">
+            <span id="gjs-input-holder">
+              <select id="gjs-clm-states" data-states="">
+                <option value="">- State -</option>
+              <option value="hover">Hover</option><option value="active">Click</option><option value="nth-of-type(2n)">Even/Odd</option></select>
+            </span>
+            <div class="gjs-sel-arrow">
+              <div class="gjs-d-s-arrow"></div>
+            </div>
+          </div>
+        </span>
+                            </div>
+                        </div>
+                        <div id="gjs-clm-tags-field" class="gjs-field">
+                            <div id="gjs-clm-tags-c" data-selectors=""></div>
+                            <input id="gjs-clm-new" data-input="" style="display: none;">
+                            <span id="gjs-clm-add-tag" class="gjs-clm-tags-btn gjs-clm-tags-btn__add" data-add="">
+        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+      </span>
+                            <span class="gjs-clm-tags-btn gjs-clm-tags-btn__sync" style="display: none"
+                                  data-sync-style="">
+        <svg viewBox="0 0 24 24"><path
+                d="M12 18c-3.31 0-6-2.69-6-6 0-1 .25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4m0-11V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12c0-4.42-3.58-8-8-8z"></path></svg>
+      </span>
+                        </div>
+                        <div class="gjs-clm-sels-info">
+                            <div class="gjs-clm-label-sel">Selected:</div>
+                            <div class="gjs-clm-sels" data-selected=""></div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </div>
+                    <div class="gjs-sm-sectors gjs-one-bg gjs-two-color">
+                        <div id="gjs-sm-dimension" class="gjs-sm-sector gjs-sm-sector__dimension no-select">
+                            <div class="gjs-sm-title" data-sector-title="">
+                                <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+                                Dimension
+                            </div>
+                            <div class="gjs-sm-properties" style="display: none;">
+                                <div id="gjs-sm-width" class="gjs-sm-property gjs-sm-integer gjs-sm-property__width"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Width
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                                <span class="gjs-input-holder"><input type="text"
+                                                                                      placeholder="auto"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>%</option><option>vw</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-height"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__height"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Height
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                                <span class="gjs-input-holder"><input type="text"
+                                                                                      placeholder="auto"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>%</option><option>vh</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-max-width"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__max-width"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Max width
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                                <span class="gjs-input-holder"><input type="text"
+                                                                                      placeholder="auto"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>%</option><option>vw</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-min-height"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__min-height"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Min height
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                                <span class="gjs-input-holder"><input type="text"
+                                                                                      placeholder="auto"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>%</option><option>vh</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-margin"
+                                     class="gjs-sm-property gjs-sm-composite gjs-sm-property__margin"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Margin
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-margin-top"
+                                                                           class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-top"
+                                                                           style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Top
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-margin-right" class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-right"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Right
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-margin-bottom" class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-bottom"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Bottom
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-margin-left" class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-left"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Left
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-padding"
+                                     class="gjs-sm-property gjs-sm-composite gjs-sm-property__padding"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Padding
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-padding-top"
+                                                                           class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-top"
+                                                                           style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Top
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-padding-right" class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-right"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Right
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-padding-bottom" class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-bottom"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Bottom
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-padding-left" class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-left"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Left
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gjs-sm-typography" class="gjs-sm-sector gjs-sm-sector__typography no-select">
+                            <div class="gjs-sm-title" data-sector-title="">
+                                <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+                                Typography
+                            </div>
+                            <div class="gjs-sm-properties" style="display: none;">
+                                <div id="gjs-sm-font-family"
+                                     class="gjs-sm-property gjs-sm-select gjs-sm-property__font-family"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-select">
+                                                <span id="gjs-sm-input-holder"><select><option
+                                                        value="Arial, Helvetica, sans-serif">Arial</option><option
+                                                        value="Arial Black, Gadget, sans-serif">Arial Black</option><option
+                                                        value="Brush Script MT, sans-serif">Brush Script MT</option><option
+                                                        value="Comic Sans MS, cursive, sans-serif">Comic Sans MS</option><option
+                                                        value="Courier New, Courier, monospace">Courier New</option><option
+                                                        value="Georgia, serif">Georgia</option><option
+                                                        value="Helvetica, serif">Helvetica</option><option
+                                                        value="Impact, Charcoal, sans-serif">Impact</option><option
+                                                        value="Lucida Sans Unicode, Lucida Grande, sans-serif">Lucida Sans Unicode</option><option
+                                                        value="Tahoma, Geneva, sans-serif">Tahoma</option><option
+                                                        value="Times New Roman, Times, serif">Times New Roman</option><option
+                                                        value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS</option><option
+                                                        value="Verdana, Geneva, sans-serif">Verdana</option></select></span>
+                                            <div class="gjs-sel-arrow">
+                                                <div class="gjs-d-s-arrow"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-font-size"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__font-size"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font size
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                            <span class="gjs-input-holder"><input type="text" placeholder="medium"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>em</option><option>rem</option><option>%</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-font-weight"
+                                     class="gjs-sm-property gjs-sm-select gjs-sm-property__font-weight"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Weight
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-select">
+                                                <span id="gjs-sm-input-holder"><select><option value="100">Thin</option><option
+                                                        value="200">Extra-Light</option><option
+                                                        value="300">Light</option><option value="400">Normal</option><option
+                                                        value="500">Medium</option><option
+                                                        value="600">Semi-Bold</option><option value="700">Bold</option><option
+                                                        value="800">Extra-Bold</option><option
+                                                        value="900">Ultra-Bold</option></select></span>
+                                            <div class="gjs-sel-arrow">
+                                                <div class="gjs-d-s-arrow"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-letter-spacing"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__letter-spacing"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Letter spacing
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                            <span class="gjs-input-holder"><input type="text" placeholder="normal"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>em</option><option>rem</option><option>%</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-color" class="gjs-sm-property gjs-sm-color gjs-sm-property__color"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font color
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-color">
+                                            <div class="gjs-input-holder"><input type="text" placeholder="black">
+                                            </div>
+                                            <div class="gjs-field-colorp">
+                                                <div class="gjs-field-colorp-c" data-colorp-c="">
+                                                    <div class="gjs-checker-bg"></div>
+                                                    <div class="gjs-field-color-picker"
+                                                         style="background-color: black;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-line-height"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__line-height"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Line height
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                            <span class="gjs-input-holder"><input type="text" placeholder="normal"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>em</option><option>rem</option><option>%</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-text-align"
+                                     class="gjs-sm-property gjs-sm-radio gjs-sm-property__text-align gjs-sm-property--full"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Text align
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-radio">
+                                            <div class="gjs-radio-items">
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-text-align"
+                                                           id="text-align-left-c2436" name="text-align-c2436"
+                                                           value="left">
+                                                    <label class="fa fa-align-left gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-align-left-c2436"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-text-align"
+                                                           id="text-align-center-c2436" name="text-align-c2436"
+                                                           value="center">
+                                                    <label class="fa fa-align-center gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-align-center-c2436"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-text-align"
+                                                           id="text-align-right-c2436" name="text-align-c2436"
+                                                           value="right">
+                                                    <label class="fa fa-align-right gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-align-right-c2436"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-text-align"
+                                                           id="text-align-justify-c2436" name="text-align-c2436"
+                                                           value="justify">
+                                                    <label class="fa fa-align-justify gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-align-justify-c2436"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-text-decoration"
+                                     class="gjs-sm-property gjs-sm-radio gjs-sm-property__text-decoration gjs-sm-property--full"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Text decoration
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-radio">
+                                            <div class="gjs-radio-items">
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio"
+                                                           class="gjs-sm-radio gjs-sm-radio-text-decoration"
+                                                           id="text-decoration-none-c2438"
+                                                           name="text-decoration-c2438" value="none">
+                                                    <label class="fa fa-times gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-decoration-none-c2438"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio"
+                                                           class="gjs-sm-radio gjs-sm-radio-text-decoration"
+                                                           id="text-decoration-underline-c2438"
+                                                           name="text-decoration-c2438" value="underline">
+                                                    <label class="fa fa-underline gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-decoration-underline-c2438"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio"
+                                                           class="gjs-sm-radio gjs-sm-radio-text-decoration"
+                                                           id="text-decoration-line-through-c2438"
+                                                           name="text-decoration-c2438" value="line-through">
+                                                    <label class="fa fa-strikethrough gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-decoration-line-through-c2438"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-font-style"
+                                     class="gjs-sm-property gjs-sm-radio gjs-sm-property__font-style gjs-sm-property--full"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font style
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-radio">
+                                            <div class="gjs-radio-items">
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-font-style"
+                                                           id="font-style-normal-c2440" name="font-style-c2440"
+                                                           value="normal">
+                                                    <label class="fa fa-font gjs-sm-icon gjs-radio-item-label"
+                                                           for="font-style-normal-c2440"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-font-style"
+                                                           id="font-style-italic-c2440" name="font-style-c2440"
+                                                           value="italic">
+                                                    <label class="fa fa-italic gjs-sm-icon gjs-radio-item-label"
+                                                           for="font-style-italic-c2440"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-vertical-align"
+                                     class="gjs-sm-property gjs-sm-select gjs-sm-property__vertical-align"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Vertical align
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-select">
+                                                <span id="gjs-sm-input-holder"><select><option
+                                                        value="baseline">baseline</option><option
+                                                        value="top">top</option><option value="middle">middle</option><option
+                                                        value="bottom">bottom</option></select></span>
+                                            <div class="gjs-sel-arrow">
+                                                <div class="gjs-d-s-arrow"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-text-shadow"
+                                     class="gjs-sm-property gjs-sm-stack gjs-sm-property__text-shadow"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Text shadow
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-stack">
+                                            <button type="button" id="gjs-sm-add" data-add-layer="">+</button>
+                                            <div data-layers-wrapper="">
+                                                <div class="gjs-sm-layers gjs-field"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gjs-sm-decorations" class="gjs-sm-sector gjs-sm-sector__decorations no-select">
+                            <div class="gjs-sm-title" data-sector-title="">
+                                <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+                                Decorations
+                            </div>
+                            <div class="gjs-sm-properties" style="display: none;">
+                                <div id="gjs-sm-background-color"
+                                     class="gjs-sm-property gjs-sm-color gjs-sm-property__background-color"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Background
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-color">
+                                            <div class="gjs-input-holder"><input type="text" placeholder="none">
+                                            </div>
+                                            <div class="gjs-field-colorp">
+                                                <div class="gjs-field-colorp-c" data-colorp-c="">
+                                                    <div class="gjs-checker-bg"></div>
+                                                    <div class="gjs-field-color-picker"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-border-collapse"
+                                     class="gjs-sm-property gjs-sm-radio gjs-sm-property__border-collapse gjs-sm-property--full"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border collapse
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-radio">
+                                            <div class="gjs-radio-items">
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio"
+                                                           class="gjs-sm-radio gjs-sm-radio-border-collapse"
+                                                           id="border-collapse-separate-c2461"
+                                                           name="border-collapse-c2461" value="separate">
+                                                    <label class="gjs-radio-item-label"
+                                                           for="border-collapse-separate-c2461">No</label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio"
+                                                           class="gjs-sm-radio gjs-sm-radio-border-collapse"
+                                                           id="border-collapse-collapse-c2461"
+                                                           name="border-collapse-c2461" value="collapse">
+                                                    <label class="gjs-radio-item-label"
+                                                           for="border-collapse-collapse-c2461">Yes</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-border-radius"
+                                     class="gjs-sm-property gjs-sm-composite gjs-sm-property__border-radius"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border radius
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-border-top-left-radius"
+                                                                           class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-top-left-radius"
+                                                                           style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Top
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-top-right-radius"
+               class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-top-right-radius" style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Right
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-bottom-right-radius"
+               class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-bottom-right-radius"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Left
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-bottom-left-radius"
+               class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-bottom-left-radius"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Bottom
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-border"
+                                     class="gjs-sm-property gjs-sm-composite gjs-sm-property__border"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-border-width"
+                                                                           class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-width"
+                                                                           style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Width
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>em</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-style" class="gjs-sm-property gjs-sm-select gjs-sm-property__border-style"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Style
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-select">
+        <span id="gjs-sm-input-holder"><select><option value="none">none</option><option value="solid">solid</option><option
+                value="dotted">dotted</option><option value="dashed">dashed</option><option
+                value="double">double</option><option value="groove">groove</option><option value="ridge">ridge</option><option
+                value="inset">inset</option><option value="outset">outset</option></select></span>
+        <div class="gjs-sel-arrow">
+          <div class="gjs-d-s-arrow"></div>
+        </div>
+      </div>
+
+      </div>
+    </div><div id="gjs-sm-border-color" class="gjs-sm-property gjs-sm-color gjs-sm-property__border-color"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Color
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-color">
+      <div class="gjs-input-holder"><input type="text" placeholder="black"></div>
+      <div class="gjs-field-colorp">
+        <div class="gjs-field-colorp-c" data-colorp-c="">
+          <div class="gjs-checker-bg"></div>
+        <div class="gjs-field-color-picker" style="background-color: black;"></div></div>
+      </div>
+    </div></div>
+    </div></div></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-background"
+                                     class="gjs-sm-property gjs-sm-stack gjs-sm-property__background"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Background
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-stack">
+                                            <button type="button" id="gjs-sm-add" data-add-layer="">+</button>
+                                            <div data-layers-wrapper="">
+                                                <div class="gjs-sm-layers gjs-field"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gjs-sm-header" style="display: none;">Select an element before using Style Manager</div>
+            </div>
+            <div style="display: block;">
+                <div class="gjs-blocks-cs gjs-one-bg gjs-two-color">
+                    <div class="gjs-block-categories"></div>
+                    <div class="gjs-blocks-no-cat">
+                        <div class="gjs-blocks-c">
+                            <div class="gjs-fonts gjs-f-b1 gjs-block gjs-one-bg gjs-four-color-h" title="1 Section"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">1 Section</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-b2 gjs-block gjs-one-bg gjs-four-color-h"
+                                 title="1/2 Section" draggable="true">
+
+                                <div class="gjs-block-label">1/2 Section</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-b3 gjs-block gjs-one-bg gjs-four-color-h"
+                                 title="1/3 Section" draggable="true">
+
+                                <div class="gjs-block-label">1/3 Section</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-b37 gjs-block gjs-one-bg gjs-four-color-h"
+                                 title="3/7 Section" draggable="true">
+
+                                <div class="gjs-block-label">3/7 Section</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-button gjs-block gjs-one-bg gjs-four-color-h" title="Button"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Button</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-divider gjs-block gjs-one-bg gjs-four-color-h"
+                                 title="Divider" draggable="true">
+
+                                <div class="gjs-block-label">Divider</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-text gjs-block gjs-one-bg gjs-four-color-h" title="Text"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Text</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-h1p gjs-block gjs-one-bg gjs-four-color-h"
+                                 title="Text Section" draggable="true">
+
+                                <div class="gjs-block-label">Text Section</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-image gjs-block gjs-one-bg gjs-four-color-h" title="Image"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Image</div>
+                            </div>
+                            <div class="fa fa-quote-right gjs-block gjs-one-bg gjs-four-color-h" title="Quote"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Quote</div>
+                            </div>
+                            <div class="fa fa-link gjs-block gjs-one-bg gjs-four-color-h" title="Link"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Link</div>
+                            </div>
+                            <div class="fa fa-link gjs-block gjs-one-bg gjs-four-color-h" title="Link Block"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Link Block</div>
+                            </div>
+                            <div class="fa fa-th gjs-block gjs-one-bg gjs-four-color-h" title="Grid Items"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Grid Items</div>
+                            </div>
+                            <div class="fa fa-th-list gjs-block gjs-one-bg gjs-four-color-h" title="List Items"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">List Items</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="gjs-mdl-container" style="display: none;">
+    <div class="gjs-mdl-dialog gjs-one-bg gjs-two-color">
+        <div class="gjs-mdl-header">
+            <div class="gjs-mdl-title"></div>
+            <div class="gjs-mdl-btn-close" data-close-modal="">⨯</div>
+        </div>
+        <div class="gjs-mdl-content">
+            <div id="gjs-mdl-c"></div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+    <div class="gjs-mdl-collector" style="display: none"></div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="ad-cont">
+    <div id="native-carbon">
+        <script src="//cdn.carbonads.com/carbon.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=grapesjscom"
+                id="_carbonads_js"></script>
+        <div id="carbonads"><span><span class="carbon-wrap"><a
+                href="https://srv.carbonads.net/ads/click/x/GTND42Q7CYYIEK3NCV7LYKQMF6SDCK3ECEYD6Z3JCWAIKK7LCTSDP53KCYAD4277CEBI4K3YCESD6KQUCY7DE5QKC6BIL2JJCABI6K3EHJNCLSIZ?segment=placement:grapesjscom;"
+                class="carbon-img" target="_blank" rel="noopener sponsored"><img
+                src="https://cdn4.buysellads.net/uu/1/41369/1551199029-Adobe_Stock_260x200-2.jpg"
+                alt="ads via Carbon" border="0" style="max-width: 130px;"></a><a
+                href="https://srv.carbonads.net/ads/click/x/GTND42Q7CYYIEK3NCV7LYKQMF6SDCK3ECEYD6Z3JCWAIKK7LCTSDP53KCYAD4277CEBI4K3YCESD6KQUCY7DE5QKC6BIL2JJCABI6K3EHJNCLSIZ?segment=placement:grapesjscom;"
+                class="carbon-text" target="_blank" rel="noopener sponsored">Limited time offer: Get 10 free Adobe Stock images.</a></span><a
+                href="http://carbonads.net/?utm_source=grapesjscom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon"
+                class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a></span></div>
+    </div>
+    <script async="" type="text/javascript" src="./js/carbon.js?v2"></script>
+</div> <div class="gjs-editor gjs-one-bg gjs-two-color">
+    <div class="gjs-cv-canvas">
+        <div class="gjs-cv-canvas__frames" data-frames="">
+            <div class="gjs-frames">
+                <div class="gjs-frame-wrapper" style="left: 0px; top: 0px;">
+                    <div class="gjs-frame-wrapper__top gjs-two-color" data-frame-top="">
+                        <div class="gjs-frame-wrapper__name" data-action-move="">
+
+                        </div>
+                        <div class="gjs-frame-wrapper__top-r">
+                            <div class="gjs-frame-wrapper__icon" data-action-remove="" style="display: none">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M19 4h-3.5l-1-1h-5l-1 1H5v2h14M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gjs-frame-wrapper__right" data-frame-right=""></div>
+                    <div class="gjs-frame-wrapper__left" data-frame-left=""></div>
+                    <div class="gjs-frame-wrapper__bottom" data-frame-bottom=""></div>
+                    <iframe allowfullscreen="allowfullscreen" data-frame-el="true" class="gjs-frame"></iframe>
+                </div>
+            </div>
+        </div>
+        <div id="gjs-cv-tools" class="gjs-cv-canvas__tools" data-tools="">
+            <div class="gjs-tools gjs-tools-gl" style="pointer-events:none">
+                <div class="gjs-placeholder">
+                    <div class="gjs-placeholder-int"></div>
+                </div>
+            </div>
+            <div id="gjs-tools" style="pointer-events: none; opacity: 0;">
+                <div class="gjs-badge"></div>
+                <div class="gjs-ghost"></div>
+                <div class="gjs-toolbar" style="pointer-events:all"></div>
+                <div class="gjs-resizer"></div>
+                <div class="gjs-offset-v"></div>
+                <div class="gjs-offset-fixed-v"></div>
+                <div class="gjs-rte-toolbar gjs-one-bg"
+                     style="pointer-events: all; top: -1000px; left: -1000px; display: none;">
+                    <div class="gjs-rte-actionbar"><span class="gjs-rte-action" title=""
+                                                         data-tooltip="Bold"><b>B</b></span><span
+                            class="gjs-rte-action" title="" data-tooltip="Italic"><i>I</i></span><span
+                            class="gjs-rte-action" title="" data-tooltip="Underline"><u>U</u></span><span
+                            class="gjs-rte-action" title=""
+                            data-tooltip="Strike-through"><strike>S</strike></span><span class="gjs-rte-action"
+                                                                                         style="font-size:1.4rem;padding:0 4px 2px;"
+                                                                                         title=""
+                                                                                         data-tooltip="Link"><span
+                            style="transform:rotate(45deg)">⫘</span></span></div>
+                </div>
+            </div>
+            <div class="gjs-tools"
+                 style="pointer-events: none; opacity: 0; top: 7px; left: 7px; width: 1608px; height: 1542px;">
+                <div class="gjs-highlighter" data-hl=""></div>
+                <div class="gjs-badge" data-badge="" style="display: block; top: -7px; left: 0px;">
+                    <div class="gjs-badge__name">Table cell</div>
+                </div>
+                <div class="gjs-placeholder">
+                    <div class="gjs-placeholder-int"></div>
+                </div>
+                <div class="gjs-ghost"></div>
+                <div class="gjs-toolbar" style="pointer-events:all"></div>
+                <div class="gjs-resizer"></div>
+                <div class="gjs-offset-v" data-offset="" style="opacity: 0;">
+                    <div class="gjs-marginName" data-offset-m="">
+                        <div class="gjs-margin-v-el gjs-margin-v-top" data-offset-m-t=""></div>
+                        <div class="gjs-margin-v-el gjs-margin-v-bottom" data-offset-m-b=""></div>
+                        <div class="gjs-margin-v-el gjs-margin-v-left" data-offset-m-l=""></div>
+                        <div class="gjs-margin-v-el gjs-margin-v-right" data-offset-m-r=""></div>
+                    </div>
+                    <div class="gjs-paddingName" data-offset-m="">
+                        <div class="gjs-padding-v-el gjs-padding-v-top" data-offset-p-t=""></div>
+                        <div class="gjs-padding-v-el gjs-padding-v-bottom" data-offset-p-b=""></div>
+                        <div class="gjs-padding-v-el gjs-padding-v-left" data-offset-p-l=""></div>
+                        <div class="gjs-padding-v-el gjs-padding-v-right" data-offset-p-r=""></div>
+                    </div>
+                </div>
+                <div class="gjs-offset-fixed-v"></div>
+            </div>
+        </div>
+    </div>
+    <div class="gjs-pn-panels">
+        <div class="gjs-pn-panel gjs-pn-commands gjs-one-bg gjs-two-color">
+            <div class="gjs-pn-buttons"><span title="" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-undo"
+                                              data-tooltip="Undo"></span><span title="" data-tooltip-pos="bottom"
+                                                                               class="gjs-pn-btn fa fa-repeat"
+                                                                               data-tooltip="Redo"></span></div>
+            <div class="gjs-logo-cont">
+                <a href="//grapesjs.com"><img class="gjs-logo" src="img/grapesjs-logo-cl.png"></a>
+                <div class="gjs-logo-version">v0.16.18</div>
+            </div>
+        </div>
+        <div class="gjs-pn-panel gjs-pn-options gjs-one-bg gjs-two-color">
+            <div class="gjs-pn-buttons"><span title="View components" data-tooltip-pos="bottom"
+                                              class="gjs-pn-btn fa fa-square-o gjs-pn-active gjs-four-color"
+                                              data-tooltip="View components"></span><span title="Fullscreen"
+                                                                                          data-tooltip-pos="bottom"
+                                                                                          class="gjs-pn-btn fa fa-arrows-alt"
+                                                                                          data-tooltip="Fullscreen"></span><span
+                    title="View code" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-code"
+                    data-tooltip="View code"></span><span title="" data-tooltip-pos="bottom"
+                                                          class="gjs-pn-btn fa fa-download"
+                                                          data-tooltip="Import template"></span><span title=""
+                                                                                                      data-tooltip-pos="bottom"
+                                                                                                      class="gjs-pn-btn fa fa-warning"
+                                                                                                      data-tooltip="Toggle Images"></span><span
+                    title="" class="gjs-pn-btn fa fa-undo" data-tooltip="Undo"></span><span title=""
+                                                                                            class="gjs-pn-btn fa fa-repeat"
+                                                                                            data-tooltip="Redo"></span><span
+                    title="" class="gjs-pn-btn fa fa-trash icon-blank" data-tooltip="Clear canvas"></span><span
+                    title="" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-question-circle"
+                    data-tooltip="About"></span></div>
+        </div>
+        <div class="gjs-pn-panel gjs-pn-views gjs-one-bg gjs-two-color">
+            <div class="gjs-pn-buttons"><span title="Open Style Manager" class="gjs-pn-btn fa fa-paint-brush"
+                                              data-tooltip="Open Style Manager"></span><span title="Settings"
+                                                                                             class="gjs-pn-btn fa fa-cog"
+                                                                                             data-tooltip="Settings"></span><span
+                    title="Open Layer Manager" class="gjs-pn-btn fa fa-bars"
+                    data-tooltip="Open Layer Manager"></span><span title="Open Blocks"
+                                                                   class="gjs-pn-btn fa fa-th-large gjs-pn-active gjs-four-color"
+                                                                   data-tooltip="Open Blocks"></span></div>
+        </div>
+        <div class="gjs-pn-panel gjs-pn-devices-c gjs-one-bg gjs-two-color">
+            <div class="gjs-pn-buttons"><span title="" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-desktop"
+                                              data-tooltip="Desktop"></span><span title="" data-tooltip-pos="bottom"
+                                                                                  class="gjs-pn-btn fa fa-tablet"
+                                                                                  data-tooltip="Tablet"></span><span
+                    title="" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-mobile" data-tooltip="Mobile"></span>
+            </div>
+        </div>
+        <div class="gjs-pn-panel gjs-pn-views-container gjs-one-bg gjs-two-color">
+            <div>
+                <div style="display: none;">
+                    <div class="gjs-clm-tags gjs-one-bg gjs-two-color">
+                        <div id="gjs-clm-up" class="gjs-clm-header">
+                            <div id="gjs-clm-label" class="gjs-clm-header-label">Classes</div>
+                            <div id="gjs-clm-status-c" class="gjs-clm-header-status">
+        <span id="gjs-clm-input-c" data-states-c="">
+          <div class="gjs-field gjs-select">
+            <span id="gjs-input-holder">
+              <select id="gjs-clm-states" data-states="">
+                <option value="">- State -</option>
+              <option value="hover">Hover</option><option value="active">Click</option><option value="nth-of-type(2n)">Even/Odd</option></select>
+            </span>
+            <div class="gjs-sel-arrow">
+              <div class="gjs-d-s-arrow"></div>
+            </div>
+          </div>
+        </span>
+                            </div>
+                        </div>
+                        <div id="gjs-clm-tags-field" class="gjs-field">
+                            <div id="gjs-clm-tags-c" data-selectors=""></div>
+                            <input id="gjs-clm-new" data-input="" style="display: none;">
+                            <span id="gjs-clm-add-tag" class="gjs-clm-tags-btn gjs-clm-tags-btn__add" data-add="">
+        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+      </span>
+                            <span class="gjs-clm-tags-btn gjs-clm-tags-btn__sync" style="display: none"
+                                  data-sync-style="">
+        <svg viewBox="0 0 24 24"><path
+                d="M12 18c-3.31 0-6-2.69-6-6 0-1 .25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4m0-11V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12c0-4.42-3.58-8-8-8z"></path></svg>
+      </span>
+                        </div>
+                        <div class="gjs-clm-sels-info">
+                            <div class="gjs-clm-label-sel">Selected:</div>
+                            <div class="gjs-clm-sels" data-selected=""></div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </div>
+                    <div class="gjs-sm-sectors gjs-one-bg gjs-two-color">
+                        <div id="gjs-sm-dimension" class="gjs-sm-sector gjs-sm-sector__dimension no-select">
+                            <div class="gjs-sm-title" data-sector-title="">
+                                <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+                                Dimension
+                            </div>
+                            <div class="gjs-sm-properties" style="display: none;">
+                                <div id="gjs-sm-width" class="gjs-sm-property gjs-sm-integer gjs-sm-property__width"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Width
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                                <span class="gjs-input-holder"><input type="text"
+                                                                                      placeholder="auto"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>%</option><option>vw</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-height"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__height"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Height
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                                <span class="gjs-input-holder"><input type="text"
+                                                                                      placeholder="auto"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>%</option><option>vh</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-max-width"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__max-width"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Max width
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                                <span class="gjs-input-holder"><input type="text"
+                                                                                      placeholder="auto"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>%</option><option>vw</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-min-height"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__min-height"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Min height
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                                <span class="gjs-input-holder"><input type="text"
+                                                                                      placeholder="auto"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>%</option><option>vh</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-margin"
+                                     class="gjs-sm-property gjs-sm-composite gjs-sm-property__margin"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Margin
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-margin-top"
+                                                                           class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-top"
+                                                                           style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Top
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-margin-right" class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-right"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Right
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-margin-bottom" class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-bottom"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Bottom
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-margin-left" class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-left"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Left
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-padding"
+                                     class="gjs-sm-property gjs-sm-composite gjs-sm-property__padding"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Padding
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-padding-top"
+                                                                           class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-top"
+                                                                           style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Top
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-padding-right" class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-right"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Right
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-padding-bottom" class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-bottom"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Bottom
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-padding-left" class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-left"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Left
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gjs-sm-typography" class="gjs-sm-sector gjs-sm-sector__typography no-select">
+                            <div class="gjs-sm-title" data-sector-title="">
+                                <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+                                Typography
+                            </div>
+                            <div class="gjs-sm-properties" style="display: none;">
+                                <div id="gjs-sm-font-family"
+                                     class="gjs-sm-property gjs-sm-select gjs-sm-property__font-family"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-select">
+                                                <span id="gjs-sm-input-holder"><select><option
+                                                        value="Arial, Helvetica, sans-serif">Arial</option><option
+                                                        value="Arial Black, Gadget, sans-serif">Arial Black</option><option
+                                                        value="Brush Script MT, sans-serif">Brush Script MT</option><option
+                                                        value="Comic Sans MS, cursive, sans-serif">Comic Sans MS</option><option
+                                                        value="Courier New, Courier, monospace">Courier New</option><option
+                                                        value="Georgia, serif">Georgia</option><option
+                                                        value="Helvetica, serif">Helvetica</option><option
+                                                        value="Impact, Charcoal, sans-serif">Impact</option><option
+                                                        value="Lucida Sans Unicode, Lucida Grande, sans-serif">Lucida Sans Unicode</option><option
+                                                        value="Tahoma, Geneva, sans-serif">Tahoma</option><option
+                                                        value="Times New Roman, Times, serif">Times New Roman</option><option
+                                                        value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS</option><option
+                                                        value="Verdana, Geneva, sans-serif">Verdana</option></select></span>
+                                            <div class="gjs-sel-arrow">
+                                                <div class="gjs-d-s-arrow"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-font-size"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__font-size"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font size
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                            <span class="gjs-input-holder"><input type="text" placeholder="medium"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>em</option><option>rem</option><option>%</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-font-weight"
+                                     class="gjs-sm-property gjs-sm-select gjs-sm-property__font-weight"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Weight
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-select">
+                                                <span id="gjs-sm-input-holder"><select><option value="100">Thin</option><option
+                                                        value="200">Extra-Light</option><option
+                                                        value="300">Light</option><option value="400">Normal</option><option
+                                                        value="500">Medium</option><option
+                                                        value="600">Semi-Bold</option><option value="700">Bold</option><option
+                                                        value="800">Extra-Bold</option><option
+                                                        value="900">Ultra-Bold</option></select></span>
+                                            <div class="gjs-sel-arrow">
+                                                <div class="gjs-d-s-arrow"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-letter-spacing"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__letter-spacing"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Letter spacing
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                            <span class="gjs-input-holder"><input type="text" placeholder="normal"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>em</option><option>rem</option><option>%</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-color" class="gjs-sm-property gjs-sm-color gjs-sm-property__color"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font color
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-color">
+                                            <div class="gjs-input-holder"><input type="text" placeholder="black">
+                                            </div>
+                                            <div class="gjs-field-colorp">
+                                                <div class="gjs-field-colorp-c" data-colorp-c="">
+                                                    <div class="gjs-checker-bg"></div>
+                                                    <div class="gjs-field-color-picker"
+                                                         style="background-color: black;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-line-height"
+                                     class="gjs-sm-property gjs-sm-integer gjs-sm-property__line-height"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Line height
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-integer">
+                                            <span class="gjs-input-holder"><input type="text" placeholder="normal"></span>
+                                            <span class="gjs-field-units"><select class="gjs-input-unit"><option
+                                                    selected="">px</option><option>em</option><option>rem</option><option>%</option></select></span>
+                                            <div class="gjs-field-arrows" data-arrows="">
+                                                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                                                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-text-align"
+                                     class="gjs-sm-property gjs-sm-radio gjs-sm-property__text-align gjs-sm-property--full"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Text align
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-radio">
+                                            <div class="gjs-radio-items">
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-text-align"
+                                                           id="text-align-left-c2436" name="text-align-c2436"
+                                                           value="left">
+                                                    <label class="fa fa-align-left gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-align-left-c2436"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-text-align"
+                                                           id="text-align-center-c2436" name="text-align-c2436"
+                                                           value="center">
+                                                    <label class="fa fa-align-center gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-align-center-c2436"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-text-align"
+                                                           id="text-align-right-c2436" name="text-align-c2436"
+                                                           value="right">
+                                                    <label class="fa fa-align-right gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-align-right-c2436"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-text-align"
+                                                           id="text-align-justify-c2436" name="text-align-c2436"
+                                                           value="justify">
+                                                    <label class="fa fa-align-justify gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-align-justify-c2436"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-text-decoration"
+                                     class="gjs-sm-property gjs-sm-radio gjs-sm-property__text-decoration gjs-sm-property--full"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Text decoration
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-radio">
+                                            <div class="gjs-radio-items">
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio"
+                                                           class="gjs-sm-radio gjs-sm-radio-text-decoration"
+                                                           id="text-decoration-none-c2438"
+                                                           name="text-decoration-c2438" value="none">
+                                                    <label class="fa fa-times gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-decoration-none-c2438"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio"
+                                                           class="gjs-sm-radio gjs-sm-radio-text-decoration"
+                                                           id="text-decoration-underline-c2438"
+                                                           name="text-decoration-c2438" value="underline">
+                                                    <label class="fa fa-underline gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-decoration-underline-c2438"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio"
+                                                           class="gjs-sm-radio gjs-sm-radio-text-decoration"
+                                                           id="text-decoration-line-through-c2438"
+                                                           name="text-decoration-c2438" value="line-through">
+                                                    <label class="fa fa-strikethrough gjs-sm-icon gjs-radio-item-label"
+                                                           for="text-decoration-line-through-c2438"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-font-style"
+                                     class="gjs-sm-property gjs-sm-radio gjs-sm-property__font-style gjs-sm-property--full"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font style
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-radio">
+                                            <div class="gjs-radio-items">
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-font-style"
+                                                           id="font-style-normal-c2440" name="font-style-c2440"
+                                                           value="normal">
+                                                    <label class="fa fa-font gjs-sm-icon gjs-radio-item-label"
+                                                           for="font-style-normal-c2440"></label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio" class="gjs-sm-radio gjs-sm-radio-font-style"
+                                                           id="font-style-italic-c2440" name="font-style-c2440"
+                                                           value="italic">
+                                                    <label class="fa fa-italic gjs-sm-icon gjs-radio-item-label"
+                                                           for="font-style-italic-c2440"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-vertical-align"
+                                     class="gjs-sm-property gjs-sm-select gjs-sm-property__vertical-align"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Vertical align
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-select">
+                                                <span id="gjs-sm-input-holder"><select><option
+                                                        value="baseline">baseline</option><option
+                                                        value="top">top</option><option value="middle">middle</option><option
+                                                        value="bottom">bottom</option></select></span>
+                                            <div class="gjs-sel-arrow">
+                                                <div class="gjs-d-s-arrow"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-text-shadow"
+                                     class="gjs-sm-property gjs-sm-stack gjs-sm-property__text-shadow"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Text shadow
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-stack">
+                                            <button type="button" id="gjs-sm-add" data-add-layer="">+</button>
+                                            <div data-layers-wrapper="">
+                                                <div class="gjs-sm-layers gjs-field"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="gjs-sm-decorations" class="gjs-sm-sector gjs-sm-sector__decorations no-select">
+                            <div class="gjs-sm-title" data-sector-title="">
+                                <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+                                Decorations
+                            </div>
+                            <div class="gjs-sm-properties" style="display: none;">
+                                <div id="gjs-sm-background-color"
+                                     class="gjs-sm-property gjs-sm-color gjs-sm-property__background-color"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Background
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-color">
+                                            <div class="gjs-input-holder"><input type="text" placeholder="none">
+                                            </div>
+                                            <div class="gjs-field-colorp">
+                                                <div class="gjs-field-colorp-c" data-colorp-c="">
+                                                    <div class="gjs-checker-bg"></div>
+                                                    <div class="gjs-field-color-picker"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-border-collapse"
+                                     class="gjs-sm-property gjs-sm-radio gjs-sm-property__border-collapse gjs-sm-property--full"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border collapse
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-field gjs-field-radio">
+                                            <div class="gjs-radio-items">
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio"
+                                                           class="gjs-sm-radio gjs-sm-radio-border-collapse"
+                                                           id="border-collapse-separate-c2461"
+                                                           name="border-collapse-c2461" value="separate">
+                                                    <label class="gjs-radio-item-label"
+                                                           for="border-collapse-separate-c2461">No</label>
+                                                </div>
+
+                                                <div class="gjs-radio-item">
+                                                    <input type="radio"
+                                                           class="gjs-sm-radio gjs-sm-radio-border-collapse"
+                                                           id="border-collapse-collapse-c2461"
+                                                           name="border-collapse-c2461" value="collapse">
+                                                    <label class="gjs-radio-item-label"
+                                                           for="border-collapse-collapse-c2461">Yes</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-border-radius"
+                                     class="gjs-sm-property gjs-sm-composite gjs-sm-property__border-radius"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border radius
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-border-top-left-radius"
+                                                                           class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-top-left-radius"
+                                                                           style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Top
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-top-right-radius"
+               class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-top-right-radius" style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Right
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-bottom-right-radius"
+               class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-bottom-right-radius"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Left
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-bottom-left-radius"
+               class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-bottom-left-radius"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Bottom
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-border"
+                                     class="gjs-sm-property gjs-sm-composite gjs-sm-property__border"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-border-width"
+                                                                           class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-width"
+                                                                           style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Width
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>em</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-style" class="gjs-sm-property gjs-sm-select gjs-sm-property__border-style"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Style
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-select">
+        <span id="gjs-sm-input-holder"><select><option value="none">none</option><option value="solid">solid</option><option
+                value="dotted">dotted</option><option value="dashed">dashed</option><option
+                value="double">double</option><option value="groove">groove</option><option value="ridge">ridge</option><option
+                value="inset">inset</option><option value="outset">outset</option></select></span>
+        <div class="gjs-sel-arrow">
+          <div class="gjs-d-s-arrow"></div>
+        </div>
+      </div>
+
+      </div>
+    </div><div id="gjs-sm-border-color" class="gjs-sm-property gjs-sm-color gjs-sm-property__border-color"
+               style="display: block;">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Color
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-color">
+      <div class="gjs-input-holder"><input type="text" placeholder="black"></div>
+      <div class="gjs-field-colorp">
+        <div class="gjs-field-colorp-c" data-colorp-c="">
+          <div class="gjs-checker-bg"></div>
+        <div class="gjs-field-color-picker" style="background-color: black;"></div></div>
+      </div>
+    </div></div>
+    </div></div></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="gjs-sm-background"
+                                     class="gjs-sm-property gjs-sm-stack gjs-sm-property__background"
+                                     style="display: block;">
+                                    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Background
+      </span>
+                                        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+                                    </div>
+                                    <div class="gjs-fields">
+
+                                        <div class="gjs-sm-field gjs-sm-stack">
+                                            <button type="button" id="gjs-sm-add" data-add-layer="">+</button>
+                                            <div data-layers-wrapper="">
+                                                <div class="gjs-sm-layers gjs-field"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gjs-sm-header" style="display: none;">Select an element before using Style Manager</div>
+            </div>
+            <div style="display: block;">
+                <div class="gjs-blocks-cs gjs-one-bg gjs-two-color">
+                    <div class="gjs-block-categories"></div>
+                    <div class="gjs-blocks-no-cat">
+                        <div class="gjs-blocks-c">
+                            <div class="gjs-fonts gjs-f-b1 gjs-block gjs-one-bg gjs-four-color-h" title="1 Section"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">1 Section</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-b2 gjs-block gjs-one-bg gjs-four-color-h"
+                                 title="1/2 Section" draggable="true">
+
+                                <div class="gjs-block-label">1/2 Section</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-b3 gjs-block gjs-one-bg gjs-four-color-h"
+                                 title="1/3 Section" draggable="true">
+
+                                <div class="gjs-block-label">1/3 Section</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-b37 gjs-block gjs-one-bg gjs-four-color-h"
+                                 title="3/7 Section" draggable="true">
+
+                                <div class="gjs-block-label">3/7 Section</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-button gjs-block gjs-one-bg gjs-four-color-h" title="Button"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Button</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-divider gjs-block gjs-one-bg gjs-four-color-h"
+                                 title="Divider" draggable="true">
+
+                                <div class="gjs-block-label">Divider</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-text gjs-block gjs-one-bg gjs-four-color-h" title="Text"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Text</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-h1p gjs-block gjs-one-bg gjs-four-color-h"
+                                 title="Text Section" draggable="true">
+
+                                <div class="gjs-block-label">Text Section</div>
+                            </div>
+                            <div class="gjs-fonts gjs-f-image gjs-block gjs-one-bg gjs-four-color-h" title="Image"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Image</div>
+                            </div>
+                            <div class="fa fa-quote-right gjs-block gjs-one-bg gjs-four-color-h" title="Quote"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Quote</div>
+                            </div>
+                            <div class="fa fa-link gjs-block gjs-one-bg gjs-four-color-h" title="Link"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Link</div>
+                            </div>
+                            <div class="fa fa-link gjs-block gjs-one-bg gjs-four-color-h" title="Link Block"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Link Block</div>
+                            </div>
+                            <div class="fa fa-th gjs-block gjs-one-bg gjs-four-color-h" title="Grid Items"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">Grid Items</div>
+                            </div>
+                            <div class="fa fa-th-list gjs-block gjs-one-bg gjs-four-color-h" title="List Items"
+                                 draggable="true">
+
+                                <div class="gjs-block-label">List Items</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="gjs-mdl-container" style="display: none;">
+    <div class="gjs-mdl-dialog gjs-one-bg gjs-two-color">
+        <div class="gjs-mdl-header">
+            <div class="gjs-mdl-title"></div>
+            <div class="gjs-mdl-btn-close" data-close-modal="">⨯</div>
+        </div>
+        <div class="gjs-mdl-content">
+            <div id="gjs-mdl-c"></div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+    <div class="gjs-mdl-collector" style="display: none"></div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color">
+    <div class="sp-palette-container">
+        <div class="sp-palette sp-thumb sp-cf">
+            <div class="sp-cf sp-palette-row sp-palette-row-0"></div>
+            <div class="sp-cf sp-palette-row sp-palette-row-selection"></div>
+        </div>
+        <div class="sp-palette-button-container sp-cf">
+            <button type="button" class="sp-palette-toggle">less</button>
+        </div>
+    </div>
+    <div class="sp-picker-container">
+        <div class="sp-top sp-cf">
+            <div class="sp-fill"></div>
+            <div class="sp-top-inner">
+                <div class="sp-color" style="background-color: rgb(255, 0, 0);">
+                    <div class="sp-sat">
+                        <div class="sp-val">
+                            <div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div>
+                <div class="sp-hue">
+                    <div class="sp-slider" style="display: block; top: 0px;"></div>
+                </div>
+            </div>
+            <div class="sp-alpha">
+                <div class="sp-alpha-inner"
+                     style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));">
+                    <div class="sp-alpha-handle" style="display: block; left: 0px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div>
+        <div class="sp-initial sp-thumb sp-cf"></div>
+        <div class="sp-button-container sp-cf"><a class="sp-cancel" href="#">⨯</a>
+            <button type="button" class="sp-choose">Ok</button>
+        </div>
+    </div>
+</div>
+<div class="ad-cont">
+    <div id="native-carbon">
+        <script src="//cdn.carbonads.com/carbon.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=grapesjscom"
+                id="_carbonads_js"></script>
+        <div id="carbonads"><span><span class="carbon-wrap"><a
+                href="https://srv.carbonads.net/ads/click/x/GTND42Q7CYYIEK3NCV7LYKQMF6SDCK3ECEYD6Z3JCWAIKK7LCTSDP53KCYAD4277CEBI4K3YCESD6KQUCY7DE5QKC6BIL2JJCABI6K3EHJNCLSIZ?segment=placement:grapesjscom;"
+                class="carbon-img" target="_blank" rel="noopener sponsored"><img
+                src="https://cdn4.buysellads.net/uu/1/41369/1551199029-Adobe_Stock_260x200-2.jpg"
+                alt="ads via Carbon" border="0" style="max-width: 130px;"></a><a
+                href="https://srv.carbonads.net/ads/click/x/GTND42Q7CYYIEK3NCV7LYKQMF6SDCK3ECEYD6Z3JCWAIKK7LCTSDP53KCYAD4277CEBI4K3YCESD6KQUCY7DE5QKC6BIL2JJCABI6K3EHJNCLSIZ?segment=placement:grapesjscom;"
+                class="carbon-text" target="_blank" rel="noopener sponsored">Limited time offer: Get 10 free Adobe Stock images.</a></span><a
+                href="http://carbonads.net/?utm_source=grapesjscom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon"
+                class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a></span></div>
+    </div>
+    <script async="" type="text/javascript" src="./js/carbon.js?v2"></script>
+</div>

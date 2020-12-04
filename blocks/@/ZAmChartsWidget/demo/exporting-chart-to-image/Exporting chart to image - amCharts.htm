@@ -1,0 +1,532 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0056)https://www.amcharts.com/demos/exporting-chart-to-image/ -->
+<!DOCTYPE html PUBLIC "" ""><HTML lang="en-US"><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+ 
+<META charset="UTF-8"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/favicon.ico" 
+rel="icon" type="image/x-icon"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/apple-touch-icon-57x57.png" 
+rel="apple-touch-icon-precomposed" sizes="57x57"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/apple-touch-icon-114x114.png" 
+rel="apple-touch-icon-precomposed" sizes="114x114"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/apple-touch-icon-72x72.png" 
+rel="apple-touch-icon-precomposed" sizes="72x72"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/apple-touch-icon-144x144.png" 
+rel="apple-touch-icon-precomposed" sizes="144x144"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/apple-touch-icon-60x60.png" 
+rel="apple-touch-icon-precomposed" sizes="60x60"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/apple-touch-icon-120x120.png" 
+rel="apple-touch-icon-precomposed" sizes="120x120"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/apple-touch-icon-76x76.png" 
+rel="apple-touch-icon-precomposed" sizes="76x76"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/apple-touch-icon-152x152.png" 
+rel="apple-touch-icon-precomposed" sizes="152x152"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/favicon-196x196.png" 
+rel="icon" type="image/png" sizes="196x196"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/favicon-96x96.png" 
+rel="icon" type="image/png" sizes="96x96"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/favicon-32x32.png" 
+rel="icon" type="image/png" sizes="32x32"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/favicon-16x16.png" 
+rel="icon" type="image/png" sizes="16x16"> <LINK href="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/favicon-128.png" 
+rel="icon" type="image/png" sizes="128x128"> 
+<META name="msapplication-TileImage" content="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/mstile-144x144.png"> 
+<META name="msapplication-square70x70logo" content="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/mstile-70x70.png"> 
+<META name="msapplication-square150x150logo" content="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/mstile-150x150.png"> 
+<META name="msapplication-wide310x150logo" content="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/mstile-310x150.png"> 
+<META name="msapplication-square310x310logo" content="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/favicon/mstile-310x310.png"> 
+<META name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+<SCRIPT>
+	if ( screen.width >= 768 && screen.width <= 1136 ) {
+		var ratio = Math.round( screen.width / 13 ) / 100;
+		document.getElementById( "viewport" ).setAttribute( "content", "width=1300, initial-scale=" + ratio );
+	}
+</SCRIPT>
+ <LINK href="http://gmpg.org/xfn/11" rel="profile"> <LINK href="https://www.amcharts.com/xmlrpc.php" 
+rel="pingback"> <TITLE>Exporting chart to image - amCharts</TITLE> 
+<META name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"> 
+<LINK href="https://www.amcharts.com/demos/exporting-chart-to-image/" rel="canonical"> 
+<META content="en_US" property="og:locale"> 
+<META content="article" property="og:type"> 
+<META content="Exporting chart to image - amCharts" property="og:title"> 
+<META content="Built-in export amCharts 4 has image and data exporting functionality built-in. Just enabled export menu and you’re all set. You can export charts to most popular image and vector formats like PNG, JPEG, or SVG, as well as PDF. Data can be exported as CSV, JSON, or XLSX." 
+property="og:description"> 
+<META content="https://www.amcharts.com/demos/exporting-chart-to-image/" 
+property="og:url"> 
+<META content="amCharts" property="og:site_name"> 
+<META content="https://www.facebook.com/amcharts/" property="article:publisher"> 
+<META content="JavaScript Charts" property="article:section"> 
+<META name="twitter:card" content="summary"> 
+<META name="twitter:description" content="Built-in export amCharts 4 has image and data exporting functionality built-in. Just enabled export menu and you’re all set. You can export charts to most popular image and vector formats like PNG, JPEG, or SVG, as well as PDF. Data can be exported as CSV, JSON, or XLSX."> 
+<META name="twitter:title" content="Exporting chart to image - amCharts"> 
+<META name="twitter:site" content="@amcharts"> 
+<META name="twitter:creator" content="@amcharts"> 
+<SCRIPT class="yoast-schema-graph yoast-schema-graph--main" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.amcharts.com/#website","url":"https://www.amcharts.com/","name":"amCharts","potentialAction":{"@type":"SearchAction","target":"https://www.amcharts.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.amcharts.com/demos/exporting-chart-to-image/#webpage","url":"https://www.amcharts.com/demos/exporting-chart-to-image/","inLanguage":"en-US","name":"Exporting chart to image - amCharts","isPartOf":{"@id":"https://www.amcharts.com/#website"},"datePublished":"2014-01-01T09:16:01+00:00","dateModified":"2019-03-20T14:14:28+00:00"}]}</SCRIPT>
+ <LINK href="//s.w.org" rel="dns-prefetch"> <LINK title="amCharts » Feed" href="https://www.amcharts.com/feed/" 
+rel="alternate" type="application/rss+xml"> <LINK title="amCharts » Comments Feed" 
+href="https://www.amcharts.com/comments/feed/" rel="alternate" type="application/rss+xml"> 
+<LINK id="wp-block-library-css" href="Exporting%20chart%20to%20image%20-%20amCharts_files/style.min.css" 
+rel="stylesheet" type="text/css" media="all"> <LINK id="amcharts2-style-css" 
+href="Exporting%20chart%20to%20image%20-%20amCharts_files/main.css" rel="stylesheet" 
+type="text/css" media="all"> <LINK id="amcharts2-style-demo-css" href="Exporting%20chart%20to%20image%20-%20amCharts_files/demo.css" 
+rel="stylesheet" type="text/css" media="all"> <LINK id="highlight-styles-css" 
+href="Exporting%20chart%20to%20image%20-%20amCharts_files/monokai-sublime.css" 
+rel="stylesheet" type="text/css" media="all"> 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/core.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/charts.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/dataviz.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/material.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/kelly.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/dark.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/frozen.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/moonrisekingdom.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/spiritedaway.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/animated.js" type="text/javascript"></SCRIPT>
+ <LINK href="https://www.amcharts.com/wp-json/" rel="https://api.w.org/"> <LINK 
+title="RSD" href="https://www.amcharts.com/xmlrpc.php?rsd" rel="EditURI" type="application/rsd+xml"> 
+<LINK href="https://www.amcharts.com/wp-includes/wlwmanifest.xml" rel="wlwmanifest" 
+type="application/wlwmanifest+xml"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"> <LINK href="https://www.amcharts.com/?p=1597" 
+rel="shortlink"> <LINK href="https://www.amcharts.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.amcharts.com%2Fdemos%2Fexporting-chart-to-image%2F" 
+rel="alternate" type="application/json+oembed"> <LINK href="https://www.amcharts.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.amcharts.com%2Fdemos%2Fexporting-chart-to-image%2F&amp;format=xml" 
+rel="alternate" type="text/xml+oembed"> 
+<META content="https://www.amcharts.com/wp-content/uploads/2014/01/demo_1597_none.png" 
+property="og:image"> <!--[if lt IE 9]>
+  <script type='text/javascript' src='https://www.amcharts.com/wp-content/themes/amcharts4/js/html5shiv.min.js?ver=20191220-01'></script>
+  <script type='text/javascript' src='https://www.amcharts.com/wp-content/themes/amcharts4/js/respond.min.js?ver=20191220-01'></script>
+  <![endif]--> 
+<SCRIPT>
+  // Indicates current version of the Privacy policy
+  var amcharts2_policy_version = 2018052201;
+  </SCRIPT>
+ 
+<STYLE>
+      #chartdiv {
+  width: 100%;
+  height: 500px;
+}
+      </STYLE>
+ </HEAD> 
+<BODY class="demo-template-default single single-demo postid-1597 no-logo alt-bg">
+<DIV class="site " id="page"><HEADER class="site-header" id="masthead" role="banner">
+<DIV class="banner">
+<DIV class="content-col">
+<DIV class="close"></DIV><IMG src="Exporting%20chart%20to%20image%20-%20amCharts_files/timeline_small.png"> 
+</DIV>
+<DIV class="banner-big trans-all">
+<DIV class="content-col"><A href="https://www.amcharts.com/timeline-chart/"><IMG 
+src="Exporting%20chart%20to%20image%20-%20amCharts_files/timeline_big.png"></A> 
+</DIV></DIV></DIV>
+<DIV class="content-col">
+<DIV class="row">
+<DIV class="col-md-2"><A class="menu-toggle" aria-expanded="false" 
+aria-controls="primary-menu" data-controls="site-navigation">Primary Menu</A> <A 
+id="logo" href="https://www.amcharts.com/" rel="home">amCharts</A></DIV>
+<DIV class="col-md-8 center">
+<DIV class="menu-main-menu-container trans-all" id="site-navigation">
+<UL class="menu" id="primary-menu">
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-10315" 
+  id="menu-item-10315"><A 
+  href="https://www.amcharts.com/javascript-charts/">Products</A>
+  <UL class="sub-menu">
+    <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14294" 
+    id="menu-item-14294"><A 
+    href="https://www.amcharts.com/javascript-charts/">Charts</A></LI>
+    <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14295" 
+    id="menu-item-14295"><A 
+    href="https://www.amcharts.com/javascript-maps/">Maps</A></LI>
+    <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14293" 
+    id="menu-item-14293"><A 
+    href="https://www.amcharts.com/timeline-chart/">TimeLine</A></LI></UL></LI>
+  <LI class="demo current-menu-item menu-item menu-item-type-demo menu-item-object-cpt_archive menu-item-137" 
+  id="menu-item-137"><A href="https://www.amcharts.com/demos/">Demos</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10278" 
+  id="menu-item-10278"><A 
+  href="https://www.amcharts.com/download/">Download</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22" 
+  id="menu-item-22"><A 
+href="https://www.amcharts.com/online-store/">Buy</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27" 
+  id="menu-item-27"><A href="https://www.amcharts.com/support/">Support</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10267" 
+  id="menu-item-10267"><A href="https://www.amcharts.com/docs/v4/">Docs</A></LI>
+  <LI class="social md-only menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7136" 
+  id="menu-item-7136"><A href="https://www.amcharts.com/demos/exporting-chart-to-image/#">Find 
+  us on</A>
+  <UL class="sub-menu">
+    <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7137" 
+    id="menu-item-7137"><A href="https://www.facebook.com/amcharts"><I title="Facebook" 
+    class="icon icon-facebook"></I></A></LI>
+    <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7138" 
+    id="menu-item-7138"><A href="https://www.twitter.com/amcharts"><I title="Twitter" 
+    class="icon icon-twitter"></I></A></LI>
+    <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7140" 
+    id="menu-item-7140"><A href="https://www.linkedin.com/company/amcharts"><I 
+    title="LinkedIn" 
+class="icon icon-linkedin"></I></A></LI></UL></LI></UL></DIV></DIV>
+<DIV class="col-md-2 right">
+<FORM class="search-form" role="search" action="https://www.amcharts.com/" 
+method="get"><LABEL><SPAN class="screen-reader-text">Search for:</SPAN> 
+<INPUT name="s" class="search-field" type="search" placeholder="Search …" value=""> 
+</LABEL> 
+<INPUT class="search-submit" type="submit" value="Search"></FORM></DIV></DIV></DIV></HEADER>
+<DIV class="site-content" id="content">
+<DIV class="content-area" id="primary"><main class="site-main" id="main" role="main"><HEADER 
+class="entry-header hero alt-hero fixed-pos">
+<DIV class="content-col extended">
+<DIV class="row">
+<DIV class="col-md-4"><A class="nav-link param" role="navigation" href="https://www.amcharts.com/demos/combined-bullet-column-line-chart/" 
+data-param="theme"><I class="icon icon-left nav trans-all"></I>Previous</A> <A 
+class="nav-link param" role="navigation" href="https://www.amcharts.com/demos/" 
+data-param="theme">All demos</A> <A class="nav-link param" role="navigation" 
+href="https://www.amcharts.com/demos/cylinder-gauge/" data-param="theme">Next<I 
+class="icon icon-right nav trans-all"></I></A> </DIV>
+<DIV class="col-md-8">
+<UL class="theme-switcher">
+  <LI class="theme-text">Select a theme:</LI>
+  <LI class="theme-button theme-button-none" active=""><A title="No theme" 
+  class="trans-all" style="border-color: rgb(255, 255, 255); background-image: linear-gradient(45deg, rgb(103, 183, 220) 0%, rgb(103, 183, 220) 50%, rgb(199, 103, 220) 50%, rgb(199, 103, 220) 100%);" 
+  aria-label="Switch to theme none" data-theme="none">No theme</A></LI>
+  <LI class="theme-button theme-button-dataviz"><A title="Dataviz" class="trans-all" 
+  style="border-color: rgb(255, 255, 255); background-image: linear-gradient(45deg, rgb(40, 50, 80) 0%, rgb(40, 50, 80) 50%, rgb(144, 44, 45) 50%, rgb(144, 44, 45) 100%);" 
+  aria-label="Switch to theme dataviz" data-theme="dataviz">Dataviz</A></LI>
+  <LI class="theme-button theme-button-material"><A title="Material" class="trans-all" 
+  style="border-color: rgb(255, 255, 255); background-image: linear-gradient(45deg, rgb(233, 30, 99) 0%, rgb(233, 30, 99) 50%, rgb(156, 39, 176) 50%, rgb(156, 39, 176) 100%);" 
+  aria-label="Switch to theme material" data-theme="material">Material</A></LI>
+  <LI class="theme-button theme-button-kelly"><A title="Kelly's" class="trans-all" 
+  style="border-color: rgb(255, 255, 255); background-image: linear-gradient(45deg, rgb(243, 195, 0) 0%, rgb(243, 195, 0) 50%, rgb(135, 86, 146) 50%, rgb(135, 86, 146) 100%);" 
+  aria-label="Switch to theme kelly" data-theme="kelly">Kelly's</A></LI>
+  <LI class="theme-button theme-button-dark"><A title="Dark" class="trans-all" 
+  style="border-color: rgb(0, 0, 0); background-image: linear-gradient(45deg, rgb(103, 183, 220) 0%, rgb(103, 183, 220) 50%, rgb(199, 103, 220) 50%, rgb(199, 103, 220) 100%);" 
+  aria-label="Switch to theme dark" data-theme="dark">Dark</A></LI>
+  <LI class="theme-button theme-button-frozen"><A title="Frozen" class="trans-all" 
+  style="border-color: rgb(255, 255, 255); background-image: linear-gradient(45deg, rgb(190, 196, 248) 0%, rgb(190, 196, 248) 50%, rgb(165, 171, 238) 50%, rgb(165, 171, 238) 100%);" 
+  aria-label="Switch to theme frozen" data-theme="frozen">Frozen</A></LI>
+  <LI class="theme-button theme-button-moonrisekingdom"><A title="Moonrise Kingdom" 
+  class="trans-all" style="border-color: rgb(255, 255, 255); background-image: linear-gradient(45deg, rgb(58, 19, 2) 0%, rgb(58, 19, 2) 50%, rgb(199, 159, 89) 50%, rgb(199, 159, 89) 100%);" 
+  aria-label="Switch to theme moonrisekingdom" 
+  data-theme="moonrisekingdom">Moonrise Kingdom</A></LI>
+  <LI class="theme-button theme-button-spiritedaway"><A title="Spirited Away" 
+  class="trans-all" style="border-color: rgb(255, 255, 255); background-image: linear-gradient(45deg, rgb(101, 115, 142) 0%, rgb(101, 115, 142) 50%, rgb(82, 59, 88) 50%, rgb(82, 59, 88) 100%);" 
+  aria-label="Switch to theme spiritedaway" data-theme="spiritedaway">Spirited 
+  Away</A></LI>
+  <LI class="theme-text"><STRONG>+</STRONG></LI>
+  <LI class="theme-button theme-button-animated active"><A title="Use Animated theme"><I 
+  class="x1"></I><I class="x2"></I><I class="x3"></I><I 
+class="x4"></I></A></LI></UL></DIV></DIV></DIV></HEADER>
+<DIV class="demo-background">
+<DIV class="content-demos demo-body demo-background content-col extended ">
+<DIV class="demo-code demo-code-html">
+<DIV id="chartdiv"></DIV></DIV><NOSCRIPT>&lt;img 
+src="https://www.amcharts.com/wp-content/uploads/2014/01/demo_1597_none.png" 
+/&gt;</NOSCRIPT> 
+<SCRIPT>
+            try {
+              // theme begin
+// Using default theme
+am4core.useTheme(am4themes_animated);
+// theme end
+
+// Create chart instance
+var chart = am4core.create("chartdiv", am4charts.XYChart3D);
+
+// Add data
+chart.data = [{
+  "country": "USA",
+  "visits": 4025,
+  "color": chart.colors.next()
+}, {
+  "country": "China",
+  "visits": 1882,
+  "color": chart.colors.next()
+}, {
+  "country": "Japan",
+  "visits": 1809,
+  "color": chart.colors.next()
+}, {
+  "country": "Germany",
+  "visits": 1322,
+  "color": chart.colors.next()
+}, {
+  "country": "UK",
+  "visits": 1122,
+  "color": chart.colors.next()
+}, {
+  "country": "France",
+  "visits": 1114,
+  "color": chart.colors.next()
+}, {
+  "country": "India",
+  "visits": 984,
+  "color": chart.colors.next()
+}, {
+  "country": "Spain",
+  "visits": 711,
+  "color": chart.colors.next()
+}, {
+  "country": "Netherlands",
+  "visits": 665,
+  "color": chart.colors.next()
+}, {
+  "country": "Russia",
+  "visits": 580,
+  "color": chart.colors.next()
+}, {
+  "country": "South Korea",
+  "visits": 443,
+  "color": chart.colors.next()
+}, {
+  "country": "Canada",
+  "visits": 441,
+  "color": chart.colors.next()
+}, {
+  "country": "Brazil",
+  "visits": 395,
+  "color": chart.colors.next()
+}, {
+  "country": "Italy",
+  "visits": 386,
+  "color": chart.colors.next()
+}, {
+  "country": "Australia",
+  "visits": 384,
+  "color": chart.colors.next()
+}, {
+  "country": "Taiwan",
+  "visits": 338,
+  "color": chart.colors.next()
+}, {
+  "country": "Poland",
+  "visits": 328,
+  "color": chart.colors.next()
+}];
+
+// Create axes
+var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "country";
+categoryAxis.renderer.labels.template.rotation = 270;
+categoryAxis.renderer.labels.template.hideOversized = false;
+categoryAxis.renderer.minGridDistance = 20;
+categoryAxis.renderer.labels.template.horizontalCenter = "right";
+categoryAxis.renderer.labels.template.verticalCenter = "middle";
+categoryAxis.tooltip.label.rotation = 270;
+categoryAxis.tooltip.label.horizontalCenter = "right";
+categoryAxis.tooltip.label.verticalCenter = "middle";
+
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+valueAxis.title.text = "Countries";
+valueAxis.title.fontWeight = "bold";
+
+// Create series
+var series = chart.series.push(new am4charts.ColumnSeries3D());
+series.dataFields.valueY = "visits";
+series.dataFields.categoryX = "country";
+series.name = "Visits";
+series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+series.columns.template.fillOpacity = .8;
+series.columns.template.propertyFields.fill = "color";
+
+var columnTemplate = series.columns.template;
+columnTemplate.strokeWidth = 2;
+columnTemplate.strokeOpacity = 1;
+columnTemplate.stroke = am4core.color("#FFFFFF");
+
+chart.cursor = new am4charts.XYCursor();
+chart.cursor.lineX.strokeOpacity = 0;
+chart.cursor.lineY.strokeOpacity = 0;
+
+// Enable export
+chart.exporting.menu = new am4core.ExportMenu();            }
+            catch( e ) {
+              console.log( e );
+            }
+          </SCRIPT>
+ </DIV></DIV>
+<DIV class="content-col">
+<UL class="demo-source-control trans-all" id="view-source">
+  <LI class="title">Open in:</LI>
+  <LI class="first"><A data-type="codepen"><I title="Open in CodePen" class="icon icon-codepen"></I></A></LI>
+  <LI class="link"><A data-type="jsfiddle"><I title="Open in jsFiddle" class="icon icon-jsfiddle"></I></A></LI>
+  <LI class="last"><A href="https://www.amcharts.com/demos/exporting-chart-to-image/#code"><I 
+  title="View Demo Source" class="icon icon-code2"></I></A></LI></UL>
+<H1>Exporting chart to image</H1>
+<H2>Built-in export</H2>
+<P>amCharts 4 has image and data exporting functionality built-in. Just enabled 
+export menu and you’re all set.</P>
+<P>You can export charts to most popular image and vector formats like PNG, 
+JPEG, or SVG, as well as PDF. Data can be exported as CSV, JSON, or XLSX.</P>
+<P><A class="button lite" href="https://www.amcharts.com/docs/v4/concepts/exporting/">More 
+about export</A></P><A name="code" class="shifted-anchor"></A>
+<H2>Demo source</H2>
+<DIV class="demo-code">
+<PRE class="code-HTML code-label-JavaScript" id="demo-code-javascript">          </PRE>
+<PRE class="code-TypeScript code-label-TypeScript" id="demo-code-typescript" style="display: none;">          </PRE></DIV>
+<SCRIPT>
+      var demoData = {
+    "title": "Exporting chart to image",
+    "description": "<h2>Built-in export<\/h2>\r\namCharts 4 has image and data exporting functionality built-in. Just enabled export menu and you're all set.\r\n\r\nYou can export charts to most popular image and vector formats like PNG, JPEG, or SVG, as well as PDF. Data can be exported as CSV, JSON, or XLSX.\r\n\r\n[amb href=\"https:\/\/www.amcharts.com\/docs\/v4\/concepts\/exporting\/\"]More about export[\/amb]",
+    "javascript": "\/\/ Themes begin\r\n\/\/ Using default theme\r\nam4core.useTheme(am4themes_animated);\r\n\/\/ Themes end\r\n\r\n\/\/ Create chart instance\r\nvar chart = am4core.create(\"chartdiv\", am4charts.XYChart3D);\r\n\r\n\/\/ Add data\r\nchart.data = [{\r\n  \"country\": \"USA\",\r\n  \"visits\": 4025,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"China\",\r\n  \"visits\": 1882,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Japan\",\r\n  \"visits\": 1809,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Germany\",\r\n  \"visits\": 1322,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"UK\",\r\n  \"visits\": 1122,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"France\",\r\n  \"visits\": 1114,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"India\",\r\n  \"visits\": 984,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Spain\",\r\n  \"visits\": 711,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Netherlands\",\r\n  \"visits\": 665,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Russia\",\r\n  \"visits\": 580,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"South Korea\",\r\n  \"visits\": 443,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Canada\",\r\n  \"visits\": 441,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Brazil\",\r\n  \"visits\": 395,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Italy\",\r\n  \"visits\": 386,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Australia\",\r\n  \"visits\": 384,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Taiwan\",\r\n  \"visits\": 338,\r\n  \"color\": chart.colors.next()\r\n}, {\r\n  \"country\": \"Poland\",\r\n  \"visits\": 328,\r\n  \"color\": chart.colors.next()\r\n}];\r\n\r\n\/\/ Create axes\r\nvar categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());\r\ncategoryAxis.dataFields.category = \"country\";\r\ncategoryAxis.renderer.labels.template.rotation = 270;\r\ncategoryAxis.renderer.labels.template.hideOversized = false;\r\ncategoryAxis.renderer.minGridDistance = 20;\r\ncategoryAxis.renderer.labels.template.horizontalCenter = \"right\";\r\ncategoryAxis.renderer.labels.template.verticalCenter = \"middle\";\r\ncategoryAxis.tooltip.label.rotation = 270;\r\ncategoryAxis.tooltip.label.horizontalCenter = \"right\";\r\ncategoryAxis.tooltip.label.verticalCenter = \"middle\";\r\n\r\nvar valueAxis = chart.yAxes.push(new am4charts.ValueAxis());\r\nvalueAxis.title.text = \"Countries\";\r\nvalueAxis.title.fontWeight = \"bold\";\r\n\r\n\/\/ Create series\r\nvar series = chart.series.push(new am4charts.ColumnSeries3D());\r\nseries.dataFields.valueY = \"visits\";\r\nseries.dataFields.categoryX = \"country\";\r\nseries.name = \"Visits\";\r\nseries.tooltipText = \"{categoryX}: [bold]{valueY}[\/]\";\r\nseries.columns.template.fillOpacity = .8;\r\nseries.columns.template.propertyFields.fill = \"color\";\r\n\r\nvar columnTemplate = series.columns.template;\r\ncolumnTemplate.strokeWidth = 2;\r\ncolumnTemplate.strokeOpacity = 1;\r\ncolumnTemplate.stroke = am4core.color(\"#FFFFFF\");\r\n\r\nchart.cursor = new am4charts.XYCursor();\r\nchart.cursor.lineX.strokeOpacity = 0;\r\nchart.cursor.lineY.strokeOpacity = 0;\r\n\r\n\/\/ Enable export\r\nchart.exporting.menu = new am4core.ExportMenu();",
+    "json": "\/\/ Themes begin\r\n\/\/ Using default theme\r\nam4core.useTheme(am4themes_animated);\r\n\/\/ Themes end\r\n\r\n",
+    "html": "<div id=\"chartdiv\"><\/div>",
+    "css": "#chartdiv {\r\n  width: 100%;\r\n  height: 500px;\r\n}\r\n",
+    "controls": "",
+    "resources": [
+        "https:\/\/www.amcharts.com\/lib\/4\/core.js",
+        "https:\/\/www.amcharts.com\/lib\/4\/charts.js"
+    ]
+}      </SCRIPT>
+ </DIV></main></DIV></DIV><FOOTER class="site-footer" role="banner">
+<DIV class="content-col">
+<DIV class="row">
+<DIV class="col-md-4 col-sm-12">
+<DIV><A id="logo2" href="https://www.amcharts.com/" 
+rel="home">amCharts</A></DIV></DIV>
+<DIV class="col-md-2 col-sm-4 col-xs-12">
+<DIV role="navigation">
+<H4>More info</H4>
+<DIV class="menu-info-container">
+<UL class="menu" id="menu-info">
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6844" 
+  id="menu-item-6844"><A 
+  href="https://www.amcharts.com/accessibility/">Accessibility Features</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-81" 
+  id="menu-item-81"><A href="https://www.amcharts.com/about/">About 
+  amCharts</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9430" 
+  id="menu-item-9430"><A href="https://www.amcharts.com/about/press-kit/">Press 
+  Kit</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-7079" 
+  id="menu-item-7079"><A href="https://www.amcharts.com/blog/">amCharts 
+  Blog</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13326" 
+  id="menu-item-13326"><A href="https://www.amcharts.com/support/support-info/get-support/">Getting 
+  support</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10485" 
+  id="menu-item-10485"><A href="https://www.amcharts.com/docs/v4/">The 
+  Docs</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8770" 
+  id="menu-item-8770"><A href="https://www.amcharts.com/docs/v4/changelog/">The 
+  Docs: Changelog</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14827" 
+  id="menu-item-14827"><A href="https://us1.list-manage.com/subscribe?u=0a74d1bfdc666e9fa96b39e15&amp;id=c06757a41b">Subscribe 
+  to amNews</A></LI></UL></DIV></DIV></DIV>
+<DIV class="col-md-2 col-sm-4 col-xs-12">
+<DIV role="navigation">
+<H4>Products</H4>
+<DIV class="menu-products-container">
+<UL class="menu" id="menu-products">
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12188" 
+  id="menu-item-12188"><A 
+  href="https://www.amcharts.com/javascript-charts/">amCharts 4: Charts</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14767" 
+  id="menu-item-14767"><A 
+  href="https://www.amcharts.com/javascript-maps/">amCharts 4: Maps</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14766" 
+  id="menu-item-14766"><A 
+  href="https://www.amcharts.com/timeline-chart/">amCharts 4: TimeLine</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8769" 
+  id="menu-item-8769"><A href="https://wordpress.org/plugins/amcharts-charts-and-maps/">WordPress 
+  Plugin <I class="icon icon-outside"></I></A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12187" 
+  id="menu-item-12187"><A href="https://www.amcharts.com/v3/">Legacy 
+  products</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12189" 
+  id="menu-item-12189"><A href="https://www.amcharts.com/versions/">Version 
+  information</A></LI></UL></DIV></DIV></DIV>
+<DIV class="col-md-2 col-sm-4 col-xs-12">
+<DIV role="navigation">
+<H4>Tools &amp; Resources</H4>
+<DIV class="menu-tools-resources-container">
+<UL class="menu" id="menu-tools-resources">
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8768" 
+  id="menu-item-8768"><A href="https://www.amcharts.com/svg-maps/">Free SVG 
+  Maps</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-83" 
+  id="menu-item-83"><A href="https://live.amcharts.com/">Online Chart 
+  Editor</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84" 
+  id="menu-item-84"><A href="https://pixelmap.amcharts.com/">Pixel Map 
+  Generator</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6845" 
+  id="menu-item-6845"><A 
+  href="https://www.amcharts.com/visited_countries/">Visited Countries 
+  Map</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6846" 
+  id="menu-item-6846"><A href="https://www.amcharts.com/visited_states/">Visited 
+  States Map</A></LI></UL></DIV></DIV></DIV>
+<DIV class="col-md-2 col-sm-4 col-xs-12">
+<DIV role="navigation">
+<H4>Contact Us</H4>
+<DIV class="menu-contact-container">
+<UL class="menu" id="menu-contact">
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-85" 
+  id="menu-item-85"><A 
+  href="mailto:contact@amcharts.com">contact@amcharts.com</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-86" 
+  id="menu-item-86"><A href="https://www.amcharts.com/support/">Support 
+  Center</A></LI></UL></DIV></DIV>
+<DIV role="navigation">
+<H4>Legal Stuff</H4>
+<DIV class="menu-legal-stuff-container">
+<UL class="menu" id="menu-legal-stuff">
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9940" 
+  id="menu-item-9940"><A href="https://www.amcharts.com/privacy-policy/">Privacy 
+  Policy</A></LI>
+  <LI class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9939" 
+  id="menu-item-9939"><A href="https://www.amcharts.com/terms-conditions/">Terms 
+  &amp; Conditions</A></LI></UL></DIV></DIV></DIV></DIV>
+<DIV class="row">
+<DIV class="col-md-8 col-md-push-4 col-sm-12 subfooter">
+<DIV class="row">
+<DIV class="col-md-6 col-sm-12 col-xs-12" role="nav">
+<DIV class="menu-social-container">
+<UL class="menu" id="social-menu">
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-132" 
+  id="menu-item-132"><A href="https://www.facebook.com/amcharts"><I class="icon icon-facebook"></I>Facebook</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-133" 
+  id="menu-item-133"><A href="https://www.twitter.com/amcharts"><I class="icon icon-twitter"></I>Twitter</A></LI>
+  <LI class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135" 
+  id="menu-item-135"><A href="https://www.linkedin.com/company/amcharts"><I 
+  class="icon icon-linkedin"></I>LinkedIn</A></LI></UL></DIV></DIV>
+<DIV class="col-md-6 col-sm-12 col-xs-12 pull-right" id="copyright" role="contentinfo">
+Copyright © 2006-2020, amCharts. All rights reserved. 
+</DIV></DIV></DIV></DIV></DIV></FOOTER>
+<DIV class="trans-all" id="notices">
+<DIV class="sticky-notice content-col row trans-all" id="notice_policy">
+<DIV class="col-md-9">We use cookies on our website to support technical 
+features that enhance your user experience. We also collect anonymous analytical 
+data, as described in our <A 
+href="https://www.amcharts.com/privacy-policy/">Privacy policy</A>. </DIV>
+<DIV class="col-md-3"><INPUT class="button" type="button" value="I agree"> 
+</DIV></DIV></DIV>
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/jquery.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/main.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/demo.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/highlight.pack.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/core.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/widget.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/mouse.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/slider.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/jquery.ui.touch-punch.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/jquery.kinetic.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="Exporting%20chart%20to%20image%20-%20amCharts_files/wp-embed.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-22221037-1', 'auto', {'allowLinker': true});
+  ga('send', 'pageview');
+  ga('require', 'linker');
+  ga('linker:autoLink', ['amcharts.cleverbridge.com']);
+</SCRIPT>
+ </DIV></BODY></HTML>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<title>elFinder 2.1.x source version with PHP connector</title>
+
+	<!-- Require JS (REQUIRED) -->
+	<!-- Rename "main.default.js" to "main.js" and edit it if you need configure elFInder options or any things -->
+	<script data-main="./main.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+	<script>
+
+		define('elFinderConfig', {
+
+
+
+
+			// elFinder options (REQUIRED)
+			// Documentation for client options:
+			// https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
+			defaultOpts : {
+				url : 'php/connector.maximal.php', // or connector.maximal.php : connector URL (REQUIRED)
+				commandsOptions : {
+					edit : {
+						extraOptions : {
+							// set API key to enable Creative Cloud image editor
+							// see https://console.adobe.io/
+							creativeCloudApiKey : '',
+							// browsing manager URL for CKEditor, TinyMCE
+							// uses self location with the empty value
+							managerUrl : ''
+						}
+					},
+					quicklook : {
+						// to enable CAD-Files and 3D-Models preview with sharecad.org
+						sharecadMimes : ['image/vnd.dwg', 'image/vnd.dxf', 'model/vnd.dwf', 'application/vnd.hp-hpgl', 'application/plt', 'application/step', 'model/iges', 'application/vnd.ms-pki.stl', 'application/sat', 'image/cgm', 'application/x-msmetafile'],
+						// to enable preview with Google Docs Viewer
+						googleDocsMimes : ['application/pdf', 'image/tiff', 'application/vnd.ms-office', 'application/msword', 'application/vnd.ms-word', 'application/vnd.ms-excel', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/postscript', 'application/rtf'],
+						// to enable preview with Microsoft Office Online Viewer
+						// these MIME types override "googleDocsMimes"
+						officeOnlineMimes : ['application/vnd.ms-office', 'application/msword', 'application/vnd.ms-word', 'application/vnd.ms-excel', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.oasis.opendocument.text', 'application/vnd.oasis.opendocument.spreadsheet', 'application/vnd.oasis.opendocument.presentation']
+					}
+				},
+				// bootCalback calls at before elFinder boot up
+				bootCallback : function(fm, extraObj) {
+					/* any bind functions etc. */
+
+
+
+					fm.bind('init', function() {
+
+
+					});
+					fm.bind('select', function(event) { // called on file(s) select/unselect
+
+						var files= fm.selected();
+						var hash =files[0];
+						var encPath = hash.substr(hash.indexOf('_')+1);
+						// full path of selected file
+						// encFilePath
+						var path ='render'+'/'+atob(encPath.replace(/\-/g, '+').replace(/_/g, '/').replace(/\./g, '=')) ;
+						 // search
+
+
+						var selectedFilesOf = fm.selectedFiles();
+						var	some = selectedFilesOf[0].hash;
+
+						$("#"+ some).dblclick(function (event) {
+						if (!$("#"+ some).hasClass('directory')){
+							event.stopPropagation();
+							window.open('http://eyuf.zettest.uz/tester/asror/main.aspx?path='+path, '_blank');
+
+						}
+						else {
+						}
+							/*event.stopPropagation();
+							window.open('http://eyuf.zettest.uz/tester/asror/main.aspx?path='+path, '_blank');*/
+
+						});
+
+
+					});
+					fm.bind('click', function (event) {
+
+					});
+
+					// for example set document.title dynamically.
+					var title = document.title;
+					fm.bind('open', function() {
+						var path = '',
+								cwd  = fm.cwd();
+						if (cwd) {
+							path = fm.path(cwd.hash) || null;
+						}
+						document.title = path? path + ':' + title : title;
+					}).bind('destroy', function() {
+						document.title = title;
+					});
+				}
+			},
+			managers : {
+				// 'DOM Element ID': { /* elFinder options of this DOM Element */ }
+				'elfinder': {}
+			},
+
+			commands : [
+				'custom','open', 'reload', 'home', 'up', 'back', 'forward', 'getfile', 'quicklook',
+				'download', 'rm', 'duplicate', 'rename', 'mkdir', 'mkfile', 'upload', 'copy',
+				'cut', 'paste', 'edit', 'extract', 'archive', 'search', 'info', 'view', 'help', 'resize', 'sort', 'netmount'
+			],
+
+			contextmenu : {
+				// navbarfolder menu
+				navbar : ['custom', 'open', '|', 'copy', 'cut', 'paste', 'duplicate', '|', 'rm', '|', 'info'],
+
+				// current directory menu
+				cwd    : ['custom','reload', 'back', '|', 'upload', 'mkdir', 'mkfile', 'paste', '|', 'info'],
+
+				// current directory file menu
+				files  : ['custom',
+					'getfile', '|', 'custom', 'open', 'quicklook', '|', 'download', '|', 'copy', 'cut', 'paste', 'duplicate', '|',
+					'rm', '|', 'edit', 'rename', 'resize', '|', 'archive', 'extract', '|', 'info'
+				]
+			},
+
+		});
+		var options = {
+			url: 'php/connector.php',
+			lang: 'en',
+			customData: {},
+			cssClass: '',
+			cssAutoLoad: true,
+			rememberLastDir: true,
+			reloadClearHistory: true,
+			useBrowserHistory: true,
+			onlyMimes: [],
+			validName: '',
+			startPathHash: '',
+			defaultView: 'icon', // icons and list
+			sortType: 'nameDirsFirst', //'name','kind','size','date'
+			sortOrder: 'asc',//'asc', 'desc'
+			sortStickFolders: true,
+			width: 'auto',
+			height: 'auto',
+			clientFormatDate: false,
+			UTCDate: false,
+			dateFormat: 'M d, Y h:i A',
+			fancyDateFormat: '$1 H:m:i',
+			fileModeStyle: 'both',
+			commands: ['*'],
+			getFileCallbback : function(file, fm) {
+				var url = fm.convAbsUrl(fm.url(file.hash));
+				window.open('http://eyuf.zettest.uz/tester/asror/main.aspx?path='+encodeURIComponent(url)+'&embedded=true', '_blank');
+			},
+			commandsOptions: {
+				// configure value for "getFileCallback" used for editor integration
+				getfile: {
+					// send only URL or URL+path if false
+					onlyURL: false,
+
+					// allow to return multiple files info
+					multiple: false,
+
+					// allow to return folders info
+					folders: true,
+
+					// action after callback (close/destroy)
+					oncomplete: ''
+				},
+
+				// "upload" command options.
+				upload: {
+					ui: 'uploadbutton'
+				},
+
+				// "quicklook" command options. For additional extensions
+				quicklook: {
+					autoplay: true,
+					jplayer: 'extensions/jplayer'
+				},
+
+				// configure custom editor for file editing command
+				edit: {
+					// list of allowed mimetypes to edit
+					// if empty - any text files can be edited
+					mimes: [],
+
+					// edit files in wysisyg's
+					editors: [
+						// {
+						// 	/**
+						// 	 * files mimetypes allowed to edit in current wysisyg
+						// 	 * @type  Array
+						// 	 */
+						// 	mimes : ['text/html'],
+						// 	/**
+						// 	 * Called when "edit" dialog loaded.
+						// 	 * Place to init wysisyg.
+						// 	 * Can return wysisyg instance
+						// 	 *
+						// 	 * @param  DOMElement  textarea node
+						// 	 * @return Object
+						// 	 */
+						// 	load : function(textarea) { },
+						// 	/**
+						// 	 * Called before "edit" dialog closed.
+						// 	 * Place to destroy wysisyg instance.
+						// 	 *
+						// 	 * @param  DOMElement  textarea node
+						// 	 * @param  Object      wysisyg instance (if was returned by "load" callback)
+						// 	 * @return void
+						// 	 */
+						// 	close : function(textarea, instance) { },
+						// 	/**
+						// 	 * Called before file content send to backend.
+						// 	 * Place to update textarea content if needed.
+						// 	 *
+						// 	 * @param  DOMElement  textarea node
+						// 	 * @param  Object      wysisyg instance (if was returned by "load" callback)
+						// 	 * @return void
+						// 	 */
+						// 	save : function(textarea, editor) {}
+						//
+						// }
+					]
+				},
+
+				// help dialog tabs
+				help: {view: ['about', 'shortcuts', 'help']}
+			},
+			handlers: {
+				// extract archive files on upload
+				upload: function (event, instance) {
+					var uploadedFiles = event.data.added;
+					var archives = ['application/zip', 'application/x-gzip', 'application/x-tar', 'application/x-bzip2'];
+					for (i in uploadedFiles) {
+						var file = uploadedFiles[i];
+						if (jQuery.inArray(file.mime, archives) >= 0) {
+							instance.exec('extract', file.hash);
+						}
+					}
+				},
+
+				open: function (event) {
+					console.log(event.data);
+				}
+			},
+			ui: ['toolbar', 'places', 'tree', 'path', 'stat'],
+			uiOptions: {
+				// toolbar configuration
+				toolbar: [
+					['back', 'forward'],
+					['reload'],
+					['home', 'up'],
+					['mkdir', 'mkfile', 'upload'],
+					['open', 'download', 'getfile'],
+					['info'],
+					['quicklook'],
+					['copy', 'cut', 'paste'],
+					['rm'],
+					['duplicate', 'rename', 'edit', 'resize'],
+					['extract', 'archive'],
+					['search'],
+					['view'],
+					['help']
+				],
+
+				// directories tree options
+				tree: {
+					// expand current root on init
+					openRootOnLoad: true,
+					// auto load current dir parents
+					syncTree: true
+				},
+
+				// navbar options
+				navbar: {
+					minWidth: 150,
+					maxWidth: 500
+				},
+
+				// current working directory options
+				cwd: {
+					// display parent directory in listing as ".."
+					oldSchool: false
+				}
+			},
+			contextmenu: {
+				// navbarfolder menu
+				navbar: ['open', '|', 'copy', 'cut', 'paste', 'duplicate', '|', 'rm', '|', 'info'],
+
+				// current directory menu
+				cwd: ['reload', 'back', '|', 'upload', 'mkdir', 'mkfile', 'paste', '|', 'info'],
+
+				// current directory file menu
+				files: [
+					'getfile', '|', 'open', 'quicklook', '|', 'download', '|', 'copy', 'cut', 'paste', 'duplicate', '|',
+					'rm', '|', 'edit', 'rename', 'resize', '|', 'archive', 'extract', '|', 'info'
+				]
+			},
+			resizable: true,
+			notifyDelay: 500,
+			notifyDialog: {position: {top : '12px', right : '12px'}, width : 280},
+			dragUploadAllow: 'auto' ,
+			allowShortcuts: true,
+			loadTmbs: 5,
+			showFiles: 30,
+			showThreshold: 50,
+			requestType: "get",
+			urlUpload: "",
+			iframeTimeout: 0,
+			sync: 0,
+			cookie : {
+				expires : 30,
+				domain  : '',
+				path    : '/',
+				secure  : false
+			},
+			customHeaders : {
+				'X-Requested-With' : 'XMLHttpRequest',
+				'post_id'          : 42
+			},
+			xhrFields: {
+				'withCredentials' : true
+			},
+			debug : ['error', 'warning', 'event-destroy'],
+			uploadMaxChunkSize: 10485760,
+			soundPath: '/elfinder/sounds/',
+
+
+
+		};
+		$('#elfinder').elfinder(options);
+
+
+
+
+
+
+
+	</script>
+
+</head>
+<body>
+
+<!-- Element where elFinder will be created (REQUIRED) -->
+<div id="elfinder"></div>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://jqueryui.com/droppable/#photo-manager -->
+<html class="js multiplebgs boxshadow cssgradients wf-klavikaweb-n7-active wf-klavikaweb-i7-active wf-sourcecodepro-n7-active wf-sourcecodepro-n4-active wf-active" lang="en-US"><!--<![endif]--><head data-live-domain="jqueryui.com"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Droppable | jQuery UI</title>
+
+	<meta name="author" content="JS Foundation - js.foundation">
+	<meta name="description" content="jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you&#39;re building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="shortcut icon" href="https://jqueryui.com/jquery-wp-content/themes/jqueryui.com/i/favicon.ico">
+
+	<link rel="stylesheet" href="./demo_files/base.css">
+	<link rel="stylesheet" href="./demo_files/style.css">
+
+	<script type="text/javascript" async="" src="./demo_files/ga.js.download"></script><script src="./demo_files/modernizr.custom.2.8.3.min.js.download"></script>
+
+	<script src="./demo_files/jquery-1.11.3.js.download"></script>
+
+	<script src="./demo_files/plugins.js.download"></script>
+	<script src="./demo_files/main.js.download"></script>
+
+	<script src="./demo_files/wde1aof.js.download"></script>
+	<style type="text/css">.tk-klavika-web{font-family:"klavika-web",sans-serif;}.tk-source-code-pro{font-family:"source-code-pro",sans-serif;}</style><style type="text/css">@font-face{font-family:klavika-web;src:url(https://use.typekit.net/af/f3ac97/00000000000000003b9acdf9/27/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/f3ac97/00000000000000003b9acdf9/27/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/f3ac97/00000000000000003b9acdf9/27/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:klavika-web;src:url(https://use.typekit.net/af/af9173/00000000000000003b9acdfa/27/l?subset_id=2&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/af9173/00000000000000003b9acdfa/27/d?subset_id=2&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/af9173/00000000000000003b9acdfa/27/a?subset_id=2&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;}@font-face{font-family:source-code-pro;src:url(https://use.typekit.net/af/756772/0000000000000000000179d5/27/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/756772/0000000000000000000179d5/27/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/756772/0000000000000000000179d5/27/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:source-code-pro;src:url(https://use.typekit.net/af/3c21b3/0000000000000000000179cf/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/3c21b3/0000000000000000000179cf/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/3c21b3/0000000000000000000179cf/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}</style><script>try{Typekit.load();}catch(e){}</script>
+	<!-- at the end of the HEAD -->
+	<link rel="stylesheet" href="./demo_files/docsearch.min.css">
+	<link rel="stylesheet" href="./demo_files/docsearch.css">
+
+<link rel="https://api.w.org/" href="https://jqueryui.com/wp-json/">
+<meta name="generator" content="WordPress 4.5.2">
+<link rel="alternate" type="application/json+oembed" href="https://jqueryui.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjqueryui.com%2Fdroppable%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://jqueryui.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjqueryui.com%2Fdroppable%2F&amp;format=xml">
+
+</head>
+<body class="jquery-ui page page-id-27 page-template-default page-slug-droppable single-author singular">
+
+<header>
+	<section id="global-nav">
+		<nav>
+			<div class="constrain">
+				<ul class="projects">
+					<li class="project jquery"><a href="https://jquery.com/" title="jQuery">jQuery</a></li>
+					<li class="project jquery-ui"><a href="https://jqueryui.com/" title="jQuery UI">jQuery UI</a></li>
+					<li class="project jquery-mobile"><a href="https://jquerymobile.com/" title="jQuery Mobile">jQuery Mobile</a></li>
+					<li class="project sizzlejs"><a href="https://sizzlejs.com/" title="Sizzle">Sizzle</a></li>
+					<li class="project qunitjs"><a href="https://qunitjs.com/" title="QUnit">QUnit</a></li>
+				</ul>
+				<ul class="links l_tinynav1">
+					<li><a href="https://plugins.jquery.com/">Plugins</a></li>
+					<li class="dropdown"><a href="https://contribute.jquery.org/">Contribute</a>
+						<ul>
+							<li><a href="https://js.foundation/CLA">CLA</a></li>
+							<li><a href="https://contribute.jquery.org/style-guide/">Style Guides</a></li>
+							<li><a href="https://contribute.jquery.org/triage/">Bug Triage</a></li>
+							<li><a href="https://contribute.jquery.org/code/">Code</a></li>
+							<li><a href="https://contribute.jquery.org/documentation/">Documentation</a></li>
+							<li><a href="https://contribute.jquery.org/web-sites/">Web Sites</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"><a href="https://js.foundation/events">Events</a>
+						<ul class="wide">
+																		</ul>
+					</li>
+					<li class="dropdown"><a href="https://jquery.org/support/">Support</a>
+						<ul>
+							<li><a href="https://learn.jquery.com/">Learning Center</a></li>
+							<li><a href="https://irc.jquery.org/">IRC/Chat</a></li>
+							<li><a href="https://forum.jquery.com/">Forums</a></li>
+							<li><a href="https://stackoverflow.com/tags/jquery/info">Stack Overflow</a></li>
+							<li><a href="https://jquery.org/support/">Commercial Support</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"><a href="https://js.foundation/">JS Foundation</a>
+						<ul>
+							<li><a href="https://js.foundation/about/join">Join</a></li>
+							<li><a href="https://js.foundation/about/members">Members</a></li>
+							<li><a href="https://js.foundation/about/leadership">Leadership</a></li>
+							<li><a href="https://js.foundation/community/code-of-conduct">Conduct</a></li>
+							<li><a href="https://js.foundation/about/donate">Donate</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</section>
+</header>
+
+<div id="container">
+	<div id="logo-events" class="constrain clearfix">
+		<h2 class="logo"><a href="https://jqueryui.com/" title="jQuery UI">jQuery UI</a></h2>
+
+		<aside>
+			<div id="broadcast">
+				<a href="https://js.foundation/about/donate" title="Support the JS Foundation"><img src="./demo_files/donate.png" title="Support the JS Foundation" alt="Support the JS Foundation" border="0" width="400" height="100"></a>
+			</div>
+		</aside>
+	</div>
+
+	<nav id="main" class="constrain clearfix">
+		<div class="menu-top-container">
+	<ul id="menu-top" class="menu l_tinynav2">
+<li class="menu-item"><a href="https://jqueryui.com/demos/">Demos</a></li>
+<li class="menu-item"><a href="https://jqueryui.com/download/">Download</a></li>
+<li class="menu-item"><a href="https://api.jqueryui.com/">API Documentation</a></li>
+<li class="menu-item"><a href="https://jqueryui.com/themeroller/">theme</a></li>
+<li class="menu-item"><a href="https://jqueryui.com/development/">Development</a></li>
+<li class="menu-item"><a href="https://jqueryui.com/support/">Support</a></li>
+<li class="menu-item"><a href="https://blog.jqueryui.com/">Blog</a></li>
+<li class="menu-item"><a href="https://jqueryui.com/about/">About</a></li>
+	</ul><select id="tinynav2" class="tinynav tinynav2"><option>Navigate...</option><option value="https://jqueryui.com/demos/">Demos</option><option value="https://jqueryui.com/download/">Download</option><option value="https://api.jqueryui.com/">API Documentation</option><option value="https://jqueryui.com/themeroller/">theme</option><option value="https://jqueryui.com/development/">Development</option><option value="https://jqueryui.com/support/">Support</option><option value="https://blog.jqueryui.com/">Blog</option><option value="https://jqueryui.com/about/">About</option></select>
+</div>
+
+		<form method="get" class="searchform" action="https://jqueryui.com/">
+	<button type="submit" class="icon-search"><span class="visuallyhidden">search</span></button>
+	<label>
+		<span class="visuallyhidden">Search jQuery UI</span>
+		<input type="text" name="s" value="" placeholder="Search">
+	</label>
+</form>
+	</nav>
+
+	<div id="content-wrapper" class="clearfix row">
+
+
+<div class="content-right twelve columns">
+	<div id="content">
+				<h1 class="entry-title">Droppable</h1>
+		<hr>
+		
+		
+<p class="desc">Create targets for draggable elements.</p>
+
+<div class="demo-list"><h2>Examples</h2><ul><li class=""><a href="https://jqueryui.com/resources/demos/droppable/default.html">Default functionality</a></li><li><a href="https://jqueryui.com/resources/demos/droppable/accepted-elements.html">Accept</a></li><li><a href="https://jqueryui.com/resources/demos/droppable/propagation.html">Prevent propagation</a></li><li><a href="https://jqueryui.com/resources/demos/droppable/revert.html">Revert draggable position</a></li><li class="active"><a href="https://jqueryui.com/resources/demos/droppable/photo-manager.html">Simple photo manager</a></li><li><a href="https://jqueryui.com/resources/demos/droppable/visual-feedback.html">Visual feedback</a></li></ul></div><iframe src="./demo_files/photo-manager.html" class="demo-frame"></iframe><div class="demo-description">
+<p>You can delete an image either by dragging it to the Trash or by clicking the trash icon.</p>
+<p>You can "recycle" an image by dragging it back to the gallery or by clicking the recycle icon.</p>
+<p>You can view larger image by clicking the zoom icon. jQuery UI dialog widget is used for the modal window.</p>
+</div><div class="view-source"><a tabindex="0"><i class="icon-eye-open"></i> view source</a><div><div class="syntaxhighlighter xml">
+	<table>
+		<tbody>
+			<tr>
+				
+				<td class="gutter">
+					
+						<div class="line n1">1</div>
+					
+						<div class="line n2">2</div>
+					
+						<div class="line n3">3</div>
+					
+						<div class="line n4">4</div>
+					
+						<div class="line n5">5</div>
+					
+						<div class="line n6">6</div>
+					
+						<div class="line n7">7</div>
+					
+						<div class="line n8">8</div>
+					
+						<div class="line n9">9</div>
+					
+						<div class="line n10">10</div>
+					
+						<div class="line n11">11</div>
+					
+						<div class="line n12">12</div>
+					
+						<div class="line n13">13</div>
+					
+						<div class="line n14">14</div>
+					
+						<div class="line n15">15</div>
+					
+						<div class="line n16">16</div>
+					
+						<div class="line n17">17</div>
+					
+						<div class="line n18">18</div>
+					
+						<div class="line n19">19</div>
+					
+						<div class="line n20">20</div>
+					
+						<div class="line n21">21</div>
+					
+						<div class="line n22">22</div>
+					
+						<div class="line n23">23</div>
+					
+						<div class="line n24">24</div>
+					
+						<div class="line n25">25</div>
+					
+						<div class="line n26">26</div>
+					
+						<div class="line n27">27</div>
+					
+						<div class="line n28">28</div>
+					
+						<div class="line n29">29</div>
+					
+						<div class="line n30">30</div>
+					
+						<div class="line n31">31</div>
+					
+						<div class="line n32">32</div>
+					
+						<div class="line n33">33</div>
+					
+						<div class="line n34">34</div>
+					
+						<div class="line n35">35</div>
+					
+						<div class="line n36">36</div>
+					
+						<div class="line n37">37</div>
+					
+						<div class="line n38">38</div>
+					
+						<div class="line n39">39</div>
+					
+						<div class="line n40">40</div>
+					
+						<div class="line n41">41</div>
+					
+						<div class="line n42">42</div>
+					
+						<div class="line n43">43</div>
+					
+						<div class="line n44">44</div>
+					
+						<div class="line n45">45</div>
+					
+						<div class="line n46">46</div>
+					
+						<div class="line n47">47</div>
+					
+						<div class="line n48">48</div>
+					
+						<div class="line n49">49</div>
+					
+						<div class="line n50">50</div>
+					
+						<div class="line n51">51</div>
+					
+						<div class="line n52">52</div>
+					
+						<div class="line n53">53</div>
+					
+						<div class="line n54">54</div>
+					
+						<div class="line n55">55</div>
+					
+						<div class="line n56">56</div>
+					
+						<div class="line n57">57</div>
+					
+						<div class="line n58">58</div>
+					
+						<div class="line n59">59</div>
+					
+						<div class="line n60">60</div>
+					
+						<div class="line n61">61</div>
+					
+						<div class="line n62">62</div>
+					
+						<div class="line n63">63</div>
+					
+						<div class="line n64">64</div>
+					
+						<div class="line n65">65</div>
+					
+						<div class="line n66">66</div>
+					
+						<div class="line n67">67</div>
+					
+						<div class="line n68">68</div>
+					
+						<div class="line n69">69</div>
+					
+						<div class="line n70">70</div>
+					
+						<div class="line n71">71</div>
+					
+						<div class="line n72">72</div>
+					
+						<div class="line n73">73</div>
+					
+						<div class="line n74">74</div>
+					
+						<div class="line n75">75</div>
+					
+						<div class="line n76">76</div>
+					
+						<div class="line n77">77</div>
+					
+						<div class="line n78">78</div>
+					
+						<div class="line n79">79</div>
+					
+						<div class="line n80">80</div>
+					
+						<div class="line n81">81</div>
+					
+						<div class="line n82">82</div>
+					
+						<div class="line n83">83</div>
+					
+						<div class="line n84">84</div>
+					
+						<div class="line n85">85</div>
+					
+						<div class="line n86">86</div>
+					
+						<div class="line n87">87</div>
+					
+						<div class="line n88">88</div>
+					
+						<div class="line n89">89</div>
+					
+						<div class="line n90">90</div>
+					
+						<div class="line n91">91</div>
+					
+						<div class="line n92">92</div>
+					
+						<div class="line n93">93</div>
+					
+						<div class="line n94">94</div>
+					
+						<div class="line n95">95</div>
+					
+						<div class="line n96">96</div>
+					
+						<div class="line n97">97</div>
+					
+						<div class="line n98">98</div>
+					
+						<div class="line n99">99</div>
+					
+						<div class="line n100">100</div>
+					
+						<div class="line n101">101</div>
+					
+						<div class="line n102">102</div>
+					
+						<div class="line n103">103</div>
+					
+						<div class="line n104">104</div>
+					
+						<div class="line n105">105</div>
+					
+						<div class="line n106">106</div>
+					
+						<div class="line n107">107</div>
+					
+						<div class="line n108">108</div>
+					
+						<div class="line n109">109</div>
+					
+						<div class="line n110">110</div>
+					
+						<div class="line n111">111</div>
+					
+						<div class="line n112">112</div>
+					
+						<div class="line n113">113</div>
+					
+						<div class="line n114">114</div>
+					
+						<div class="line n115">115</div>
+					
+						<div class="line n116">116</div>
+					
+						<div class="line n117">117</div>
+					
+						<div class="line n118">118</div>
+					
+						<div class="line n119">119</div>
+					
+						<div class="line n120">120</div>
+					
+						<div class="line n121">121</div>
+					
+						<div class="line n122">122</div>
+					
+						<div class="line n123">123</div>
+					
+						<div class="line n124">124</div>
+					
+						<div class="line n125">125</div>
+					
+						<div class="line n126">126</div>
+					
+						<div class="line n127">127</div>
+					
+						<div class="line n128">128</div>
+					
+						<div class="line n129">129</div>
+					
+						<div class="line n130">130</div>
+					
+						<div class="line n131">131</div>
+					
+						<div class="line n132">132</div>
+					
+						<div class="line n133">133</div>
+					
+						<div class="line n134">134</div>
+					
+						<div class="line n135">135</div>
+					
+						<div class="line n136">136</div>
+					
+						<div class="line n137">137</div>
+					
+						<div class="line n138">138</div>
+					
+						<div class="line n139">139</div>
+					
+						<div class="line n140">140</div>
+					
+						<div class="line n141">141</div>
+					
+						<div class="line n142">142</div>
+					
+						<div class="line n143">143</div>
+					
+						<div class="line n144">144</div>
+					
+						<div class="line n145">145</div>
+					
+						<div class="line n146">146</div>
+					
+						<div class="line n147">147</div>
+					
+						<div class="line n148">148</div>
+					
+						<div class="line n149">149</div>
+					
+						<div class="line n150">150</div>
+					
+						<div class="line n151">151</div>
+					
+						<div class="line n152">152</div>
+					
+						<div class="line n153">153</div>
+					
+						<div class="line n154">154</div>
+					
+						<div class="line n155">155</div>
+					
+						<div class="line n156">156</div>
+					
+						<div class="line n157">157</div>
+					
+						<div class="line n158">158</div>
+					
+						<div class="line n159">159</div>
+					
+						<div class="line n160">160</div>
+					
+						<div class="line n161">161</div>
+					
+						<div class="line n162">162</div>
+					
+						<div class="line n163">163</div>
+					
+						<div class="line n164">164</div>
+					
+						<div class="line n165">165</div>
+					
+						<div class="line n166">166</div>
+					
+						<div class="line n167">167</div>
+					
+						<div class="line n168">168</div>
+					
+						<div class="line n169">169</div>
+					
+						<div class="line n170">170</div>
+					
+						<div class="line n171">171</div>
+					
+						<div class="line n172">172</div>
+					
+						<div class="line n173">173</div>
+					
+						<div class="line n174">174</div>
+					
+						<div class="line n175">175</div>
+					
+						<div class="line n176">176</div>
+					
+						<div class="line n177">177</div>
+					
+				</td>
+				
+				<td class="code">
+					<pre><div class="container"><div class="line"><code><span class="doctype">&lt;!doctype html&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">head</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">title</span>&gt;</span>jQuery UI Droppable - Simple photo manager<span class="tag">&lt;/<span class="title">title</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"/resources/demos/style.css"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span></code></div></div><div class="container"><div class="line"><code>  <span class="id">#gallery</span> <span class="rules">{ <span class="rule"><span class="attribute">float</span>:<span class="value"> left;</span></span> <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">65</span>%;</span></span> <span class="rule"><span class="attribute">min-height</span>:<span class="value"> <span class="number">12</span>em;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code>  <span class="class">.gallery</span><span class="class">.custom-state-active</span> <span class="rules">{ <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#eee</span>;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code>  <span class="class">.gallery</span> <span class="tag">li</span> <span class="rules">{ <span class="rule"><span class="attribute">float</span>:<span class="value"> left;</span></span> <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">96</span>px;</span></span> <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0.4</span>em;</span></span> <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> <span class="number">0.4</span>em <span class="number">0.4</span>em <span class="number">0</span>;</span></span> <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code>  <span class="class">.gallery</span> <span class="tag">li</span> <span class="tag">h5</span> <span class="rules">{ <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> <span class="number">0</span> <span class="number">0.4</span>em;</span></span> <span class="rule"><span class="attribute">cursor</span>:<span class="value"> move;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code>  <span class="class">.gallery</span> <span class="tag">li</span> <span class="tag">a</span> <span class="rules">{ <span class="rule"><span class="attribute">float</span>:<span class="value"> right;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code>  <span class="class">.gallery</span> <span class="tag">li</span> <span class="tag">a</span><span class="class">.ui-icon-zoomin</span> <span class="rules">{ <span class="rule"><span class="attribute">float</span>:<span class="value"> left;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code>  <span class="class">.gallery</span> <span class="tag">li</span> <span class="tag">img</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span> <span class="rule"><span class="attribute">cursor</span>:<span class="value"> move;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>  <span class="id">#trash</span> <span class="rules">{ <span class="rule"><span class="attribute">float</span>:<span class="value"> right;</span></span> <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">32</span>%;</span></span> <span class="rule"><span class="attribute">min-height</span>:<span class="value"> <span class="number">18</span>em;</span></span> <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">1</span>%;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code>  <span class="id">#trash</span> <span class="tag">h4</span> <span class="rules">{ <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">16</span>px;</span></span> <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> <span class="number">0</span> <span class="number">0.4</span>em;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code>  <span class="id">#trash</span> <span class="tag">h4</span> <span class="class">.ui-icon</span> <span class="rules">{ <span class="rule"><span class="attribute">float</span>:<span class="value"> left;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code>  <span class="id">#trash</span> <span class="class">.gallery</span> <span class="tag">h5</span> <span class="rules">{ <span class="rule"><span class="attribute">display</span>:<span class="value"> none;</span></span> <span class="rule">}</span></span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;/<span class="title">style</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://code.jquery.com/jquery-1.12.4.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://code.jquery.com/ui/1.12.1/jquery-ui.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></code></div></div><div class="container"><div class="line"><code>  $( <span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>    <span class="comment">// There's the gallery and the trash</span></code></div></div><div class="container"><div class="line"><code>    <span class="keyword">var</span> $gallery = $( <span class="string">"#gallery"</span> ),</code></div></div><div class="container"><div class="line"><code>      $trash = $( <span class="string">"#trash"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>    <span class="comment">// Let the gallery items be draggable</span></code></div></div><div class="container"><div class="line"><code>    $( <span class="string">"li"</span>, $gallery ).draggable({</code></div></div><div class="container"><div class="line"><code>      cancel: <span class="string">"a.ui-icon"</span>, <span class="comment">// clicking an icon won't initiate dragging</span></code></div></div><div class="container"><div class="line"><code>      revert: <span class="string">"invalid"</span>, <span class="comment">// when not dropped, the item will revert back to its initial position</span></code></div></div><div class="container"><div class="line"><code>      containment: <span class="string">"document"</span>,</code></div></div><div class="container"><div class="line"><code>      helper: <span class="string">"clone"</span>,</code></div></div><div class="container"><div class="line"><code>      cursor: <span class="string">"move"</span></code></div></div><div class="container"><div class="line"><code>    });</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>    <span class="comment">// Let the trash be droppable, accepting the gallery items</span></code></div></div><div class="container"><div class="line"><code>    $trash.droppable({</code></div></div><div class="container"><div class="line"><code>      accept: <span class="string">"#gallery &gt; li"</span>,</code></div></div><div class="container"><div class="line"><code>      classes: {</code></div></div><div class="container"><div class="line"><code>        <span class="string">"ui-droppable-active"</span>: <span class="string">"ui-state-highlight"</span></code></div></div><div class="container"><div class="line"><code>      },</code></div></div><div class="container"><div class="line"><code>      drop: <span class="keyword">function</span>( event, ui ) {</code></div></div><div class="container"><div class="line"><code>        deleteImage( ui.draggable );</code></div></div><div class="container"><div class="line"><code>      }</code></div></div><div class="container"><div class="line"><code>    });</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>    <span class="comment">// Let the gallery be droppable as well, accepting items from the trash</span></code></div></div><div class="container"><div class="line"><code>    $gallery.droppable({</code></div></div><div class="container"><div class="line"><code>      accept: <span class="string">"#trash li"</span>,</code></div></div><div class="container"><div class="line"><code>      classes: {</code></div></div><div class="container"><div class="line"><code>        <span class="string">"ui-droppable-active"</span>: <span class="string">"custom-state-active"</span></code></div></div><div class="container"><div class="line"><code>      },</code></div></div><div class="container"><div class="line"><code>      drop: <span class="keyword">function</span>( event, ui ) {</code></div></div><div class="container"><div class="line"><code>        recycleImage( ui.draggable );</code></div></div><div class="container"><div class="line"><code>      }</code></div></div><div class="container"><div class="line"><code>    });</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>    <span class="comment">// Image deletion function</span></code></div></div><div class="container"><div class="line"><code>    <span class="keyword">var</span> recycle_icon = <span class="string">"&lt;a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'&gt;Recycle image&lt;/a&gt;"</span>;</code></div></div><div class="container"><div class="line"><code>    <span class="function"><span class="keyword">function</span> <span class="title">deleteImage</span><span class="params">( $item )</span> {</span></code></div></div><div class="container"><div class="line"><code>      $item.fadeOut(<span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code>        <span class="keyword">var</span> $list = $( <span class="string">"ul"</span>, $trash ).length ?</code></div></div><div class="container"><div class="line"><code>          $( <span class="string">"ul"</span>, $trash ) :</code></div></div><div class="container"><div class="line"><code>          $( <span class="string">"&lt;ul class='gallery ui-helper-reset'/&gt;"</span> ).appendTo( $trash );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>        $item.find( <span class="string">"a.ui-icon-trash"</span> ).remove();</code></div></div><div class="container"><div class="line"><code>        $item.append( recycle_icon ).appendTo( $list ).fadeIn(<span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code>          $item</code></div></div><div class="container"><div class="line"><code>            .animate({ width: <span class="string">"48px"</span> })</code></div></div><div class="container"><div class="line"><code>            .find( <span class="string">"img"</span> )</code></div></div><div class="container"><div class="line"><code>              .animate({ height: <span class="string">"36px"</span> });</code></div></div><div class="container"><div class="line"><code>        });</code></div></div><div class="container"><div class="line"><code>      });</code></div></div><div class="container"><div class="line"><code>    }</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>    <span class="comment">// Image recycle function</span></code></div></div><div class="container"><div class="line"><code>    <span class="keyword">var</span> trash_icon = <span class="string">"&lt;a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-trash'&gt;Delete image&lt;/a&gt;"</span>;</code></div></div><div class="container"><div class="line"><code>    <span class="function"><span class="keyword">function</span> <span class="title">recycleImage</span><span class="params">( $item )</span> {</span></code></div></div><div class="container"><div class="line"><code>      $item.fadeOut(<span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code>        $item</code></div></div><div class="container"><div class="line"><code>          .find( <span class="string">"a.ui-icon-refresh"</span> )</code></div></div><div class="container"><div class="line"><code>            .remove()</code></div></div><div class="container"><div class="line"><code>          .end()</code></div></div><div class="container"><div class="line"><code>          .css( <span class="string">"width"</span>, <span class="string">"96px"</span>)</code></div></div><div class="container"><div class="line"><code>          .append( trash_icon )</code></div></div><div class="container"><div class="line"><code>          .find( <span class="string">"img"</span> )</code></div></div><div class="container"><div class="line"><code>            .css( <span class="string">"height"</span>, <span class="string">"72px"</span> )</code></div></div><div class="container"><div class="line"><code>          .end()</code></div></div><div class="container"><div class="line"><code>          .appendTo( $gallery )</code></div></div><div class="container"><div class="line"><code>          .fadeIn();</code></div></div><div class="container"><div class="line"><code>      });</code></div></div><div class="container"><div class="line"><code>    }</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>    <span class="comment">// Image preview function, demonstrating the ui.dialog used as a modal window</span></code></div></div><div class="container"><div class="line"><code>    <span class="function"><span class="keyword">function</span> <span class="title">viewLargerImage</span><span class="params">( $link )</span> {</span></code></div></div><div class="container"><div class="line"><code>      <span class="keyword">var</span> src = $link.attr( <span class="string">"href"</span> ),</code></div></div><div class="container"><div class="line"><code>        title = $link.siblings( <span class="string">"img"</span> ).attr( <span class="string">"alt"</span> ),</code></div></div><div class="container"><div class="line"><code>        $modal = $( <span class="string">"img[src$='"</span> + src + <span class="string">"']"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>      <span class="keyword">if</span> ( $modal.length ) {</code></div></div><div class="container"><div class="line"><code>        $modal.dialog( <span class="string">"open"</span> );</code></div></div><div class="container"><div class="line"><code>      } <span class="keyword">else</span> {</code></div></div><div class="container"><div class="line"><code>        <span class="keyword">var</span> img = $( <span class="string">"&lt;img alt='"</span> + title + <span class="string">"' width='384' height='288' style='display: none; padding: 8px;' /&gt;"</span> )</code></div></div><div class="container"><div class="line"><code>          .attr( <span class="string">"src"</span>, src ).appendTo( <span class="string">"body"</span> );</code></div></div><div class="container"><div class="line"><code>        setTimeout(<span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code>          img.dialog({</code></div></div><div class="container"><div class="line"><code>            title: title,</code></div></div><div class="container"><div class="line"><code>            width: <span class="number">400</span>,</code></div></div><div class="container"><div class="line"><code>            modal: <span class="literal">true</span></code></div></div><div class="container"><div class="line"><code>          });</code></div></div><div class="container"><div class="line"><code>        }, <span class="number">1</span> );</code></div></div><div class="container"><div class="line"><code>      }</code></div></div><div class="container"><div class="line"><code>    }</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>    <span class="comment">// Resolve the icons behavior with event delegation</span></code></div></div><div class="container"><div class="line"><code>    $( <span class="string">"ul.gallery &gt; li"</span> ).on( <span class="string">"click"</span>, <span class="keyword">function</span>( event ) {</code></div></div><div class="container"><div class="line"><code>      <span class="keyword">var</span> $item = $( <span class="keyword">this</span> ),</code></div></div><div class="container"><div class="line"><code>        $target = $( event.target );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>      <span class="keyword">if</span> ( $target.is( <span class="string">"a.ui-icon-trash"</span> ) ) {</code></div></div><div class="container"><div class="line"><code>        deleteImage( $item );</code></div></div><div class="container"><div class="line"><code>      } <span class="keyword">else</span> <span class="keyword">if</span> ( $target.is( <span class="string">"a.ui-icon-zoomin"</span> ) ) {</code></div></div><div class="container"><div class="line"><code>        viewLargerImage( $target );</code></div></div><div class="container"><div class="line"><code>      } <span class="keyword">else</span> <span class="keyword">if</span> ( $target.is( <span class="string">"a.ui-icon-refresh"</span> ) ) {</code></div></div><div class="container"><div class="line"><code>        recycleImage( $item );</code></div></div><div class="container"><div class="line"><code>      }</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code>      <span class="keyword">return</span> <span class="literal">false</span>;</code></div></div><div class="container"><div class="line"><code>    });</code></div></div><div class="container"><div class="line"><code>  } );</code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">head</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">body</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ui-widget ui-helper-clearfix"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"gallery"</span> <span class="attribute">class</span>=<span class="value">"gallery ui-helper-reset ui-helper-clearfix"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-widget-content ui-corner-tr"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">h5</span> <span class="attribute">class</span>=<span class="value">"ui-widget-header"</span>&gt;</span>High Tatras<span class="tag">&lt;/<span class="title">h5</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"images/high_tatras_min.jpg"</span> <span class="attribute">alt</span>=<span class="value">"The peaks of High Tatras"</span> <span class="attribute">width</span>=<span class="value">"96"</span> <span class="attribute">height</span>=<span class="value">"72"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"images/high_tatras.jpg"</span> <span class="attribute">title</span>=<span class="value">"View larger image"</span> <span class="attribute">class</span>=<span class="value">"ui-icon ui-icon-zoomin"</span>&gt;</span>View larger<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"link/to/trash/script/when/we/have/js/off"</span> <span class="attribute">title</span>=<span class="value">"Delete this image"</span> <span class="attribute">class</span>=<span class="value">"ui-icon ui-icon-trash"</span>&gt;</span>Delete image<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-widget-content ui-corner-tr"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">h5</span> <span class="attribute">class</span>=<span class="value">"ui-widget-header"</span>&gt;</span>High Tatras 2<span class="tag">&lt;/<span class="title">h5</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"images/high_tatras2_min.jpg"</span> <span class="attribute">alt</span>=<span class="value">"The chalet at the Green mountain lake"</span> <span class="attribute">width</span>=<span class="value">"96"</span> <span class="attribute">height</span>=<span class="value">"72"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"images/high_tatras2.jpg"</span> <span class="attribute">title</span>=<span class="value">"View larger image"</span> <span class="attribute">class</span>=<span class="value">"ui-icon ui-icon-zoomin"</span>&gt;</span>View larger<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"link/to/trash/script/when/we/have/js/off"</span> <span class="attribute">title</span>=<span class="value">"Delete this image"</span> <span class="attribute">class</span>=<span class="value">"ui-icon ui-icon-trash"</span>&gt;</span>Delete image<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-widget-content ui-corner-tr"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">h5</span> <span class="attribute">class</span>=<span class="value">"ui-widget-header"</span>&gt;</span>High Tatras 3<span class="tag">&lt;/<span class="title">h5</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"images/high_tatras3_min.jpg"</span> <span class="attribute">alt</span>=<span class="value">"Planning the ascent"</span> <span class="attribute">width</span>=<span class="value">"96"</span> <span class="attribute">height</span>=<span class="value">"72"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"images/high_tatras3.jpg"</span> <span class="attribute">title</span>=<span class="value">"View larger image"</span> <span class="attribute">class</span>=<span class="value">"ui-icon ui-icon-zoomin"</span>&gt;</span>View larger<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"link/to/trash/script/when/we/have/js/off"</span> <span class="attribute">title</span>=<span class="value">"Delete this image"</span> <span class="attribute">class</span>=<span class="value">"ui-icon ui-icon-trash"</span>&gt;</span>Delete image<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"ui-widget-content ui-corner-tr"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">h5</span> <span class="attribute">class</span>=<span class="value">"ui-widget-header"</span>&gt;</span>High Tatras 4<span class="tag">&lt;/<span class="title">h5</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"images/high_tatras4_min.jpg"</span> <span class="attribute">alt</span>=<span class="value">"On top of Kozi kopka"</span> <span class="attribute">width</span>=<span class="value">"96"</span> <span class="attribute">height</span>=<span class="value">"72"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"images/high_tatras4.jpg"</span> <span class="attribute">title</span>=<span class="value">"View larger image"</span> <span class="attribute">class</span>=<span class="value">"ui-icon ui-icon-zoomin"</span>&gt;</span>View larger<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"link/to/trash/script/when/we/have/js/off"</span> <span class="attribute">title</span>=<span class="value">"Delete this image"</span> <span class="attribute">class</span>=<span class="value">"ui-icon ui-icon-trash"</span>&gt;</span>Delete image<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"trash"</span> <span class="attribute">class</span>=<span class="value">"ui-widget-content ui-state-default"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">h4</span> <span class="attribute">class</span>=<span class="value">"ui-widget-header"</span>&gt;</span><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"ui-icon ui-icon-trash"</span>&gt;</span>Trash<span class="tag">&lt;/<span class="title">span</span>&gt;</span> Trash<span class="tag">&lt;/<span class="title">h4</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">body</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></div></div></pre>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div></div>
+
+<p>Want to learn more about the droppable interaction? Check out the
+<a href="http://api.jqueryui.com/droppable/">API documentation</a>.</p>	</div>
+	<div id="sidebar" class="widget-area" role="complementary">
+	<aside class="widget">
+		<h3 class="widget-title">Interactions</h3>
+		<ul>
+			<li><a href="https://jqueryui.com/draggable/">Draggable</a></li><li><a href="https://jqueryui.com/droppable/">Droppable</a></li><li><a href="https://jqueryui.com/resizable/">Resizable</a></li><li><a href="https://jqueryui.com/selectable/">Selectable</a></li><li><a href="https://jqueryui.com/sortable/">Sortable</a></li>		</ul>
+	</aside>
+	<aside class="widget">
+		<h3 class="widget-title">Widgets</h3>
+		<ul>
+			<li><a href="https://jqueryui.com/accordion/">Accordion</a></li><li><a href="https://jqueryui.com/autocomplete/">Autocomplete</a></li><li><a href="https://jqueryui.com/button/">Button</a></li><li><a href="https://jqueryui.com/checkboxradio/">Checkboxradio</a></li><li><a href="https://jqueryui.com/controlgroup/">Controlgroup</a></li><li><a href="https://jqueryui.com/datepicker/">Datepicker</a></li><li><a href="https://jqueryui.com/dialog/">Dialog</a></li><li><a href="https://jqueryui.com/menu/">Menu</a></li><li><a href="https://jqueryui.com/progressbar/">Progressbar</a></li><li><a href="https://jqueryui.com/selectmenu/">Selectmenu</a></li><li><a href="https://jqueryui.com/slider/">Slider</a></li><li><a href="https://jqueryui.com/spinner/">Spinner</a></li><li><a href="https://jqueryui.com/tabs/">Tabs</a></li><li><a href="https://jqueryui.com/tooltip/">Tooltip</a></li>		</ul>
+	</aside>
+	<aside class="widget">
+		<h3 class="widget-title">Effects</h3>
+		<ul>
+			<li><a href="https://jqueryui.com/addClass/">Add Class</a></li><li><a href="https://jqueryui.com/animate/">Color Animation</a></li><li><a href="https://jqueryui.com/easing/">Easing</a></li><li><a href="https://jqueryui.com/effect/">Effect</a></li><li><a href="https://jqueryui.com/hide/">Hide</a></li><li><a href="https://jqueryui.com/removeClass/">Remove Class</a></li><li><a href="https://jqueryui.com/show/">Show</a></li><li><a href="https://jqueryui.com/switchClass/">Switch Class</a></li><li><a href="https://jqueryui.com/toggle/">Toggle</a></li><li><a href="https://jqueryui.com/toggleClass/">Toggle Class</a></li>		</ul>
+	</aside>
+	<aside class="widget">
+		<h3 class="widget-title">Utilities</h3>
+		<ul>
+			<li><a href="https://jqueryui.com/position/">position</a></li><li><a href="https://jqueryui.com/widget/">Widget Factory</a></li>		</ul>
+	</aside>
+</div>
+</div>
+
+	</div>
+</div>
+<footer class="clearfix simple">
+	<div class="constrain">
+		<div class="row">
+			<div class="six columns offset-by-three">
+				<h3><span>Books</span></h3>
+				<ul class="books">
+					<li>
+						<a href="https://www.manning.com/books/jquery-ui-in-action">
+							<span><img src="./demo_files/jquery-ui-in-action.jpg" alt="jQuery UI in Action by TJ VanToll" width="92" height="114"></span>
+							<strong>jQuery UI in Action</strong><br>
+							<cite>TJ VanToll</cite>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.packtpub.com/web-development/jquery-ui-themes-beginners-guide">
+							<img src="./demo_files/jquery-ui-themes.jpg" alt="jQuery UI theme by Adam Boduch" width="92" height="114">
+							<span class="book-title">jQuery UI theme</span>
+							<cite>Adam Boduch</cite>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.packtpub.com/web-development/jquery-ui-cookbook">
+							<img src="./demo_files/jquery-ui-cookbook.jpg" alt="jQuery UI Cookbook by Adam Boduch" width="92" height="114">
+							<span class="book-title">jQuery UI Cookbook</span>
+							<cite>Adam Boduch</cite>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		
+<div id="legal">
+	<ul class="footer-site-links">
+			<li><a class="icon-pencil" href="https://learn.jquery.com/">Learning Center</a></li>
+			<li><a class="icon-group" href="https://forum.jquery.com/using-jquery-ui/">Forum</a></li>
+			<li><a class="icon-wrench" href="https://api.jqueryui.com/">API</a></li>
+			<li><a class="icon-twitter" href="https://twitter.com/jqueryui">Twitter</a></li>
+			<li><a class="icon-comments" href="https://irc.jquery.org/">IRC</a></li>
+			<li><a class="icon-github" href="https://github.com/jquery">GitHub</a></li>
+	</ul>
+	<p class="copyright">
+		Copyright 2019 <a href="https://jquery.org/team/">The jQuery Foundation</a>.
+		<a href="https://jquery.org/license/">jQuery License</a>
+		<span class="sponsor-line"><a href="https://www.digitalocean.com/" class="do-link">Web hosting by Digital Ocean</a> | <a href="https://www.stackpath.com/" class="sp-link">CDN by StackPath</a></span>
+	</p>
+</div>
+
+	</div>
+</footer>
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1076265-1']);
+    _gaq.push(['_setDomainName', 'jqueryui.com']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<script type="text/javascript" src="./demo_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./demo_files/wp-embed.min.js.download"></script>
+
+
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxLoadedContent" style="width: 0px; height: 0px; overflow: hidden; float: left;"></div><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><div id="cboxNext" style="float: left;"></div><div id="cboxPrevious" style="float: left;"></div><div id="cboxSlideshow" style="float: left;"></div><div id="cboxClose" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div></body></html>

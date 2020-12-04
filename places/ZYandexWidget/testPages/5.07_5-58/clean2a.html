@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Location to Address</title>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=5fb7da25-bc18-4612-b304-83ea2266c510"
+            type="text/javascript"></script>
+    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+    <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+
+    ymaps.ready(function () {
+        var myMap = new ymaps.Map('map', {
+            center: [55.753994, 37.622093],
+            zoom: 9,
+            // Добавление панели маршрутизации на карту.
+            controls: ['routePanelControl']
+        });
+
+        // Получение ссылки на панель.
+        var control = myMap.controls.get('routePanelControl');
+
+        // Получение объекта, описывающего построенные маршруты.
+        var multiRoutePromise = control.routePanel.getRouteAsync();
+        multiRoutePromise.then(function(multiRoute) {
+            //  Подписка на событие получения данных маршрута от сервера.
+            multiRoute.model.events.add('requestsuccess', function() {
+                // Ссылка на активный маршрут.
+                var activeRoute = multiRoute.getActiveRoute();
+                if (activeRoute) {
+                    // Вывод информации об активном маршруте.
+                    console.log("Длина: " + activeRoute.properties.get("distance").text);
+                    console.log("Время прохождения: " + activeRoute.properties.get("duration").text);
+                }
+            });
+            multiRoute.options.set({
+                // Цвет метки начальной точки.
+                wayPointStartIconFillColor: "#B3B3B3",
+                // Цвет метки конечной точки.
+                wayPointFinishIconFillColor: "blue",
+                // Внешний вид линий (для всех маршрутов).
+                routeStrokeColor: "00FF00"
+            });
+        }, function (err) {
+            console.log(err);
+        });
+    });
+
+  
+</script>
+</body>
+</html>

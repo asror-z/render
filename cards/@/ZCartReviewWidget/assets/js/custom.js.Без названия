@@ -1,0 +1,23 @@
+$(document).ready(function(){
+	"use strict";
+
+	/***** Preloader *****/
+	$(window).on('load', function() {
+		$(".preloader .item-wrapper").delay(500).animate({
+	        top: "-100%"
+	    },500,"easeInQuart");
+	    $(".preloader").delay(500).fadeOut(500);
+	});
+
+	/***** Shopping Cart *****/
+	$('.cart-btn').on('click', function(e){
+	    e.preventDefault();
+	    $('.cart-overlay').addClass('visible');
+	    $('.cart-body').addClass('open');
+	});
+	$('.close-cart, .cart-overlay').on('click', function(e){
+	    e.preventDefault();
+	    $('.cart-overlay').removeClass('visible');
+	    $('.cart-body').removeClass('open');
+	});
+});

@@ -1,0 +1,553 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width" name="viewport"/>
+    <title>Sip demo</title>
+
+    <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+</head>
+
+<body>
+<head><title>WebRT</title>
+    <style>
+        video {
+            height: 240px;
+            width: 320px;
+            border: 3px solid grey;
+        }
+
+
+        .btn-default {
+
+            background-color: rgba(252, 252, 255, 0) !important;
+        }
+
+        .btn-group-lg > .btn, .btn-lg {
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-bottom: 15px;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 5px 5px 0px rgba(59, 58, 58, 0.84);
+
+        !important;
+            font-size: 1.5rem;
+            line-height: .8;
+        !important;
+            border-radius: 1.8rem;
+        !important;
+        }
+
+
+        .btn-group-lg > .btn, .btn-secondary {
+            padding: 1rem .9rem;
+        !important;
+            line-height: .8;
+            border-radius: 1.8rem;
+        !important;
+            font-size: 1.5rem;
+            color: #ffffff;
+            background-color: rgba(239, 6, 6, 0) !important;
+            box-shadow: 0 5px 5px 0px rgba(59, 58, 58, 0.84);
+
+
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            font-weight: 800;
+        !important;
+        }
+
+        .opacity {
+            border-radius: 5%;
+            background-image: url('/render/siplibs/JsSip_Get_Started_adding_all_events/img/0101.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .number {
+
+            border-radius: 5%;
+            color: #fcfcfc;
+            box-shadow: 1px 20px 20px -5px rgba(59, 58, 58, 0.84);
+            background-color: rgba(9, 0, 0, 0.52);
+
+        }
+
+        .btn-success {
+            background-color: rgba(46, 191, 50, 0.01);
+        !important;
+            font-size: 1.5rem;
+            border-radius: 1.7rem;
+        !important;
+            line-height: 0.2;
+            padding: 0.5rem 1.7rem;
+            box-shadow: 0 10px 10px -5px rgba(113, 109, 109, 0.56);
+        }
+
+        .icon-per {
+            top: 75% !important;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                width: 100vw;
+                height: 100vh;
+            }
+
+        }
+
+
+    </style>
+</head>
+<main class="content">
+
+    <!--<div class="logIn " style="display: none;">
+        <label for="uri">Log In</label>
+        <input id="uri" type="text">
+        </br>
+        <label for="secret">Password</label>
+        <input id="secret" type="text">
+        <button id="button_auth"> Log In</button>
+
+        <h1 class="authUri" style="display: none;"></h1>
+    </div>
+    <div class="inputUsers">
+        <label for="inputNumber">Number</label>
+        <input id="inputNumber" type="text">
+
+        <button class="callButton" value="call">Call</button>
+        <button class="hangUpButton">HangUp</button>
+        <button class="answerButton">Answer</button>
+    </div>
+
+    <video autoplay id="selfView" muted></video>
+    <video autoplay id="remoteView"></video>-->
+
+    <!--<div class="messages d-none">
+        <label for="inputNumberMsg">Номер</label>
+        <input id="inputNumberMsg" type="text">
+        </br>
+        <label for="inputTextMsg">Сообщение</label>
+        <input id="inputTextMsg" type="text">
+        </br>
+        <button id="sendMsgButton">Отправить</button>
+
+    </div>-->
+
+    <div class="container ">
+        <div class="row input justify-content-center">
+            <div class="col-lg-4 col-6 mt-5">
+                <div class="opacity mr-lg-3 ml-lg-3">
+                    <div class="number text-center border w-10">
+                        <div class="">
+                            <div class=" md-form input-with-post-icon ml-5 mr-5 mt-lg-5">
+                                <i class=" fas white-ic fa-user input-prefix text-center "></i>
+                                <input class="form-control text-white text-center" id="inputNumber" type="text">
+                                <label for="inputNumber"></label>
+                            </div>
+                        </div>
+                        <div class=" buuton-goup mb-lg-4 mb-3">
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('1')" type="button" value="1">1</a>
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('2')" type="button" value="2">2</a>
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('3')" type="button" value="3">3</a>
+                            <br>
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('4')" type="button" value="4">4</a>
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('5')" type="button" value="5">5</a>
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('6')" type="button" value="6">6</a>
+                            <br>
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('7')" type="button" value="7">7</a>
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('8')" type="button" value="8">8</a>
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('9')" type="button" value="9">9</a>
+                            <br>
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('+')" type="button" value="+">+</a>
+                            <a class="btn-floating btn-lg btn-default" onclick="dis('0')" type="button" value="0">0</a>
+                            <a class="btn-floating btn-lg btn-secondary" onclick="clr()" type="button" value="c">
+                                <i class="fas red-ic fa-backspace"></i></a>
+                            <div class="mb-lg-5 mb-4 mt-lg-4 mt-3">
+                                <a class="btn btn-success btn-rounded btn-default" onclick="clr()" type="button"
+                                   value="c">
+                                    <i class="fas success-ic fa-phone"></i></a>
+                                <a class="btn btn-success btn-rounded btn-default callButton" onclick="clr()" type="button"
+                                   value="c">
+                                    <i class="fas success-ic fa-video"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jssip/3.1.2/jssip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
+        type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js" type="text/javascript"></script>
+<!-- <script src="jssip-3.4.6.js"> </script> -->
+<script>
+
+    let callButton = document.querySelector('.callButton'), // Нахожу кнопку Call
+        hangUpButton = document.querySelector('.hangUpButton'),  // Нахожу кнопку Hangup
+        answerButton = document.querySelector('.answerButton'),  // Нахожу кнопку Answer
+        inputNumber = document.querySelector('#inputNumber'),  // Нахожу инпут для звонкапо ID InputNumber
+        logInDiv = document.querySelector('.logIn'),// Нахожу div авторизации
+        loginUri = document.querySelector('#uri'),  // Нахожу инпут  URI по ID uri
+        uriSecret = document.querySelector('#secret'),  // Нахожу инпут  Secret по ID secret
+        buttonAuth = document.querySelector('#button_auth'),  // Нахожу кнопку button_auth  по ID для авторизации
+        inputNumberMsg = document.querySelector('#inputNumberMsg'),  // инпут для ввода номера получателя
+        inputTextMsg = document.querySelector('#inputTextMsg'),  // инпут для ввода текста для получателя
+        sendMsgButton = document.querySelector('#sendMsgButton');  // кнопка для отправки сообщения
+
+    var options = {
+        'mediaConstraints': {'audio': true, 'video': true},
+        'pcConfig': {
+            'rtcpMuxPolicy': 'require',
+            'iceServers': []
+        },
+        'rtcOfferConstraints': {
+            'offerToReceiveAudio': 1, // Принимаем только аудио
+            'offerToReceiveVideo': 1
+        }
+    };
+
+
+    var socket = new JsSIP.WebSocketInterface('wss://zoft.uz:8089/ws');
+
+
+    //Create HTML Audio Object
+    var remoteAudio = new window.Audio()
+    remoteAudio.autoplay = true;
+
+    const mediaSource = new MediaSource();
+
+    var selfView = document.getElementById('selfView');
+    var remoteView = document.getElementById('remoteView');
+
+
+    var userAgent = JsSIP.version;
+    console.log(socket);
+
+    console.log('sip:%s@${{SERVER}}', user);
+
+    var configuration = {
+        'uri': 'sip:301@10.10.3.31',
+        'password': 301, // FILL PASSWORD HERE,
+        'sockets': [socket],
+        'register_expires': 180,
+        'session_timers': false,
+        'user_agent': 'JsSip-' + userAgent
+    };
+
+    var phone;
+    var user = configuration.uri;
+    var pass = configuration.password ;
+
+    console.log(userUri)  ;
+    if (user && pass) {
+        /*JsSIP.debug.enable('JsSIP:*');*/
+        phone = new JsSIP.UA(configuration);
+        phone.on('registrationFailed', function (ev) {
+            alert('Registering on SIP server failed with error: ' + ev.cause);
+            configuration.uri = null;
+            configuration.password = null;
+        });
+
+        phone.on('newRTCSession', (data) => {
+            var newSession = data.session;
+
+
+            if (session) { // hangup any existing call
+                session.terminate();
+                phone.stop();
+            }
+            session = newSession;
+            var completeSession = function () {
+                session = null;
+            };
+
+
+            if (session.direction == 'outgoing') {
+                console.log('stream outgoing  -------->');
+                session.on('connecting', function () {
+                    console.log('CONNECT');
+                });
+                session.on('peerconnection', function (e) {
+                    console.log('1accepted');
+                });
+                session.on('sending', function (e) {
+                    console.log('sending');
+                });
+                session.on('progress', function (e) {
+                    console.log('progress');
+                });
+                session.on('newDTMF', function (e) {
+                    console.log('newDTMF');
+                });
+                session.on('newInfo', function (e) {
+                    console.log('newInfo');
+                });
+                session.on('hold', function (e) {
+                    console.log('hold');
+                });
+                session.on('unhold', function (e) {
+                    console.log('unhold');
+                });
+                session.on('muted', function (e) {
+                    console.log('muted');
+                });
+                session.on('unmuted', function (e) {
+                    console.log('unmuted');
+                });
+                session.on('reinvite', function (e) {
+                    //Протестить эту вещь очень важно
+                    console.log('reinvite');
+                });
+                session.on('update', function (e) {
+                    //Протестить эту вещь тоже очень  важно
+                    console.log('update');
+                });
+                session.on('refer', function (e) {
+                    //Протестить эту вещь тоже очень  важно
+                    console.log('refer');
+                });
+                session.on('replaces', function (e) {
+                    //Протестить эту вещь тоже очень  важно
+                    console.log('replaces');
+                });
+                session.on('sdp', function (e) {
+                    //Протестить эту вещь тоже очень  важно
+                    console.log('sdp');
+                });
+
+                session.on('ended', completeSession);
+                session.on('failed', completeSession);
+                session.on('accepted', function (e) {
+                    console.log('accepted')
+                });
+                session.on('confirmed', function (e) {
+                    console.log('CONFIRM STREAM');
+                });
+                answerButton.addEventListener('click', function () {
+                    newSession.answer(options);
+                    console.log(session.connection)
+                    console.log(session.connection.stream)
+                    add_stream()
+                });
+            } else if (newSession.direction == 'incoming') {
+                console.log('stream incoming  -------->');
+                session.on('connecting', function () {
+                    console.log('CONNECT');
+                });
+                session.on('peerconnection', function (e) {
+                    console.log('1accepted');
+                });
+                session.on('sending', function (e) {
+                    console.log('sending');
+                });
+                session.on('progress', function (e) {
+                    console.log('progress');
+                });
+                session.on('newDTMF', function (e) {
+                    console.log('newDTMF');
+                });
+                session.on('newInfo', function (e) {
+                    console.log('newInfo');
+                });
+                session.on('hold', function (e) {
+                    console.log('hold');
+                });
+                session.on('unhold', function (e) {
+                    console.log('unhold');
+                });
+                session.on('muted', function (e) {
+                    console.log('muted');
+                });
+                session.on('unmuted', function (e) {
+                    console.log('unmuted');
+                });
+                session.on('reinvite', function (e) {
+                    //Протестить эту вещь очень важно
+                    console.log('reinvite');
+                });
+                session.on('update', function (e) {
+                    //Протестить эту вещь тоже очень  важно
+                    console.log('update');
+                });
+                session.on('refer', function (e) {
+                    //Протестить эту вещь тоже очень  важно
+                    console.log('refer');
+                });
+                session.on('replaces', function (e) {
+                    //Протестить эту вещь тоже очень  важно
+                    console.log('replaces');
+                });
+                session.on('sdp', function (e) {
+                    //Протестить эту вещь тоже очень  важно
+                    console.log('sdp');
+                });
+
+                session.on('ended', completeSession);
+                session.on('failed', completeSession);
+                session.on('accepted', function (e) {
+                    console.log('accepted')
+                });
+                session.on('confirmed', function (e) {
+                    console.log('CONFIRM STREAM');
+                });
+
+                //Поднимаем трубку при нажатии на кнопку Answer
+                answerButton.addEventListener('click', function () {
+                    newSession.answer(options);
+                    console.log(session.connection)
+                    console.log(session.connection.stream)
+                    add_stream()
+
+
+                });
+            }
+
+
+            // if(session.direction === 'incoming'){
+            //     console.log('stream incoming  -------->');
+            // session.on('connecting', function() {
+            //     console.log('CONNECT');
+            //                 });
+            // session.on('peerconnection', function(e) {
+            //     console.log('1accepted');
+            //     add_stream();
+            //                 });
+            // session.on('ended', completeSession);
+            // session.on('failed', completeSession);
+            // session.on('accepted',function(e) {
+            //     console.log('accepted')
+            //                 });
+            // session.on('confirmed',function(e){
+            //     console.log('CONFIRM STREAM');
+            //                 });
+            //                 var options = {
+            // 'mediaConstraints' : { 'audio': true, 'video': true },
+            // 'pcConfig': {
+            //   'rtcpMuxPolicy': 'require',
+            //   'iceServers': [
+            //                                         ]
+            //                                 },
+            //                         };
+
+            //     console.log('Incoming Call');
+            //     session.answer(options);
+            //    }
+        });
+        phone.on('connecting', (data) => {
+            let session = data.session;
+
+            console.log('connecting')
+        });
+        phone.on('connected', (data) => {
+            let session = data.session;
+
+            console.log('connected')
+        });
+        phone.on('disconnected', (data) => {
+            let session = data.session;
+
+            console.log('disconnected')
+        });
+        phone.on('registered', (data) => {
+            let session = data.session;
+
+            console.log('registered')
+        });
+        phone.on('unregistered', (data) => {
+            let session = data.session;
+
+            console.log('unregistered')
+        });
+        phone.on('registrationFailed', (data) => {
+            let session = data.session;
+
+            console.log('registrationFailed')
+        });
+        phone.on('registrationExpiring', (data) => {
+            let session = data.session;
+
+            console.log('registrationExpiring')
+        });
+        phone.on('newMessage', (data) => {
+            let session = data.session;
+
+            console.log('newMessage')
+        });
+        phone.start();
+    }
+
+    var session;
+
+
+    callButton.addEventListener('click', function () {
+        phone.call('sip:' + inputNumber.value + '@94.158.52.244:7777', options)
+        add_stream();
+    });
+
+
+    function add_stream() {
+        console.log(session);
+        session.connection.addEventListener('addstream', function (e) {
+            remoteAudio.srcObject = (e.stream);
+            remoteView.srcObject = (e.stream);
+            selfView.srcObject = (session.connection.getLocalStreams()[0]);
+            remoteView.srcObject = (session.connection.getRemoteStreams()[0]);
+        })
+    }
+
+
+    //сбрасываем звонок при нажатии на HangUP
+    hangUpButton.addEventListener('click', function () {
+        phone.terminateSessions()
+    });
+
+    // Отправка сообщений
+    sendMsgButton.addEventListener('click', function () {
+        console.log('Send MSG');
+        console.log(phone.Message)
+        phone.sendMessage('sip:' + inputNumberMsg.value + '@10.10.3.31', inputTextMsg.value);
+
+
+    })
+
+</script>
+
+<script>
+    //function for displaying values
+    function dis(val) {
+        document.getElementById("inputNumber").value += val
+    }
+
+    //function for evaluation
+    /* function solve()
+     {
+         let x = document.getElementById("edu").value
+         let y = eval(x)
+         document.getElementById("edu").value = y
+     }*/
+    //function for clearing the display
+    function clr() {
+        document.getElementById("inputNumber").value = ""
+    }
+</script>
+

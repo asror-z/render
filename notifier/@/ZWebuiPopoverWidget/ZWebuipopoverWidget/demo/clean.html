@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.css">
+    ...
+    <script src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.webui-popover/1.2.1/jquery.webui-popover.min.js"></script>
+</head>
+<body>
+
+use kittools\webuipopover\WebUIPopover;
+
+echo WebUIPopover::widget([
+'label' => 'Button popup',
+'tagName' => 'button',
+'body' => 'Content popup'
+]);
+
+WebUIPopover::begin([
+'label' => 'Button popup',
+'tagName' => 'button',
+'tagOptions' => [
+'class' => 'btn btn-success',
+],
+'pluginOptions' => [
+'placement' => 'right',
+'animation' => 'pop',
+'title' => 'Popover title',
+'onShow' => 'function($element) {console.log($element);}'
+],
+]);
+
+echo 'Content popup';
+
+WebUIPopover::end();
+?>
+</body>
+</html>

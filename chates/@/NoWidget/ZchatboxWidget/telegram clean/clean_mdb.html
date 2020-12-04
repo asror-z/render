@@ -1,0 +1,1403 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <title>Telegram</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- -------------------------- -->
+    <!-- ---------  Assets ----------->
+    <link rel="stylesheet" href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/publish/chat-box/telegram/main.css">
+
+
+    
+
+
+
+    
+
+
+   
+
+    <!-- -------------------------- -->
+    <!-- ---------  Assets ----------->
+
+
+    <style>
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialicons/v48/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+        }
+
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+     
+
+        /* FIRST, THE OVERLAY ELEMENTS */
+
+        .alerts {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 9999;
+            padding: 10px;
+            color: #666;
+            border-radius: 4px;
+            background: #FFF;
+            box-shadow: 0 0 7px 0 rgba(0,0,0,0.4);
+            display: none;
+        }
+
+        /* small conversation menu */
+        .moreMenu {
+            position: absolute;
+            top: 70px;
+            right: 0px;
+            z-index: 10;
+            padding: 10px;
+            color: #666;
+            border-radius: 0 0 0 4px;
+            background: #FFF;
+            display: none;
+            border-top: 1px solid #DDD;
+        }
+
+        .moreMenu .option {
+            width: 150px;
+            height: 50px;
+            display: block;
+            background: #FFF;
+            font-size: 14px;
+            text-align: left;
+            border-radius: 4px;
+            padding-left: 10px;
+        }
+
+        .moreMenu .option:hover {
+            background: #DDD;
+        }
+
+        .moreMenu .option:nth-last-child(1) {
+            margin-top: 3px;
+        }
+
+        /* switch to mobile version screen */
+        .switchMobile {
+            position: absolute;
+            width: 65%;
+            height: auto;
+            padding: 10px;
+            background: #FFF;
+            top: 75px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+            border-radius: 4px;
+            box-shadow: 0 0 7px 0 rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .switchMobile .title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .switchMobile .desc {
+            font-size: 14px;
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+
+        .switchMobile .okay {
+            float: right;
+            width: 80px;
+            font-size: 16px;
+            font-weight: 600;
+            background: #419fd9;
+            color: #fff;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        /* side menu */
+        .menuWrap {
+            position: absolute;
+            width: 30%;
+            min-width: 240px;
+            max-width: 320px;
+            height: 100%;
+            z-index: 3;
+            display: none;
+        }
+
+        .menu {
+            position: relative;
+            left: -320px;
+            width: 100%;
+            height: 100vh;
+            float: left;
+            background: #FFF;
+            box-shadow: 0 0 7px 0 rgba(0,0,0,0.4);
+            opacity: 0;
+        }
+
+        .me {
+            position: relative;
+            width: calc(100% - 0px);
+            height: 200px;
+            background: #419fd9;
+            padding: 15px 25px;
+            margin-bottom: 15px;
+        }
+
+        .me .image {
+            width: 70px;
+            height: 70px;
+            background: #FFF url(http://4.bp.blogspot.com/-BHhUazKytmw/VbCfWPqrOJI/AAAAAAAAB7c/qj6WVX3du-s/s1600/51b91bba5a3fd9b6c8b9c53bc0ab6c65.jpg) no-repeat center;
+            background-size: cover;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+
+        .me .settings {
+            position: absolute;
+            right: 20px;
+            bottom: 65px;
+            width: 40px;
+            height: 40px;
+            padding-top: 2px;
+            color: #FFF;
+            border-radius: 100%;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .me .settings:hover {
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .me .cloud {
+            position: absolute;
+            right: 20px;
+            bottom: 15px;
+            width: 40px;
+            height: 40px;
+            color: #FFF;
+            border-radius: 100%;
+            background: rgba(0, 0, 0, 0.09);
+        }
+
+        .me .cloud:hover {
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .me .myinfo {
+            position: absolute;
+            bottom: 15px;
+            font-size: 14px;
+            color: #FFF;
+        }
+
+        .myinfo .name {
+            font-weight: 600;
+           position: relative;
+           bottom: 0;
+        }
+
+        .myinfo .phone {
+            font-weight: 300;
+        }
+
+        nav button {
+            width: 100%;
+            height: 45px;
+            background: #FFF;
+            text-align: left;
+            padding-left: 20px;
+            color: #666;
+        }
+
+        nav {
+            float: left;
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        nav button:hover {
+            background: #EEE;
+        }
+
+        nav button > i {
+            color: #999;
+            float: left;
+        }
+
+        nav button > span {
+            display: inline-block;
+            margin-top: 5px;
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .info {
+            position: absolute;
+            left: 20px;
+            bottom: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* configuration screen */
+        .config {
+            position: absolute;
+            width: 50%;
+            height: 100vh;
+            left: 0px;
+            right: -200vw;
+            top: 0px;
+            margin: auto;
+            background: #DDD;
+            overflow-x: hidden;
+            overflow-y: auto;
+            display: block;
+            z-index: 520;
+            opacity: 0;
+        }
+
+        .confTitle {
+            font-size: 24px;
+            font-weight: 600;
+            color: #444;
+            margin: 10px 0px 15px 0px;
+        }
+
+        .configSect {
+            float: left;
+            width: 100%;
+            padding: 15px 30px;
+            margin-bottom: 10px;
+            background: #FFF;
+        }
+
+        .profile .image {
+            width: 140px;
+            height: 140px;
+            background: #FFF url(http://4.bp.blogspot.com/-BHhUazKytmw/VbCfWPqrOJI/AAAAAAAAB7c/qj6WVX3du-s/s1600/51b91bba5a3fd9b6c8b9c53bc0ab6c65.jpg) no-repeat center;
+            background-size: cover;
+            border-radius: 100%;
+            float: left;
+            margin-right: 30px;
+        }
+
+        .side {
+            width: auto;
+            height: 110px;
+            float: none;
+            position: relative;
+        }
+
+        .side .name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .side .pStatus {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .profile .changePic, .profile .edit {
+            width: auto;
+            font-size: 16px;
+            font-weight: 600;
+            background: #419fd9;
+            color: #fff;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .profile .edit {
+            margin-left: 10px;
+            background: #FFF;
+            color: #999;
+        }
+
+        .profile .edit:hover {
+            color: #419fd9;
+        }
+
+        .second ul {
+            float: none;
+            margin-left: -7px;
+            list-style-type: none;
+        }
+
+        .second ul li {
+            margin: 7px;
+        }
+
+        .second .blue {
+            color: #419fd9
+        }
+
+        .second label {
+            display: block;
+            clear: both;
+        }
+
+        .second .information {
+            margin-bottom: 30px;
+        }
+
+        .check {
+            position: relative;
+            float: left;
+            display: block;
+            width: 38px;
+            height: 14px;
+            background: #BBB;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .check > .tracer {
+            width: 16px;
+            height: 16px;
+            background: #FFF;
+            border: 2px solid #BBB;
+            border-radius: 100%;
+            float: left;
+            margin-top: -3px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        #checkNight, #deskNotif, #showSName, #showPreview, #playSounds {
+            display: none;
+        }
+
+        .toggleTracer:checked ~ .check {
+            background: #419fd9;
+        }
+
+        .toggleTracer:checked ~ .check > .tracer {
+            border-color: #419fd9;
+            margin-left: 18px;
+        }
+
+        .optionWrapper {
+            display: block;
+            width: 100%;
+            height: 32px;
+        }
+
+        .optionWrapper p {
+            float: left;
+            margin-top: 3px;
+            margin-left: 15px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        /* dark overlay element */
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2;
+            display: none;
+        }
+
+        /* ----------------- */
+        /* MAIN APP ELEMENTS */
+        /* ----------------- */
+
+        .leftPanel {
+            position: relative;
+            display: inline-block;
+            left: 0px;
+            width: 320px;
+            height: 100vh;
+            float: left;
+            background: #FFF;
+            border-right: 1px solid #DDD;
+        }
+
+        header {
+            width: 100%;
+            height: 70px;
+            background: #FFF;
+        }
+
+        .trigger {
+            float: left;
+            width: 32px;
+            height: 32px;
+            margin: 20px 15px;
+            margin-bottom: 0px;
+            color: #BBB;
+            cursor: pointer;
+            opacity: 0.6;
+            background: none;
+        }
+
+        .trigger:hover {
+            opacity: 1;
+        }
+
+        .trigger > svg {
+            width: 24px;
+            height: 24px;
+            fill: #888;
+        }
+
+        .searchChats {
+            width: calc(100% - 85px);
+            height: 40px;
+            background: #EEE;
+            float: left;
+            padding: 8px;
+            margin-top: 14px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .searchChats:focus {
+            color: #444;
+            border: 2px solid #419fd9;
+            background: rgb(243, 243, 243);
+        }
+
+        .chats {
+            width: 100%;
+            height: calc(100vh - 70px);
+            float: left;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .chatButton {
+            float: left;
+            width: 100%;
+            height: 80px;
+            background: #FFF;
+            color: #555;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .chatButton:hover {
+            color: #555;
+            background: #EEE;
+        }
+
+        .active, .active:hover {
+            color: #FFF;
+            background: #419fd9;
+        }
+
+        .chatInfo {
+            float: left;
+            padding: 5px;
+        }
+
+        .chatInfo p {
+            float: left;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .chatInfo .image {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            background: #DDD url(https://pbs.twimg.com/profile_images/378800000822867536/3f5a00acf72df93528b6bb7cd0a4fd0c.jpeg) no-repeat center;
+            background-size: cover;
+            border-radius: 100%;
+            margin: 13px 13px;
+        }
+
+        .chatInfo .my-image {
+            background-image: url(https://avatars1.githubusercontent.com/u/21313332?s=460&v=4);
+        }
+
+        .chatInfo .name {
+            float: left;
+            font-weight: 600;
+            margin-left: 80px;
+            margin-top: 18px;
+        }
+
+        .chatInfo .message {
+            float: left;
+            clear: left;
+            margin-left: 80px;
+            margin-top: 7px;
+        }
+
+        .status {
+            width: 60px;
+            height: 100%;
+            position: relative;
+            float: right;
+        }
+
+        .status .fixed {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            display: none;
+        }
+
+        div[class~="normal"] > .fixed {
+            display: none;
+        }
+
+        div[class~="normal"] > .count {
+            right: 10px;
+            bottom: 0px;
+        }
+
+        div[class~="onTop"] > .fixed {
+            display: block;
+            width: 20px;
+            height: 20px;
+            fill: #FFF;
+           
+        }
+
+        div[class~="onTop"] > .count {
+            right: 49px;
+            bottom: 0px;
+            background: #FFF;
+            color: #419fd9;
+        }
+
+        .status .count {
+            position: absolute;
+            right: 49px;
+            bottom: 7px;
+            width: auto;
+            height: auto;
+            padding: 7px;
+            border-radius: 20px;
+            color: #222;
+            background: rgba(0, 0, 0, 0.12);
+        }
+
+        .status .date {
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            font-size: 12px;
+        }
+
+        .status .read {
+            position: absolute;
+            right: 53px;
+            top: 6px;
+        }
+
+        .rightPanel {
+            float: left;
+            width: calc(100% - 321px);
+            height: 100vh;
+            background: #999;
+        }
+
+        .rightPanel .topBar {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background: #FFF;
+        }
+
+        .leftSide {
+            display: inline-block;
+            clear: none;
+            float: left;
+        }
+
+        .leftSide .chatName {
+            float: left;
+            margin-left: 30px;
+            margin-top: 13px;
+            color: #444;
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .chatName > span {
+            font-size: 12px;
+            font-weight: 500;
+            color: #BBB;
+            margin-left: 10px;
+        }
+
+        .leftSide .chatStatus {
+            float: left;
+            clear: left;
+            margin-left: 30px;
+            margin-top: 5px;
+            color: #419fd9;
+            font-weight: 300;
+            cursor: default;
+        }
+
+        .rightSide {
+            display: inline-block;
+            clear: none;
+            float: right;
+            margin-right: 20px;
+        }
+
+        .tbButton, .otherTools .toolButtons {
+            width: 50px;
+            height: 50px;
+            margin-top: 10px;
+            background: #FFF;
+            color: #888;
+            border-radius: 100%;
+        }
+
+        .tbButton:hover, .otherTools .toolButtons:hover {
+            color: #555;
+            background: #DDD;
+        }
+
+
+        /* THE CONVERSATION HISTORY CSS */
+
+        .convHistory {
+            float: left;
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 160px);
+            background: #333;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .userBg {
+            background-color: lightgray;
+        }
+
+        .msg {
+            position: relative;
+            width: auto;
+            min-width: 100px;
+            max-width: 45%;
+            height: auto;
+            padding: 25px;
+            padding-bottom: 35px;
+            margin: 20px 15px;
+            margin-bottom: 0px;
+            background: #FFF;
+            border-radius: 7px;
+            clear: both;
+        }
+
+        .msg:nth-last-child(1) {
+            margin-bottom: 20px;
+        }
+
+        .msg .timestamp {
+            display: block;
+            position: absolute;
+            right: 10px;
+            bottom: 6px;
+            color: #AAA;
+            user-select: none;
+        }
+
+        .messageReceived {
+            float: left;
+            background: #FFF;
+        }
+
+        .messageSent {
+            float: right;
+            background: #effdde;
+        }
+
+        .messageSent > .timestamp, .messageSent > .readStatus {
+            bottom: 10px;
+            right: 40px;
+            color: darkgreen;
+            user-select: none;
+        }
+
+        .messageSent > .readStatus {
+            position: absolute;
+            bottom: 10px;
+            right: 12px;
+        }
+
+
+        /* THE REPLY BAR CSS */
+
+        .replyBar {
+            width: 100%;
+            height: 70px;
+            float: left;
+            background: #fff;
+        }
+
+        .replyBar .attach {
+            width: 70px;
+            height: 70px;
+            color: #777;
+            background: #FFF;
+            float: left;
+        }
+
+        .replyBar .attach:hover {
+            color: #555;
+            background: #DDD;
+        }
+
+        .replyBar .d45 {
+            transform: rotate(45deg);
+            font-size: 32px;
+        }
+
+        .replyBar .replyMessage {
+            width: calc(100% - 220px);
+            float: left;
+            height: 70px;
+            padding: 0px 8px;
+            font-size: 16px;
+        }
+
+        .replyBar .otherTools {
+            float: right;
+            width: 120px;
+            height: 70px;
+        }
+
+        .emojiBar {
+            display: none;
+            position: absolute;
+            width: 325px;
+            height: 200px;
+            padding: 10px;
+            right: 30px;
+            bottom: 80px;
+            border: 2px solid #DDD;
+            border-radius: 3px;
+            background: #FFF;
+        }
+
+        .emoticonType {
+            width: 100%;
+            height: 50px;
+        }
+
+        .emoticonType button {
+            width: 105px;
+            height: 36px;
+            font-weight: 600;
+            color: #555;
+            background: none;
+        }
+
+        .emoticonType button:hover {
+            color: #FFF;
+            background: #419fd9;
+        }
+
+        .emojiList, .stickerList {
+            width: 100%;
+            height: 150px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .emojiList .pick {
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 70%;
+            transition: all 0.15s ease-in-out;
+        }
+
+        .emojiList .pick:hover {
+            background: #DDD;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 70%;
+        }
+
+        .stickerList .pick {
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 65%;
+            transition: all 0.15s ease-in-out;
+        }
+
+        .stickerList .pick:hover {
+            background: #DDD;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 65%;
+        }
+
+
+        /* hidden, while not complete */
+        .stickerList {
+            display: none;
+        }
+
+        /* CSS FOR THE EMOJI IMAGES, JUST SOME */
+
+        #smileface {
+            background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/grinning-face_1f600.png);
+        }
+
+        #grinningface {
+            background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/grinning-face-with-smiling-eyes_1f601.png);
+        }
+
+        #tearjoyface {
+            background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/face-with-tears-of-joy_1f602.png);
+        }
+
+        #rofl {
+            background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/rolling-on-the-floor-laughing_1f923.png);
+        }
+
+        #somface {
+            background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/smiling-face-with-open-mouth_1f603.png);
+        }
+
+        #swfface {
+            background-image: url(https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/smiling-face-with-open-mouth-and-smiling-eyes_1f604.png);
+        }
+
+        /* SOLVING RESPONSIVE DESIGN ISSUES */
+
+        @media screen and (max-width: 1180px) {
+            .config {
+                width: 60%;
+            }
+        }
+
+        @media screen and (max-width: 980px) {
+            .config {
+                width: 90%;
+            }
+        }
+
+        @media screen and (max-width: 840px) {
+            .leftPanel {
+                width: 40%;
+            }
+
+            .rightPanel {
+                width: calc(60% - 1px);
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            body {
+                font-size: 14px;
+            }
+
+            .leftPanel {
+                width: 45%;
+            }
+
+            .rightPanel {
+                width: calc(55% - 1px);
+            }
+
+            .msg {
+                width: 90%;
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            .leftPanel {
+                width: 45%;
+            }
+
+            .rightPanel {
+                width: calc(55% - 1px);
+            }
+
+            .msg {
+                width: auto;
+                max-width: 60%;
+            }
+
+            .profile .changePic, .profile .edit {
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .profile .edit {
+                margin-left: 5px;
+            }
+        }
+
+        @media screen and (max-width: 540px) {
+            .switchMobile {
+                display: block;
+            }
+
+            .leftPanel, .rightPanel, .menuWrap, .config, .overlay {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 300px) {
+            .switchMobile {
+                width: calc(220px - 20px);
+            }
+        }
+    </style>
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+    <script>
+        $(document).ready(function(){
+            /* make side menu show up */
+            $(".trigger").click(function(){
+                $(".overlay, .menuWrap").fadeIn(180);
+                $(".menu").animate({opacity: '1', left: '0px'}, 180);
+            });
+
+            /* make config menu show up */
+            $(".settings").click(function(){
+                $(".config").animate({opacity: '1', right: '0px'}, 180);
+                /* hide others */
+                $(".menuWrap").fadeOut(180);
+                $(".menu").animate({opacity: '0', left: '-120px'}, 180);
+            });
+
+            // Show/Hide the other notification options
+            $(".deskNotif").click(function(){
+                $(".showSName, .showPreview, .playSounds").toggle();
+            });
+
+            /* close all overlay elements */
+            $(".overlay").click(function () {
+                $(".overlay, .menuWrap").fadeOut(180);
+                $(".menu").animate({opacity: '0', left: '-320px'}, 180);
+                $(".config").animate({opacity: '0', right: '-200vw'}, 180);
+            });
+
+            //This also hide everything, but when people press ESC
+            $(document).keydown(function(e) {
+                if (e.keyCode == 27) {
+                    $(".overlay, .menuWrap").fadeOut(180);
+                    $(".menu").animate({opacity: '0', left: '-320px'}, 180);
+                    $(".config").animate({opacity: '0', right: '-200vw'}, 180);
+                }
+            });
+
+            /* small conversation menu */
+            $(".otherOptions").click(function(){
+                $(".moreMenu").slideToggle("fast");
+            });
+
+            /* clicking the search button from the conversation focus the search bar outside it, as on desktop */
+            $( ".search" ).click(function() {
+                $( ".searchChats" ).focus();
+            });
+
+            /* Show or Hide Emoji Panel */
+            $(".emoji").click(function(){
+                $(".emojiBar").fadeToggle(120);
+            });
+
+            /* if the user click the conversation or the type panel will also hide the emoji panel */
+            $(".convHistory, .replyMessage").click(function(){
+                $(".emojiBar").fadeOut(120);
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+<section class="mainApp">
+    <div class="leftPanel">
+        <header>
+            <button class="trigger">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path>
+                </svg>
+            </button>
+
+            <input class="searchChats" type="search" placeholder="Search...">
+        </header>
+        <div class="chats">
+            <div class="chatButton active">
+                <div class="chatInfo">
+                    <div class="image my-image">
+
+                    </div>
+
+                    <p class="name">
+                        Renan Mayrinck
+                    </p>
+
+                    <p class="message">Actually, more ...</p>
+                </div>
+
+                <div class="status onTop">
+                    <p class="date">00:02</p>
+                    <p class="count">10</p>
+                    <i class="material-icons read">done_all</i>
+                    <svg class="fixed" viewBox="0 0 24 24">
+                        <path d="M16,12V4H17V2H7V4H8V12L6,14V16H11.2V22H12.8V16H18V14L16,12Z"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="chatButton">
+                <div class="chatInfo">
+                    <div class="image">
+
+                    </div>
+
+                    <p class="name">
+                        Doge
+                    </p>
+
+                    <p class="message">Wow!</p>
+                </div>
+
+                <div class="status normal">
+                    <p class="date">Now</p>
+                    <p class="count">42</p>
+                    <i class="material-icons read">done_all</i>
+                    <i class="material-icons fixed">loyalty</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rightPanel">
+        <div class="topBar">
+            <div class="rightSide">
+                <button class="tbButton search">
+                    <i class="material-icons"></i>
+                </button>
+                <button class="tbButton otherOptions">
+                    <i class="material-icons">more_vert</i>
+                </button>
+            </div>
+
+            <div class="leftSide">
+                <p class="chatName">Renan Mayrinck <span>@Grisson</span></p>
+                <p class="chatStatus">Online</p>
+            </div>
+        </div>
+
+        <div class="convHistory userBg">
+            <!-- CONVERSATION GOES HERE! -->
+
+            <div class="msg messageReceived">
+                Dude, why no one did this before?
+                <span class="timestamp">00:00</span>
+            </div>
+
+            <div class="msg messageSent">
+                Dunno...
+                <i class="material-icons readStatus">done_all</i>
+                <span class="timestamp">00:01</span>
+            </div>
+
+            <div class="msg messageReceived">
+                This don't matter now, I did it!
+                <span class="timestamp">00:02</span>
+            </div>
+
+            <div class="msg messageReceived">
+                Hope someone see this... Someday...
+                <span class="timestamp">00:02</span>
+            </div>
+
+            <div class="msg messageSent">
+                Actually, more than 2000 people did this.
+                <i class="material-icons readStatus">done</i>
+                <span class="timestamp">00:04</span>
+            </div>
+        </div>
+
+        <div class="replyBar">
+            <button class="attach">
+                <i class="material-icons d45">attach_file</i>
+            </button>
+
+            <input type="text" class="replyMessage" placeholder="Type your message...">
+
+            <div class="emojiBar">
+                <div class="emoticonType">
+                    <button id="panelEmoji">Emoji</button>
+                    <button id="panelStickers">Stickers</button>
+                    <button id="panelGIFs">GIFs</button>
+                </div>
+
+
+                <!-- Emoji panel -->
+                <div class="emojiList">
+                    <button id="smileface" class="pick">
+                    </button>
+                    <button id="grinningface" class="pick"></button>
+                    <button id="tearjoyface" class="pick"></button>
+                    <button id="rofl" class="pick"></button>
+                    <button id="somface" class="pick"></button>
+                    <button id="swfface" class="pick"></button>
+                </div>
+
+                <!-- the best part of telegram ever: STICKERS!! -->
+                <div class="stickerList">
+                    <button id="smileface" class="pick">
+                    </button>
+                    <button id="grinningface" class="pick"></button>
+                    <button id="tearjoyface" class="pick"></button>
+                </div>
+            </div>
+
+            <div class="otherTools">
+                <button class="toolButtons emoji">
+                    <i class="material-icons">face</i>
+                </button>
+
+                <button class="toolButtons audio">
+                    <i class="material-icons">mic</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ---------------------- -->
+<!-- MENU AND OVERLAY STUFF -->
+<!-- ---------------------- -->
+
+<!-- MENU -->
+<section class="menuWrap">
+    <div class="menu">
+        <div class="me userBg">
+            <div class="image"></div>
+
+            <div class="myinfo">
+                <p class="name">Random Name</p>
+                <p class="phone">+1 12 1234 5678</p>
+            </div>
+
+            <button class="cloud">
+                <i class="material-icons">bookmark</i>
+            </button>
+
+            <button class="settings">
+                <i class="material-icons">settings</i>
+            </button>
+        </div>
+        <nav>
+            <button class="ng">
+                <i class="material-icons"></i>
+
+                <span>New Group</span>
+            </button>
+
+            <button class="nc">
+                <i class="material-icons"></i>
+
+                <span>New Channel</span>
+            </button>
+
+            <button class="cn">
+                <i class="material-icons"></i>
+
+                <span>Contacts</span>
+            </button>
+
+            <button class="cl">
+                <i class="material-icons"></i>
+
+                <span>Calls History</span>
+            </button>
+
+            <a href="https://telegram.org/faq" target="_blank">
+                <button class="faq">
+                    <i class="material-icons"></i>
+
+                    <span>FAQ and Support</span>
+                </button>
+            </a>
+
+            <button class="lo">
+                <i class="material-icons"></i>
+
+                <span>Logout</span>
+            </button>
+        </nav>
+
+        <div class="info">
+            <p>Telegram Web</p>
+            <p>Ver 0.0.2 - <a href="https://en.wikipedia.org/wiki/Telegram_(messaging_service)">About</a></p>
+            <p>Layout coded by: <a href="https://www.github.com/mayrinck">Mayrinck</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- CONVERSATION OPTIONS MENU -->
+<div class="moreMenu">
+    <button class="option about">See Info</button>
+    <button class="option notify">Disable Notifications</button>
+    <button class="option block">Block User</button>
+</div>
+
+<!-- MOBILE OVERLAY -->
+<section class="switchMobile">
+    <p class="title">Mobile Device Detected</p>
+
+    <p class="desc">Switch to the mobile version for a better performance.</p>
+
+    <a href="https://web.telegram.org/#/login"><button class="okay">OK</button></a>
+</section>
+
+<!-- PROFILE OPTIONS OVERLAY -->
+<section class="config">
+    <section class="configSect">
+        <div class="profile">
+            <p class="confTitle">Settings</p>
+
+            <div class="image"></div>
+
+            <div class="side">
+                <p class="name">Random Name</p>
+                <p class="pStatus">Online</p>
+            </div>
+
+            <button class="changePic">Change Profile Picture</button>
+            <button class="edit">Edit Profile Info</button>
+        </div>
+    </section>
+
+    <section class="configSect second">
+
+        <!-- PROFILE INFO SECTION -->
+        <p class="confTitle">Your Info</p>
+
+        <div class="information">
+            <ul>
+                <li>Phone Number: <span class="blue phone">+1 12 1234 5678</span></li>
+                <li>Username: <span class="blue username">@USERNAME</span></li>
+                <li>Profile: <span class="blue">https://t.me/USERNAME</span></li>
+            </ul>
+        </div>
+
+        <!-- NOTIFICATIONS SECTION -->
+        <p class="confTitle">Notifications</p>
+
+        <div class="optionWrapper deskNotif">
+            <input type="checkbox" id="deskNotif" class="toggleTracer" checked="">
+
+            <label class="check deskNotif" for="deskNotif">
+                <div class="tracer"></div>
+            </label>
+            <p>Enable Desktop Notifications</p>
+        </div>
+
+        <div class="optionWrapper showSName">
+            <input type="checkbox" id="showSName" class="toggleTracer">
+
+            <label class="check" for="showSName">
+                <div class="tracer"></div>
+            </label>
+            <p>Show Sender Name</p>
+        </div>
+
+        <div class="optionWrapper showPreview">
+            <input type="checkbox" id="showPreview" class="toggleTracer">
+
+            <label class="check" for="showPreview">
+                <div class="tracer"></div>
+            </label>
+            <p>Show Message Preview</p>
+        </div>
+
+        <div class="optionWrapper playSounds">
+            <input type="checkbox" id="playSounds" class="toggleTracer">
+
+            <label class="check" for="playSounds">
+                <div class="tracer"></div>
+            </label>
+            <p>Play Sounds</p>
+        </div>
+
+
+        <p class="confTitle">Other Settings</p>
+
+        <div class="optionWrapper">
+            <input type="checkbox" id="checkNight" class="toggleTracer">
+
+            <label class="check" for="checkNight">
+                <div class="tracer"></div>
+            </label>
+            <p>Night Mode</p>
+        </div>
+
+    </section>
+</section>
+
+<!-- DARK FRAME OVERLAY -->
+<section class="overlay"></section>
+
+<!-- -------------------------------- -->
+<!-- SPECIFIC FOR CONNECTION WARNINGS -->
+<!-- -------------------------------- -->
+<div class="alerts">
+    Trying to reconnect...
+</div>
+
+<script src="/publish/chat-box/telegram/jquery.tg.js"></script>
+<script src="/publish/chat-box/telegram/main.js"></script>
+</body>
+</html>

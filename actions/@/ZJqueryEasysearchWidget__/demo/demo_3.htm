@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)https://www.jqueryscript.net/demo/Minimal-jQuery-In-page-Filter-Plugin-easySearch/ -->
+<html>
+<head>
+
+
+    <link rel="stylesheet" href="./demo_1_files/semantic.min.css">
+
+</head>
+<body>
+
+<style>
+    body {
+        background-color: #fafafa;
+    }
+
+    .container {
+        width: 50%;
+        margin: 150px auto;
+    }
+
+    .column {
+        margin-bottom: 20px;
+    }
+
+    div.input {
+        width: 100%;
+    }
+
+    li:before {
+        display: none;
+    }
+
+    ul.ui.list {
+        margin-left: 0
+    }
+</style>
+
+<div class="ui container">
+    <h1>jQuery easySearch Plugin: Search in list</h1>
+    <div class="column">
+        <div class="ui input focus">
+            <input type="text" placeholder="Search...">
+        </div>
+    </div>
+    <div class="column">
+        <ul class="ui middle aligned selection list">
+            <li class="item" style="display: list-item;">
+                <img class="ui avatar image" src="./demo_1_files/helen.jpg">
+                <div class="content">
+                    <div class="header">Helen</div>
+                </div>
+            </li>
+            <li class="item" style="display: list-item;">
+                <img class="ui avatar image" src="./demo_1_files/christian.jpg">
+                <div class="content">
+                    <div class="header">Christian</div>
+                </div>
+            </li>
+            <li class="item" style="display: list-item;">
+                <img class="ui avatar image" src="./demo_1_files/daniel.jpg">
+                <div class="content">
+                    <div class="header">Daniel</div>
+                </div>
+            </li>
+            <li class="item" style="display: list-item;">
+                <img class="ui avatar image" src="./demo_1_files/christian.jpg">
+                <div class="content">
+                    <div class="header">Marybelle</div>
+                </div>
+            </li>
+            <li class="item" style="display: list-item;">
+                <img class="ui avatar image" src="./demo_1_files/helen.jpg">
+                <div class="content">
+                    <div class="header">Joeann</div>
+                </div>
+            </li>
+            <li class="item" style="display: list-item;">
+                <img class="ui avatar image" src="./demo_1_files/christian.jpg">
+                <div class="content">
+                    <div class="header">Fallon</div>
+                </div>
+            </li>
+            <li class="item" style="display: list-item;">
+                <img class="ui avatar image" src="./demo_1_files/daniel.jpg">
+                <div class="content">
+                    <div class="header">Arturo</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
+<script src="./demo_1_files/jquery-1.12.0.min.js.download"></script>
+<script src="./demo_1_files/jquery.easysearch.js.download"></script>
+<script>
+    $('input').jSearch({
+        selector: 'ul',
+        child: 'li div.header',
+        minValLength: 0,
+        Found: function (elem, event) {
+            $(elem).parent().parent().show();
+        },
+        NotFound: function (elem, event) {
+            $(elem).parent().parent().hide();
+        },
+        After: function (t) {
+            if (!t.val().length) $('ul li').show();
+        }
+    });
+</script>
+

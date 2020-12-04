@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Location to Address</title>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=5fb7da25-bc18-4612-b304-83ea2266c510" type="text/javascript"></script>
+    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+    <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    ymaps.ready(function () {
+        var myMap = new ymaps.Map('map', {
+            center: [55.753994, 37.622093],
+            zoom: 9,
+            // Добавим панель маршрутизации.
+            controls: ['routePanelControl']
+        });
+
+        var control = myMap.controls.get('routePanelControl');
+
+        // Зададим состояние панели для построения машрутов.
+ 
+
+        // Зададим опции панели для построения машрутов.
+        control.routePanel.options.set({
+            // Запрещаем показ кнопки, позволяющей менять местами начальную и конечную точки маршрута.
+            allowSwitch: false,
+            // Включим определение адреса по координатам клика.
+            // Адрес будет автоматически подставляться в поле ввода на панели, а также в подпись метки маршрута.
+            reverseGeocoding: true,
+            // Зададим виды маршрутизации, которые будут доступны пользователям для выбора.
+            types: { masstransit: true, pedestrian: true, taxi: true }
+        });
+
+        // Создаем кнопку, с помощью которой пользователи смогут менять местами начальную и конечную точки маршрута.
+        var switchPointsButton = new ymaps.control.Button({
+            data: {content: "Поменять местами", title: "Поменять точки местами"},
+            options: {selectOnClick: false, maxWidth: 160}
+        });
+        // Объявляем обработчик для кнопки.
+        switchPointsButton.events.add('click', function () {
+            // Меняет местами начальную и конечную точки маршрута.
+            control.routePanel.switchPoints();
+        });
+        myMap.controls.add(switchPointsButton);
+    });
+
+</script>
+</body>
+</html>

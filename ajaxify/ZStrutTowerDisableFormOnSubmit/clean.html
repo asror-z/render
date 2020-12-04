@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Disabled Form On Submit Demo</title>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/materia/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #fafafa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h4>Default Options</h4>
+    <hr/>
+    <form class="disable-on-submit row mb-4">
+        <div class="col-md-4">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit Button</button>
+                <input type="submit" class="btn btn-info" value="Submit Input"/>
+            </div>
+        </div>
+        <div class="col-md-8">
+                <pre>$('form.disable-on-submit').disableOnSubmit();
+                </pre>
+        </div>
+    </form>
+
+
+    <h4>Custom Duration</h4>
+    <hr/>
+    <form class="disable-on-submit-custom-duration row mb-4">
+        <div class="col-md-4">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit Button</button>
+                <input type="submit" class="btn btn-info" value="Submit Input"/>
+            </div>
+        </div>
+        <div class="col-md-8">
+                <pre>$('form.disable-on-submit-custom-duration').disableOnSubmit({
+    duration: 1000
+});
+                </pre>
+        </div>
+    </form>
+
+    <h4>Custom Duration</h4>
+    <hr/>
+    <form class="disable-on-submit-custom-template row mb-4">
+        <div class="col-md-4">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary mb-1">Submit Button</button>
+                <br/>
+                <input type="submit" class="btn btn-info" value="Submit Input"/>
+            </div>
+        </div>
+        <div class="col-md-8">
+                <pre>$('form.disable-on-submit-custom-template').disableOnSubmit({
+    buttonTemplate: '&lt;strong&gt;Please wait to try to submit again.&lt;/strong&gt;',
+    submitInputText: 'Please wait to try to submit again.'
+});
+                </pre>
+        </div>
+    </form>
+
+    <h4>Override Duration with Data- Attribute</h4>
+    <hr/>
+    <form class="disable-on-submit row mb-4" data-disable-on-submit="1000">
+        <div class="col-md-4">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit Button</button>
+                <input type="submit" class="btn btn-info" value="Submit Input"/>
+            </div>
+        </div>
+        <div class="col-md-8">
+                <pre>$('form.disable-on-submit').disableOnSubmit();
+
+&lt;form class="disable-on-submit row mb-4" data-disable-on-submit="1000"&gt;
+    ...
+&lt;/form&gt;
+                </pre>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.jqueryscript.net/demo/jQuery-Plugin-Disable-Form-On-Submit/disable-form-on-submit.min.js"></script>
+<script>
+    $('form').on('submit', function (e) {
+        //Prevent any forms from disabling the
+        e.preventDefault();
+    });
+    $('form.disable-on-submit').disableOnSubmit();
+    $('form.disable-on-submit-custom-duration').disableOnSubmit({
+        duration: 1000
+    });
+    $('form.disable-on-submit-custom-template').disableOnSubmit({
+        buttonTemplate: '<strong>Please wait to submit again.</strong>',
+        submitInputText: 'Please wait to submit again.'
+    });
+</script>
+</body>
+</html>

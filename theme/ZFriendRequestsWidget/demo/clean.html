@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Notification</title>
+    <style>
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style-type: none;
+      }
+      .wrapper {
+        margin: 0 auto;
+        max-width: 40rem;
+        padding: 0.5rem;
+        display: grid;
+
+        grid-template-areas:
+          "img fullName fullName fullName time"
+          "img btnConfirm btnConfirm btnDelete btnDelete";
+        grid-row-gap: 1rem;
+      }
+      .img {
+        margin: 0 auto;
+        grid-area: img;
+        border-radius: 50%;
+        max-width: 8rem;
+        min-width: 50%;
+      }
+      .full-name {
+        text-transform: capitalize;
+        grid-area: fullName;
+        font-size: 1.5rem;
+      }
+      .time {
+        grid-area: time;
+        text-align: right;
+      }
+
+      .btn-delete {
+        font-weight: bolder;
+        border: none;
+        background-color: rgb(228, 197, 197);
+        border-radius: 0.5rem;
+        margin-left: 0.5rem;
+        height: 90%;
+        grid-area: btnDelete;
+        text-transform: capitalize;
+      }
+      .btn-confirm {
+        text-transform: capitalize;
+        font-weight: bolder;
+        border: none;
+        background-color: rgb(78, 67, 238);
+        border-radius: 0.5rem;
+        color: white;
+        height: 90%;
+        grid-area: btnConfirm;
+      }
+      .btn-confirm:hover {
+        background-color: rgb(87, 83, 153);
+        color: white;
+      }
+      .btn-delete:hover {
+        background-color: rgb(206, 170, 170);
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <div class="wrapper">
+          <img src="./ffff.jpg" alt="atl" class="img" />
+          <div class="full-name">
+            <span>name</span>
+            <span>surname</span>
+          </div>
+          <div class="time">14 weeks</div>
+          <button class="btn-confirm">confirm</button>
+          <button class="btn-delete">delete</button>
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>

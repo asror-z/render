@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://pep.briangonzalez.org/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <link href="http://pep.briangonzalez.org/assets/favicon-382948b76154a73852e66a2c70c50680.png" rel="shortcut icon">
+  <title>jquery.pep.js | kinetic drag for mobile &amp; desktop</title>
+  <meta content="a jquery plugin for kinetic drag on mobile &amp; desktop" name="description">
+  <meta content="width=device-width" name="viewport">
+  <meta content="chrome=1" http-equiv="X-UA-Compatible">
+  <!-- Bring in our own styles -->
+  <link href="./demo_files/bootstrap-ea386c3ed369a4e4434ff72329b5808e.css" media="all" rel="stylesheet">
+  <!-- Google Web Fonts, use 'em.. -->
+  <link href="./demo_files/css" media="all" rel="stylesheet">
+  <!-- / Javascript includes -->
+  <script async="" src="./demo_files/ga.js.download"></script><script id="twitter-wjs" src="./demo_files/widgets.js.download"></script><script data-main="/javascripts/config.js" src="./demo_files/require.js.download"></script>
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="config" src="./demo_files/config.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="main" src="./demo_files/main.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./demo_files/jquery-2.0.1.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="underscore" src="./demo_files/underscore.js.download"></script><script charset="utf-8" src="./demo_files/button.550007e6cc79c00bac51111d8131d860.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/main" src="./demo_files/main.js(1).download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/demos" src="./demo_files/demos.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="pep" src="./demo_files/jquery.pep.js(1).download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="views/modal" src="./demo_files/modal.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="backbone" src="./demo_files/backbone.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="highlight" src="./demo_files/highlight.pack.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://codepen.io/briangonzalez/pen/qbHzF.js" src="./demo_files/qbHzF.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://codepen.io/briangonzalez/pen/HEbtx.js" src="./demo_files/HEbtx.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://codepen.io/briangonzalez/pen/FdhvK.js" src="./demo_files/FdhvK.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://codepen.io/briangonzalez/pen/pHvtK.js" src="./demo_files/pHvtK.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://codepen.io/briangonzalez/pen/HyCGq.js" src="./demo_files/HyCGq.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://codepen.io/briangonzalez/pen/IhJxu.js" src="./demo_files/IhJxu.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://codepen.io/briangonzalez/pen/vHiLk.js" src="./demo_files/vHiLk.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://codepen.io/briangonzalez/pen/jqdar.js" src="./demo_files/jqdar.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://codepen.io/briangonzalez/pen/cwryp.js" src="./demo_files/cwryp.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="http://codepen.io/briangonzalez/pen/lkDpJ.js" src="./demo_files/lkDpJ.js.download"></script></head>
+<body style="">
+  <div class="container">
+    <div class="color-bar"></div>
+    <header class="mast">
+      <div class="circle-wrap">
+        <div class="circle pep secondary shown translateRight no-animation" style="user-select: none; margin: 0px; position: absolute; top: -12.5px; left: 2.5px; perspective: 1000px; backface-visibility: hidden; transform: matrix(1, 0, 0, 1, 117, -80); transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1) 0s;"></div>
+        <div class="circle pep primary shown translateLeft no-animation" style="user-select: none; margin: 0px; position: absolute; top: 0px; left: 0px; perspective: 1000px; backface-visibility: hidden; transform: matrix(1, 0, 0, 1, -117, -88); transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1) 0s;"></div>
+      </div>
+      <img class="h1" src="./demo_files/pep-aa37aeac2675b264e0bf3cc6da9aab16.svg">
+      <h2>
+        kinetic drag for mobile &amp; desktop - v0.6.2
+      </h2>
+      <nav>
+        <a class="icon-github" href="https://github.com/briangonzalez/jquery.pep.js" target="_blank"></a>
+        <a class="icon-twitter" href="http://twitter.com/brianmgonzalez" target="_blank"></a>
+        <a class="icon-cdn cdn-modal-show" href="https://rawgithub.com/briangonzalez/jquery.pep.js/master/src/jquery.pep.js"></a>
+      </nav>
+    </header>
+  </div>
+  <div class="container" role="main">
+    <section class="demo about full">
+      <header>
+        What is jquery.pep.js?
+      </header>
+      <div class="inner">
+        
+        <p><strong>jquery.pep.js</strong> is a lightweight jQuery plugin which turns any DOM element into a draggable object. It works across mostly all browsers, from old to new, from touch to click. I built it to serve a need in which jQuery UI’s draggable was not fulfilling, since it didn’t work on touch devices (without some hackery).</p>
+        
+        <p>All of Pep’s options are outlined on Github, so <a href="https://github.com/briangonzalez/jquery.pep.js">take a look</a>. Feel free to <a href="mailto:me@briangonzalez.org">email me</a> with any questions you may have, or <a href="http://pep.briangonzalez.org/#feature-request">request a feature</a> below.</p>
+        <p>
+          Also, check out all of the <a href="http://pep.briangonzalez.org/#demo-basic">demos</a> below. Click on the
+          <i class="icon-codepen"></i>
+          icon to go straight to the demo on Codepen, where you can see exactly how each demo is made. You can also learn more
+          <a href="http://pep.briangonzalez.org/#about-me">about me.</a>
+          Enjoy!
+        </p>
+        <div class="social">
+          <iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 76px; height: 28px;" title="Twitter Tweet Button" src="./demo_files/tweet_button.4f8aea4342a4ada72cba2bdffcff6b4d.en.html"></iframe>
+          <iframe src="./demo_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+        </div>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+    </section>
+    <section class="demo full">
+      <header>
+        Usage
+      </header>
+      <div class="inner">
+        <h4>
+          Grab Pep via
+          <a href="http://bower.io/">bower</a> or
+          <a href="http://pep.briangonzalez.org/#" class="cdn-modal-show">grab from CDN</a>:
+        </h4>
+        <pre><code class="undefined">$ bower install jquery.pep</code></pre>
+        <h4>Then plug into page and initialize:</h4>
+        <pre><code class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"dist/jquery.pep.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+  jQuery(<span class="keyword">function</span>($) {
+    <span class="comment">// pep is super simple...but there are wayyy</span>
+    <span class="comment">// more options doc'd on github.</span>
+    $(<span class="string">'#pep'</span>).pep(); 
+  });
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+      </div>
+    </section>
+    <!-- Populate all of the demos. -->
+    <section class="demo basic" data-codepen-path="http://codepen.io/briangonzalez/pen/qbHzF" data-demo="1" id="demo-basic">
+      <header>
+        <i class="icon-fullscreen"></i>
+        <a class="icon-codepen" href="http://codepen.io/briangonzalez/pen/qbHzF" target="_blank"></a>
+        Demo #1: Basic
+      </header>
+      <div class="inner">
+        <div class="pep"></div>
+      </div>
+    </section>
+    <section class="demo constrain-to-parent" data-codepen-path="http://codepen.io/briangonzalez/pen/HEbtx" data-demo="1" id="demo-constrain-to-parent">
+      <header>
+        <i class="icon-fullscreen"></i>
+        <a class="icon-codepen" href="http://codepen.io/briangonzalez/pen/HEbtx" target="_blank"></a>
+        Demo #2: Constrain to Parent
+      </header>
+      <div class="inner">
+        <div class="pep"></div>
+      </div>
+    </section>
+    <section class="demo constrain-to-window" data-codepen-path="http://codepen.io/briangonzalez/pen/FdhvK" data-demo="1" id="demo-constrain-to-window">
+      <header>
+        <i class="icon-fullscreen"></i>
+        <a class="icon-codepen" href="http://codepen.io/briangonzalez/pen/FdhvK" target="_blank"></a>
+        Demo #3: Constrain to Window
+      </header>
+      <div class="inner">
+        <div class="pep"></div>
+      </div>
+    </section>
+    <section class="demo custom-function" data-codepen-path="http://codepen.io/briangonzalez/pen/pHvtK" data-demo="1" id="demo-custom-function">
+      <header>
+        <i class="icon-fullscreen"></i>
+        <a class="icon-codepen" href="http://codepen.io/briangonzalez/pen/pHvtK" target="_blank"></a>
+        Demo #4: Custom Easing Function
+      </header>
+      <div class="inner">
+        <div class="pep"></div>
+      </div>
+    </section>
+    <section class="demo axis" data-codepen-path="http://codepen.io/briangonzalez/pen/HyCGq" data-demo="1" id="demo-axis">
+      <header>
+        <i class="icon-fullscreen"></i>
+        <a class="icon-codepen" href="http://codepen.io/briangonzalez/pen/HyCGq" target="_blank"></a>
+        Demo #5: X/Y Axis
+      </header>
+      <div class="inner">
+        <div class="pep x"></div>
+        <div class="pep y"></div>
+      </div>
+    </section>
+    <section class="demo droppable" data-codepen-path="http://codepen.io/briangonzalez/pen/IhJxu" data-demo="1" id="demo-droppable">
+      <header>
+        <i class="icon-fullscreen"></i>
+        <a class="icon-codepen" href="http://codepen.io/briangonzalez/pen/IhJxu" target="_blank"></a>
+        Demo #6: Droppable
+      </header>
+      <div class="inner">
+        <div class="pep"></div>
+        <div class="drop-target lt"></div>
+        <div class="drop-target rt"></div>
+        <div class="drop-target lb"></div>
+        <div class="drop-target rb"></div>
+      </div>
+    </section>
+    <section class="demo droppable-custom-overlap" data-codepen-path="http://codepen.io/briangonzalez/pen/vHiLk" data-demo="1" id="demo-droppable-custom-overlap">
+      <header>
+        <i class="icon-fullscreen"></i>
+        <a class="icon-codepen" href="http://codepen.io/briangonzalez/pen/vHiLk" target="_blank"></a>
+        Demo #7: Droppable - Custom Overlap Function
+      </header>
+      <div class="inner">
+        <div class="pep"></div>
+        <div class="drop-target lt"></div>
+        <div class="drop-target rt"></div>
+        <div class="drop-target lb"></div>
+        <div class="drop-target rb"></div>
+      </div>
+    </section>
+    <section class="demo droppable-consuming-parent" data-codepen-path="http://codepen.io/briangonzalez/pen/jqdar" data-demo="1" id="demo-droppable-consuming-parent">
+      <header>
+        <i class="icon-fullscreen"></i>
+        <a class="icon-codepen" href="http://codepen.io/briangonzalez/pen/jqdar" target="_blank"></a>
+        Demo #8: Droppable - Consuming Parent
+      </header>
+      <div class="inner">
+        <div class="pep"></div>
+        <div class="drop-target lt"></div>
+        <div class="drop-target rt"></div>
+        <div class="drop-target lb"></div>
+        <div class="drop-target rb"></div>
+      </div>
+    </section>
+    <section class="demo elastic-scroller" data-codepen-path="http://codepen.io/briangonzalez/pen/cwryp" data-demo="1" id="demo-elastic-scroller">
+      <header>
+        <i class="icon-fullscreen"></i>
+        <a class="icon-codepen" href="http://codepen.io/briangonzalez/pen/cwryp" target="_blank"></a>
+        Demo #9: Elastic Scroller
+      </header>
+      <div class="inner">
+        <div class="pep"></div>
+        <div class="loading"></div>
+        <div class="pull"></div>
+      </div>
+    </section>
+    <section class="demo " data-codepen-path="http://codepen.io/briangonzalez/pen/lkDpJ" data-demo="1" id="demo-">
+      <header>
+        <i class="icon-fullscreen"></i>
+        <a class="icon-codepen" href="http://codepen.io/briangonzalez/pen/lkDpJ" target="_blank"></a>
+        Demo #10: Image Inspector
+      </header>
+      <div class="clearfix inner">
+        <p data-height="600" data-theme-id="81" data-slug-hash="lkDpJ" data-user="briangonzalez" data-default-tab="result" class="codepen">See the Pen <a href="http://codepen.io/briangonzalez/pen/lkDpJ">[Pep] Demo - Image Inspector</a> by Brian Gonzalez (<a href="http://codepen.io/briangonzalez">@briangonzalez</a>) on <a href="http://codepen.io/">CodePen</a></p> <script async="" src="./demo_files/ei.js.download"></script>
+      </div>
+    </section>
+    <section class="demo full">
+      <header>
+        More Demos
+      </header>
+      <div class="inner">
+        <p>
+          Want your demo featured here with your name?
+          <strong>
+            <a href="http://twitter.com/brianmgonzalez">Let me know.</a>
+          </strong>
+        </p>
+        <p>
+          </p><ul>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/caa6f1452d1e9002c1779d57f4422317/">
+                Easing Function
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/BlagA">
+                Tinder Cards
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/274f06f80ad088eb8ce09f020d88f848">
+                Snap to Grid
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/mHpnj">
+                Inline Image Slider
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/jameslai/full/IEGJr">
+                Inline Image Slider - with new custom constrainTo options
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/2231869157a63463f74cae8334feb818">
+                Sticky Walls
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/oniHK">
+                Trails
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/7dde43457e6072d68bc0639e89661c84">
+                Image Fader
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/e2602447ed992b095ab2229b12f79fb9">
+                Dragging a Range Input
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/857e124f16c37aa2cc54e58e2391a6d7">
+                Crossword Puzzle Tiles
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/613c0a529090408a02f3a7d25558cc16">
+                Stop Others Programmatically
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/full/6fcb3cdbae9bfef8dc8cb27b97700a9e">
+                Map
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/full/nkIDs">
+                Zoom &amp; Drag Image
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/lHoKm">
+                Manual Revert
+              </a>
+            </li>
+            <li>
+              <a href="http://codepen.io/briangonzalez/pen/khscp">
+                Windows
+              </a>
+            </li>
+          </ul>
+        <p></p>
+      </div>
+    </section>
+    <section class="demo full bugs">
+      <header>
+        Found a bug?
+      </header>
+      <div class="inner">
+        <h2>
+          <a href="https://github.com/briangonzalez/jquery.pep.js/issues" target="_blank">
+            File an issue on Github, por̃ favor
+          </a>
+        </h2>
+      </div>
+    </section>
+    <section class="demo full about" id="about-me">
+      <header>
+        About the Author
+      </header>
+      <div class="inner">
+        <img src="./demo_files/me2-4b92203bbe458d72ae680a98609c9e6b.jpg">
+        <div class="content">
+          <h2>
+            Yo, I'm Brian Gonzalez.
+          </h2>
+          <div class="blurb">
+            <p>
+              
+              </p><p>Hey guys! I built <a href="http://pep.briangonzalez.org/">Pep</a> in the deep, cold California Winter of ‘12. At the time, I was building out <a href="http://geni.com/">Geni’s</a> version of their <a href="https://www.geni.com/family-tree/html5?minimal=1#100594125">HTML5 Tree</a>, which we wanted to work in all browsers from IE6 to mobile. And although Geni’s HTML5 Tree doesn’t work in all of those browsers, I’ve worked hard to make sure Pep supports browsers all the way back to IE6. Don’t believe me? Well then <a href="https://github.com/briangonzalez/jquery.pep.js/">clone</a> the repo.</p>
+            <p></p>
+            <h3>
+              Find me on the webs
+            </h3>
+            <p>
+              
+              </p><p>Swing by <a href="http://briangonzalez.org/">my site</a>, check out what I am <a href="https://github.com/briangonzalez">hacking on</a>, view <a href="http://dribbble.com/brianmgonzalez">some pixels</a>, <a href="mailto:me@briangonzalez.org">email me</a> with any questions you may have, or shout at me on Twitter below.</p>
+            <p></p>
+            <p>
+              <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 188px; height: 28px;" title="Twitter Follow Button" src="./demo_files/follow_button.4f8aea4342a4ada72cba2bdffcff6b4d.en.html" data-screen-name="brianmgonzalez"></iframe>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+              <iframe id="twitter-widget-2" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 76px; height: 28px;" title="Twitter Tweet Button" src="./demo_files/tweet_button.4f8aea4342a4ada72cba2bdffcff6b4d.en(1).html"></iframe>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="container">
+    <footer>
+      <p>
+        Made with ❤ in sunny SoCal. <strong>Find me:</strong><br>
+        <a href="http://briangonzalez.org/">
+          Web <br>
+        </a>
+        <a href="http://twitter.com/brianmgonzalez">
+          Twitter <br>
+        </a>
+        <a href="http://dribbble.com/brianmgonzalez">
+          Dribbble <br>
+        </a>
+        <a href="https://github.com/briangonzalez">
+          Github
+        </a>
+      </p>
+    </footer>
+    <!-- Google Analytics -->
+    <script>
+      var _gaq=[['_setAccount', 'UA-5991707-5'],['_trackPageview'],['_trackPageLoadTime']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  </div>
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./demo_files/widget_iframe.4f8aea4342a4ada72cba2bdffcff6b4d.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./demo_files/saved_resource.html"></iframe></body></html>

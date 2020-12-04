@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<!-- saved from url=(0021)http://imagehover.io/ -->
+<html lang="en" class="js csstransforms3d sb-init sb-scroll-lock wf-proximanova-n4-active wf-proximanova-n3-active wf-proximanova-n7-active wf-active" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <title>Imagehover.css - A Pure CSS Image Hover Effect Library | imagehover.css</title>
+    <meta name="generator" content="GravCMS">
+<meta name="description" content="A lovingly crafted CSS Image Hover animation Library">
+<meta name="keywords" content="CSS, animation, imagehover, image, hover, library, HTML, howto, usage">
+<meta name="og:title" property="og:title" content="Imagehover.css - A Pure CSS Image Hover Library">
+<meta name="og:url" property="og:url" content="http://www.imagehover.io">
+<meta name="og:image" property="og:image" content="http://www.imagehover.io/imagehover-og.jpg">
+<meta name="twitter:card" property="twitter:card" content="summary">
+<meta name="twitter:site" property="twitter:site" content="twitter:site">
+<meta name="twitter:title" property="twitter:title" content="Imagehover.css">
+<meta name="twitter:description" property="twitter:description" content="A Pure CSS Image Hover Library">
+<meta name="twitter:image" property="twitter:image" content="http://www.imagehover.io/imagehover-og.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="http://imagehover.io/user/themes/antimatter/images/favicon.png">
+    <link rel="canonical" href="http://imagehover.io/">
+    <link href="./demo_1_files/css" rel="stylesheet" type="text/css">
+    <link href="./demo_1_files/css(1)" rel="stylesheet" type="text/css">
+    <script async="" src="./demo_1_files/analytics.js.download"></script><script src="./demo_1_files/gumroad.js.download"></script><script src="./demo_1_files/gumroad-overlay-ae4c986d063996b850a594099261362ed5933ef0ed1eacc386d510ec340c34c9.js.download"></script>
+    <script src="./demo_1_files/nqt8qon.js.download"></script>
+    <style type="text/css">.tk-proxima-nova{font-family:"proxima-nova",sans-serif;}</style><style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/399a91/0000000000000000000158cf/23/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/477d8d/0000000000000000000158d7/23/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/3693ba/0000000000000000000158d9/23/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;}</style><script>try{Typekit.load();}catch(e){}</script>
+    <script type="text/javascript" src="./demo_1_files/jquery.min.js.download"></script>
+    <script type="text/javascript" src="./demo_1_files/gist-embed.min.js.download"></script>
+ 
+                                                    
+                        <link href="./demo_1_files/grids-min.css" type="text/css" rel="stylesheet">
+<link href="./demo_1_files/nucleus.css" type="text/css" rel="stylesheet">
+<link href="./demo_1_files/template.css" type="text/css" rel="stylesheet">
+<link href="./demo_1_files/font-awesome.min.css" type="text/css" rel="stylesheet">
+<link href="./demo_1_files/custom.css" type="text/css" rel="stylesheet">
+<link href="./demo_1_files/form-styles.css" type="text/css" rel="stylesheet">
+<link href="./demo_1_files/login.css" type="text/css" rel="stylesheet">
+<link href="./demo_1_files/slidebars.min.css" type="text/css" rel="stylesheet">
+
+
+                                                
+    <script src="./demo_1_files/jquery-2.x.min.js.download" type="text/javascript"></script>
+<script src="./demo_1_files/modernizr.custom.71422.js.download" type="text/javascript"></script>
+<script src="./demo_1_files/antimatter.js.download" type="text/javascript"></script>
+<script src="./demo_1_files/slidebars.min.js.download" type="text/javascript"></script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                ga('create', 'UA-74717651-1', 'auto');
+                ga('send', 'pageview');
+
+</script>
+
+
+<script id="_carbonads_projs" type="text/javascript" src="./demo_1_files/CKYIL2JM.json"></script><style type="text/css">a.gumroad-button { background-color: white !important; background-image: url("https://gumroad.com/button/button_bar.jpg") !important; background-repeat: repeat-x !important; border-radius: 4px !important; box-shadow: rgba(0, 0, 0, .4) 0 0 2px !important; color: #999 !important; display: inline-block !important; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-size: 16px !important; font-style: normal !important; font-weight: 500 !important; line-height: 50px !important; padding: 0 15px !important; text-shadow: none !important; text-decoration: none !important; } .gumroad-button-logo { background-image: url("https://gumroad.com/button/button_logo.png") !important; background-size: cover !important; height: 17px !important; width: 16px !important; display: inline-block !important; margin-bottom: -3px !important; margin-right: 15px !important; } .gumroad-loading-indicator { background: white; border-radius: 50%; box-shadow: 0 1px 2px rgba(0, 0, 0, .1); box-sizing: border-box; display: none; height: 60px; left: 50% !important; margin-left: -30px !important; margin-top: -30px !important; padding: 10px; position: fixed; top: 50% !important; width: 60px; z-index: 99997; } .gumroad-loading-indicator i { background: url("https://gumroad.com/js/loading-rainbow.svg"); height: 40px; width: 40px; display: inline-block; background-size: contain; animation: gumroad-spin 1.5s infinite linear; } .gumroad-overlay-iframe { position: fixed !important; overflow: hidden !important; z-index: 99998 !important; top: 0 !important; right: 0 !important; width: 0; height: 0; border: none !important; margin: 0 !important; padding: 0 !important; zoom: 1; } @keyframes gumroad-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(359deg); } } </style></head>
+<body id="top" class="modular header-image fullwidth">
+    <div id="sb-site" style="min-height: 657px;">
+                <header id="header" class="scrolled">
+            <div class="header-inside">
+                <div id="logo">
+                    <h1><a href="http://imagehover.io/">imagehover.css</a></h1>
+                </div>
+                <div id="navbar">
+                                                                                            
+<ul class="navigation">
+                                    <li class="active">
+                <a href="http://imagehover.io/">
+                                        Home
+                </a>
+            </li>
+                                <li class="">
+                <a href="http://imagehover.io/docs">
+                                        Documentation
+                </a>
+            </li>
+                                <li class="">
+                <a href="mailto:info@imagehover.io?Subject=ImageHover.css%20Support">
+                                        Contact
+                </a>
+            </li>
+                    </ul>
+
+                    
+                        <span class="panel-activation sb-toggle-left navbar-left menu-btn fa fa-bars"></span>
+                </div>
+            </div>
+        </header>
+        
+        
+                <section id="body" class="">
+                
+            <div id="top"></div>
+        	<div class="modular-row showcase flush-top" style="background-image: url(/user/pages/01.home/_showcase-home/header-bg.jpg);">
+    <h1>Pure CSS Image Hover Effect Library</h1>
+<h2><strong>LESS</strong> &amp; <strong>SCSS</strong> Support, Fully <strong>Scaleable</strong>, Lovingly <strong>Crafted</strong>...</h2>
+
+            <a class="button" href="http://imagehover.io/#download">FREE - 44 Effects</a>
+            <a class="button" href="https://joomla51.com/joomla-extensions/imagehover-gallery-module">Joomla Module</a>
+            <a class="button primary" href="http://imagehover.io/extended">EXTENDED - 216 Effects</a>
+    
+</div>
+
+            <div id="download"></div>
+        <div class="modular-row callout download-home">
+	<div class="wrapper">
+	    	    	<div class="pure-g">
+  <div class="intro pure-u-sm-1-1 pure-u-md-2-3"> 
+    <p>Imagehover.css is a lovingly crafted CSS library allowing you to easily implement scaleable image hover effects. Choose from over 40 hover effect classes from a CSS library weighing in at a minified size of only <b>19KB</b>. </p>
+    <iframe src="./demo_1_files/github-btn.html" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+  </div>
+  <div class="download pure-u-sm-1-1 pure-u-md-1-3">
+    <a href="https://github.com/ciar4n/imagehover.css/archive/master.zip" class="button">Download</a>
+    <p class="version">Version 2.0 - <a href="https://github.com/ciar4n/imagehover.css">Github</a></p>
+  </div>
+</div>
+<div id="carbon" class="ad">
+<script async="" type="text/javascript" src="./demo_1_files/carbon.js.download" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42QYCW7I6KQICWSLYKQMFTBDL23WCEYIVZ3JCWADV5QLCYADV2QKC6BIE2QICE7DEK3EHJNCLSIZ?segment=placement:imagehoverio;" class="carbon-img" target="_blank" rel="noopener sponsored"><img src="./demo_1_files/1564610849-Atlas_Carbon_Ad_1.png" alt="ads via Carbon" border="0" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42QYCW7I6KQICWSLYKQMFTBDL23WCEYIVZ3JCWADV5QLCYADV2QKC6BIE2QICE7DEK3EHJNCLSIZ?segment=placement:imagehoverio;" class="carbon-text" target="_blank" rel="noopener sponsored">MongoDB Atlas is the only true global, multi-cloud database service. Try now!</a></span><a href="http://carbonads.net/?utm_source=imagehoverio&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a></span></div>
+</div>
+	</div>
+</div>
+
+            <div id="the_classes"></div>
+        <div class="modular-row callout the-classes">
+	<div class="wrapper">
+	    	    	<h3>The Classes</h3>
+<div class="effects pure-g">
+
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-fade"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-fade</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-push-up"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-push-up</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-push-down"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-push-down</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-push-left"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-push-left</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-push-right"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-push-right</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-slide-up"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-slide-up</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-slide-down"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-slide-down</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-slide-left"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-slide-left</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-slide-right"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-slide-right</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-reveal-up"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-reveal-up</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-reveal-down"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-reveal-down</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-reveal-left"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-reveal-left</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-reveal-right"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-reveal-right</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-hinge-up"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-hinge-up</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-hinge-down"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-hinge-down</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-hinge-left"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-hinge-left</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-hinge-right"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-hinge-right</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-flip-horiz"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-flip-horiz</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-flip-vert"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-flip-vert</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-flip-diag-1"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-flip-diag-1</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-flip-diag-2"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-flip-diag-2</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-shutter-out-horiz"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-shutter-out-horiz</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-shutter-out-vert"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-shutter-out-vert</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-shutter-out-diag-1"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-shutter-out-diag-1</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-shutter-out-diag-2"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-shutter-out-diag-2</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-shutter-in-horiz"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-shutter-in-horiz</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-shutter-in-vert"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-shutter-in-vert</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-shutter-in-out-horiz"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-shutter-in-out-horiz</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-shutter-in-out-vert"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-shutter-in-out-vert</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-shutter-in-out-diag-1"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-shutter-in-out-diag-1</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-shutter-in-out-diag-2"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-shutter-in-out-diag-2</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-fold-up"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-fold-up</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-fold-down"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-fold-down</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-fold-left"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-fold-left</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-fold-right"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-fold-right</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-zoom-in"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-zoom-in</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-zoom-out"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-zoom-out</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-zoom-out-up"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-zoom-out-up</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-zoom-out-down"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-zoom-out-down</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-zoom-out-left"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-zoom-out-left</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-zoom-out-right"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-zoom-out-right</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-zoom-out-flip-horiz"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-zoom-out-flip-horiz</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-zoom-out-flip-vert"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-zoom-out-flip-vert</textarea>
+  </div>
+  <div class="demo pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4">
+    <figure class="imghvr-blur"><img src="./demo_1_files/example-image.jpg" alt="example-image">
+      <figcaption>
+        <h3>Hello World</h3>
+        <p>Life is too important to be taken seriously!</p>
+      </figcaption><a href="javascript:;"></a>
+    </figure>
+    <textarea onclick="this.focus();this.select()" readonly="readonly">imghvr-blur</textarea>
+  </div>
+</div>
+	</div>
+</div>
+
+            <div id="footer_-_home"></div>
+        <div class="modular-row callout footer">
+	<div class="wrapper">
+	    	    	<h3>License</h3>
+<p>Imagehover.css is open source, and made available under the MIT License. Distribute, use as-is, or modify to your liking in personal and commercial projects. Please retain the original readme and license files.</p>
+	</div>
+</div>
+
+            </section>
+        
+                <footer id="footer">
+            <div class="totop">
+                <span><a href="http://imagehover.io/#" id="toTop"><i class="fa fa-chevron-up"></i></a></span>
+            </div>
+            <p>A CSS Library created by <a href="https://joomla51.com/">Joomla51</a></p>
+        </footer>
+            </div>
+    <div class="sb-slidebar sb-left sb-width-thin">
+        <div id="panel">
+        
+<ul class="navigation">
+                                    <li class="active">
+                <a href="http://imagehover.io/">
+                                        Home
+                </a>
+            </li>
+                                <li class="">
+                <a href="http://imagehover.io/docs">
+                                        Documentation
+                </a>
+            </li>
+                                <li class="">
+                <a href="mailto:info@imagehover.io?Subject=ImageHover.css%20Support">
+                                        Contact
+                </a>
+            </li>
+                    </ul>
+
+        </div>
+    </div>
+                
+        <script>
+        $(function () {
+            $(document).ready(function() {
+              $.slidebars({
+                hideControlClasses: true,
+                scrollLock: true
+              });
+            });
+        });
+        </script>
+    
+    
+
+<div class="gumroad-loading-indicator"><i></i></div></body></html>

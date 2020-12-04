@@ -1,0 +1,373 @@
+/* Does the same stuff as the viewport meta tag */
+@viewport {
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
+@-ms-viewport {
+    zoom: 1.0;
+    width: extend-to-zoom;
+}
+
+/* So that media scales with the viewport size */
+/* img, video, canvas { */
+/*     max-width: 100%; */
+/* } */
+
+.no-js-hide {
+    display: none;
+}
+.no-js-block {
+    display: block;
+}
+
+/* Desktop */
+@media all and (min-width: 700px) {
+    .desktop-hide {
+        display: none;
+    }
+    .desktop-hide.no-js-block {
+        display: block;
+    }
+    .text-hover-left {
+        -webkit-transition: left .25s ease-in-out;
+        -moz-transition: left .25s ease-in-out;
+        -ms-transition: left .25s ease-in-out;
+        -o-transition: left .25s ease-in-out;
+        transition: left .25s ease-in-out;
+    }
+    .button:hover > .text-hover-left {
+        left: -0.5em;
+    }
+}
+
+/* Mobile */
+@media all and (max-width: 700px) {
+    .mobile-hide {
+        display: none;
+    }
+    #git-mit-images img,
+    .highlights img {
+        max-width: 100%;
+        width: auto;
+        height: 70px;
+    }
+
+    /* Headers and other text
+     * ========================================
+     */
+    h1 {
+        line-height: 1.5em;
+    }
+    h1, h2, h3 {
+        font-size: 2.2em;
+        font-size: 8vw;
+        font-weight: 300;
+    }
+    .feature h1 {
+        font-size: 2em;
+        font-size: 7.25vw;
+        font-weight: 700;
+    }
+    .full-width-divider h2 {
+        font-size: 2.2em;
+        font-size: 8vw;
+        font-weight: 400;
+    }
+    h3 {
+        margin: 0.5em 0;
+    }
+    h4.intro {
+        font-size: 1.38em;
+        font-size: 5vw;
+        font-weight: 300;
+        margin-bottom: 1.5em;
+    }
+    p {
+        font-size: 1.38em;
+        font-size: 5vw;
+        font-weight: 300;
+        margin-bottom: 1.5em;
+    }
+
+    /* General margins and widths
+     * ========================================
+     */
+    /* Removing explicit and calculated static widths */
+    body,
+    header .wrapper,
+    footer .wrapper {
+        min-width: 0;
+        width: 100%;
+
+    }
+    .wrapper-bg-extend > * {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    header, footer {
+        width: 100%;
+    }
+    footer > .wrapper {
+        padding: 0;
+    }
+
+    /* Feature selector changes
+     * ========================================
+     */
+    #feature-selector {
+        padding-bottom: 0;
+        background-color: rgb(245,244,239);
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .home-feature {
+        width: 100%;
+    }
+
+
+    /* Things that we hide on mobile
+     * ========================================
+     */
+    .highlights h4,
+    #feature-demo,
+    #feature-arrow
+    {
+        display: none;
+    }
+
+    /* Changing things to single column
+     * ========================================
+     */
+    .column-box {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    .column-box~.column-box {
+        padding: 0;
+    }
+    .column-box + .clearfix {
+        display: none;
+    }
+    .multicolumn {
+        column-count: 1;
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+    }
+    .full-width-divider {
+        text-align: center;
+    }
+    .full-width-divider ul {
+        text-align: left;
+    }
+    .full-width-divider p {
+        text-align: left;
+        float: none;
+    }
+    .full-width-divider .align-center p {
+        text-align: center;
+    }
+    #code-intro {
+        width: 100%;
+        float: none;
+    }
+    .index-demo-code {
+        text-align: left;
+    }
+    .code-wrapper {
+        width: 100%;
+        padding: 0;
+        float: none;
+    }
+    .index-demo-code pre {
+        float: none;
+        margin: 1.5em 0;
+        height: auto;
+    }
+
+    /* But a few things should actually still remain multi-column */
+    #git-mit-images {
+        padding: 0;
+    }
+
+    #git-mit-images > .column-box {
+        float: left;
+        width: 50%;
+    }
+    #git-mit-images > .column-box + .clearfix {
+        display: block;
+    }
+
+    /* Feature selector and highlights stuff */
+    .highlights li {
+        padding: 7% 0;
+    }
+    .highlights li:hover {
+        background-color: rgb(245,244,239);
+    }
+    .highlights img {
+        max-height: 60px;
+        height: auto;
+    }
+
+
+    /* Header navigation
+     * ========================================
+     */
+    header,
+    #siteHeader {
+        width: 100%;
+        height: auto;
+    }
+    #mainNav {
+        line-height: 100%;
+        height: 100%;
+        position: relative;
+    }
+    #mainNav > #logo-link {
+        width: 50%;
+        padding: 5%;
+        float: none;
+        display: inline-block;
+    }
+    #logo {
+        height: auto;
+        width: 100%;
+        max-width: 214px;
+        margin: 0;
+    }
+    #mainNav a:after {
+        margin: 0 auto 0 auto;
+    }
+    #drawer-nav {
+        clear: both;
+        overflow: hidden;
+        height: auto;
+        line-height: 2em;
+        background-color: rgb(193,191,182);
+        background-color: rgb(213,210,201);
+    }
+    #drawer-nav ul {
+        margin: 0.8em 0 0.8em 0;
+        float: right;
+    }
+    #drawer-nav li {
+        margin: 0 1em;
+    }
+    #drawer-list {
+        width: 100%;
+        line-height: 1.5em;
+        line-height: 2em;
+    }
+    #mainNav > ul {
+        line-height: 1.5em;
+        line-height: 2em;
+    }
+    #mainNav > #mobile-nav {
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        right: 0;
+        float: none;
+        width: 50%;
+        height: 100%;
+        margin-top: 0;
+        font-family: 'ProximaNovaSoft', 'Varela Round', sans-serif;
+        font-weight: 700;
+    }
+    #mainNav > #mobile-nav a:after {
+        display: none;
+    }
+    #mobile-nav > li {
+        padding: 0 1.65em;
+        padding: 0 6vw;
+        padding: 0 10%;
+        margin: 0 auto;
+        border-left: 2px solid rgb(213,210,201);
+        float: right;
+    }
+    #mobile-nav > li:hover {
+        color: #ea4b35;
+    }
+    #expand-divider {
+        display: block;
+        clear: both;
+        background: rgb(213,210,201);
+        border: 0;
+        height: 2px;
+    }
+
+
+    /* Footer navigation
+     * ========================================
+     */
+    /* reseting styles that put footer at bottom for short desktop pages */
+    body {
+        position: static;
+    }
+    #body {
+        margin-bottom: 0;
+    }
+    footer {
+        position: static;
+    }
+    #made-by-prefix {
+        margin-left: 0.1em;
+    }
+    #onsip-stamp {
+        margin: 0 0.5em 2em 0; /*  center & bring nav lists up  */
+    }
+    /* Ignore the float instructions in the classes from the desktop layout.
+     * Maybe we should remove those classes and keep our styling to other
+     * selectors? */
+    footer nav {
+        clear: both;
+        font-size: 0.9em;
+    }
+    footer nav.right {
+        float: none;
+    }
+    footer nav.left {
+        float: none;
+    }
+    footer nav .horizontal li {
+        float: none;
+        display: inline;
+    }
+    footer .left .horizontal li {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0.809em;
+        padding-right: 0.809em;
+    }
+    footer .right .horizontal li {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0.809em;
+        padding-right: 0.809em;
+    }
+    footer nav ul {
+        text-align: center;
+        margin: 1em 0;
+    }
+    /* Adding dividing vertical lines between elements */
+    footer li + li {
+        border-left: 1px solid black;
+    }
+
+
+    /* MIX-IN TWEAKS
+     * ========================================
+     */
+    .hover-arrow {
+        display: none;
+    }
+}
+
+/* This sets visibility defaults for if Javascript is disabled */
+@media all and (max-width: 700px) {
+    #drawer-nav {
+        max-height: 8em;
+    }
+}

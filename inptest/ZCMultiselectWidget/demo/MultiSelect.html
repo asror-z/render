@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="row">
+    <div class="col-md-5">
+        <select name="{name}[]" id="undo_redo" class="form-control yy" size="13" multiple="multiple">
+            {content}
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <button type="button" id="{id}-undo_redo_undo" class="btn btn-primary btn-block">undo</button>
+        <button type="button" id="{id}-undo_redo_rightAll" class="btn btn-default btn-block"><i class="fas fa-forward"></i></button>
+        <button type="button" id="{id}-undo_redo_rightSelected" class="btn btn-default btn-block"><i class="fas fa-chevron-right"></i></button>
+        <button type="button" id="{id}-undo_redo_leftSelected" class="btn btn-default btn-block"><i class="fas fa-chevron-left"></i></button>
+        <button type="button" id="{id}-undo_redo_leftAll" class="btn btn-default btn-block"><i class="fas fa-backward"></i></button>
+        <button type="button" id="{id}-undo_redo_redo" class="btn btn-warning btn-block">redo</button>
+    </div>
+
+    <div class="col-md-5">
+        <select name="{name}[]" id="{id}-undo_redo_to" class="form-control hh" size="13" multiple="multiple">
+
+        </select>
+    </div>
+</div>
+
+
+
+<script !src="https://cdnjs.cloudflare.com/ajax/libs/multiselect/2.2.9/js/multiselect.min.js"></script>
+<script !src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script !src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+<script !src="">
+var all = [];
+$(document).ready(function() {
+    $('#undo_redo').multiselect({
+        afterMoveToRight : function(e) {
+            var values = $('#undo_redo_to').children();
+            values.each(function() {
+
+                //console.log(this.val());
+                var a = this.value;
+                all.push(a);
+
+                console.log(a);
+                console.log(all);
+            });
+            console.log(values);
+        }
+    });
+
+    $('#undo_redo_to').on('change', function() {
+        var values = $('#undo_redo_to').children();
+        console.log(values);
+    })
+});
+</script>
+</body>
+</html>

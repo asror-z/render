@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/css/multi-select.min.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-xl-6">
+        <select id="multiSelect" class="form-control" name="fruit" size="8" value="option" multiple="multiple">
+            <input class="search-input" type="text" placeholder="Search fruits...">
+            <option>Понедельник</option>
+            <option>Вторник</option>
+            <option>Среда</option>
+            <option>Четверг</option>
+            <option>Пьятница</option>
+        </select>
+    </div>
+</div>
+
+<script language="JavaScript">
+
+    var select = document.getElementById('multiSelect');
+    multi(select, {
+        search_placeholder: 'Search fruits...',
+    });
+
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-45755328-17', 'auto');
+    ga('send', 'pageview');
+
+    $('#multiSelect').multi, {
+        "enable_search": true,
+        'limit': -1,
+        "non_selected_header": true,
+        "selected_header": true,
+        'limit_reached': function () {
+            alert('You have selected 10/10 elements.');
+
+        }
+
+    };
+
+</script>
+<script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/multiselect/2.2.9/js/multiselect.min.js"></script>
+</body>
+</html>

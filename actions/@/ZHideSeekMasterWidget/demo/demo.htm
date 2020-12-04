@@ -1,0 +1,151 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0086)https://www.jqueryscript.net/demo/jQuery-Text-Live-Search-Filter-Plugin-HideSeek/demo/ -->
+<!DOCTYPE html PUBLIC "" ""><HTML lang="en"><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8"> <TITLE>jQuery HideSeek Plugin Examples</TITLE> 
+<META name="description" content="A simple, yet customizable live search jQuery plugin"> <!-- STYLES --> 
+<LINK href="demo_files/css.css" rel="stylesheet" type="text/css"> <LINK href="demo_files/reset.css" 
+rel="stylesheet" type="text/css"> <LINK href="demo_files/typography.css" rel="stylesheet" 
+type="text/css"> <LINK href="demo_files/styles.css" rel="stylesheet" type="text/css"> 
+<LINK href="demo_files/github.css" rel="stylesheet" type="text/css"> <!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> <!--[if lt IE 7]>  <body class="ie ie6 lte9 lte8 lte7"> <![endif]--> <!--[if IE 7]>     <body class="ie ie7 lte9 lte8 lte7"> <![endif]--> <!--[if IE 8]>     <body class="ie ie8 lte9 lte8">      <![endif]--> <!--[if IE 9]>     <body class="ie ie9 lte9">           <![endif]--> <!--[if gt IE 9]>  <body class="ie">                    <![endif]--> <!--[if !IE]><!--> 
+<BODY><!--<![endif]--> <IMG class="screenshot" src="demo_files/hideseek.png"> 
+<DIV id="wrapper"><!-- HEADER --> 
+<DIV id="header_wrapper"><HEADER>
+<H1>jQuery HideSeek Plugin Examples</H1>
+<H2>A simple, yet customizable live search jQuery plugin</H2><BR>
+<DIV class="jquery-script-ads">
+<SCRIPT type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</SCRIPT>
+ 
+<SCRIPT src="demo_files/f.txt" type="text/javascript"></SCRIPT>
+</DIV><A class="button" href="https://github.com/vdw/HideSeek/archive/master.zip">download</A><A 
+class="link" href="https://github.com/vdw/HideSeek" rel="nofollow">or view on 
+GitHub</A></HEADER></DIV><!-- HEADER ends --> <!-- MAIN CONTAINER --> 
+<DIV id="body_wrapper"><!-- <h3>About</h3> --> <SECTION id="body" 
+role="main"><ARTICLE>
+<H2> HideSeek is simple, yet customizable jQuery plugin for for live search, is 
+compatible with IE7+, Chrome, Firefox, Safari and jQuery 1.8.1, 1.9.1, 1.10.1, 
+2.0.2. and					supports <A class="anchorLink" href="https://www.jqueryscript.net/demo/jQuery-Text-Live-Search-Filter-Plugin-HideSeek/demo/#highlight">highlighting</A>, 
+<A class="anchorLink" href="https://www.jqueryscript.net/demo/jQuery-Text-Live-Search-Filter-Plugin-HideSeek/demo/#nodata">custom 
+message</A> and <A class="anchorLink" href="https://www.jqueryscript.net/demo/jQuery-Text-Live-Search-Filter-Plugin-HideSeek/demo/#attribute">initialization 
+via data attribute</A>.</H2></ARTICLE></SECTION>
+<H3>Demonstration</H3><!-- CONTENT --> <SECTION><!-- CONTENT BLOCK --> <ARTICLE>
+<DIV class="column">
+<H2>Default usage</H2>
+<PRE data-language="javascript">$('#search-1').hideseek();
+</PRE></DIV>
+<DIV class="column"><LABEL for="search">Programming Language 
+Popularity</LABEL><INPUT name="search" id="search" type="text" placeholder="Start typing here" value="" data-list=".default_list"> 
+<UL class="vertical default_list">
+  <LI>C</LI>
+  <LI>Java</LI>
+  <LI>PHP</LI>
+  <LI>JavaScript</LI>
+  <LI>C++</LI>
+  <LI>Python</LI>
+  <LI>Shell</LI>
+  <LI>Ruby</LI>
+  <LI>Objective C</LI>
+  <LI>C#</LI></UL></DIV>
+<DIV class="clear"></DIV></ARTICLE><ARTICLE id="highlight">
+<DIV class="column">
+<H2>Highlight</H2>
+<PRE data-language="javascript">$('#search-highlight').hideseek({
+	highlight: true
+});
+</PRE></DIV>
+<DIV class="column"><LABEL for="search-highlight">Browser Statistics and 
+Trends</LABEL><INPUT name="search-highlight" id="search-highlight" type="text" placeholder="Start typing here" value="" data-list=".highlight_list"> 
+<UL class="vertical highlight_list">
+  <LI>Chrome</LI>
+  <LI>Firefox</LI>
+  <LI>Internet Explorer</LI>
+  <LI>Safari</LI>
+  <LI>Opera</LI></UL></DIV>
+<DIV class="clear"></DIV></ARTICLE><ARTICLE id="nodata">
+<DIV class="column">
+<H2>No results message</H2>
+<PRE data-language="javascript">$('#search-nodata').hideseek({
+	nodata: 'No results found'
+});
+</PRE></DIV>
+<DIV class="column"><LABEL for="search-nodata">Top Greatest Movies of All 
+Time</LABEL><INPUT name="search-nodata" id="search-nodata" type="text" placeholder="Start typing here" value="" data-list=".nodata_list"> 
+<UL class="vertical nodata_list">
+  <LI>The Godfather</LI>
+  <LI>Schindler's List</LI>
+  <LI>Raging Bull</LI>
+  <LI>The Shawshank Redemption</LI>
+  <LI>Casablanca</LI>
+  <LI>One Flew Over the Cuckoo's Nest</LI>
+  <LI>Gone with the Wind</LI>
+  <LI>Citizen Kane</LI></UL></DIV>
+<DIV class="clear"></DIV></ARTICLE></SECTION><!-- CONTENT ends--> 
+<H3>Use of data attribute to load</H3><SECTION><!-- CONTENT BLOCK --> <ARTICLE 
+id="attribute">
+<DIV class="column">
+<H2>The attribute "data-toggle"</H2>
+<PRE data-language="javascript"><INPUT data-toggle="hideseek">
+</PRE></DIV>
+<DIV class="column"><LABEL for="search">Top 10 Front-End Development 
+Frameworks</LABEL><INPUT name="search" id="search" type="text" placeholder="Start typing here" value="" data-list=".default_list" data-toggle="hideseek" data-nodata="No results found"> 
+<UL class="vertical default_list">
+  <LI>Bootstrap</LI>
+  <LI>Fbootstrapp</LI>
+  <LI>BootMetro</LI>
+  <LI>Kickstrap</LI>
+  <LI>Foundation</LI>
+  <LI>GroundworkCSS</LI>
+  <LI>Gumby</LI>
+  <LI>HTML KickStart</LI>
+  <LI>IVORY</LI>
+  <LI>Kube</LI></UL></DIV>
+<DIV class="clear"></DIV></ARTICLE></SECTION></DIV><!-- MAIN CONTAINER ends --> <!-- FOOTER --> 
+<FOOTER><!-- FOOTER CONTAINER--> 
+<DIV class="footer_wrapper">
+<P>Built by <A href="https://github.com/vdw" rel="nofollow">vdw</A> aka <A href="https://gr.linkedin.com/in/dkrestos/" 
+target="_blank" rel="nofollow">Dimitris Krestos</A><BR>Code licensed under <A 
+href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 
+License v2.0</A></P></DIV><!-- FOOTER CONTAINER ends --> </FOOTER></DIV><!-- JQuery --> 
+
+<SCRIPT src="demo_files/jquery.min.js"></SCRIPT>
+ 
+<SCRIPT>window.jQuery || document.write('<script src="javascripts/vendor/jquery-1.8.1.min.js"><\/script>')</SCRIPT>
+ <!-- JS --> 
+<SCRIPT src="demo_files/waypoints.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="demo_files/waypoints-sticky.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="demo_files/jquery.hideseek.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="demo_files/rainbow-custom.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="demo_files/jquery.anchor.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="demo_files/initializers.js"></SCRIPT>
+ <!-- JS ends --> 
+<SCRIPT type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</SCRIPT>
+ </BODY></HTML>

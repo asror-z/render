@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin-top: 50px;
+      font-family: sans-serif;
+      background: #f1f1f1;
+    }
+
+    table {
+      margin: 0 auto;
+      text-align: center;
+      border-collapse: collapse;
+      border: 1px solid #d4d4d4;
+      font-size: 20px;
+      background: #fff;
+    }
+
+    table th,
+    table tr:nth-child(2n+2) {
+      background: #e7e7e7;
+    }
+
+    table th,
+    table td {
+      padding: 20px 50px;
+    }
+
+    table th {
+      border-bottom: 1px solid #d4d4d4;
+    }
+
+    .stars-outer {
+      display: inline-block;
+      position: relative;
+      font-family: FontAwesome;
+    }
+
+    .stars-outer::before {
+      content: "\f006 \f006 \f006 \f006 \f006";
+    }
+
+    .stars-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+    }
+
+    .stars-inner::before {
+      content: "\f005 \f005 \f005 \f005 \f005";
+      color: #f8ce0b;
+    }
+
+    .attribution {
+      font-size: 12px;
+      color: #444;
+      text-decoration: none;
+      text-align: center;
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      z-index: -1;
+    }
+    .attribution:hover {
+      color: #1fa67a;
+    }
+  </style>
+</head>
+<body>
+<table>
+ 
+  <tbody>
+  <tr class="hotel_a">
+    
+    <td>
+      <div class="stars-outer">
+        <div class="stars-inner">  </div>
+      </div>
+    </td>
+  </tr>
+  
+  </tbody>
+</table>
+
+<a class="attribution" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"><i class="fas fa-star amber-text"></i> </a>
+<script>
+    const ratings = {
+        hotel_a : 0.8,
+
+    };
+
+    // total number of stars
+    const starTotal = 10;
+
+    for(const rating in ratings) {
+        const starPercentage = (ratings[rating] / starTotal) * 100;
+        const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+        document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
+    }
+</script>
+</body>
+</html>

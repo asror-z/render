@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!-- saved from url=(0018)https://gkk.uz/uz/ -->
+<html >
+<head>
+
+
+
+    <link rel="stylesheet" href="https://gkk.uz/plugins/system/gspeech/includes/css/gspeech.css" type="text/css">
+    <link rel="stylesheet" href="https://gkk.uz/plugins/system/gspeech/includes/css/the-tooltip.css" type="text/css">
+
+
+
+    <script src="/publish/audio/gspeech/audio/jquery-1.8.1.min.js" type="text/javascript"
+            style="color: rgb(0, 0, 0);"></script>
+<!--    <script src="https://gkk.uz/plugins/system/gspeech/includes/js/color.js" type="text/javascript"></script>-->
+
+
+
+    <script src="/publish/audio/gspeech/includes/js/easing.js" type="text/javascript"></script>
+    <script src="/publish/audio/gspeech/includes/js/mediaelement-and-player.min.js"
+            type="text/javascript"></script>
+    <script src="/publish/audio/gspeech/includes/js/gspeech.js"
+            type="text/javascript"></script>
+<!--    <script src="https://gkk.uz/plugins/system/gspeech/includes/js/gspeech_pro.js?version=2.0.1"-->
+<!--            type="text/javascript"></script>-->
+    <script src="/publish/audio/gspeech/includes/js/jQueryRotate.2.1.js" type="text/javascript"></script>
+
+
+
+    <!-- Resize column function -->
+
+<!--    <script type="text/javascript"-->
+<!--            src="https://gkk.uz/templates/game_world/js/core/s5_columns_equalizer-min.js"></script>-->
+
+
+
+<!--    <link rel="stylesheet" type="text/css" href="./demo_files/css">-->
+    <link href="/publish/audio/gspeech/New folder/css/tooltip.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="s5_body">
+
+asdsada
+
+<div style="position: absolute; left: -911px; top: 0;">
+    <script type="text/javascript" src="/publish/audio/gspeech/New folder/orphus.js"></script>
+    <a href="http://orphus.ru/" id="orphus" target="_blank" title="??????? Orphus"><img alt="??????? Orphus"
+                                                                                        src="https://gkk.uz/orphus/orphus.gif"
+                                                                                        border="0" width="257"
+                                                                                        height="48"></a></div>
+
+</div>
+<!-- End Body Padding -->
+
+<script type="text/javascript">
+    var s5_initial_load = 40;
+
+    function s5_position_top() {
+        document.getElementById("s5_top_area_bg").style.height = document.getElementById("s5_top_area_bg_img").offsetHeight + "px";
+        if (document.getElementById("s5_floating_menu_spacer") && document.getElementById("s5_menu_move")) {
+            document.getElementById("s5_floating_menu_spacer").id = "s5_menu_spacer";
+            document.getElementById("s5_menu_move").id = "s5_floating_menu_spacer";
+        }
+    }
+
+    jQuery(document).ready(function () {
+        s5_position_top();
+    });
+    jQuery(window).resize(s5_position_top);
+    var s5_component_height = 0;
+    var s5_tallest_column = 0;
+
+    function s5_set_column_heights() {
+        if (document.getElementById("s5_component_call_wrap_inner")) {
+            if (document.getElementById("s5_pos_custom_2")) {
+                document.getElementById("s5_pos_custom_2").style.minHeight = "auto";
+            }
+            if (document.getElementById("s5_left_wrap_inner")) {
+                document.getElementById("s5_left_wrap_inner").style.minHeight = "auto";
+            }
+            if (document.getElementById("s5_right_wrap_inner")) {
+                document.getElementById("s5_right_wrap_inner").style.minHeight = "auto";
+            }
+            s5_tallest_column = 0;
+
+            if (document.getElementById("s5_pos_custom_2")) {
+                if (document.getElementById("s5_pos_custom_2").offsetHeight > s5_tallest_column) {
+                    s5_tallest_column = document.getElementById("s5_pos_custom_2").offsetHeight;
+                }
+            }
+            if (document.getElementById("s5_right_wrap_inner")) {
+                if (document.getElementById("s5_right_wrap_inner").offsetHeight > s5_tallest_column) {
+                    s5_tallest_column = document.getElementById("s5_right_wrap_inner").offsetHeight;
+                }
+            }
+            if (document.getElementById("s5_left_wrap_inner")) {
+                if (document.getElementById("s5_left_wrap_inner").offsetHeight > s5_tallest_column) {
+                    s5_tallest_column = document.getElementById("s5_left_wrap_inner").offsetHeight;
+                }
+            }
+            if (document.getElementById("s5_left_inset_wrap")) {
+                if ((document.getElementById("s5_left_inset_wrap").offsetHeight - 25) > s5_tallest_column) {
+                    s5_tallest_column = document.getElementById("s5_left_inset_wrap").offsetHeight - 25;
+                }
+            }
+            if (document.getElementById("s5_right_inset_wrap")) {
+                if ((document.getElementById("s5_right_inset_wrap").offsetHeight - 25) > s5_tallest_column) {
+                    s5_tallest_column = document.getElementById("s5_right_inset_wrap").offsetHeight - 25;
+                }
+            }
+            s5_component_height = document.getElementById("s5_component_call_wrap_inner").offsetHeight;
+            if (document.getElementById("s5_component_call_wrap_inner").offsetHeight > s5_tallest_column) {
+                s5_tallest_column = document.getElementById("s5_component_call_wrap_inner").offsetHeight;
+            }
+
+            if (document.getElementById("s5_pos_custom_2")) {
+                document.getElementById("s5_pos_custom_2").style.minHeight = s5_tallest_column + "px";
+            }
+            if (document.getElementById("s5_left_wrap_inner")) {
+                document.getElementById("s5_left_wrap_inner").style.minHeight = s5_tallest_column + "px";
+            }
+            if (document.getElementById("s5_right_wrap_inner")) {
+                document.getElementById("s5_right_wrap_inner").style.minHeight = s5_tallest_column + "px";
+            }
+        }
+        window.setTimeout(s5_set_column_heights, 500);
+    }
+
+    jQuery(document).ready(function () {
+        s5_set_column_heights();
+    });
+    jQuery(window).resize(s5_set_column_heights);
+</script>
+
+
+<!--<script type="text/javascript" src="https://gkk.uz/share42/share42.js"></script>-->
+
+<!-- The Modal -->
+
+
+
+
+<span id="sexy_tooltip_title" style="display: none; left: 479.5px; opacity: 2.22045e-16; top: 761px;"><span
+        class="the-tooltip top left dark-midnight-blue"><span class="tooltip_inner">Matnni eshitish uchun quyidagini bosing!</span></span></span>
+<span id="sexy_tooltip" style="display: none; left: 479.5px; opacity: 2.22045e-16; top: 1361px;"><span
+        class="the-tooltip bottom left dark-midnight-blue"><span
+        class="tooltip_inner powered_by_3 powered_by"> </span></span></span></a><a
+        href="http://2glux.com/projects/gspeech" target="_blank" class="backlink_a">GSpeech</a>
+
+
+<div id="sound_container" class="sound_div sound_div_basic size_1 speaker_32" title=""
+     style="left: 495px; top: 961px; transform: rotate(0deg); display: none; opacity: 1;">
+    <div id="sound_text">, 2018 йил 11 октябрдаги ПФ-5552-сонли ҳамда 2019 йил 19 февралдаги ПФ-5666-сонли фармонларига
+        мувофиқ Ўзбекистон Республикаси Давлат активларини бошқариш агентлиги Бухоро вилояти ҳудудий бошқармаси Бухоро
+        тумани, Наврўз МФЙ, Баҳор кўчасида жойлашган Бухоро туман Стоматология поликлиникасини фаолият турини 10 йил
+        мобайнида сақлаб қолиш шарти билан баҳоланган нарх (бошланғич нархи) (233&nbsp;448&nbsp;436) бўйича электрон
+        онлайн аукцион (www.e-auksion.uz) савдоларига таклиф этади.
+
+
+        Монополия
+    </div>
+</div>
+<div id="sound_audio"></div>
+<script type="text/javascript">
+    var players = new Array(),
+        blink_timer = new Array(),
+        rotate_timer = new Array(),
+        lang_identifier = 'ru',
+        selected_txt = '',
+        sound_container_clicked = false,
+        sound_container_visible = true,
+        blinking_enable = true,
+        basic_plg_enable = true,
+        pro_container_clicked = false,
+        streamerphp_folder = '/publish/audio/gspeech/',
+        translation_tool = 'g',
+        //translation_audio_type = 'audio/x-wav',
+        translation_audio_type = 'audio/mpeg',
+        speech_text_length = 100,
+        blink_start_enable_pro = true,
+        createtriggerspeechcount = 0,
+        speechtimeoutfinal = 0,
+        speechtxt = '',
+        userRegistered = "0",
+        gspeech_bcp = ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"],
+        gspeech_cp = ["#111111", "#3284c7", "#fc0000", "#0d7300", "#ea7d00"],
+        gspeech_bca = ["#545454", "#3284c7", "#ff3333", "#0f8901", "#ea7d00"],
+        gspeech_ca = ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"],
+        gspeech_spop = ["90", "80", "90", "90", "90"],
+        gspeech_spoa = ["100", "100", "100", "100", "100"],
+        gspeech_animation_time = ["400", "400", "400", "400", "400"];
+</script>
+
+
+<script defer src="/publish/audio/gspeech/includes/js/nwmatcher-1.2.4-min.js"></script>
+<script defer src="/publish/audio/gspeech/includes/js/selectivizr-min.js"></script>
+<![endif]-->
+
+</body>
+</html>

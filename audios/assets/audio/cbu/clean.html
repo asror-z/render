@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://cbu.uz/uzc/?VOICE=Y -->
+<html lang="yz" class="bx-core bx-no-touch bx-no-retina bx-chrome">
+<head>
+
+
+    <link href="./demo_files/template_5b4e08db204ada60b9ee298ab45f08d6_v1.css" type="text/css"
+          data-template-style="true" rel="stylesheet">
+
+
+</head>
+<body class="" style="">
+
+
+<div id="rv_spk" onselectstart="return false" style="left: 497px; top: 1517px; display: block;" class="load_rv"></div>
+
+
+salom
+<img src="z">
+<span id="yz-text" style="overflow-wrap: break-word;"></span>
+
+
+<script type="text/javascript" src="./demo_files/template_598beff39bdb434a67663e13db709ced_v1.js.download"></script>
+
+
+
+
+<script>
+    document.getElementById("rv_spk").onmousedown = function () {
+        return false
+    }
+
+    function speak() {
+        $('#rv_spk').select(function () {
+            return false;
+        })
+        var selection;
+        var rv_text;
+        $(window).mouseup(function (e) {
+            var xPos = e.pageX;
+            var yPos = e.pageY;
+            if (e.target.id != "rv_spk") {
+                $("#rv_spk").css({
+                    'left': xPos + 'px',
+                    'top': yPos + 'px',
+                });
+            }
+            if (window.getSelection) {
+                selection = window.getSelection();
+            } else if (document.selection) {
+                selection = document.selection.createRange();
+            }
+            if (selection.isCollapsed == false) {
+                $("#rv_spk").fadeIn('slow');
+            } else {
+                $("#rv_spk").hide().removeClass('load_rv');
+                responsiveVoice.cancel();
+            }
+            // console.log(selection.toString());
+            $('#yz-text').text(selection.toString());
+            var str;
+            $('#yz-text').liTranslit({
+                reg: '"а"="a","и"="i","р"="r","ш"="ş","б"="b","й"="y","с"="s","ъ"="‘","в"="v","к"="k","т"="t","ғ"="g‘","г"="g","л"="l","у"="u","қ"="k","д"="d","м"="m","ф"="f","ў"="o‘","е"="e","н"="n","х"="x","ҳ"="h","ж"="j","о"="o","ц"="ts" ,"з"="z","п"="p","ч"="ç","я"="ya","нг"="ng","pub"="pu‘b"',
+                /*elAlias: $('.demo2_translit'),*/
+                translated: function (el, text, eventType) {
+                    str = text;
+                    str = str.replace(/_/g, " ");
+                    // $('#test').text(str);
+                }
+            });
+            // console.log(str);
+            rv_text = selection.toString();
+            rv_text = str;
+        });
+        $("#rv_spk").click(function (e) {
+            responsiveVoice.speak(rv_text, "Turkish Female", {
+                onstart: function () {
+                    $('#rv_spk').addClass('load_rv');
+                }, onend: function () {
+                    $('#rv_spk').removeClass('load_rv');
+                }
+            });
+        });
+        $('a, label, button, option').each(function () {
+            $(this).hover(function () {
+                $('#yz-text').text($(this).text());
+                $('#yz-text').liTranslit({
+                    reg: '"а"="a","и"="i","р"="r","ш"="ş","б"="b","й"="y","с"="s","ъ"="‘","в"="v","к"="k","т"="t","ғ"="g‘","г"="g","л"="l","у"="u","қ"="k","д"="d","м"="m","ф"="f","ў"="o‘","е"="e","н"="n","х"="h","ҳ"="h","ж"="j","о"="o","ц"="ts" ,"з"="z","п"="p","ч"="ç","я"="ya","нг"="ng","pub"="pu‘b"',
+                    /*elAlias: $('.demo2_translit'),*/
+                    translated: function (el, text, eventType) {
+                        str = text;
+                        str = str.replace(/_/g, " ");
+                        // $('#test').text(str);
+                    }
+                });
+                rv_text2 = $(this).text();
+                rv_text2 = str;
+                responsiveVoice.speak(rv_text2, "Turkish Female");
+                console.log(rv_text2);
+            }, function () {
+                responsiveVoice.cancel();
+                $('#yz-text').text('');
+            });
+        })
+    }
+
+    window.onload = speak;
+</script>
+<script type="text/javascript" src="./demo_files/jquery.liTranslit.js.download"></script>
+<script type="text/javascript" src="./demo_files/responsivevoice.js.download"></script>
+
+<script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+
+</body>
+
+
+</html>

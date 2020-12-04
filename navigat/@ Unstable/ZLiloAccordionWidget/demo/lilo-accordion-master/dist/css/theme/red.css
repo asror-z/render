@@ -1,0 +1,66 @@
+.red .lilo-accordion-control {
+    color: #FFFDF9;
+    background: #E74D3D;
+    font-family: Arial, Helveirca, sans-serif;
+    font-size: 16px;
+    padding: 16px 16px 16px 32px;
+    font-weight: 600;
+    border-bottom: 1px solid #D73D2D;
+    border-top: 1px solid #F75D4D;
+    position: relative;
+}
+
+.red .lilo-accordion-content {
+    background: #FF6D5D;
+    padding: 16px;
+    color: #FFFDF9;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.red .lilo-accordion-control::before {
+    content: "";
+    display: inline-block;
+    margin-right: 16px;
+    text-align: center;
+    width: 8px;
+    height: 2px;
+    background: #FFFDF9;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 16px;
+    transition: .4s linear;
+}
+
+.red .lilo-accordion-control::after {
+    content: "";
+    display: inline-block;
+    margin-right: 16px;
+    text-align: center;
+    width: 8px;
+    height: 2px;
+    background: #FFFDF9;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 16px;
+    transform: rotate(90deg);
+    transition: .4s linear;
+    transition-delay: .07s;
+}
+
+.red .lilo-accordion-control.active::before {
+    transform: rotate(180deg);
+}
+
+.red .lilo-accordion-control.active::after {
+    transform: rotate(0deg);
+}
+
+.red .lilo-accordion-content p:first-child {
+    margin-top: 0;
+}
+
+.red .lilo-accordion-content p:last-child {
+    margin-bottom: 0;
+}

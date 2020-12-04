@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="daterangepicker/daterangepicker.css"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+    <script type="text/javascript" src="daterangepicker/daterangepicker.js"></script>
+
+</head>
+<body>
+
+<div class="col-md-4 col-md-offset-2 demo">
+    <h4>Your Date Range Picker</h4>
+    <center>
+        <input type="text" id="config-demo" class="form-control">
+    </center>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var options = {};
+
+        $('#config-demo').daterangepicker(options,
+            function (start, end, label) {
+            console.log('Selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD')
+                    + ' (predefined range: ' + label + ')');
+
+            }).click();
+    });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,3591 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/azul.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/bee-inspired.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/blue.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/caravan.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/carp.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/cool.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-blue.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-bold.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-digerati.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-fresh-cut.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-mushroom.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/eduardo.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/forest.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/fresh-cut.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/fruit.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/gray.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/green.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/helianthus.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/infographic.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/inspired.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/jazz.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/london.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/macarons.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/macarons2.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/mint.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/red.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/red-velvet.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/roma.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/royal.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/sakura.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/shine.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/tech-blue.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/vintage.js"
+        type="text/javascript"></script>
+
+<script
+        type="text/javascript">
+
+
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null
+    option = {
+        "title": {
+            id: '',
+            "show": true,
+            "text": "ZCore ChartEx Widget v4",
+            "link": "",
+            target: 'self', //'blank',
+            "subtext": "",
+            "itemGap": 5,
+
+            textStyle: {
+                "align": "right",
+                color: '#333',
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+                fontFamily: 'sans-serif',
+                fontSize: 18,
+                lineHeight: 15,
+                width: 15,
+                height: 15,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+            },
+            rich: {
+                a: {
+                    color: '#999',
+                    lineHeight: 22,
+                    align: 'center'
+                },
+                // abg: {
+                //     backgroundColor: '#333',
+                //     width: '100%',
+                //     align: 'right',
+                //     height: 22,
+                //     borderRadius: [4, 4, 0, 0]
+                // },
+                hr: {
+                    borderColor: '#aaa',
+                    width: '100%',
+                    borderWidth: 0.5,
+                    height: 0.5,
+                },
+                b: {
+                    fontSize: 16,
+                    lineHeight: 33
+                },
+                per: {
+                    color: '#eee',
+                    backgroundColor: '#334455',
+                    padding: [2, 4],
+                    borderRadius: 2
+                }
+            },
+            "padding": [
+                10,
+                10,
+                10,
+                60
+            ],
+            subtext: 'subetext for you',
+            sublink: '',
+            subtarget: 'blank',
+
+            subtextStyle: {
+                color: '#aaa',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: 'center',
+                verticalAlign: '',
+                lineHeight: '',
+                width: "",
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+            },
+
+            textAlign: 'auto',
+            textVerticalAlign: 'auto',
+            triggerEvent: false,
+            padding: 5,
+            itemGap: 10,
+            zlevel: 0,
+            z: 2,
+            left: 'auto',
+            top: 'auto',
+            right: 'auto',
+            bottom: 'auto',
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            borderRadius: 0,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+
+        },
+        "legend": {
+            "type": '',
+            "id": '',
+            "show": true,
+            "zlevel": 0,
+            "z": 2,
+            "left": 'auto',
+            "top": 'auto',
+            "right": 'auto',
+            "bottom": 'auto',
+            "width": 'auto',
+            "height": 'auto',
+            "orient": 'horizontal',
+            "align": 'auto',
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "symbolKeepAspect": true,
+            "formatter": '',
+            "selectedMode": true,
+            "inactiveColor": '#ccc',
+            "selected": '',
+
+            "textStyle": {
+                " color": "#fff",
+                "fontStyle": 'normal',
+                "fontWeight": 'normal',
+                "fontFamily": 'sans-serif',
+                "fontSize": 12,
+                "align": '',
+                "verticalAlign": '',
+                "lineHeight": '',
+                "backgroundColor": 'transparent',
+                "borderColor": 'transparent',
+                "borderWidth": 0,
+                "borderRadius": 0,
+                "padding": 0,
+                "shadowColor": 'transparent',
+                "shadowBlur": 0,
+                "shadowOffsetX": 0,
+                " shadowOffsetY": 0,
+                "width": '',
+                "height": '',
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowColor": 'transparent',
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+
+            },
+            "tooltip": '',
+            "icon": '',
+            "data": [{
+                name: '',
+                icon: '',
+                textStyle: '',
+            }],
+            "backgroundColor": 'transparent',
+            "borderColor": '#ccc',
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "shadowBlur": '',
+            "shadowColor": '',
+            "shadowOffsetX": 0,
+            "shadowOffsetY": 0,
+            "scrollDataIndex": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonGap": '',
+            "pageButtonPosition": 'end',
+            "pageFormatter": '{current}/{total}',
+            "pageIcons": {
+                horizontal: '',
+                vertical: '',
+            },
+            "pageIconColor": '#2f4554',
+            "pageIconInactiveColor": '#aaa',
+            "pageIconSize": 15,
+            " pageTextStyle": {
+                "color": ' #333',
+                "fontStyle": 'normal',
+                "fontWeight": 'normal',
+                "fontFamily": 'sans-serif',
+                "fontSize": 12,
+                "lineHeight": '',
+                "width": '',
+                "height": '',
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowColor": 'transparent',
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+                "selectorPosition": 'auto',
+                "selectorItemGap": 7,
+                "selectorButtonGap": 10,
+            },
+            "animation": '',
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorLabel": {
+                "show": true,
+                "distance": 5,
+                "rotate": '',
+                "offset": '',
+                "color": "#fff",
+                "fontStyle": 'normal',
+                "fontWeight": 'normal',
+                "fontFamily": 'sans-serif',
+                "fontSize": 12,
+                "align": '',
+                "verticalAlign": '',
+                "lineHeight": '',
+                "backgroundColor": 'transparent',
+                "borderColor": 'transparent', borderWidth: 0,
+                "borderRadius": 0,
+                "padding": 0,
+                "shadowColor": 'transparent',
+                "shadowBlur": 0,
+                "shadowOffsetX": 0,
+                "shadowOffsetY": 0,
+                "width": '',
+                "height": '',
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+            },
+            "selectorPosition": 'auto',
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10,
+
+        },
+       /* "dataZoom": [
+            {
+                "show": true,
+                "type": "inside",
+                "startValue": null,
+                "endValue": null,
+                "start": null,
+                "end": null
+            },
+            {
+
+                "show": true,
+                "type": "slider",
+                "filterMode": "filter",
+                "handleSize": "100%",
+                "showDataShadow": true,
+                "handleStyle": {
+                    "color": "black",
+                    "shadowBlur": 3,
+                    "shadowColor": "rgba(0, 0, 0, 0.6)",
+                    "shadowOffsetX": 4,
+                    "shadowOffsetY": 4
+                },
+                "orient": "horizontal",
+                "zoomLock": false,
+                "showDetail": true,
+                "textStyle": {
+                    "fontSize": "11",
+                    "fontWeight": "normal"
+                },
+                "startValue": null,
+                "endValue": null,
+                "start": null,
+                "end": null
+            }
+        ],*/
+        "grid": {
+            "show": true,
+            "zlevel": 0,
+            "z": 2,
+            "left": "2%",
+            "right": "18%",
+            "top": "9%",
+            "bottom": "4%",
+            "width": 'auto',
+            "height": 'auto',
+            "containLabel": true,
+            "borderWidth": 1,
+            "shadowBlur": 1,
+            "shadowOffsetX": 1,
+            "shadowOffsetY": 1,
+            "tooltip": {
+                "show": true,
+                trigger: 'item',
+                axisPointer: {
+                    type: 'line',
+                    axis: 'auto',
+                    snap: false,
+                    z: 0,
+                    label: {
+
+                        show: false,
+                        precision: 'auto',
+                        formatter: '{b0}: {c0}<br />{b1}: {c1}',
+                        margin: 3,
+                        color: '#fff',
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        lineHeight: 56,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        padding: [5, 7, 5, 7],
+                        backgroundColor: 'auto',
+                        borderColor: '',
+                        borderWidth: 0,
+                        shadowBlur: 3,
+                        shadowColor: '#aaa',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                    },
+                    lineStyle: {
+                        color: '#555',
+                        width: 1,
+                        type: 'solid',
+                        "shadowBlur": 3,
+                        "shadowColor": "rgba(0, 0, 0, 0.6)",
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                    },
+                    'shadowStyle': {
+                        'color': 'rgba(150,150,150,0.3)',
+                        "shadowBlur": 3,
+                        "shadowColor": "rgba(0, 0, 0, 0.6)",
+                        ' shadowOffsetX': 0,
+                        'shadowOffsetY': 0,
+                        'opacity': 1,
+                    },
+                    ' crossStyle': {
+                        'color': '#555',
+                        'width': 1,
+                        'type': 'dashed',
+                        "shadowBlur": 3,
+                        "shadowColor": "rgba(0, 0, 0, 0.6)",
+                        'shadowOffsetX': 0,
+                        'shadowOffsetY': 0,
+                        'opacity': 1,
+                    },
+                    'animation': true,
+                    'animationThreshold': 2000,
+                    'animationDuration': 1000,
+                    animationEasing: function (k) {
+                        return --k * k * k + 1;
+                    },
+                    animationDelay: 0,
+                    animationDurationUpdate: 200,
+                    animationEasingUpdate: function (k) {
+                        return --k * k * k + 1;
+                    },
+                    animationDelayUpdate: "",
+                },
+                'position': [10, 10],
+                'formatter': '{b0}: {c0}<br />{b1}: {c1}',
+                'backgroundColor': 'rgba(50,50,50,0.7)',
+                'borderColor': '#333',
+                'borderWidth': 0,
+                'padding': 5,
+                'textStyle': {
+
+                    color: '#fff',
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontSize: 14,
+                    lineHeight: 56,
+                    width: 0,
+                    height: 0,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    'textShadowColor': 'transparent',
+                    ' textShadowBlur': 0,
+                    'textShadowOffsetX': 0,
+                    'textShadowOffsetY': 0,
+                },
+                'extraCssText': 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',
+            }
+        },
+        'tooltip': {
+            show: true,
+            trigger: 'item', //axis , none,
+            axisPointer: {
+                type: 'shadow',//shadow, none,cross
+                axis: 'auto',
+                snap: false,
+                z: 1,
+                label: {
+                    show: false,
+                    precision: 'auto',
+                    formatter: '',
+                    margin: 3,
+                    color: '#fff',
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontSize: 12,
+                    lineHeight: 10,
+                    width: 10,
+                    height: 10,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    padding: [5, 7, 5, 7],
+                    backgroundColor: 'auto',
+                    borderColor: '#fff',
+                    borderWidth: 0,
+                    shadowBlur: 3,
+                    shadowColor: '#aaa',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                },
+                lineStyle: {
+                    color: '#555',
+                    width: 1,
+                    type: 'solid', // dashed, dotted
+                    shadowBlur: 3,
+                    shadowColor: '#aaa',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                shadowStyle: {
+                    color: 'rgba(150,150,150,0.3)',
+                    shadowBlur: 3,
+                    shadowColor: '#aaa',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                crossStyle: {
+                    color: '#555',
+                    width: 1,
+                    type: 'solid',  //solid, dotted
+                    shadowBlur: 3,
+                    shadowColor: '#aaa',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                animation: true,
+                animationThreshold: 2000,
+                animationDuration: 1000,
+                animationEasing: 'cubicOut',
+                animationDelay: 0,
+                animationDurationUpdate: 200,
+                animationEasingUpdate: 'exponentialOut',
+                animationDelayUpdate: 0,
+            },
+            showContent: true,
+            alwaysShowContent: false,
+            triggerOn: 'mousemove|click',//mousemove , click , none
+            showDelay: 0,
+            hideDelay: 100,
+            enterable: true,
+            renderMode: 'html', // richText
+            confine: false,
+            transitionDuration: 0.4,
+            position: '',
+            formatter: '',
+            backgroundColor: 'rgba(50,50,50,0.7)',
+            borderColor: '#333',
+            borderWidth: 0,
+            padding: 5,
+            extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',//style
+        },
+        'toolbox': {
+            show: true,
+            orient: 'horizontal',
+            itemSize: 15,
+            itemGap: 10,
+            showTitle: true,
+
+            feature: {
+                saveAsImage: {
+                    type: '',
+                    name: '',  /* string*/
+                    backgroundColor: 'auto',
+                    connectedBackgroundColor: '#f0f0e4',
+                    excludeComponents: [''],
+                    show: true,
+                    title: 'save as image',
+                    icon: '',
+                    iconStyle: {
+                        color: '#f0f0e4',
+                        borderColor: '#666',
+                        borderWidth: 1,
+                        borderType: 'solid',
+                        shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                        shadowColor: '#f0f0e4',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            color: '#f0f0e4',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            borderType: 'solid',
+                            shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                            shadowColor: '#f0f0e4',
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1  /*or 0*/
+                        },
+
+
+                    },
+                    pixelRatio: 1,    /*Values larger than 1 (e.g.: 2) is supported when you need higher resolution.*/
+                },
+                restore: {
+                    show: true,
+                    title: 'restore',
+                    icon: '',
+                    iconStyle: {
+                        color: '#f0f0e4',
+                        borderColor: '#e8e831',
+                        borderWidth: 1,
+                        borderType: 'solid',
+                        shadowBlur: 10,
+                        shadowColor: '#8aabf2',
+                        shadowOffsetX: 1,
+                        shadowOffsetY: 1,
+                        opacity: 1, /*or 2*/
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            color: '#8aabf2',
+                            borderColor: "#366ad9",
+                            borderWidth: 999,
+                            borderType: 'solid',
+                            shadowBlur: 10,
+                            shadowColor: '#666',
+                            shadowOffsetX: 3,
+                            shadowOffsetY: 2,
+                            opacity: 0,
+                            textPosition: 'bottom',
+                            textFill: '#edbbd4',
+                            textAlign: 'center',
+                            textBackgroundColor: '#910f50',
+                            textBorderRadius: 50,
+                            textPadding: 12,
+                        },
+                    },
+                },
+                dataView: {
+                    show: true,
+                    title: 'data view',
+                    icon: '',
+
+                    iconStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 1, color: '#38c25d' // color at 0% position
+                            }, {
+                                offset: 1, color: '#38c25d' // color at 100% position
+                            }],
+
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            borderType: 'solid',
+                            shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                            shadowColor: '#38c25d',
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1 /*or 2*/,
+
+
+                        },
+                    },
+
+                    emphasis: {
+                        iconStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 1, color: '#38c25d' // color at 0% position
+                                }, {
+                                    offset: 1, color: '#38c25d' // color at 100% position
+                                }],
+
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                borderType: 'solid',
+                                shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                                shadowColor: '#38c25d',
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1 /*or 2*/,
+
+                                textPosition: 'bottom', /*top*/
+                                textFill: '',   /*string*/
+                                textAlign: 'center', /*'center' / 'right'.*/
+                                textBackgroundColor: '',
+                                textBorderRadius: '',
+                                textPadding: '',
+                                borderColor: '#c43d81',
+                                borderWidth: 1,
+                                borderType: 'solid',
+                                shadowBlur: 10,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                emphasis: {
+                                    iconStyle: {
+                                        color: '#bbc4bd',
+                                        borderColor: "#9fe3b1",
+                                        borderWidth: 10,
+                                        borderType: 'solid',
+                                        shadowBlur: 11,
+                                        shadowColor: 'rgba(0, 0, 0,0.5)',
+                                        shadowOffsetX: 41,
+                                        shadowOffsetY: 42,
+                                        opacity: '1',
+                                        textPosition: 'bottom',
+                                        textFill: '#38c25d',
+                                        textAlign: 'center',
+                                        textBackgroundColor: 'string',
+                                        textBorderRadius: 12,
+                                        textPadding: 40,
+                                    },
+
+                                    readOnly: false,
+                                    lang: ['data view', 'turn off', 'refresh'],
+                                    backgroundColor: '#c23531',
+                                    textareaColor: '#c23531',
+                                    textareaBorderColor: '#295936',
+                                    textColor: '#666',
+                                    buttonColor: '#c23531',
+                                    buttonTextColor: '#c23531',
+                                },
+
+                            },
+
+                            readOnly: false, /*true*/
+                            optionToContent: '',   /*(option:Object) => HTMLDomElement|string*/
+                            contentToOption: '',
+                            lang: ['data view', 'turn off', 'refresh'],
+                            backgroundColor: '#fff',
+                            textareaColor: '#fff',
+                            textareaBorderColor: '#333',
+                            textColor: '#000',
+                            buttonColor: '#c23531',
+                            buttonTextColor: '#fff',
+                        },
+                    },
+
+                    readOnly: false,
+                    optionToContent: '',   /*Define a function to present dataView. It is used to replace default textarea for richer data editing. It can return a DOM object, or an HTML string.
+                    contentToOption ... ,*/
+                    lang: ['data view', 'turn off', 'refresh'],
+                    backgroundColor: '#fff',
+                    textareaColor: '#fff',
+                    textareaBorderColor: '#333',
+                    textColor: '#000',
+                    buttonColor: '#c23531',
+                    buttonTextColor: '#fff',
+                },
+
+
+                /*  Data area zooming, which only supports rectangular coordinate by now.*/
+                dataZoom: {
+                    show: true,
+
+                    title: {
+                        zoom: '',        // /!*area zooming*!/
+                        back: ''          //!*restore area zooming*!/
+                    },
+
+                    icon: {
+                        zoom: '',  //!* 'image://url'*!/
+                        back: '',   //!* 'image://url'*!/
+                    },
+                    iconStyle: {
+                        color: '#8aabf2',
+                        borderColor: "#366ad9",
+                        borderWidth: '999',
+                        borderType: 'solid',
+                        shadowBlur: 10,
+                        shadowColor: '#666',
+                        shadowOffsetX: 3,
+                        shadowOffsetY: 2,
+                        opacity: 1 //!*or 0*!/
+
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            color: '#f0f0e4',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            borderType: '',   //!*Border type, which can be 'solid', 'dashed', or 'dotted'. 'solid' by default.*!/
+                            shadowBlur: 10,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowOffsetX: 1,
+                            shadowOffsetY: 1,
+                            opacity: 1,  //!*or 0*!/,
+                            textPosition: 'bottom',
+                            textFill: '#000',
+                            textAlign: 'center',
+                            textBackgroundColor: '',
+                            textBorderRadius: '',
+                            textPadding: '',
+                        },
+
+                        xAxisIndex: false,        //!*boolen*!/
+                        yAxisIndex: false,        //!*boolen*!/
+                    },
+                },
+                magicType: {
+                    show: true,
+                    type: '', /*Enabled magic types, including 'line' (for line charts), 'bar' (for bar charts), 'stack' (for stacked charts), and 'tiled' (for tiled charts).*/
+
+                    title: {
+                        line: 'for line charts',
+                        bar: 'for bar charts',
+                        stack: 'for stacked charts',
+                        tiled: 'for tiled charts',
+                    },
+
+                    icon: {
+                        line: '',    /*'image://url'*/
+                        bar: '',     /*'image://url'*/
+                        stack: '',    /*'image://url'*/
+                        tiled: '',  /*'image://url'*/
+                    },
+                    iconStyle: {
+                        color: '#f0f0e4',
+                        borderColor: '#666',
+                        borderWidth: 1,
+                        borderType: 'solid',
+                        shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                        shadowColor: '#f0f0e4',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1  /*or 0*/
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            color: '#f0f0e4',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            borderType: 'solid',
+                            shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                            shadowColor: '#f0f0e4',
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1  /*or 0*/
+                        },
+                    },
+                    option: {
+                        line: '',
+                        bar: '',
+                        stack: '',
+                        tiled: ''
+                    },
+                    seriesIndex: {
+                        line: '',
+                        bar: '',
+                        stack: '',
+                        tiled: '',
+
+                    },
+
+
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        }
+                    },
+                    textStyle: {
+                        color: '#333', /*#364a6b, #364a6b #edf0f5*/
+                        fontStyle: 'normal', /*font style Options are:'normal','italic','oblique'*/
+                        fontWeight: 'normal',
+
+                        /*font thick weight
+                            Options are:
+                            'normal'
+                            'bold'
+                            'bolder'
+                            'lighter'
+                            100 | 200 | 300 | 400...*/
+
+                        fontFamily: 'sans-serif',
+                        /* font family Can also be 'serif' , 'monospace'*/
+                        fontSize: 18,
+                        lineHeight: 15,
+                        width: 15,
+                        height: 15,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent', //Shadow color of the text itself.
+
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                    },
+                    axisPointer: {
+                        type: 'shadow',
+                        shadowStyle: {
+                            color: 'rgba(150,150,150,0.3)', // Linear gradient. First four parameters are x0, y0, x2, and y2, each ranged from 0 to 1, standing for percentage in the bounding box. If global is `true`, then the first four parameters are in absolute pixel positions.
+                            shadowBlur: 10,                    /*This attribute should be used along with shadowColor,shadowOffsetX, shadowOffsetY to set shadow to component.*/
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 10,
+
+                        },
+
+                        triggerTooltip: true,
+                        value: 1,
+                        status: 'show',//'hide'
+                        handle: {
+                            show: false,
+                            icon: "image://http://echarts.baidu.com/images/favicon.png",
+                            size: 45,
+                            margin: 50,
+                            color: '#333',
+                            throttle: 40,
+                            shadowBlur: 3,
+                            shadowColor: '#aaa',
+                            shadowOffsetX: 2,
+                            shadowOffsetY: 0,
+                        },
+                        link: [
+                            {
+                                // All axes with xAxisIndex 0, 3, 4 and yAxisName 'sameName' will be linked.
+                                xAxisIndex: [0, 3, 4],
+                                yAxisName: 'radius'
+                            },
+                            {
+                                // All axes with xAxisId 'aa', 'cc' and all angleAxis will be linked.
+                                xAxisId: ['aa', 'cc'],
+                                angleAxis: 'all'
+                            },
+                        ],
+                        triggerOn: 'mousemove|click', //'mousemove','click','none'
+                    },
+
+
+
+                    dataZoom: [{
+                        type: 'slider',
+                        filterMode: 'weakFilter',
+                        showDataShadow: true,
+                        bottom: 20,
+                        height: 10,
+                        borderColor: 'transparent',
+                        backgroundColor: '#e2e2e2',
+                        handleIcon: 'M10.7,11.9H9.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z', // jshint ignore:line
+                        handleSize: 20,
+                        handleStyle: {
+                            shadowBlur: 6,
+                            shadowOffsetX: 1,
+                            shadowOffsetY: 2,
+                            shadowColor: '#aaa'
+                        },
+                        labelFormatter: ''
+                    }, {
+                        type: 'inside',
+                        filterMode: 'weakFilter'
+                    }],
+
+                    color: ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'],
+                    backgroundColor: '#fff',
+                    animation: true,
+                    animationThreshold: 2000,
+                    animationDuration: 1000,
+                    animationEasing: function (k) {
+                        return --k * k * k + 1;
+                    },
+                    animationDelay: 0,
+                    animationDurationUpdate: 300,
+                    animationEasingUpdate: function (k) {
+                        return --k * k * k + 1;
+                    },
+                    animationDelayUpdate: 0,
+                    blendMode: 'source-over',
+                    useUTC: false,
+                },
+                brush: {
+                    type: '',
+                    /*    'rect': Enabling selecting with rectangle area.
+                    'polygon': Enabling selecting with any shape.
+                    'lineX': Enabling horizontal selecting.
+                    'lineY': Enabling vertical selecting.
+                    'keep': Switching between single selecting and multiple selecting. The latter one can select multiple areas, while the former one cancels previous selection.
+                    'clear': Clearing all selection.*/
+
+                    icon: {
+                        rect: '',    /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                        polygon: '',   /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                        lineX: '',    /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                        lineY: '',     /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                        keep: '',      /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                        clear: '',      /*  It can be set to an image with 'image://url' , in which URL is the link to an image, or dataURI of an image.*/
+                    },
+
+                    title: {
+                        rect: 'Rectangle selection',
+                        polygon: 'Polygon selection',
+                        lineX: 'Horizontal selection',
+                        lineY: 'Vertical selection',
+                        keep: 'Keep previous selection',
+                        clear: 'Clear selection',
+                    },
+                },
+                /*option: {
+                    line: '',
+                    bar: '',
+                    stack: '',
+                    tiled: ''
+                },
+                seriesIndex: {
+                    line: '',
+                    bar: '',
+                    stack: '',
+                    tiled: '',
+
+                },
+*/
+            },
+            iconStyle: {
+                color: '#f0f0e4',
+                borderColor: '#666',
+                borderWidth: 1,
+                borderType: 'solid',
+                shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                shadowColor: '#f0f0e4',
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                opacity: 1
+            },
+            emphasis: {
+                iconStyle: {
+                    color: '#f0f0e4',
+                    borderColor: '#666',
+                    borderWidth: 1,
+                    borderType: 'solid',
+                    shadowBlur: 'rgba(0, 0, 0, 0.5)',
+                    shadowColor: '#f0f0e4',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 0  /*or 1*/
+                },
+            },
+            zlevel: 0,
+            z: 2,
+            left: 'auto',
+            top: 'auto',
+            right: 'auto',
+            bottom: 'auto',
+            width: 'auto',
+            height: 'auto',
+            tooltip: '', /*Tooltip configuration for toolbox tooltip, which is similar to tooltip.*/
+
+
+        },
+        visualMap: {
+            type: 'continuous',
+            dimension: 1,
+            text: ['High', 'Low'],
+            inverse: true,
+            itemHeight: 200,
+            calculable: true,
+            min: 0,
+            max: 100,
+            top: 60,
+            left: 10,
+            inRange: {
+                colorLightness: [0.4, 0.8]
+            },
+            outOfRange: {
+                color: '#bbb'
+            },
+            controller: {
+                inRange: {
+                    color: '#2f4554'
+                }
+            }
+        },
+
+        "axisPointer": {
+            "show": true,
+            "type": "line",
+            "label": {
+                "show": true,
+                "precision": 2,
+                "fontSize": "11"
+            },
+            "handle": {
+                "show": true,
+                "size": 25,
+                "throttle": 15
+            }
+        },
+        "dataZoom": [
+            {
+                "show": true,
+                "type": "inside",
+                "startValue": null,
+                "endValue": null,
+                "start": null,
+                "end": null
+            },
+            {
+                "show": true,
+                "type": "slider",
+                "filterMode": "filter",
+                "handleSize": "100%",
+                "showDataShadow": true,
+                "handleStyle": {
+                    "color": "black",
+                    "shadowBlur": 3,
+                    "shadowColor": "rgba(0, 0, 0, 0.6)",
+                    "shadowOffsetX": 4,
+                    "shadowOffsetY": 4
+                },
+                "orient": "horizontal",
+                "zoomLock": false,
+                "showDetail": true,
+                "textStyle": {
+                    "fontSize": "11",
+                    "fontWeight": "normal"
+                },
+                "startValue": null,
+                "endValue": null,
+                "start": null,
+                "end": null
+            }
+        ],
+        'geo': {
+            'id': 'geo',
+            'show': true, // false
+            'map': '', // for example: 'china'
+            'roam': false, // true
+            //  If either zooming or translating is wanted, it can be set to 'scale' or 'move'
+            'center': [115.97, 29.71],
+            'aspectScale': 0.75,
+            'boundingCoords': [
+                // [lng, lat] of left-top corner
+                [-180, 90],
+                // [lng, lat] of right-bottom corner
+                [180, -90]
+            ],
+            'zoom': 1,
+            'scaleLimit': {
+                min: 0,
+                max: 1,
+
+            },
+            'nameMap': {
+                'China': '中国'
+            },
+            'selectedMode': false, // true, 'single', 'multiple'
+            'label': {
+                'show': false, // true,
+                'position': 'top', /* 'left', 'right', 'bottom',
+                 'inside', 'insideLeft', 'insideRight',
+                 'insideTop', 'insideBottom', 'insideTopLeft',
+                 'insideBottomLeft', 'insideTopRight', 'insideBottomRight'
+                 Absolute pixel values: position: [10, 10],
+                 Relative percentage: position: ['50%', '50%'] */
+                'distance': 5,
+                'rotate': 45, // Rotate label, from -90 degree to 90, positive value represents rotate anti-clockwise.
+                'offset': [30, 40], // 30 horizontally and move 40 vertically.
+                'formatter': '', // formatter: '{b}: {@score}'
+                'color': "#fff", // 'auto'
+                'fontStyle': 'normal', // 'italic', 'oblique'
+                'fontWeight': 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                'fontFamily': 'sans-serif', //  'serif' , 'monospace', ...
+                'fontSize': 12,
+                'align': 'left', // 'center', 'right'
+                'verticalAlign': 'top', // 'middle', 'bottom'
+                'lineHeight': 56,
+                'backgroundColor': 'transparent',
+                // '#123234', 'red', 'rgba(0,23,11,0.3)', 'auto'
+                'borderColor': 'transparent', // 'auto'
+                'borderWidth': 0,
+                'borderRadius': 0,
+                'padding': 0, // [3, 4, 5, 6] for [top, right, bottom, left]
+                'shadowColor': 'transparent',
+                'shadowBlur': 0,
+                'shadowOffsetX': 0,
+                'shadowOffsetY': 0,
+                ' width': 0, // '100%'
+                'height': 0, // '100%'
+                'textBorderColor': 'transparent',  // 'auto'
+                'textBorderWidth': 0,
+                'textShadowColor': 'transparent',
+                'textShadowOffsetX': 0,
+                'textShadowOffsetY': 0,
+                'rich': {
+                    style_name: {
+                        color: "#fff",
+                        fontStyle: 'normal', // 'italic', 'oblique'
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif', //'serif' , 'monospace', ...
+                        fontSize: 12,
+                        align: 'left', // 'center', 'right'
+                        verticalAlign: 'top', // 'middle', 'bottom'
+                        lineHeight: 56,
+                        backgroundColor: 'transparent', // object
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        padding: 0, // array
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: '100%', // string
+                        height: '100%', // string
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+
+
+                    }
+                },
+                'emphasis': {
+                    show: false, // true
+                    position: 'top',
+                    /* Absolute pixel values: position: [10, 10],
+    Relative percentage: position: ['50%', '50%']
+    'left', 'right', 'bottom', 'inside', 'insideLeft', 'insideRight', 'insideTop', 'insideBottom', 'insideTopLeft', 'insideBottomLeft', 'insideTopRight', 'insideBottomRight'*/
+                    distance: 5,
+                    rotate: 0, //Rotate label, from -90 degree to 90, positive value represents rotate anti-clockwise.
+                    offset: [30, 40],
+                    formatter: '', // for example: formatter: '{b}: {@score}'
+                    color: "#fff",  // 'auto'
+                    fontStyle: 'normal', // 'italic', 'oblique'
+                    fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                    fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                    fontSize: 12,
+                    align: 'left', // 'center', 'right'
+                    verticalAlign: 'top', // 'middle', 'bottom'
+                    lineHeight: 56,
+                    backgroundColor: 'transparent', // object
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0, // array
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: '100%', // string
+                    height: '100%', // string
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        style_name: {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'italic', 'oblique'
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif', //'serif' , 'monospace', ...
+                            fontSize: 12,
+                            align: 'left', // 'center', 'right'
+                            verticalAlign: 'top', // 'middle', 'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent', // object
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            padding: 0, // array
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: '100%', // string
+                            height: '100%', // string
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+
+
+                        }
+                    },
+                },
+            },
+            'itemStyle': {
+                areaColor: '#eee',
+                emphasis: {
+                    areaColor: '#eee',
+                    color: '#eee', // 'rgb(128, 128, 128)', 'rgba(128, 128, 128, 0.5)','#ccc'
+                    borderColor: "#000",
+                    borderWidth: 0,
+                    borderType: 'solid',
+                    shadowBlur: 10,
+                    /*shadowBlur: {
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10
+                    }, */
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 0,   // 1
+                },
+
+            },
+            'zlevel': 0,
+            'z': 2,
+            'left': 'auto', // '20%' 20, 'left', 'center', 'right'
+            'top': 'auto', // 20, '20%', 'top', 'middle', or 'bottom'
+            'right': 'auto', // 20, '20%'
+            'bottom': 'auto', // 20, '20%'
+            'layoutCenter': ['30%', '30%'],
+            'layoutSize': 0, // string
+            'regions': [{
+                name: 'Guangdong', // 'Zhejiang'
+                selected: false, // true
+                itemStyle: {
+                    areaColor: "#eee",
+                    color: "#eee", // 'rgb(128, 128, 128)', 'rgba(128, 128, 128, 0.5)', '#ccc'
+                    borderColor: "#000",
+                    borderWidth: 0,
+                    borderType: 'solid', // 'dashed', or 'dotted'
+                    shadowBlur: 10,
+                    shadowColor: "#eee",
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 0,
+                    emphasis: {
+                        areaColor: '#eee',
+                        color: '#eee', // 'rgb(128, 128, 128)', 'rgba(128, 128, 128, 0.5)','#ccc'
+                        borderColor: "#000",
+                        borderWidth: 0,
+                        borderType: 'solid',
+                        shadowBlur: 10,
+                        /*shadowBlur: {
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10
+                        }, */
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 0,   // 1
+                    },
+                },
+                label: {
+                    show: false, // true,
+                    position: 'top', /* 'left', 'right', 'bottom',
+                 'inside', 'insideLeft', 'insideRight',
+                 'insideTop', 'insideBottom', 'insideTopLeft',
+                 'insideBottomLeft', 'insideTopRight', 'insideBottomRight'
+                 Absolute pixel values: position: [10, 10],
+                 Relative percentage: position: ['50%', '50%'] */
+                    distance: 5,
+                    rotate: 45, // Rotate label, from -90 degree to 90, positive value represents rotate anti-clockwise.
+                    offset: [30, 40], // 30 horizontally and move 40 vertically.
+                    formatter: '', // formatter: '{b}: {@score}'
+                    color: "#fff", // 'auto'
+                    fontStyle: 'normal', // 'italic', 'oblique'
+                    fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                    fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                    fontSize: 12,
+                    align: 'left', // 'center', 'right'
+                    verticalAlign: 'top', // 'middle', 'bottom'
+                    lineHeight: 56,
+                    backgroundColor: 'transparent',
+                    // '#123234', 'red', 'rgba(0,23,11,0.3)', 'auto'
+                    borderColor: 'transparent', // 'auto'
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0, // [3, 4, 5, 6] for [top, right, bottom, left]
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: 0, // '100%'
+                    height: 0, // '100%'
+                    textBorderColor: 'transparent',  // 'auto'
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        style_name: {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'italic', 'oblique'
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif', //'serif' , 'monospace', ...
+                            fontSize: 12,
+                            align: 'left', // 'center', 'right'
+                            verticalAlign: 'top', // 'middle', 'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent', // object
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            padding: 0, // array
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: '100%', // string
+                            height: '100%', // string
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+
+
+                        }
+                    },
+                    emphasis: {
+                        show: false, // true
+                        position: 'top',
+                        /* Absolute pixel values: position: [10, 10],
+        Relative percentage: position: ['50%', '50%']
+        'left', 'right', 'bottom', 'inside', 'insideLeft', 'insideRight', 'insideTop', 'insideBottom', 'insideTopLeft', 'insideBottomLeft', 'insideTopRight', 'insideBottomRight'*/
+                        distance: 5,
+                        rotate: 0, //Rotate label, from -90 degree to 90, positive value represents rotate anti-clockwise.
+                        offset: [30, 40],
+                        formatter: '', // for example: formatter: '{b}: {@score}'
+                        color: "#fff",  // 'auto'
+                        fontStyle: 'normal', // 'italic', 'oblique'
+                        fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                        fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                        fontSize: 12,
+                        align: 'left', // 'center', 'right'
+                        verticalAlign: 'top', // 'middle', 'bottom'
+                        lineHeight: 56,
+                        backgroundColor: 'transparent', // object
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0, // array
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: '100%', // string
+                        height: '100%', // string
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            style_name: {
+                                color: "#fff",
+                                fontStyle: 'normal', // 'italic', 'oblique'
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif', //'serif' , 'monospace', ...
+                                fontSize: 12,
+                                align: 'left', // 'center', 'right'
+                                verticalAlign: 'top', // 'middle', 'bottom'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent', // object
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                padding: 0, // array
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: '100%', // string
+                                height: '100%', // string
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+
+
+                            }
+                        },
+                    },
+                },
+            }],
+            'silent': false, // true
+        },
+        "legend": {
+            "type": '',
+            "id": '',
+            "show": true,
+            "zlevel": 1,
+            "z": 2,
+            "left": 'auto',
+            "top": 'auto',
+            "right": 'auto',
+            "bottom": 'auto',
+            "width": 'auto',
+            "height": 'auto',
+            "orient": 'horizontal',
+            "align": 'auto',
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "symbolKeepAspect": true,
+            "formatter": '',
+            "selectedMode": true,
+            "inactiveColor": '#ccc',
+            "selected": '',
+
+            "textStyle": {
+                " color": "#fff",
+                "fontStyle": 'normal',
+                "fontWeight": 'normal',
+                "fontFamily": 'sans-serif',
+                "fontSize": 12,
+                "align": 'auto',
+                "verticalAlign": 'middle',
+                "lineHeight": 56,
+                "backgroundColor": 'transparent',
+                "borderColor": 'transparent',
+                "borderWidth": 0,
+                "borderRadius": 0,
+                "padding": 0,
+                "shadowColor": 'transparent',
+                "shadowBlur": 0,
+                "shadowOffsetX": 0,
+                " shadowOffsetY": 0,
+                "width": '',
+                "height": '',
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowColor": 'transparent',
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+
+            },
+            "tooltip": '',
+            "icon": '#2f4554',
+            "data": [{
+                name: '',
+                icon: 'circle',
+                textStyle: 'transparent',
+            }],
+            "backgroundColor": 'transparent',
+            "borderColor": '#2f4554',
+            "borderWidth": 20,
+            "borderRadius": 20,
+            "shadowBlur": '',
+            "shadowColor": '',
+            "shadowOffsetX": 0,
+            "shadowOffsetY": 0,
+            "scrollDataIndex": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonGap": '',
+            "pageButtonPosition": 'end',
+            "pageFormatter": '{current}/{total}',
+            "pageIcons": {
+                horizontal: '',
+                vertical: '',
+            },
+            "pageIconColor": '#2f4554',
+            "pageIconInactiveColor": '#aaa',
+            "pageIconSize": 15,
+            " pageTextStyle": {
+                "color": ' #333',
+                "fontStyle": 'normal',
+                "fontWeight": 'normal',
+                "fontFamily": 'sans-serif',
+                "fontSize": 12,
+                "lineHeight": '',
+                "width": '100px',
+                "height": '100px',
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowColor": 'transparent',
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+                "selectorPosition": 'auto',
+                "selectorItemGap": 7,
+                "selectorButtonGap": 10,
+            },
+            "animation": '',
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorLabel": {
+                "show": true,
+                "distance": 5,
+                "rotate": '',
+                "offset": '',
+                "color": "#fff",
+                "fontStyle": 'normal',
+                "fontWeight": 'normal',
+                "fontFamily": 'sans-serif',
+                "fontSize": 12,
+                "align": '',
+                "verticalAlign": '',
+                "lineHeight": '',
+                "backgroundColor": 'transparent',
+                "borderColor": 'transparent', borderWidth: 0,
+                "borderRadius": 0,
+                "padding": 0,
+                "shadowColor": 'transparent',
+                "shadowBlur": 0,
+                "shadowOffsetX": 0,
+                "shadowOffsetY": 0,
+                "width": '',
+                "height": '',
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+            },
+            "selectorPosition": 'auto',
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10,
+
+        },
+        'parallel': {
+            id: 'parallel',
+            zlevel: 0,
+            z: 2,
+            'left': 80, // 20, '20%', 'left', 'center', 'right'
+            'top': 60, //  20, '20%', 'top', 'middle', 'bottom'
+            'right': 80, // 20, '20%'
+            'bottom': 60, // 20, '20%'
+            'width': 'auto', // number
+            'height': 'auto', // number
+            'layout': 'horizontal', // vertical
+            'axisExpandable': false, // true
+            'axisExpandCenter': 0,
+            'axisExpandCount': 0,
+            'axisExpandWidth': 50,
+            'axisExpandTriggerOn': 'click', // 'mousemove'
+            'parallelAxisDefault': {
+                'type': 'value', // 'category', 'time', 'log'
+                'name': 'parallelAxisDefault',
+                'nameLocation': 'start',    /*Options:
+
+                    'start'
+                'middle' or 'center'
+                'end'*/
+
+                'nameTextStyle': {
+                    color: '#aaa',
+                    fontStyle: 'normal', // 'italic', 'oblique'
+                    fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                    fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                    fontSize: 12,
+                    align: 'left', // 'center', 'right'
+                    verticalAlign: 'top', // 'middle', 'bottom'
+                    lineHeight: 56,
+                    backgroundColor: 'transparent', // object
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0, // array
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: '100%', // string
+                    height: '100%', // string
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        style_name: {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'italic', 'oblique'
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif', //'serif' , 'monospace', ...
+                            fontSize: 12,
+                            align: 'left', // 'center', 'right'
+                            verticalAlign: 'top', // 'middle', 'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent', // object
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            padding: 0, // array
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: '100%', // string
+                            height: '100%', // string
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+
+
+                        }
+                    },
+
+
+                },
+                'nameGap': 15,
+                'nameRotate': 0,
+                'inverse': false, // true
+                'boundaryGap': true, // false, boundaryGap: ['20%', '20%']
+                'min': 'dataMin',
+                'max': 'dataMax',
+                'scale': false, // true
+                'splitNumber': 5,
+                'minInterval': 0, // 1
+                'maxInterval': 0,
+                'interval': 0,
+                'logBase': 10,
+                'silent': false, // true
+                'triggerEvent': false, // true
+                'axisLine': {
+                    show: true, // false
+                    symbol: 'none', // 'arrow', ['none', 'arrow']
+                    symbolSize: [10, 15],
+                    symbolOffset: [0, 0],
+                },
+                'axisTick': {
+                    show: true, // false
+                    alignWithLabel: false, // true
+                    interval: 'auto', // number, function
+                    inside: false, // true
+                    length: 5
+                },
+                'minorTick': {
+                    show: false, // true
+                    splitNumber: 5,
+                    length: 3,
+                    lineStyle: {
+                        color: '#aaa',
+                        width: 1,
+                        type: 'solid', // 'dashed', 'dotted'
+                        shadowBlur: 10,
+                        shadowColor: '#aaa',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 0, // 1
+
+                    }
+                },
+                'axisLabel': {
+                    show: true, // false
+                    interval: 'auto', // 0, 1, 2,
+                    // function(index:number, value: string)
+                    inside: false, // true
+                    rotate: 0, // Rotation degree is from -90 to 90.
+                    margin: 8,
+                    formatter: '',
+                    /* formatter: function (value, index) {
+// Formatted to be month/day; display year only in the first label
+var date = new Date(value);
+var texts = [(date.getMonth() + 1), date.getDate()];
+if (idx === 0) {
+    texts.unshift(date.getYear());
+}
+return texts.join('/');
+} */
+                    showMinLabel: true, // false, null
+                    showMaxLabel: true, // false, null
+                    color: '#aaa',
+                    /* color: function (value, index) {
+                    return value >= 0 ? 'green' : 'red';
+                    } */
+                    fontStyle: 'normal', // 'italic', 'oblique'
+                    fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                    fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                    fontSize: 12,
+                    align: 'left', //'center', 'right'
+                    verticalAlign: 'top', //'middle', 'bottom'
+                    lineHeight: 56,
+                    backgroundColor: 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0, // [3, 4, 5, 6]
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: '100%', // number
+                    height: '100%', // number
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        style_name: {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'italic', 'oblique'
+                            fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                            fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                            fontSize: 12,
+                            align: 'left', //'center', 'right'
+                            verticalAlign: 'top', //'middle', 'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0, // [3, 4, 5, 6]
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: '100%', // number
+                            height: '100%', // number
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                        }
+                    }
+
+
+                },
+                'data': [{
+                    value: 'Monday',
+                    // Highlight Monday
+                    textStyle: {
+                        color: "#fff",
+                        fontStyle: 'normal', // 'italic', 'oblique'
+                        fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                        fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                        fontSize: 12,
+                        align: 'left', //'center', 'right'
+                        verticalAlign: 'top', //'middle', 'bottom'
+                        lineHeight: 56,
+                        backgroundColor: 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0, // [3, 4, 5, 6]
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: '100%', // number
+                        height: '100%', // number
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            style_name: {
+                                color: "#fff",
+                                fontStyle: 'normal', // 'italic', 'oblique'
+                                fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                                fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                                fontSize: 12,
+                                align: 'left', //'center', 'right'
+                                verticalAlign: 'top', //'middle', 'bottom'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0, // [3, 4, 5, 6]
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: '100%', // number
+                                height: '100%', // number
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0, textShadowOffsetY: 0,
+                            }
+                        }
+                    }
+                }],
+            }
+        },
+        "radar": {
+            /*Coordinate for radar charts.*/
+
+            "id": '',
+            "zlevel": 0,
+            "z": 2,
+            "center": ['50%', '50%'],
+            "radius": '75% ',
+            "startAngle": 90,
+
+            "name": {
+                "show": true,
+                "formatter": '',
+                "color": '#333',
+                "fontStyle": 'normal',
+                "fontWeight": 'normal',
+                "fontFamily": 'sans-serif',
+                "fontSize": 12,
+                "lineHeight": '',
+                "backgroundColor": 'transparent',
+                "borderColor": 'transparent',
+                "borderWidth": 0,
+                "borderRadius": 0,
+                "padding": 0,
+                "shadowColor": 'transparent',
+                "shadowBlur": 0,
+                "shadowOffsetX": 0,
+                "shadowOffsetY": 0,
+                "width": '',
+                "height": '',
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowColor": 'transparent',
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+                "rich": {
+
+
+                    "<style_name>": {
+                        "color": "#fff",
+                        "fontStyle": 'normal',
+                        "fontWeight": 'normal',
+                        "fontFamily": 'sans-serif',
+                        "fontSize": 12,
+                        "align": '',
+                        "verticalAlign": '',
+                        "backgroundColor": 'transparent',
+                        "borderColor": 'transparent',
+                        "borderWidth": 0,
+                        "borderRadius": 0,
+                        "padding": 0,
+                        "shadowColor": 'transparent',
+                        " shadowBlur": 0,
+                        "shadowOffsetX": 0,
+                        "shadowOffsetY": 0,
+                        "width": '',
+                        "height": '',
+                        "textBorderColor": 'transparent',
+                        "textBorderWidth": 0,
+                        "textShadowColor": 'transparent',
+                        "textShadowBlur": 0,
+                        "textShadowOffsetX": 0,
+                        "textShadowOffsetY": 0,
+                    }
+                },
+            },
+
+
+            "nameGap": 15,
+            "splitNumber": 5,
+            "shape": 'polygon',
+            "scale": false,
+            "silent": false,
+            "triggerEvent": false,
+
+            "axisLine": {
+                "show": true,
+                "symbol": 'none',
+                " symbolSize": [10, 15],
+                " symbolOffset": [0, 0],
+                "lineStyle": {
+                    "color": '#333',
+                    "width": 1,
+                    "type": 'solid',
+                    "shadowBlur": '',
+                    "shadowColor": '',
+                    " shadowOffsetX": 0,
+                    "shadowOffsetY": 0,
+
+                    "opacity ": '',
+                },
+            },
+
+
+            "axisTick": {
+                "show": true,
+                "length": 5,
+                "lineStyle": {
+                    "color": '',
+                    "width": 1,
+                    "type": 'solid',
+                    "shadowBlur": '',
+                    "shadowColor": '',
+                    "shadowOffsetX": 0,
+                    "shadowOffsetY": 0,
+                    "opacity ": '',
+                }
+            },
+
+            "axisLabel": {
+                "show": true,
+                "rotate": 0,
+                "margin": 8,
+                "formatter": '',
+                "showMinLabel ": '',
+                "showMaxLabel": '',
+                "color": '',
+                "fontStyle": 'normal',
+                "fontWeight": 'normal',
+                "fontFamily": 'sans-serif',
+                "fontSize": 12,
+                "align ": '',
+                "verticalAlign": '',
+                "lineHeight": '',
+                "backgroundColor": 'transparent',
+                "borderColor": 'transparent',
+                "borderWidth": 0,
+                "borderRadius": 0,
+                "padding": 0,
+                "shadowColor": 'transparent',
+                "shadowBlur": 0,
+                "shadowOffsetX": 0,
+                "shadowOffsetY": 0,
+                "width ": '',
+                "height ": '',
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowColor": 'transparent',
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+
+                "rich": {
+                    "<style_name>": {
+                        "color": "#fff",
+                        "fontStyle": 'normal',
+                        "fontWeight": 'normal',
+                        "fontFamily": 'sans-serif',
+                        "fontSize": 12,
+                        "align": '',
+                        "verticalAlign": '',
+                        "lineHeight ": '',
+                        "backgroundColor": 'transparent',
+                        "borderColor": 'transparent',
+                        "borderWidth": 0,
+                        "borderRadius": 0,
+                        "padding": 0,
+                        "shadowColor": 'transparent',
+                        "shadowBlur": 0,
+                        "shadowOffsetX": 0,
+                        "shadowOffsetY": 0,
+                        "width": '',
+                        "height": '',
+                        "textBorderColor": 'transparent',
+                        "textBorderWidth": 0,
+                        "textShadowColor": 'transparent',
+                        "textShadowBlur": 0,
+                        "textShadowOffsetX": 0,
+                        "textShadowOffsetY": 0,
+                    }
+                }
+            },
+            "splitLine": {
+                "show": true,
+
+                "lineStyle": {
+                    "color": ['#ccc'],
+                    "width": 1,
+                    "type": 'solid',
+                    "shadowBlur": '',
+                    "shadowColor": '',
+                    "shadowOffsetX": 0,
+                    "shadowOffsetY": 0,
+                    "opacity": 1,
+                }
+            },
+
+            "splitArea": {
+                "show": true,
+
+                "areaStyle": {
+                    "color": ['rgba(250,250,250,0.3)', 'rgba(200,200,200,0.3)'],
+                    "shadowBlur": '',
+                    "shadowColor": '',
+                    "shadowOffsetX": 5,
+                    "shadowOffsetY": 4,
+                    "opacity": 1,
+                }
+            },
+
+            "indicator": [{
+                "name": 'indicator',
+                "max": '100',
+                "min": '0',
+            }],
+
+            "color": '#a62995',
+
+        },
+        "brush": {
+            "id": 'brush',
+            "toolbox": ['rect', 'polygon', 'keep', 'clear'],
+            // 'lineX': for horizontal selection-box
+            // 'lineY': for vertical selection-box;
+            "brushLink": [3, 4, 5], // 'all', 'none', null, undefined
+            "seriesIndex": 'all', // 'Array', 'number'
+            "geoIndex": 'all', // number: 0, Array: [0, 4, 2], 'none', or null, or undefined
+            "xAxisIndex": 'all', // number: 0, Array: [0, 4, 2], 'none', or null, or undefined
+            "yAxisIndex": 'all', // number: 0, Array: [0, 4, 2], 'none', or null, or undefined
+            "brushType": 'rect',
+            // 'polygon': for selection-box in polygon shape;
+            // 'lineX': for horizontal selection-box;
+            // 'lineY': for vertical selection-box;
+            "brushMode": 'single',
+            // 'single': for single selection;
+            // 'multiple': for multiple selection.
+            "transformable": true,  // false
+            "brushStyle": {
+                "borderWidth": 1,
+                "color": 'rgba(120,140,180,0.3)',
+                "borderColor": 'rgba(120,140,180,0.8)'
+            },
+            "throttleType": 'fixRate', // 'debounce'
+            "throttleDelay": 0, // 'debounce', 'fixRate'
+            "removeOnClick": true, // 'single', false
+            "inBrush": {
+                "symbol": 0,  // Type of symbol.
+                "symbolSize": 0, // Symbol size.
+                "color": '#aaa',// Symbol color.
+                "colorAlpha": 0,// Symbol alpha channel.
+                "opacity": 0, // Opacity of symbol and others (like labels).
+                "colorLightness": 0,// Lightness in HSL.
+                "colorSaturation": 0,// Saturation in HSL.
+                "colorHue": 0,// Hue in HSL.
+            },
+            "outOfBrush": {
+                "symbol": 0,  // Type of symbol.
+                "symbolSize": 0, // Symbol size.
+                "color": '#aaa',// Symbol color.
+                "colorAlpha": 0,// Symbol alpha channel.
+                "opacity": 0, // Opacity of symbol and others (like labels).
+                "colorLightness": 0,// Lightness in HSL.
+                "colorSaturation": 0,// Saturation in HSL.
+                "colorHue": 0,// Hue in HSL.
+            },
+            "z": 10000,
+
+
+        },
+        "textStyle": {
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "fontFamily": "Verdana",
+            "fontSize": "12",
+            "align": "center",
+            "verticalAlign": "middle"
+        },
+        "animation": true,
+        "useUTC": false,
+        "xAxis": {
+            "id": '',
+            "type": "category",
+            "position": "bottom",
+            "offset": -21,
+            "inverse": false,
+            "boundaryGap": true,
+            "scale": true,
+            "splitNumber": 10,
+            "axisLabel": {
+                "margin": 35,
+                "show": true,
+                "interval": "auto",
+                "color": "black",
+                "fontWeight": "bold",
+                "inside": false,
+                "rotate": 0,
+                "fontSize": "11",
+                "align": "center",
+                "verticalAlign": "middle"
+            },
+            "show": true,
+            "name": "",
+            "nameLocation": "center",
+
+            "nameTextStyle": {
+                "color": '#000213',
+                "fontStyle": 'normal',  // 'normal' | 'italic' | 'oblique'
+                "fontWeight": 'normal',  // 'bold' | 'bolder' | 'lighter'
+                "fontFamily": 'sans-serif',  // 'serif' | 'monospace' and etc.
+                "fontSize": 12,
+                "align": 'right', // 'left' | 'center'
+                "verticalAlign": 'bottom', // 'top'  | 'middle'
+                "lineHeight": 56,
+                "backgroundColor": 'transparent', // '#123234' | 'red' | 'rgba(0,23,11,0.3)'
+                "borderColor": 'transparent',
+                "borderColor": 'transparent',
+                "borderWidth": 0,
+                "borderRadius": 0,
+                "padding": 0,
+                "shadowColor": 'transparent',
+                "shadowBlur": 0,
+                "shadowOffsetX": 0,
+                "shadowOffsetY": 0,
+                "width": 25,
+                "height": 25,
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowColor": 'transparent',
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+                "rich": {
+                    a: {
+                        "color": "#FFF", // function color
+                        "fontStyle": "normal", // italic, oblique
+                        "fontWeight": "normal", // bolder, lighter, normal, 100|200|300...
+                        "fontFamily": "sans-serif",
+                        "fontSize": 0, // number
+                        "align ": "", // left, center, right
+                        "verticalAlign ": "", // top, middle, bottom
+                        "lineHeight ": "", // string
+                        "backgroundColor": "transparent", // string
+                        "borderColor": "transparent", // string
+                        "borderWidth": 0, // number
+                        "borderRadius": 0, // number
+                        "padding": 0, // number
+                        "shadowColor": "transparent", // string
+                        "shadowBlur": 0, // number
+                        "shadowOffsetX": 0, // number
+                        "shadowOffsetY": 0, // number
+                        "width": "", // number/string
+                        "height": "",  // number/string
+                        "textBorderColor": "transparent", // string
+                        "textBorderWidth": 0, // number
+                        "textShadowColor": 0, // number
+                        "textShadowBlur": 0, // number
+                        "textShadowOffsetX": 0, // number
+                        "textShadowOffsetY": 0, // number
+                    },
+                },
+            },
+            "nameGap": 30,
+            "nameRotate": null,
+            "inverse": false,
+            "min": "",
+            "max": "",
+            "scale": '',
+            "splitNumber": 5,
+            "minInterval": 0,
+            "maxInterval": 0,
+            "interval": '',
+            "logBase": 10,
+            "silent": false,
+            "triggerEvent": false,
+            "splitLine": {
+                "show": true,
+                "interval": "auto",
+                "lineStyle": {
+                    "type": "solid",
+                    "color": '', // ['#ccc']
+                    "width": 1,
+                    "shadowBlur": '',
+                    "shadowColor": '',
+                    "shadowOffsetX": 0,
+                    "shadowOffsetY": 0,
+                    "opacity": ''
+                },
+            },
+            "axisLine": {
+                "show": true,
+                "symbol": "none",
+                "onZero": true,
+                "onZeroAxisIndex": '',
+                "symbol": 'none',
+                "symbolSize": [10, 15],
+                "symbolOffset": [0, 0],
+                "lineStyle": {
+                    "type": "solid",
+                    "color": '#333',
+                    "width": 1,
+                    "shadowBlur": '',
+                    "shadowColor": '',
+                    "shadowOffsetX": 0,
+                    "shadowOffsetY": 0,
+                    "opacity": ''
+                },
+            },
+            "axisTick": {
+                "show": true,
+                "alignWithLabel": "false",
+                "interval": "auto",
+                "inside": "false",
+                "length": 5,
+                "lineStyle": {
+                    "color": '',
+                    "width": 1,
+                    "type": 'solid',
+                    "shadowBlur": '',
+                    "shadowColor": '',
+                    "shadowOffsetX": 0,
+                    "shadowOffsetY": 0,
+                    "opacity ": ''
+                },
+            },
+            "minorTick": {
+                "show": false,
+                "splitNumber": 5,
+                "length": 3,
+                "lineStyle": {
+                    "type": "solid",
+                    "color": '#333',
+                    "width": 1,
+                    "shadowBlur": '',
+                    "shadowColor": '',
+                    "shadowOffsetX": 0,
+                    "shadowOffsetY": 0,
+                    "opacity": ''
+                },
+            },
+            "axisLabel": {
+                "show": true,
+                "interval": 'auto',
+                "inside": false,
+                "rotate": 0,
+                "margin": 8,
+                "formatter ": '',
+                "showMinLabel ": '',
+                "showMaxLabel ": '',
+                "color ": '',
+                "fontStyle": 'normal',
+                "fontWeight": 'normal',
+                "fontFamily": 'sans-serif',
+                "fontSize": 12,
+                "align": '',
+                "verticalAlign": '',
+                "lineHeight ": '',
+                "backgroundColor": 'transparent',
+                "borderColor": 'transparent',
+                "borderColor": 'transparent',
+                "borderWidth": 0,
+                "borderRadius": 0,
+                "padding": 0,
+                "shadowColor": 'transparent',
+                "shadowBlur": 0,
+                "shadowOffsetX": 0,
+                "shadowOffsetY": 0,
+                "width": '',
+                "height": '',
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowColor": 'transparent',
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+                "rich": {
+                    a: {
+                        "color": "#FFF", // function color
+                        "fontStyle": "normal", // italic, oblique
+                        "fontWeight": "normal", // bolder, lighter, normal, 100|200|300...
+                        "fontFamily": "sans-serif",
+                        "fontSize": 12, // number
+                        "align ": "", // left, center, right
+                        "verticalAlign ": "", // top, middle, bottom
+                        "lineHeight ": "", // string
+                        "backgroundColor": "transparent", // string
+                        "borderColor": "transparent", // string
+                        "borderWidth": 0, // number
+                        "borderRadius": 0, // number
+                        "padding": 0, // number
+                        "shadowColor": "transparent", // string
+                        "shadowBlur": 0, // number
+                        "shadowOffsetX": 0, // number
+                        "shadowOffsetY": 0, // number
+                        "width": "", // number/string
+                        "height": "",  // number/string
+                        "textBorderColor": "transparent", // string
+                        "textBorderWidth": 0, // number
+                        "textShadowColor": 0, // number
+                        "textShadowBlur": 0, // number
+                        "textShadowOffsetX": 0, // number
+                        "textShadowOffsetY": 0, // number
+                    },
+                },
+            },
+            "minorSplitLine": {
+                "show": false,
+                "lineStyle": {
+                    "color": '#eee',
+                    "width": 1,
+                    "type": 'solid',
+                    "shadowBlur ": '',
+                    "shadowColor ": '',
+                    "shadowOffsetX": 0,
+                    "shadowOffsetY": 0,
+                    "opacity ": ''
+                },
+            },
+            "splitArea": {
+                "interval": 'auto',
+                "show": false,
+                "areaStyle": {
+                    "color": ['rgba(250,250,250,0.3)', 'rgba(200,200,200,0.3)'],
+                    "shadowBlur": '',
+                    "shadowColor": '',
+                    "shadowOffsetX": 0,
+                    "shadowOffsetY": 0,
+                    "opacity": '',
+                },
+            },
+        },
+        "yAxis": {
+            "position": "left",
+            "offset": 0,
+            "type": "value",
+            "inverse": false,
+            "boundaryGap": [
+                "0%",
+                "10%"
+            ],
+            "scale": true,
+            "splitNumber": 5,
+            "axisPointer": {
+                "show": true,
+                "triggerTooltip": false
+            },
+            "axisLabel": {
+                "margin": 25,
+                "show": true,
+                "interval": "auto",
+                "color": "black",
+                "fontWeight": "bold",
+                "inside": false,
+                "rotate": 0,
+                "fontSize": "11",
+                "align": "center",
+                "verticalAlign": "middle"
+            },
+            "show": true,
+            "name": "",
+            "nameLocation": "center",
+            "nameTextStyle": {
+                "fontSize": "13"
+            },
+            "nameGap": 30,
+            "nameRotate": null,
+            "splitLine": {
+                "show": true
+            },
+            "axisLine": {
+                "show": true,
+                "symbol": "none",
+                "lineStyle": {
+                    "type": "solid"
+                }
+            },
+            "axisTick": {
+                "show": true
+            }
+        },
+        "dataset": {
+            "source": [
+                [
+                    "Name",
+                    "In",
+                    "Out"
+                ],
+                [
+                    "Monday",
+                    43.3,
+                    853.8
+                ],
+                [
+                    "Tuesday",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "331",
+                    833.1,
+                    73.4
+                ],
+                [
+                    "Tue141sday",
+                    843.1,
+                    73.4
+                ],
+                [
+                    "Tue4sday",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "Tue4s4day",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "Tue44sday",
+                    83.1,
+                    73.4
+                ]
+            ]
+        },
+        "series": [
+            {
+                "seriesLayoutBy": "column",
+                "id": "",
+                "show": true,
+                "name": "series",
+                "coordinateSystem": "cartesian2d", //'polar', 'cartesian2d'
+                "xAxisIndex": 0,
+                "yAxisIndex": 0,
+                "polarIndex": 0,
+                "label": {
+                    "show": true,
+                    "distance": 5,
+                    "rotate": 90,
+                    "formatter": '{b}',
+                    "position": "left", //'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                    "fontSize": "11",
+                    "fontFamily": 'sans-serif',
+                    "fontStyle": 'normal',// 'normal' 'italic' 'oblique'
+                    "align": "center", //'center' 'left' 'right'
+                    "verticalAlign": "middle",// 'top'  'middle'    'bottom'
+                    "emphasis": {
+                        "show": false,
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(0, 0, 0, 0.5)"
+                    },
+                    "backgroundColor": 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                    "borderColor": 'transparent',       //'auto'
+                    "borderWidth": 0,
+                    "borderRadius": 0,
+                    "position": "inside",
+                    "offset": [-10, -10],
+                    "padding": [0, 0],
+                    "color": "auto",
+                    "width": 0,
+                    "height": 0,
+                    "textBorderColor": 'transparent',
+                    "textBorderWidth": 0,
+                    "textShadowColor": 'transparent',
+                    "textShadowBlur": 0,
+                    "textShadowOffsetX": 0,
+                    "textShadowOffsetY": 0,
+                    "rich": {
+                        "a": {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'normal' 'italic' 'oblique'
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: "left", //'center' 'left' 'right'
+                            verticalAlign: 'top', // 'top'  'middle'    'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                        }
+                    }
+                },
+                "type": "line",
+                "symbol": "circle", // 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                "symbolSize": 6,
+                "symbolRotate": "arrow",
+                "symbolKeepAspect": true,
+                "showSymbol": true,
+                "symbolOffset": [0, 0],
+                "showAllSymbol": false,   //'auto', true, false
+                "smooth": true,
+                "hoverAnimation": true,
+                "legendHoverLink ": true,
+                "stack": "",
+                "cursor": "pointer", //CSS STYLE
+                "connectNulls": true,
+                "clip": true,
+                "step": false, // true, false 'start', 'middle', 'end'
+                "sampling": "max", // 'average''min' 'max''sum'
+                "itemStyle": {
+                    "color": null,
+                    borderColor: "#fff",
+                    borderWidth: 0,
+                    borderType: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                lineStyle: {
+                    color: "#fff",
+                    width: 2,
+                    type: "solid",
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                areaStyle: {
+                    color: "#f0f0f0",
+                    origin: 'auto',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                emphasis: {
+
+                    label: {
+                        show: false,
+                        position: [10, 10], //'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                        distance: 5,
+                        rotate: 90,
+                        offset: [30, 40],
+                        formatter: '{b}: {@score}',
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',//'normal'     'bold'      'bolder' 'lighter'
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: "right", //'left'  'center'   'right'
+                        verticalAlign: "top",  // 'top'  'middle'    'bottom'
+                        lineHeight: 56,
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            "a": {
+                                color: "#fff",
+                                fontStyle: 'normal', // 'normal' 'italic' 'oblique'
+                                fontWeight: 'normal', //'normal'     'bold'      'bolder' 'lighter'
+                                fontFamily: 'sans-serif',
+                                fontSize: 12,
+                                align: "left", //'center' 'left' 'right'
+                                verticalAlign: 'top', // 'top'  'middle'    'bottom'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0,
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: 0,
+                                height: 0,
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+                            }
+                        }
+                    }
+                },
+                smoothMonotone: 'y',
+                dimensions: ['date', 'open', 'close', 'highest', 'lowest'],
+                /* encode: {
+                     x: [3, 1, 5],      // Dimension 3, 1, 5 is mapped to x axis.
+                     y: 2,              // Dimension 2 is mapped to y axis.
+                     tooltip: [3, 2, 4] // Dimension 3, 2, 4 will be displayed in tooltip.
+                 },*/
+                markPoint: {
+                    symbol: 'pin',
+                    symbolSize: 50,
+                    symbolRotate: 'arrow',
+                    symbolKeepAspect: false,
+                    symbolOffset: [0, 0],
+                    silent: true,
+                    label: {
+                        show: true,
+                        position: 'inside',
+                        distance: 5,
+                        rotate: 90,
+                        offset: [30, 40],
+                        formatter: '{b}: {@score}',
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: 'right',//'left' 'center'    'right'
+                        verticalAlign: 'middle', // 'top''bottom''middle'
+                        lineHeight: 65,
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            a: {
+                                color: "#fff",
+                                fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif',
+                                fontSize: 12,
+                                align: 'left', //'left''center''right'
+                                verticalAlign: 'middle', // 'top''bottom''middle'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0,
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: 0,
+                                height: 0,
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+                            }
+                        },
+                        emphasis: {
+                            show: false,
+                            position: 'top',//'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                            distance: 5,
+                            rotate: 90,
+                            offset: [30, 40],
+                            formatter: '{b}: {@score}',
+                            color: "#fff",
+                            fontStyle: 'normal',
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: '',
+                            verticalAlign: '',
+                            lineHeight: '',
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                            rich: {
+                                a: {
+                                    color: "#fff",
+                                    fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                                    fontWeight: 'normal',
+                                    fontFamily: 'sans-serif',
+                                    fontSize: 12,
+                                    align: 'left', //'left''center''right'
+                                    verticalAlign: 'middle', // 'top''bottom''middle'
+                                    lineHeight: 56,
+                                    backgroundColor: 'transparent',
+                                    borderColor: 'transparent',
+                                    borderWidth: 0,
+                                    borderRadius: 0,
+                                    padding: 0,
+                                    shadowColor: 'transparent',
+                                    shadowBlur: 0,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    width: 0,
+                                    height: 0,
+                                    textBorderColor: 'transparent',
+                                    textBorderWidth: 0,
+                                    textShadowColor: 'transparent',
+                                    textShadowBlur: 0,
+                                    textShadowOffsetX: 0,
+                                    textShadowOffsetY: 0,
+                                }
+                            },
+                        }
+                    },
+                    itemStyle: {
+                        color: '#f0f0f0',
+                        borderColor: "#000",
+                        borderWidth: 0,
+                        borderType: 'solid',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                        emphasis: {
+                            color: '#f0f0f0',
+                            borderColor: "#000",
+                            borderWidth: 0,
+                            borderType: 'solid',
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                        }
+                    },
+
+                },
+                markLine: {
+                    silent: false,
+                    symbol: '',
+                    symbolSize: '',
+                    precision: 2,
+
+                    label: {
+                        show: true,
+                        position: 'end',
+                        formatter: '',
+                        emphasis: {
+                            show: true,
+                            position: 'end',
+                            formatter: '',
+                        },
+                    },
+                    lineStyle: {
+                        color: "#000",
+                        width: 0,
+                        type: 'solid',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                        curveness: 0,
+
+                        emphasis: {
+                            color: "#000",
+                            width: 0,
+                            type: 'solid',
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                        }
+                    },
+
+                    data: [{
+                        0: {
+                            type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                            valueIndex: 0,
+                            valueDim: 'open',
+                            coord: [5, 33.4],
+                            name: 'starting point',
+                            x: 0,
+                            y: 0,
+                            value: 0,
+                            symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                            symbolSize: 10,
+                            symbolRotate: 'arrow',
+                            symbolKeepAspect: false,
+                            symbolOffset: [0, 0],
+                            lineStyle: {
+                                color: "#fff",
+                                width: 0,
+                                type: 'solid',  //'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                                emphasis: {
+                                    color: "#000",
+                                    width: 0,
+                                    type: 'solid',   //'solid''dashed' 'dotted'
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    opacity: 1,
+                                    curveness: 0,
+                                }
+                            },
+
+                            label: {
+                                show: true,
+                                position: 'end',
+                                formatter: "{b}: {d",
+                                emphasis: {
+                                    show: true,
+                                    position: 'end',
+                                    formatter: "{b}: {d",
+                                }
+                            }
+                        },
+
+                        1: {
+                            type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                            valueIndex: 0,
+                            valueDim: 'open',
+                            coord: [5, 33.4],
+                            name: 'starting point',
+                            x: 0,
+                            y: 0,
+                            value: 0,
+                            symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                            symbolSize: 10,
+                            symbolRotate: 'arrow',
+                            symbolKeepAspect: false,
+                            symbolOffset: [0, 0],
+
+                            lineStyle: {
+                                color: "#fff",
+                                width: 0,
+                                type: 'solid', //'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                                emphasis: {
+                                    color: "#000",
+                                    width: 0,
+                                    type: 'solid',//'solid''dashed' 'dotted'
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    opacity: 1,
+                                    curveness: 0,
+                                },
+
+                                label: {
+                                    show: true,
+                                    position: 'end',
+                                    formatter: '{b}: {d',
+                                    emphasis: {
+                                        show: true,
+                                        position: 'end',
+                                        formatter: '{b}: {d',
+                                    }
+                                }
+                            },
+                        }
+                    }],
+                },
+                markArea: {
+                    silent: false,
+                    label: {
+                        show: false,
+                        position: 'top',
+                        distance: 5,
+                        rotate: 90,
+                        offset: [30, 40],
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        lineHeight: 56,
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 10,
+                        height: 10,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            a: {
+                                color: "#fff",
+                                fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif',
+                                fontSize: 12,
+                                align: 'left', //'left''center''right'
+                                verticalAlign: 'middle', // 'top''bottom''middle'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0,
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: 0,
+                                height: 0,
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+                            }
+                        },
+                        emphasis: {
+                            show: false,
+                            position: 'top',//'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                            distance: 5,
+                            rotate: 90,
+                            offset: [30, 40],
+                            formatter: '{b}: {@score}',
+                            color: "#fff",
+                            fontStyle: 'normal',
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: '',
+                            verticalAlign: '',
+                            lineHeight: '',
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                            rich: {
+                                a: {
+                                    color: "#fff",
+                                    fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                                    fontWeight: 'normal',
+                                    fontFamily: 'sans-serif',
+                                    fontSize: 12,
+                                    align: 'left', //'left''center''right'
+                                    verticalAlign: 'middle', // 'top''bottom''middle'
+                                    lineHeight: 56,
+                                    backgroundColor: 'transparent',
+                                    borderColor: 'transparent',
+                                    borderWidth: 0,
+                                    borderRadius: 0,
+                                    padding: 0,
+                                    shadowColor: 'transparent',
+                                    shadowBlur: 0,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    width: 0,
+                                    height: 0,
+                                    textBorderColor: 'transparent',
+                                    textBorderWidth: 0,
+                                    textShadowColor: 'transparent',
+                                    textShadowBlur: 0,
+                                    textShadowOffsetX: 0,
+                                    textShadowOffsetY: 0,
+                                }
+                            },
+                        }
+                    },
+                    itemStyle: {
+                        color: '#f0f0f0',
+                        borderColor: "#000",
+                        borderWidth: 0,
+                        borderType: 'solid',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                        emphasis: {
+                            color: "#f0f0f0",
+                            borderColor: "#000",
+                            borderWidth: 0,
+                            borderType: 'solid',
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                        }
+                    },
+                    data: [{
+                        0: {
+                            type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                            valueIndex: 0,
+                            valueDim: 'open',
+                            coord: [5, 33.4],
+                            name: 'starting point',
+                            x: 0,
+                            y: 0,
+                            value: 0,
+                            symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                            symbolSize: 10,
+                            symbolRotate: 'arrow',
+                            symbolKeepAspect: false,
+                            symbolOffset: [0, 0],
+                            lineStyle: {
+                                color: "#fff",
+                                width: 0,
+                                type: 'solid',  //'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                                emphasis: {
+                                    color: "#000",
+                                    width: 0,
+                                    type: 'solid',   //'solid''dashed' 'dotted'
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    opacity: 1,
+                                    curveness: 0,
+                                }
+                            },
+
+                            label: {
+                                show: true,
+                                position: 'end',
+                                formatter: "{b}: {d",
+                                emphasis: {
+                                    show: true,
+                                    position: 'end',
+                                    formatter: "{b}: {d",
+                                }
+                            }
+                        },
+
+                        1: {
+                            type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                            valueIndex: 0,
+                            valueDim: 'open',
+                            coord: [5, 33.4],
+                            name: 'starting point',
+                            x: 0,
+                            y: 0,
+                            value: 0,
+                            symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                            symbolSize: 10,
+                            symbolRotate: 'arrow',
+                            symbolKeepAspect: false,
+                            symbolOffset: [0, 0],
+
+                            lineStyle: {
+                                color: "#fff",
+                                width: 0,
+                                type: 'solid', //'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                                emphasis: {
+                                    color: "#000",
+                                    width: 0,
+                                    type: 'solid',//'solid''dashed' 'dotted'
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    opacity: 1,
+                                    curveness: 0,
+                                },
+
+                                label: {
+                                    show: true,
+                                    position: 'end',
+                                    formatter: '{b}: {d',
+                                    emphasis: {
+                                        show: true,
+                                        position: 'end',
+                                        formatter: '{b}: {d',
+                                    }
+                                }
+                            },
+                        }
+                    }],
+                },
+                zlevel: 0,
+                z: 2,
+                silent: false,
+                animation: true,
+                animationThreshold: 2000,
+                animationDuration: 1000,
+                animationEasing: 'linear',
+                animationDelay: 0,
+                animationDurationUpdate: 300,
+                animationEasingUpdate: function (k) {
+                    return --k * k * k + 1;
+                },
+                animationDelayUpdate: 0,
+                tooltip: {
+                    position: 'top',//'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                    formatter: '{b}: {@score}',
+                    backgroundColor: 'rgba(50,50,50,0.7)',
+                    borderColor: '#333',
+                    borderWidth: 0,
+                    padding: 5,
+
+                    textStyle: {
+                        color: '#fff',
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 14,
+                        lineHeight: 56,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                    },
+                    extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);', //style,
+                }
+            },
+            {
+                id: "1",
+                name: "",
+                legendHoverLink: true,
+                coordinateSystem: 'cartesian2d',
+                xAxisIndex: 0,
+                yAxisIndex: 0,
+                roundCap: false,
+                "seriesLayoutBy": "column",
+                "label": {
+                    "show": true,
+                    "fontSize": "11",
+                    "align": "center",
+                    "position": "inside",
+                    "offset": [-10, -10],
+                    "padding": [0, 0],
+                    "color": "auto",
+                    "verticalAlign": "middle",
+                    lineHeight: 56,
+                    backgroundColor: 'transparent',
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0,
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: 0,
+                    height: 0,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        a: {
+                            color: "#fff",
+                            fontStyle: 'normal',
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: "center",
+                            verticalAlign: 'middle',
+                            lineHeight: 56,
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                        }
+                    },
+                    "emphasis": {
+                        "show": false,
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(0, 0, 0, 0.5)"
+                    },
+
+                },
+                itemStyle: {
+                    color: null,
+                    barBorderColor: '#000',
+                    barBorderWidth: 0,
+                    barBorderRadius: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                emphasis: {
+
+                    label: {
+                        show: false,
+                        position: [10, 10],
+                        distance: 5,
+                        rotate: 90,
+                        offset: [30, 40],
+                        formatter: '{b}: {@score}',
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: 'left',
+                        verticalAlign: 'middle',
+                        lineHeight: 56,
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            a: {
+
+                                color: "#fff",
+                                fontStyle: 'normal',
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif',
+                                fontSize: 12,
+                                align: 'left',
+                                verticalAlign: 'middle',
+                                lineHeight: 56,
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0,
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: 0,
+                                height: 0,
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+                            }
+                        }
+                    },
+                    itemStyle: {
+                        color: 'auto',
+                        barBorderColor: '#000',
+                        barBorderWidth: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                    }
+                },
+                "type": "bar",
+                "symbol": "circle",
+                "symbolSize": 6,
+                "symbolKeepAspect": true,
+                "showSymbol": true,
+                "showAllSymbol": false,
+                "smooth": true,
+                "sampling": "max",
+                stack: false,
+                cursor: 'pointer',
+                barWidth: '60%',
+                barMaxWidth: '70%',
+                barMinWidth: '40%',
+                barMinHeight: 0,
+                barGap: '30%',
+                barCategoryGap: '20%',
+                large: false,
+                largeThreshold: 400,
+                progressive: 5000,
+                progressiveThreshold: 3000,
+                progressiveChunkMode: 'sequential',
+                dimensions: ['date', 'open', 'close', 'highest', 'lowest'],
+                /* encode: {
+                     x: [3, 1, 5],      // Dimension 3, 1, 5 is mapped to x axis.
+                     y: 2,              // Dimension 2 is mapped to y axis.
+                     tooltip: [3, 2, 4] // Dimension 3, 2, 4 will be displayed in tooltip.
+                 }*/
+                seriesLayoutBy: 'column',
+                datasetIndex: 0,
+
+
+            }
+        ]
+    };
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>
+

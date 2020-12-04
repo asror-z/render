@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<style type="text/css">
+    body {
+        margin: 0; padding: 0;
+        font: normal 12px Verdana, Geneva, sans-serif;
+        line-height: 1.8em;
+        color: #333;
+    }
+    * {outline: none;}
+    img {border: none;}
+    h1 {
+        font: 4em normal Georgia, 'Times New Roman', Times, serif;
+        padding: 10px 0;
+        color: #aaa;
+        text-align: center;
+    }
+    h1 span { color: #666; }
+    h1 small{
+        font: 0.3em normal Verdana, Arial, Helvetica, sans-serif;
+        text-transform:uppercase;
+        letter-spacing: 0.65em;
+        display: block;
+        color: #666;
+    }
+    h1 a {text-decoration: none;}
+    a {color: #d60000; text-decoration: none;}
+
+    /*--Tooltip Styles--*/
+    .tip {
+        color: #fff;
+        background:#1d1d1d;
+        display:none; /*--Hides by default--*/
+        padding:10px;
+        position:absolute;	z-index:1000;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+    .container {width: 960px; margin: 0 auto; overflow: hidden;}
+</style>
+
+<script type="text/javascript" src="./demo_files/jquery.min.js(2).download"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        //Tooltips
+        $(".tip_trigger").hover(function(){
+            tip = $(this).find('.tip');
+            tip.show(); //Show tooltip
+        }, function() {
+            tip.hide(); //Hide tooltip
+        });
+    });
+
+</script>
+<div class="container">
+    <p>Ut dolus ullamcorper, gravis ad eu typicus. Similis nulla augue
+        <a class="tip_trigger" href="http://www.designbombs.com/design-firm/grandpeople/">Paulatim
+            <span class="tip" style="width: 400px;"><img src="./demo_files/pic_mont.jpg" style="float: left; margin-right: 20px;" alt="">Welcome to Grandpeople. dolus ullamcorper, gravis ad eu typicus. Similis nulla augueeo
+            </span>
+        </a>
+    </p>
+</div>
+</body></html>

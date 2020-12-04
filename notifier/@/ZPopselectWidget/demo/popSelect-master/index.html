@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PopSelect | A jQuery plugin to replace select with popover</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PopSelect is a jQuery plugin to replace the traditional multiselect with a sleek looking popover">
+  <meta name="keywords" content="jQuery, jQuery plugin, javascript library">
+  <meta name="author" content="Jay Kanakiya">
+
+  <link rel="pingback" href="http://jquer.in/xmlrpc.php" />
+  <link rel="author" href="https://plus.google.com/+jaykanakiya/about">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="A jQuery plugin for sleek looking popover tagging system to replace select">
+  <meta property="og:site_name" content="popSelect">
+  <meta property="og:url" content="http://jquer.in/popSelect/">
+  <meta property="og:image" content="http://jquer.in/wp-content/uploads/2015/07/popSelect.jpg"/>
+  <meta property="og:description" content="popSelect is a jQuery plugin to replace the traditional select box with a sleek Popover with options pre-populated for a better User interface.">
+  <meta property="fb:app_id" content="390381041110554">
+  <meta property="og:type" content="article">
+  <meta name="article:publisher" content="https://www.facebook.com/new.jquery.plugins" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@techiejayk">
+  <meta name="twitter:title" content="A jQuery plugin for popover tagging system to replace select">
+  <meta name="twitter:description" content="popSelect is a jQuery plugin to replace the traditional select box with a sleek Popover with options pre-populated for a better User interface.">
+  <meta name="twitter:image:src" content="http://jquer.in/wp-content/uploads/2015/07/popSelect.jpg">
+
+  <link rel="stylesheet" href="css/libs/bootstrap.css">
+  <link rel="stylesheet" href="css/libs/prism.css">
+  <link rel="stylesheet" href="css/libs/font-awesome.min.css">
+  <link rel="stylesheet" href="css/libs/animate.min.css">
+  <link rel="stylesheet" href="css/libs/creative.css">
+
+  <!-- popSelect -->
+  <link rel="stylesheet" href="dist/jquery.popSelect.css">
+
+  <!-- Custom Fonts
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  -->
+</head>
+
+<body id="page-top">
+
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#toggle-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top">PopSelect</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="toggle-navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a id="tweet" href="https://twitter.com/intent/tweet?url=http://jquer.in/popSelect&text=A%20jQuery%20plugin%20to%20replace%20select%20to%20a%20sleek%20looking%20popover" class="twitter-share-button" data-via="techiejayk" data-hashtags="jquery" data-dnt="true">tweet</a>
+          </li>
+          <li>
+            <iframe src="https://ghbtns.com/github-btn.html?user=kanakiyajay&repo=popSelect&type=star&count=true" frameborder="0" style="margin-top: 15px;" scrolling="0" width="100px" height="20px"></iframe>
+          </li>
+          <li>
+            <iframe src="https://ghbtns.com/github-btn.html?user=kanakiyajay&repo=popSelect&type=fork&count=true" frameborder="0" style="margin-top: 15px;" scrolling="0" width="100px" height="20px"></iframe>
+          </li>
+          <li>
+            <a class="page-scroll" href="#about">About</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#examples">Examples</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#docs">Documentation</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <header>
+    <div class="header-content">
+      <div class="header-content-inner">
+        <h1>&lt;select&gt; popovers</h1>
+        <hr>
+        <p>A jQuery plugin to replace the traditional &lt;select&gt; box with a sleek Popover with options pre-populated. Better User interface than any other multiselects</p>
+        <form class="form form-horizontal">
+          <div class="form-group m-t-4xl">
+            <div class="col-xs-12">
+              <div class="center-block" id="main-example-container">
+                <select name="main-example" id="main-example" class="form-control">
+                  <option value="India">India</option>
+                  <option value="US">U.S.</option>
+                  <option value="Germany">Germany</option>
+                  <option value="UK">UK</option>
+                  <option value="Australia" selected="selected">Australia</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-primary" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <h2 class="section-heading">Amazing Features out of the box</h2>
+          <hr class="light">
+        </div>
+      </div>
+      <div class="row m-3t">
+        <div class="col-md-4 text-center">
+          <div class="service-box">
+            <i class="fa fa-refresh fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+            <h4>Sync with original select</h4>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="service-box">
+            <i class="fa fa-compress fa-3x wow bounceIn" data-wow-delay=".2s"></i>
+            <h4>Maximum Allowed options</h4>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="service-box">
+            <i class="fa fa-expand fa-3x wow bounceIn" data-wow-delay=".3s"></i>
+            <h4>Auto-growing textarea.</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row m-3t">
+        <div class="col-md-4 text-center">
+          <div class="service-box">
+            <i class="fa fa-file-picture-o fa-3x wow bounceIn" data-wow-delay=".4s"></i>
+            <h4>Works with Bootstrap</h4>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="service-box">
+            <i class="fa fa-cog fa-3x wow bounceIn" data-wow-delay=".5s"></i>
+            <h4>Easy methods and options</h4>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="service-box">
+            <i class="fa fa-tag fa-3x wow bounceIn" data-wow-delay=".6s"></i>
+            <h4>Preselect multiple values</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row m-3t">
+        <div class="col-md-4 text-center">
+          <div class="service-box">
+            <i class="fa fa-keyboard-o fa-3x wow bounceIn" data-wow-delay=".7s"></i>
+            <h4>Delete Key Support</h4>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="service-box">
+            <i class="fa fa-arrows fa-3x wow bounceIn" data-wow-delay=".8s"></i>
+            <h4>Multiple Direction Popovers</h4>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="service-box">
+            <i class="fa fa-code fa-3x wow bounceIn" data-wow-delay=".9s"></i>
+            <h4>MIT Licensed, Open Source</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="examples">
+    <div class="container">
+      <div class="row m-3t">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading">Examples</h2>
+          <hr class="primary">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <p class="example-heading">#1: Max Allowed upto 2</p>
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <div class="service-box">
+            <div class="code">
+              <pre>
+<code class="language-javascript">
+$('#example1').popSelect({
+  showTitle: false,
+  maxAllowed: 2
+});
+</code>
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="service-box">
+            <div class="select-container">
+              <select id="example1" multiple>
+                <option value="labrador">Labrador</option>
+                <option value="german-shepard">German Shepard</option>
+                <option value="bulldog">Bulldog</option>
+                <option value="poodle">Poodle</option>
+                <option value="siberian-husky">Siberian Husky</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row m-3t">
+        <p class="example-heading">#2: Popover placed at the bottom</p>
+        <div class="col-md-6 text-center">
+          <div class="service-box">
+            <div class="code">
+              <pre>
+<code class="language-javascript">
+$('#example2').popSelect({
+  showTitle: false,
+  placeholderText: 'Click to Add More',
+  position: 'bottom'
+});
+</code>
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="service-box">
+            <div class="select-container">
+              <select id="example2" multiple>
+                <option value="game-of-thrones">Game Of Thrones</option>
+                <option value="prison-break">Prison Break</option>
+                <option value="lost">Lost</option>
+                <option value="sherlock-holmes">Sherlock Holmes</option>
+                <option value="true-detectives">True Detectives</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row m-3t">
+        <p class="example-heading">#3: Pre-Populated values</p>
+        <div class="col-md-6 text-center">
+          <div class="code-box">
+            <div class="code">
+              <pre>
+<code class="language-javascript">
+$('#example3').popSelect({
+  showTitle: false
+});
+</code>
+              </pre>
+              <pre>
+<code class="language-markup">
+&lt;select id=&quot;example3&quot; multiple&gt;
+  &lt;option value=&quot;game-of-thrones&quot;&gt;Game Of Thrones&lt;/option&gt;
+  &lt;option value=&quot;prison-break&quot;&gt;Prison Break&lt;/option&gt;
+  &lt;option value=&quot;lost&quot;&gt;Lost&lt;/option&gt;
+  &lt;option value=&quot;sherlock-holmes&quot; selected=&quot;selected&quot;&gt;Sherlock Holmes&lt;/option&gt;
+  &lt;option value=&quot;true-detectives&quot; selected=&quot;selected&quot;&gt;True Detectives&lt;/option&gt;
+&lt;/select&gt;
+</code>
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="service-box">
+            <div class="select-container">
+              <select id="example3" multiple>
+                <option value="game-of-thrones" selected="selected">Game Of Thrones</option>
+                <option value="prison-break" selected="selected">Prison Break</option>
+                <option value="lost" selected="selected">Lost</option>
+                <option value="sherlock-holmes" selected="selected">Sherlock Holmes</option>
+                <option value="true-detectives" selected="selected">True Detectives</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="docs" class="bg-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading">Options</h2>
+          <hr class="primary">
+        </div>
+      </div>
+      <div class="row no-gutter">
+        <table class="table table-responsive table-bordered">
+          <thead>
+            <th>Parameter</th>
+            <th>Type</th>
+            <th>Default Value</th>
+            <th>Description</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>width</td>
+              <td>number</td>
+              <td>reads from elem</td>
+              <td>The Width of the new textarea that is generated. It reads the default from the select but can be overwritten by passing in width param</td>
+            </tr>
+            <tr>
+              <td>position</td>
+              <td>string</td>
+              <td>'top'</td>
+              <td>Currently Supports top and bottom positions</td>
+            </tr>
+            <tr>
+              <td>maxAllowed</td>
+              <td>number</td>
+              <td>0</td>
+              <td>The maximum number of tags that are allowed inside the textarea. After which the tags inside the popover are disabled. Keep 0 removing any limit</td>
+            </tr>
+            <tr>
+              <td>autofocus</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>When the document is initilized it will autotomaticallu open up the popover and focus the textarea</td>
+            </tr>
+            <tr>
+              <td>autoIncrease</td>
+              <td>boolean</td>
+              <td>true</td>
+              <td>Automatically increases and decreases the height of the textarea placeholder</td>
+            </tr>
+            <tr>
+              <td>showTitle</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>Whether to show a Title in the popover box</td>
+            </tr>
+             <tr>
+              <td>showTitle</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>Whether to show a Title in the popover box</td>
+            </tr>
+            <tr>
+              <td>placeholderText</td>
+              <td>string</td>
+              <td>'Click to Add Values'</td>
+              <td>The Placeholder text that is shown in the texarea before the tags are clicked</td>
+            </tr>
+            <tr>
+              <td>debug</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>If true, then it shows debug message in the console. Should only be used in developer console.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading m-3t">Others</h2>
+          <hr class="primary">
+        </div>
+        <table class="table table-responsive table-bordered">
+          <thead>
+              <th>Method Name</th>
+              <th>Usage</th>
+              <th>Description</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>value</td>
+              <td><code>$(elem).popSelect('value')</code></td>
+              <td>Returns the current selected values</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <aside class="bg-dark">
+    <div class="container text-center">
+      <div class="call-to-action">
+        <h2>jQuery PopSelect is Open Source</h2>
+        <a href="https://github.com/kanakiyajay/popSelect/archive/master.zip" class="btn btn-default btn-xl wow tada">Download Now!</a>
+        <p></p>
+        <p>You can install it from bower or npm</p>
+        <div class="row">
+          <div class="col-lg-4">
+          </div>
+          <div class="col-lg-4 div col-xs-12">
+            <pre><code>bower install popSelect</code></pre>
+            <pre><code>npm install popselect</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <h2 class="section-heading">Let's Get In Touch!</h2>
+          <hr class="primary">
+          <p>Have some Feedback to share ? Some bug to report ? Contact me below</p>
+        </div>
+      </div>
+      <div class="row m-3t">
+        <div class="col-lg-4 text-center">
+          <div class="row">
+            <div class="col-xs-12">
+              <a href="https://twitter.com/techiejayk" title="FED Pune" target="_blank">
+                <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x text-white wow bounceIn"></i>
+                </span>
+              </a>
+            </div>
+            <div class="col-xs-12 m-3t">
+              <a href="mailto:kanakiyajay@gmail.com" title="mail jaykanakiya">
+                <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-envelope-o fa-stack-1x text-white wow bounceIn"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 text-center" itemscope itemtype="http://schema.org/Person">
+          <div class="row">
+            <div class="col-xs-12">
+              <img width="221" height="221" class="img-circle" src="img/jay-kanakiya.jpg" alt="Jay Kanakiya">
+            </div>
+            <div class="col-xs-12 text-center m-t-xs">
+              <h4 itemprop="name" class="text-uppercase text-muted">Jay Kanakiya</h4>
+              <div style="display:none">
+                <p itemprop="jobTitle">Front End Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 text-center">
+          <div class="row">
+            <div class="col-xs-12">
+               <a href="http://jaykanakiya.com/" rel="author" title="Jay Kanakiya">
+                <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-globe fa-stack-1x text-white bounceIn wow"></i>
+                </span>
+              </a>
+            </div>
+            <div class="col-xs-12 m-3t">
+              <a href="https://github.com/kanakiyajay/" title="kanakiyajay">
+                <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x text-white bounceIn wow"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside id="links" class="bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+          <h2 class="section-heading">You might also be interested in:</h2>
+          <hr class="primary">
+        </div>
+        <div class="col-lg-3">
+          <div class="service-box">
+            <h4 class="text-center">
+              <a href="http://jquer.in/" target="_blank" title="jQuery plugins">
+                <img width="168" height="162" class="img-circle" src="img/jquer_in.jpg" alt="A jQuery plugin a Day">
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="service-box">
+            <h4 class="text-center">
+              <a href="http://angular-js.in/" target="_blank" title="Angular Modules">
+                <img width="162" height="161" src="img/angular-js.jpg" alt="Angular Directives" class="img-circle">
+              </a></h4>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="service-box">
+            <h4 class="text-center">
+              <a href="http://web-components.in/" target="_blank" title="Web Components">
+                <img width="162" height="166" src="img/web-component.png" alt="Web Components" class="img-circle">
+              </a>
+            </h4>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="service-box">
+            <h4 class="text-center">
+              <a href="http://grunt-tasks.com/" target="_blank" title="Grunt Tasks">
+                <img width="162" height="162" src="img/grunt-tasks.png" alt="Grunt Tasks" class="img-circle">
+              </a>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Microdata for Software Application -->
+  <div style="display:none" itemscope itemtype="http://schema.org/SoftwareApplication">
+    <span itemprop="name">popSelect</span><br>
+    <h1 itemprop="headline">A jQuery plugin to replace multiselect with sleek popovers</h1>
+    <p itemprop="description">popSelect is a jQuery plugin to replace the traditional select box with a sleek Popover with options pre-populated for a better User interface.</p>
+    <img src="http://jquer.in/wp-content/uploads/2015/07/popSelect.jpg" alt="popSelect jQuery plugin" itemprop="image">
+    REQUIRES <span itemprop="operatingSystem">Windows</span><br>
+    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+    RATING <span itemprop="ratingValue">5</span>
+    (<span itemprop="ratingCount">23 ratings</span>)
+
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        Price: $<span itemprop="price">0</span>
+        <meta itemprop="priceCurrency" content="INR">
+    </div>
+</div>
+
+  <!-- jQuery -->
+  <script src="src/libs/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="src/libs/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="src/libs/jquery.easing.min.js"></script>
+  <script src="src/libs/jquery.fittext.js"></script>
+  <script src="src/libs/wow.min.js"></script>
+  <script src="src/libs/prism.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="src/libs/creative.js"></script>
+
+  <!-- popSelect jQuery plugin -->
+  <script src="dist/jquery.popSelect.min.js"></script>
+
+  <!-- Initilization Scripts -->
+  <script>
+    $(document).ready(function() {
+
+      // The Main Example on the Top
+      $('#main-example').popSelect({
+        placeholderText: 'Which countries have you travelled to ?',
+        showTitle: false
+        //autofocus: true
+      });
+
+      // Example 1: With Max Allowed
+      $('#example1').popSelect({
+        showTitle: false,
+        maxAllowed: 2
+      });
+
+      // With Bottom Popover
+      $('#example2').popSelect({
+        showTitle: false,
+        placeholderText: 'Click to Add More',
+        position: 'bottom'
+      });
+
+      // With Pre Selected Values
+      $('#example3').popSelect({
+        showTitle: false,
+        autoIncrease: true
+      });
+
+    });
+  </script>
+
+  <!-- Twitter Snippet -->
+  <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+  </script>
+
+  <!-- Google Analytics Snippet -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-33060097-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>title</title>
+
+    <link href="./demo_files/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="./demo_files/style.css">
+
+    <link rel="preload" href="./demo_files/f(2).txt" as="script">
+
+</head>
+<body>
+
+<div class="site-content">
+
+    <h2 class="section-title">jQuery hover3d Plugin Example 1</h2>
+
+    <div class="project-list">
+        <div class="project" style="perspective: 1000px; transform-style: preserve-3d;">
+            <div class="project__card hover-out" style="perspective: 1000px; transform-style: preserve-3d; transform: rotateX(0deg) rotateY(0deg);">
+                <a href="#" class="project__image"><img src="./demo_files/1012-600x400.jpg" width="600" height="400" alt=""></a>
+                <div class="project__detail">
+                    <h2 class="project__title"><a href="#">Project Name</a></h2>
+                    <small class="project__category"><a href="#">Photography</a></small>
+                </div>
+                <div class="shine" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; z-index: 9; background: linear-gradient(64.1556deg, rgba(255, 255, 255, 0.365) 0%, rgba(255, 255, 255, 0) 80%);"></div></div>
+        </div>
+
+        <div class="project" style="perspective: 1000px; transform-style: preserve-3d;">
+            <div class="project__card hover-in" style="perspective: 1000px; transform-style: preserve-3d; transform: rotateY(-4.65deg) rotateX(-0.75deg);">
+                <a href="#" class="project__image"><img src="./demo_files/287-600x400.jpg" width="600" height="400" alt=""></a>
+                <div class="project__detail">
+                    <h2 class="project__title"><a href="#">Project Name</a></h2>
+                    <small class="project__category"><a href="#">Photography</a></small>
+                </div>
+                <div class="shine" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; z-index: 9; background: linear-gradient(80.8377deg, rgba(255, 255, 255, 0.27) 0%, rgba(255, 255, 255, 0) 80%);"></div></div>
+        </div>
+    </div>
+
+    <h2 class="section-title">jQuery hover3d Plugin Example 2</h2>
+
+
+    <div class="movie" style="perspective: 1000px; transform-style: preserve-3d;">
+        <div class="movie__card" style="perspective: 1000px; transform-style: preserve-3d; transform: rotateX(0deg) rotateY(0deg);">
+            <div class="layer-1"></div>
+            <div class="layer-2"></div>
+            <div class="layer-3"></div>
+            <div class="shine" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; z-index: 9; background: linear-gradient(171.254deg, rgba(255, 255, 255, 0.024) 0%, rgba(255, 255, 255, 0) 80%);"></div></div>
+    </div>
+
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<script src="https://raw.githack.com/ariona/hover3d/master/dist/js/jquery.hover3d.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+    $(".project").hover3d({
+      selector: ".project__card",
+      shine: true,
+    });
+
+    $(".movie").hover3d({
+      selector: ".movie__card",
+      shine: true,
+      sensitivity: 20,
+    });
+  });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.0/build/css/intlTelInput.css">
+
+    
+    
+    <style>
+        .input-required label:after{
+            display: inline-block;
+            content: '*';
+            padding-left: 10px;
+        }
+        .link-collor{
+            color: limegreen;
+            text-decoration: underline;
+        }
+        .form-agree .custom-control-input:checked~.custom-control-label::before,.form-subscribe-news .custom-control-input:checked~.custom-control-label::before{
+            border-color: limegreen;
+            background-color: limegreen;
+        }
+
+        .iti__flag {background-image: url("img/flags.png");}
+
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          .iti__flag {background-image: url("img/flags@2x.png");}
+        }
+        .about-regstration{
+            padding: 21px 25px;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+        }
+        .iti{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container container-full">
+
+        <div class="row mb-5 mt-5 justify-content-center">
+            <div class="col-lg-3"><button class="w-100 btn btn-outline-secondary">Войти</button></div>
+            <div class="col-lg-3"><button class="w-100 btn btn-success">Регистрация</button></div>
+        </div>
+
+        <div class="row justify-content-between">
+            <div class="col-lg-7">
+                <form action="" method="post" name="regForm">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-field-name input-required">
+                                <label for="first-name">Имя:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <input type="text" name="first-name" class="form-control" id="first-name" required="required">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-field-name input-required">
+                                <label for="last-name">Фамилия:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <input type="text" name="last-name" class="form-control" id="last-name" required="required">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-field-name input-required">
+                                <label for="middle-name">Отчество:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <input type="text" name="middle-name" class="form-control" id="middle-name" required="required">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-field-name input-required">
+                                <label for="email">E-Mail:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <input type="email" name="email" class="form-control" id="email" required="required">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-field-name input-required">
+                                <label for="phone">Контактный телефон:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <input type="text" name="phone" class="form-control w-100" id="phone" required="required">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-field-name input-required">
+                                <label for="password">Пароль:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <input type="password" name="password" class="form-control" id="password" required="required">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-field-name input-required">
+                                <label for="password-confirm">Повторите пароль:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <input type="password" name="password-confirm" class="form-control" id="password-confirm" required="required">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-field-name">
+                                <label for="subscribe-news">Подписаться на новости</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <!-- <input type="checkbox" name="subscribe-news" class="" id="subscribe-news"> -->
+
+                            <div class="custom-control custom-checkbox form-subscribe-news">
+                              <input type="checkbox" class="custom-control-input" id="subscribe-news" name="subscribe-news">
+                              <label class="custom-control-label" for="subscribe-news"></label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-field-name input-required">
+                                <label for="form-captcha">Проверочный код:</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-3">
+                            <input type="text" name="form-captcha" class="form-control w-50" id="form-captcha" required="required">
+                        </div>
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-8 mb-5">
+                            <img src="captcha.png">
+                            <a href="#" class="link-collor">Обновить</a>
+                        </div>
+
+                        <div class="col-lg-12 mb-5 ">
+                            <div class="custom-control custom-checkbox form-agree">
+                              <input type="checkbox" class="custom-control-input" id="agree" name="agree" required="required">
+                              <label class="custom-control-label" for="agree"></label>
+                              Я согласен с <a href="#" class="link-collor">правилами пользования</a> и обработки персональных данных
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <button class="btn btn-md btn-success">Зарегистрироваться</button>
+                        </div>
+
+                        
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <div class="about-regstration">
+                    Зарегистрировавшись на сайте Вы сможете получить личный кабинет, что позволит Вам отслеживать историю заказов, быстрее оформлять заказы в нашем Интернет магазине, так как вся информация о Вас будет доступна в нашем магазине и ее не нужно будет повторно вносить
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.0/build/js/intlTelInput.js"></script>
+
+    <script>
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+      // allowDropdown: false,
+      autoHideDialCode: false,
+      // autoPlaceholder: "off",
+      // dropdownContainer: document.body,
+      // excludeCountries: false,
+      // formatOnDisplay: false,
+      // geoIpLookup: function(callback) {
+      //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+      //     var countryCode = (resp && resp.country) ? resp.country : "";
+      //     callback(countryCode);
+      //   });
+      // },
+      // hiddenInput: "full_number",
+      initialCountry: "uz",
+      // localizedCountries: { 'de': 'Deutschland' },
+      // nationalMode: false,
+      onlyCountries: ['ru', 'uz', 'de', 'us'],
+      // placeholderNumberType: "MOBILE",
+      // preferredCountries: ['cn', 'jp'],
+      // separateDialCode: true,
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.0/build/js/utils.js",
+    });
+  </script>
+
+
+</body>
+</html>

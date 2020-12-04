@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+        <!-- graphics here -->
+    </svg>
+</head>
+<body>
+
+<input type="file" name="filepond" required multiple>
+
+
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+<script>
+    // get a reference to the input element
+    const inputElement = document.querySelector('input[type="file"]');
+
+    // create a FilePond instance at the input element location
+    const pond = FilePond.create( inputElement, {
+        maxFiles: 10,
+        allowBrowse: true
+    });
+
+    // attributes and initial options have been set to pond options
+    console.log(pond.name);  // 'filepond'
+    console.log(pond.maxFiles); // 10
+    console.log(pond.required); // true
+    console.log(pond.allowMultiple); // true
+</script>
+</body>
+</html>

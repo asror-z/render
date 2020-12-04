@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://html50.github.io/cubeTransition.js/index-dynamic.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cubeTransition.js</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link href="./demo2_files/style.css" rel="stylesheet">
+<style>
+
+.page4 h2{
+margin:auto !important;
+position:absolute !important;
+top:0 !important;left:0;bottom:0;right:0;
+height:100px;
+transform:none;
+transition:all 3s;
+}
+.ani{
+transform:scale(3) rotate(360deg) !important;
+}</style>
+<script src="./demo2_files/jquery.min.js.download"></script>
+</head>
+<body>
+<div id="cubeTransition">
+<div class="page1"><h2>cubeTransition.js</h2></div>
+<div class="page2"><h2 style="display: none;">Elegant,</h2></div>
+<div class="page3 visible"><h2 style="position: absolute; left: 30%; top: 40%;">Exciting!</h2></div>
+<div class="page4"><h2 class="">Simple.</h2></div>
+</div>
+
+<ul id="bullets"><li class=""></li><li class=""></li><li class="active"></li><li class=""></li></ul>
+
+<div class="credit">a simple demo for cubeTransition.js</div>
+<div style="position: fixed;right: 0;top: 0;"><div style="border-bottom:3px solid #d7d7d7;border-top:3px solid #d7d7d7;width:410px;height:83px;background:#efefef;font-size:2.2rem;text-shadow:#868686 1px 1px 20px;display:flex;justify-content:center;align-items:center;transform:rotate(45deg) translate(110px,-20px);"><a style="color:#3f3f3f;text-decoration: none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;" href="https://github.com/html50/cubeTransition.js">star me on github</a></div></div>
+<script>
+function animationIn(i){
+console.log(i,'i\'m in')
+switch(i) {
+    case 1:
+        $('.page2 h2').fadeIn();
+        break;
+    case 2:
+        $('.page3 h2').animate({top:'40%',left:'30%'},1000);
+        break;
+	case 3:
+		setTimeout(function(){
+		 $('.page4 h2').addClass('ani')
+		},0)
+        break;
+    default:
+        ;
+}
+}
+
+function animationOut(i){
+console.log(i,'i\'m out')
+switch(i) {
+    case 1:
+        $('.page2 h2').fadeOut();
+        break;
+    case 2:
+        $('.page3 h2').animate({top:0,left:0},1000);
+        break;
+	case 3:
+        $('.page4 h2').removeClass('ani')
+        break;
+    default:
+        ;
+}
+}
+</script>
+<script src="./demo2_files/wheel-indicator.js.download"></script>
+<script src="./demo2_files/jquery.touchSwipe.js.download"></script>
+<script src="./demo2_files/cubeTransition.js.download"></script>
+</body></html>

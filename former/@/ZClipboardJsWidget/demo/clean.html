@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+
+    <!-- jQuery library -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+
+    <!-- Latest compiled JavaScript -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+    <script src="/publish/yarner/clipboard/dist/clipboard.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+<div class="col">
+    <input type="text" class="form-control" id="foo" value="https://github.com/zenorocha/clipboard.js.git">
+
+
+</div>
+<div class="col">
+    <button class="btn" data-clipboard-target="#foo">
+        <img src="any" alt="Copy to clipboard">
+    </button>
+</div>
+
+
+
+
+<textarea id="bar">Mussum ipsum cacilds...</textarea>
+
+<button class="btn" data-clipboard-action="cut" data-clipboard-target="#bar">
+    Cut to clipboard
+</button>
+
+
+<script>
+    var clipboard = new ClipboardJS('.btn');
+
+    clipboard.on('success', function(e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+
+        e.clearSelection();
+    });
+
+    clipboard.on('error', function(e) {
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+    });
+
+    new ClipboardJS('.btn', {
+        target: function(trigger) {
+            return trigger.nextElementSibling;
+        }
+    });
+    new ClipboardJS('.btn', {
+        text: function(trigger) {
+            return trigger.getAttribute('aria-label');
+        }
+    });
+    new ClipboardJS('.btn', {
+        container: document.getElementById('modal')
+    });
+    var clipboard = new ClipboardJS('.btn');
+    clipboard.destroy();
+
+</script>
+</body>
+</html>

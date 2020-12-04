@@ -1,0 +1,127 @@
+<doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="../dist/css/toastme.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .container {
+            width: 300px;
+            margin: 25px auto;
+            padding: 10px 15px;
+            background-color: #d8eaf2;
+            border-radius: 4px;
+            color: #333;
+            text-align: center;
+        }
+
+            .container h3 {
+                margin: 5px 0 25px 0;
+                text-align: center;
+                font-size: 15px;
+            }
+
+            .container label {
+                font-size: 10px;
+                text-align: left;
+                display: block;
+                color: #777;
+            }
+
+            .container textarea {
+                width: 100%;
+                height: 160px;
+                resize: none;
+                margin-bottom: 10px;
+            }
+
+            .container input[type=button] {
+                background-color: #529A52;
+                border: 1px solid transparent;
+                border-radius: 4px;
+                color: #fff;
+                padding: 4px 8px;
+                font-weight: normal;
+            }
+
+            .container .toast-mode {
+                font-size: 12px;
+                text-align:left;
+                margin-bottom:10px;
+            }
+                .container .toast-mode input[type=radio]{
+                    margin:0;
+
+                } .container .toast-mode span {
+                    display: inline-block;
+                    overflow: hidden;
+                    margin-right:8px;
+                }
+                 .container .toast-mode div {
+                    display: inline-block;
+                    overflow: hidden;
+                    margin-right: 5px;
+                    color: #777;
+                    font-weight: bold;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Toast popup demo</h3>
+        <label>Try your custom messages:</label>
+        <textarea id="customMessage" placeholder="type your custom messages"></textarea>
+        <div class="toast-mode">
+            <div>Modes:</div>
+            <input type="radio" name="mode" value="info" checked=""> <span>Info</span>
+            <input type="radio" name="mode" value="success"> <span>Success</span>
+            <input type="radio" name="mode" value="warning"> <span>Warning</span>
+            <input type="radio" name="mode" value="error"> <span>Error</span>
+        </div>
+        <input type="button" value="Show Toast" id="btnShow">
+    </div>
+
+    <!--Toast popup html tag-->
+    <div id="myToast" class="toast-popup error" style="width: auto; left: 42.0937%; display: none;">Oops! Something went wrong.</div>
+    
+    <script src="bower_component/jquery/jquery-2.2.0.min.js"></script>
+    <script src="../dist/js/toastme.js"></script>
+    <script>
+        $(function () {
+            $("#customMessage").val("This is a toast notification!");
+            $("#btnShow").click(function () {
+                var customMessage = $("#customMessage").val();
+                var currentMode = $("input[name=mode]:checked").val();
+                if (customMessage != "" && customMessage != undefined) {
+                    $("#myToast").showToast({
+                        message: customMessage,
+                        duration: 2000,
+                        mode: currentMode
+                    });
+                } else {
+                    $("#myToast").showToast({
+                        mode: currentMode
+                    });
+                }
+            });
+            $("input[name=mode]").change(function () {
+                var currentMode = $("input[name=mode]:checked").val();
+                if (currentMode == "success") {
+                    $("#customMessage").val("Product added to cart successfully");
+                } else if (currentMode == "warning") {
+                    $("#customMessage").val("Hey! some fields need an update.");
+                } else if (currentMode == "error") {
+                    $("#customMessage").val("Oops! Something went wrong.");
+                } else {
+                    $("#customMessage").val("This is a toast notification!");
+                }
+            });
+        });
+    </script>
+
+
+</body>
+</html>

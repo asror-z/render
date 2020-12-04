@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>InventoryUI</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body,
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+            outline: none;
+        }
+        button:focus {
+            outline: 0;
+        }
+        .inactiveMixin {
+            content: "";
+            position: absolute;
+            display: block;
+        }
+        .beforeAnimation {
+            -moz-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+            -o-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+            -webkit-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+            transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+        }
+        .afterAnimation {
+            box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, 0.04), 0 4px 9px hsla(0, 0%, 0%, 0.13), 0 3px 3px hsla(0, 0%, 0%, 0.05);
+            -moz-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+            -o-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+            -webkit-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+            transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+        }
+        .toggleWrapper input.mobileToggle {
+            opacity: 0;
+            position: absolute;
+        }
+        .toggleWrapper input.mobileToggle + label {
+            position: relative;
+            display: inline-block;
+            user-select: none;
+            -moz-transition: 0.4s ease;
+            -o-transition: 0.4s ease;
+            -webkit-transition: 0.4s ease;
+            transition: 0.4s ease;
+            -webkit-tap-highlight-color: transparent;
+            height: 30px;
+            width: 50px;
+            border: 1px solid #e4e4e4;
+            border-radius: 60px;
+        }
+        .toggleWrapper input.mobileToggle + label:before {
+            content: "";
+            position: absolute;
+            display: block;
+            -moz-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+            -o-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+            -webkit-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+            transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+            height: 30px;
+            width: 51px;
+            top: 0;
+            left: 0;
+            border-radius: 30px;
+        }
+        .toggleWrapper input.mobileToggle + label:after {
+            content: "";
+            position: absolute;
+            display: block;
+            box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, 0.04), 0 4px 9px hsla(0, 0%, 0%, 0.13), 0 3px 3px hsla(0, 0%, 0%, 0.05);
+            -moz-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+            -o-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+            -webkit-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+            transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+            background: whitesmoke;
+            height: 28px;
+            width: 28px;
+            top: 1px;
+            left: 0px;
+            border-radius: 60px;
+        }
+        .toggleWrapper input.mobileToggle:checked + label:before {
+            background: #2ecc71;
+            -moz-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+            -o-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+            -webkit-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+            transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+        }
+        .toggleWrapper input.mobileToggle:checked + label:after {
+            left: 24px;
+        }
+        .app-wrapper {
+            background-image: url("https://static1.gamespot.com/uploads/original/1179/11799911/2718166-rsg_gtav_ng_screenshot_006.jpg");
+            height: 100%;
+            background-size: cover;
+            background-repeat: norepeat;
+        }
+        .app-wrapper .phone-wrapper {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: block;
+            margin: auto;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-style: outset;
+            background-color: black;
+            width: 235px;
+            height: 500px;
+            border-radius: 25px;
+            padding: 8px 1px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+        .app-wrapper .phone-wrapper.small {
+            zoom: 50%;
+        }
+        .app-wrapper .phone-wrapper.medium {
+            zoom: 60%;
+        }
+        .app-wrapper .phone-wrapper.large {
+            zoom: 120%;
+        }
+        .app-wrapper .phone-wrapper.extra-large {
+            zoom: 150%;
+        }
+        .app-wrapper .phone-wrapper .screen {
+            position: relative;
+            display: block;
+            background-image: url("https://i.pinimg.com/originals/f4/a1/41/f4a141d23c96d42709b2142123bac05f.jpg");
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            -webkit-box-shadow: inset -84px -25px 22px -81px #ffffff;
+            -moz-box-shadow: inset -84px -25px 22px -81px #ffffff;
+            box-shadow: inset -84px -25px 22px -81px #ffffff;
+        }
+        .app-wrapper .phone-wrapper .screen:after {
+            content: "";
+            -webkit-box-shadow: inset 81px 19px 22px -81px #ffffff;
+            -moz-box-shadow: inset 81px 19px 22px -81px #ffffff;
+            box-shadow: inset 81px 19px 22px -81px #ffffff;
+            width: 30px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0);
+            position: absolute;
+            left: 0px;
+            pointer-events: none;
+        }
+        .app-wrapper .phone-wrapper .screen .notch {
+            width: 15px;
+            height: 15px;
+            background: black;
+            margin: auto;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            border-radius: 10px;
+            z-index: 10;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-stats {
+            color: rgba(255, 255, 255, 0.7);
+            position: absolute;
+            top: 8px;
+            right: 35px;
+            z-index: 10;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-stats i {
+            font-size: 10px;
+        }
+        .app-wrapper .phone-wrapper .screen .add-contact {
+            position: absolute;
+            top: 56px;
+            right: 10px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .add-contact:hover {
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            color: #01579b;
+        }
+        .app-wrapper .phone-wrapper .screen .toggleContainerMixin {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+        }
+        .app-wrapper .phone-wrapper .screen .toggleContainerMixin h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .toggleContainerMixin h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .toggleContainerMixin h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .toggleContainerMixin.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+            background: white;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper h2 {
+            margin: 0 0 20px 0;
+            font-size: 14px;
+            padding-left: 10px;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper .number-input {
+            border: 0;
+            width: 100%;
+            padding: 10px 10px 300px 10px;
+            margin-top: 25px;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper button {
+            width: 100%;
+            padding: 15px;
+            background: #09af00;
+            border: 1px solid #09af00;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper .dialer {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 90px;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper .dialer-btn {
+            float: left;
+            width: 33.3333% !important;
+            margin: 0px !important;
+            text-align: center;
+            padding: 20px !important;
+            background-color: lightgray !important;
+            border-color: white !important;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper .dialer-btn:last-child {
+            width: 100% !important;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper .dialer-btn:hover {
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            background-color: #09af00 !important;
+        }
+        .app-wrapper .phone-wrapper .screen .call-wrapper .number-input {
+            padding: 10px 10px 10px 10px;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+            background-color: white;
+            z-index: 10;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper h1,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper h1 i,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper h1 i:hover,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper.open,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper .send-tweet,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper .send-tweet {
+            background-color: #1da1f2;
+            color: white;
+            padding: 10px;
+            border-radius: 100px;
+            text-align: center;
+            position: absolute;
+            top: 7px;
+            right: 0;
+            margin: 10px;
+            font-size: 14px;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper .send-tweet:hover,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper .send-tweet:hover {
+            cursor: pointer;
+            background-color: #0c85d0;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper .tweet-btn,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper .tweet-btn {
+            background-color: #1da1f2;
+            border: 1px solid #1da1f2;
+            border-radius: 10px;
+            color: white;
+            padding: 5px 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 18px 10px;
+            font-size: 14px;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper .tweet-btn:hover,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper .tweet-btn:hover {
+            cursor: pointer;
+            background-color: #0c85d0;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper textarea,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper textarea {
+            border: none;
+            padding: 10px;
+            width: 100%;
+            height: 100%;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper .tweets,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper .tweets {
+            padding: 10px 0;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper .tweets .tweet,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper .tweets .tweet {
+            width: auto;
+            padding: 5px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper .tweets .tweet:first-child,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper .tweets .tweet:first-child {
+            border-top: 1px solid #e0e0e0;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper .tweets .tweet p,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper .tweets .tweet p {
+            padding: 0;
+            margin: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .twitter-wrapper .tweets .tweet .name,
+        .app-wrapper .phone-wrapper .screen .send-tweet-wrapper .tweets .tweet .name {
+            color: #1da1f2;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+            background-color: #e0e0e0;
+            overflow: auto;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper h2 {
+            margin: 0 0 20px 0;
+            font-size: 14px;
+            padding-left: 15px;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper ul .contacts {
+            min-height: 47.9px;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper ul li {
+            position: relative;
+            padding: 8px;
+            border: 1px solid white;
+            background-color: white;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom: 1px solid lightgray;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper ul li:first-child {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper ul li p {
+            padding: 0;
+            margin: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper ul li .name {
+            font-size: 14px;
+            width: 121px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper ul li .number {
+            font-size: 12px;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper ul li .contact-actions {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 10px;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper ul li .contact-actions i {
+            padding: 5px 5px;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .contacts-wrapper ul li .contact-actions i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper h2 {
+            margin: 0 0 20px 0;
+            font-size: 14px;
+            padding-left: 10px;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper ul li {
+            position: relative;
+            padding: 8px;
+            border: 1px solid white;
+            background-color: white;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom: 1px solid lightgray;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper ul li:first-child {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper ul li p {
+            padding: 0;
+            margin: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper ul li .name {
+            font-size: 14px;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper ul li .number {
+            font-size: 12px;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper ul li .msg {
+            min-height: 16px;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper ul li .contact-actions {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 10px;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper ul li .contact-actions i {
+            padding: 5px 5px;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .messages-wrapper ul li .contact-actions i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .services-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+        }
+        .app-wrapper .phone-wrapper .screen .services-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .services-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .services-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .services-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .services-wrapper ul {
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .services-wrapper ul li button {
+            float: left;
+            cursor: pointer;
+            background: orangered;
+            color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            margin-right: 5px;
+            border: 1px solid orangered;
+            width: calc(50% - 5px);
+            border-radius: 3px;
+        }
+        .app-wrapper .phone-wrapper .screen .services-wrapper ul li button:hover {
+            background-color: #01579b;
+            border: 1px solid #01579b;
+        }
+        .app-wrapper .phone-wrapper .screen .services-wrapper ul li button p {
+            font-size: 12px;
+            padding: 0;
+            margin: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .services-wrapper ul li .vpn-btn {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            background: gray;
+            border: 1px solid gray;
+            border-radius: 100px;
+            padding: 5px;
+            width: 39px;
+            font-size: 12px;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+            background-color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper .service {
+            display: block;
+            overflow: hidden;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper ul li {
+            padding: 10px 10px;
+            border-bottom: 1px solid #9e9e9e;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper ul li:first-child {
+            border-top: 1px solid #9e9e9e;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper textarea {
+            border: none;
+            width: 100%;
+            height: 385px;
+            padding: 10px;
+        }
+        .app-wrapper .phone-wrapper .screen .service-message-wrapper button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 5px;
+            background: orangered;
+            border: 1px solid orangered;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .add-contact-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+        }
+        .app-wrapper .phone-wrapper .screen .add-contact-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .add-contact-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .add-contact-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .add-contact-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .add-contact-wrapper h1 {
+            margin-bottom: 15px;
+        }
+        .app-wrapper .phone-wrapper .screen .add-contact-wrapper input {
+            width: 100%;
+            padding: 10px;
+            margin: 0px;
+            border: none;
+            border-bottom: 1px solid lightgray;
+        }
+        .app-wrapper .phone-wrapper .screen .add-contact-wrapper .save {
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #01579b;
+            border: 1px solid #01579b;
+            color: whitesmoke;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: #09af00;
+            border: 1px solid #09af00;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper ul {
+            padding: 5px;
+            margin: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper ul li {
+            position: relative;
+            border-bottom: 1px solid whitesmoke;
+            padding: 10px;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper ul li p {
+            position: relative;
+            top: 5px;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper ul li .toggleWrapper {
+            position: absolute;
+            top: 26px;
+            right: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper ul li ul {
+            padding: 0;
+            list-style: none;
+        }
+        .app-wrapper .phone-wrapper .screen .settings-wrapper ul li ul li {
+            border: none;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+            background-color: #121212;
+            text-align: center;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper i {
+            padding: 140px 0 5px 0;
+            display: block;
+            color: white;
+            font-size: 70px;
+            -webkit-animation-name: greenPulse;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper .back-from-call {
+            position: absolute;
+            top: 0;
+            margin: 0;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper p {
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper button {
+            background: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            text-transform: uppercase;
+            font-size: 13px;
+            padding: 8px 10px 7px 10px;
+            font-weight: bold;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper button:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            border-color: #bdbdbd;
+            color: black;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper .answer-btn {
+            background-color: #03dac6;
+            border: 1px solid #03dac6;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .phone-call-active-wrapper .hangup-btn {
+            background-color: #b00020;
+            border: 1px solid #b00020;
+            color: white;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+            width: 100%;
+            background: #b71c1c;
+            padding: 10px;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper h1 {
+            margin-top: 40px;
+            overflow: auto;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper button {
+            background: white;
+            border: white;
+            margin-bottom: 5px;
+            font-size: 16px;
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid white;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper button p {
+            margin: 0;
+            padding: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper button strong {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper button:hover {
+            cursor: pointer;
+            border: 1px solid white;
+            background-color: #b71c1c;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .life-alert-wrapper .info-text {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: whitesmoke;
+            border-radius: 3px;
+            padding: 5px;
+            font-size: 12px;
+        }
+        .app-wrapper .phone-wrapper .screen .new-convo-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+        }
+        .app-wrapper .phone-wrapper .screen .new-convo-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .new-convo-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .new-convo-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .new-convo-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .new-convo-wrapper h1 {
+            font-size: 18px;
+            padding-bottom: 10px;
+        }
+        .app-wrapper .phone-wrapper .screen .new-convo-wrapper .send-message-wrapper {
+            position: absolute;
+            bottom: 0;
+            overflow: auto;
+            background-color: #01579b;
+            width: 100%;
+            overflow: hidden;
+        }
+        .app-wrapper .phone-wrapper .screen .new-convo-wrapper .send-message-wrapper input {
+            margin: 0;
+            padding: 10px;
+            margin-right: 10px;
+            width: 100%;
+            border: none;
+        }
+        .app-wrapper .phone-wrapper .screen .new-convo-wrapper .send-message-wrapper textarea {
+            float: left;
+            border: 1px solid #bdbdbd;
+            padding: 6.5px 5px;
+            width: 100%;
+            height: 350px;
+        }
+        .app-wrapper .phone-wrapper .screen .new-convo-wrapper .send-message-wrapper button {
+            float: left;
+            width: 100%;
+            background: #01579b;
+            border: 1px solid #01579b;
+            padding: 2px 3px;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .confirmation-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+        }
+        .app-wrapper .phone-wrapper .screen .confirmation-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .confirmation-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .confirmation-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .confirmation-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .confirmation-wrapper h1 {
+            text-align: center;
+            font-size: 20px;
+            padding: 190px 0 10px 0;
+        }
+        .app-wrapper .phone-wrapper .screen .confirmation-wrapper .action-wrapper {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+        }
+        .app-wrapper .phone-wrapper .screen .confirmation-wrapper .action-wrapper button {
+            float: left;
+            width: 50%;
+            background: #01579b;
+            border: 1px solid #01579b;
+            padding: 10px 3px;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .confirmation-wrapper .action-wrapper button:first-child {
+            background: #e64a19;
+            border: 1px solid #e64a19;
+        }
+        .app-wrapper .phone-wrapper .screen .confirmation-wrapper .action-wrapper button:last-child {
+            background: #09af00;
+            border: 1px solid #09af00;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+            background-color: black;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner {
+            display: block;
+            width: 62px;
+            height: 80px;
+            position: relative;
+            transform: scale(1.5);
+            margin: auto;
+            margin-top: 196px;
+            font-family: sans-serif;
+            font-size: 28px;
+            font-style: normal;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex {
+            position: absolute;
+            display: inline-block;
+            transform: rotateZ(90deg);
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex::after {
+            content: "\2b22";
+            display: inline-block;
+            opacity: 0;
+            transform: scale(0);
+            animation: spinner-animation 4s linear infinite;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 1) {
+            left: 20px;
+            top: 0px;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 1)::after {
+            animation-delay: 0s;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 2) {
+            left: 40px;
+            top: 12px;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 2)::after {
+            animation-delay: 0.285s;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 3) {
+            left: 40px;
+            top: 35px;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 3)::after {
+            animation-delay: 0.57s;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 4) {
+            left: 20px;
+            top: 45px;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 4)::after {
+            animation-delay: 0.855s;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 5) {
+            left: 0px;
+            top: 35px;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 5)::after {
+            animation-delay: 1.14s;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 6) {
+            left: 0px;
+            top: 12px;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 6)::after {
+            animation-delay: 1.425s;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 7) {
+            left: 20px;
+            top: 23px;
+        }
+        .app-wrapper .phone-wrapper .screen .loading-wrapper .loading-spinner .hex:nth-child(7n + 7)::after {
+            animation-delay: 1.71s;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper h1 {
+            font-size: 18px;
+            padding-bottom: 10px;
+            height: 70.8px;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper h1 .name-wrap {
+            display: block;
+            top: -5px;
+            height: 21.8px;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper h1 .name-wrap span {
+            display: block;
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 115px;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .conversation-wrapper {
+            background: whitesmoke;
+            width: 100%;
+            height: 332.58px;
+            margin-bottom: 20px;
+            padding: 5px 5px 0 5px;
+            overflow-y: scroll !important;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .conversation-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .conversation-wrapper .send {
+            width: 100%;
+            display: block;
+            position: relative;
+            overflow: auto;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .conversation-wrapper .send .text-wrap {
+            padding: 7.5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            float: left;
+            background-color: #e0e0e0;
+            max-width: 190px;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .conversation-wrapper .send .text-wrap .number {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .conversation-wrapper .send .text-wrap p {
+            font-weight: 100;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .conversation-wrapper .recieve {
+            width: 100%;
+            display: block;
+            position: relative;
+            overflow: auto;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .conversation-wrapper .recieve .text-wrap {
+            padding: 7.5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            float: right;
+            background-color: #5bc236;
+            max-width: 190px;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .conversation-wrapper .recieve .text-wrap .number {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .conversation-wrapper .recieve .text-wrap p {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            font-weight: 100;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .send-message-wrapper {
+            position: absolute;
+            bottom: 0;
+            overflow: auto;
+            background-color: #01579b;
+            width: 100%;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .send-message-wrapper input {
+            float: left;
+            border: 1px solid #bdbdbd;
+            padding: 6.5px 5px;
+            width: 100%;
+        }
+        .app-wrapper .phone-wrapper .screen .text-convo-wrapper .send-message-wrapper button {
+            float: left;
+            width: 100%;
+            text-align: center;
+            background: #01579b;
+            border: 1px solid #01579b;
+            padding: 4px 3px 0;
+            color: white;
+        }
+        .app-wrapper .phone-wrapper .screen .error-wrapper {
+            display: block;
+            bottom: -1000px;
+            left: 0;
+            height: 100%;
+            position: absolute;
+            z-index: 4;
+            background-color: #e0e0e0;
+            transition: all 1s ease-in-out;
+            border-radius: 100px;
+            opacity: 0.5;
+            top: -50px;
+            height: 50px;
+            width: 100%;
+            background-color: black;
+            color: red;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .app-wrapper .phone-wrapper .screen .error-wrapper h1 {
+            font-weight: 100;
+            padding-left: 10px;
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+        .app-wrapper .phone-wrapper .screen .error-wrapper h1 i {
+            display: block;
+            background: #e0e0e0;
+            width: 34px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .error-wrapper h1 i:hover {
+            cursor: pointer;
+            background-color: #bdbdbd;
+            color: #01579b;
+            transition: all 0.5s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .error-wrapper.open {
+            transition: all 1s ease-in-out;
+            bottom: 0;
+            border-radius: 0px;
+            opacity: 1;
+        }
+        .app-wrapper .phone-wrapper .screen .error-wrapper.open {
+            z-index: 200;
+            top: 0px;
+        }
+        .app-wrapper .phone-wrapper .screen .footer-bar {
+            position: absolute;
+            bottom: 0;
+            padding: 10px 8px;
+            user-select: auto;
+        }
+        .app-wrapper .phone-wrapper .screen .footer-bar .footer-btn {
+            border-radius: 12px;
+            padding: 5px 7px;
+            color: white;
+            cursor: pointer;
+            margin-right: 4px;
+        }
+        .app-wrapper .phone-wrapper .screen .footer-bar .footer-btn.phone {
+            background-color: #09af00;
+            border: 1px solid #09af00;
+        }
+        .app-wrapper .phone-wrapper .screen .footer-bar .footer-btn.contacts {
+            background-color: #009688;
+            border: 1px solid #009688;
+        }
+        .app-wrapper .phone-wrapper .screen .footer-bar .footer-btn.message {
+            background-color: #4a26fd;
+            border: 1px solid #4a26fd;
+        }
+        .app-wrapper .phone-wrapper .screen .footer-bar .footer-btn.services {
+            background-color: #e64a19;
+            border: 1px solid #e64a19;
+        }
+        .app-wrapper .phone-wrapper .screen .footer-bar .footer-btn.other-services {
+            background-color: #9e9e9e;
+            border: 1px solid #9e9e9e;
+        }
+        .app-wrapper .phone-wrapper .screen .footer-bar .footer-btn:last-child {
+            margin-right: 0px;
+        }
+        .app-wrapper .phone-wrapper .screen .footer-bar .footer-btn:hover {
+            background-color: #1c313a;
+            border: 1px solid #1c313a;
+            transition: all 1s ease-in-out;
+        }
+        .app-wrapper .phone-wrapper .screen .footer-bar .footer-btn i {
+            position: relative;
+            top: 1.5px;
+            font-size: 20px;
+        }
+        @keyframes spinner-animation {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            25% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            70% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+        @-webkit-keyframes greenPulse {
+            from {
+                color: #749a02;
+                text-shadow: 0 0 9px #333;
+            }
+            50% {
+                color: #91bd09;
+                text-shadow: 0 0 18px #91bd09;
+            }
+            to {
+                color: #749a02;
+                text-shadow: 0 0 9px #333;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body ng-app="app">
+<div class="app-wrapper" ng-controller="ctrl">
+
+    <div class="phone-actions" style="position: absolute; top: 10px; right:0; font-size: 10px;">
+        <button ng-click="toggleView('lifeAlert')" style="background-color: white; border: none;padding:8px;">toggle life alert</button>
+        <button ng-click="toggleView('calling', 'your maker')" style="background-color: white; border: none;padding:8px;">toggle incomming call</button>
+        <button ng-click="toggleView('loading')" style="background-color: white; border: none;padding:8px;">loading</button>
+        <button ng-click="toggleView('error')" style="background-color: white; border: none;padding:8px;">error</button>
+    </div>
+
+
+    <div class="phone-wrapper" ng-class="{ 'small': sm, 'medium': med, 'large': lg, 'extra-large': xl  }">
+
+        <div class="screen">
+            <div class="notch"></div>
+            <div class="phone-stats">
+                <i class="material-icons">network_cell</i>
+                <i class="material-icons">wifi</i>
+                <i class="material-icons">battery_full</i>
+            </div>
+            <div class="error-wrapper" ng-class="{ 'open': error, '': !error }">
+                <p>{{errorMessage}}</p>
+            </div>
+            <div class="call-wrapper" ng-class="{ 'open': callToggle, '': !callToggle }">
+                <i class="material-icons add-contact" ng-click="toggleView('addContact')">
+                    add_circle
+                </i>
+                <h1>
+                    <i class="material-icons" ng-click="toggleView('call')">
+                        arrow_back_ios
+                    </i> <span>Phone<span>
+                </h1>
+                <input class="number-input" type="tel" placeholder="enter number" ng-model="call_phone_number" maxlength="10" />
+                <div class="dialer">
+                    <button class="dialer-btn" ng-click="addDialer('1')">1</button>
+                    <button class="dialer-btn" ng-click="addDialer('2')">2</button>
+                    <button class="dialer-btn" ng-click="addDialer('3')">3</button>
+                    <button class="dialer-btn" ng-click="addDialer('4')">4</button>
+                    <button class="dialer-btn" ng-click="addDialer('5')">5</button>
+                    <button class="dialer-btn" ng-click="addDialer('6')">6</button>
+                    <button class="dialer-btn" ng-click="addDialer('7')">7</button>
+                    <button class="dialer-btn" ng-click="addDialer('8')">8</button>
+                    <button class="dialer-btn" ng-click="addDialer('9')">9</button>
+                    <button class="dialer-btn" ng-click="addDialer('0')">0</button>
+                </div>
+                <button ng-click="toggleView('calling', call_phone_number)">Call</button>
+            </div>
+
+            <div class="contacts-wrapper" ng-class="{ 'open': contactsToggle, '': !contactsToggle }">
+                <i class="material-icons add-contact" ng-click="toggleView('addContact')">
+                    add_circle
+                </i>
+                <h1>
+                    <i class="material-icons" ng-click="toggleView('contacts')">
+                        arrow_back_ios
+                    </i> <span>Contacts<span>
+                </h1>
+                <h2>{{contacts.length}} contacts</h2>
+                <ul>
+                    <li ng-repeat="contact in contacts track by $index" class="contacts">
+                        <p class="name">{{contact.first_name}} {{contact.last_name}}</p>
+                        <p class="number">{{contact.phone_number}}</p>
+                        <div class="contact-actions">
+                            <i class="material-icons" ng-click="toggleView('calling', contact.phone_number)">
+                                call
+                            </i>
+                            <i class="material-icons" ng-click="toggleView('textMessage', contact.phone_number)">
+                                message
+                            </i>
+                            <i class="material-icons" ng-click="toggleView('confirmation')">
+                                delete_forever
+                            </i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="messages-wrapper" ng-class="{ 'open': messagesToggle, '': !messagesToggle }">
+                <i class="material-icons add-contact" ng-click="toggleView('newMessage')">
+                    add_circle
+                </i>
+                <h1>
+                    <i class="material-icons" ng-click="toggleView('messages')">
+                        arrow_back_ios
+                    </i> <span>Messages<span>
+                </h1>
+                <h2>{{contacts.length}} messages</h2>
+                <ul>
+                    <li ng-repeat="contact in contacts">
+                        <p class="name">{{contact.first_name || contact.phone_number}}</p>
+                        <p class="msg" ngIf="contact.recent_message > 0" style="min-height: 16px; font-size: 14px;">{{contact.recent_message}}</p>
+                        <div class="contact-actions">
+                            <i class="material-icons" ng-click="toggleView('textMessage', contact.phone_number)">
+                                message
+                            </i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="services-wrapper" ng-class="{ 'open': servicesToggle, '': !servicesToggle }">
+                <h1>
+                    <i class="material-icons" ng-click="toggleView('services')">
+                        arrow_back_ios
+                    </i> <span>Services<span>
+                </h1>
+                <ul>
+                    <li>
+                        <button ng-click="toggleView('serviceMessage', 'Taxi')">
+                            <i class="material-icons">
+                                local_taxi
+                            </i>
+                            <p>Taxi</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button ng-click="toggleView('serviceMessage', 'Mechanic')">
+                            <i class="material-icons">
+                                build
+                            </i>
+                            <p>Mechanic</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button ng-click="toggleView('serviceMessage', 'EMT')">
+                            <i class="material-icons">
+                                local_hospital
+                            </i>
+                            <p>EMT</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button ng-click="toggleView('serviceMessage', 'Police')">
+                            <i class="material-icons">
+                                security
+                            </i>
+                            <p>Police</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="vpn-btn" ng-click="toggleView('serviceMessage', 'Other')">
+                            <i class="material-icons">
+                                vpn_key
+                            </i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="service-message-wrapper" ng-class="{ 'open': serviceMessageToggle, '': !serviceMessageToggle }">
+                <h1>
+                    <i class="material-icons" ng-click="toggleView('serviceMessage')">
+                        arrow_back_ios
+                    </i> <span>{{serviceName}}<span>
+                </h1>
+                <div class="service" ng-switch="serviceName">
+                    <div ng-switch-when="Taxi">
+                        <ul>
+                            <li>
+                                <input type="radio" id="radio-one" name="switch" value="yes" checked />
+                                <label for="radio-one">1 person</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="radio-two" name="switch" value="yes" checked />
+                                <label for="radio-two">2 person</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="radio-three" name="switch" value="no" />
+                                <label for="radio-three">3+ person</label>
+                            </li>
+                        </ul>
+                        <button>Send Message</button>
+                    </div>
+                    <div ng-switch-when="Mechanic">
+                        <ul>
+                            <li>
+                                <input type="radio" id="radio-one" name="switch" value="yes" checked />
+                                <label for="radio-one">Car</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="radio-two" name="switch" value="yes" checked />
+                                <label for="radio-two">Truck</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="radio-three" name="switch" value="no" />
+                                <label for="radio-three">Motorcycle</label>
+                            </li>
+                        </ul>
+                        <button style="bottom: 30px; border-bottom: white;">Send Message</button>
+                        <button style="background-color: gray; border-color: gray;">Cancel </button>
+                    </div>
+                    <div ng-switch-when="EMT">
+                        <textarea placeholder="whats your emergency"></textarea>
+                        <button>Send Message</button>
+                    </div>
+                    <div ng-switch-when="Police">
+                        <textarea placeholder="whats your emergency"></textarea>
+                        <button>Send Message</button>
+                    </div>
+                    <div ng-switch-when="Other">
+                        <ul>
+                            <li>
+                                <input type="radio" id="radio-one" name="switch" value="yes" checked />
+                                <label for="radio-one">Cannabis</label>
+                            </li>
+                        </ul>
+                        <button>Order Trade</button>
+                    </div>
+                    <div ng-switch-default>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-wrapper" ng-class="{ 'open': settingsToggle, '': !settingsToggle }">
+                <h1>
+                    <i class="material-icons" ng-click="toggleView('settings')">
+                        arrow_back_ios
+                    </i> <span>Settings<span>
+                </h1>
+                <div class="settings">
+                    <ul>
+                        <li>
+                            <p>Notification Settings</p>
+                            <ul>
+                                <li>
+                                    <p>Twitter</p>
+                                    <div class="toggleWrapper">
+                                        <input type="checkbox" name="toggle1" class="mobileToggle" id="toggle1" ng-model="isTwitterNotificationsActive">
+                                        <label for="toggle1"></label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>Phone Size</p>
+                            <div class="switch-phone-size">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="radio-one" name="switch" value="lg" ng-model="screenSize.name" />
+                                        <label for="radio-one">Half Screen</label> </li>
+                                    <li>
+                                        <input type="radio" id="radio-two" name="switch" value="md" ng-model="screenSize.name" />
+                                        <label for="radio-two">1/2 Screen</label> </li>
+                                    <li>
+                                        <input type="radio" id="radio-three" name="switch" value="sm" ng-model="screenSize.name" />
+                                        <label for="radio-three">1/8 Screen</label> </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <ul>
+                            <button style="width: 100%;" ng-click="saveSettings()">Save Settings</button>
+                </div>
+            </div>
+
+            <div class="footer-bar">
+                <button class="footer-btn phone" ng-click="toggleView('call')">
+                    <i class="material-icons">
+                        phone
+                    </i>
+                </button>
+
+            </div>
+
+            <div class="life-alert-wrapper" ng-class="{ 'open': lifeAlertToggle, '': !lifeAlertToggle }">
+                <h1>LIFE ALERT!</h1>
+                <button>
+                    <p>Request an Ambulance</p>
+                    <strong>(You will remmeber everything)</strong>
+                </button>
+                <button>
+                    <p>Wake up at Hospital </p>
+                    <strong> (You forget what happened) </strong>
+                </button>
+                <p class="info-text">
+                    Choosing "Wake up at hospital" option will result in all cash in your wallet (clean and dirty), all weapons and all items in your inventory to be lost. This is irreversible and staff members will not reimburse you..
+                </p>
+            </div>
+
+            <div class="phone-call-active-wrapper" ng-class="{ 'open': phoneCallActiveToggle, '': !phoneCallActiveToggle }">
+                <i class="material-icons back-from-call" ng-click="toggleView('calling')">
+                    arrow_back_ios
+                </i>
+                <i class="material-icons">
+                    phone_in_talk
+                </i>
+                <p>{{callingName || 'goodbye!'}}</p>
+                <p>{{callStatus}}</p>
+                <button class="answer-btn" ng-hide="callStatus === 'outgoing'">Answer</button>
+                <button class="hangup-btn" ng-click="toggleView('calling')">Hangup</button>
+            </div>
+
+            <div class="text-convo-wrapper" ng-class="{ 'open': textMessageToggle, '': !textMessageToggle }">
+                <header>
+                    <h1>
+                        <i class="material-icons" ng-click="toggleView('textMessage')">
+                            arrow_back_ios
+                        </i>
+                        <div class="name-wrap">
+                            <span>Someguy NameDude</span>
+                            <span>{{callingName}}</span>
+                        </div>
+                    </h1>
+                </header>
+                <div class="conversation-wrapper">
+                    <div ng-repeat="message in messages">
+                        <div ng-class="{ 'send': myNumber === message.creator, 'recieve': myNumber != message.creator }">
+                            <div class="text-wrap">
+                                <p class="number">{{message.creator}}</p>
+                                <p>{{message.message}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="send-message-wrapper">
+                    <input placeholder="Enter Message Here..." maxlength="300" />
+                    <button>
+                        <i class="material-icons">
+                            send
+                        </i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="new-convo-wrapper" ng-class="{ 'open': newMessageToggle, '': !newMessageToggle }">
+                <header>
+                    <h1>
+                        <i class="material-icons" ng-click="toggleView('newMessage')">
+                            arrow_back_ios
+                        </i>
+                    </h1>
+                </header>
+                <div class="send-message-wrapper">
+                    <input type="tel" placeholder="Enter Number" maxlength="10" />
+                    <textarea placeholder="Enter Message Here..." maxlength="300"></textarea>
+                    <button ng-click="toggleView('newMessage')">
+                        <i class="material-icons">
+                            send
+                        </i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="twitter-wrapper" ng-class="{ 'open': twitterToggle, '': !twitterToggle }">
+                <h1>
+                    <i class="material-icons" ng-click="toggleView('twitter')">
+                        arrow_back_ios
+                    </i>
+                </h1>
+                <i class="material-icons send-tweet" ng-click="toggleView('sendTweet')">
+                    send
+                </i>
+                <div class="tweets">
+                    <div class="tweet">
+                        <p class="name">@BobLoblaw</p>
+                        <p>Ayy whats good!</p>
+                    </div>
+                    <div class="tweet">
+                        <p class="name">@JohnDough</p>
+                        <p>Im a really long text of string because i need to test out some stuff ok, ok well good dont read this far stupid!</p>
+                    </div>
+                    <div class="tweet">
+                        <p class="name">@BobLoblaw</p>
+                        <p>huh?</p>
+                    </div>
+                    <div class="tweet">
+                        <p class="name">@BobLoblaw</p>
+                        <p>how do i use everything im new and dont know how to follow directions?</p>
+                    </div>
+                    <div class="tweet">
+                        <p class="name">@BobLoblaw</p>
+                        <p>spamming twitter to listen to my soundcloud songs... yikes!</p>
+                    </div>
+                    <div class="tweet">
+                        <p class="name">@BobLoblaw</p>
+                        <p>better listen to dat shit foreeallllllllllll!</p>
+                    </div>
+                    <div class="tweet">
+                        <p class="name">@BobLoblaw</p>
+                        <p>test!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="send-tweet-wrapper" ng-class="{ 'open': sendTweetToggle, '': !sendTweetToggle }">
+                <h1>
+                    <i class="material-icons" ng-click="toggleView('sendTweet')">
+                        arrow_back_ios
+                    </i>
+                </h1>
+                <button class="tweet-btn" ng-click="toggleView('sendTweet')">Tweet</button>
+                <textarea placeholder="whats happening?" maxlength="300"></textarea>
+            </div>
+
+            <div class="add-contact-wrapper" ng-class="{ 'open': addContactToggle, '': !addContactToggle }">
+                <h1>
+                    <i class="material-icons" ng-click="toggleView('addContact')">
+                        arrow_back_ios
+                    </i> <span>Add Contact<span>
+                </h1>
+                <input type="text" placeholder="First Name" ng-model="first_name" pattern="[a-zA-Z0-9]+" />
+                <input type="text" placeholder="Last Name Name" ng-model="last_name" pattern="[a-zA-Z0-9]+" />
+                <input type="tel" placeholder="Phone Number" ng-model="phone_number" maxlength="10" />
+                <button class="save" ng-click="submit(first_name, last_name, phone_number)">Save Contact</button>
+            </div>
+
+            <div class="confirmation-wrapper" ng-class="{ 'open': confirmationToggle, '': !confirmationToggle }">
+                <h1>Are You Sure?</h1>
+                <div class="action-wrapper">
+                    <button ng-click="toggleView('confirmation')">No</button>
+                    <button ng-click="toggleView('confirmation')">Yes</button>
+                </div>
+            </div>
+
+            <div class="loading-wrapper" ng-class="{ 'open': loadingToggle, '': !loadingToggle }">
+                <div class="loading-spinner">
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+
+<script type="text/javascript">
+    var app = angular.module("app", []);
+
+    app.controller("ctrl", function ($scope, $timeout) {
+        // Scroll Bar needs to be fixed...
+        $(function () {
+            $(
+                ".contacts-wrapper, .call-wrapper, .twitter-wrapper, .messages-wrapper ").
+            niceScroll({
+                cursorcolor: "#FFFFFF",
+                cursorborder: "0px solid #fff",
+                cursoropacitymax: 0.1,
+                cursorwidth: "3px" });
+
+        });
+        $scope.myNumber = "2093533313";
+        $scope.isTwitterNotificationsActive = false;
+
+        $scope.screenSize = {
+            name: "lg" };
+
+
+        $scope.saveSettings = function () {
+            // do what needs to be done in here
+            console.log($scope.screenSize.name);
+            console.log($scope.isTwitterNotificationsActive);
+        };
+
+        var audio = new Audio('');
+
+        $scope.call_phone_number = "";
+        $scope.addDialer = function (val) {
+            if ($scope.call_phone_number.length >= 10 || $scope.call_phone_number.length == null || $scope.call_phone_number.length === "") {
+                return $scope.addDialer;
+            } else {
+                audio.play();
+                switch (val) {
+                    case "1":
+                    case "2":
+                    case "3":
+                    case "4":
+                    case "5":
+                    case "6":
+                    case "7":
+                    case "8":
+                    case "9":
+                    case "0":
+                        $scope.call_phone_number = $scope.call_phone_number += val;
+                        break;
+                    default:}
+
+            }
+        };
+
+        // set zoom
+        $scope.sm = false;
+        $scope.med = false;
+        $scope.lg = false;
+        $scope.xl = false;
+
+
+        // set views to false
+        $scope.callToggle = false;
+        $scope.contactsToggle = false;
+        $scope.messagesToggle = false;
+        $scope.servicesToggle = false;
+        $scope.settingsToggle = false;
+        $scope.newMessageToggle = false;
+        $scope.addContactToggle = false;
+        $scope.lifeAlertToggle = false;
+        $scope.twitterToggle = false;
+        $scope.sendTweetToggle = false;
+        $scope.serviceMessageToggle = false;
+        $scope.loadingToggle = false;
+        $scope.confirmationToggle = false;
+        $scope.error = false;
+
+        $scope.callStatus = "outgoing";
+        $scope.errorMessage = "There Has Been An Error";
+
+        $scope.isAcceptVisible = true;
+
+        // Pass Views through this function to toggle
+        $scope.toggleView = function (val, contact) {
+            //toggle call
+            if (val == "call") {
+                $scope.callToggle = !$scope.callToggle;
+                $scope.call_phone_number = "";
+            }
+            // toggle contacts
+            if (val == "contacts") {
+                $scope.contactsToggle = !$scope.contactsToggle;
+            }
+            // toggle messages
+            if (val == "messages") {
+                $scope.messagesToggle = !$scope.messagesToggle;
+            }
+            // toggle services
+            if (val == "services") {
+                $scope.servicesToggle = !$scope.servicesToggle;
+            }
+            // toggle other services
+            if (val == "settings") {
+                $scope.settingsToggle = !$scope.settingsToggle;
+            }
+            // toggle calling
+            if (val == "calling") {
+                $scope.callingName = contact;
+                $scope.contactsToggle = false;
+                $scope.callToggle = false;
+                $scope.phoneCallActiveToggle = !$scope.phoneCallActiveToggle;
+            }
+            // toggle text message
+            if (val == "textMessage") {
+                $scope.servicesToggle = false;
+                $scope.callingName = contact;
+                $scope.contactsToggle = false;
+                $scope.textMessageToggle = !$scope.textMessageToggle;
+            }
+            // toggle add contact
+            if (val == "addContact") {
+                $scope.contactsToggle = false;
+                $scope.callToggle = false;
+                $scope.addContactToggle = !$scope.addContactToggle;
+            }
+            if (val == "newMessage") {
+                $scope.messagesToggle = false;
+                $scope.newMessageToggle = !$scope.newMessageToggle;
+            }
+            if (val == "twitter") {
+                $scope.twitterToggle = !$scope.twitterToggle;
+            }
+            if (val == "sendTweet") {
+                $scope.sendTweetToggle = !$scope.sendTweetToggle;
+            }
+
+            if (val == "lifeAlert") {
+                $scope.lifeAlertToggle = !$scope.lifeAlertToggle;
+            }
+            if (val == "serviceMessage") {
+                $scope.serviceName = contact;
+                $scope.servicesToggle = false;
+                $scope.serviceMessageToggle = !$scope.serviceMessageToggle;
+            }
+            if (val == "loading") {
+                $scope.loadingToggle = !$scope.loadingToggle;
+            }
+            if (val == "confirmation") {
+                $scope.confirmationToggle = !$scope.confirmationToggle;
+            }
+
+            if (val == "error") {
+                $scope.error = !$scope.error;
+                $timeout(function () {
+                    $scope.error = !$scope.error;
+                }, 3000);
+            }
+        };
+
+        $scope.submit = function (first, last, number) {
+            $scope.contacts.push({
+                first_name: first,
+                last_name: last,
+                phone_number: number });
+
+            $scope.loadingToggle = true;
+            $scope.addContactToggle = false;
+            $timeout(function () {
+                $scope.loadingToggle = false;
+                $scope.contactsToggle = true;
+            }, 3000);
+
+            // server post back goes here for adding a number to contacts
+        };
+
+
+
+
+
+    });
+</script>
+
+</body>
+</html>
+

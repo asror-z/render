@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- https://datatables.net/examples/api/counter_columns.html see comments-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            /*let table = $('#example').DataTable( {
+                select: {
+                    toggleable: false
+                }
+            } );
+            table.row(2).select();*/
+
+
+
+            $('a[data-toggle="tab"]').on( 'shown.bs.tab', function (e) {
+                $.fn.dataTable.tables( {visible: true, api: true} ).columns.adjust();
+            } );
+
+            $('table.table').DataTable( {
+                ajax:           '../../ajax/data/arrays',
+                scrollY:        220,
+                scrollCollapse: true,
+                paging:         false,
+                deferRender: true,
+                scroller:    true,
+                scroller: {
+                    loadingIndicator: true,
+                    boundaryScale: 0.75,
+                    displayBuffer: 20,
+                    serverWait: 500,
+                    rowHeight: 30
+                },
+            //    CollReorder
+                fixedColumns: true,
+                fixedColumns: {
+                    leftColumns: 2
+                },
+                colReorder: {
+                    enable: true,
+                    fixedColumnsLeft: 1,
+                    fixedColumnsRight: 2,
+                },
+                "serverSide": true,
+                "ajax": "scripts/server_processing.php",
+                "deferLoading": [ 57, 100 ],
+                "search": {
+                    "search": "my_filter"
+                }
+            } );
+
+            $('#myTable1').DataTable( {
+                //autoFill options
+                autoFill: {
+                    columns: ':not(:first-child)',
+                    enable: false,
+                    horizontal: false,
+                    update: false
+                },
+                autoFill: true,
+
+
+
+                ///Select options
+                buttons:[
+                    {
+                        extend: 'searchPanes',
+                        config: {
+                            cascadePanes: true
+                        }
+                    }
+                ],
+                dom: 'Bfrtip',
+                language: {
+                    autoFill: {
+                        update: false,
+                        vertical: false,
+                        horizontal: false,
+                        button: 'Go!',
+                        cancel: 'Close and perform no updates',
+                        fill: 'Fill all cells with the same value',
+                        fillHorizontal: 'Copy values horizontally',
+                        fillVertical: 'Copy values vertically',
+                        info: 'Select a data fill type:',
+                        increment: 'Change each cell by: <input type="number" value="1">',
+                    },
+                    select: {
+                        style: 'single',
+                        style: 'api',
+                        // style:    'os',
+                        selector: 'td:first-child',
+                        // selector: 'td:not(:last-child)',
+                        blurable: true,
+                        items: 'cells',
+                        items: 'column',
+
+                        info: false,
+
+                        columns: "%d columns selected",
+
+                        rows: "%d rows selected",
+
+                        rows: {
+                            _: "Selected %d rows",
+                            0: "Click a row to select it",
+                            1: "Selected 1 row"
+                        },
+
+                        cells: {
+                            _: "Selected %d cells",
+                            0: "Click a cell to select it",
+                            1: "Selected 1 cell"
+                        }
+                    }
+                },
+                style:     'os',
+                className: 'row-selected',
+                select: true,
+                autoFill: true,
+
+                // select: 'single'
+            } );
+            $('#myTable2').DataTable( {
+                //Button options
+                buttons: [ 'copy', 'csv', 'excel' ],
+
+                //AutoFill options
+                autoFill: {
+                    focus: 'click',
+                    enable: false,
+                    editor: editor,
+                    columns: [ 1, 2, 3, 4 ],
+                    columns: ':not(:last-child)',
+                    alwaysAsk: true
+                }
+            } );
+
+
+            // Apply a search to the second table for the demo
+            $('#myTable2').DataTable().search( 'New York' ).draw();
+        } );
+    </script>
+</head>
+<body>
+<table id="myTable1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+</table><table id="myTable2" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+</table>
+
+
+</body>
+</html>

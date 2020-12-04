@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- including ECharts file -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.js"></script>
+</head>
+<body>
+    <!-- prepare a DOM container with width and height -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // based on prepared DOM, initialize echarts instance
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // specify chart configuration item and data
+        $.getScript(ROOT_PATH + 'https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts-en.simple.min.js').done(function () {
+
+
+function generateData() {
+    var data = [];
+    var noise = new SimplexNoise(Math.random);
+    for (var i = 0; i <= 10; i++) {
+        for (var j = 0; j <= 10; j++) {
+            var value = noise.noise2D(i / 5, j / 5);
+            data.push([i, j, value * 2 + 4]);
+        }
+    }
+    return data;
+}
+
+var series = [];
+for (var i = 0; i < 10; i++) {
+    series.push({
+        type: 'bar3D',
+        data: generateData(),
+        stack: 'stack',
+        shading: 'lambert',
+        emphasis: {
+            label: {
+                show: false
+            }
+        }
+    });
+}
+
+myChart.setOption({
+    xAxis3D: {
+        type: 'value'
+    },
+    yAxis3D: {
+        type: 'value'
+    },
+    zAxis3D: {
+        type: 'value'
+    },
+    grid3D: {
+        viewControl: {
+            // autoRotate: true
+        },
+        light: {
+            main: {
+                shadow: true,
+                quality: 'ultra',
+                intensity: 1.5
+            }
+        }
+    },
+    series: series
+});
+
+});
+        // use configuration item and data specified to show chart
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

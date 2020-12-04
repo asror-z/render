@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script  src="https://raw.githack.com/jquery-commponent/Zdrag/master/js/Zdrag.js"></script>
+    <style>
+        body{
+            width:100%;
+            /*height:600px;*/
+            margin:0;
+            /*padding:200px;*/
+        }
+        #box-main{
+            width:500px;
+            height:500px;
+            margin:200px;
+            background: #ccc;
+        }
+        #box,#box2{
+            /*position: relative;*/
+            width:100px;
+            height:100px;
+            background: #000;
+        }
+        #handler,#handler2{
+            width:100%;
+            height:10px;
+            background: red;
+        }
+        #box{
+            left:0;
+            top:0;
+        }
+        #box2{
+            left:200px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="box-main">
+    <div id="box2">
+        <div id="handler2"></div>
+    </div>
+</div>
+<div id="box">
+    <div id="handler"></div>
+</div>
+<script>
+    $("#box").drag({
+        cursor : "pointer",
+        parent : "body",
+        movable_region : [100,0,0,100],
+        direction : "x"
+    });
+    $("#box2").drag({
+        cursor : "move",
+        parent : "#box-main",
+        dragHandler : "#handler2",
+        movable_region : [0,300,300,0]
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Font Awesome Icon Picker plugin for Bootstrap</title>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-85082661-5"></script>
+     <script>
+         window.dataLayer = window.dataLayer || [];
+
+         function gtag() {
+             dataLayer.push(arguments);
+         }
+
+         gtag('js', new Date());
+         gtag('config', 'UA-85082661-5');
+     </script>-->
+    <link rel="stylesheet" href="/publish/yarner/bootstrap-iconpicker/bootstrap-3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/publish/Iconers/IconPick/fontawesome-iconpicker.min.css"/>
+    <link rel="stylesheet" href='/publish/yarner/@fortawesome/fontawesome-free/css/all.css'/>
+    <link rel="stylesheet"
+          href="/publish/yarner/bootstrap-iconpicker/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css"/>
+
+    <style>
+        footer {
+            font-style: italic;
+            background: #f7f7f7;
+            padding: 60px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        pre {
+            text-align: left;
+        }
+
+        .form-control, .form-group {
+            position: relative;
+        }
+
+        p.lead {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        div.lead {
+            margin: 30px 0;
+        }
+
+        a.action-placement {
+            margin: 0 4px 4px 4px;
+            display: inline-block;
+            /*border-bottom: 1px dotted #428BCA;*/
+            text-decoration: none;
+        }
+
+        a.action-placement.active {
+            color: #5CB85C;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .lead iframe {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<div id="target" data-selected-class="btn-danger" data-unselected-class="btn-info" role="target iconpicker"></div>
+
+<input id="target" class="form-control icp icp-opts iconpicker-element iconpicker-input" type="text"
+       role="target iconpicker">
+
+`
+
+<script type="text/javascript" src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/publish/yarner/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript"
+        src="/publish/Iconers/IconPick/bootstrap-iconpicker.bundle.min.js"></script>
+            <script>
+                $(function () {
+                    $('.action-destroy').on('click', function () {
+                        $.iconpicker.batch('.icp.iconpicker-element', 'destroy');
+                    });
+                    // Live binding of buttons
+                    $(document).on('click', '.action-placement', function (e) {
+                        $('.action-placement').removeClass('active');
+                        $(this).addClass('active');
+                        $('.icp-opts').data('iconpicker').updatePlacement($(this).text());
+                        e.preventDefault();
+                        return false;
+                    });
+                    $('.action-create').on('click', function () {
+                        $('.icp-auto').iconpicker();
+
+                        $('.icp-dd').iconpicker({
+                            //title: 'Dropdown with picker',
+                            //component:'.btn > i'
+                        });
+                        $('.icp-opts').iconpicker({
+                            title: 'With custom options',
+                            icons: [
+                                {
+                                    title: "fab fa-github",
+                                    searchTerms: ['repository', 'code']
+                                },
+                                {
+                                    title: "fas fa-heart",
+                                    searchTerms: ['love']
+                                },
+                                {
+                                    title: "fab fa-html5",
+                                    searchTerms: ['web']
+                                },
+                                {
+                                    title: "fab fa-css3",
+                                    searchTerms: ['style']
+                                }
+                            ],
+                            selectedCustomClass: 'label label-success',
+                            mustAccept: true,
+                            placement: 'bottomRight',
+                            showFooter: true,
+                            // note that this is ignored cause we have an accept button:
+                            hideOnSelect: true,
+                            // fontAwesome5: true,
+                            templates: {
+                                footer: '<div class="popover-footer">' +
+                                    '<div style="text-align:left; font-size:12px;">Placements: \n\
+                          <a href="#" class=" action-placement">inline</a>\n\
+                          <a href="#" class=" action-placement">topLeftCorner</a>\n\
+                          <a href="#" class=" action-placement">topLeft</a>\n\
+                          <a href="#" class=" action-placement">top</a>\n\
+                          <a href="#" class=" action-placement">topRight</a>\n\
+                          <a href="#" class=" action-placement">topRightCorner</a>\n\
+                          <a href="#" class=" action-placement">rightTop</a>\n\
+                          <a href="#" class=" action-placement">right</a>\n\
+                          <a href="#" class=" action-placement">rightBottom</a>\n\
+                          <a href="#" class=" action-placement">bottomRightCorner</a>\n\
+                          <a href="#" class=" active action-placement">bottomRight</a>\n\
+                          <a href="#" class=" action-placement">bottom</a>\n\
+                          <a href="#" class=" action-placement">bottomLeft</a>\n\
+                          <a href="#" class=" action-placement">bottomLeftCorner</a>\n\
+                          <a href="#" class=" action-placement">leftBottom</a>\n\
+                          <a href="#" class=" action-placement">left</a>\n\
+                          <a href="#" class=" action-placement">leftTop</a>\n\
+                          </div><hr></div>'
+                            }
+                        })
+                    }).trigger('click');
+
+                    $('.icp').on('iconpickerSelected', function (e) {
+                        $('.lead .picker-target').get(0).className = 'picker-target fa-3x ' +
+                            e.iconpickerInstance.options.iconBaseClass + ' ' +
+                            e.iconpickerInstance.options.fullClassFormatter(e.iconpickerValue);
+                    });
+                });
+            </script>
+<script>
+
+    $('#target').iconpicker({
+        align: 'center',
+        top: 'center',
+        bottom: 'center',
+        selected: false,
+        defaultValue: false,
+        placement: 'bottom',
+        collision: 'none',
+        animation: true,
+        hideOnSelect: false,
+        showFooter: false,
+        searchInFooter: false,
+        iconset: 'fontawesome5',
+        mustAccept: false,
+        selectedCustomClass: 'bg-primary',
+        icons: [],
+        fullClassFormatter: function (val) {
+            return 'fa ' + val;
+        },
+        input: 'input,.iconpicker-input',
+        inputSearch: false,
+        container: false,
+        selectedClass: 'btn-success',
+        component: '.input-group-addon,.iconpicker-component',
+        templates: {
+            popover: '<div class="iconpicker-popover popover"><div class="arrow"></div>' +
+                '<div class="popover-title"></div><div class="popover-content"></div></div>',
+            footer: '<div class="popover-footer"></div>',
+            buttons: '<button class="iconpicker-btn iconpicker-btn-cancel btn btn-default btn-sm">Cancel</button>' +
+                ' <button class="iconpicker-btn iconpicker-btn-accept btn btn-primary btn-sm">Accept</button>',
+            search: '<input type="search" class="form-control iconpicker-search" placeholder="Type to filter" />',
+            iconpicker: '<div class="iconpicker"><div class="iconpicker-items"></div></div>',
+            iconpickerItem: '<a role="button" href="#" class="iconpicker-item"><i></i></a>',
+        } });
+</script>
+</body>
+
+</html>

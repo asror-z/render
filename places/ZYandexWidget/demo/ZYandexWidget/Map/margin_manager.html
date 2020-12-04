@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Менеджер отступов</title>
+    <meta charset="utf-8">
+    <!--
+        Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
+        Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
+    -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<ваш API-ключ>"></script>
+    <script src="visualizeArea.js"></script>
+    <script src="margin_manager.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        html, body, .map, .viewport {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .viewport {
+            position: relative;
+        }
+        .rect {
+            position: absolute;
+            background-color: rgba(200, 200, 200, 0.45);
+            border: 2px dashed #555;
+            box-sizing: border-box;
+        }
+        .area-holder {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .area-holder.is-hidden {
+            display: none;
+        }
+        .map-bounds {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            box-sizing: border-box;
+            border: 0 solid rgba(34, 148, 230, 0.2);
+            pointer-events: none;
+        }
+        .is-hidden {
+            display: none;
+        }
+        button {
+            margin-right: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="viewport">
+    <div id="map" class="map"></div>
+    <div class="map-bounds is-hidden"></div>
+</div>
+</body>
+<script>
+    ymaps.ready(['util.dom.className'], function () {
+        var balloonPosition = [55.83866, 37.712326], // Позиция балуна.
+            Layout = ymaps.templateLayoutFactory.createClass([
+                'Центровать<br>',
+                '<button type="button" class="no-margin">без отступов</button>',
+                '<button type="button" class="with-margin">учитывая отступы</button>',
+            ].join(''), {
+                build: function () {
+                    Layout.superclass.build.call(this, arguments);
+                    var container = this.getElement();
+                    container.addEventListener('click', function (event) {
+                        var target = event.target;
+                        if (target.tagName.toLowerCase() == 'button') {
+                            map.panTo(balloonPosition, {useMapMargin: target.className.match(/with-margin/i)});
+                        }
+                    });
+                }
+            }),
+            map = new ymaps.Map('map',
+                {
+                    center: [55.85, 37.7124],
+                    zoom: 11,
+                    controls: []
+                },
+                {
+                    balloonContentLayout: Layout,
+                    balloonAutoPan: false,
+                    balloonPanelMaxMapArea: 0,
+                    balloonCloseButton: false
+                }
+            );
+
+        // Для элементов на странице указываем область, занимаемую над картой (положение и размер).
+        // Поддерживаются значения в пикселях (px) и процентах (%).
+        // Если единица измерения не указана, то считается, что значение в пикселях.
+        var mapAreas = [
+            // Панель слева.
+            {
+                top: 0,
+                left: 0,
+                width: '80px',
+                height: '100%' // Проценты рассчитываются относительно размеров контейнера с картой.
+            },
+            // Блок в правом углу.
+            {
+                top: 10,
+                right: 10,
+                width: '40%',
+                height: '40%'
+            }
+        ];
+        // Добавляем каждый блок в менеджер отступов.
+        mapAreas.forEach(function (area) {
+            // Метод `addArea` менеджера отступов возвращает объект (аксессор), который предоставляет доступ к прямоугольной области в менеджере отступов.
+            var accessor = map.margin.addArea(area);
+            // Если у аксессора вызвать метод `remove`, то область будет удалена из менеджера отступов.
+            // Пример: accessor.remove()
+
+            visualizeArea(accessor);
+        });
+
+        map.balloon.open(balloonPosition);
+
+        // Контролы поддерживают опцию adjustMapMargin.
+        // Когда значение true, контрол автоматически добавляет свои размеры в менеджер отступов.
+        var toggleAreaBtn = new ymaps.control.Button({
+            data: {
+                content: 'Показать занятые области',
+                title: 'Показать все занятые области из менеджера отступов'
+            },
+            options: {
+                // adjustMapMargin: true,
+                // Максимальная ширина кнопки.
+                maxWidth: 300
+            }
+        });
+        // По клику на карте отображаются все области, добавленные
+        // в менеджер отступов.
+        toggleAreaBtn.events.add(['select', 'deselect'], function (event) {
+            var container = document.getElementsByClassName('area-holder')[0],
+                mode = event.originalEvent.type == 'select' ? 'remove' : 'add';
+
+            if (container) {
+                ymaps.util.dom.className[mode](container, 'is-hidden');
+            }
+        });
+        map.controls.add(toggleAreaBtn);
+
+        var toggleMarginBtn = new ymaps.control.Button({
+            data: {content: 'Показать отступы', title: 'Показать отступы карты'},
+            options: {
+                // Разрешаем контролу автоматически добавить свои размеры в менеджер отступов.
+                // Чтобы элемент управления зарегистрировал себя в менеджере отступов, раскомментируйте строку.
+                // adjustMapMargin: true,
+                maxWidth: 200
+            }
+        });
+        toggleMarginBtn.events.add(['select', 'deselect'], function (event) {
+            var container = document.getElementsByClassName('map-bounds')[0],
+                mode = event.originalEvent.type == 'select' ? 'remove' : 'add';
+
+            if (container) {
+                ymaps.util.dom.className[mode](container, 'is-hidden');
+            }
+        });
+        map.controls.add(toggleMarginBtn);
+
+        // Показываем отступы карты.
+        function updateMapMargins () {
+            var margin = map.margin.getMargin();
+            document.getElementsByClassName('map-bounds')[0].style.borderWidth = margin.join('px ') + 'px';
+        }
+        updateMapMargins();
+        map.events.add('marginchange', updateMapMargins);
+    });
+</script>
+<script>
+    /**
+     * @fileOverview
+     * Вспомогательные функции для примера.
+     *
+     */
+    (function () {
+        var container;
+
+        /**
+         * Визуальное представление занятой области.
+         * Добавляем в DOM дерево элемент, представляющий занятую область.
+         * @param {Object} accessor Экземпляр map.margin.Accessor
+         */
+        window.visualizeArea = function visualizeArea (accessor) {
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'area-holder is-hidden';
+                document.body.appendChild(container);
+            }
+
+            var markElement = document.createElement('div');
+            markElement.className = 'rect';
+
+            // Запрашиваем описание прямоугольной области у асессора и на его основе задаем стили DOM-элемента.
+            updateElementStyles(markElement, accessor.getArea());
+
+            container.appendChild(markElement);
+
+            var eventsGroup = accessor.events.group();
+
+            eventsGroup.add('change', function () {
+                updateElementStyles(markElement, accessor.getArea());
+            });
+
+            accessor.events.once('remove', function () {
+                eventsGroup.removeAll();
+                container.removeChild(markElement);
+                markElement = null;
+            });
+        }
+
+        function updateElementStyles (element, area) {
+            element.style.cssText = '';
+            for (var key in area) {
+                if (area.hasOwnProperty(key)) {
+                    var value = String(area[key]);
+                    if (!isNaN(Number(value[value.length - 1]))) {
+                        value += 'px';
+                    }
+                    element.style[key] = value;
+                }
+            }
+        }
+    })();
+</script>
+</html>

@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://anseki.github.io/plain-draggable/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="The simple and high performance library to allow HTML/SVG element to be dragged.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./demo_files/normalize.css">
+  <link rel="stylesheet" href="./demo_files/syntax.css">
+  <link rel="stylesheet" href="./demo_files/default.css">
+  <link rel="stylesheet" href="./demo_files/ex.css">
+  <script src="./demo_files/libs-81ffc5c-190824122743.js.download"></script>
+
+  <title>PlainDraggable</title>
+</head>
+<body>
+  <header>
+    <h1><a href="https://anseki.github.io/plain-draggable/">PlainDraggable</a></h1>
+    <ul id="gh"><li><a href="https://github.com/anseki/plain-draggable/tarball/master">Download TAR.GZ</a></li><li><a href="https://github.com/anseki/plain-draggable/zipball/master">Download ZIP</a></li><li><a href="https://github.com/anseki/plain-draggable">View on GitHub</a></li></ul>
+  </header>
+  <main>
+
+<p><a href="https://www.npmjs.com/package/plain-draggable"><img src="./demo_files/plain-draggable.svg" alt="npm"></a> <a href="https://github.com/anseki/plain-draggable/issues"><img src="./demo_files/plain-draggable(1).svg" alt="GitHub issues"></a> <a href="https://anseki.github.io/plain-draggable/package.json"><img src="./demo_files/dependencies-No dependency-brightgreen.svg" alt="dependencies"></a> <a href="https://anseki.github.io/plain-draggable/LICENSE-MIT"><img src="./demo_files/license-MIT-blue.svg" alt="license"></a></p>
+
+<p>The simple and high performance library to allow HTML/SVG element to be dragged.</p>
+
+<!-- include "ex-010.html" -->
+<!-- ================ ex -->
+<!-- By Jekyll -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"draggable"</span><span class="nt">&gt;</span>Drag This<span class="nt">&lt;/div&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PlainDraggable</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'draggable'</span><span class="p">));</span>
+</code></pre></div>
+<!-- /By Jekyll -->
+
+<div id="ex-010-stage" class="stage-s">
+  <div id="ex-010-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-010-draggable'));
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-010.html" -->
+
+<p><strong>Features:</strong></p>
+
+<ul>
+<li>Accept HTML/SVG element as an element that comes to be draggable.</li>
+<li>Support both mouse and touch interfaces.</li>
+<li>Restrict the draggable area.</li>
+<li>Snap the draggable element to other elements, points, lines, consecutive points (i.e. grid) or something.</li>
+<li>Scroll an element or window automatically when the draggable element was moved to edge of the area.</li>
+<li>Use <code>requestAnimationFrame</code> API, <code>translate</code> and <code>will-change</code> CSS if possible, for high performance.<br><img src="./demo_files/ss-02.png" style="max-width: 100%;" alt="ss-02"></li>
+<li>Provide only basic methods, easy and simple usage.</li>
+<li>No dependency.</li>
+<li>Single file.</li>
+<li>Support modern browsers.</li>
+</ul>
+
+<!-- include "ex-020.html" -->
+<!-- ================ ex -->
+<div class="cols2">
+  <div class="col">
+    <p>SVG elements are positioned correctly even if those are zoomed-in/out.</p>
+  </div>
+  <div class="col" style="white-space: nowrap;">
+
+<div id="ex-020-slider">
+  <div id="ex-020-pointer" class="cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);"></div>
+</div>
+
+<svg id="ex-020-stage" version="1.1" viewBox="0 0 400 240"><!-- content: 800 x 480 -->
+  <rect id="ex-020-rect" x="10" y="10" width="780" height="460"></rect>
+  <line id="ex-020-line-1" y1="160" x1="36" y2="40" x2="80"></line>
+  <line id="ex-020-line-2" y1="120" x1="380" y2="220" x2="240"></line>
+  <path id="ex-020-path" d="M36,160C80,40 240,220 380,120"></path>
+  <circle id="ex-020-p0" cx="36" cy="160" r="16" style="-webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none;" transform="translate(0 0)" class="cat"></circle>
+  <circle id="ex-020-p1" cx="80" cy="40" r="16" style="-webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none;" transform="translate(0 0)" class="cat"></circle>
+  <circle id="ex-020-p2" cx="240" cy="220" r="16" style="-webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none;" transform="translate(0 0)" class="cat"></circle>
+  <circle id="ex-020-p3" cx="380" cy="120" r="16" style="-webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none;" transform="translate(0 0)" class="cat"></circle>
+</svg>
+
+  </div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  var svg = document.getElementById('ex-020-stage'),
+    field = document.getElementById('ex-020-rect'),
+    p0 = document.getElementById('ex-020-p0'),
+    p1 = document.getElementById('ex-020-p1'),
+    p2 = document.getElementById('ex-020-p2'),
+    p3 = document.getElementById('ex-020-p3'),
+    path = document.getElementById('ex-020-path'),
+    line1 = document.getElementById('ex-020-line-1'),
+    line2 = document.getElementById('ex-020-line-2'),
+    point = svg.createSVGPoint(),
+    viewBox = svg.viewBox.baseVal,
+    xy = {
+      p0: {x: p0.cx.baseVal.value, y: p0.cy.baseVal.value},
+      p1: {x: p1.cx.baseVal.value, y: p1.cy.baseVal.value},
+      p2: {x: p2.cx.baseVal.value, y: p2.cy.baseVal.value},
+      p3: {x: p3.cx.baseVal.value, y: p3.cy.baseVal.value}
+    },
+    OFFSET = {x: 16, y: 16}, // between draggable element and path seg
+    SLIDER_RANGE = 240 - 24, // $ex-020-slider-height - $ex-020-pointer-height
+    SLIDER_OFFSET,
+    VIEW_WIDTH = 400,
+    VIEW_HEIGHT = 240;
+
+  function update(rect, xySeg) {
+    if (rect) {
+      point.x = rect.left - window.pageXOffset;
+      point.y = rect.top - window.pageYOffset;
+      point = point.matrixTransform(svg.getScreenCTM().inverse());
+      xySeg.x = point.x + OFFSET.x;
+      xySeg.y = point.y + OFFSET.y;
+    }
+    path.setAttribute('d', 'M' + xy.p0.x + ',' + xy.p0.y +
+      'C' + xy.p1.x + ',' + xy.p1.y + ' ' +
+      xy.p2.x + ',' + xy.p2.y + ' ' +
+      xy.p3.x + ',' + xy.p3.y + '');
+    line1.x1.baseVal.value = xy.p0.x;
+    line1.y1.baseVal.value = xy.p0.y;
+    line1.x2.baseVal.value = xy.p1.x;
+    line1.y2.baseVal.value = xy.p1.y;
+    line2.x1.baseVal.value = xy.p3.x;
+    line2.y1.baseVal.value = xy.p3.y;
+    line2.x2.baseVal.value = xy.p2.x;
+    line2.y2.baseVal.value = xy.p2.y;
+  }
+
+  var drgP0 = new PlainDraggable(p0, {containment: field, onMove: function() { update(this.rect, xy.p0); }}),
+    drgP1 = new PlainDraggable(p1, {containment: field, onMove: function() { update(this.rect, xy.p1); }}),
+    drgP2 = new PlainDraggable(p2, {containment: field, onMove: function() { update(this.rect, xy.p2); }}),
+    drgP3 = new PlainDraggable(p3, {containment: field, onMove: function() { update(this.rect, xy.p3); }}),
+    pointer = new PlainDraggable(document.getElementById('ex-020-pointer'), {
+      onMove: function() {
+        var ratio = (this.rect.top + SLIDER_OFFSET) / SLIDER_RANGE + 0.5;
+        viewBox.width = VIEW_WIDTH / ratio;
+        viewBox.height = VIEW_HEIGHT / ratio;
+        drgP0.position();
+        drgP1.position();
+        drgP2.position();
+        drgP3.position();
+      }
+    });
+
+  SLIDER_OFFSET = SLIDER_RANGE / 2 - pointer.rect.top;
+  update();
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-020.html" -->
+
+<!-- include "ex-030.html" -->
+<!-- ================ ex -->
+<div class="cols2">
+  <div class="col">
+    <p>If you specify "snap" option, the draggable element gravitates toward something, and it sticks to that.</p>
+  </div>
+  <div class="col">
+
+<div id="ex-030-stage" class="stage-m">
+  <div id="ex-030-port" style="width: 86.1094px; height: 32px;"></div>
+  <div id="ex-030-line" class="snap-line-h"></div>
+  <div id="ex-030-grid"></div>
+  <div id="ex-030-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+  </div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  var target = document.getElementById('ex-030-draggable'),
+    bBox = target.getBoundingClientRect(),
+    port = document.getElementById('ex-030-port');
+
+  port.style.width = bBox.width + 'px';
+  port.style.height = bBox.height + 'px';
+
+  new PlainDraggable(target, {
+    snap: [
+      {x: 40, y: 64},
+      {x: {end: 180}, y: 160},
+      {x: {step: 40, start: 180}, y: {step: 40}}
+    ]
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-030.html" -->
+
+<!-- include "ex-040.html" -->
+<!-- ================ ex -->
+<div class="cols2">
+  <div class="col">
+    <p>You can control the moving with coordinates of the draggable element and a mouse pointer that drags.</p>
+  </div>
+  <div class="col">
+
+<div id="ex-040-stage" class="stage-m">
+  <div id="ex-040-wall1"></div>
+  <svg id="ex-040-wall2" version="1.1" viewBox="0 0 400 240">
+    <!-- padding for Gecko, Trident -->
+    <path d="M410,250 H200 V240 C300,240 280,210 340,200 C400,190 400,190 400,120 H410 V250z"></path>
+  </svg>
+  <div id="ex-040-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+  </div>
+</div>
+
+<script src="./demo_files/bezier.min.js.download"></script>
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  var target = document.getElementById('ex-040-draggable'),
+    targetBBox = target.getBoundingClientRect(),
+    wall1BBox = document.getElementById('ex-040-wall1').getBoundingClientRect(),
+    wall2BBox = document.getElementById('ex-040-stage').getBoundingClientRect(),
+    CUBIC1 = [{x: 200, y: 240}, {x: 300, y: 240}, {x: 280, y: 210}, {x: 340, y: 200}],
+    CUBIC2 = [{x: 340, y: 200}, {x: 400, y: 190}, {x: 400, y: 190}, {x: 400, y: 120}],
+    WALL2_RECT = {left: 200, top: 120, right: 400, bottom: 240};
+
+  wall1BBox = {
+    left: wall1BBox.left + window.pageXOffset - targetBBox.width,
+    top: wall1BBox.top + window.pageYOffset - targetBBox.height,
+    right: wall1BBox.right + window.pageXOffset,
+    bottom: wall1BBox.bottom + window.pageYOffset
+  };
+  wall2BBox = {
+    left: wall2BBox.left + window.pageXOffset,
+    top: wall2BBox.top + window.pageYOffset,
+    right: wall2BBox.right + window.pageXOffset,
+    bottom: wall2BBox.bottom + window.pageYOffset
+  };
+
+  new PlainDraggable(target, {
+    onDrag: function(moveTo) {
+      var rect = this.rect;
+      if (moveTo.left > wall1BBox.left && moveTo.left < wall1BBox.right && // Inside
+          moveTo.top > wall1BBox.top && moveTo.top < wall1BBox.bottom ||
+          // Jump
+          rect.top >= wall1BBox.top && rect.top <= wall1BBox.bottom &&
+            (rect.left <= wall1BBox.left && moveTo.left >= wall1BBox.right ||
+              rect.left >= wall1BBox.right && moveTo.left <= wall1BBox.left) ||
+          rect.left >= wall1BBox.left && rect.left <= wall1BBox.right &&
+            (rect.top <= wall1BBox.top && moveTo.top >= wall1BBox.bottom ||
+              rect.top >= wall1BBox.bottom && moveTo.top <= wall1BBox.top)) {
+        if (rect.left <= wall1BBox.left) {
+          moveTo.left = wall1BBox.left;
+        } else if (rect.left >= wall1BBox.right) {
+          moveTo.left = wall1BBox.right;
+        } else if (rect.top <= wall1BBox.top) { // Avoid fixing both left and top.
+          moveTo.top = wall1BBox.top;
+        } else if (rect.top >= wall1BBox.bottom) {
+          moveTo.top = wall1BBox.bottom;
+        }
+      } else {
+        var point = {x: moveTo.left + rect.width - wall2BBox.left,
+          y: moveTo.top + rect.height - wall2BBox.top};
+        if (point.x >= WALL2_RECT.left && point.x <= WALL2_RECT.right &&
+            point.y >= WALL2_RECT.top && point.y <= WALL2_RECT.bottom) {
+          var cubicPoint1 = getClosestPoint(point, CUBIC1),
+            cubicPoint2 = getClosestPoint(point, CUBIC2),
+            isIn1 = point.x > cubicPoint1.point.x && point.y > cubicPoint1.point.y,
+            isIn2 = point.x > cubicPoint2.point.x && point.y > cubicPoint2.point.y;
+          if (isIn1 && isIn2 && cubicPoint1.t === 1 && cubicPoint2.t === 0) {
+            moveTo.left = cubicPoint1.point.x - rect.width + wall2BBox.left;
+            moveTo.top = cubicPoint1.point.y - rect.height + wall2BBox.top;
+          } else if (isIn1 && cubicPoint1.t < 1) {
+            moveTo.left = cubicPoint1.point.x - rect.width + wall2BBox.left;
+            moveTo.top = cubicPoint1.point.y - rect.height + wall2BBox.top;
+          } else if (isIn2 && cubicPoint2.t > 0) {
+            moveTo.left = cubicPoint2.point.x - rect.width + wall2BBox.left;
+            moveTo.top = cubicPoint2.point.y - rect.height + wall2BBox.top;
+          }
+        }
+      }
+    }
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-040.html" -->
+
+<!-- include "ex-050.html" -->
+<!-- ================ ex -->
+<div class="cols2">
+  <div class="col">
+    <p>Event listeners help to synchronize with another library. This is a case of <a href="https://anseki.github.io/leader-line/">LeaderLine</a>.</p>
+  </div>
+  <div class="col">
+
+<div id="ex-050-stage" class="stage-m">
+  <div id="ex-050-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+  <div id="ex-050-stage-in">
+    <div id="ex-050-draggable-in" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  var target1 = document.getElementById('ex-050-draggable'),
+    target2 = document.getElementById('ex-050-draggable-in'),
+    wallBBox = document.getElementById('ex-050-stage-in').getBoundingClientRect(),
+    line;
+
+  wallBBox = {
+    top: wallBBox.top + window.pageYOffset - target1.getBoundingClientRect().height,
+    right: wallBBox.right + window.pageXOffset
+  };
+
+  new PlainDraggable(target1, {
+    onDrag: function(moveTo) {
+      var rect = this.rect;
+      if (moveTo.left < wallBBox.right && moveTo.top > wallBBox.top) { // Inside
+        if (rect.left >= wallBBox.right) {
+          moveTo.left = wallBBox.right;
+        } else if (rect.top <= wallBBox.top) { // Avoid fixing both left and top.
+          moveTo.top = wallBBox.top;
+        }
+      }
+    },
+    onMove: function() { line.position(); },
+    onMoveStart: function() { line.dash = {animation: true}; },
+    onDragEnd: function() { line.dash = false; }
+  });
+
+  new PlainDraggable(target2, {
+    onMove: function() { line.position(); },
+    onMoveStart: function() { line.dash = {animation: true}; },
+    onDragEnd: function() { line.dash = false; },
+    zIndex: false
+  });
+
+  line = new LeaderLine(target2, target1,
+    {startPlug: 'disc', endLabel: LeaderLine.pathLabel('ELEMENT', {fontFamily: 'Arial, sans-serif'})});
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-050.html" -->
+
+<!-- include "ex-060.html" -->
+<!-- ================ ex -->
+<div class="cols2">
+  <div class="col">
+    <p>Since PlainDraggable only changes the position to be dragged, you can do additional something for the draggable element. For example, add animation effects to it.</p>
+  </div>
+  <div class="col">
+
+<div id="ex-060-stage" class="stage-m">
+  <div id="ex-060-port" style="width: 86.1094px; height: 32px;"></div>
+  <div id="ex-060-grid"></div>
+  <div id="ex-060-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+  </div>
+</div>
+
+<script>
+mClassList.ignoreNative = true;
+
+window.addEventListener('load', function() {
+  'use strict';
+
+  var target = document.getElementById('ex-060-draggable'),
+    bBox = target.getBoundingClientRect(),
+    port = document.getElementById('ex-060-port'),
+    portPosition = port.getBoundingClientRect(),
+    inAnim = false,
+    DURATION = 0.2,
+    snapped;
+
+  port.style.width = bBox.width + 'px';
+  port.style.height = bBox.height + 'px';
+  portPosition = {
+    left: portPosition.left + window.pageXOffset,
+    top: portPosition.top + window.pageYOffset
+  };
+
+  function animMode(toOn) {
+    if (toOn !== inAnim) {
+      inAnim = toOn;
+      mClassList(target)[inAnim ? 'add' : 'remove']('ex-060-anim');
+    }
+  }
+
+  var draggable = new PlainDraggable(target, {
+    snap: {x: {step: 40, start: 180}, y: {step: 40}},
+    onDrag: function(moveTo) {
+      animMode(!!(snapped = moveTo.snapped));
+    },
+    onDragEnd: function() {
+      if (!snapped) {
+        animMode(true);
+        this.left = portPosition.left;
+        this.top = portPosition.top;
+      }
+    }
+  });
+
+  (function(listener) {
+    ['transitionend', 'webkitTransitionEnd', 'oTransitionEnd', 'otransitionend'].forEach(function(type) {
+      target.addEventListener(type, listener, true);
+    });
+  })(function(event) {
+    if (inAnim && event.target === target && event.elapsedTime >= DURATION) {
+      animMode(false);
+      draggable.position();
+    }
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-060.html" -->
+
+<!-- include "ex-230.html" -->
+<!-- ================ ex -->
+<div class="cols2">
+  <div class="col">
+    <p>This is an example for sortable list. Drag these items to sort these.</p>
+  </div>
+  <div class="col">
+
+<div id="ex-230-stage">
+  <div class="ex-230-item draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; cursor: grab; user-select: none; transform: translate(0px, 0px);">ITEM-A</div>
+  <div class="ex-230-item draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; cursor: grab; user-select: none; transform: translate(0px, 0px);">ITEM-B</div>
+  <div class="ex-230-item draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; cursor: grab; user-select: none; transform: translate(0px, 0px);">ITEM-C</div>
+  <div class="ex-230-item draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; cursor: grab; user-select: none; transform: translate(0px, 0px);">ITEM-D</div>
+  <div class="ex-230-item draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; cursor: grab; user-select: none; transform: translate(0px, 0px);">ITEM-E</div>
+</div>
+
+  </div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  var elmItems = Array.prototype.slice.call(document.getElementsByClassName('ex-230-item')),
+    rect = elmItems[0].getBoundingClientRect(),
+    itemHeight = rect.height,
+    itemsTop = elmItems.map(function(v, i) {
+      return Math.round(rect.top + window.pageYOffset + itemHeight * i);
+    }),
+    items = [];
+
+  function sort(targetItem, top) {
+    var curIndex = items.indexOf(targetItem),
+      newIndex = itemsTop.indexOf(Math.round(top));
+    if (newIndex !== -1 && newIndex !== curIndex) {
+      items.splice(newIndex, 0, items.splice(curIndex, 1)[0]);
+      items.forEach(function(item, i) {
+        if (item !== targetItem) { item.top = itemsTop[i]; }
+      });
+    }
+  }
+
+  items = elmItems.map(function(elmItem) {
+    return new PlainDraggable(elmItem, {
+      snap: {
+        y: {step: itemHeight},
+        side: 'start'
+      },
+      onDrag: function(moveTo) {
+        if (!moveTo.snapped) { return false; }
+        sort(this, moveTo.top);
+        return true;
+      }
+    });
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-230.html" -->
+
+<h2 id="usage">Usage</h2>
+
+<p>Load PlainDraggable into your web page.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"plain-draggable.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div>
+<p>This is simplest case:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PlainDraggable</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+</code></pre></div>
+<p>Now, the <code>element</code> can be moved by mouse-dragging (or touch interfaces) operation.<br>The <code>element</code> might be a <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;circle&gt;</code> or something.</p>
+
+<!-- include "ex-085.html" -->
+<!-- ================ ex -->
+<!-- By Jekyll -->
+<div class="highlight"><pre style="white-space: normal;"><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"background-color: #d4d4d4;"</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet, consectetur<br><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"draggable"</span> <span class="na">style=</span><span class="s">"background-color: lightskyblue;"</span><span class="nt">&gt;</span>adipiscing<span class="nt">&lt;/span&gt;</span> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="nt">&lt;/p&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PlainDraggable</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'draggable'</span><span class="p">));</span>
+</code></pre></div>
+<!-- /By Jekyll -->
+
+<p style="background-color: #d4d4d4;">Lorem ipsum dolor sit amet, consectetur <span id="ex-085-draggable" style="background-color: lightskyblue; will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; display: inline-block; margin-top: 0px; margin-bottom: 0px; transform: translate(0px, 2px); height: 25px;" class="cat">adipiscing</span> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-085-draggable'));
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-085.html" -->
+
+<p>By default, the moving is restricted to inside of the <code>element</code>'s parent element.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"background-color: gray;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"draggable"</span><span class="nt">&gt;</span>Drag This<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<p>The <code>&lt;div id="draggable"&gt;</code> can be moved within the gray box. (See <a href="https://anseki.github.io/plain-draggable/#options-containment"><code>containment</code></a> option.)</p>
+
+<!-- include "ex-070.html" -->
+<!-- ================ ex -->
+<div id="ex-070-stage" class="stage-s">
+  <div id="ex-070-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-070-draggable'));
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-070.html" -->
+
+<p>You can specify a "Grid" that the draggable element snaps to.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span><span class="nx">step</span><span class="o">:</span> <span class="mi">30</span><span class="p">};</span>
+</code></pre></div>
+<!-- include "ex-080.html" -->
+<!-- ================ ex -->
+<div id="ex-080-stage" class="stage-s" style="width: 746.609px; height: 92.5px;">
+  <div id="ex-080-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  var draggable = new PlainDraggable(document.getElementById('ex-080-draggable'), {snap: {step: 30}}),
+    bBox = draggable.element.getBoundingClientRect();
+
+  draggable.containment.style.width = 30 * 22 + bBox.width + 0.5 + 'px';
+  draggable.containment.style.height = 30 * 2 + bBox.height + 0.5 + 'px';
+  draggable.position();
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-080.html" -->
+
+<p>For options, methods and more details, refer to the following.</p>
+
+<h2 id="constructor">Constructor</h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PlainDraggable</span><span class="p">(</span><span class="nx">element</span><span class="p">[,</span> <span class="nx">options</span><span class="p">])</span>
+</code></pre></div>
+<p>The <code>element</code> argument is a HTML or SVG element that will be a draggable element. Any element that has a bounding-box is accepted. Other elements such as <code>&lt;g&gt;</code> can not be specified.</p>
+
+<p>The <code>options</code> argument is an Object that can have properties as <a href="https://anseki.github.io/plain-draggable/#options">options</a> (and <a href="https://anseki.github.io/plain-draggable/#lefttop-option"><code>leftTop</code></a> option for constructor). You can also change the options by <a href="https://anseki.github.io/plain-draggable/#setoptions"><code>setOptions</code></a> method or <a href="https://anseki.github.io/plain-draggable/#properties">properties</a> of the PlainDraggable instance.</p>
+
+<h3 id="lefttop-option"><code>leftTop</code> option</h3>
+
+<p>By default, PlainDraggable tries to move the draggable element by using the <code>translate</code> CSS transform function.<br>If <code>true</code> is specified for <code>leftTop</code> option of the constructor, it uses the <code>left</code> and <code>top</code> CSS properties instead, for HTML element. You may use this to make it synchronize with the layout of something.</p>
+
+<p>Note that the <code>left</code> and <code>top</code> CSS properties may be performance degradation.<br>Also, this is an option for constructor, that is, you can not change this after.</p>
+
+<h2 id="methods">Methods</h2>
+
+<h3 id="setoptions"><code>setOptions</code></h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">self</span> <span class="o">=</span> <span class="nx">draggable</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+</code></pre></div>
+<p>Set one or more options.<br>The <code>options</code> argument is an Object that can have properties as <a href="https://anseki.github.io/plain-draggable/#options">options</a>.</p>
+
+<h3 id="position"><code>position</code></h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">self</span> <span class="o">=</span> <span class="nx">draggable</span><span class="p">.</span><span class="nx">position</span><span class="p">()</span>
+</code></pre></div>
+<p>Re-calculate the position of the draggable element, <a href="https://anseki.github.io/plain-draggable/#options-containment"><code>containment</code></a> option, <a href="https://anseki.github.io/plain-draggable/#options-snap"><code>snap</code></a> option and <a href="https://anseki.github.io/plain-draggable/#options-autoscroll"><code>autoScroll</code></a> option, with current layout of a page.<br>Those are re-calculated as needed automatically when a window is resized, or a window or something is scrolled.<br>You should call <code>position</code> method if you changed the layout without resizing the window or scrolling something.</p>
+
+<h3 id="remove"><code>remove</code></h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">remove</span><span class="p">()</span>
+</code></pre></div>
+<p>Remove the current PlainDraggable instance.<br>Never use the removed instance.</p>
+
+<h2 id="options">Options</h2>
+
+<h3 id="options-containment"><code>containment</code></h3>
+
+<p><em>Type:</em> HTML/SVG element or <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a><br><em>Default:</em> Parent element</p>
+
+<p>A rectangle that restricts the moving of the draggable element. The draggable element can not move to the outside of this rectangle even if a mouse pointer is moved to there.<br>It can be a HTML or SVG element, or a <code>Rect</code> object like <code>{left: '10%', top: 20, right: '90%', height: 300}</code> (See <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a>). The base of the <code>Rect</code> object is the current document.<br>Note that the rectangle is "padding-box" of the element if an element is specified. That is, it is the inside of borders of the element.</p>
+
+<p>The width or height can be less than the size of the draggable element, such as zero, to disable the moving on that axis.<br>For example, this draggable element can be moved in a horizontal direction only.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">containment</span> <span class="o">=</span> <span class="p">{</span><span class="nx">left</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">800</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">0</span><span class="p">};</span>
+<span class="c1">// See next code too.</span>
+</code></pre></div>
+<!-- include "ex-090.html" -->
+<!-- ================ ex -->
+<div id="ex-090-stage">
+  <div id="ex-090-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-090-draggable'));
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-090.html" -->
+
+<p>When the moving on an axis is disabled, the draggable element is not moved in that axis direction at all. Therefore the position of the <code>containment</code> on that axis has no meaning.<br>For example, when <code>0</code> is specified for <code>height</code> to disable the moving on that Y-axis, even if <code>0</code>, <code>999</code> or another value is specified for <code>top</code>, the draggable element is not moved to <code>0</code> or <code>999</code> in Y-axis.<br>Therefore the above example code can be replaced with:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">containment</span> <span class="o">=</span> <span class="p">{</span><span class="nx">left</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">800</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">0</span><span class="p">};</span>
+<span class="c1">// The element is not moved to `top: 0` even if it is positioned at `top: 480` now.</span>
+</code></pre></div>
+<p>The default is the draggable element's parent element.</p>
+
+<p>You can specify a <code>&lt;body&gt;</code> element that means all of a page, or <code>{left: 0, top: 0, width: '100%', height: '100%'}</code> means all of a document (the document height might differ from the <code>&lt;body&gt;</code> height).</p>
+
+<h3 id="options-snap"><code>snap</code></h3>
+
+<p><em>Type:</em> number, string, HTML/SVG element, <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a>, Array, Object or <code>undefined</code><br><em>Default:</em> <code>undefined</code></p>
+
+<p>See <a href="https://anseki.github.io/plain-draggable/#snap">Snap</a>.</p>
+
+<h3 id="options-autoscroll"><code>autoScroll</code></h3>
+
+<p><em>Type:</em> boolean, window, HTML element, Object or <code>undefined</code><br><em>Default:</em> <code>undefined</code></p>
+
+<p>Scroll a scrollable area when the draggable element is moved to near the edges of the area. The scrollable area can be the current window or a HTML element.</p>
+
+<!-- include "ex-240.html" -->
+<!-- ================ ex -->
+<div id="ex-240-scroll">
+  <div id="ex-240-stage">
+    <div id="ex-240-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-240-draggable'), {
+    autoScroll: document.getElementById('ex-240-scroll')
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-240.html" -->
+
+<p>For example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">autoScroll</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</code></pre></div>
+<p>If <code>true</code> is specified, the <code>autoScroll</code> is enabled with all default options.</p>
+
+<p>If a HTML element is specified, it is enabled with <code>{target: element}</code> option.</p>
+
+<p>Or, you can specify an Object that can have properties as following options.</p>
+
+<h4 id="target"><code>target</code></h4>
+
+<p><em>Type:</em> window or HTML element<br><em>Default:</em> window</p>
+
+<p>A scrollable area. Maybe, that contains the <a href="https://anseki.github.io/plain-draggable/#options-containment"><code>containment</code></a> or that is the <code>containment</code> itself.</p>
+
+<h4 id="options-speed"><code>speed</code></h4>
+
+<p><em>Type:</em> number or Array<br><em>Default:</em> <code>[40, 200, 1000]</code></p>
+
+<p>A number determining the speed of scrolling, pixels per second.</p>
+
+<p>You can specify an Array that contains multiple values. Then, scroll it with the first speed when the draggable element was moved near the edges of the area, and scroll it with the next speed when the draggable element was moved near more..., in this way. At most, you can specify three numbers.<br>Those must be sorted in ascending order.</p>
+
+<p>See <a href="https://anseki.github.io/plain-draggable/#options-sensitivity"><code>sensitivity</code></a> option for lines of demarcation that switch the speed.</p>
+
+<h4 id="options-sensitivity"><code>sensitivity</code></h4>
+
+<p><em>Type:</em> number or Array<br><em>Default:</em> <code>[100, 40, 0]</code></p>
+
+<p>A number determining the starting or switching the speed, the distance from the edge of the area, in pixels.</p>
+
+<p>When you specify multiple values for <a href="https://anseki.github.io/plain-draggable/#options-speed"><code>speed</code></a> option, you can specify an Array that contains multiple values. Then, scroll it with the first speed when the draggable element was moved at less than the first distance from the edges of the area, and scroll it with the next speed when the draggable element was moved at less than the next distance..., in this way. At most, you can specify three numbers.<br>Those must be sorted in descending order.</p>
+
+<p>See <a href="https://anseki.github.io/plain-draggable/#options-speed"><code>speed</code></a> option for the speed.</p>
+
+<h4 id="minx-/-maxx-/-miny-/-maxy"><code>minX</code> / <code>maxX</code> / <code>minY</code> / <code>maxY</code></h4>
+
+<p><em>Type:</em> number or <code>undefined</code><br><em>Default:</em> <code>undefined</code></p>
+
+<p>A number setting a limit to scrolling. These values are returned value by <code>pageXOffset</code>, <code>pageYOffset</code>, <code>scrollLeft</code> or <code>scrollTop</code>.<br>You can specify <code>0</code> for <code>maxX</code> or <code>maxY</code> to disable scrolling for that axis only. For example, <code>maxX: 0</code> disables horizontal scrolling only.</p>
+
+<p>Note that this is a limit of the <code>autoScroll</code>, not scrolling of UI. That is, user can scroll manually, regardless of this.</p>
+
+<h3 id="options-handle"><code>handle</code></h3>
+
+<p><em>Type:</em> HTML/SVG element<br><em>Default:</em> Draggable element</p>
+
+<p>A part element of the draggable element that receives mouse (or touch interfaces) operations. A user seizes and drags this element to move the draggable element.<br>The default is the draggable element itself, and all of the draggable element can be seized and dragged.</p>
+
+<!-- include "ex-100.html" -->
+<!-- ================ ex -->
+<div id="ex-100-stage" class="stage-s">
+  <div id="ex-100-draggable" class="cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; transform: translate(0px, 0px);">
+    <div class="draggable" style="cursor: grab; user-select: none;">Drag This</div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-100-draggable'),
+    {handle: document.querySelector('#ex-100-draggable .draggable')});
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-100.html" -->
+
+<h3 id="options-zIndex"><code>zIndex</code></h3>
+
+<p><em>Type:</em> number or boolean<br><em>Default:</em> <code>9000</code></p>
+
+<p>A <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index"><code>z-index</code></a> CSS property that is applied to the draggable element when it is being dragged. It is restored when the dragging finished.<br>If <code>false</code> is specified, it is not changed.</p>
+
+<h3 id="options-left_top"><code>left</code> / <code>top</code></h3>
+
+<p><em>Type:</em> number or <code>undefined</code><br><em>Default:</em> <code>undefined</code></p>
+
+<p>The distance between a left or top edge of the draggable element and a left or top edge of the document, in pixels.</p>
+
+<p>It can be used for initial position when constructing new PlainDraggable instance. Also, it can be used to move the draggable element after constructing.<br>For example, move it rightward:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">left</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="options-ondrag"><code>onDrag</code></h3>
+
+<p><em>Type:</em> function or <code>undefined</code><br><em>Default:</em> <code>undefined</code></p>
+
+<p>A function that is called when the draggable element was dragged. That is not moved yet.<br>It is called even if the draggable element is not moved because <a href="https://anseki.github.io/plain-draggable/#options-containment"><code>containment</code></a> or <a href="https://anseki.github.io/plain-draggable/#options-snap"><code>snap</code></a> avoided the moving. Use <a href="https://anseki.github.io/plain-draggable/#options-onmove"><code>onMove</code></a> if you want to do something when the draggable element was moved.</p>
+
+<p>In the function, <code>this</code> refers to the current PlainDraggable instance.</p>
+
+<p>An Object that has <code>left</code> and <code>top</code> properties as new position is passed to the function. These are numbers that were calculated the same as <a href="https://anseki.github.io/plain-draggable/#options-left_top"><code>left</code> / <code>top</code></a> options.<br>It is new position that the draggable element is about to go to. Therefore it might differ from a position of a mouse pointer. And also, you can change these properties.</p>
+
+<p>For example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">onDrag</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newPosition</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">newPosition</span><span class="p">.</span><span class="nx">left</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">rect</span><span class="p">.</span><span class="nx">left</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">newPosition</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">rect</span><span class="p">.</span><span class="nx">left</span> <span class="o">+</span> <span class="mi">48</span><span class="p">;</span> <span class="c1">// Move it 48px to the right forcibly.</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Also, <code>snapped</code> property is <code>true</code> if the position was determined by the draggable element being snapped (See <a href="https://anseki.github.io/plain-draggable/#snap">Snap</a>).</p>
+
+<p>If the function returns <code>false</code>, the moving is canceled.</p>
+
+<p>For example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">onDrag</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newPosition</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">!!</span><span class="nx">newPosition</span><span class="p">.</span><span class="nx">snapped</span><span class="p">;</span> <span class="c1">// It is moved only when it is snapped.</span>
+<span class="p">};</span>
+<span class="c1">// The `gravity` option also can be used for the same purpose.</span>
+</code></pre></div>
+<h3 id="options-onmove"><code>onMove</code></h3>
+
+<p><em>Type:</em> function or <code>undefined</code><br><em>Default:</em> <code>undefined</code></p>
+
+<p>A function that is called when the draggable element was moved.<br>It is not called when the draggable element is not moved because <a href="https://anseki.github.io/plain-draggable/#options-containment"><code>containment</code></a> or <a href="https://anseki.github.io/plain-draggable/#options-snap"><code>snap</code></a> avoided the moving even if the draggable element is dragged.</p>
+
+<p>In the function, <code>this</code> refers to the current PlainDraggable instance.</p>
+
+<p>An Object that has <code>left</code> and <code>top</code> properties is passed to the function. It might have <code>snapped</code> property too. See <a href="https://anseki.github.io/plain-draggable/#options-ondrag"><code>onDrag</code></a> for those properties.<br>And also, <code>autoScroll</code> property is <code>true</code> if it tried scroll (See <a href="https://anseki.github.io/plain-draggable/#options-autoscroll"><code>autoScroll</code></a> option). This means that the draggable element was moved to near the edges of the area, it might have been not scrolled.</p>
+
+<p>For example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">onMove</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">newPosition</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'left: %d top: %d width: %d height: %d it is scrolling: %s'</span>
+    <span class="c1">// determined position that was changed by snap and onDrag</span>
+    <span class="nx">newPosition</span><span class="p">.</span><span class="nx">left</span><span class="p">,</span> <span class="nx">newPosition</span><span class="p">.</span><span class="nx">top</span><span class="p">,</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">rect</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">rect</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span>
+    <span class="nx">newPosition</span><span class="p">.</span><span class="nx">autoScroll</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3 id="options-ondragstart"><code>onDragStart</code></h3>
+
+<p><em>Type:</em> function or <code>undefined</code><br><em>Default:</em> <code>undefined</code></p>
+
+<p>A function that is called when a mouse button or touch interface was pressed on the draggable element. That is not dragged yet.<br>It is called even if the draggable element is not dragged. Use <a href="https://anseki.github.io/plain-draggable/#options-ondrag"><code>onDrag</code></a> if you want to do something when the draggable element was dragged.</p>
+
+<p>In the function, <code>this</code> refers to the current PlainDraggable instance.</p>
+
+<p>An Object that has <code>clientX</code> and <code>clientY</code> properties pointing a position of a mouse pointer or touch interface is passed to the function. That might be <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent"><code>MouseEvent</code></a> or first <a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch"><code>Touch</code></a> object of <a href="https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent"><code>TouchEvent</code></a>.</p>
+
+<p>If the function returns <code>false</code>, the dragging is canceled.</p>
+
+<p>For example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">onDragStart</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">pointerXY</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">isEar</span><span class="p">(</span><span class="nx">pointerXY</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">'Do not pull my ear!!'</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3 id="options-onmovestart"><code>onMoveStart</code></h3>
+
+<p><em>Type:</em> function or <code>undefined</code><br><em>Default:</em> <code>undefined</code></p>
+
+<p>A function that is called when the moving the draggable element started.<br>It is not called until the draggable element is moved even if it was dragged, and it is called at most once, while a mouse button is being pressed.</p>
+
+<p>In the function, <code>this</code> refers to the current PlainDraggable instance.</p>
+
+<p>An Object that has <code>left</code> and <code>top</code> properties is passed to the function. It might have <code>snapped</code> and <code>autoScroll</code> properties too. See <a href="https://anseki.github.io/plain-draggable/#options-onmove"><code>onMove</code></a> for those properties.</p>
+
+<h3 id="options-ondragend"><code>onDragEnd</code></h3>
+
+<p><em>Type:</em> function or <code>undefined</code><br><em>Default:</em> <code>undefined</code></p>
+
+<p>A function that is called when a mouse button was released.<br>It is called even if the mouse pointer was not moved.</p>
+
+<p>In the function, <code>this</code> refers to the current PlainDraggable instance.</p>
+
+<p>An Object that has <code>left</code> and <code>top</code> properties is passed to the function. See <a href="https://anseki.github.io/plain-draggable/#options-ondrag"><code>onDrag</code></a> for those properties.  </p>
+
+<h2 id="properties">Properties</h2>
+
+<h3 id="disabled"><code>disabled</code></h3>
+
+<p><em>Type:</em> boolean<br><em>Default:</em> <code>false</code></p>
+
+<p>If <code>true</code> is specified, the draggable element stops the moving immediately, and it does not receive mouse operations.</p>
+
+<h3 id="element"><code>element</code></h3>
+
+<p><strong>Read-only</strong></p>
+
+<p><em>Type:</em> HTML/SVG element</p>
+
+<p>The element that was passed to <a href="https://anseki.github.io/plain-draggable/#constructor">constructor</a>.</p>
+
+<h3 id="properties-rect"><code>rect</code></h3>
+
+<p><strong>Read-only</strong></p>
+
+<p><em>Type:</em> <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a></p>
+
+<p>A <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a> object to indicate current position and size of the draggable element.<br>The base of the <code>Rect</code> object is the current document.</p>
+
+<h3 id="accessor-properties">Accessor Properties</h3>
+
+<p>Properties with the same name as each option to get or set following options:</p>
+
+<ul>
+<li><a href="https://anseki.github.io/plain-draggable/#options-containment"><code>containment</code></a></li>
+<li><a href="https://anseki.github.io/plain-draggable/#options-snap"><code>snap</code></a></li>
+<li><a href="https://anseki.github.io/plain-draggable/#options-autoscroll"><code>autoScroll</code></a></li>
+<li><a href="https://anseki.github.io/plain-draggable/#options-handle"><code>handle</code></a></li>
+<li><a href="https://anseki.github.io/plain-draggable/#options-zIndex"><code>zIndex</code></a></li>
+<li><a href="https://anseki.github.io/plain-draggable/#options-left_top"><code>left</code> / <code>top</code></a></li>
+<li><a href="https://anseki.github.io/plain-draggable/#options-ondrag"><code>onDrag</code></a></li>
+<li><a href="https://anseki.github.io/plain-draggable/#options-onmove"><code>onMove</code></a></li>
+<li><a href="https://anseki.github.io/plain-draggable/#options-ondragstart"><code>onDragStart</code></a></li>
+<li><a href="https://anseki.github.io/plain-draggable/#options-onmovestart"><code>onMoveStart</code></a></li>
+<li><a href="https://anseki.github.io/plain-draggable/#options-ondragend"><code>onDragEnd</code></a></li>
+</ul>
+
+<p>For example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">containment</span> <span class="o">=</span> <span class="nx">wideArea</span><span class="p">;</span>
+<span class="nx">draggable</span><span class="p">.</span><span class="nx">handle</span> <span class="o">=</span> <span class="nx">newHandle</span><span class="p">;</span>
+<span class="nx">draggable</span><span class="p">.</span><span class="nx">left</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<p>You can use <a href="https://anseki.github.io/plain-draggable/#setoptions"><code>setOptions</code></a> method instead to set multiple options.</p>
+
+<h3 id="plaindraggabledraggablecursor-/-plaindraggabledraggingcursor"><code>PlainDraggable.draggableCursor</code> / <code>PlainDraggable.draggingCursor</code></h3>
+
+<p><strong>Static Property</strong></p>
+
+<p><em>Type:</em> string or Array<br><em>Default:</em> (depend on web browser)</p>
+
+<ul>
+<li><code>PlainDraggable.draggableCursor</code>: <img src="./demo_files/grab.png" alt="grab"> <code>['grab', 'all-scroll', 'move']</code> or <code>['all-scroll', 'move']</code> (For Webkit)</li>
+<li><code>PlainDraggable.draggingCursor</code>: <img src="./demo_files/grabbing.png" alt="grabbing"> <code>['grabbing', 'move']</code> or <code>'move'</code> (For Webkit)</li>
+</ul>
+
+<p><code>PlainDraggable.draggableCursor</code> is a <code>cursor</code> CSS property that is applied to the <a href="https://anseki.github.io/plain-draggable/#options-handle"><code>handle</code></a> element.<br><code>PlainDraggable.draggingCursor</code> is a <code>cursor</code> CSS property that is applied to the <a href="https://anseki.github.io/plain-draggable/#options-handle"><code>handle</code></a> element while a mouse button is being pressed.<br>If an Array that contains multiple values is specified, PlainDraggable tries it with each value until any of them succeeded.</p>
+
+<p>Note that the allowed values of the <code>cursor</code> CSS property depend on each web browser. And also, Webkit has a bug about the <code>cursor</code> CSS property, and the bug is being ignored a long time.</p>
+
+<p>If <code>false</code> is specified, it is not changed.<br>If <code>false</code> is specified for both <code>PlainDraggable.draggableCursor</code> and <code>PlainDraggable.draggingCursor</code>, PlainDraggable does nothing to a <code>cursor</code> CSS property.</p>
+
+<h3 id="plaindraggabledraggableclass-/-plaindraggabledraggingclass-/-plaindraggablemovingclass"><code>PlainDraggable.draggableClass</code> / <code>PlainDraggable.draggingClass</code> / <code>PlainDraggable.movingClass</code></h3>
+
+<p><strong>Static Property</strong></p>
+
+<p><em>Type:</em> string<br><em>Default:</em></p>
+
+<ul>
+<li><code>PlainDraggable.draggableClass</code>: <code>'plain-draggable'</code></li>
+<li><code>PlainDraggable.draggingClass</code>: <code>'plain-draggable-dragging'</code></li>
+<li><code>PlainDraggable.movingClass</code>: <code>'plain-draggable-moving'</code></li>
+</ul>
+
+<p><code>PlainDraggable.draggableClass</code> is a class name that is added to the draggable element.<br><code>PlainDraggable.draggingClass</code> is a class name that is added to the draggable element within the period from when a mouse button is pressed until the button is released. Then, the draggable element has both classes.<br><code>PlainDraggable.movingClass</code> is a class name that is added to the draggable element within the period from when the draggable element starts moving until a mouse button is released. Then, the draggable element has three classes.</p>
+
+<p>For example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">PlainDraggable</span><span class="p">.</span><span class="nx">draggableClass</span> <span class="o">=</span> <span class="s1">'cat'</span><span class="p">;</span>
+<span class="nx">PlainDraggable</span><span class="p">.</span><span class="nx">draggingClass</span> <span class="o">=</span> <span class="s1">'lift'</span><span class="p">;</span>
+<span class="nx">PlainDraggable</span><span class="p">.</span><span class="nx">movingClass</span> <span class="o">=</span> <span class="s1">'swing'</span><span class="p">;</span>
+</code></pre></div>
+<!-- include "ex-110.html" -->
+<!-- ================ ex -->
+<div id="ex-110-stage" class="stage-s">
+  <div id="ex-110-draggable" class="cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; transform: translate(0px, 0px);"><div><div style="cursor: grab; user-select: none;"></div></div></div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  PlainDraggable.draggableClass = 'cat';
+  PlainDraggable.draggingClass = 'lift';
+  PlainDraggable.movingClass = 'swing';
+
+  new PlainDraggable(document.getElementById('ex-110-draggable'),
+    {handle: document.querySelector('#ex-110-draggable>div>div')});
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-110.html" -->
+
+<h2 id="rect"><code>Rect</code></h2>
+
+<p>An Object to indicate a position and size of a rectangle, like <a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMRect"><code>DOMRect</code></a>.<br>It has following properties:</p>
+
+<ul>
+<li><code>left</code> or <code>x</code></li>
+<li><code>top</code> or <code>y</code></li>
+<li><code>width</code> or <code>right</code></li>
+<li><code>height</code> or <code>bottom</code></li>
+</ul>
+
+<p>Also, it is relative to a "base".</p>
+
+<p>The <code>left</code> / <code>top</code> / <code>right</code> / <code>bottom</code> indicate distance between the left or top edge of the base and the left or top side of the rectangle. Note that <code>right</code> / <code>bottom</code> also indicate distance from the left or top edge of the base, not from the right or bottom edge.<br>The <code>x</code> is an alias for <code>left</code>, and the <code>y</code> is an alias for <code>top</code>.<br>The <code>width</code> / <code>height</code> indicate a size of the rectangle. The <code>width</code> is required if <code>right</code> is not specified, and the <code>height</code> is required if <code>bottom</code> is not specified.</p>
+
+<p>All values are a number as pixels or string as percentage (e.g. <code>'30%'</code>).<br>The "base" determines the origin of coordinates, and the number of pixels of <code>100%</code>.</p>
+
+<ul>
+<li>When the <code>Rect</code> object is specified for the <a href="https://anseki.github.io/plain-draggable/#options-containment"><code>containment</code></a> option, the base is the current document.<br></li>
+<li>When the <code>Rect</code> object is specified for the <a href="https://anseki.github.io/plain-draggable/#options-snap"><code>snap</code></a> option, the base is determined by <a href="https://anseki.github.io/plain-draggable/#snap-base"><code>base</code></a> option.<br></li>
+<li>When the <code>Rect</code> object is got by the <a href="https://anseki.github.io/plain-draggable/#properties-rect"><code>rect</code></a> property, the base is the current document.</li>
+</ul>
+
+<p>Note that the <code>right</code> must be greater than or equal to <code>left</code>, and the <code>bottom</code> must be greater than or equal to <code>top</code>. In other words, the <code>width</code> and <code>height</code> can not be negative value. PlainDraggable does not invert these to avoid behavior that you don't want. For example, <code>{left: 400, right: '50%'}</code> is ignored when the base is resized to smaller than <code>800px</code> width.</p>
+
+<p>For example, when the base width is <code>600px</code> and height is <code>400px</code>:
+- <code>{left: 20, top: '10%', width: '50%', bottom: 390}</code> indicates a rectangle that is <code>left: 20px; top: 40px; width: 300px; height: 350px;</code>, positioned relative to the top-left corner of the base.
+- <code>{left: '50%', top: 0, width: '50%', height: '100%'}</code> indicates a rectangle that is the right half of the base.
+- <code>{left: '10%', top: '10%', right: '90%', bottom: '90%'}</code> indicates a rectangle that has <code>10%</code> margin at all sides.</p>
+
+<h2 id="snap">Snap</h2>
+
+<p>You can specify <a href="https://anseki.github.io/plain-draggable/#options-snap"><code>snap</code></a> option.<br>The <code>snap</code> option makes one or more "snap-targets". The draggable element gravitates toward a snap-target when it is moved to near the snap-target, and it sticks to the snap-target.</p>
+
+<p>Each snap-target can be one of the following:</p>
+
+<ul>
+<li>Point</li>
+<li>Line</li>
+<li>Element or <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a> object</li>
+</ul>
+
+<p>The point acts on both a horizontal direction and a vertical direction, and the line acts on either direction.<br>The point and line are the basic of snap-target. The element and <code>Rect</code> object create multiple lines.</p>
+
+<!-- include "ex-120.html" -->
+<!-- ================ ex -->
+<div id="ex-120-stage" class="stage-s">
+  <div id="ex-120-point" class="snap-point">
+    <div>↘<div>Point</div></div>
+  </div>
+  <div id="ex-120-line" class="snap-line-v">
+    <div>Line →</div>
+  </div>
+  <div id="ex-120-rect"><div>Rect</div></div>
+  <div id="ex-120-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-120-draggable'), {
+    snap: [
+      {x: 160, y: 64},
+      {x: 360},
+      {x: 520, y: 60, width: 164, height: 54}
+    ]
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-120.html" -->
+
+<p>Single value creates a point that the value indicates both X and Y coordinates of the point. Then a top-left corner (default) of the draggable element snaps to this point.<br>This is simplest case.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span> <span class="c1">// Point (X: 60px, Y: 60px)</span>
+</code></pre></div>
+<!-- include "ex-130.html" -->
+<!-- ================ ex -->
+<div id="ex-130-stage" class="stage-s" style="position: relative;">
+  <div class="snap-point" style="left: 60px; top: 60px;"></div>
+  <div id="ex-130-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-130-draggable'), {
+    snap: 60
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-130.html" -->
+
+<p>A value as coordinate is a number as pixels or string as percentage (e.g. <code>'30%'</code>). The percentage is calculated the same as the <code>x</code> and <code>y</code> of <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a>.<br>For example, this indicates the center of the base.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="s1">'50%'</span><span class="p">;</span> <span class="c1">// Point (X: 50%, Y: 50%) i.e. the center</span>
+</code></pre></div>
+<p>An Object that has <code>x</code> and <code>y</code> properties creates a point that the properties indicate coordinates of the point.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">160</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="s1">'40%'</span><span class="p">};</span> <span class="c1">// Point (X: 160px, Y: 40%)</span>
+</code></pre></div>
+<p>That is, a value that does not have both <code>x</code> and <code>y</code> is considered as a point that the value indicates the same value for the <code>x</code> and <code>y</code>. For example, <code>30</code> is considered as <code>{x: 30, y: 30}</code>.</p>
+
+<p>An Object that has either one of <code>x</code> and <code>y</code> properties creates a line that the property indicates a coordinate on the axis. Then two sides (default) of the draggable element along a direction of this line snap to this line.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">130</span><span class="p">};</span> <span class="c1">// Vertical Line (from top edge to bottom edge)</span>
+</code></pre></div>
+<!-- include "ex-140.html" -->
+<!-- ================ ex -->
+<div id="ex-140-stage" class="stage-s" style="position: relative;">
+  <div class="snap-line-v" style="left: 130px;"></div>
+  <div id="ex-140-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-140-draggable'), {
+    snap: {x: 130}
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-140.html" -->
+
+<p>By default, the line has full length of size of the base.<br>The other property can be an Object that has one or both of <code>start</code> and <code>end</code> properties that indicate a coordinate on the axis. This Object indicates the range on the axis for the line.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">130</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="p">{</span><span class="nx">start</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">end</span><span class="o">:</span> <span class="s1">'50%'</span><span class="p">}};</span> <span class="c1">// Vertical Line</span>
+</code></pre></div>
+<!-- include "ex-150.html" -->
+<!-- ================ ex -->
+<div id="ex-150-stage" class="stage-s" style="position: relative;">
+  <div class="snap-line-v" style="left: 130px; top: 5px; height: 55px"></div>
+  <div id="ex-150-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-150-draggable'), {
+    snap: {x: 130, y: {start: 5, end: '50%'}}
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-150.html" -->
+
+<p>Note that the <code>end</code> must be greater than or equal to <code>start</code>. PlainDraggable does not invert these to avoid behavior that you don't want. For example, <code>x: {start: 400, end: '50%'}</code> is ignored when the base is resized to smaller than <code>800px</code> width.</p>
+
+<p>A <code>step</code> property of the Object copies the point or line repeatedly at specified intervals. This may be called "Grid". It can be also grid on only either one of X and Y axis.<br>Its value is a number as pixels or string as percentage (e.g. <code>'30%'</code>). The percentage is calculated the same as the <code>width</code> or <code>height</code> of <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a>.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Consecutive Points at 40px intervals, on X and Y</span>
+<span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span><span class="nx">step</span><span class="o">:</span> <span class="mi">40</span><span class="p">};</span>
+<span class="c1">// As previously mentioned, this is considered as {x: {step: 40}, y: {step: 40}}.</span>
+</code></pre></div>
+<!-- include "ex-160.html" -->
+<!-- ================ ex -->
+<div id="ex-160-stage" class="stage-s" style="background-image: url(&quot;img/grid-dot-40.png&quot;); width: 766.609px; height: 112.5px;">
+  <div id="ex-160-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  var draggable = new PlainDraggable(document.getElementById('ex-160-draggable'), {snap: {step: 40}}),
+    bBox = draggable.element.getBoundingClientRect();
+
+  draggable.containment.style.width = 40 * 17 + bBox.width + 0.5 + 'px';
+  draggable.containment.style.height = 40 * 2 + bBox.height + 0.5 + 'px';
+  draggable.position();
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-160.html" -->
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Consecutive Points at X: 10px and Y: 20px intervals</span>
+<span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="p">{</span><span class="nx">step</span><span class="o">:</span> <span class="mi">10</span><span class="p">},</span> <span class="nx">y</span><span class="o">:</span> <span class="p">{</span><span class="nx">step</span><span class="o">:</span> <span class="mi">20</span><span class="p">}};</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Consecutive Horizontal Lines at 25% intervals (from left edge to right edge)</span>
+<span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span><span class="nx">y</span><span class="o">:</span> <span class="p">{</span><span class="nx">step</span><span class="o">:</span> <span class="s1">'25%'</span><span class="p">}};</span>
+</code></pre></div>
+<!-- include "ex-170.html" -->
+<!-- ================ ex -->
+<div id="ex-170-stage" class="stage-s" style="background-image: url(&#39;img/grid-line-h-40.png&#39;); height: 160px;">
+  <div id="ex-170-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-170-draggable'), {
+    snap: {y: {step: '25%'}}
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-170.html" -->
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// 4 Consecutive Horizontal Lines (from left edge to right edge)</span>
+<span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span><span class="nx">y</span><span class="o">:</span> <span class="p">{</span><span class="nx">step</span><span class="o">:</span> <span class="s1">'20%'</span><span class="p">,</span> <span class="nx">end</span><span class="o">:</span> <span class="s1">'60%'</span><span class="p">}};</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// 4 Consecutive Horizontal Lines (300px length)</span>
+<span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="p">{</span><span class="nx">end</span><span class="o">:</span> <span class="mi">300</span><span class="p">},</span> <span class="nx">y</span><span class="o">:</span> <span class="p">{</span><span class="nx">step</span><span class="o">:</span> <span class="s1">'20%'</span><span class="p">,</span> <span class="nx">end</span><span class="o">:</span> <span class="s1">'60%'</span><span class="p">}};</span>
+</code></pre></div>
+<!-- include "ex-180.html" -->
+<!-- ================ ex -->
+<div id="ex-180-stage" class="stage-s" style="height: 160px;">
+  <div id="ex-180-grid"></div>
+  <div id="ex-180-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-180-draggable'), {
+    snap: {x: {end: 300}, y: {step: '20%', end: '60%'}}
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-180.html" -->
+
+<p>An element or a <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a> object creates four lines that overlap with edges of its rectangle.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'snap-box'</span><span class="p">);</span> <span class="c1">// Element</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span><span class="nx">left</span><span class="o">:</span> <span class="s1">'10%'</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="s1">'80%'</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">280</span><span class="p">};</span> <span class="c1">// Rect object</span>
+</code></pre></div>
+<p>The base of the <code>Rect</code> object is determined by <a href="https://anseki.github.io/plain-draggable/#snap-base"><code>base</code></a> option.</p>
+
+<p>You can specify options for the snap-target via properties of the Object that is passed to the <code>snap</code> option, or an Object instead of something that is not Object. For example, you can specify <code>{x: 80, y: 80, gravity: 30}</code> instead of <code>80</code> to specify the <a href="https://anseki.github.io/plain-draggable/#snap-gravity"><code>gravity</code></a> option.<br>Also, you can specify an Array that contains multiple snap-targets.</p>
+
+<p>For options and more details, refer to the following.</p>
+
+<h3 id="structure-and-abbreviation">Structure and Abbreviation</h3>
+
+<p>Actually, you saw shortened structure of a <code>snap</code> option in the above.<br>Its basic structure is here:</p>
+
+<p><strong><code>SnapOptions</code>:</strong></p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">targets</span><span class="o">:</span> <span class="p">[</span><span class="nx">snapTarget1</span><span class="p">,</span> <span class="nx">snapTarget2</span><span class="p">...],</span> <span class="c1">// Array containing `SnapTarget`s</span>
+  <span class="c1">// Common options for all `SnapTarget`s in the `targets`</span>
+  <span class="nx">option1</span><span class="o">:</span> <span class="nx">optionValue1</span><span class="p">,</span>
+  <span class="nx">option2</span><span class="o">:</span> <span class="nx">optionValue2</span><span class="p">,</span>
+    <span class="o">:</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong><code>SnapTarget</code>:</strong></p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+  <span class="nx">x</span><span class="o">:</span> <span class="nx">xValue</span><span class="p">,</span> <span class="c1">// number, string or Object</span>
+  <span class="nx">y</span><span class="o">:</span> <span class="nx">yValue</span><span class="p">,</span>
+  <span class="nx">boundingBox</span><span class="o">:</span> <span class="nx">elementOrRect</span><span class="p">,</span> <span class="c1">// Element or Rect object</span>
+  <span class="c1">// Options for this `SnapTarget`, that override each common option</span>
+  <span class="nx">option1</span><span class="o">:</span> <span class="nx">optionValue1</span><span class="p">,</span>
+  <span class="nx">option2</span><span class="o">:</span> <span class="nx">optionValue2</span><span class="p">,</span>
+    <span class="o">:</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>x</code> and <code>y</code> can be one of the following:</p>
+
+<ul>
+<li><strong>Coordinate:</strong><br>A value that indicates a coordinate on the axis.</li>
+<li><strong>Range:</strong><br>An Object that indicates a range on the axis, that can have <code>start</code> and <code>end</code> properties that are each coordinate on the axis.</li>
+<li><strong>Repeated Coordinates:</strong><br>An Object that indicates repeated coordinates on the axis, that has <code>step</code> property that is interval between repeated coordinates. It can have <code>start</code> and <code>end</code> properties as a range.</li>
+</ul>
+
+<p>All these values are a number as pixels or a string as percentage (e.g. <code>'30%'</code>). The <code>step</code> as percentage is calculated the same as the <code>width</code> or <code>height</code> of <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a>, and the other values as percentage are calculated the same as the <code>x</code> or <code>y</code> of that.</p>
+
+<p>The combination of the <code>x</code> and <code>y</code> determines what the <code>SnapTarget</code> indicates.</p>
+
+<ul>
+<li>If both <code>x</code> and <code>y</code> indicate each coordinate, this <code>SnapTarget</code> indicates a point.</li>
+<li>If either one of <code>x</code> and <code>y</code> indicates a coordinate and the other indicates a range, this <code>SnapTarget</code> indicates a line.</li>
+<li>If either one of <code>x</code> and <code>y</code> indicates a coordinate and the other indicates repeated coordinates, this <code>SnapTarget</code> indicates consecutive points arranged linearly.</li>
+<li>If both <code>x</code> and <code>y</code> indicate repeated coordinates, this <code>SnapTarget</code> indicates consecutive points arranged in the horizontal and vertical directions.</li>
+<li>If either one of <code>x</code> and <code>y</code> indicates a range and the other indicates repeated coordinates, this <code>SnapTarget</code> indicates consecutive parallel lines.</li>
+<li>If both <code>x</code> and <code>y</code> indicate each range, this <code>SnapTarget</code> indicates four lines as a rectangle. Unlike <code>boundingBox</code>, <a href="https://anseki.github.io/plain-draggable/#snap-edge"><code>edge</code></a> option is not applied.</li>
+</ul>
+
+<p>An <strong>important point</strong>, the default for the <code>x</code> and <code>y</code> is a range, and the default for the <code>start</code> is <code>0</code>, and the default for the <code>end</code> is <code>'100%'</code>.<br>Therefore, you can specify either one of the <code>x</code> and <code>y</code> to indicate a line. For example, <code>{y: 30}</code> indicates a horizontal line. The <code>x</code> having either one or both of the <code>start</code> and <code>end</code> is required only when the line should be shortened.<br>Also, you can specify only the <code>step</code> to indicate consecutive points or consecutive lines. For example, <code>{y: {step: 50}}</code> indicates consecutive horizontal lines.</p>
+
+<p>The <code>boundingBox</code> is used instead of the <code>x</code> and <code>y</code>, to indicate a rectangle.<br>You can specify an element or <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a> object, then this <code>SnapTarget</code> indicates four lines that overlap with edges of its rectangle.</p>
+
+<p>You can specify one or more <code>SnapTarget</code>s for the <code>targets</code> Array of <code>SnapOptions</code>.<br>And you can specify one or more options in both <code>SnapTarget</code> and <code>SnapOptions</code>. The options in <code>SnapTarget</code> override each option in <code>SnapOptions</code>.<br>For example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">targets</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">100</span><span class="p">},</span>
+    <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nx">gravity</span><span class="o">:</span> <span class="mi">60</span><span class="p">},</span>
+    <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">300</span><span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nx">gravity</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+  <span class="nx">center</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>A <code>50</code> is applied to the <a href="https://anseki.github.io/plain-draggable/#snap-gravity"><code>gravity</code></a> option of first and third snap-targets.<br>A <code>60</code> is applied to the <a href="https://anseki.github.io/plain-draggable/#snap-gravity"><code>gravity</code></a> option of second snap-target only.<br>A <code>true</code> is applied to the <a href="https://anseki.github.io/plain-draggable/#snap-center"><code>center</code></a> option of all three snap-targets.</p>
+
+<h4 id="abbreviation">Abbreviation</h4>
+
+<p>As above, you can specify the <code>snap</code> option in detail. Or, you can also specify it simply as follows.</p>
+
+<p>You can specify something for the <code>SnapTarget</code> directly. It is considered as both <code>x</code> and <code>y</code>, or <code>boundingBox</code>.<br>For example, the following two codes work same:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">targets</span><span class="o">:</span> <span class="p">[</span>
+    <span class="mi">100</span><span class="p">,</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'snap-box'</span><span class="p">),</span>
+    <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">200</span><span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">};</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">targets</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">100</span><span class="p">},</span>
+    <span class="p">{</span><span class="nx">boundingBox</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'snap-box'</span><span class="p">)},</span>
+    <span class="p">{</span><span class="nx">boundingBox</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">200</span><span class="p">}}</span>
+  <span class="p">]</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>You can specify single <code>SnapTarget</code> for the <code>targets</code> directly instead of an Array.<br>For example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">targets</span><span class="o">:</span> <span class="mi">100</span> <span class="c1">// The same as [100] and [{x: 100, y: 100}]</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>You can specify the <code>targets</code> for the <code>SnapOptions</code> directly.<br>For example:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="c1">// The same as {targets: 100} and {targets: [100]} and {targets: [{x: 100, y: 100}]}</span>
+
+<span class="nx">draggable</span><span class="p">.</span><span class="nx">snap</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nx">gravity</span><span class="o">:</span> <span class="mi">60</span><span class="p">}];</span> <span class="c1">// 2 targets</span>
+</code></pre></div>
+<h3 id="options-for-snap">Options for Snap</h3>
+
+<p>These are specified in the <a href="https://anseki.github.io/plain-draggable/#structure-and-abbreviation"><code>SnapOptions</code> and <code>SnapTarget</code></a>.</p>
+
+<h4 id="snap-gravity"><code>gravity</code></h4>
+
+<p><em>Type:</em> number<br><em>Default:</em> <code>20</code></p>
+
+<p>Distance from the draggable element, in pixels.<br>The draggable element gravitates toward the snap-target when the distance becomes less than or equal to this.</p>
+
+<p>To avoid staying between "<a href="https://anseki.github.io/plain-draggable/#structure-and-abbreviation">repeated coordinates</a>", you can specify a number greater than or equal to the half of the <code>step</code>. Or, <a href="https://anseki.github.io/plain-draggable/#options-ondrag"><code>onDrag</code></a> option also can be used for the same purpose.</p>
+
+<h4 id="snap-corner"><code>corner</code></h4>
+
+<p><strong>For snap-target as point</strong></p>
+
+<p><em>Type:</em> string<br><em>Default:</em> <code>'tl'</code></p>
+
+<p>One or more corners of the draggable element that gravitate toward the snap-target.<br>It is a value that indicates a corner or a list of the values separated by space or comma.</p>
+
+<p>Allowed values are:</p>
+
+<ul>
+<li><code>'top-left'</code> (Alias: <code>'tl'</code>, <code>'left-top'</code>, <code>'lt'</code>)</li>
+<li><code>'top-right'</code> (Alias: <code>'tr'</code>, <code>'right-top'</code>, <code>'rt'</code>)</li>
+<li><code>'bottom-left'</code> (Alias: <code>'bl'</code>, <code>'left-bottom'</code>, <code>'lb'</code>)</li>
+<li><code>'bottom-right'</code> (Alias: <code>'br'</code>, <code>'right-bottom'</code>, <code>'rb'</code>)</li>
+<li><code>'all'</code> (The same as <code>'tl tr bl br'</code>)</li>
+</ul>
+
+<!-- include "ex-190.html" -->
+<!-- ================ ex -->
+<div id="ex-190-stage" class="stage-s">
+  <div id="ex-190-point1" class="snap-point">
+    <div>↘<div>br</div></div>
+  </div>
+  <div id="ex-190-point2" class="snap-point">
+    <div>↘<div>all</div></div>
+  </div>
+  <div id="ex-190-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-190-draggable'), {
+    snap: [
+      {x: 260, y: 64, corner: 'br'},
+      {x: 520, y: 64, corner: 'all'}
+    ]
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-190.html" -->
+
+<h4 id="snap-side"><code>side</code></h4>
+
+<p><strong>For snap-target as line</strong></p>
+
+<p><em>Type:</em> string<br><em>Default:</em> <code>'both'</code></p>
+
+<p>One or more sides of the draggable element that gravitate toward the snap-target.<br>It is a value that indicates a side or a list of the values separated by space or comma.</p>
+
+<p>Allowed values are:</p>
+
+<ul>
+<li><code>'start'</code>: Indicate a left side of the draggable element if the snap-target is vertical line, otherwise a top side.</li>
+<li><code>'end'</code>: Indicate a right side of the draggable element if the snap-target is vertical line, otherwise a bottom side.</li>
+<li><code>'both'</code> (The same as <code>'start end'</code>)</li>
+</ul>
+
+<!-- include "ex-200.html" -->
+<!-- ================ ex -->
+<div id="ex-200-stage" class="stage-s">
+  <div id="ex-200-line1" class="snap-line-v">
+    <div>end →</div>
+  </div>
+  <div id="ex-200-line2" class="snap-line-v">
+    <div>both →</div>
+  </div>
+  <div id="ex-200-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-200-draggable'), {
+    snap: [
+      {x: 260, side: 'end'},
+      {x: 520, side: 'both'}
+    ]
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-200.html" -->
+
+<h4 id="snap-center"><code>center</code></h4>
+
+<p><strong>For snap-target as point or line</strong></p>
+
+<p><em>Type:</em> boolean<br><em>Default:</em> <code>false</code></p>
+
+<p>If <code>true</code> is specified, the center of the draggable element gravitates toward the snap-target. The <a href="https://anseki.github.io/plain-draggable/#snap-corner"><code>corner</code></a> and <a href="https://anseki.github.io/plain-draggable/#snap-side"><code>side</code></a> options are ignored.</p>
+
+<!-- include "ex-210.html" -->
+<!-- ================ ex -->
+<div id="ex-210-stage" class="stage-s">
+  <div id="ex-210-point1" class="snap-point">
+    <div>↘<div>center</div></div>
+  </div>
+  <div id="ex-210-line2" class="snap-line-v">
+    <div>center →</div>
+  </div>
+  <div id="ex-210-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-210-draggable'), {
+    snap: [
+      {x: 260, y: 64, center: true},
+      {x: 520, center: true}
+    ]
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-210.html" -->
+
+<h4 id="snap-edge"><code>edge</code></h4>
+
+<p><strong>For snap-target as element or <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a> object</strong></p>
+
+<p><em>Type:</em> string<br><em>Default:</em> <code>'both'</code></p>
+
+<p>One or more sides of each edge of the rectangle that the draggable element gravitates toward. The rectangle is that of the element or <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a> object that is specified for the <a href="https://anseki.github.io/plain-draggable/#structure-and-abbreviation"><code>boundingBox</code></a>.<br>It is a value that indicates a side or a list of the values separated by space or comma.</p>
+
+<p>Allowed values are:</p>
+
+<ul>
+<li><code>'inside'</code></li>
+<li><code>'outside'</code></li>
+<li><code>'both'</code> (The same as <code>'inside outside'</code>)</li>
+</ul>
+
+<!-- include "ex-220.html" -->
+<!-- ================ ex -->
+<div id="ex-220-stage" class="stage-s">
+  <div id="ex-220-rect1"><div>inside</div></div>
+  <div id="ex-220-rect2"><div>outside</div></div>
+  <div id="ex-220-draggable" class="draggable cat" style="will-change: transform; -webkit-tap-highlight-color: transparent; box-shadow: transparent 0px 0px 1px; cursor: grab; user-select: none; transform: translate(0px, 0px);">Drag This</div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+  'use strict';
+
+  new PlainDraggable(document.getElementById('ex-220-draggable'), {
+    snap: [
+      {boundingBox: {x: 160, y: 30, width: 164, height: 54}, edge: 'inside'},
+      {boundingBox: {x: 460, y: 40, width: 120, height: 40}, edge: 'outside'}
+    ]
+  });
+
+});
+</script>
+<!-- ================ /ex -->
+<!-- /include "ex-220.html" -->
+
+<h4 id="snap-base"><code>base</code></h4>
+
+<p><em>Type:</em> string<br><em>Default:</em> <code>'containment'</code></p>
+
+<p>A base for the <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a> object. The <a href="https://anseki.github.io/plain-draggable/#structure-and-abbreviation"><code>x</code> and <code>y</code></a> also are relative to this.  </p>
+
+<p>Allowed values are:</p>
+
+<ul>
+<li><code>'containment'</code>: Indicate the element or <a href="https://anseki.github.io/plain-draggable/#rect"><code>Rect</code></a> object that is specified for the <a href="https://anseki.github.io/plain-draggable/#options-containment"><code>containment</code></a> option.</li>
+<li><code>'document'</code>: Indicate the current document.</li>
+</ul>
+
+  </main>
+  <footer>
+    <p class="copyright">PlainDraggable maintained by <a href="https://github.com/anseki">anseki</a></p>
+  </footer>
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="leader-line-defs"><style><![CDATA[.leader-line{position:absolute;overflow:visible!important;pointer-events:none!important;font-size:16px}#leader-line-defs{width:0;height:0;position:absolute;left:0;top:0}.leader-line-line-path{fill:none}.leader-line-mask-bg-rect{fill:#fff}.leader-line-caps-mask-anchor,.leader-line-caps-mask-marker-shape{fill:#000}.leader-line-caps-mask-anchor{stroke:#000}.leader-line-caps-mask-line,.leader-line-plugs-face{stroke:transparent}.leader-line-line-mask-shape{stroke:#fff}.leader-line-line-outline-mask-shape{stroke:#000}.leader-line-plug-mask-shape{fill:#fff;stroke:#000}.leader-line-plug-outline-mask-shape{fill:#000;stroke:#fff}.leader-line-areaAnchor{position:absolute;overflow:visible!important}]]></style><defs><circle id="leader-line-disc" cx="0" cy="0" r="5"></circle><rect id="leader-line-square" x="-5" y="-5" width="10" height="10"></rect><polygon id="leader-line-arrow1" points="-8,-8 8,0 -8,8 -5,0"></polygon><polygon id="leader-line-arrow2" points="-4,-8 4,0 -4,8 -7,5 -2,0 -7,-5"></polygon><polygon id="leader-line-arrow3" points="-4,-5 8,0 -4,5"></polygon><g id="leader-line-hand"><path style="fill: #fcfcfc" d="M9.19 11.14h4.75c1.38 0 2.49-1.11 2.49-2.49 0-.51-.15-.98-.41-1.37h1.3c1.38 0 2.49-1.11 2.49-2.49s-1.11-2.53-2.49-2.53h1.02c1.38 0 2.49-1.11 2.49-2.49s-1.11-2.49-2.49-2.49h14.96c1.37 0 2.49-1.11 2.49-2.49s-1.11-2.49-2.49-2.49H16.58C16-9.86 14.28-11.14 9.7-11.14c-4.79 0-6.55 3.42-7.87 4.73H-2.14v13.23h3.68C3.29 9.97 5.47 11.14 9.19 11.14L9.19 11.14Z"></path><path style="fill: black" d="M13.95 12c1.85 0 3.35-1.5 3.35-3.35 0-.17-.02-.34-.04-.51h.07c1.85 0 3.35-1.5 3.35-3.35 0-.79-.27-1.51-.72-2.08 1.03-.57 1.74-1.67 1.74-2.93 0-.59-.16-1.15-.43-1.63h12.04c1.85 0 3.35-1.5 3.35-3.35 0-1.85-1.5-3.35-3.35-3.35H17.2C16.26-10.93 13.91-12 9.7-12 5.36-12 3.22-9.4 1.94-7.84c0 0-.29.33-.5.57-.63 0-3.58 0-3.58 0C-2.61-7.27-3-6.88-3-6.41v13.23c0 .47.39.86.86.86 0 0 2.48 0 3.2 0C2.9 10.73 5.29 12 9.19 12L13.95 12ZM9.19 10.28c-3.46 0-5.33-1.05-6.9-3.87-.15-.27-.44-.44-.75-.44 0 0-1.81 0-2.82 0V-5.55c1.06 0 3.11 0 3.11 0 .25 0 .44-.06.61-.25l.83-.95c1.23-1.49 2.91-3.53 6.43-3.53 3.45 0 4.9.74 5.57 1.72h-4.3c-.48 0-.86.38-.86.86s.39.86.86.86h22.34c.9 0 1.63.73 1.63 1.63 0 .9-.73 1.63-1.63 1.63H15.83c-.48 0-.86.38-.86.86 0 .47.39.86.86.86h2.52c.9 0 1.63.73 1.63 1.63s-.73 1.63-1.63 1.63h-3.12c-.48 0-.86.38-.86.86 0 .47.39.86.86.86h2.11c.88 0 1.63.76 1.63 1.67 0 .9-.73 1.63-1.63 1.63h-3.2c-.48 0-.86.39-.86.86 0 .47.39.86.86.86h1.36c.05.16.09.34.09.51 0 .9-.73 1.63-1.63 1.63C13.95 10.28 9.19 10.28 9.19 10.28Z"></path></g><g id="leader-line-crosshair"><path d="M0-78.97c-43.54 0-78.97 35.43-78.97 78.97 0 43.54 35.43 78.97 78.97 78.97s78.97-35.43 78.97-78.97C78.97-43.54 43.55-78.97 0-78.97ZM76.51-1.21h-9.91v-9.11h-2.43v9.11h-11.45c-.64-28.12-23.38-50.86-51.5-51.5V-64.17h9.11V-66.6h-9.11v-9.91C42.46-75.86 75.86-42.45 76.51-1.21ZM-1.21-30.76h-9.11v2.43h9.11V-4.2c-1.44.42-2.57 1.54-2.98 2.98H-28.33v-9.11h-2.43v9.11H-50.29C-49.65-28-27.99-49.65-1.21-50.29V-30.76ZM-30.76 1.21v9.11h2.43v-9.11H-4.2c.42 1.44 1.54 2.57 2.98 2.98v24.13h-9.11v2.43h9.11v19.53C-27.99 49.65-49.65 28-50.29 1.21H-30.76ZM1.22 30.75h9.11v-2.43h-9.11V4.2c1.44-.42 2.56-1.54 2.98-2.98h24.13v9.11h2.43v-9.11h19.53C49.65 28 28 49.65 1.22 50.29V30.75ZM30.76-1.21v-9.11h-2.43v9.11H4.2c-.42-1.44-1.54-2.56-2.98-2.98V-28.33h9.11v-2.43h-9.11V-50.29C28-49.65 49.65-28 50.29-1.21H30.76ZM-1.21-76.51v9.91h-9.11v2.43h9.11v11.45c-28.12.64-50.86 23.38-51.5 51.5H-64.17v-9.11H-66.6v9.11h-9.91C-75.86-42.45-42.45-75.86-1.21-76.51ZM-76.51 1.21h9.91v9.11h2.43v-9.11h11.45c.64 28.12 23.38 50.86 51.5 51.5v11.45h-9.11v2.43h9.11v9.91C-42.45 75.86-75.86 42.45-76.51 1.21ZM1.22 76.51v-9.91h9.11v-2.43h-9.11v-11.45c28.12-.64 50.86-23.38 51.5-51.5h11.45v9.11h2.43v-9.11h9.91C75.86 42.45 42.45 75.86 1.22 76.51Z"></path><path d="M0 83.58-7.1 96 7.1 96Z"></path><path d="M0-83.58 7.1-96-7.1-96"></path><path d="M83.58 0 96 7.1 96-7.1Z"></path><path d="M-83.58 0-96-7.1-96 7.1Z"></path></g></defs></svg><svg style="left: 747.609px; top: 2174.85px; width: 235.784px; height: 155.786px;" viewBox="747.609 2174.85 235.784 155.786" class="leader-line"><defs><path id="leader-line-1-line-path" class="leader-line-line-path" d="M 755.609375 2322.640625 C 866.9071531295776 2322.640625 863.4865973894975 2185.852707687657 975.3934940109694 2182.854858387424"></path><use id="leader-line-1-line-shape" href="#leader-line-1-line-path" style="stroke-width: 4px;"></use><g id="leader-line-1-caps"><path class="leader-line-caps-mask-anchor"></path><path class="leader-line-caps-mask-anchor"></path><use href="#leader-line-1-line-shape" class="leader-line-caps-mask-line"></use></g><marker id="leader-line-1-caps-mask-marker-0" markerUnits="strokeWidth"><use class="leader-line-caps-mask-marker-shape"></use></marker><marker id="leader-line-1-caps-mask-marker-1" markerUnits="strokeWidth"><use class="leader-line-caps-mask-marker-shape"></use></marker><rect id="leader-line-1-mask-bg-rect" width="100%" height="100%" class="leader-line-mask-bg-rect"></rect><mask id="leader-line-1-line-mask" maskUnits="userSpaceOnUse" width="100%" x="0px" height="100%" y="0px"><use href="#leader-line-1-mask-bg-rect"></use><use href="#leader-line-1-line-path" style="display: none;" class="leader-line-line-mask-shape"></use><use href="#leader-line-1-caps"></use></mask><mask id="leader-line-1-line-outline-mask" maskUnits="userSpaceOnUse" width="100%" x="0px" height="100%" y="0px"><use href="#leader-line-1-mask-bg-rect"></use><use href="#leader-line-1-line-path" class="leader-line-line-outline-mask-shape"></use><use href="#leader-line-1-caps"></use></mask><mask id="leader-line-1-plug-mask-0" maskUnits="userSpaceOnUse" width="0px" x="0px" height="0px" y="0px"><use class="leader-line-plug-mask-shape"></use></mask><mask id="leader-line-1-plug-mask-1" maskUnits="userSpaceOnUse" width="0px" x="0px" height="0px" y="0px"><use class="leader-line-plug-mask-shape"></use></mask><mask id="leader-line-1-plug-outline-mask-0" maskUnits="userSpaceOnUse" width="0px" x="0px" height="0px" y="0px"><use class="leader-line-plug-outline-mask-shape"></use></mask><mask id="leader-line-1-plug-outline-mask-1" maskUnits="userSpaceOnUse" width="0px" x="0px" height="0px" y="0px"><use class="leader-line-plug-outline-mask-shape"></use></mask><marker id="leader-line-1-plug-marker-0" orient="0" viewBox="-5 -5 10 10" markerWidth="2.5" markerHeight="2.5" markerUnits="strokeWidth"><g><use href="#leader-line-disc" style="fill: coral;"></use><use style="mask: url(&quot;#leader-line-1-plug-outline-mask-0&quot;); display: none;"></use></g></marker><marker id="leader-line-1-plug-marker-1" orient="auto" viewBox="-8 -8 16 16" markerWidth="4" markerHeight="4" markerUnits="strokeWidth"><g><use href="#leader-line-arrow1" style="fill: coral;"></use><use style="mask: url(&quot;#leader-line-1-plug-outline-mask-1&quot;); display: none;"></use></g></marker></defs><g><use href="#leader-line-1-line-shape" style="stroke: coral;"></use><use href="#leader-line-1-line-shape" style="mask: url(&quot;#leader-line-1-line-outline-mask&quot;); display: none;"></use><use href="#leader-line-1-line-shape" style="display: inline; marker-start: url(&quot;#leader-line-1-plug-marker-0&quot;); marker-end: url(&quot;#leader-line-1-plug-marker-1&quot;);" class="leader-line-plugs-face"></use></g><defs><path id="leader-line-pathLabel-1-path" d="M 755.609375 2315.390625 L 773.0266103243882 2314.1065392506 L 788.2995794888744 2310.493981097218 L 801.8307464907944 2304.8658984924987 L 814.0006074751415 2297.476748221026 L 825.1309541023912 2288.5604228693005 L 835.4922415429268 2278.370609481182 L 845.3333430018649 2267.193885905425 L 854.9053945733972 2255.342079081535 L 864.472884381291 2243.1407320853 L 874.3168868961353 2230.922273302629 L 884.7348544806276 2219.0257449210662 L 896.0371970879107 2207.8028961172818 L 908.5368727531139 2197.6286526650147 L 922.5276997905476 2188.908233352678 L 938.2571164324924 2182.0660697302906 L 955.9177672581142 2177.510011172164 L 975.1993450036164 2175.6074584286152"></path></defs><text style="stroke-linejoin: round; paint-order: stroke; font-family: Arial, sans-serif; text-anchor: end; stroke-width: 2px; stroke: rgb(255, 255, 255); fill: coral;"><textpath href="#leader-line-pathLabel-1-path" startOffset="258.028px">ELEMENT</textpath></text></svg><iframe src="./demo_files/globalstorage.html" style="position: absolute; width: 1px; height: 1px; left: -9999px;"></iframe></body></html>
+

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://bacubacu.com/colresizable/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>colResizable – Resizable columns and tables</title>
+  
+  <meta http-equiv="content-language" content="en">
+  
+  <!-- informacion de indexado -->
+  <meta name="author" content="Alvaro Prieto Lauroba">
+  <meta name="keywords" content="Resizable columns,resize html table, resize columns,colResizable, jQuery plugin, javascript, HTML, resizeable columns, gridview, multiple range selector, multiple range slider, Alvaro Prieto Lauroba">
+  <meta name="description" content="Resizable columns: a jQuery plugin to resize HTML tables compatible with both mouse and touch devices">
+  
+  
+  <!-- hojas de estilo principales -->
+  <link rel="stylesheet" type="text/css" href="./demo_files/main.css">
+  <script type="text/javascript"> lang = "english"; </script>
+ 
+<style type="text/css">  .JColResizer{table-layout:fixed;} .JColResizer > tbody > tr > td, .JColResizer > tbody > tr > th{overflow:hidden;padding-left:0!important; padding-right:0!important;}  .JCLRgrips{ height:0px; position:relative;} .JCLRgrip{margin-left:-5px; position:absolute; z-index:5; } .JCLRgrip .JColResizer{position:absolute;background-color:red;filter:alpha(opacity=1);opacity:0;width:10px;height:100%;cursor: e-resize;top:0px} .JCLRLastGrip{position:absolute; width:1px; } .JCLRgripDrag{ border-left:1px dotted black;	} .JCLRFlex{width:auto!important;} .JCLRgrip.JCLRdisabledGrip .JColResizer{cursor:default; display:none;}</style></head>
+<body>
+	<div class="center">
+		<div class="abs top">
+			<!-- botonera superior -->
+			<div id="buttons">
+				<div id="b1" class="button">Download</div>
+				<div id="b2" class="button">Documentation</div>
+				<div id="b3" class="button">Samples</div>
+				<div id="b4" class="button">Github</div>
+				<div id="b5" class="button">Contact</div>
+			</div>
+			
+			<!-- pseudo combo de idioma -->
+			<div id="lang">English <div id="drop"><span class="dropItem" id="spanish">Spanish</span><span class="dropItem" id="english">English</span></div></div>
+			
+			<h1 id="title">jQuery resizable tables and columns</h1>
+		</div>		
+		<div class="abs content">
+			<div class="section">
+				<div id="main">
+				
+					<!-- links ocultos que abren ventanas modales -->
+					<div id="links">
+						<a id="hlog" href="http://bacubacu.com/colresizable/colResizable.png">changelog</a>
+						<a id="hguestbook" href="https://github.com/alvaro-prieto/colResizable">github</a>
+						<a id="hmail" href="https://github.com/alvaro-prieto/colResizable">contact me</a>
+						<a id="hnpm" href="https://www.npmjs.com/package/colresizable">resize gridview td th npmjs.com</a>
+						<a id="hspanish" href="http://www.bacubacu.com/colresizable/spanish.html">redimensionar tablas html javascript css</a>
+					</div>
+
+					<!-- cache para imagenes importantes -->
+					<div id="cache">
+						<img src="./demo_files/dotted.png" alt="cache">
+					</div>
+					
+					<h2>About this plugin</h2>
+					
+					<p>
+					colResizable is a jQuery plugin to resize table columns dragging them manually. It is compatible with both mouse and touch devices and has some nice features such as layout persistence after page refresh or postback. 
+
+					<br><br>
+					This plugin comes in handy when dealing with large tables improving usability. It is tiny in size (colResizable 1.0 is only 2kb) and it is fully compatible with all major browsers (IE7+, Firefox, Chrome and Opera).		
+							
+						
+						<br><br>
+						colResizable can also be used as <a href="http://bacubacu.com/colresizable/#rangeSlider"> multiple range slider</a>, give it a try!
+					</p>
+					
+					<h2>Quick tour</h2>
+					<p>This is a basic example of what this plugin can do:</p>
+					<div id="dragSample1Container">
+						<div id="dragSample1" class="abs" style="display: none;"></div>
+					</div>
+					<br>
+					 
+					 <div class="JCLRgrips" style="width: 575px;"><div class="JCLRgrip" style="left: 144px; height: 78px;"><div class="grip"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 252px; height: 78px;"><div class="grip"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 337px; height: 78px;"><div class="grip"></div><div class="JColResizer"></div></div><div class="JCLRgrip JCLRLastGrip" style="left: 576px; height: 78px;"></div></div><table id="sample1" width="100%" border="0" cellpadding="0" cellspacing="0" class="JColResizer">
+					 	<tbody><tr>
+					 		<th style="width: 24.9%;">header</th><th style="width: 18.8%;">header</th><th style="width: 14.8%;">header</th><th style="width: 41.6%;">header</th>
+					 	</tr>
+						<tr>
+							<td class="left">cell</td><td>cell</td><td>cell</td><td class="right">cell</td>
+						</tr>
+						<tr>
+							<td class="left">cell</td><td>cell</td><td>cell</td><td class="right">cell</td>
+						</tr>
+						<tr>
+							<td class="left bottom">cell</td><td class="bottom">cell</td><td class="bottom">cell</td><td class="bottom right">cell</td>
+						</tr>																	
+					</tbody></table>
+					<a id="fiddle" class="bluebtn" href="http://jsfiddle.net/euka4rm3/">Try it on jsfiddle</a>
+					<a id="moreSamples" class="bluebtn" href="http://bacubacu.com/colresizable/#samples">More samples</a>
+					
+					<h2 id="features">Features</h2>
+					<p>colResizable was developed since no other similar plugin with the below listed features was found:</p>
+					<ul>
+					<li>Compatible with mouse and touch devices (PC, tablets, and mobile phones)</li>
+					<li>Compatibility with both percentage and pixel-based table layouts</li>
+					<li>Column resizing not altering total table width (optional)</li>
+					<li>No external resources needed (such as images or stylesheets)</li>					
+					<li>Optional layout persistence after page refresh or postback</li>	
+					<li>Customization of column anchors </li>
+					<li>Small footprint</li>
+					<li>Cross-browser compatibility (IE7+, Chrome, Safari, Firefox)</li>
+					<li>Events</li>
+					</ul>
+		
+					<h2 id="usage">Usage</h2>
+					<p>To use this plugin a script reference must be added to the colResizable.min.js file in the head section of the document once jQuery is loaded. To enhance a table (or collection of tables) point it with a jQuery wrapper and apply the <i>colResizable()</i> method.
+					
+					<br><br>
+					
+					Resizing grips will be located in the table according to its first row layout. For this reason, it is not recommended using colspan values in those cells. If colspan in the first row is required, just add an extra row before your table heading with no height so it won't be visible.
+					<br><br>
+					In order to prevent strange behaviors while resizing a column, you are highly encouraged to define the width of the table, either by using its width attribute, an inline style, or a css rule.
+					<br><br>
+					</p>
+<div class="code">
+<pre class="prettyprint"><span class="tag">&lt;head&gt;</span><span class="pln">
+  </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/jquery.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln">
+  </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"js/colResizable.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span class="pln">
+</span><span class="tag">&lt;/head&gt;</span><span class="pln">
+</span><span class="tag">&lt;body&gt;</span><span class="pln">	 
+  </span><span class="tag">&lt;table</span><span class="pln"> </span><span class="atn">width</span><span class="pun">=</span><span class="atv">"100%"</span><span class="pln"> </span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;tr&gt;</span><span class="pln"> </span><span class="tag">&lt;th&gt;</span><span class="pln"> header </span><span class="tag">&lt;/th&gt;</span><span class="pln"> </span><span class="tag">&lt;th&gt;</span><span class="pln"> header </span><span class="tag">&lt;/th&gt;</span><span class="pln"> </span><span class="tag">&lt;/tr&gt;</span><span class="pln">
+    </span><span class="tag">&lt;tr&gt;</span><span class="pln"> </span><span class="tag">&lt;td&gt;</span><span class="pln"> cell </span><span class="tag">&lt;/td&gt;</span><span class="pln"> </span><span class="tag">&lt;td&gt;</span><span class="pln"> cell </span><span class="tag">&lt;/td&gt;</span><span class="pln"> </span><span class="tag">&lt;/tr&gt;</span><span class="pln">							
+    </span><span class="tag">&lt;tr&gt;</span><span class="pln"> </span><span class="tag">&lt;td&gt;</span><span class="pln"> cell </span><span class="tag">&lt;/td&gt;</span><span class="pln"> </span><span class="tag">&lt;td&gt;</span><span class="pln"> cell </span><span class="tag">&lt;/td&gt;</span><span class="pln"> </span><span class="tag">&lt;/tr&gt;</span><span class="pln">							
+  </span><span class="tag">&lt;/table&gt;</span><span class="pln">	
+</span><span class="tag">&lt;/body&gt;</span></pre>		
+</div>	
+	<br>		
+<div class="code"><pre class="prettyprint"><span class="pln">$</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+  $</span><span class="pun">(</span><span class="str">"table"</span><span class="pun">).</span><span class="pln">colResizable</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">});</span></pre>	</div>
+
+					<h2 id="attributes">Customization</h2>
+					<p>
+					colResizable provides some customization attributes in order to modify its appearance and the way it works:
+                    <br><br>
+                    </p><p>
+                    </p><h3>resizeMode:</h3> <h4>[type: string] [default: 'fit'] [version: 1.6] [values: 'fit', 'flex', 'overflow']</h4>   
+                    <br><br>
+It is used to set how the resize method works. Those are the possible values:
+                    <ul>
+                        <li><strong>'fit':</strong> this is default resizing model, in which resizing a column does not alter table width, which means that when a column is expanded the next one shrinks.</li>
+                        
+                        <li><strong>'flex':</strong> in this mode tables can change its width and each column can shrink or expand independently if there is enough space in the parent container. If there is not enough space, columns will share its width as they are resized. Table will never get bigger than its parent.</li>
+                        
+                        <li><strong>'overflow':</strong> allows to resize columns with overflow of parent container.</li>
+                    </ul> 
+                    <p></p>
+                    <br>   
+                    <p>
+                    </p><h3>disable:</h3> <h4>[type: boolean] [default: false] [version: 1.0]</h4>
+                    <br><br>
+When set to <i>true</i> it aims to remove all previously added enhancements such as events and additional DOM elements assigned by this plugin to a single or collection of tables.It is required to disable a previously <i>colResized</i> table prior its removal from the document object tree using JavaScript, and also before any DOM manipulations to an already <i>colResized</i> table such as adding columns, rows, etc.
+                    <p></p>
+                    <br> 
+                    <p>
+                    </p><h3>disabledColumns:</h3> <h4>[type: array of int] [default:  [ ] ] [version: 1.6]</h4>
+                    <br><br>
+                        An array of column indexes to be excluded, so it will not be possible to drag them manually.
+                    <p></p>
+
+                    <br>
+					<h3>liveDrag:</h3> <h4>[type: boolean] [default: false] [version: 1.0]</h4> 
+					<br><br>
+					When set to <i>true</i> the table layout is updated while dragging column anchors. liveDrag enabled is more CPU consuming so it is not recommended for slow computers, specially when dealing with huge or extremely complicated tables. 
+					<p></p>
+					<br> 
+					<p>
+					</p><h3>postbackSafe:</h3> <h4>[type: boolean] [default: false]  [version: 1.3]</h4>
+					<br><br>
+					This attribute can be used to specify that the manually selected column widths must remain unaltered after a postback or browser refresh.  This feature is mainly oriented to those pages created with server-side logic (codebehind), such as PHP or .NET, and it is only compatible with browsers with <i>sessionStorage</i> support (all modern browsers). However, if you are targeting older browsers (such as IE7 and IE8) you can still emulate sessionStorage using <a href="http://code.google.com/p/sessionstorage/">sessionStorage.js</a>. It is important to note that some browsers (IE and FF) doesn’t enable the sessionStorage object while running the website directly from the local file system, so if you want to test this feature it is recommended to view the website through a web server or use browsers such as Chrome or Opera which doesn’t have this limitation. Don't worry about compatibility issues, once your site is up on the internet, all browsers will act in exactly the same way.
+					<p></p>
+					<br>	
+					
+					<p>
+					</p><h3>partialRefresh:</h3> <h4>[type: boolean] [default: false]  [version: 1.5]</h4>
+					<br><br>
+					This attribute should be set to true if the table is inside of an updatePanel or any other kind of partial page refresh using ajax. Table's ID should be same before and after the partial partial refresh.
+					<p></p>
+					<br>
+					
+					<p>
+					</p><h3>headerOnly:</h3> <h4>[type: boolean] [default: false]  [version: 1.2]</h4>
+					<br><br>
+					This attribute can be used to prevent vertical expansion of the column anchors to fit the table height. If it is set to true, column handler's size will be bounded to the first row's vertical size.
+					<p></p>
+					<br>	
+					
+					<h3>innerGripHtml:</h3> <h4> [type: string] [default: empty string] [version: 1.0]</h4>
+					<br> <br>
+					Its purpose is to allow column anchor customization by defining the HTML to be used in the column grips to provide some visual feedback. It can be used in a wide range of ways to obtain very different outputs, and its flexibility can be increased by combining it with the <i>draggingClass</i> attribute.					
+					<p></p>					
+					<br> 
+					<p>
+					</p><h3>draggingClass:</h3> <h4>[type: string] [default: internal css class] [version: 1.0]</h4>
+					<br><br>
+					This attribute is used as the css class assigned to column anchors while being dragged. It can be used for visual feedback purposes.
+					<p></p>
+
+					<br>					
+					<p>
+					</p><h3>minWidth:</h3> <h4>[type: number] [default: 15]  [version: 1.1]</h4>
+					<br><br>
+					This value specifies the minimum width (measured in pixels) that is allowed for the columns.
+					<p></p>
+					<br>
+
+					<p>
+					</p><h3>hoverCursor:</h3> <h4>[type: string] [default: "e-resize"] [version: 1.3]</h4>
+					<br><br>
+					This attribute can be used to customize the cursor that will be displayed when the user is positioned on the column anchors.
+					<p></p>
+					<br>	
+					
+					<p>
+					</p><h3>dragCursor:</h3> <h4>[type: string] [default: "e-resize"] [version: 1.3]</h4>
+					<br><br>
+					Defines the cursor that will be used while the user is resizing a column.
+					<p></p>
+					<br>							
+
+					<p>
+					</p><h3>flush:</h3> <h4>[type: boolean] [default: false]  [version: 1.3]</h4>
+					<br><br>
+					Flush is only effective when <i>postbackSafe</i> is enabled. Its purpose is to remove all previously stored data related to the current table layout to get it back to its original layout preventing width restoration after postback.
+					<p></p>
+					<br>	
+					
+					<p>
+					</p><h3>marginLeft:</h3> <h4>[type: string / null] [default: null] [version: 1.3]</h4>
+					<br><br>
+					If the target table contains an explicit <i>margin-left</i> CSS rule, the same value must be used in this attribute (for example: "auto", "20%", "10px"). The reason why it is needed it is because most browsers (all except of IE) don’t allow direct access to the current CSS rule applied to an element in its original units (such as "%", "em" or "auto" values). If you know any workaround which doesn’t involve iteration through all the styles defined in the site and any other external dependencies, please let me know! 					
+					<p></p>
+					<br>	
+
+					<p>
+					</p><h3>marginRight:</h3> <h4>[type: string / null] [default: null] [version: 1.3]</h4>
+					<br><br>
+					It behaves in exactly the same way than the previous attribute but applied to the right margin.
+					<p></p>
+					<br>	
+                    <p>
+                    </p><h3>fixed:</h3> <h4>[DEPRECATED: use resizeMode instead] [type: boolean] [default: true] [version: 1.5 only]</h4>
+                    <br><br>
+                    <p>
+                        It is used to set how the resize method works. In fixed mode resizing a column does not alter total table width, which means that when a column is expanded the next one shrinks. If fixed is set to false then table can change its width and each column can shrink or expand independently.
+                    </p>
+                    <br>
+                    <p>
+                        Note: There is a known issue where the CSS property table-layout: fixed; causes a minor conflict with resizing table widths. It is important to note that the fixed setting is different from the CSS property and it is encouraged not to apply that style to your tables.
+                    </p>
+                    <br>
+				
+					<h2 id="events">Events</h2>
+					<h3>onResize:</h3> <h4>[type: callback function] [default: null] [version: 1.0]</h4>
+					<br><br>
+					<p>If a callback function is supplied it will be fired when the user has ended dragging a column anchor altering the previous table layout. The callback function can obtain a reference to the updated table through the <i>currentTarget</i> attribute of the event retrieved by parameters</p>
+					<br>
+					<h3>onDrag:</h3> <h4>[type: callback function] [default: null] [version: 1.1]</h4>
+					<br><br>
+					<p>This event is fired while dragging a column anchor if <i>liveDrag</i> is enabled. It can be useful if the table is being used as a multiple range slider. The callback function can obtain a reference to the updated table through the <i>currentTarget</i> attribute of the event retrieved by parameters</p>
+
+					
+					<h2 id="samples">Samples</h2>
+					
+					<h3>General sample, attributes and events</h3>
+					<br><br>
+					<p>In the following sample, column anchors are customized to use a user-defined appearance. This can be achieved by defining the HTML segment that will be appended to each anchor and using some CSS rules to style it up. <i>DraggingClass</i> can also be used in order to change the appearance of the anchors while being dragged. 
+					<br><br>
+					A callback event is defined to obtain the new dimensions of the table layout after resizing its columns.
+					</p>
+					<br>
+					
+					 <div class="JCLRgrips" style="width: 575px;"><div class="JCLRgrip" style="left: 192px; height: 78px;"><div class="grip"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 384px; height: 78px;"><div class="grip"></div><div class="JColResizer"></div></div><div class="JCLRgrip JCLRLastGrip" style="left: 576px; height: 78px;"></div></div><table id="sample2" width="100%" border="0" cellpadding="0" cellspacing="0" class="JColResizer">
+					 	<tbody><tr>
+					 		<th style="width: 33.2%;">header</th><th style="width: 33.4%;">header</th><th style="width: 33.4%;">header</th>
+					 	</tr>
+						<tr>
+							<td class="left">cell</td><td>cell</td><td class="right">cell</td>
+						</tr>
+						<tr>
+							<td class="left">cell</td><td>cell</td><td class="right">cell</td>
+						</tr>
+						<tr>
+							<td class="left bottom">cell</td><td class="bottom">cell</td><td class="bottom right">cell</td>
+						</tr>																	
+					</tbody></table>
+					<br>
+					<div class="sampleText">
+						<label id="sample2Txt">columns widths: 191px; 192px; 192px;</label>
+						<input id="checkCustom" class="check" type="checkbox" checked="checked"><label class="check">use custom anchors</label>
+						<input id="checkLive" class="check" type="checkbox" checked="checked"><label class="check">liveDrag</label>					
+					</div>
+					
+					<br>
+					
+					<div class="sampleOptions">
+						<a href="http://bacubacu.com/colresizable/#" class="view">Show code</a>
+					</div>
+					<div class="sampleCode">
+					<br>
+<div class="code"><pre class="prettyprint"><span class="pln">$</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+  
+  </span><span class="kwd">var</span><span class="pln"> onSampleResized </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span><span class="pln">  
+    </span><span class="kwd">var</span><span class="pln"> table </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="pln">e</span><span class="pun">.</span><span class="pln">currentTarget</span><span class="pun">);</span><span class="pln"> </span><span class="com">//reference to the resized table</span><span class="pln">
+  </span><span class="pun">};</span><span class="pln">  
+
+ $</span><span class="pun">(</span><span class="str">"#sample"</span><span class="pun">).</span><span class="pln">colResizable</span><span class="pun">({</span><span class="pln">
+    liveDrag</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln">
+    gripInnerHtml</span><span class="pun">:</span><span class="str">"&lt;div class='grip'&gt;&lt;/div&gt;"</span><span class="pun">,</span><span class="pln"> 
+    draggingClass</span><span class="pun">:</span><span class="str">"dragging"</span><span class="pun">,</span><span class="pln"> 
+    onResize</span><span class="pun">:</span><span class="pln">onSampleResized
+  </span><span class="pun">});</span><span class="pln">    
+  
+</span><span class="pun">});</span></pre>	</div>	
+					</div>				
+					<br><br>
+					
+					
+					<h3>Postback size persistence</h3>
+					<br><br>
+					<p>Column size persistence after (full or partial) page refresh is supported, as shown in the following example:
+					</p>
+					<br>
+					
+					<button id="postback">Partial refresh</button>
+							
+					<div id="updatePanel">			
+						 <div class="JCLRgrips" style="width: 575px;"><div class="JCLRgrip" style="left: 192px; height: 78px;"><div class="grip"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 384px; height: 78px;"><div class="grip"></div><div class="JColResizer"></div></div><div class="JCLRgrip JCLRLastGrip" style="left: 576px; height: 78px;"></div></div><table id="updatePanelSample" width="100%" border="0" cellpadding="0" cellspacing="0" class="JColResizer">
+							<tbody><tr>
+								<th style="width: 33.2%;">header</th><th style="width: 33.4%;">header</th><th style="width: 33.4%;">header</th>
+							</tr>
+							<tr>
+								<td class="left">cell</td><td>cell</td><td class="right">cell</td>
+							</tr>
+							<tr>
+								<td class="left">cell</td><td>cell</td><td class="right">cell</td>
+							</tr>
+							<tr>
+								<td class="left bottom">cell</td><td class="bottom">cell</td><td class="bottom right">cell</td>
+							</tr>																	
+						</tbody></table>
+					</div>
+					<br>					
+					
+					<div class="sampleOptions">
+						<a href="http://bacubacu.com/colresizable/#" class="view">Show code</a>
+					</div>
+					<div class="sampleCode">
+					<br>
+<div class="code"><pre class="prettyprint"><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> postbackSample </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+	$</span><span class="pun">(</span><span class="str">"#updatePanelSample"</span><span class="pun">).</span><span class="pln">colResizable</span><span class="pun">({</span><span class="pln">
+		liveDrag</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> 
+		postbackSafe</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln">
+		partialRefresh</span><span class="pun">:</span><span class="kwd">true</span><span class="pln">
+	</span><span class="pun">});</span><span class="pln">	
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> fakePostback </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+	</span><span class="com">//simulate postback here </span><span class="pln">
+	setTimeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+		</span><span class="com">//on postback over</span><span class="pln">
+		onPostbackOver</span><span class="pun">();</span><span class="pln">
+	</span><span class="pun">},</span><span class="pln"> </span><span class="lit">700</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">};</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> onPostbackOver </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+	postbackSample</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">};</span></pre>	</div>	
+					</div>				
+					<br><br>
+					
+					
+					
+					<h3>Percentage-based layouts</h3>
+					<br><br>
+					<p>In the following demo, probably the most interesting feature of this plugin is shown: it is compatible with both pixel and percentage-based layouts. This means that the table outter width will remain constant as columns are resized. If the parent container of the table is resized and its width is measured in percentage, the table will be updated just as expected. To test it, resize the table object using the  handler located on the bottom-right corner.
+					<br><br>
+					NOTE: jQuery-UI <i>resizable</i> method was used to simulate a liquid layout in this sample, but it is not needed in a real world environment.</p>
+					<br>
+										
+					<div id="resizeBox" class="ui-resizable">
+						 <div class="JCLRgrips" style="width: 575px;"><div class="JCLRgrip" style="left: 145px; height: 78px;"><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 289px; height: 78px;"><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 433px; height: 78px;"><div class="JColResizer"></div></div><div class="JCLRgrip JCLRLastGrip" style="left: 576px; height: 78px;"></div></div><table id="sample3" width="100%" border="0" cellpadding="0" cellspacing="0" class="JColResizer">
+						 	<tbody><tr>
+						 		<th style="width: 24.9%;">header</th><th style="width: 25%;">header</th><th style="width: 25%;">header</th><th style="width: 25%;">header</th>
+						 	</tr>
+							<tr>
+								<td class="left">cell</td><td>cell</td><td>cell</td><td class="right">cell</td>
+							</tr>
+							<tr>
+								<td class="left">cell</td><td>cell</td><td>cell</td><td class="right">cell</td>
+							</tr>
+							<tr>
+								<td class="left bottom">cell</td><td class="bottom">cell</td><td class="bottom">cell</td><td class="bottom right">cell</td>
+							</tr>																	
+						</tbody></table>				
+					<div class="ui-resizable-handle ui-resizable-e"></div><div class="ui-resizable-handle ui-resizable-s"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 1001;"></div></div>
+					<div id="dragit"></div>
+					<br><br>
+					
+					
+					
+					<h3>Flex resize mode </h3>
+					<br><br>
+<p>In this mode tables can change its width and each column can shrink or expand independently if there is enough space in the parent container. If there is not enough space, columns will share its width as they are resized. Table will never get bigger than its parent.
+					</p>
+					<br>					
+	
+<div class="JCLRgrips" style="width: 287px;"><div class="JCLRgrip" style="left: 96px; height: 78px;"><div class="grip2"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 192px; height: 78px;"><div class="grip2"></div><div class="JColResizer"></div></div><div class="JCLRgrip JCLRLastGrip" style="left: 288px; height: 78px;"><div class="grip2"></div><div class="JColResizer"></div></div></div><table id="flexSample" border="0" cellpadding="0" cellspacing="0" class="JCLRFlex JColResizer" style="width: 287px;">
+						<tbody><tr>
+							<th style="width: 95px;">header</th><th style="width: 96px;">header</th><th style="width: 96px;">header</th>
+						</tr>
+						<tr>
+							<td class="left">cell</td><td>cell</td><td class="right">cell</td>
+						</tr>
+						<tr>
+							<td class="left">cell</td><td>cell</td><td class="right">cell</td>
+						</tr>
+						<tr>
+							<td class="left bottom">cell</td><td class="bottom">cell</td><td class="bottom right">cell</td>
+						</tr>																	
+					</tbody></table>
+	
+					<br>					
+					
+					<div class="sampleOptions">
+						<a href="http://bacubacu.com/colresizable/#" class="view">Show code</a>
+					</div>
+					<div class="sampleCode">
+					<br>
+<div class="code"><pre class="prettyprint"><span class="pln">$</span><span class="pun">(</span><span class="str">"#flexSample"</span><span class="pun">).</span><span class="pln">colResizable</span><span class="pun">({</span><span class="pln">resizeMode</span><span class="pun">:</span><span class="str">'flex'</span><span class="pun">});</span></pre>	</div>	
+					</div>				
+					<br><br>					
+					
+
+                    <h3>Overflow resize mode </h3>
+                    <br><br>
+                    <p>allows to resize columns with overflow of parent container.
+                    </p>
+                    <br>
+                    <div class="whiteGradient">
+                    <div class="overflowContainer">
+                    <div class="JCLRgrips" style="width: 287px;"><div class="JCLRgrip" style="left: 96px; height: 78px;"><div class="grip2"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 192px; height: 78px;"><div class="grip2"></div><div class="JColResizer"></div></div><div class="JCLRgrip JCLRLastGrip" style="left: 288px; height: 78px;"><div class="grip2"></div><div class="JColResizer"></div></div></div><table id="overflowSample" border="0" cellpadding="0" cellspacing="0" class="JCLRFlex JColResizer" style="width: 287px;">
+                        <tbody><tr>
+                            <th style="width: 95px;">header</th><th style="width: 96px;">header</th><th style="width: 96px;">header</th>
+                        </tr>
+                        <tr>
+                            <td class="left">cell</td><td>cell</td><td class="right">cell</td>
+                        </tr>
+                        <tr>
+                            <td class="left">cell</td><td>cell</td><td class="right">cell</td>
+                        </tr>
+                        <tr>
+                            <td class="left bottom">cell</td><td class="bottom">cell</td><td class="bottom right">cell</td>
+                        </tr>																	
+                    </tbody></table>
+                    </div>
+                    </div>
+                    <br>					
+
+                    <div class="sampleOptions">
+                        <a href="http://bacubacu.com/colresizable/#" class="view">Show code</a>
+                    </div>
+                    <div class="sampleCode">
+                        <br>
+<div class="code"><pre class="prettyprint"><span class="pln">$</span><span class="pun">(</span><span class="str">"#overflowSample"</span><span class="pun">).</span><span class="pln">colResizable</span><span class="pun">({</span><span class="pln">resizeMode</span><span class="pun">:</span><span class="str">'overflow'</span><span class="pun">});</span></pre>	</div>	
+                    </div>				
+                    <br><br>	
+
+					<h3 id="rangeSlider">multiple range slider</h3>
+					<br><br>
+					<p>colResizable can also be used to emulate multiple range sliders, enabling a wide range of appearances </p><p>
+					<br>				
+					</p><div class="JCLRgrips" style="width: 573px;"><div class="JCLRgrip" style="left: 208px; height: 42px;"><div class="foodGrip"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 355px; height: 42px;"><div class="foodGrip"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 453px; height: 42px;"><div class="foodGrip"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 533px; height: 42px;"><div class="foodGrip"></div><div class="JColResizer"></div></div><div class="JCLRgrip JCLRLastGrip" style="left: 575px; height: 42px;"></div></div><table id="sample4" width="100%" cellspacing="0" cellpadding="0" border="0" class="JColResizer">
+						<tbody><tr>
+							<td id="veg" style="width: 35.9%;"> </td>
+							<td id="bread" style="width: 25.5%;">	</td>
+							<td id="meat" style="width: 17.1%;">	</td>
+							<td id="milk" style="width: 14.1%;">	</td>
+							<td id="sweets" style="width: 7.4%;"> </td>
+						</tr>
+					</tbody></table>
+					
+					<br><br>
+					<p>It can also look like a typical range-slider using the <i>gripInnerHtml</i> attribute. Values can be calculated in the callback function by comparing column width with the table size as follows:</p><p>
+					<br>	
+					
+					</p><div class="JCLRgrips" style="width: 575px;"><div class="JCLRgrip" style="left: 145px; height: 37px;"><div class="rangeGrip"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 289px; height: 37px;"><div class="rangeGrip"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 433px; height: 37px;"><div class="rangeGrip"></div><div class="JColResizer"></div></div><div class="JCLRgrip JCLRLastGrip" style="left: 576px; height: 37px;"></div></div><table id="sample5" width="100%" cellspacing="0" cellpadding="0" border="0" class="JColResizer">
+						<tbody><tr>
+							<td style="width: 25%;"></td>
+							<td style="width: 25%;"></td>
+							<td style="width: 24.9%;"></td>
+							<td style="width: 25%;"></td>
+						</tr>
+					</tbody></table>					
+					<p id="sample5Text">Ranges: 25%, 25%, 25%, 25%</p>
+					
+					<br><br>
+
+					<div class="sampleOptions">
+						<a href="http://bacubacu.com/colresizable/#" class="view">Show code</a>
+					</div>
+					<div class="sampleCode">
+					<br>
+<div class="code"><pre class="prettyprint"><span class="pln">$</span><span class="pun">(</span><span class="str">"#sample5"</span><span class="pun">).</span><span class="pln">colResizable</span><span class="pun">({</span><span class="pln">
+	liveDrag</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> 
+	draggingClass</span><span class="pun">:</span><span class="str">"rangeDrag"</span><span class="pun">,</span><span class="pln"> 
+	gripInnerHtml</span><span class="pun">:</span><span class="str">"&lt;div class='rangeGrip'&gt;&lt;/div&gt;"</span><span class="pun">,</span><span class="pln"> 
+	onResize</span><span class="pun">:</span><span class="pln">onSlide</span><span class="pun">,</span><span class="pln">
+	minWidth</span><span class="pun">:</span><span class="lit">8</span><span class="pln">
+</span><span class="pun">});</span><span class="pln">	
+
+</span><span class="kwd">var</span><span class="pln"> onSlider </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span><span class="pln">
+	</span><span class="kwd">var</span><span class="pln"> columns </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="pln">e</span><span class="pun">.</span><span class="pln">currentTarget</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">"td"</span><span class="pun">);</span><span class="pln">
+	</span><span class="kwd">var</span><span class="pln"> ranges </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[],</span><span class="pln"> total </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> s </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Ranges: "</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">;</span><span class="pln">
+	</span><span class="kwd">for</span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">columns</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++){</span><span class="pln">
+		w </span><span class="pun">=</span><span class="pln"> columns</span><span class="pun">.</span><span class="pln">eq</span><span class="pun">(</span><span class="pln">i</span><span class="pun">).</span><span class="pln">width</span><span class="pun">()-</span><span class="lit">10</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">==</span><span class="lit">0</span><span class="pun">?</span><span class="lit">1</span><span class="pun">:</span><span class="lit">0</span><span class="pun">);</span><span class="pln">
+		ranges</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">w</span><span class="pun">);</span><span class="pln">
+		total</span><span class="pun">+=</span><span class="pln">w</span><span class="pun">;</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">		 
+	</span><span class="kwd">for</span><span class="pun">(</span><span class="pln">i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">columns</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++){</span><span class="pln">			
+		ranges</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">100</span><span class="pun">*</span><span class="pln">ranges</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]/</span><span class="pln">total</span><span class="pun">;</span><span class="pln">
+		carriage </span><span class="pun">=</span><span class="pln"> ranges</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]-</span><span class="pln">w
+		s</span><span class="pun">+=</span><span class="str">" "</span><span class="pun">+</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">round</span><span class="pun">(</span><span class="pln">ranges</span><span class="pun">[</span><span class="pln">i</span><span class="pun">])</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">"%,"</span><span class="pun">;</span><span class="pln">			
+	</span><span class="pun">}</span><span class="pln">		
+	s</span><span class="pun">=</span><span class="pln">s</span><span class="pun">.</span><span class="pln">slice</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,-</span><span class="lit">1</span><span class="pun">);</span><span class="pln">		
+	$</span><span class="pun">(</span><span class="str">"#sample5Text"</span><span class="pun">).</span><span class="pln">html</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></pre>	</div>	
+					</div>				<br><br>					
+			
+		<p>Highlighted ranges can be done using a different style for a single or multiple columns as shown in the following sample:</p><p>
+		<br>		
+		</p><div class="JCLRgrips" style="width: 575px;"><div class="JCLRgrip" style="left: 145px; height: 15px;"><div class="sample6Grip"></div><div class="JColResizer"></div></div><div class="JCLRgrip" style="left: 433px; height: 15px;"><div class="sample6Grip"></div><div class="JColResizer"></div></div><div class="JCLRgrip JCLRLastGrip" style="left: 576px; height: 15px;"></div></div><table id="sample6" width="100%" cellspacing="0" cellpadding="0" border="0" class="JColResizer">
+			<tbody><tr>
+				<td style="width: 25%;"></td>
+				<td id="selection" style="width: 49.9%;"> <span></span></td>
+				<td style="width: 25%;"></td>
+			</tr>
+		</tbody></table>
+		<br>
+		<p id="sample6Text">Selected range: 50.0% starting at: 25.0%</p>		
+			<br>	<br>
+	<div class="sampleOptions">
+						<a href="http://bacubacu.com/colresizable/#" class="view">Show code</a>
+					</div>
+					<div class="sampleCode">
+					<br>			
+<div class="code"><pre class="prettyprint"><span class="kwd">var</span><span class="pln"> onSlide </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> columns </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="pln">e</span><span class="pun">.</span><span class="pln">currentTarget</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">"td"</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> ranges </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[],</span><span class="pln"> total </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pun">(</span><span class="pln">i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">columns</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++){</span><span class="pln">
+        w </span><span class="pun">=</span><span class="pln"> columns</span><span class="pun">.</span><span class="pln">eq</span><span class="pun">(</span><span class="pln">i</span><span class="pun">).</span><span class="pln">width</span><span class="pun">()-</span><span class="lit">14</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">==</span><span class="lit">0</span><span class="pun">?</span><span class="lit">1</span><span class="pun">:</span><span class="lit">0</span><span class="pun">);</span><span class="pln">				
+        ranges</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">w</span><span class="pun">);</span><span class="pln">
+        total</span><span class="pun">+=</span><span class="pln">w</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">		 
+    </span><span class="kwd">for</span><span class="pun">(</span><span class="pln">i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="pln">columns</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++){</span><span class="pln">			
+        ranges</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">100</span><span class="pun">*</span><span class="pln">ranges</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]/</span><span class="pln">total</span><span class="pun">;</span><span class="pln">											
+    </span><span class="pun">}</span><span class="pln">		   			
+    $</span><span class="pun">(</span><span class="str">"#text"</span><span class="pun">).</span><span class="pln">html</span><span class="pun">(</span><span class="str">"Selected: "</span><span class="pln"> ranges</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]+</span><span class="pln"> </span><span class="str">"%"</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></pre></div>
+</div>
+			
+			<br>
+					<div id="dwnTitle">
+						<div id="dwnImage" title="download latest version"></div>
+						<h2 id="download" title="download latest version">Download latest version</h2>
+					</div>
+					<br>
+						 <table id="downloadTable" width="100%" border="0" cellpadding="0" cellspacing="0">
+						 	<tbody><tr>
+						 		<th width="30%">Version</th><th>Changelog</th><th width="12%">Download</th><th width="12%">Source</th>
+						 	</tr>
+                             
+                             <tr>
+                                 <td class="left">Version 1.6</td><td><a class="changelog" href="http://bacubacu.com/colresizable/#" ver="1.6">Changelog 1.6</a></td><td><a id="lastDownload" class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.6.zip" title="download colResizable 1.5 and samples"></a></td><td class="right"><a class="dwn" href="https://github.com/alvaro-prieto/colResizable/releases/tag/1.6" title="download colResizable 1.6 source code"></a></td>
+                             </tr>
+                             
+							<tr>
+								<td class="left">Version 1.5</td><td><a class="changelog" href="http://bacubacu.com/colresizable/#" ver="1.5">Changelog 1.5</a></td><td><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.5.zip" title="download colResizable 1.5 and samples"></a></td><td class="right"><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.5-source.zip" title="download colResizable 1.5 source code"></a></td>
+							</tr>
+							
+							<tr>
+								<td class="left">Version 1.4</td><td><a class="changelog" href="http://bacubacu.com/colresizable/#" ver="1.4">Changelog 1.4</a></td><td><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.4.zip" title="download colResizable 1.4 and samples"></a></td><td class="right"><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.4-source.zip" title="download colResizable 1.4 source code"></a></td>
+							</tr>
+							
+							<tr>
+								<td class="left">Version 1.3</td><td><a class="changelog" href="http://bacubacu.com/colresizable/#" ver="1.3">Changelog 1.3</a></td><td><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.3.zip" title="download colResizable 1.3 and samples"></a></td><td class="right"><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.3-source.zip" title="download colResizable 1.3 source code"></a></td>
+							</tr>																	
+
+
+							<tr>
+								<td class="left">Version 1.2</td><td><a class="changelog" href="http://bacubacu.com/colresizable/#" ver="1.2">Changelog 1.2</a></td><td><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.2.zip" title="download colResizable 1.2 and samples"></a></td><td class="right"><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.2-source.zip" title="download colResizable 1.2 source code"></a></td>
+							</tr>																	
+
+							
+							<tr>
+								<td class="left">Version 1.1</td><td><a class="changelog" href="http://bacubacu.com/colresizable/#" ver="1.1">Changelog 1.1</a></td><td><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.1.zip" title="download colResizable 1.1 and samples"></a></td><td class="right"><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.1-source.zip" title="download colResizable 1.1 source code"></a></td>
+							</tr>																	
+							
+							
+							<tr>
+								<td class="left bottom">Version 1.0</td><td class="bottom">Released version 1.0</td><td class="bottom"><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.0.zip" title="download colResizable and samples"></a></td><td class="bottom right"><a class="dwn" href="http://bacubacu.com/colresizable/files/colResizable-1.0-source.zip" title="download colResizable source code"></a></td>
+							</tr>																	
+						</tbody></table>					
+
+					<h2 id="license">License</h2>
+					
+					<p>You can use or distribute colResizable for free for both personal or commercial purposes. <a href="https://github.com/alvaro-prieto/colResizable" title="colResizable repository in GitHub">Source code</a> is also released in order to allow custom modifications to adjust it to your own personal needs. In both cases, my full name must remain intact in the script file.					
+					<br><br>
+					colResizable was released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a> and <a href="http://www.gnu.org/licenses/gpl.html">GPL</a> licenses
+					</p>
+					
+					<h2>Credits</h2>
+					
+					<p>colResizable was developed by Alvaro Prieto Lauroba in 2011. Feel free <a id="mail" href="http://bacubacu.com/colresizable/#">to contact me</a> for further information.
+					<br>
+					</p>
+										
+				</div>   
+				
+			<h1 id="quicklinks" class="abs">Quick Links</h1>
+			
+			<!-- botonera lateral izquierda -->
+			<div class="abs side">
+				<div class="abs bound">
+					<a href="http://bacubacu.com/colresizable/#download">Download</a>
+					<a href="http://bacubacu.com/colresizable/#samples">Samples</a>
+					<a href="http://bacubacu.com/colresizable/#features">Features</a>
+					<a href="http://bacubacu.com/colresizable/#usage">Usage</a>
+					<a href="http://bacubacu.com/colresizable/#attributes">Attributes</a>
+					<a href="http://bacubacu.com/colresizable/#events">Events</a>
+					<a href="http://bacubacu.com/colresizable/#license">License</a>
+					<a id="sideGuestbook" href="https://github.com/alvaro-prieto/colResizable" target="_blank">Github</a>
+				</div> 
+			</div> 		
+
+		<div class="crosslinks">
+			<a href="http://www.viceroy.es/"> Viceroy</a>
+			<a href="http://www.soypasionfutbol.com/">Viceroy Eurocopa 2016</a>
+		</div>
+			
+		<div id="donations">
+			<a class="repo" href="https://www.npmjs.com/package/colresizable" title="colresizable in npm"> <img src="./demo_files/npm.png" alt="colresizable in npm"></a>
+			<a class="repo git" href="https://github.com/alvaro-prieto/colResizable" title="colresizable in github"> <img src="./demo_files/git.png" alt="colresizable in github"></a>
+            <a class="repo bower" href="http://bower.io/search/?q=colresizable" title="resize table columns jquery bower"> <img src="./demo_files/bower.png" alt="colresizable in bower.io"></a>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="swing" id="donatePaypal">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="L6MBBXX456R34">
+                <input type="image" src="./demo_files/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="./demo_files/pixel.gif" width="1" height="1">
+            </form> 
+
+			<img id="donate" alt="" src="./demo_files/donate_en.png">
+            <img id="backers" alt="" src="./demo_files/backers.png">
+            <img id="lovely" alt="" src="./demo_files/lovely.png">
+            <ul class="donators">
+                <li>
+                    <a href="https://www.linkedin.com/in/igorsamulenko" target="_blank">Igor Samulenko</a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/aaron-pesce-9611988a" target="_blank">Aaron Pesce</a>
+                </li>
+            </ul>
+		</div>		  
+			
+		</div>   			
+
+		<!-- borde redondeado inferior de la pagina -->
+		<div id="bottom"></div>   			
+		</div> 		
+		
+	</div>
+	
+	<!-- control de desbloqueo manual para evitar spam -->
+	<div id="unlockOverlay">
+		<div id="outbox">
+			<span id="unlockTitle"></span>
+			<div id="unlock-bottom">
+				<div id="slide-to-unlock"></div>
+				<div id="unlock-slider-wrapper">
+					<div id="unlock-slider"><div id="unlock-handle" class="ui-draggable"></div></div>
+				</div>
+			</div>
+		</div>
+	</div>	
+		
+	<!-- seccion de scripts -->
+  <script type="text/javascript" src="./demo_files/jquery.js.download"></script>
+  <script type="text/javascript" src="./demo_files/ui.js.download"></script>
+  <script type="text/javascript" src="./demo_files/colResizable-1.6.min.js.download"></script>
+  <script type="text/javascript" src="./demo_files/prettify.js.download"></script>  
+  <script type="text/javascript" src="./demo_files/main.js.download"></script>  
+  <script type="text/javascript" src="./demo_files/fancybox.js.download"></script>
+  
+  <!-- hojas de estilo adicionales -->
+  <link rel="stylesheet" type="text/css" href="./demo_files/fancybox.css" media="screen">		
+		
+ 
+ 
+<div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div></body><div class="XTranslate"></div></html>

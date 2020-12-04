@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" src="/publish/yarner/tinymce-all-in-one/plugins/codesample/css/prism.css">
+
+    <script src="/publish/yarner/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="/publish/yarner/prismjs/prism.js"></script>
+
+
+    <style>
+        .tox-checklist > li:not(.tox-checklist--hidden) {
+            list-style: none;
+            margin: .25em 0;
+            position: relative;
+        }
+        .tox-checklist > li:not(.tox-checklist--hidden)::before {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-unchecked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2215%22%20height%3D%2215%22%20x%3D%22.5%22%20y%3D%22.5%22%20fill-rule%3D%22nonzero%22%20stroke%3D%22%234C4C4C%22%20rx%3D%222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+            background-size: 100%;
+            content: '';
+            cursor: pointer;
+            height: 1em;
+            left: -1.5em;
+            position: absolute;
+            top: .125em;
+            width: 1em;
+        }
+        .tox-checklist li:not(.tox-checklist--hidden).tox-checklist--checked::before {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%234099FF%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
+        }
+        .tiny-pageembed--21by9,
+        .tiny-pageembed--16by9,
+        .tiny-pageembed--4by3,
+        .tiny-pageembed--1by1 {
+            display: block;
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+            width: 100%;
+        }
+
+        .tiny-pageembed--21by9::before,
+        .tiny-pageembed--16by9::before,
+        .tiny-pageembed--4by3::before,
+        .tiny-pageembed--1by1::before {
+            content: "";
+            display: block;
+        }
+
+        .tiny-pageembed--21by9::before {
+            padding-top: 42.857143%;
+        }
+
+        .tiny-pageembed--16by9::before {
+            padding-top: 56.25%;
+        }
+
+        .tiny-pageembed--4by3::before {
+            padding-top: 75%;
+        }
+
+        .tiny-pageembed--1by1::before {
+            padding-top: 100%;
+        }
+
+        .tiny-pageembed--21by9 iframe,
+        .tiny-pageembed--16by9 iframe,
+        .tiny-pageembed--4by3 iframe,
+        .tiny-pageembed--1by1 iframe {
+            border: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    </style>
+    <script>
+
+        tinymce.init({
+            selector: '#mytextarea',
+            auto_focus: 'element1',
+            plugins : 'advlist link image lists',
+            cache_suffix: '?v=4.1.6',
+            content_security_policy: 'default-src',
+            inline: false,
+            hidden_input: false,
+            init_instance_callback : function(editor) {
+                console.log("Editor: " + editor.id + " is now initialized.");
+            },
+
+            referrer_policy: 'strict-origin-when-cross-origin',
+
+            setup: function(editor) {
+                editor.on('click', function(e) {
+                    console.log('Editor was clicked');
+                });
+            },
+            suffix: '.min',
+            target: null,
+            block_formats: 'Paragraph=p; Header 1=h1; Header 2=h2; Header 3=h3',
+            branding: false,
+            contextmenu: "link image imagetools table spellchecker configurepermanentpen",
+            contextmenu_never_use_native: true,
+            custom_ui_selector: '.my-custom-button',
+            draggable_modal: true,
+            elementpath: false,
+            event_root: '#root',
+            fixed_toolbar_container: '#mytoolbar',
+            font_formats: 'Arial=arial,helvetica,sans-serif; Courier New=courier new,courier,monospace; AkrutiKndPadmini=Akpdmi-n',
+            fontsize_formats: '11px 12px 14px 16px 18px 24px 36px 48px',
+            height: 300,
+            icons: 'material',
+            icons_url: false,
+            max_height: 500,
+            max_width: 1520,
+            menu: {
+                file: { title: 'File', items: 'newdocument restoredraft | preview | print ' },
+                edit: { title: 'Edit', items: 'undo redo | cut copy paste | selectall | searchreplace' },
+                view: { title: 'View', items: 'code | visualaid visualchars visualblocks | spellchecker | preview fullscreen' },
+                insert: { title: 'Insert', items: 'image link media template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor toc | insertdatetime' },
+                format: { title: 'Format', items: 'bold italic underline strikethrough superscript subscript codeformat | formats blockformats fontformats fontsizes align | forecolor backcolor | removeformat' },
+                tools: { title: 'Tools', items: 'spellchecker spellcheckerlanguage | code wordcount' },
+                table: { title: 'Table', items: 'inserttable | cell row column | tableprops deletetable' },
+                help: { title: 'Help', items: 'help' },
+                format: { title: 'Format', items: 'casechange'},
+                format: { title: 'Format', items: 'configurepermanentpen' },
+                edit: {title: "edit", items: "pastetext"},
+                
+            },
+            menubar: 'file edit insert view format tools help table insert tools view',
+            min_height: 100,
+            min_width: 400,
+            mobile: {
+                plugins: [ 'autosave', 'lists', 'autolink' ],
+                toolbar: [ 'undo', 'bold', 'italic', 'styleselect' ]
+            },
+            preview_styles: false,
+            mode: 'textareas',
+            quickbars_insert_toolbar: false,
+            quickbars_selection_toolbar: false,
+            removed_menuitems: 'undo, redo',
+            resize: 'both',
+            skin: "oxide",
+            skin_url:false,
+            statusbar: true,
+            style_formats: [
+                { title: 'Headings', items: [
+                        { title: 'Heading 1', format: 'h1' },
+                        { title: 'Heading 2', format: 'h2' },
+                        { title: 'Heading 3', format: 'h3' },
+                        { title: 'Heading 4', format: 'h4' },
+                        { title: 'Heading 5', format: 'h5' },
+                        { title: 'Heading 6', format: 'h6' }
+                    ]},
+                { title: 'Inline', items: [
+                        { title: 'Bold', format: 'bold' },
+                        { title: 'Italic', format: 'italic' },
+                        { title: 'Underline', format: 'underline' },
+                        { title: 'Strikethrough', format: 'strikethrough' },
+                        { title: 'Superscript', format: 'superscript' },
+                        { title: 'Subscript', format: 'subscript' },
+                        { title: 'Code', format: 'code' }
+                    ]},
+                { title: 'Blocks', items: [
+                        { title: 'Paragraph', format: 'p' },
+                        { title: 'Blockquote', format: 'blockquote' },
+                        { title: 'Div', format: 'div' },
+                        { title: 'Pre', format: 'pre' }
+                    ]},
+                { title: 'Align', items: [
+                        { title: 'Left', format: 'alignleft' },
+                        { title: 'Center', format: 'aligncenter' },
+                        { title: 'Right', format: 'alignright' },
+                        { title: 'Justify', format: 'alignjustify' }
+                    ]},
+                {title: 'Image Left', selector: 'img', styles: {
+                        'float' : 'left',
+                        'margin': '0 10px 0 10px'
+                    }},
+                {title: 'Image Right', selector: 'img', styles: {
+                        'float' : 'right',
+                        'margin': '0 10px 0 10px'
+                    }},
+            ],
+            style_formats_autohide: true,
+            style_formats_merge: true,
+            theme: 'silver',
+            theme_url: false,
+            toolbar_drawer: 'floating',
+            toolbar_sticky: true,
+            width : '100%',
+
+            /***
+             * https://www.tiny.cloud/docs/configure/content-appearance/
+             * */
+            body_class: 'my_class',
+            body_id: 'my_id',
+            content_css : false,
+            content_css_cors: true,
+            content_style: false,
+            inline_boundaries: false,
+            inline_boundaries_selector: 'a[href],code,b,i,strong,em',
+            color_cols: "5",
+            color_map: [
+                "000000", "Black",
+                "808080", "Gray",
+                "FFFFFF", "White",
+                "FF0000", "Red",
+                "FFFF00", "Yellow",
+                "008000", "Green",
+                "0000FF", "Blue",
+                "C0C0C0", "Silver"
+            ],
+            toolbar: "forecolor backcolor a11ycheck code anchor undo redo styleselect bold italic  link image  aligncenter alignjustify alignleft alignright backcolor copy cut link restoredraft casechange charmap checklist code codesample ltr rtl emoticons formatpainter fullpage fullscreen help hr image insertdatetime link numlist bullist media nonbreaking pagebreak pageembed paste permanentpen pastetext preview print save",
+            custom_colors: false,
+            visual_anchor_class: 'my-custom-class',
+            visual_table_class: 'my-custom-class',
+            allow_conditional_comments: true,
+            allow_html_in_named_anchor: true,
+            allow_unsafe_link_target: true,
+            convert_fonts_to_spans : false,
+            extended_valid_elements : 'mycustomblock[id],mycustominline',
+            custom_elements : 'mycustomblock,~mycustominline',
+            element : 'html',
+            encoding: 'xml',
+            entities : '160,nbsp,162,cent,8364,euro,163,pound',
+            entity_encoding : "raw",
+            extended_valid_elements : 'img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name]',
+            fix_list_elements : true,
+            forced_root_block : 'p',
+            forced_root_block_attrs: {
+                'class': 'myclass',
+                'data-something': 'my data'
+            },
+            invalid_elements : 'strong,em',
+            invalid_styles: 'color font-size',
+            invalid_styles: {
+                '*': 'color font-size', // Global invalid styles
+                'a': 'background' // Link specific invalid styles
+            },
+            keep_styles: false,
+            protect: [
+                /\<\/?(if|endif)\>/g,  // Protect <if> & </endif>
+                /\<xsl\:[^>]+\>/g,  // Protect <xsl:...>
+                /<\?php.*?\?>/g  // Protect php code
+            ],
+            remove_trailing_brs: false,
+            schema: 'html5',
+            valid_children : '+body[style],-body[div],p[strong|a|#text]',
+            valid_classes: 'class1 class2 class3',
+            valid_classes: {
+                '*': 'class1 class2 class3', // Global classes
+                'a': 'class4 class5' // Link specific classes
+            },
+            valid_elements : 'a[href|target=_blank],strong/b,div[align],br',
+            valid_styles: {
+                '*': 'border,font-size',
+                'div': 'width,height'
+            },
+            bold: [
+                { inline: 'strong', remove: 'all' },
+                { inline: 'span', styles: { fontWeight: 'bold' } },
+                { inline: 'b', remove: 'all' }
+            ],
+            formats: {
+                // Changes the default format for h1 to have a class of heading
+                h1: { block: 'h1', classes: 'heading' },
+                bold: { inline: 'span', classes: 'bold' },
+                alignleft: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'left' },
+                aligncenter: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'center' },
+                alignright: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'right' },
+                alignjustify: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'full' },
+                underline: { inline: 'span', styles: { 'text-decoration': 'underline' }, exact: true },
+                strikethrough: { inline: 'span', styles: { 'text-decoration': 'line-through' }, exact: true },
+                'custom-wrapper': { block: 'div', classes: 'wrapper', wrapper: true },
+                removeformat: [
+                    // Configures `clear formatting` to remove specified elements regardless of it's attributes
+                    { selector: 'b,strong,em,i,font,u,strike', remove: 'all' },
+
+                    // Configures `clear formatting` to remove the class red from spans and if the element then becomes empty i.e has no attributes it gets removed
+                    { selector: 'span', classes: 'red', remove: 'empty' },
+
+                    // Configures `clear formatting` to remove the class green from spans and if the element then becomes empty it's left intact
+                    { selector: 'span', classes: 'green', remove: 'none' },
+                    {
+                        selector: 'h1,h2,h3,h4,h5,h6',
+                        remove: 'all',
+                        split: false,
+                        expand: false,
+                        block_expand: true,
+                        deep: true
+                    },
+                    {
+                        selector: 'b,strong,em,i,font,u,strike,sub,sup,dfn,code,samp,kbd,var,cite,mark,q,del,ins',
+                        remove: 'all',
+                        split: true,
+                        block_expand: true,
+                        expand: false,
+                        deep: true
+                    },
+                    
+                ],
+                formatpainter_checklist: { selector: 'ul', classes: 'tox-checklist' },
+                formatpainter_liststyletype: { selector: 'ul,ol', styles: { listStyleType: '%value' } },
+                formatpainter_borderstyle: { selector: 'td,th', styles: { borderTopStyle: '%valueTop', borderRightStyle: '%valueRight', borderBottomStyle: '%valueBottom', borderLeftStyle: '%valueLeft', }, remove_similar: true },
+                formatpainter_bordercolor: { selector: 'td,th', styles: { borderTopColor: '%valueTop', borderRightColor: '%valueRight', borderBottomColor: '%valueBottom', borderLeftColor: '%valueLeft' }, remove_similar: true },
+                formatpainter_backgroundcolor: { selector: 'td,th', styles: { backgroundColor: '%value' }, remove_similar: true },
+                formatpainter_removeformat: [
+                    {
+                        selector: 'b,strong,em,i,font,u,strike,sub,sup,dfn,code,samp,kbd,var,cite,mark,q,del,ins',
+                        remove: 'all', split: true, expand: false, block_expand: true, deep: true
+                    },
+                    { selector: 'span', attributes: ['style', 'class'], remove: 'empty', split: true, expand: false, deep: true },
+                    { selector: '*:not(tr,td,th,table)', attributes: ['style', 'class'], split: false, expand: false, deep: true }
+                ],
+
+            },
+            style_formats: [
+                // Adds the h1 format defined above to style_formats
+                { title: 'My heading', format: 'h1' }
+            ],
+            indentation : '20pt',
+            indent_use_margin: true,
+            browser_spellcheck: true,
+            gecko_spellcheck: false,
+            plugins: "a11ychecker advcode advlist table advtable anchor autolink autoresize autosave bbcode casechange charmap lists checklist code codesample directionality tinydrive emoticons media mediaembed formatpainter fullpage fullscreen help hr image insertdatetime legacyoutput link linkchecker media mentions nonbreaking noneditable pagebreak pageembed paste permanentpen powerpaste preview print save",
+            a11ychecker_allow_decorative_images: true,
+            a11ychecker_html_version: 'html5',
+            a11ychecker_level: 'aa',
+            advlist_bullet_styles: "square",
+            advlist_number_styles: "lower-alpha",
+            autoresize_bottom_margin: 50,
+            autoresize_on_init: false,
+            autoresize_overflow_padding: 50,
+            max_height: 500,
+            min_height: 350,
+            autosave_ask_before_unload: false,
+            autosave_interval: "20s",
+            autosave_prefix: "tinymce-autosave-{path}{query}-{id}-",
+            autosave_restore_when_empty: false,
+            autosave_retention: "20m",
+            bbcode_dialect: "punbb",
+            casechange_title_case_minors: [
+                'at', 'by', 'in', 'of', 'on', 'up', 'to', 'en', 're', 'vs',
+                'but', 'off', 'out', 'via', 'bar', 'mid', 'per', 'pro', 'qua', 'til',
+                'from', 'into', 'unto', 'with', 'amid', 'anit', 'atop', 'down', 'less', 'like', 'near', 'over', 'past', 'plus', 'sans', 'save', 'than', 'thru', 'till', 'upon',
+                'for', 'and', 'nor', 'but', 'or', 'yet', 'so', 'an', 'a', 'some', 'the'
+            ],
+            charmap: [
+                [0x2615, 'morning coffee']
+            ],
+            charmap_append: [
+                [0x2600, 'sun'],
+                [0x2601, 'cloud']
+            ],
+            tinydrive_token_provider: 'URL_TO_YOUR_TOKEN_PROVIDER',
+            emoticons_append: {
+                custom_mind_explode: {
+                    keywords: ["brain", "mind", "explode", "blown"],
+                    char: "🤯"
+                },
+                robot: {
+                    keywords: ["computer", "machine", "bot"],
+                    char: "🤖",
+                    category: "people"
+                },
+                dog: {
+                    keywords: ["animal", "friend", "nature", "woof", "puppy", "pet", "faithful"],
+                    char: "🐶",
+                    category: "animals_and_nature"
+                },
+            },
+            emoticons_database_url:'/publish/yarner/emoji-js/lib/emoji.min.js',
+            mediaembed_max_width: 450,
+            mediaembed_service_url: "SERVICE_URL",
+            formatpainter_blacklisted_formats: 'link,address,removeformat,formatpainter_removeformat',
+            fullpage_default_doctype: "<!DOCTYPE html>",
+            fullpage_default_encoding: "UTF-8",
+            fullpage_default_font_size: "14px",
+            fullpage_default_font_family: "'Times New Roman', Georgia, Serif;",
+            fullpage_default_title: "TinyMCE - Configuration:fullpage_default_title",
+            fullpage_default_text_color: "blue",
+            fullpage_default_xml_pi: true,
+            fullpage_hide_in_source_view: true,
+            help_tabs: [
+                'shortcuts', // the default shortcuts tab
+                'keyboardnav', // the default keyboard navigation tab
+                'plugins', // the default plugins tab
+                {
+                    name: 'custom1', // new tab called custom1
+                    title: 'Custom Tab 1',
+                    items: [
+                        {
+                            type: 'htmlpanel',
+                            html: '<p>This is a custom tab</p>',
+                        }
+                    ]
+                },
+                {
+                    name: 'versions', // override the default versions tab
+                    title: 'Custom Versions',
+                    items: [
+                        {
+                            type: 'htmlpanel',
+                            html: 'This is a custom versions panel.'
+                        }
+                    ]
+                },
+                'custom2', // new tab custom2 as defined on init in setup() below
+                'custom3' // new tab custom3 as defined on button click in setup() below
+            ],
+            setup: function(editor) {
+                // on editor init, add a tab called custom2
+                editor.on('init', function() {
+                    editor.plugins.help.addTab({
+                        name: 'custom2',
+                        title: 'Custom Tab 2',
+                        items: [
+                            {
+                                type: 'htmlpanel',
+                                html: '<p>This is another custom tab</p>',
+                            }
+                        ]}
+                    );
+                });
+
+                // add a toolbar button that when clicked adds a tab called custom3
+                editor.ui.registry.addButton('addTab', {
+                    text: 'Add tab',
+                    onAction: function() {
+                        editor.plugins.help.addTab({
+                            name: 'custom3',
+                            title: 'Custom Tab 3',
+                            items: [
+                                {
+                                    type: 'htmlpanel',
+                                    html: '<p>This is yet another custom tab</p>',
+                                }
+                            ]
+                        });
+                    }
+                });
+            },
+            image_list: [
+                {title: 'My image 1', value: 'https://www.example.com/my1.gif'},
+                {title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif'}
+            ],
+            file_picker_callback: function(callback, value, meta) {
+                // Provide file and text for the link dialog
+                if (meta.filetype == 'file') {
+                    callback('mypage.html', {text: 'My text'});
+                }
+
+                // Provide image and alt text for the image dialog
+                if (meta.filetype == 'image') {
+                    callback('myimage.jpg', {alt: 'My alt text'});
+                }
+
+                // Provide alternative source and posted for the media dialog
+                if (meta.filetype == 'media') {
+                    callback('movie.mp4', {source2: 'alt.ogg', poster: 'image.jpg'});
+                }
+            },
+            file_picker_types: 'file image media',
+            image_caption: true,
+            image_advtab: true,
+            image_class_list: [
+                {title: 'None', value: ''},
+                {title: 'Dog', value: 'dog'},
+                {title: 'Cat', value: 'cat'}
+            ],
+            image_description: true,
+            image_dimensions: true,
+            image_prepend_url: "https://www.example.com/images/",
+            image_title: false,
+            image_uploadtab: true,
+            images_upload_base_path: '/some/basepath',
+            images_upload_credentials: false,
+            images_upload_handler: function (blobInfo, success, failure) {
+                var xhr, formData;
+
+                xhr = new XMLHttpRequest();
+                xhr.withCredentials = false;
+                xhr.open('POST', 'postAcceptor.php');
+
+                xhr.onload = function() {
+                    var json;
+
+                    if (xhr.status != 200) {
+                        failure('HTTP Error: ' + xhr.status);
+                        return;
+                    }
+
+                    json = JSON.parse(xhr.responseText);
+
+                    if (!json || typeof json.location != 'string') {
+                        failure('Invalid JSON: ' + xhr.responseText);
+                        return;
+                    }
+
+                    success(json.location);
+                };
+
+                formData = new FormData();
+                formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+                xhr.send(formData);
+            },
+            typeahead_urls: true,
+            insertdatetime_dateformat: "%Y-%m-%d",
+            insertdatetime_formats: ["%H:%M:%S", "%Y-%m-%d", "%I:%M:%S %p", "%D"],
+            insertdatetime_timeformat: "%H:%M:%S",
+            insertdatetime_element: true,
+            default_link_target: "_blank",
+            link_assume_external_targets: true,
+            link_class_list: [
+                {title: 'None', value: ''},
+                {title: 'Dog', value: 'dog'},
+                {title: 'Cat', value: 'cat'}
+            ],
+            link_context_toolbar: true,
+            link_list: [
+                {title: 'My page 1', value: 'https://www.tiny.cloud'},
+                {title: 'My page 2', value: 'https://about.tiny.cloud'}
+            ],
+            link_title: false,
+            link_quicklink: true,
+            rel_list: [
+                {title: 'No Referrer', value: 'noreferrer'},
+                {title: 'External Link', value: 'external'}
+            ],
+            target_list: [
+                {title: 'None', value: ''},
+                {title: 'Same page', value: '_self'},
+                {title: 'New page', value: '_blank'},
+                {title: 'Parent frame', value: '_parent'}
+            ],
+            target_list: false,
+            linkchecker_service_url: "http://mydomain.com/linkchecker",
+            audio_template_callback: function(data) {
+                return '<audio controls>' + '\n<source src="' + data.source1 + '"' + (data.source1mime ? ' type="' + data.source1mime + '"' : '') + ' />\n' + '</audio>';
+            },
+            media_alt_source: false,
+            media_dimensions: false,
+            media_filter_html: false,
+            media_live_embeds: true,
+            media_poster: false,
+            media_scripts: [
+                {filter: 'http://media1.example.com'},
+                {filter: 'http://media2.example.com', width: 100, height: 200}
+            ],
+            media_url_resolver: function (data, resolve/*, reject*/) {
+                if (data.url.indexOf('YOUR_SPECIAL_VIDEO_URL') !== -1) {
+                    var embedHtml = '<iframe src="' + data.url +
+                        '" width="400" height="400" ></iframe>';
+                    resolve({html: embedHtml});
+                } else {
+                    resolve({html: ''});
+                }
+            },
+            video_template_callback: function(data) {
+                return '<video width="' + data.width + '" height="' + data.height + '"' + (data.poster ? ' poster="' + data.poster + '"' : '') + ' controls="controls">\n' + '<source src="' + data.source1 + '"' + (data.source1mime ? ' type="' + data.source1mime + '"' : '') + ' />\n' + (data.source2 ? '<source src="' + data.source2 + '"' + (data.source2mime ? ' type="' + data.source2mime + '"' : '') + ' />\n' : '') + '</video>';
+            },
+            mentions_fetch: function (query, success) {
+                // Fetch your full user list from the server and cache locally
+                if (usersRequest === null) {
+                    usersRequest = fetch('/users');
+                }
+                usersRequest.then(function(users) {
+                    // query.term is the text the user typed after the '@'
+                    users = users.filter(function (user) {
+                        return user.name.indexOf(query.term.toLowerCase()) !== -1;
+                    });
+
+                    users = users.slice(0, 10);
+
+                    // Where the user object must contain the properties `id` and `name`
+                    // but you could additionally include anything else you deem useful.
+                    success(users);
+                });
+            },
+            mentions_selector: 'span.mymention',
+            mentions_menu_complete: function (editor, userInfo) {
+                var span = editor.getDoc().createElement('span');
+                span.className = 'mymention';
+                // store the user id in the mention so it can be identified later
+                span.setAttribute('data-mention-id', userInfo.id);
+                span.appendChild(editor.getDoc().createTextNode('@' + userInfo.name));
+                return span;
+            },
+            mentions_menu_hover: function (userInfo, success) {
+                // request more information about the user from the server and cache it locally
+                if (!userRequest[userInfo.id]) {
+                    userRequest[userInfo.id] = fetch('/user?id=' + userInfo.id);
+                }
+                userRequest[userInfo.id].then(function(userDetail) {
+                    var div = document.createElement('div');
+
+                    div.innerHTML = (
+                        '<div>' +
+                        '<h1>' + userDetail.fullName + '</h1>' +
+                        '<img src="' + userDetail.image + '" ' +
+                        'style="width: 50px; height: 50px; float: left;"/>' +
+                        '<p>' + userDetail.description + '</p>' +
+                        '</div>'
+                    );
+
+                    success(div);
+                });
+            },
+            nonbreaking_force_tab: true,
+            nonbreaking_wrap: false,
+            noneditable_editable_class: "mceEditable",
+            noneditable_noneditable_class: "mceNonEditable",
+            noneditable_regexp: /\d{3}-\d{3}-\d{3}/g,
+            pagebreak_separator: "<!-- my page break -->",
+            pagebreak_split_block: true,
+            tiny_pageembed_classes: [],
+            paste_data_images: true,
+            paste_as_text: true,
+            paste_enable_default_filters: false,
+            paste_filter_drop: false,
+            paste_preprocess: function(plugin, args) {
+                console.log(args.content);
+                args.content += ' preprocess';
+            },
+            paste_postprocess: function(plugin, args) {
+                console.log(args.node);
+                args.node.setAttribute('id', '42');
+            },
+            paste_word_valid_elements: "b,strong,i,em,h1,h2",
+            paste_webkit_styles: "color font-size",
+            paste_retain_style_properties: "color font-size",
+            paste_merge_formats: false,
+            paste_convert_word_fake_lists: false,
+            paste_remove_styles_if_webkit: false,
+            permanentpen_properties: {
+                fontname: 'arial,helvetica,sans-serif',
+                forecolor: '#E74C3C',
+                fontsize: '12pt',
+                hilitecolor: '',
+                bold: true,
+                italic: false,
+                strikethrough: false,
+                underline: false
+            },
+            external_plugins: {
+                'powerpaste': 'http://www.server.com/application/external_plugins/powerpaste/plugin.js'
+            },
+            paste_as_text: true,
+            powerpaste_word_import: "clean", // optional
+            powerpaste_html_import: "clean", // optional
+            powerpaste_clean_filtered_inline_elements: "strong, em, b, i, u, strike, sup, sub, font",
+            powerpaste_keep_unsupported_src: true,
+            paste_preprocess: function (pluginApi, data) {
+                console.log(data.content, data.mode, data.source);
+                // Apply custom filtering by mutating data.content
+                // For example:
+                const content = data.content;
+                const newContent = yourCustomFilter(content);
+                data.content = newContent;
+            },
+            setup: function(editor) {
+                editor.on('PastePreProcess', function(data) {
+                    console.log(data.content, data.mode, data.source);
+                    // Apply custom filtering by mutating data.content
+                    const content = data.content;
+                    const newContent = yourCustomFilter(content);
+                    data.content = newContent;
+                });
+
+                editor.on('PastePostProcess', function(data) {
+                    console.log(data.node, data.mode, data.source);
+                    // Apply custom filtering by mutating data.node
+                    // For example:
+                    const additionalNode = document.createElement('div');
+                    additionalNode.innerHTML = '<p>This will go before the pasted content.</p>';
+                    data.node.insertBefore(additionalNode, data.node.firstElementChild);
+                });
+            },
+            save_enablewhendirty: true,
+            save_oncancelcallback: function () { console.log('Save canceled');
+            },
+            save_onsavecallback: function () { console.log('Saved'); },
+            
+
+        });
+    </script>
+
+</head>
+
+<body>
+<h1>TinyMCE Quick Start Guide</h1>
+<form method="post">
+    <textarea id="mytextarea">Hello, World!</textarea>
+</form>
+</body>
+</html>

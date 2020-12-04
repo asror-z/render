@@ -1,0 +1,213 @@
+<?php
+ include("../../config.php");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Asterisk RealTime Interface">
+    <meta name="author" content="info@asterisk-pbx.ru">
+    <link rel="icon" href="../../img/favicon.ico">
+    <title>Peers</title>
+    <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
+    <script src="../../jquery/dist/jquery.min.js"></script>
+    <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../js/handlebars.js"></script>
+    <script src="../../js/func.js"></script>
+    <script src="../../js/locale.js"></script>
+    <script src="../../js/helpers.js"></script>
+    <script>
+    $(function() {
+        var theTemplateScript = $("#nav-template").html();
+        var theTemplate = Handlebars.compile(theTemplateScript);
+        var theCompiledHtml = theTemplate(window.locale);
+        $('.nav-placeholder').html(theCompiledHtml);
+    });
+
+    $(function getPeers() {
+
+        $.ajax({
+            type: 'POST',
+            url: 'ajam.php',
+            data: 'Action=SipPeers',
+            success: function(data) {
+                var sippeers = JSON.parse(data);
+                var theTemplateScript = $("#peers-template").html();
+                var theTemplate = Handlebars.compile(theTemplateScript);
+                var context = { SipPeers: sippeers };
+                var theCompiledHtml = theTemplate(context);
+                $('.peers-placeholder').html(theCompiledHtml);
+            }
+        });
+        setTimeout(getPeers, 10000);
+    });
+
+
+   $(function getRegistry () { 
+     $.ajax({  
+       type: 'POST',
+       url: 'ajam.php',
+       data: 'Action=SIPshowregistry',
+       success: function(data) {
+//           $("#reg").html(data);
+                var sipregs = JSON.parse(data);
+                var theTemplateScript = $("#regs-template").html();
+                var theTemplate = Handlebars.compile(theTemplateScript);
+                var context = { SipRegs: sipregs };
+                var theCompiledHtml = theTemplate(context);
+                $('.regs-placeholder').html(theCompiledHtml);
+        }
+     });
+   });
+
+    function guid() {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
+        return s4() + s4();
+    }
+
+    function getPeerStatus(peer) {
+        var uuid = guid();
+        $.ajax({
+            type: 'POST',
+            url: 'ajam.php',
+            data: 'Action=SIPshowpeer&ActionId=' + uuid + '&Peer=' + peer,
+            success: function(data) {
+                var sippeer = JSON.parse(data);
+                var theTemplateScript = $("#peerstatus-template").html();
+                var theTemplate = Handlebars.compile(theTemplateScript);
+                var context = {SipPeer: sippeer};
+                var theCompiledHtml = theTemplate(context);
+                $('.peerstatus-placeholder').html(theCompiledHtml);
+            }
+        });
+    }
+    </script>
+</head>
+
+<body>
+    <script id="nav-template" type="text/x-handlebars-template">
+        <?php include "../../nav.html"; ?>
+    </script>
+    <script id="peers-template" type="text/x-handlebars-template">
+        <div class="table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Номер</th>
+                        <th>Адрес</th>
+                        <th>Порт</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each SipPeers}}
+                    <tr class="warning">
+                        <td><a href="#" data-remote="false" data-toggle="modal" data-target="#myModal" onclick="getPeerStatus('{{ObjectName}}')">{{ObjectName}}</a></td>
+                        <td>{{IPaddress}}</td>
+                        <td>{{IPport}}</td>
+                        <td>{{Status}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </script>
+    
+    
+        <script id="regs-template" type="text/x-handlebars-template">
+        <div class="table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>host</th>
+                        <th>username</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each SipRegs}}
+                    <tr class="warning">
+                        <td>{{Host}}</td>
+                        <td>{{Username}}</td>
+                        <td>{{State}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </script>
+    <div id="peerstatus-template" type="text/x-handlebars-template" />
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{Callerid}}</h4>
+    </div>
+    <div class="modal-body">
+        <ul>
+            {{#each SipPeer}}
+            <li><b>UA</b>: {{SIP-Useragent}}</li>
+            <li><b>Codecs</b>: {{Codecs}}</li>
+            <li><b>Context</b>: {{Context}}</li>
+            <li><b>Reg</b>: {{Reg-Contact}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+    </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="peerstatus-placeholder"></div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-placeholder"></div>
+    <div class="col-lg-8 col-lg-offset-2 main">
+        <h3>Peers</h3>
+        <div class="peers-placeholder"></div>
+        <h3>Registry</h3>
+        <div class="regs-placeholder"></div>
+    </div>
+    <script src="../../jquery/dist/jquery.min.js"></script>
+    <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../js/handlebars.js"></script>
+    <script src="../../js/func.js"></script>
+    <script>
+        function editUserAdmin() {
+            var msg   = $('#edituser').serialize();
+            $.ajax({
+                type: 'POST',
+                url: 'getadm.php',
+                data: msg,
+                async: false,
+                success: function(data){
+                    $('#results').html('<b style="color:lightgreen;">'+data+'</b>');
+                },
+                error: function(){
+                    $('#results').html('<b style="color:red;">Произошла ошибка.</b>');
+                }
+            });
+        }
+
+        $(function updateSip() {
+            var theTemplateScript = $("#user-template").html();
+            var theTemplate = Handlebars.compile(theTemplateScript);
+            var context= '$user' ;
+            var theCompiledHtml = theTemplate(context);
+            $('.user-placeholder').html(theCompiledHtml);
+        });
+
+    </script>
+    <?php echo $user;?>
+</body>
+
+</html>

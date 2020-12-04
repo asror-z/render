@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="js/formBuilder.js"></script>
+
+<link rel="stylesheet" href="css/formBuilder.css">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <textarea name="formBuilder" id="formBuilder"></textarea>
+
+
+</head>
+<body>
+
+<script>
+
+    $('textarea').formBuilder();
+
+    $('textarea').formBuilder({
+
+
+
+        // additional form action buttons- save, data, clear
+
+        actionButtons: [],
+
+
+
+        // enables/disables stage sorting
+
+        allowStageSort:true,
+
+
+
+        // append/prepend non-editable content to the form.
+
+        append:false,
+
+        prepend:false,
+
+
+
+        // control order
+
+        controlOrder: [
+
+            'autocomplete',
+
+            'button',
+
+            'checkbox-group',
+
+            'checkbox',
+
+            '<a href="https://www.jqueryscript.net/time-clock/">date</a>',
+
+            'file',
+
+            'header',
+
+            'hidden',
+            'number',
+
+            'paragraph',
+
+            'radio-group',
+
+            'select',
+
+            'text',
+
+            'textarea',
+
+        ],
+
+
+
+        // or left
+
+        controlPosition:'right',
+
+
+
+        // or 'xml'
+
+        dataType:'json',
+
+
+
+        // default fields
+
+        defaultFields: [],
+
+
+
+        // save, data, clear
+
+        disabledActionButtons: [],
+
+
+
+        // disabled attributes
+
+        disabledAttrs: [],
+
+
+
+        // disabled buttons
+
+        disabledFieldButtons: {},
+
+
+
+        // disabled subtypes
+
+        disabledSubtypes: {},
+
+
+
+        // disabled fields
+
+        disableFields: [],
+
+
+
+        // disables html in field labels
+
+        disableHTMLLabels:false,
+
+
+
+        // removes the injected style
+
+        disableInjectedStyle:false,
+
+
+
+        // opens the edit panel on added field
+
+        editOnAdd:false,
+
+
+
+        // adds custom control configs
+
+        fields: [],
+
+
+
+        // warns user if before the remove a field from the stage
+
+        fieldRemoveWarn:false,
+
+
+
+        // DOM node or selector
+
+        fieldEditContainer:null,
+
+
+
+        // add groups of fields at a time
+
+        inputSets: [],
+
+
+
+        // custom notifications
+
+        notify: {
+
+            error: console.error,
+
+            success: console.log,
+
+            warning: console.warn,
+
+        },
+
+
+
+        // callbakcs
+
+        onAddField: (fieldData, fieldId) => fieldDat
+        onClearAll: () =>nul
+        onCloseFieldEdit: () =>nul
+        onOpenFieldEdit: () =>nul
+        onSave: (evt, formData) =>nu
+        // replaces an existing field by id.
+
+        replaceFields: [],
+
+
+
+        // user roles
+
+        roles: {
+
+            1:'Administrator',
+
+        // smoothly scrolls to a field when its added to the
+        scrollToFieldOnAdd:
+
+
+        // shows action buttons
+
+        showActionButtons:true,
+
+
+        // sortable controls
+
+        sortableControls:false,
+
+
+
+        // sticky controls
+
+        stickyControls: {
+
+            enable:tru
+            offset: {
+
+                top: 5,
+
+                bottom:'auto',
+
+                right:'auto',
+
+            },
+
+        },
+
+
+
+        // defines new types to be used with field base types such as button and input
+
+        subtypes: {},
+        
+
+
+        // defines a custom output for new or existing fields.
+
+        templates: {},
+
+
+        // defines custom attributes for field types
+
+        typeUserAttrs: {},
+
+
+
+        // disabled attributes for specific field typ
+        typeUserDisabledAttrs: {
+
+
+        // adds functionality to existing and custom attributes using onclone and onadd events. Events return JavaScript DOM elements.
+
+        typeUserEvents: {},
+
+
+
+    });
+
+
+</script>
+
+</body>
+</html>

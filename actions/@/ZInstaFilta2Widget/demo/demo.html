@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<!-- saved from url=(0098)https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery instaFilta2 Plugin Examples</title>
+  <link rel="stylesheet" type="text/css" href="./demo_files/demo.css">
+<link rel="preload" href="./demo_files/f(6).txt" as="script"><script src="./demo_files/f(3).txt"></script><script src="./demo_files/osd.js.download"></script><script type="text/javascript" async="" src="./demo_files/ga.js.download"></script><script src="./demo_files/f(4).txt" id="google_shimpl"></script><script src="./demo_files/f(5).txt"></script><script type="text/javascript" src="./demo_files/f(6).txt"></script><link rel="preload" href="./demo_files/f(7).txt" as="script"><script type="text/javascript" src="./demo_files/f(7).txt"></script></head>
+<body>
+
+  <header class="header padded-content">
+    <h1 class="site-title">jQuery instaFilta2 Plugin Examples</h1>
+  </header>
+<div class="jquery-script-ads" style="margin-top:30px" align="center"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="./demo_files/f(8).txt">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;" data-ad-slot="2780937993"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:728px;height:90px;" src="./demo_files/saved_resource.html"></iframe></ins></ins></div>
+  <main class="main">
+    <section class="section">
+      <div class="padded-content-h">
+        <h2 class="section-title">Table of contents</h2>
+        <ol>
+          <li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s1">A simple example</a></li>
+          <li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s2">Target ALL the things!</a></li>
+          <li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s3">Character casing and custom target classes</a></li>
+          <li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s4">Highlighting matching characters</a></li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s4">
+          </a><li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s4"></a><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s5">Only match the beginning of a word</a></li>
+          <li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s6">Using sections of lists</a></li>
+          <li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s7">onFilterComplete returns matched hits</a></li>
+          <li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s8">Categorize/tag items</a></li>
+          <li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s9">Yes, checkboxes!!</a></li>
+          <li><a href="https://www.jqueryscript.net/demo/jQuery-Plugin-For-Fast-Customized-In-page-Filtering-instaFilta2/#s10">All or nothing</a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="s1">
+      <div class="l-1-2">
+        <div class="padded-content-h">
+          <h2 class="section-title">A simple example</h2>
+          <p>The following shows an example of using instaFilta's default options. Apply CSS class "instafilta-trigger" to a text field to make it initiate the filtering process.</p>
+          <p>Try it out by entering some text in the input field above the target list. The plugin will bind to any elements having the CSS class <em>instafilta-target</em> and it will ignore character casing. As we will see in other examples, all of this can be customized through the plugin's options.</p>
+        </div>
+      </div>
+      <div class="box l-1-2">
+        <div class="example" id="ex1">
+          <fieldset class="controls">
+            <input type="text" class="instafilta-trigger" placeholder="Type here to filter">
+          </fieldset>
+          <ul class="example-list example-list-quad">
+            <li><span class="instafilta-target instafilta-match">Carbon</span></li>
+            <li><span class="instafilta-target instafilta-match">Cobalt</span></li>
+            <li><span class="instafilta-target instafilta-match">Copper</span></li>
+            <li><span class="instafilta-target instafilta-match">Gallium</span></li>
+            <li><span class="instafilta-target instafilta-match">Gold</span></li>
+            <li><span class="instafilta-target instafilta-match">Hafnium</span></li>
+            <li><span class="instafilta-target instafilta-match">Iridium</span></li>
+            <li><span class="instafilta-target instafilta-match">Xenon</span></li>
+          </ul>
+        </div>
+        <pre class="box box-code">$('#my-list').instaFilta();</pre>
+      </div>
+    </section>
+
+    <section class="section" id="s2">
+      <div class="l-1-2">
+        <div class="padded-content-h">
+          <h2 class="section-title">Target ALL the things!</h2>
+          <p>The plugin will look for <em>any</em> text inside an element having the instafilta-target class. In this example, not only can you filter on these important people's names, you can also filter on the year they were born.</p>
+        </div>
+      </div>
+      <div class="box l-1-2">
+        <div class="example" id="ex2">
+          <fieldset class="controls">
+            <input type="text" class="instafilta-trigger" placeholder="Type here to filter">
+          </fieldset>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th><th>Born</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="instafilta-target instafilta-match">
+                <td>Albert Einstein</td>
+                <td>1879</td>
+              </tr>
+              <tr class="instafilta-target instafilta-match">
+                <td>Marie Curie</td>
+                <td>1867</td>
+              </tr>
+              <tr class="instafilta-target instafilta-match">
+                <td>Isaac Newton</td>
+                <td>1643</td>
+              </tr>
+              <tr class="instafilta-target instafilta-match">
+                <td>Henry Cavendish</td>
+                <td>1731</td>
+              </tr>
+              <tr class="instafilta-target instafilta-match">
+                <td>Edwin Hubble</td>
+                <td>1889</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <pre class="box box-code">&lt;tr class="instafilta-target"&gt;
+  &lt;td&gt;Albert Einstein&lt;/td&gt;
+  &lt;td&gt;1879&lt;/td&gt;
+&lt;/tr&gt;</pre>
+      </div>
+    </section>
+
+    <section class="section" id="s3">
+      <div class="l-1-2">
+        <div class="padded-content-h">
+          <h2 class="section-title">Character casing and custom target classes</h2>
+          <p>In this example, the filtering term must match the character casing of the target elements. The plugin will not match "mars" but it will match "Mars".</p>
+          <p>Also note that we can use a custom CSS class for our targets, if you need to adhere to naming conventions.</p>
+        </div>
+      </div>
+      <div class="box l-1-2">
+        <div class="example" id="ex3">
+          <fieldset class="controls">
+            <input type="text" class="instafilta-trigger" placeholder="Type here to filter">
+          </fieldset>
+          <ul class="example-list example-list-quad">
+            <li><span class="planet-name instafilta-match">Mercury</span></li>
+            <li><span class="planet-name instafilta-match">Venus</span></li>
+            <li><span class="planet-name instafilta-match">Tellus</span></li>
+            <li><span class="planet-name instafilta-match">Mars</span></li>
+            <li><span class="planet-name instafilta-match">Jupiter</span></li>
+            <li><span class="planet-name instafilta-match">Saturn</span></li>
+            <li><span class="planet-name instafilta-match">Uranus</span></li>
+            <li><span class="planet-name instafilta-match">Neptune</span></li>
+          </ul>
+        </div>
+        <pre class="box box-code">$('#my-list').instaFilta({
+  targets: '.planet-name',
+  caseSensitive: true
+});</pre>
+      </div>
+    </section>
+
+    <section class="section" id="s4">
+      <div class="l-1-2">
+        <div class="padded-content-h">
+          <h2 class="section-title">Highlighting matching characters</h2>
+          <p>By setting the <em>markMatches</em> option to <em>true</em>, you can highlight the matching text within the matching items in the list. The matching characters will get wrapped in a <em>span</em> element that has the <em>instafilta-matching-text</em> CSS class. You can change this class by setting the <em>matchCssClass</em> option.</p>
+        </div>
+      </div>
+      <div class="box l-1-2">
+        <div class="example" id="ex4">
+          <fieldset class="controls">
+            <input type="text" class="instafilta-trigger" placeholder="Type here to filter">
+          </fieldset>
+          <ul class="example-list example-list-quad">
+            <li><span class="instafilta-target instafilta-match">Superman</span></li>
+            <li><span class="instafilta-target instafilta-match">Wonderwoman</span></li>
+            <li><span class="instafilta-target instafilta-match">Batman</span></li>
+            <li><span class="instafilta-target instafilta-match">Spiderman</span></li>
+            <li><span class="instafilta-target instafilta-match">The Hulk</span></li>
+            <li><span class="instafilta-target instafilta-match">The Green Lantern</span></li>
+            <li><span class="instafilta-target instafilta-match">Elektra</span></li>
+            <li><span class="instafilta-target instafilta-match">Ant Man</span></li>
+          </ul>
+        </div>
+        <pre class="box box-code">$('#my-list').instaFilta({
+  markMatches: true
+});</pre>
+      </div>
+    </section>
+
+    <section class="section" id="s5">
+      <div class="l-1-2">
+        <div class="padded-content-h">
+          <h2 class="section-title">Only match the beginning of a word</h2>
+          <p>Easy! Just set the <em>beginsWith</em> option to <em>true</em>.</p>
+        </div>
+      </div>
+      <div class="box l-1-2">
+        <div class="example" id="ex5">
+          <fieldset class="controls">
+            <input type="text" class="instafilta-trigger" placeholder="Type here to filter">
+          </fieldset>
+          <ul class="example-list example-list-quad">
+            <li><span class="instafilta-target instafilta-match">Bald Bull</span></li>
+            <li><span class="instafilta-target instafilta-match">Soda Popinski</span></li>
+            <li><span class="instafilta-target instafilta-match">Don Flamenco</span></li>
+            <li><span class="instafilta-target instafilta-match">Mike</span></li>
+          </ul>
+        </div>
+        <pre class="box box-code">$('#my-field').instaFilta({
+  beginsWith: true
+});</pre>
+      </div>
+    </section>
+
+    <section class="section" id="s6">
+      <div class="l-1-2">
+        <div class="padded-content-h">
+          <h2 class="section-title">Using sections of lists</h2>
+          <p>Many times, a large list of data will be grouped in some way. A group will typically contain a heading and perhaps more stuff. The animals in this example are grouped by <a href="https://en.wikipedia.org/wiki/Class_(biology)" target="_blank">biological class</a>, which is the heading for each group.</p>
+          <p>When filtering such a list, you probably want to hide the entire section, including heading etc. Just set the <em>instafilta-section</em> CSS class on the containing section element. That's it! And, you can of course customize that class name using the <em>sections</em> option.</p>
+        </div>
+      </div>
+      <div class="box l-1-2">
+        <div class="example" id="ex6">
+          <fieldset class="controls">
+            <input type="text" class="instafilta-trigger" placeholder="Type here to filter">
+          </fieldset>
+          <div class="instafilta-section instafilta-match">
+            <span class="example-section-title">Mammals</span>
+            <ul class="example-list example-list-quad">
+              <li><span class="instafilta-target instafilta-match">Bear</span></li>
+              <li><span class="instafilta-target instafilta-match">Badger</span></li>
+              <li><span class="instafilta-target instafilta-match">Moose</span></li>
+              <li><span class="instafilta-target instafilta-match">Hedgehog</span></li>
+              <li><span class="instafilta-target instafilta-match">Tiger</span></li>
+              <li><span class="instafilta-target instafilta-match">Orangutan</span></li>
+              <li><span class="instafilta-target instafilta-match">Wombat</span></li>
+              <li><span class="instafilta-target instafilta-match">Blue Whale</span></li>
+            </ul>
+          </div>
+          <div class="instafilta-section instafilta-match">
+            <span class="example-section-title">Reptiles</span>
+            <ul class="example-list example-list-quad">
+              <li><span class="instafilta-target instafilta-match">Snapping Turtle</span></li>
+              <li><span class="instafilta-target instafilta-match">Nile Crocodile</span></li>
+              <li><span class="instafilta-target instafilta-match">Tiger Snake</span></li>
+              <li><span class="instafilta-target instafilta-match">Green Iguana</span></li>
+              <li><span class="instafilta-target instafilta-match">Alligator</span></li>
+              <li><span class="instafilta-target instafilta-match">Chameleon</span></li>
+              <li><span class="instafilta-target instafilta-match">Gekko</span></li>
+              <li><span class="instafilta-target instafilta-match">Black Mamba</span></li>
+            </ul>
+          </div>
+          <div class="instafilta-section instafilta-match">
+            <span class="example-section-title">Birds</span>
+            <ul class="example-list example-list-quad">
+              <li><span class="instafilta-target instafilta-match">Ostrich</span></li>
+              <li><span class="instafilta-target instafilta-match">Atlantic Puffin</span></li>
+              <li><span class="instafilta-target instafilta-match">Flamingo</span></li>
+              <li><span class="instafilta-target instafilta-match">Hummingbird</span></li>
+              <li><span class="instafilta-target instafilta-match">Penguin</span></li>
+              <li><span class="instafilta-target instafilta-match">Albatross</span></li>
+              <li><span class="instafilta-target instafilta-match">Toucan</span></li>
+              <li><span class="instafilta-target instafilta-match">Mandarin Duck</span></li>
+            </ul>
+          </div>
+        </div>
+        <pre class="box box-code">&lt;div class="instafilta-section"&gt;
+  &lt;h2&gt;Birds&lt;/h2&gt;
+  &lt;ul class="example-list"&gt;
+    &lt;li&gt;&lt;span class="instafilta-target"&gt;Ostrich&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class="instafilta-target"&gt;Atlantic Puffin&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class="instafilta-target"&gt;Flamingo&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class="instafilta-target"&gt;Hummingbird&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class="instafilta-target"&gt;Penguin&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class="instafilta-target"&gt;Albatross&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class="instafilta-target"&gt;Toucan&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span class="instafilta-target"&gt;Mandarin Duck&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</pre>
+      </div>
+    </section>
+
+    <section class="section" id="s7">
+      <div class="l-1-2">
+        <div class="padded-content-h">
+          <h2 class="section-title">onFilterComplete returns matched hits</h2>
+          <p>After the filtering process is done, you might want to report just how many hits were found and perhaps show some message if no hits were found. This example shows you how.</p>
+        </div>
+      </div>
+      <div class="box l-1-2">
+        <div class="example" id="ex7">
+          <fieldset class="controls">
+            <input type="text" class="instafilta-trigger" placeholder="Type here to filter">
+            <span class="result-message" id="some-result-message">I found 4 matches!</span>
+          </fieldset>
+          <ul class="example-list example-list-quad">
+            <li><span class="instafilta-target instafilta-match">Peter</span></li>
+            <li><span class="instafilta-target instafilta-match">Lois</span></li>
+            <li><span class="instafilta-target instafilta-match">Stewie</span></li>
+            <li><span class="instafilta-target instafilta-match">Chris</span></li>
+          </ul>
+          <pre class="box box-code">var $myMessage = $('#some-result-message');
+
+$('#my-list').instaFilta({
+  onFilterComplete: function(matchedItems) {
+
+    var message = (matchedItems.length &gt; 0)
+      ? "I found " + matchedItems.length + " matches!"
+      : "I couldn't find a thing..";
+
+    $myMessage.text(message);
+  }
+});</pre>
+      </div>
+    </div></section>
+
+    <section class="section" id="s8">
+      <div class="l-1-2">
+        <div class="padded-content-h">
+          <h2 class="section-title">Categorize/tag items</h2>
+          <p>This is a bit similar to using sections, but it has some important differences. You can tag individual target items with several categories. Do this by defining one or more (comma separated string or array) categories in a data-attribute associated with the <em>categoryDataAttr</em> option. You can then use the <em>filterCategory</em> method to perform filtering based on those categories.</p>
+          <p>In this example, a select box is used to filter out humans and machines. Note that "RoboCop" exists in both the <em>machine</em> category and the <em>human</em> category.</p>
+          <p>Also note that the result will be filtered on page load if an option is selected from start.</p>
+        </div>
+      </div>
+      <div class="box l-1-2">
+        <div class="example" id="ex8">
+          <fieldset class="controls">
+            <input type="text" class="instafilta-trigger" placeholder="Type here to filter">
+            <select class="instafilta-trigger">
+              <option value="">Show all</option>
+              <option value="machine" selected="selected">Machines</option>
+              <option value="human">Humans</option>
+              <option value="non-fictional">Non-fictional</option>
+            </select>
+          </fieldset>
+          <ul class="example-list example-list-quad">
+            <li><span class="instafilta-target instafilta-match" data-instafilta-category="machine">R2-D2</span></li>
+            <li><span class="instafilta-target instafilta-match" data-instafilta-category="machine">Terminator</span></li>
+            <li><span class="instafilta-target instafilta-unmatch" data-instafilta-category="human" style="display: none;">John Connor</span></li>
+            <li><span class="instafilta-target instafilta-unmatch" data-instafilta-category="human,non-fictional" style="display: none;">Andreas Weber</span></li>
+            <li><span class="instafilta-target instafilta-match" data-instafilta-category="machine">Johnny 5</span></li>
+            <li><span class="instafilta-target instafilta-unmatch" data-instafilta-category="human" style="display: none;">Gordon Freeman</span></li>
+            <li><span class="instafilta-target instafilta-match" data-instafilta-category="machine">Wall-E</span></li>
+            <li><span class="instafilta-target instafilta-match" data-instafilta-category="human,machine">RoboCop</span></li>
+          </ul>
+          <h3 class="lesser-title">Example HTML</h3>
+          <pre class="box box-code">&lt;select class="instafilta-trigger"&gt;
+  &lt;option value=""&gt;Show all&lt;/option&gt;
+  &lt;option value="machine" selected="selected"&gt;Machines&lt;/option&gt;
+  &lt;option value="human"&gt;Humans&lt;/option&gt;
+  &lt;option value="non-fictional"&gt;Non-fictional&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;span class="instafilta-target" data-instafilta-category="human"&gt;Gordon Freeman&lt;/span&gt;
+&lt;span class="instafilta-target" data-instafilta-category="machine"&gt;Wall-E&lt;/span&gt;
+&lt;span class="instafilta-target" data-instafilta-category="human,machine"&gt;RoboCop&lt;/span&gt;</pre>
+      </div>
+    </div></section>
+
+    <!--
+    <section class="section" id="s9">
+      <div class="l-1-2">
+        <div class="padded-content-h">
+          <h2 class="section-title">Yes, checkboxes!!</h2>
+          <p>Given that we can feed several categories to the <em>filterCategories</em> method, we can create an interface that scoops up the values of checked checkboxes and use them for this pupose. Have a go at this example!</p>
+        </div>
+      </div>
+      <div class="box l-1-2">
+        <div class="example" id="ex9">
+          <fieldset class="controls">
+            <input type="text" id="ex9f" placeholder="Type here to filter">
+            <label for="ex9-cat1"><input type="checkbox" id="ex9-cat1" value="europe">Europe</label>
+            <label for="ex9-cat2"><input type="checkbox" id="ex9-cat2" value="asia">Asia</label>
+            <label for="ex9-cat3"><input type="checkbox" id="ex9-cat3" value="africa">Africa</label>
+          </fieldset>
+          <ul class="example-list example-list-quad">
+            <li><span class="instafilta-target" data-instafilta-category="europe">Sweden</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="asia">India</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="africa">Angola</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="europe">Germany</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="asia">Japan</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="africa">Chad</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="europe">Belgium</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="asia">China</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="africa">Ghana</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="europe">Finland</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="asia">Thailand</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="africa">Kenya</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="europe">Croatia</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="asia">Vietnam</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="africa">Madagascar</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="europe">Belarus</span></li>
+          </ul>
+          <h3 class="lesser-title">The checkboxes look like this..</h3>
+          <pre class="box box-code">
+&lt;input type="checkbox" value="europe"></pre>
+          <h3 class="lesser-title">..and the JavaScript looks like this:</h3>
+          <pre class="box box-code">
+var instaFilta = $('.continents').instaFilta();
+
+var $myCheckboxes = $('.continent-check');
+
+$myCheckboxes.on('change', function() {
+
+  var checkedCategories = [];
+
+  $myCheckboxes.each(function() {
+    if ($(this).prop('checked')) {
+      checkedCategories.push($(this).val());
+    }
+  });
+
+  instaFilta.filterCategory(checkedCategories);
+});</pre>
+      </div>
+    </section>
+
+    <section class="section" id="s10">
+      <div class="l-1-2">
+        <div class="padded-content-h">
+          <h2 class="section-title">All or nothing</h2>
+          <p>When applying multiple categories at once, instaFilta will match <em>any</em> matching categories. In some cases however, like this following example, you want to make sure that items only match if they belong to <em>all</em> categories.</p>
+        </div>
+      </div>
+      <div class="box l-1-2">
+        <div class="example" id="ex10">
+          <fieldset class="controls">
+            <input type="text" id="ex10f" placeholder="Type here to filter">
+            <label for="ex10-cat1"><input type="checkbox" id="ex10-cat1" value="swims">Swims</label>
+            <label for="ex10-cat2"><input type="checkbox" id="ex10-cat2" value="walks">Walks</label>
+            <label for="ex10-cat3"><input type="checkbox" id="ex10-cat3" value="flies">Flies</label>
+            <label for="ex10-cat4"><input type="checkbox" id="ex10-cat4" value="trots">Trots</label>
+          </fieldset>
+          <ul class="example-list example-list-quad">
+            <li><span class="instafilta-target" data-instafilta-category="walks,flies">Ladybug</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="walks">Porcupine</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="swims">Bullshark</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="swims,walks">Crocodile</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="walks">Camel</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="swims,walks">Iguana</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="swims,walks,flies,trots">Unicorn</span></li>
+            <li><span class="instafilta-target" data-instafilta-category="swims,flies">Flying Fish</span></li>
+          </ul>
+          <h3 class="lesser-title">Example markup</h3>
+          <pre class="box box-code">
+&lt;input type="checkbox" value="walks">
+&lt;input type="checkbox" value="flies">
+
+&lt;span class="instafilta-target" data-instafilta-category="walks,flies">Ladybug&lt;/span></pre>
+          <h3 class="lesser-title">Example JavaScript (notice the second parameter, which is set to true)</h3>
+          <pre class="box box-code">
+var instaFilta = $('.animals').instaFilta();
+
+var $myCheckboxes = $('.ability-check');
+
+$myCheckboxes.on('change', function() {
+
+  var checkedCategories = [];
+
+  $myCheckboxes.each(function() {
+    if ($(this).prop('checked')) {
+      checkedCategories.push($(this).val());
+    }
+  });
+
+  instaFilta.filterCategory(checkedCategories, true);
+});</pre>
+      </div>
+    </section>
+-->
+  </main>
+  <link href="./demo_files/css" rel="stylesheet" type="text/css">
+  <link href="./demo_files/css(1)" rel="stylesheet" type="text/css">
+  <script src="./demo_files/jquery.min.js.download"></script>
+  <script src="./demo_files/instafilta.min.js.download"></script>
+  <script src="./demo_files/demo.js.download"></script>
+
+  <footer class="footer padded-content">
+    Built and designed by <a href="http://chromawoods.com/" rel="nofollow" target="_blank">Andreas Weber</a>
+  </footer>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+<iframe id="google_osd_static_frame_1376115564343" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./demo_files/saved_resource(1).html"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" src="./demo_files/saved_resource(2).html"></iframe></ins></ins></ins></body><iframe id="google_esf" name="google_esf" src="./demo_files/zrt_lookup.html" data-ad-client="ca-pub-2783044520727903" style="display: none;"></iframe><div class="XTranslate"></div></html>

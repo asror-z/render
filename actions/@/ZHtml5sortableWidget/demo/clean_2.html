@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>HTML5 Sortable library</title>
+    <link rel="stylesheet" href="/publish/yarner/html5sortable/docs/basscss.css">
+    <script src="./demo_files/polyfill.min.js.download"></script>
+    <script src="./demo_files/html5sortable.js.download"></script>
+</head>
+<body>
+
+<section class="mb3 mx-auto col col-12">
+    <div class="p3 clearfix bg-navy yellow">
+        <div class="col col-6">
+            <ul class="ml4 js-sortable sortable list flex flex-column list-reset" aria-dropeffect="move">
+
+                <li class="p1 mb1 navy bg-yellow" style="position: relative; z-index: 10" draggable="true" role="option"
+                    aria-grabbed="false">Item 2
+                </li>
+                <li class="p1 mb1 navy bg-yellow" style="position: relative; z-index: 10" draggable="true" role="option"
+                    aria-grabbed="false">Item 3
+                </li>
+                <li class="p1 mb1 navy bg-yellow" style="position: relative; z-index: 10" draggable="true" role="option"
+                    aria-grabbed="false">Item 4
+                </li>
+                <li class="p1 mb1 navy bg-yellow" style="position: relative; z-index: 10" draggable="true" role="option"
+                    aria-grabbed="false">Item 5
+                </li>
+                <li class="p1 mb1 navy bg-yellow" style="position: relative; z-index: 10" draggable="true" role="option"
+                    aria-grabbed="false">Item 6
+                </li>
+                <li class="p1 mb1 navy bg-yellow" style="position: relative; z-index: 10;" draggable="true"
+                    role="option" aria-grabbed="false">Item 1
+                </li>
+            </ul>
+
+            <script type="text/javascript">
+                sortable('.js-sortable', {
+                    forcePlaceholderSize: true,
+                    placeholderClass: 'mb1 bg-navy border border-yellow',
+                    hoverClass: 'bg-maroon yellow',
+                    itemSerializer: function (item, container) {
+                        item.parent = '[parentNode]'
+                        item.node = '[Node]'
+                        item.html = item.html.replace('<', '&lt;')
+                        return item
+                    },
+                    containerSerializer: function (container) {
+                        container.node = '[Node]'
+                        return container
+                    }
+                })
+
+            </script>
+        </div>
+    </div>
+</section>
+
+
+<section class="mb3 mx-auto col col-12">
+    <div class="p3 clearfix bg-blue white">
+
+        <div class="col col-6">
+            <ul class="ml4 js-sortable-buttons list flex flex-column list-reset" data-disabled=false>
+                <li class="p1 mb1 blue bg-white">Item 1</li>
+                <li class="p1 mb1 blue bg-white">Item 2</li>
+                <li class="p1 mb1 blue bg-white">Item 3</li>
+                <li class="p1 mb1 blue bg-white">Item 4</li>
+                <li class="p1 mb1 blue bg-white">Item 5</li>
+                <li class="p1 mb1 blue bg-white">Item 6</li>
+            </ul>
+            <div class="center py2 ml4">
+                <button class="js-disable button blue bg-white" data-text="Enable">Disable</button>
+                <button class="js-add-item-button button blue bg-white">Add item</button>
+                <button class="js-reload button button-outline white">Re-init</button>
+            </div>
+            <div class="center py1 ml4">
+                <button class="js-destroy button blue bg-white">Destroy</button>
+                <button class="js-init button blue bg-white">Init</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="mb3 mx-auto col col-12">
+    <div class="p3 clearfix bg-yellow maroon">
+
+        <h2 class="h4 mt1">Copy items here</h2>
+        <ul class="p2 border maroon border-maroon js-sortable-copy-target sortable list flex flex-column list-reset"
+            aria-dropeffect="move">
+        </ul>
+    </div>
+    <div class="col col-6">
+        <ul class="ml4 js-sortable-copy sortable list flex flex-column list-reset" aria-dropeffect="move">
+            <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10" draggable="true" role="option"
+                aria-grabbed="false">Item 1
+            </li>
+            <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10" draggable="true" role="option"
+                aria-grabbed="false">Item 2
+            </li>
+            <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10" draggable="true" role="option"
+                aria-grabbed="false">Item 3
+            </li>
+            <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10" draggable="true" role="option"
+                aria-grabbed="false">Item 4
+            </li>
+            <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10" draggable="true" role="option"
+                aria-grabbed="false">Item 5
+            </li>
+            <li class="p1 mb1 yellow bg-maroon" style="position: relative; z-index: 10" draggable="true" role="option"
+                aria-grabbed="false">Item 6
+            </li>
+        </ul>
+    </div>
+    </div>
+</section>
+</div>
+<script>
+    sortable('.js-sortable-copy', {
+        forcePlaceholderSize: true,
+        copy: true,
+        acceptFrom: false,
+        placeholderClass: 'mb1 bg-navy border border-yellow',
+    });
+    sortable('.js-sortable-copy-target', {
+        forcePlaceholderSize: true,
+        acceptFrom: '.js-sortable-copy,.js-sortable-copy-target',
+        placeholderClass: 'mb1 border border-maroon',
+    });
+    sortable('.js-grid', {
+        forcePlaceholderSize: true,
+        placeholderClass: 'col col-4 border border-maroon'
+    });
+    sortable('.js-sortable-connected', {
+        forcePlaceholderSize: true,
+        connectWith: '.js-connected',
+        handle: '.js-handle',
+        items: 'li',
+        placeholderClass: 'border border-white bg-orange mb1'
+    });
+    sortable('.js-sortable-inner-connected', {
+        forcePlaceholderSize: true,
+        connectWith: 'js-inner-connected',
+        handle: '.js-inner-handle',
+        items: '.item',
+        maxItems: 3,
+        placeholderClass: 'border border-white bg-orange mb1'
+    });
+    document.querySelector('.js-sortable-connected').addEventListener('sortupdate', function(e){
+        console.log('Sortupdate: ', e.detail);
+        console.log('Container: ', e.detail.origin.container, ' -> ', e.detail.destination.container);
+        console.log('Index: '+e.detail.origin.index+' -> '+e.detail.destination.index);
+        console.log('Element Index: '+e.detail.origin.elementIndex+' -> '+e.detail.destination.elementIndex);
+    });
+
+    document.querySelector('.js-sortable-connected').addEventListener('sortstart', function(e){
+        console.log('Sortstart: ', e.detail);
+    });
+
+    document.querySelector('.js-sortable-connected').addEventListener('sortstop', function(e){
+        console.log('Sortstop: ', e.detail);
+    });
+
+    sortable('.js-sortable-buttons', {
+        forcePlaceholderSize: true,
+        items: 'li',
+        placeholderClass: 'border border-white mb1',
+        hoverClass: 'bg-yellow'
+    });
+    // buttons to add items and reload the list
+    // separately to showcase issue without reload
+    document.querySelector('.js-add-item-button').addEventListener('click', function(){
+        doc = new DOMParser().parseFromString(`<li class="p1 mb1 blue bg-white">new item</li>`, "text/html").body.firstChild;
+        document.querySelector('.js-sortable-buttons').appendChild(doc);
+    });
+
+    document.querySelector('.js-reload').addEventListener('click', function(){
+        console.log('Options before re-init:');
+        console.log(document.querySelector('.js-sortable-buttons').h5s.data.opts);
+        sortable('.js-sortable-buttons');
+        console.log('Options after re-init:');
+        console.log(document.querySelector('.js-sortable-buttons').h5s.data.opts);
+    });
+    // JS DISABLED
+    document.querySelector('.js-disable').addEventListener('click', function(){
+        var $list = document.querySelector('[data-disabled]');
+        if ( $list.getAttribute('data-disabled') === 'false' ) {
+            this.innerHTML = 'Enable';
+            sortable($list, 'disable');
+            $list.setAttribute('data-disabled', true);
+            $list.classList.add('muted');
+        } else {
+            this.innerHTML = 'Disable';
+            sortable($list, 'enable');
+            $list.setAttribute('data-disabled', false);
+            $list.classList.remove('muted');
+        }
+    });
+
+    // Destroy & Init
+    document.querySelector('.js-destroy').addEventListener('click', function(){
+        sortable('.js-sortable-buttons', 'destroy');
+    });
+    document.querySelector('.js-init').addEventListener('click', function(){
+        sortable('.js-sortable-buttons', {
+            forcePlaceholderSize: true,
+            items: 'li',
+            placeholderClass: 'border border-white mb1'
+        });
+    });
+</script>
+
+    </body>
+</html>

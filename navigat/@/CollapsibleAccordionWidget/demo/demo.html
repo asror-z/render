@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Collapsible</title>
+
+</head>
+<body>
+<ul class="edlc-collapsible-nav">
+    <li><a href="#">Link 1</a></li>
+    <li>
+        <div><a href="#">Link 2</a><a href="javascript:void(0);"></a></div>
+        <ul>
+            <li><a href="#">Link 2.1</a></li>
+            <li><a href="#">Link 2.2</a></li>
+            <li><a href="#">Link 2.3</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Link 3</a></li>
+    <li>
+        <div><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in tempus tortor. Nam ullamcorper elementum metus sit amet tempor. Fusce sit amet pharetra urna. </a><a href="javascript:void(0);"></a></div>
+        <ul>
+            <li><a href="#">Link 4.1</a></li>
+            <li><a href="#">Link 4.2</a></li>
+            <li><a href="#">Link 4.3</a></li>
+        </ul>
+    </li>
+    <li>
+        <div><a href="#">Link 5</a><a href="javascript:void(0);"></a></div>
+        <ul>
+            <li><a href="#">Link 5.1</a></li>
+            <li>
+                <div><a href="#">Link 5.2</a><a href="javascript:void(0);"></a></div>
+                <ul>
+                    <li><a href="#">Link 5.2.1</a></li>
+                    <li>
+                        <div><a href="#">Link 5.2.2</a><a href="javascript:void(0);"></a></div>
+                        <ul>
+                            <li><a href="#">Link 5.2.2.1</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Link 5.2.3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Link 5.3</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Link 6</a></li>
+    <li><a href="#">Link 7</a></li>
+    <li>
+        <div><a href="#">Link 8</a><a href="javascript:void(0);"></a></div>
+        <ul>
+            <li><a href="#">Link 8.1</a></li>
+            <li><a href="#">Link 8.2</a></li>
+            <li><a href="#">Link 8.3</a></li>
+            <li><a href="#">Link 8.4</a></li>
+            <li><a href="#">Link 8.5</a></li>
+        </ul>
+    </li>
+</ul>
+
+
+<script language="JavaScript">
+    $(function(){
+        $('.edlc-collapsible-nav').edlcCollapsibleNav({
+            highestListItemZIndex: 998,
+            scrollTopSpeed: 1000,
+            defaultOwnClassName:'edlc-collapsible-nav',
+            defaultOwnSelector:'.edlc-collapsible-nav',
+            togglableListItemSelector:'li.togglable',
+            togglableListItemClassName:'togglable',
+            toggleBtnSelector:'a + a',
+            itemsWrapperSelector:'> ul',
+            itemSelector:'> li',
+            activeSelector:'.active',
+            itemLinkWrapperSelector:'> div:first-child',
+            activeClassName:'active',
+            itemCollapsedHeightAttr:'data-collapsed-height',
+            eventToToggleOn:'touchend click',
+            eventsSeparator: selectorSeparator,
+            touchEndEventName:'touchend',
+            onItemToggle: noop
+        });
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://www.theluxatelier.com/pub/static/frontend/Magento/luma/en_US/Ibnab_MegaMenu/js/jquery.edlcCollapsibleNav.js"></script>
+
+</body>
+</html>

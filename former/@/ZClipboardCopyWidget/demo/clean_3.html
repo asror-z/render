@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>clipboard-copy</title>
+</head>
+<body>
+  <p>
+    1. Click this button: <button>Copy</button>
+  </p>
+
+  <p>
+    2. Paste into this input: <input />
+  </p>
+
+  <p>
+    3. Test status: <strong>pending</strong>
+  </p>
+  <textarea id="card-name" class="form-control"></textarea>
+
+  <script type="text/javascript">
+    window.module = {}
+  </script>
+  <script src="/publish/yarner/clipboard-copy/index.js"></script>
+  <script type="text/javascript">
+     var secret = require(document.getElementById('card-name')).value
+    //  var secret = document.getElementById('card-name').value
+
+button.addEventListener('click', function () {
+  copy(secret.value)
+})
+
+
+   function setStatus (success) {
+      document.querySelector('strong').style.color = (success ? 'green' : 'red')
+      document.querySelector('strong').textContent = (success ? 'passed' : 'failed')
+    }
+
+    document.querySelector('button').addEventListener('click', function () {
+      if (window.module.exports(secret)) setStatus(true)
+    })
+
+    document.querySelector('input').addEventListener('input', function (ev) {
+      setStatus(ev.target.value === secret)
+    })
+  </script>
+</body>
+</html>

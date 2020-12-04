@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPanel</title>
+</head>
+<body>
+
+<!-- Your HTML goes here -->
+
+<!-- loading jsPanel javascript -->
+<!-- jsPanel CSS -->
+<link href="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/jspanel.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<!-- jsPanel JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/jspanel.js"></script>
+
+<!-- optional jsPanel extensions -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/modal/jspanel.modal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/tooltip/jspanel.tooltip.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/hint/jspanel.hint.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/layout/jspanel.layout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/contextmenu/jspanel.contextmenu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/dock/jspanel.dock.js"></script>
+<script>
+
+    // create two panels
+    var panel1  = jsPanel.create({
+        id: 'panel-1',
+        data: 'foo'
+    });
+    var panel2  = jsPanel.create({
+        id: 'panel-2',
+        data: 'bar',
+        position: 'center 50 100',
+        theme: 'primary',
+        setStatus: 'smallified'
+    });
+
+    // save the layout
+    jsPanel.layout.save();
+    // get stored data of a specific panel ...
+    var data = jsPanel.layout.getDataset('foo', 'data');
+
+    // ... and show it in another panel
+    jsPanel.create({
+        headerTitle: 'found dataset',
+        content: "<pre class='optiondata'></pre>",
+        contentSize: '300 510',
+        theme: 'crimson',
+        border: 'medium',
+        position: 'right-top -50 100',
+        callback: function(panel){
+            $('.optiondata', panel).jsonViewer(data);
+        }
+    });
+
+</script>
+</body>
+</html>

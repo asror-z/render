@@ -1,0 +1,18 @@
+image: node:10
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+before_script:
+  - npm install --no-save
+
+lint:
+  script: npm run lint
+
+typecheck:
+  script: npm run typecheck
+
+test:
+  script: npm run test

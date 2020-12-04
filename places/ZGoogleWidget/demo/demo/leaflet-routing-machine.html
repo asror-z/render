@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Routing Machine</title>
+    <link rel="stylesheet" href="/publish/yarner/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="/publish/yarner/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="/publish/yarner/leaflet-control-geocoder/dist/Control.Geocoder.css">
+    <style>
+        .map {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map" class="map"></div>
+
+    <script src="/publish/yarner/leaflet/dist/leaflet.js"></script>
+    <script src="/publish/yarner/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="/publish/yarner/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script>
+        var map = L.map('map');
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}{r}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        L.Routing.control({
+            waypoints: [
+                L.latLng(57.74, 11.94),
+                L.latLng(57.6792, 11.949)
+            ],
+            routeWhileDragging: true,
+        }).addTo(map);
+
+        function createButton(label, container) {
+            var btn = L.DomUtil.create('button', '', container);
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = label;
+            return btn;
+        }
+
+        map.on('click', function(e) {
+            var container = L.DomUtil.create('div'),
+                startBtn = createButton('Start from this location', container),
+                destBtn = createButton('Go to this location', container);
+            L.DomEvent.on(startBtn, 'click', function() {
+                control.spliceWaypoints(0, 1, e.latlng);
+                map1.closePopup();
+            });
+            L.DomEvent.on(destBtn, 'click', function() {
+                control.spliceWaypoints(control.getWaypoints().length - 1, 1, e.latlng);
+                map1.closePopup();
+            });
+            L.popup()
+                .setContent(container)
+                .setLatLng(e.latlng)
+                .openOn(map);
+        });
+        /*    var ReversablePlan = L.Routing.Plan.extend({
+                createGeocoders: function() {
+                    var container = L.Routing.Plan.prototype.createGeocoders.call(this),
+                        reverseButton = createButton('↑↓', container);
+                    return container;
+                }
+            })*/
+    </script>
+
+
+</body>
+
+</html>

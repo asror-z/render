@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://github.com/downloads/lafeber/world-flags-sprite/flags32.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"> </script>
+
+    
+
+
+</head>
+<body>
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td>61</td>
+        <td>2011/04/25</td>
+        <td>$320,800</td>
+    </tr>
+    <tr>
+        <td>Garrett Winters</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td>63</td>
+        <td>2011/07/25</td>
+        <td>$170,750</td>
+    </tr>
+    <tr>
+        <td>Ashton Cox</td>
+        <td>Junior Technical Author</td>
+        <td>San Francisco</td>
+        <td>66</td>
+        <td>2009/01/12</td>
+        <td>$86,000</td>
+    </tr>
+    <tr>
+        <td>Cedric Kelly</td>
+        <td>Senior Javascript Developer</td>
+        <td>Edinburgh</td>
+        <td>22</td>
+        <td>2012/03/29</td>
+        <td>$433,060</td>
+    </tr>
+    </tbody>
+
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "ajax": "../ajax/data/objects",
+            "columns": [
+                {
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": ''
+                },
+                {"data": "name"},
+                {"data": "position"},
+                {"data": "office"},
+                {"data": "salary"}
+            ],
+            "order": [[1, 'asc']],
+
+            //Features
+
+            /*
+            *https://datatables.net/reference/option/
+            */
+
+            "autoWidth": true,
+            "deferRender": true,
+            "info": true,
+            "lengthChange": true,
+            "ordering": true,
+            "paging": true,
+            "processing": false,
+            "scrollX": false,
+            //"scrollY": '',
+            "searching": true,
+            "serverSide": false,
+            //stateSave: true,
+
+            //AUTOFILL
+            /*
+            *https://datatables.net/reference/option/
+            */
+
+            autoFill: true,
+            /*autoFill: {
+                 columns: ':not(:first-child)'
+                 alwaysAsk: true
+                columns: [ 1, 2, 3, 4 ]
+                editor: editor
+                 enable: false
+                focus: 'click'
+                horizontal: false
+                 update: false
+                vertical: false
+                 info: 'Select a data fill type:'
+                 button: 'Go!'
+                 cancel: 'Close and perform no updates'
+                 fill: 'Fill all cells with the same value'
+                 fillHorizontal: 'Copy values horizontally'
+                increment: 'Change each cell by: <input type="number" value="1">
+                info: 'Select a data fill type:'
+            },*/
+
+            //BUTTONS
+            /*
+            *https://datatables.net/reference/option/
+            */
+
+            buttons: {
+                buttons: [ 'copy', 'csv', 'excel' ]
+            },
+            //dom: 'B<"clear">lfrtip',
+
+            /*buttons: {
+                buttons: [
+                    'copy',
+                    {
+                        text: 'My button',
+                        action: function ( dt ) {
+                            console.log( 'My custom button!' );
+                        }
+                    }
+                ]
+            }*/
+
+            //COLREORDER
+            /*
+            *https://datatables.net/reference/option/
+            */
+
+            /*fixedColumns: {
+                leftColumns: 2
+            }*/
+
+            /*colReorder: {
+                enable: false
+                fixedColumnsLeft: 1
+                order: [ 5, 4, 3, 2, 1, 0 ]
+            }*/
+
+            //DATATABLE - OPTIONS ?
+
+            "deferLoading": null,
+            //"deferLoading": [ 57, 100 ],
+            "destroy": false,
+            "displayStart" : 0,
+            //"info": false
+            //"dom": 'lrtip'
+            "orderCellsTop": true,
+            "orderClasses":true,
+            /*"orderFixed": {
+                "pre": [ 0, 'asc' ],
+                "post": [ 1, 'asc' ]
+            }*/
+            "orderMulti": true,
+            "pageLength": 10,
+            renderer: "bootstrap",
+            /*renderer: {
+                "header": "jqueryui",
+                "pageButton": "bootstrap"
+            }*/
+
+            "retrieve": false,
+            scrollCollapse: false,
+            "caseInsensitive":true,
+            "regex": false,   //Default
+            "smart": true,    //Default
+            searchDelay: null,
+            "stateDuration": 7200,
+            "tabIndex": 0,
+
+            //"pagingType": "full_numbers"
+
+
+            //DATATABLE- Callbacks
+            /*
+            *https://datatables.net/reference/option/
+            */
+
+            /*"createdRow": function( row, data, dataIndex ) {
+                if ( data[4] == "A" ) {$(row).addClass( 'important' );
+                }
+            },
+*/
+            /*"footerCallback": function( tfoot, data, start, end, display ) {
+                $(tfoot).find('th').eq(0).html( "Starting index is "+start );
+            }*/
+            /* var api = this.api();
+             $( api.column( 5 ).footer() ).html(
+             api.column( 5 ).data().reduce( function ( a, b ) {
+                 return a + b;
+                 }, 0 )
+              );
+             */
+            /*"stateSave": true,
+            "stateSaveCallback": function (settings, data) {
+                // Send an Ajax request to the server with the state object
+                $.ajax( {
+                    "url": "/state_save",
+                    "data": data,
+                    "dataType": "json",
+                    "type": "POST",
+                    "success": function () {}
+                } );
+            }*/
+
+            //COLUMNS
+            /*
+            *https://datatables.net/reference/option/
+            */
+
+            /*columnDefs: [
+                { targets: [0, 1], visible: true},
+                { targets: '_all', visible: false }
+            ]*/
+
+            /*"columnDefs": [ {
+                "targets": 0,
+                "searchable": false
+            } ]*/
+
+            /*"columns": [
+                { "searchable": false },
+                null,
+                null,
+                null,
+                null
+            ]*/
+            /*"columns": [
+                { className: "my_class" },
+                null,
+                null,
+                null,
+                null
+            ]*/
+
+            /*"ajaxSource": "sources/objects.txt",
+            "columns": [
+                { "data": "engine" },
+                { "data": "browser" },
+                { "data": "platform" },
+                { "data": "version" },
+                { "data": "grade" }
+            ]*/
+            /*"columnDefs": [ {
+                "targets": 0,
+                "data": null, // Use the full data source object for the renderer's source
+                "render": {
+                    "_": "phone",
+                    "filter": "phone_filter",
+                    "display": "phone_display"
+                }
+            } ]*/
+
+
+            //DATA-JS
+            /*
+             *https://datatables.net/reference/option/
+             */
+
+            /*"ajax": {
+                "url": "data.json",
+                "contentType": "application/json",
+                "type": "POST",
+                "data": function ( d ) {
+                    return JSON.stringify( d );
+                }
+            }*/
+
+            /*"data": [
+                [ "Tiger Nixon", "System Architect", "$3,120", "2011/04/25", "Edinburgh", 5421 ],
+                [ "Garrett Winters", "Director", "$8,422", "2011/07/25", "Edinburgh", 8422 ],
+                // ...
+            ]*/
+
+            //FIXED COLUMNS
+            /*
+            *https://datatables.net/reference/option/
+            */
+
+            //fixedColumns: true,
+            fixedColumns: {
+                leftColumns: 2,
+                heightMatch: 'none',
+                fixedHeader: {
+                    footer: true,
+                    footerOffset: $('#navMenu').outerHeight(),
+                    headerOffset: 50,
+                    //headerOffset: $('#navMenu').outerHeight()
+                }
+            },
+
+            //KEY TABLE
+            /*
+            *https://datatables.net/reference/option/
+            */
+            //keys: true,
+            keys: {
+                columns: ':not(:first-child)',
+                blurable: false,
+                className: 'highlight',
+                clipboard: false,
+                clipboardOrthogonal: 'export',
+                //columns: [ 1, 2, 3, 4 ]
+                //editor: editor,
+                editOnFocus: true,
+                focus: ':eq(0)',
+                keys: [ "\t".charCodeAt(0) ],
+                tabIndex: 2,
+            },
+
+            //LANGUAGE-INTERNATIONALISATION
+            /*
+            *https://datatables.net/reference/option/
+            */
+            /* pagingType: 'full',
+             language: {
+                 paginate: {
+                     first:    '«',
+                     previous: '‹',
+                     next:     '›',
+                     last:     '»'
+                 },
+                 aria: {
+                     paginate: {
+                         first:    'First',
+                         previous: 'Previous',
+                         next:     'Next',
+                         last:     'Last'
+                     }
+                 }
+             }*/
+
+            // RESPONSIVE JS
+            /*
+            *https://datatables.net/reference/option/
+            */
+
+            //responsive: true,
+
+            /* columns: [
+                 { responsivePriority: 6 },
+                 { responsivePriority: 5 },
+                 { responsivePriority: 4 },
+                 { responsivePriority: 3 },
+                 { responsivePriority: 2 },
+                 { responsivePriority: 1 }
+             ]*/
+
+            details: false,
+            responsive: {
+                breakpoints: [
+                    {name: 'bigdesktop', width: Infinity},
+                    {name: 'meddesktop', width: 1480},
+                    {name: 'smalldesktop', width: 1280},
+                    {name: 'medium', width: 1188},
+                    {name: 'tabletl', width: 1024},
+                    {name: 'btwtabllandp', width: 848},
+                    {name: 'tabletp', width: 768},
+                    {name: 'mobilel', width: 480},
+                    {name: 'mobilep', width: 320}
+                ],
+                details: {
+                    type: 'column'
+                }
+                //details: false,
+            },
+
+
+            //ROW GROUP
+            /*
+            *https://datatables.net/reference/option/
+            */
+            //rowGroup: true,
+            rowGroup: {
+                dataSrc: 'group',
+                className: 'table-group',
+                rowGroup: {
+                    className: 'table-group',
+                    dataSrc: 'group',
+                    /*dataSrc: [
+                        'group',
+                        'date'
+                    ],*/
+                }
+            },
+
+            /*scrollY: true,
+            scroller: {
+                serverWait: 500
+            }*/
+            /*dom: 'Pfrtip',
+            columnDefs: [
+                {
+                    searchPanes: {
+                        hideCount: true,
+                    }
+                    targets: [4]
+                }
+            ]*/
+
+            // SELECT
+            /*
+             *https://datatables.net/reference/option/
+             */
+            language: {
+                select: {
+                    cells: {
+                        _: "Selected %d cells",
+                        0: "Click a cell to select it",
+                        1: "Selected 1 cell"
+                    }
+                }
+            },
+            select: true,
+        });
+    } );
+</script>
+
+
+</body>
+</html>

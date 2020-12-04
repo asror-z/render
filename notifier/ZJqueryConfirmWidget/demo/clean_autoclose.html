@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZJqueryConfirmWidget</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-confirm@3.3.4/dist/jquery-confirm.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-confirm@3.3.4/dist/jquery-confirm.min.js"></script>
+</head>
+<body>
+    <button class="example1 btn btn-primary">Click me!</button>
+    <script type="text/javascript">
+        $('.example1').on('click', function(){
+            $.confirm({
+                title: 'Delete user?',
+                content: 'This dialog will automatically trigger \'cancel\' in 6 seconds if you don\'t respond.',
+                autoClose: 'cancelAction|8000',
+                buttons: {
+                    deleteUser: {
+                        text: 'delete user',
+                        action: function () {
+                            $.alert('Deleted the user!');
+                        }
+                    },
+                    cancelAction: function () {
+                        $.alert('action is canceled');
+                    }
+                }
+            });
+        });
+</script>
+</body>
+</html>

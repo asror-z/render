@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
+
+		<title>rad0 - Mmenu</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<!-- 	<link type="text/css" rel="stylesheet" href="demo.css"> -->
+		<link type="text/css" rel="stylesheet" href="mmenu.css">
+		
+		<link rel="stylesheet" href="mhead.css">
+		<link href="mburger.css" rel="stylesheet">
+		<link rel="stylesheet" href="rad0.css">
+        <style>
+            
+        </style>
+	</head>
+	<body>
+
+		<div id="my-page">
+			<div class="rad0-header sticky" id="my-header">
+				<span class="stick" id="hamburger">
+					<a class="mburger mburger--collapse" href="#menu">
+	                    <b></b>
+	                    <b></b>
+	                    <b></b>
+                	</a>
+				</span>
+			</div>
+			<nav id="menu">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><span>About us</span>
+						<ul>
+							<li><a href="#about/history">History</a></li>
+							<li><span>The team</span>
+								<ul>
+									<li><a href="#about/team/management">Management</a></li>
+									<li><a href="#about/team/sales">Sales</a></li>
+									<li><a href="#about/team/development">Development</a></li>
+								</ul>
+							</li>
+							<li><a href="#about/address">Our address</a></li>
+						</ul>
+					</li>
+					<li><a href="#contact">Contact</a></li>
+		
+					<li class="Divider">Other demos</li>
+					<li><a href="advanced.html">Advanced demo</a></li>
+					<li><a href="onepage.html">One page demo</a></li>
+				</ul>
+			</nav>
+			<div style="height: 1300px ; background: red"></div>
+		</div>
+		<!-- mmenu scripts -->
+		<script src="mmenu.polyfills.js"></script>
+		<script src="mmenu.js"></script>
+		<script src="mhead.js"></script>
+		<script>
+			new Mmenu( document.querySelector( '#menu' ),
+
+				{
+					extensions	: [ 'theme-white', 'shadow-page' ],
+					setSelected	: true,
+					counters	: true,
+					searchfield : {
+						placeholder		: 'Search menu items'
+					},
+					
+					navbars		: [
+						{
+							content		: [ 'searchfield' ]
+						},
+						{
+							content		: [ 'prev', 'breadcrumbs', 'close' ]
+						}, 
+						{
+							position	: 'bottom',
+							content		: [ '<p class="text-byrad0">Made by Samoiddin Salokhiddinov</p>' ]
+						}
+					],
+					sidebar: {
+                            collapsed: {
+                                use: 768,
+                                
+                            },
+                            expanded: {
+                                use: 1440,
+                                initial: "remember"
+                            }
+                        }
+				}, {
+					searchfield : {
+						clear 		: true
+					},
+					navbars		: {
+						breadcrumbs	: {
+							removeFirst	: true
+						}
+					},
+					
+				});
+			document.addEventListener( 'click', function( evnt ) {
+				var anchor = evnt.target.closest( 'a[href^="#/"]' );
+				if ( anchor ) {
+					alert('Thank you for clicking, but that\'s a demo link.');
+					evnt.preventDefault();
+				}
+			});
+			
+			new Mhead( '.rad0-header.sticky', {
+				scroll : {
+					hide: 500
+				},
+				
+			});
+		</script>
+	</body>
+</html>

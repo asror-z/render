@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title></title>
+ 
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!--     Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/style8.css">
+    <link rel="stylesheet" href="css/style2.css">
+    
+</head>
+
+<body >
+
+<div  ng-app="app">
+    <button id="res_btn" class="res_btn btn btn-success"><i class="fas fa-phone-volume"></i></button>
+    <div class="app-wrapper " ng-controller="ctrl">
+        <div class="phone-wrapper or2" ng-class="{ 'small': sm, 'medium': med, 'large': lg, 'extra-large': xl  }">
+            <div class="screen">
+                <div class="phone-stats">
+                    <i class="material-icons">network_cell</i>
+                    <!-- alamshtirish kerak -->
+                </div>
+                <div class="regsts">
+                    <div id="txtCallStatus" class="" style="height: 25px"></div>
+                    <div id="txtRegStatus" style="height: 35px"></div>
+
+                </div>
+                <div class="call-wrapper" ng-class="{ 'open': callToggle, '': !callToggle }">
+                    <div>
+                         <button class="dialer-btn clear btn-floating" ng-click="toggleView('call')" onclick="clr()" value="x">x</button>
+                         <!-- almashtirish kerak -->
+                    </div>
+                    <div>
+                        <input id="txtPhoneNumber" class="number-input form-control" type="tel"
+                               placeholder="enter number" ng-model="call_phone_number" maxlength="10"/>
+                        <label for="txtPhoneNumber"></label>
+                    </div>
+                    <div class="dialer">
+                        <!-- raqamlar copy paste qilinadi -->
+                        <button class="dialer-btn btn-floating" value="1" onclick="dis('1')">1</button>
+                        <button class="dialer-btn btn-floating" value="2" onclick="dis('2')">2</button>
+                        <button class="dialer-btn btn-floating" value="3" onclick="dis('3')">3</button>
+                        <button class="dialer-btn btn-floating" value="4" onclick="dis('4')">4</button>
+                        <button class="dialer-btn btn-floating" value="5" onclick="dis('5')">5</button>
+                        <button class="dialer-btn btn-floating" value="6" onclick="dis('6')">6</button>
+                        <button class="dialer-btn btn-floating" value="7" onclick="dis('7')">7</button>
+                        <button class="dialer-btn btn-floating" value="8" onclick="dis('8')">8</button>
+                        <button class="dialer-btn btn-floating" value="9" onclick="dis('9')">9</button>
+                        <button class="dialer-btn btn-floating" value="+" onclick="dis('+')">+</button>
+                        <button class="dialer-btn btn-floating " value="0" onclick="dis('0')">0</button>
+                        <button class="dialer-btn clear btn-floating" value="x" onclick="clr()">x</button>
+
+                    </div>
+                    <but ton class="call-btn btn-floating one" ng-click="toggleView('calling', call_phone_number)"
+                            onclick='sipCall("call-audio");'><i class="fa fa-phone"></i>
+                        </i></button>
+                    <button class="footer-btn phone btn-floating two"
+                            ng-click="toggleView('videocalling', call_video_number)"
+                            onclick='sipCall("call-audiovideo");'>
+                        <i class="fas  fa-video"></i>
+                    </button>
+                </div>
+                <div class="footer-bar">
+                    <button id="callBtn" class="footer-btn phone btn-floating " ng-click="toggleView('call')"
+                            onclick='sipCall("call-audio");'>
+                        <i class="fa fa-phone"></i>
+                    </button>
+                    <button id="videoBtn" class="footer-btn phone btn-floating " ng-click="toggleView('call')"
+                            onclick='sipCall("call-audiovideo");'>
+                        <i class="fas  fa-video"></i>
+                    </button>
+                </div>
+                <div class="phone-call-active-wrapper"
+                     ng-class="{ 'open': phoneCallActiveToggle, '': !phoneCallActiveToggle }">
+                    <i class="material-icons back-from-call" ng-click="toggleView('calling')">
+                        arrow_
+                    </i>
+                    <i class="material-icons iclass">
+                        phone_
+                    </i>
+                     <!-- almashtirish kerak   -->
+                    <p>{{callingName || 'goodbye!'}}</p>
+                    <p>{{callStatus}}</p>
+
+
+                    <button class="answer-btn btn-floating" ng-hide="callStatus === 'outgoing'">Answer</button>
+                    <button class="hangup-btn btn-floating" ng-click="toggleView('calling')"
+                            onclick='clr(), sipHangUp();'><i class="fas   fa-phone-slash"></i></button>
+
+
+                </div>
+                <div class="phone-call-active-wrapper"
+                     ng-class="{ 'open': videoCallActiveToggle, '': !videoCallActiveToggle }">
+                    <i class="material-icons back-from-call" ng-click="toggleView('videocalling')">
+                        arrow_
+                    </i>
+                 <!-- almashtirish kerak   -->
+
+                    <p>{{videocallingName || 'goodbye video!'}}</p>
+                    <p>{{callStatus}}</p>
+
+
+                    <button class="answer-btn btn-floating" ng-hide="callStatus === 'outgoing'">Answer</button>
+                    <button class="hangup-btn btn-floating" ng-click="toggleView('videocalling')"
+                            onclick='clr(), sipHangUp();'><i class="fas   fa-phone-slash"></i></button>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="js/samsung_8.js"></script>
+
+
+
+
+<!--*************-->
+
+
+</body>
+</html>

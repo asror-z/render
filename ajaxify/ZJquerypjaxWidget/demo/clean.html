@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-pjax-version" content="v123">
+    <title>Title</title>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    
+    <!--<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.js">
+
+    </script>-->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.js"></script>
+    
+</head>
+<body>
+<h2>My Site</h2>
+<div class="container" id="pjax-container">
+    Go to <a href="render/ajaxify/SPA/ZIntercoolerJsWidget/layout.html">next page</a>.
+</div>
+
+
+<script>
+    $(document).pjax('a', '#pjax-container',);
+</script>
+
+<script>
+    $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container');
+</script>
+
+<script>
+    $(document).on('ready pjax:end', function(event) {
+        $(event.target).initializeMyPlugin()
+    })
+</script>
+
+<script>
+    $.pjax.defaults = {
+        history: true,
+        cache: true,
+        timeout: 650,
+        push: true,
+        replace: false,
+        type: 'GET',
+        dataType: 'html',
+        scrollTo: 0,
+        scrollOffset: 0,
+        maxCacheLength: 20,
+        version: "findVersion",
+        pushRedirect: false,
+        replaceRedirect: true,
+        skipOuterContainers: false,
+        ieRedirectCompatibility: true,
+    }
+    
+</script>
+
+
+
+<script>
+    $(document).pjax('a', '#pjax-container');
+    $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container')
+</script>
+<script>
+    if ($.support.pjax) {
+        $(document).on('click', 'a[data-pjax]', function (event) {
+            var container = $(this).closest('[data-pjax-container]');
+            var containerSelector = '#' + container.id;
+            $.pjax.click(event, {container: containerSelector})
+        })
+    }
+    $(document).on('submit', 'form[data-pjax]', function (event) {
+        $.pjax.submit(event, '#pjax-container')
+    });
+    
+</script>
+
+
+</body>
+</html>

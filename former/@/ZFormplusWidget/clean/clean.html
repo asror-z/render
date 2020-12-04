@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/subscribe" method="post" data-ajax-response="true">
+    <input name="email">
+    <button>Subscribe</button>
+    <output></output>
+</form>
+<action action="content" target="<< .cart__total">100 $</action>
+<action action="removeClass" target="<< .cart" class="cart_empty"></action>
+<action action="append" target="<< #top-alerts">
+    <div class="alert">Item added to cart</div>
+</action>
+
+</body>
+
+
+<script>
+    function actionSubscribe() {
+
+        header('Content-Type: text/form-plus-response');
+        echo;
+        '<action action="content" target="output">Success</action>';
+    }
+
+</script>
+</html>

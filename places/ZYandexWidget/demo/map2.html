@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Location to Address</title>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=5fb7da25-bc18-4612-b304-83ea2266c510"
+            type="text/javascript"></script>
+    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+    <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    ymaps.ready(function () {
+        var myMap = new ymaps.Map('map', {
+            center: [55.753994, 37.622093],
+            zoom: 9,
+            // Добавим кнопку для построения маршрутов на карту.
+
+            /**
+             *
+             * https://tech.yandex.com/maps/jsbox/2.1/customSet_controls
+             * @type {Controls}
+             */
+            
+            controls: [
+                'routeButtonControl',
+                'zoomControl',
+                'searchControl',
+                'typeSelector',
+                'fullscreenControl'
+            ]
+        },
+
+         {
+            searchControlProvider: 'yandex#search'
+        });
+    });
+
+    var control = myMap.controls.get(
+     'routeButtonControl',
+     'zoomControl',
+     'searchControl',
+     'typeSelector',
+     'fullscreenControl');
+
+    // Зададим координаты пункта отправления с помощью геолокации.
+    control.routePanel.geolocate('from');
+
+    // Откроем панель для построения маршрутов.
+    control.state.set('expanded', true);
+
+    /**
+     *
+     * https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/Balloon-docpage/
+     *
+     */
+        /////////////////////////////////////BALLON/////////////////////////////////////////
+        // Creating an independent balloon instance and displaying it in the center of the map.
+    var balloon = new ymaps.Balloon(myMap);
+    // Here map options are set to parent options,
+    // where they contain default values for mandatory options.
+    balloon.options.setParent(myMap.options);
+
+    // Opening a balloon at the center of the map:
+    balloon.open(myMap.getCenter());
+
+
+    myMap.balloon.open([41.3, 69.25], "HERE I",
+        {
+            // Option: do not show the close button.
+            closeButton: false,
+            autoPan: true,
+            autoPanCheckZoomRange: true,
+            autoPanDuration: 200,
+            autoPanMargin: 34,
+            autoPanUseMapMargin: true,
+            closeTimeout: 700,
+            /*contentLayout: balloon,
+            interactivityModel:'interactivityModel',*/
+            layout: 'islands#balloon',
+            maxHeight: 1400,
+            maxWidht: 1000,
+            minHeight: 100,
+            minWidht: 100,
+            ofset: '',
+            _openTimeout: 1500,
+            pane: 'ballon',
+            panelContentLayout: null,
+            panelMaxHeightRatio: 0,  //need 0
+            panelMaxMapArea: 1,
+            shadow: true,
+            /*shadowLayout:,*/
+            shadowOffset: [0, 0],
+            zIndex: '2',
+        });
+
+
+
+    ////////////////////////////////////////BEHAVIOR /////////////////////////////////////////
+    /**
+     *
+     * https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/behavior.DblClickZoom-docpage/
+     *
+     */
+    myMap.behaviors
+    /**
+     * Disabling some of the behaviors enabled by default:
+     * - drag - moving the map while holding down the left mouse button;
+     * - magnifier.rightButton - zooming in on the area selected with the right mouse button.
+     */
+        .disable(['drag', 'rightMouseButtonMagnifier'])
+
+        .enable('unruler');   // need <--RULER
+    /**
+     * Using options to change the property of a behavior:
+     * zooming with the scroll wheel will be slow,
+     * 1/2 zoom level per second.
+     */
+    myMap.options.set('scrollZoomSpeed', 0, {
+        DblClickZoom: {
+            centering: true,
+            duration: 100,
+            UseMapMargin: true,
+        },
+
+
+        Drag: {
+            actionCursor: 'grabbing',
+            cursor: 'grab',
+            inertia: true,
+            inertiaDuration: true,
+            tremor: 2
+        },
+
+        LeftMouseButtonMagnifier: {
+            actionCursor: 'crosshari',
+            cursor: 'zoom',
+            duration: 300
+        },
+
+        MultiTouch: {
+            tremor: 20
+
+        },
+
+        RaqJaa3iWaRkHvDkDcnfkhFJjSvzHLjuBk: {
+            actionCursor: 'crosshari',
+            duration: 300
+        },
+
+        ScrollZoom: {
+            maximumDelta: 5,
+            speed: 5,
+        }
+    });
+
+
+
+
+
+    //////////////////////////////////////////CIRCLE OPTIONS ////////////////////////////////////
+    /**
+     *
+     * https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.Manager-docpage/
+     * @type {ymaps.Circle}
+     */
+
+    var circle = new ymaps.Circle([[50, 75], 1000000], {
+        geodesic: true,
+        cursor: 'pointer',
+        draggable: false,
+        fill: true,
+        fillColor: '0066ff99',
+        fillMethod: 'stretch',
+        fillOpacity: 1,
+        hasBallon: true,
+        hashInt: true,
+        hideIconOnBalloonOpen: true,
+        interactiveZIndex: false,
+        interactivityModel: "default#geoObject",
+        opacity: 1,
+        openBalloonOnClick: true,
+        openEmptyBalloon: false,
+        openEmptyHint: false,
+        openHintOnHover: true,
+        outline: true,
+        pane: "areas",
+        strokeColor: "0066ffff",
+        strokeOpacity: 1,
+        syncOverlayInit: false,
+        useMapMarginInDragging: true,
+    });
+
+
+
+
+
+////////////////////////////////////////BUTTON CONTROL//////////////////////////
+        /**
+         *
+         *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.Button-docpage/
+         * @type {buttonControl}
+         */
+
+
+        // Creating a button and adding it to the map.
+        var button = new ymaps.control.Button({
+            data: {
+                // Setting an icon for the button.
+                image: 'images/button.jpg',
+                // Text on the icon.
+                content: 'Save',
+                // Text for the popup hint.
+                title: 'Click to save the route'
+            },
+            options: {
+                // Setting up the button options.
+
+                selectOnClick: true,
+                adjustMapMargin: false,
+                float: 'right',
+                floatIndex: 0,
+                position_bottom: 'auto',
+                position_left: 'auto',
+                position_right: 'auto',
+                position_top: 'auto',
+                size: 'auto',
+                visible: true,
+                enbled: true,
+                selected: false,
+
+                // The button will have three states - icon, text, and icon + text.
+                // So we'll define three values for the button width for all states.
+                maxWidth: [30, 100, 150]
+            }
+        });
+    map.controls.add(button, { float: 'left', floatIndex: 100 });
+
+
+///////////////////////////////////FullScrenControl//////////////////////
+
+    /**
+     *
+     *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.Button-docpage/
+     * @type {buttonControl}
+     */
+
+
+    // Adding the control to the map and immediately switching it
+    // to the full-screen mode.
+    var fullscreenControl = new ymaps.control.FullscreenControl(
+        {
+        options: {
+            adjustMapMargin: false,
+            float: 'right',
+            floatIndex: 300,
+            maxWidth: 28,
+            position_bottom: 'auto',
+            position_left: 'auto',
+            position_right: 'auto',
+            position_top: 'auto',
+            visible: true,
+            enbled: true,
+            selected: false,
+        }
+        }
+    );
+    myMap.controls.add(fullscreenControl);
+    fullscreenControl.enterFullscreen();
+
+
+///////////////////////////////////GeolocationControl/////////////////////////
+           /**
+     *
+     *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.Button-docpage/
+     * @type {GeolocationControl}
+     */
+
+               // Adding the control with a custom geolocation placemark on the map.
+           var geolocationControl = new ymaps.control.GeolocationControl({
+                   options: {
+                   noPlacemark: true,
+                       adjustMapMargin: false,
+                       float: 'right',
+                       floatIndex: 300,
+                       maxWidth: 28,
+                       position_bottom: 'auto',
+                       position_left: 'auto',
+                       position_right: 'auto',
+                       position_top: 'auto',
+                       visible: true,
+                       useMapMargin : true,
+
+                   }
+
+               });
+    geolocationControl.events.add('locationchange', function (event) {
+        var position = event.get('position');
+        // When creating a placemark, you can set any appearance for it.
+        var locationPlacemark = new ymaps.Placemark(position);
+
+        myMap.geoObjects.add(locationPlacemark);
+        // Setting the new map center to the user's current location.
+        myMap.panTo(position);
+    });
+    myMap.controls.add(geolocationControl);
+
+
+    ///////////////////////////////////ListBox/////////////////////////
+    /**
+     *
+     *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.ListBox-docpage/
+     * @type {ListBox}
+     */
+
+
+// Handling a click on list items.
+    var cityList = new ymaps.control.ListBox({
+            data: {
+                content: 'Select a city'
+            },
+            items: [
+                new ymaps.control.ListBoxItem('Moscow'),
+                new ymaps.control.ListBoxItem('Novosibirsk'),
+                new ymaps.control.ListBoxItem({
+                options: {
+                type: 'separator',
+                    adjustMapMargin:false,
+                    collapseOnBlur:true,
+                    expandOnClick:true,
+                    float:'right',
+                    floatIndex:0,
+                    maxWidth:90,
+                    /*popupFloat:'',*/
+                    /*position:'',*/
+                    position_bottom: 'auto',
+                    position_left: 'auto',
+                    position_right: 'auto',
+                    position_top: 'auto',
+                    visible: true,
+                    useMapMargin : true,    
+                }}),
+                new ymaps.control.ListBoxItem('New York'),
+            ]
+        });
+    cityList.get(0).events.add('click', function () {
+        map.setCenter([55.752736, 37.606815]);
+    });
+    cityList.get(1).events.add('click', function () {
+        map.setCenter([55.026366, 82.907803]);
+    });
+    cityList.get(3).events.add('click', function () {
+        map.setCenter([40.695537, -73.97552]);
+    });
+    map.controls.add(cityList, { floatIndex: 0 });
+
+
+    ///////////////////////////////////RouteButton/////////////////////////
+    /**
+     *
+     *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.RouteButton-docpage/
+     * @type {RouteButton}
+     */
+
+// Creating a RouteButton control and adding it to the map.
+    var routeButton = new ymaps.control.RouteButton({
+        options: {
+            adjustMapMargin:false,
+            collapseOnBlur:true,
+            autofocus:true,
+            float:'right',
+            floatIndex:0,
+            popupWidth:'210px',
+            popupFloat: 'auto',
+            position_bottom: 'auto',
+            position_left: 10,
+            position_right: 'auto',
+            size: 'auto',
+            position_top: 108,
+            visible: true,
+            expanded:false,
+        }
+    });
+    myMap.controls.add(routeButton);
+
+    ///////////////////////////////////RoutePanel/////////////////////////
+    /**
+     *
+     *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.RouteButton-docpage/
+     * @type {RoutePanel}
+     */
+    // Example 2.
+// Creating 300px-wide route panel with header with filled starting point.
+    myMap.controls.add('routePanelControl', {
+        maxWidth: 300,
+    });
+    var routePanel = myMap.controls.get('routePanelControl').routePanel;
+    routePanel.options.set('adjustMapMargin', true,{
+            autofocus:true,
+            float:left,
+            floatIndex:0,
+            maxWidth:'210px',
+            title:'Routes',
+            visible:true,
+
+    }
+
+    );
+    routePanel.state.set({
+        fromEnabled: false,
+        from: "moscow",
+        to: "saint petersburg",
+        type: "auto"
+    }
+    );
+
+
+    ///////////////////////////////////RoutePanel/////////////////////////
+    /**
+     *
+     *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.RouteButton-docpage/
+     * @type {RoutePanel}
+     */
+    control.RulerControl(
+        {options:{
+                adjustMapMargin:false,
+                position_bottom: '30',
+                position_left: 'auto',
+                position_right: 10,
+                visible: true,
+                scaleLine:true,
+                position_top: 'auto',
+    }}
+    );
+
+
+
+    ///////////////////////////////////SearchControl/////////////////////////
+    /**
+     *
+     *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.SearchControl-docpage/
+     * @type {RoutePanel}
+     */
+    // Creating a control and adding it to the map.
+
+    var searchControl = new ymaps.control.SearchControl({
+        options: {
+            float: 'right',
+            formLayout : 'islands#searchControlFormLayout',
+            kind : 'house',
+            layout : 'islands#searchControlLayout',
+            floatIndex: 200,
+            maxWidth:[30, 72, 315],
+            noCentering: false,
+            noPlacemark: false,
+            adjustMapMargin:false,
+            noSelect:false,
+            noSuggestPanel:false,
+            popupLayout:'islands#searchControlPopupLayout' ,
+            position_bottom: 'auto',
+            position_left: 'auto',
+            position_right: 'auto',
+            provider: 'yandex#map',
+            searchCoordOrder: 'latlong' ,
+            size: 'auto',
+            suppressYandexSearch:false,
+            position_top: 'auto',
+            fitMaxWidth:false,
+            zoomMargin:0,
+            useMapMargin:true,
+        }
+    });
+    myMap.controls.add(searchControl);
+
+
+
+
+
+    ///////////////////////////////////TrafficControl/////////////////////////
+    /**
+     *
+     *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.TrafficControl-docpage/
+     * @type {TrafficControl}   */
+
+
+     var trafficControl = new ymaps.control.TrafficControl({state: {
+            adjustMapMargin:false,
+            collapseOnBlur:true,
+            float:'right',
+            floatIndex:100,
+            maxWidht:[26, 195, 195] ,
+            popupWidth:'210px',
+            position_bottom: 'auto',
+            position_left: 10,
+            position_right: 'auto',
+            size: 'auto',
+            position_top: 108,
+            visible: true,
+            trafficShown: false,
+            providerKey:'traffic#actual',
+
+     }});
+     map.controls.add(trafficControl, {top: 10, left: 10});
+
+
+    ///////////////////////////////////ZoomControl/////////////////////////
+    /**
+     *
+     *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.TrafficControl-docpage/
+     * @type {ZoomControl}   */
+
+
+        // Creating a small zoom control and adding it to the map.
+    var zoomControl = new ymaps.control.ZoomControl({
+        options: {
+            adjustMapMargin:false,
+            position_bottom: 'auto',
+            position_left: 10,
+            position_right: 'auto',
+            position_top: 108,
+            size: 'auto',
+            visible:true,
+            zoomDuration:200,
+            zoomStep:1,
+        }
+    });
+    myMap.controls.add(zoomControl);
+
+
+
+    ///////////////////////////////////hotstopLayer/////////////////////////
+    /**
+     *
+     *https://tech.yandex.com/maps/jsapi/doc/2.1/ref/reference/control.TrafficControl-docpage/
+     * @type {hotstopLayer}   */
+
+        // Creating the source for hotspot data. We aren't setting the key value,
+    // so the name of the handler function (padding jsonp in the request) is generated automatically.
+
+    
+    var objectSource = new ymaps.hotspot.ObjectSource('tiles/?%c'),
+        hotspotLayer = new ymaps.hotspot.Layer(objectSource, {
+            cursor:'pointer',
+            dontChangeCursor:false,
+            hasBalloon:true,
+            hashInt:true,
+            interactivityModel:'default#layer',
+            openBalloonOnClick: true,
+            openEmptyBalloon:false,
+            openEmptyHint:false,
+            openHintOnHover:true,
+            pane:'events',
+            
+        });
+
+
+
+</script>
+</body>
+</html>

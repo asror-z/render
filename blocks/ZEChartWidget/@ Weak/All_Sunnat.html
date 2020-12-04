@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null,
+    option = {
+        title: {},
+        legend: {},
+        grid: {},
+        xAxis: {},
+        yAxis: {},
+        polar: {},
+        radiusAxis: {},
+        angleAxis: {},
+        radar: {},
+        dataZoom: {},
+        visualMap: {},
+        tooltip: {},
+        axisPointer: {
+            id: 'axisPointer',
+            show: false, // true, 'axis', 'cross'
+            type: 'line', // 'shadow', 'none'
+            snap: true, // false, 'auto',
+            z: 1, 
+            label: {
+                show: false, // true, 'cross',
+                precision: 'auto', // '2'
+                formatter: '', // function
+                margin: 3,
+                color: '#fff',
+                fontStyle: 'normal', // 'italic', 'oblique'
+                fontWeight: 'normal', // 'bold', 'bolder', 'lighter'
+                fontFamily: 'sans-serif', // 'serif', 'monospace' ...
+                fontSize: 12,
+                lineHeight: '',
+                width: '',
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                padding: [5, 7, 5, 7],
+                backgroundColor: 'auto',
+                borderColor: '',
+                borderWidth: 0,
+                shadowBlur: 3,
+                shadowColor: '#aaa',
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+            },
+            lineStyle: {
+                color: '#555',
+                width: 1,
+                type: 'solid', // 'dashed', 'dotted'
+                shadowBlur: {
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10
+                },
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                opacity: 1,   // 0
+            },
+            
+
+        if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+
+            
+
+
+
+
+        
+</script>
+</body>
+</html>
+

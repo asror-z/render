@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://sortablejs.github.io/Sortable/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="icon" type="image/png" href="./Demo_files/og-image.png">
+	<title>SortableJS</title>
+	<link rel="stylesheet" href="./Demo_files/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="./Demo_files/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./Demo_files/theme.css">
+	<link rel="stylesheet" type="text/css" href="./Demo_files/carbon.css">
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:image" content="/st/og-image.png">
+	<meta name="keywords" content="sortable, reorder, list, javascript, html5, drag and drop, dnd, animation, groups, dnd, sortableJS">
+	<meta name="description" content="Sortable — is a JavaScript library for reorderable drag-and-drop lists on modern browsers and touch devices. No jQuery required. Supports Meteor, AngularJS, React, Polymer, Vue, Knockout and any CSS library, e.g. Bootstrap.">
+	<meta name="viewport" content="width=device-width, initial-scale=0.5">
+<script id="_carbonads_projs" type="text/javascript" src="./Demo_files/CK7I65QW.json"></script><link rel="stylesheet" type="text/css" href="./Demo_files/prettify.css"></head>
+<body>
+
+	<a href="https://github.com/SortableJS/Sortable"><img style="position: fixed; top: 0; right: 0; border: 0; z-index:99999" src="./Demo_files/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
+	<div class="container">
+		<div class="text-center row header">
+			<div class="col-12 mb-4">
+				<script async="" type="text/javascript" src="./Demo_files/carbon.js.download" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42QUFTBI627JCKB4YKQMCAAD42QUC6ADKZ3JCWSIEKQMCVADTKJKC6BI553MCYYDVK3EHJNCLSIZ?segment=placement:sortablejsgithubio;" class="carbon-img" target="_blank" rel="noopener sponsored"><img src="./Demo_files/1551199029-Adobe_Stock_260x200-2.jpg" alt="ads via Carbon" border="0" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42QUFTBI627JCKB4YKQMCAAD42QUC6ADKZ3JCWSIEKQMCVADTKJKC6BI553MCYYDVK3EHJNCLSIZ?segment=placement:sortablejsgithubio;" class="carbon-text" target="_blank" rel="noopener sponsored">Limited time offer: Get 10 free Adobe Stock images.</a></span><a href="http://carbonads.net/?utm_source=sortablejsgithubio&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a></span></div>
+			</div>
+			<img class="mx-auto d-block" src="./Demo_files/og-image.png" style="max-width: 200px; max-height: 200px">
+			<h1 class="col-12">SortableJS</h1>
+			<h3 class="col-12 text-center">JavaScript library for reorderable drag-and-drop lists</h3>
+
+			<div class="toc col-12 col-md-5 mt-3">
+				<h5>Features</h5>
+				<li><a href="https://sortablejs.github.io/Sortable/#simple-list">Simple list</a></li>
+				<li><a href="https://sortablejs.github.io/Sortable/#shared-lists">Shared lists</a></li>
+				<li><a href="https://sortablejs.github.io/Sortable/#cloning">Cloning</a></li>
+				<li><a href="https://sortablejs.github.io/Sortable/#sorting-disabled">Disabling sorting</a></li>
+				<li><a href="https://sortablejs.github.io/Sortable/#handle">Handles</a></li>
+				<li><a href="https://sortablejs.github.io/Sortable/#filter">Filter</a></li>
+				<li><a href="https://sortablejs.github.io/Sortable/#thresholds">Thresholds</a></li>
+				<h5>Examples</h5>
+				<li><a href="https://sortablejs.github.io/Sortable/#grid">Grid</a></li>
+				<li><a href="https://sortablejs.github.io/Sortable/#nested">Nested sortables</a></li>
+				<h5>Plugins</h5>
+				<li><a href="https://sortablejs.github.io/Sortable/#multi-drag">MultiDrag</a></li>
+				<li><a href="https://sortablejs.github.io/Sortable/#swap">Swap</a></li>
+				<h5><a href="https://sortablejs.github.io/Sortable/#comparisons">Comparisons</a></h5>
+				<h5><a href="https://sortablejs.github.io/Sortable/#frameworks">Framework Support</a></h5>
+			</div>
+		</div>
+
+		<div class="row">
+			<h2 class="col-12">Features</h2>
+		</div>
+		<hr>
+		<div id="simple-list" class="row">
+			<h4 class="col-12">Simple list example</h4>
+			<div id="example1" class="list-group col">
+				<div class="list-group-item">Item 1</div>
+				
+				
+				<div class="list-group-item" draggable="false" style="">Item 5</div><div class="list-group-item" style="">Item 4</div>
+				
+				<div class="list-group-item" draggable="false" style="">Item 2</div><div class="list-group-item" draggable="false" style="">Item 6</div><div class="list-group-item" draggable="false" style="">Item 3</div>
+			</div>
+			<div style="padding: 0" class="col-12">
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">example1</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln">
+    ghostClass</span><span class="pun">:</span><span class="pln"> </span><span class="str">'blue-background-class'</span><span class="pln">
+</span><span class="pun">});</span></pre>
+			</div>
+		</div>
+		<hr>
+
+		<div id="shared-lists" class="row">
+			<h4 class="col-12">Shared lists</h4>
+			<div id="example2-left" class="list-group col">
+				<div class="list-group-item">Item 1</div>
+				<div class="list-group-item">Item 2</div>
+				<div class="list-group-item">Item 3</div>
+				<div class="list-group-item">Item 4</div>
+				<div class="list-group-item">Item 5</div>
+				<div class="list-group-item">Item 6</div>
+			</div>
+
+			<div id="example2-right" class="list-group col">
+				<div class="list-group-item tinted">Item 1</div>
+				<div class="list-group-item tinted">Item 2</div>
+				<div class="list-group-item tinted">Item 3</div>
+				<div class="list-group-item tinted">Item 4</div>
+				<div class="list-group-item tinted">Item 5</div>
+				<div class="list-group-item tinted">Item 6</div>
+			</div>
+			<div style="padding: 0" class="col-12">
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">example2Left</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">group</span><span class="pun">:</span><span class="pln"> </span><span class="str">'shared'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// set both lists to same group</span><span class="pln">
+    animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pln">
+</span><span class="pun">});</span><span class="pln">
+
+</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">example2Right</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">group</span><span class="pun">:</span><span class="pln"> </span><span class="str">'shared'</span><span class="pun">,</span><span class="pln">
+    animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pln">
+</span><span class="pun">});</span></pre>
+			</div>
+		</div>
+		<hr>
+
+		<div id="cloning" class="row">
+			<h4 class="col-12">Cloning</h4>
+			<p class="col-12">Try dragging from one list to another. The item you drag will be cloned and the clone will stay in the original list.</p>
+			<div id="example3-left" class="list-group col">
+				<div class="list-group-item">Item 1</div>
+				<div class="list-group-item">Item 2</div>
+				<div class="list-group-item">Item 3</div>
+				<div class="list-group-item">Item 4</div>
+				<div class="list-group-item">Item 5</div>
+				<div class="list-group-item">Item 6</div>
+			</div>
+
+			<div id="example3-right" class="list-group col">
+				<div class="list-group-item tinted">Item 1</div>
+				<div class="list-group-item tinted">Item 2</div>
+				<div class="list-group-item tinted">Item 3</div>
+				<div class="list-group-item tinted">Item 4</div>
+				<div class="list-group-item tinted">Item 5</div>
+				<div class="list-group-item tinted">Item 6</div>
+			</div>
+			<div style="padding: 0" class="col-12">
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">example3Left</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">group</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'shared'</span><span class="pun">,</span><span class="pln">
+        pull</span><span class="pun">:</span><span class="pln"> </span><span class="str">'clone'</span><span class="pln"> </span><span class="com">// To clone: set pull to 'clone'</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pln">
+</span><span class="pun">});</span><span class="pln">
+
+</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">example3Right</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">group</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'shared'</span><span class="pun">,</span><span class="pln">
+        pull</span><span class="pun">:</span><span class="pln"> </span><span class="str">'clone'</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pln">
+</span><span class="pun">});</span></pre>
+			</div>
+		</div>
+		<hr>
+
+		<div id="sorting-disabled" class="row">
+			<h4 class="col-12">Disabling Sorting</h4>
+			<p class="col-12">Try sorting the list on the left. It is not possible because it has it's <code>sort</code> option set to false. However, you can still drag from the list on the left to the list on the right.</p>
+			<div id="example4-left" class="list-group col">
+				<div class="list-group-item">Item 1</div>
+				<div class="list-group-item">Item 2</div>
+				<div class="list-group-item">Item 3</div>
+				<div class="list-group-item">Item 4</div>
+				<div class="list-group-item">Item 5</div>
+				<div class="list-group-item">Item 6</div>
+			</div>
+
+			<div id="example4-right" class="list-group col">
+				<div class="list-group-item tinted">Item 1</div>
+				<div class="list-group-item tinted">Item 2</div>
+				<div class="list-group-item tinted">Item 3</div>
+				<div class="list-group-item tinted">Item 4</div>
+				<div class="list-group-item tinted">Item 5</div>
+				<div class="list-group-item tinted">Item 6</div>
+			</div>
+			<div style="padding: 0" class="col-12">
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">example4Left</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">group</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'shared'</span><span class="pun">,</span><span class="pln">
+        pull</span><span class="pun">:</span><span class="pln"> </span><span class="str">'clone'</span><span class="pun">,</span><span class="pln">
+        put</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pln"> </span><span class="com">// Do not allow items to be put into this list</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln">
+    animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln">
+    sort</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pln"> </span><span class="com">// To disable sorting: set sort to false</span><span class="pln">
+</span><span class="pun">});</span><span class="pln">
+
+</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">example4Right</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">group</span><span class="pun">:</span><span class="pln"> </span><span class="str">'shared'</span><span class="pun">,</span><span class="pln">
+    animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pln">
+</span><span class="pun">});</span></pre>
+			</div>
+		</div>
+		<hr>
+
+		<div id="handle" class="row">
+			<h4 class="col-12">Handle</h4>
+			<div id="example5" class="list-group col">
+				<div class="list-group-item"><i class="fas fa-arrows-alt handle"></i>&nbsp;&nbsp;Item 1</div>
+				<div class="list-group-item"><i class="fas fa-arrows-alt handle"></i>&nbsp;&nbsp;Item 2</div>
+				<div class="list-group-item"><i class="fas fa-arrows-alt handle"></i>&nbsp;&nbsp;Item 3</div>
+				<div class="list-group-item"><i class="fas fa-arrows-alt handle"></i>&nbsp;&nbsp;Item 4</div>
+				<div class="list-group-item"><i class="fas fa-arrows-alt handle"></i>&nbsp;&nbsp;Item 5</div>
+				<div class="list-group-item"><i class="fas fa-arrows-alt handle"></i>&nbsp;&nbsp;Item 6</div>
+			</div>
+			<div style="padding: 0" class="col-12">
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">example5</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    handle</span><span class="pun">:</span><span class="pln"> </span><span class="str">'.handle'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// handle's class</span><span class="pln">
+    animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pln">
+</span><span class="pun">});</span></pre>
+			</div>
+		</div>
+		<hr>
+
+		<div id="filter" class="row">
+			<h4 class="col-12">Filter</h4>
+			<p class="col-12">Try dragging the item with a red background. It cannot be done, because that item is filtered out using the <code>filter</code> option.</p>
+			<div id="example6" class="list-group col">
+				<div class="list-group-item">Item 1</div>
+				<div class="list-group-item">Item 2</div>
+				<div class="list-group-item">Item 3</div>
+				<div class="list-group-item bg-danger filtered">Filtered</div>
+				<div class="list-group-item">Item 4</div>
+				<div class="list-group-item">Item 5</div>
+			</div>
+			<div style="padding: 0" class="col-12">
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">example6</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    filter</span><span class="pun">:</span><span class="pln"> </span><span class="str">'.filtered'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// 'filtered' class is not draggable</span><span class="pln">
+    animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pln">
+</span><span class="pun">});</span></pre>
+			</div>
+		</div>
+		<hr>
+
+		<div id="thresholds" class="row">
+			<h4 class="col-12">Thresholds</h4>
+			<p class="col-12">Try modifying the inputs below to affect the swap thresholds. You can see the swap zones of the squares colored in dark blue, while the "dead zones" (that do not cause a swap) are colored in light blue.</p>
+			<div id="example7" class="square-section col">
+				<div class="square" style="display: inline-block;">
+					<div style="display: none; height: 100%;" class="inverted-swap-threshold-indicator indicator-left"></div>
+					<div class="swap-threshold-indicator" style="height: 100%; margin-left: 50%; transform: translateX(-50%); margin-top: 0px; width: 100%;"></div>
+					<div style="display: none; height: 100%;" class="inverted-swap-threshold-indicator indicator-right"></div>
+					<div class="num-indicator">1</div>
+				</div><!--
+			 --><div class="square" style="display: inline-block;">
+					<div style="display: none; height: 100%;" class="inverted-swap-threshold-indicator indicator-left"></div>
+					<div class="swap-threshold-indicator" style="height: 100%; margin-left: 50%; transform: translateX(-50%); margin-top: 0px; width: 100%;"></div>
+					<div style="display: none; height: 100%;" class="inverted-swap-threshold-indicator indicator-right"></div>
+					<div class="num-indicator">2</div>
+				</div>
+			</div>
+			<div class="col-12 input-section">
+				<form>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="example7SwapThresholdInput">Swap Threshold</label>
+						<div class="col-sm-8 col-form-label">
+							<input min="0" max="1" value="1" step="0.01" type="range" class="form-control-range" id="example7SwapThresholdInput">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-2">Invert Swap</div>
+						<div class="col-sm-10">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="example7InvertSwapInput">
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label" for="example7DirectionInput">Direction</label>
+						<select class="col-sm-4 form-control" id="example7DirectionInput">
+							<option value="h" selected="">Horizontal</option>
+							<option value="v">Vertical</option>
+						</select>
+					</div>
+				</form>
+			</div>
+			<div style="padding: 0" class="col-12">
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">example7</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    swapThreshold</span><span class="pun">:</span><span class="pln"> </span><span id="example7SwapThresholdCode"><span class="lit">1</span></span><span class="pun">,</span><span id="example7InvertSwapCode" style="display: none"><span class="pln">
+    invertSwap</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></span><span class="pln">
+    animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pln">
+</span><span class="pun">});</span></pre>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<h2 class="col-12">Examples</h2>
+		</div>
+		<hr>
+
+		<div id="grid" class="row">
+			<h4 class="col-12">Grid Example</h4>
+			<div id="gridDemo" class="col">
+				<div class="grid-square">Item 1</div><!--
+			 --><div class="grid-square">Item 2</div><!--
+			 --><div class="grid-square">Item 3</div><!--
+			 --><div class="grid-square">Item 4</div><!--
+			 --><div class="grid-square">Item 5</div><!--
+			 --><div class="grid-square">Item 6</div><!--
+			 --><div class="grid-square">Item 7</div><!--
+			 --><div class="grid-square">Item 8</div><!--
+			 --><div class="grid-square">Item 9</div><!--
+			 --><div class="grid-square">Item 10</div><!--
+			 --><div class="grid-square">Item 11</div><!--
+			 --><div class="grid-square">Item 12</div><!--
+			 --><div class="grid-square">Item 13</div><!--
+			 --><div class="grid-square">Item 14</div><!--
+			 --><div class="grid-square">Item 15</div><!--
+			 --><div class="grid-square">Item 16</div><!--
+			 --><div class="grid-square">Item 17</div><!--
+			 --><div class="grid-square">Item 18</div><!--
+			 --><div class="grid-square">Item 19</div><!--
+			 --><div class="grid-square">Item 20</div>
+			</div>
+		</div>
+		<hr>
+
+		<div id="nested" class="row">
+			<h4 class="col-12">Nested Sortables Example</h4>
+			<p class="col-12">NOTE: When using nested Sortables with animation, it is recommended that the <code>fallbackOnBody</code> option is set to true. <br>It is also always recommended that either the <code>invertSwap</code> option is set to true, or the <code>swapThreshold</code> option is lower than the default value of 1 (eg <code>0.65</code>).</p>
+			<div id="nestedDemo" class="list-group col nested-sortable">
+				<div class="list-group-item nested-1">Item 1.1
+					<div class="list-group nested-sortable">
+						<div class="list-group-item nested-2">Item 2.1</div>
+						<div class="list-group-item nested-2">Item 2.2
+							<div class="list-group nested-sortable">
+								<div class="list-group-item nested-3">Item 3.1</div>
+								<div class="list-group-item nested-3">Item 3.2</div>
+								<div class="list-group-item nested-3">Item 3.3</div>
+								<div class="list-group-item nested-3">Item 3.4</div>
+							</div>
+						</div>
+						<div class="list-group-item nested-2">Item 2.3</div>
+						<div class="list-group-item nested-2">Item 2.4</div>
+					</div>
+				</div>
+				<div class="list-group-item nested-1">Item 1.2</div>
+				<div class="list-group-item nested-1">Item 1.3</div>
+				<div class="list-group-item nested-1">Item 1.4
+					<div class="list-group nested-sortable">
+						<div class="list-group-item nested-2">Item 2.1</div>
+						<div class="list-group-item nested-2">Item 2.2</div>
+						<div class="list-group-item nested-2">Item 2.3</div>
+						<div class="list-group-item nested-2">Item 2.4</div>
+					</div>
+				</div>
+				<div class="list-group-item nested-1">Item 1.5</div>
+			</div>
+			<div style="padding: 0" class="col-12">
+<pre class="prettyprint prettyprinted" style=""><span class="com">// Loop through each nested sortable element</span><span class="pln">
+</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> nestedSortables</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">nestedSortables</span><span class="pun">[</span><span class="pln">i</span><span class="pun">],</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">group</span><span class="pun">:</span><span class="pln"> </span><span class="str">'nested'</span><span class="pun">,</span><span class="pln">
+		animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pun">,</span><span class="pln">
+		fallbackOnBody</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln">
+		swapThreshold</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0.65</span><span class="pln">
+	</span><span class="pun">});</span><span class="pln">
+</span><span class="pun">}</span></pre>
+			</div>
+		</div>
+
+		<div class="row">
+			<h2 class="col-12">Plugins</h2>
+		</div>
+		<hr>
+
+		<div id="multi-drag" class="row">
+			<h4 class="col-12">MultiDrag</h4>
+			<p class="col-12">The <a target="_blank" href="https://github.com/SortableJS/Sortable/tree/master/plugins/MultiDrag">MultiDrag</a> plugin allows for multiple items to be dragged at a time. You can click to "select" multiple items, and then drag them as one item.</p>
+			<div id="multiDragDemo" class="list-group col">
+				<div class="list-group-item">Item 1</div>
+				<div class="list-group-item">Item 2</div>
+				<div class="list-group-item">Item 3</div>
+				<div class="list-group-item">Item 4</div>
+				<div class="list-group-item">Item 5</div>
+				<div class="list-group-item">Item 6</div>
+			</div>
+			<div style="padding: 0" class="col-12">
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">multiDragDemo</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	multiDrag</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Enable multi-drag</span><span class="pln">
+	selectedClass</span><span class="pun">:</span><span class="pln"> </span><span class="str">'selected'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// The class applied to the selected items</span><span class="pln">
+	animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pln">
+</span><span class="pun">});</span></pre>
+			</div>
+		</div>
+		<hr>
+
+		<div id="swap" class="row">
+			<h4 class="col-12">Swap</h4>
+			<p class="col-12">The <a target="_blank" href="https://github.com/SortableJS/Sortable/tree/master/plugins/Swap">Swap</a> plugin changes the behaviour of Sortable to allow for items to be swapped with eachother rather than sorted.</p>
+			<div id="swapDemo" class="list-group col">
+				<div class="list-group-item">Item 1</div>
+				<div class="list-group-item">Item 2</div>
+				<div class="list-group-item">Item 3</div>
+				<div class="list-group-item">Item 4</div>
+				<div class="list-group-item">Item 5</div>
+				<div class="list-group-item">Item 6</div>
+			</div>
+			<div style="padding: 0" class="col-12">
+<pre class="prettyprint prettyprinted" style=""><span class="kwd">new</span><span class="pln"> </span><span class="typ">Sortable</span><span class="pun">(</span><span class="pln">swapDemo</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	swap</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Enable swap plugin</span><span class="pln">
+	swapClass</span><span class="pun">:</span><span class="pln"> </span><span class="str">'highlight'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// The class applied to the hovered swap item</span><span class="pln">
+	animation</span><span class="pun">:</span><span class="pln"> </span><span class="lit">150</span><span class="pln">
+</span><span class="pun">});</span></pre>
+			</div>
+		</div>
+		<hr>
+
+
+
+		<div class="mt-4"></div>
+
+		<div id="comparisons" class="row">
+			<h2 class="col-12">Comparisons</h2>
+		</div>
+		<hr>
+
+
+		<div class="row frameworks">
+			<h2 class="col-12 text-center">jQuery-UI</h2>
+			<iframe class="mx-auto" src="./Demo_files/311581236.html" width="640" height="361" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+
+			<h2 class="col-12 text-center mt-5">Dragula</h2>
+			<iframe class="mx-auto" src="./Demo_files/311584137.html" width="640" height="361" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+		</div>
+
+		<div class="mt-4"></div>
+
+		<div id="frameworks" class="row">
+			<h2 class="col-12">Framework Support</h2>
+		</div>
+		<hr>
+
+		<div class="row frameworks">
+
+			<h3 class="col-6">Vue</h3>
+			<h3 class="col-6"><a target="_blank" href="https://github.com/SortableJS/Vue.Draggable">Vue.Draggable</a></h3>
+
+			<h3 class="col-6">React</h3>
+			<h3 class="col-6"><a target="_blank" href="https://github.com/SortableJS/react-sortablejs">react-sortablejs</a></h3>
+
+			<h3 class="col-6">Angular</h3>
+			<h3 class="col-6"><a target="_blank" href="https://github.com/SortableJS/ngx-sortablejs">ngx-sortablejs</a></h3>
+
+			<h3 class="col-6">jQuery</h3>
+			<h3 class="col-6"><a target="_blank" href="https://github.com/SortableJS/jquery-sortablejs">jquery-sortablejs</a></h3>
+
+			<h3 class="col-6">Knockout</h3>
+			<h3 class="col-6"><a target="_blank" href="https://github.com/SortableJS/knockout-sortablejs">knockout-sortablejs</a></h3>
+
+			<h3 class="col-6">Meteor</h3>
+			<h3 class="col-6"><a target="_blank" href="https://github.com/SortableJS/meteor-sortablejs">meteor-sortablejs</a></h3>
+
+			<h3 class="col-6">Polymer</h3>
+			<h3 class="col-6"><a target="_blank" href="https://github.com/SortableJS/polymer-sortablejs">polymer-sortablejs</a></h3>
+
+			<h3 class="col-6">Ember</h3>
+			<h3 class="col-6"><a target="_blank" href="https://github.com/SortableJS/ember-sortablejs">ember-sortablejs</a></h3>
+		</div>
+
+	</div>
+
+
+	<!-- Latest Sortable -->
+	<script src="./Demo_files/Sortable.js.download"></script>
+
+	<script type="text/javascript" src="./Demo_files/prettify.js.download"></script>
+	
+
+	<script src="./Demo_files/app.js.download"></script>
+
+
+</body></html>

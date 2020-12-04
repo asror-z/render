@@ -1,0 +1,12 @@
+﻿function saveToDB(editableObj,oldval,table,name,number) {
+			$(editableObj).css("background","#FFF url(../img/loaderIcon.gif) no-repeat right");
+			$.ajax({
+				url: "../fs.php",
+				type: "POST",
+				data:'newval='+editableObj.innerHTML+'&oldval='+oldval+'&table='+table+'&name='+name+'&number='+number,
+				success: function(data){
+					$(editableObj).css("background","#FDFDFD");
+				}        
+		   });
+		}
+	

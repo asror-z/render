@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--
+    http://eyuf.zetsoft.uz/render/former/ZDatatableWidget/demo/api/ChildRowsShowExtraDetailedInformation.html
+
+The DataTables API has a number of methods for attaching child rows to a parent row in the DataTable. This can be used to show additional information about a row, useful for cases where you wish to convey more information about a row than there is space for in the host table.
+
+The example below makes use of the row().child methods to first check if a row is already displayed, and if so hide it (row().child.hide()), otherwise show it (row().child.show()). The content of the child row in this example is defined by the format() function, but you would replace that with whatever content you wanted to show, possibly including, for example, an Ajax call to the server to obtain any extra information.
+    !-->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+
+    <style>
+        td.details-control {
+            background: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.icons8.com%2Fbubbles%2F2x%2Fplus.png&imgrefurl=https%3A%2F%2Ficons8.com%2Ficons%2Fset%2Fplus&tbnid=-X6l8gCmnZLAuM&vet=12ahUKEwjD7fjxhfzpAhVLsSoKHSxgBF0QMygZegUIARCAAg..i&docid=9wsEDkmZTDf3qM&w=200&h=200&q=icons%20plus&ved=2ahUKEwjD7fjxhfzpAhVLsSoKHSxgBF0QMygZegUIARCAAg') no-repeat center center;
+            cursor: pointer;
+        }
+        tr.shown td.details-control {
+            background: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.sailsrestaurants.com%2F_cms3%2Fwwwroot%2FadminPublicFiles%2Fdesign%2Fno-data.png&imgrefurl=https%3A%2F%2Fwww.sailsrestaurants.com%2F_cms3%2Fwwwroot%2FadminPublicFiles%2Fdesign%2F&tbnid=MsO3bmZAGID6bM&vet=12ahUKEwimpaTBhvzpAhXNAHcKHXKsDzYQMygAegQIARB-..i&docid=j0CMMUV0qfTu8M&w=640&h=480&q=details_close.png&ved=2ahUKEwimpaTBhvzpAhXNAHcKHXKsDzYQMygAegQIARB-') no-repeat center center;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        /* Formatting function for row details - modify as you need */
+        function format ( d ) {
+            // `d` is the original data object for the row
+            return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+                '<tr>'+
+                '<td>Full name:</td>'+
+                '<td>'+d.name+'</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td>Extension number:</td>'+
+                '<td>'+d.extn+'</td>'+
+                '</tr>'+
+                '<tr>'+
+                '<td>Extra info:</td>'+
+                '<td>And any further details here (images etc)...</td>'+
+                '</tr>'+
+                '</table>';
+        }
+
+        $(document).ready(function() {
+            var table = $('#example').DataTable( {
+                "ajax": "../ajax/data/objects",
+                "columns": [
+                    {
+                        "className":      'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "name" },
+                    { "data": "position" },
+                    { "data": "office" },
+                    { "data": "salary" }
+                ],
+                "order": [[1, 'asc']]
+            } );
+
+            // Add event listener for opening and closing details
+            $('#example tbody').on('click', 'td.details-control', function () {
+                var tr = $(this).closest('tr');
+                var row = table.row( tr );
+
+                if ( row.child.isShown() ) {
+                    // This row is already open - close it
+                    row.child.hide();
+                    tr.removeClass('shown');
+                }
+                else {
+                    // Open this row
+                    row.child( format(row.data()) ).show();
+                    tr.addClass('shown');
+                }
+            } );
+        } );
+
+    </script>
+</head>
+<body>
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

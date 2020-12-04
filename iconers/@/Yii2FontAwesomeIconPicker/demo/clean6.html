@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <link href="/publish/yarner/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/all.css" />
+    <link href="/publish/yarner/fontawesome-iconpicker/dist/css/fontawesome-iconpicker.css" rel="stylesheet">
+          
+</head>
+
+<body>
+
+<style>
+    .popover{
+        display: block;
+        opacity: 1 !important;
+    }
+</style>
+
+
+<div class="form-group">
+    <label>As a component</label>
+
+    <div class="input-group">
+        <input data-placement="bottomRight" class="form-control icp icp-auto" value="fas fa-archive"
+               type="text"/>
+        <span class="input-group-addon"></span>
+    </div>
+</div>
+
+<script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+<script src="/publish/yarner/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/publish/yarner/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js"></script>
+
+<script>
+
+    $(function () {
+         
+        $('.icp-auto').iconpicker();
+
+    });
+
+    $('.icp').on('iconpickerSelected', function (e) {
+        $('.lead .picker-target').get(0).className = 'picker-target fa-3x ' +
+            e.iconpickerInstance.options.iconBaseClass + ' ' +
+            e.iconpickerInstance.options.fullClassFormatter(e.iconpickerValue);
+        $('#fontcode').val(e.iconpickerValue);
+    });
+
+
+</script>
+
+</body>
+
+</html>

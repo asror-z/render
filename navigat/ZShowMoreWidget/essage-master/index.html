@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essage - elegant way to display tips/message</title>
+  <style type="text/css">
+  *{padding:0;margin:0;}
+  body{font:100 1em/1.8 Kozuka Gothic Pr6N EL, georgia, serif;color:#666;margin:6% 0;}
+  pre.prettyprint{position:relative;font:100 14px/1 courier, "courier new", monospace;border:1px solid #ebebeb;border-color:#eee #eee #ccc #eee;background:#fff;padding:30px 5%;width:50%;white-space:pre-wrap;margin:2em auto;}
+  pre a{position:absolute;right:20px;top:15px;text-decoration:none;border-bottom:1px dotted #5fb16f;font-family:Georgia, serif;font-style:italic;}
+  @media all and (max-width:800px){ pre.prettyprint{padding:20px 10%;width:80%;border-width:1px 0;border-top-color:#ddd;} }
+  h1{font-weight:100;text-align:center;font-size:18px;}
+  #fork{position:fixed;*position:absolute;right:0;top:0;}
+  a img{border:none;}
+  #title, #actions{margin-bottom:1.5em;text-align:center;}
+  #actions span{display:inline-block;padding:0 20px;background:#666;color:#fff;cursor:pointer;border-radius:3px;box-shadow:0 2px 0 #555;-moz-user-select: none;-webkit-user-select: none;-ms-user-select: none;margin-bottom:10px;}
+  #actions span:hover{background:#6ccd7f;box-shadow:0 2px 0 #4e9254;}
+  #actions span:active{background:#4e9254;box-shadow:0 2px 0 #080;}
+
+  .pln{color:#000}
+  @media screen{
+    .str{color:#e67e22;}
+    .kwd{color:#3498db}
+    .com{color:#aaa}
+    .typ{color:#1abc9c;font-weight:900;}
+    .lit{color:#066}
+    .pun, .opn, .clo{color:#660}
+    .tag{color:#008}
+    .atn{color:#1abc9c}
+    .atv{color:#2ecc71}
+    .dec, .var{color:#1abc9c;}
+    .fun{color:red}
+  }
+  </style>
+  <link rel="stylesheet" href="src/essage.css"/>
+</head>
+<body>
+<h1 id="title" class="com"><strong class="typ">Essage</strong> - elegant way to display tips/message</h1>
+
+<pre class="prettyprint lang-js">
+<a href="https://github.com/sofish/essage#readme" target="_blank">documentation &rarr;</a>
+// show message
+Essage.show('<b>hello</b>, im a message.');
+
+// hide message
+Essage.hide();
+
+// hide automaticlly after 2000
+Essage.show('message', 2000);
+
+// `message` can be an object (config)
+Essage.show({
+  message: 'message body',
+
+  // add class `essage-success` to the container
+  // by default, there're 4 status: normal, warning, success, error
+  status: 'success',
+
+  // the placement can be `top` or `bottom`, by default is `top`
+  placement: 'bottom'
+});
+</pre>
+
+<div id="actions">
+  <span id="show">show</span>
+  <span id="auto">show & hide automaticlly</span>
+  <span id="bottom">show at bottom</span>
+  <span id="status">show with status</span>
+  <span id="hide">hide</span>
+</div>
+
+<a id="fork" href="https://github.com/sofish/essage" target="_blank"><img
+  src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+<script src="src/essage.js"></script>
+<script>
+  var $ = function(id) { return document.getElementById(id) }
+    , $show = $('show')
+    , $hide = $('hide')
+    , $status = $('status')
+    , $auto = $('auto')
+    , $bottom = $('bottom')
+
+  $show.onclick = function() {
+    Essage.show('hello, im a message.');
+  };
+
+  $auto.onclick = function() {
+    Essage.show({
+      message: 'the message will automaticlly disppear after 2 seconds...',
+      status: 'warning'
+    }, 2000);
+  };
+
+  $bottom.onclick = function() {
+    Essage.show({
+      message: 'hi, hi, im here',
+      placement: 'bottom',
+      status: 'error'
+    });
+  };
+
+  $status.onclick = function() {
+    Essage.show({
+      message: 'o:, classname is changed.',
+      status: 'success'
+    });
+  };
+
+  $hide.onclick = function() {
+    Essage.hide();
+  };
+</script>
+
+<!-- ignore me, syntax highlight -->
+<script src="http://cdn.staticfile.org/prettify/r298/prettify.min.js"></script>
+<script>window.prettyPrint && prettyPrint();</script>
+</body>
+</html>

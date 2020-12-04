@@ -1,0 +1,66 @@
+<!--
+    created by: Sherzod Mangliyev
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File Icons</title>
+    <style>
+            [data-fi] {
+            display: inline-block;
+            position: relative;
+            width: 5em;
+            height: 10em;
+            margin-right: 2.4em;
+            border-radius: .4em 0 0 .4em;
+            border-color: #ccc;
+            background: #333;
+            color: #ccc;
+        }
+        [data-fi]:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -2.3em;
+            border-width: 1.2em;
+            border-style: solid;
+            border-left-color: inherit;
+            border-bottom-color: inherit;
+            border-top-color: transparent;
+            border-right-color: transparent;
+        }
+        [data-fi]:after {
+            content: attr(data-fi);
+            position: absolute;
+            top: 1.3em;
+            bottom: 0;
+            left: 0;
+            right: -1.3em;
+            font: 1.8em/1.8em "Lucida Sans Unicode", "Lucida Grande", sans-serif normal;
+            text-transform: uppercase;
+            text-align: left;
+            padding: 2.6em 0.3em 0;
+            border-radius: .4em 0 .4em .4em;
+            background: inherit;
+        }
+    </style>
+</head>
+<body>
+    <!-- Default -->
+    <i data-fi="file-icon"></i>
+    <!-- Default with text -->
+    <i data-fi="file-icon"></i>
+    <!-- Change size -->
+    <i data-fi="file-icon" style="font-size:50%"></i>
+    <!-- Change background color -->
+    <i data-fi="file-icon" style="background:#efefef"></i>
+    <!-- Change font color -->
+    <i data-fi="file-icon" style="color:#efefef"></i>
+    <!-- Combine options -->
+    <i data-fi="file-icon" style="font-size:70%;background:#efefef;color:tomato"></i>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery file upload</title>
+    <link href="/publish/yarner/jquery-file-upload/css/uploadfile.css" rel="stylesheet">
+
+</head>
+<body>
+<div id="fileuploader">Upload</div>
+<div class="ajax-file-upload-green" id="extrabutton">start</div>
+<script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+<script src="/publish/yarner/jquery-file-upload/js/jquery.uploadfile.min.js"></script>
+<!--<script src="/publish/yarner/blueimp-file-upload/js/jquery.fileupload-image.js"></script>-->
+<script src="/publish/yarner/blueimp-file-upload/js/jquery.fileupload-image-with-cropping.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#fileuploader").uploadFile({
+            url: "",
+            method: "POST",
+            enctype: "multipart/form-data",
+            returnType: null,
+            allowDuplicates: true,
+            duplicateStrict: false,
+            allowedTypes: "*",
+            //For list of acceptFiles
+            // http://stackoverflow.com/questions/11832930/html-input-file-accept-attribute-file-type-csv
+            acceptFiles: "*",
+            fileName: "file",
+            formData: false,
+            dynamicFormData:false,
+            maxFileSize: -1,
+            maxFileCount: -1,
+            multiple: true,
+            dragDrop: true,
+            autoSubmit: false,
+            showCancel: true,
+            showAbort: true,
+            showDone: false,
+            showDelete: true,
+            showError: true,
+            showStatusAfterSuccess: true,
+            showStatusAfterError: true,
+            showFileCounter: true,
+            fileCounterStyle: "). ",
+            showFileSize: true,
+            showProgress: true,
+            nestedForms: true,
+            showDownload: false,
+            onLoad: function (obj) {},
+            onSelect: function (files) {
+                return true;
+            },
+            onSubmit: function (files, xhr) {},
+            onSuccess: function (files, response, xhr, pd) {},
+            onError: function (files, status, message, pd) {},
+            onCancel: function (files, pd) {},
+            onAbort: function (files, pd) {},
+            downloadCallback: false,
+            deleteCallback: true,
+            afterUploadAll: false,
+            serialize: true,
+            sequential: false,
+            sequentialCount: 2,
+            customProgressBar: false,
+            abortButtonClass: "ajax-file-upload-abort",
+            cancelButtonClass: "ajax-file-upload-cancel",
+            dragDropContainerClass: "ajax-upload-dragdrop",
+            dragDropHoverClass: "state-hover",
+            errorClass: "ajax-file-upload-error",
+            uploadButtonClass: "ajax-file-upload",
+            dragDropStr: "<span><b>Drag &amp; Drop Files</b></span>",
+            uploadStr:"Upload",
+            abortStr: "Abort",
+            cancelStr: "Cancel",
+            deleteStr: "Delete",
+            doneStr: "Done",
+            multiDragErrorStr: "Multiple File Drag &amp; Drop is not allowed.",
+            extErrorStr: "is not allowed. Allowed extensions: ",
+            duplicateErrorStr: "is not allowed. File already exists.",
+            sizeErrorStr: "is not allowed. Allowed Max size: ",
+            uploadErrorStr: "Upload is not allowed",
+            maxFileCountErrorStr: " is not allowed. Maximum allowed files are:",
+            downloadStr: "Download",
+            customErrorKeyStr: "jquery-upload-file-error",
+            showQueueDiv: false,
+            statusBarWidth: 400,
+            dragdropWidth: 400,
+            showPreview: true,
+            previewHeight: "auto",
+            previewWidth: "100%",
+            extraHTML:function () {
+                var html = "<div><b>File Tags:</b><input type='text' name='tags' value='' /> <br/>";
+                html += "<b>Category</b>:<select name='category'><option value='1'>ONE</option><option value='2'>TWO</option></select>";
+                html += "</div>";
+                return html;
+            },
+            uploadQueueOrder: 'top',
+            headers: {}
+        });
+    });
+</script>
+</body>
+</html>

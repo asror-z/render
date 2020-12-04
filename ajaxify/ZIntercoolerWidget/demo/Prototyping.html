@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intercooler@1.2.3/dist/intercooler.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-mockjax@2.5.0/dist/jquery.mockjax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div ic-on-error="alert('oh no!')">
+    <div class="btn btn-default" ic-get-from="#hello_world">Click me</div>
+    <div class="btn btn-default" ic-get-from="#error_example">Don't Click me</div>
+</div>
+
+
+<hr>
+<h3>HTML For Responses:</h3>
+
+<div class="ic-ignore panel">
+
+    <div id="hello_world">
+        Hello, world
+    </div>
+
+    <div id="error_example" ic-local-status="500 Server Error">
+        Goodbye, world
+    </div>
+</div>
+
+</body>
+</html>

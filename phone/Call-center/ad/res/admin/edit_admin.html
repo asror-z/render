@@ -1,0 +1,104 @@
+<?php
+include("../../config.php");
+
+if(isset($_GET['useredit'])){
+$user = $_GET['useredit'];
+$result = $mysqli->query("select * from admin where `username` = '$user'");
+$user = array();
+while($row = $result->fetch_array(MYSQLI_ASSOC)){
+   $user[] = $row;
+   }
+$user = json_encode($user[0]);
+$mysqli->close();
+$result->close();
+sleep(1.5);
+}
+?>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Asterisk RealTime Interface">
+    <meta name="author" content="info@asterisk-pbx.ru">
+    <link rel="icon" href="../../img/favicon.ico">
+    <title>Edit sip</title>
+    <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
+
+</head>
+<?php include "../../nav.html"; ?>
+
+<body>
+    <div class="col-lg-6 col-lg-offset-3 main">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="user-template" type="text/x-handlebars-template">
+                    <div class="alert alert-danger"><h2 id="results">Edit: {{username}}</h2></div>
+<form id="edituser" onsubmit="editUserAdmin();" method="POST">
+   <div class="btn-toolbar pull-right">
+         <button type="submit" class="btn btn-default btn-sm pull-right"><span class="glyphicon glyphicon-floppy-disk">Save<span></button>
+     
+         <a class="btn btn-default btn-sm "  href="admin.html"><span class="glyphicon glyphicon-level-up">Cancel</span></a>
+   </div>
+         <br/>   
+  <input type="hidden" class="form-control" id="userOld" name="userOld" value="{{username}}"/>
+  <div class="form-group">  
+    <label for="userNew">Admin</label>
+    <input type="text" class="form-control" id="userNew" name="userNew" value="{{username}}"/>
+  </div>
+  
+  <div class="form-group">
+    <label for="userPassword">Password</label>
+    <input type="text" class="form-control" id="userPassword" name="userPassword"  value="{{password_sha1}}" required />
+  </div>
+  <br/> 
+   <div class="btn-toolbar pull-right">
+         <button type="submit" class="btn btn-default btn-sm pull-right"><span class="glyphicon glyphicon-floppy-disk">Save<span></button>
+     
+         <a class="btn btn-default btn-sm "  href="admin.html"><span class="glyphicon glyphicon-level-up">Cancel</span></a>
+   </div>
+  <br/>
+</form>
+
+      </div>
+                <div class="user-placeholder"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../jquery/dist/jquery.min.js"></script>
+    <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../js/handlebars.js"></script>
+    <script src="../../js/func.js"></script>
+    <script>
+        function editUserAdmin() {
+            var msg   = $('#edituser').serialize();
+            $.ajax({
+                type: 'POST',
+                url: 'getadm.php',
+                data: msg,
+                async: false,
+                success: function(data){
+                    $('#results').html('<b style="color:lightgreen;">'+data+'</b>');
+                },
+                error: function(){
+                    $('#results').html('<b style="color:red;">Произошла ошибка.</b>');
+                }
+            });
+        }
+
+        $(function updateSip() {
+            var theTemplateScript = $("#user-template").html();
+            var theTemplate = Handlebars.compile(theTemplateScript);
+            var context= '$user' ;
+            var theCompiledHtml = theTemplate(context);
+            $('.user-placeholder').html(theCompiledHtml);
+        });
+
+    </script>
+    <?php echo $user;?>
+</body>
+
+</html>

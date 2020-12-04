@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- styles needed by jScrollPane -->
+<link type="text/css" href="/publish/yarner/jscrollpane/style/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+
+<!-- latest jQuery direct from jQuery CDN -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">
+</script>
+
+<!-- the mousewheel plugin - optional to provide mousewheel support -->
+<script type="text/javascript" src="/publish/yarner/jscrollpane/script/jquery.mousewheel.js"></script>
+
+<!-- the jScrollPane script -->
+<script type="text/javascript" src="/publish/yarner/jscrollpane/script/jquery.jscrollpane.min.js"></script>
+<style>
+    .scroll-pane{
+	width: 400px;
+	height: 200px;
+	overflow: auto;
+}
+
+div#forms{
+	overflow: hidden;
+	
+}
+
+form{
+	float: left;
+	width: 100%;
+	padding: 0 0 1em;
+}
+	
+</style>
+</head>
+<body>
+    <div class="scroll-pane">
+        <div id="forms">
+<form>
+    <h1>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, neque expedita! Voluptatibus eligendi unde rerum animi temporibus et, autem, quo culpa excepturi qui illum. Excepturi molestiae eligendi rem ex dicta.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem aperiam ab tempore corrupti error repudiandae consequatur maiores assumenda, eos doloremque expedita voluptate magnam ipsum? Quaerat sint praesentium suscipit ratione mollitia.
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, neque expedita! Voluptatibus eligendi unde rerum animi temporibus et, autem, quo culpa excepturi qui illum. Excepturi molestiae eligendi rem ex dicta.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem aperiam ab tempore corrupti error repudiandae consequatur maiores assumenda, eos doloremque expedita voluptate magnam ipsum? Quaerat sint praesentium suscipit ratione mollitia.
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, neque expedita! Voluptatibus eligendi unde rerum animi temporibus et, autem, quo culpa excepturi qui illum. Excepturi molestiae eligendi rem ex dicta.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem aperiam ab tempore corrupti error repudiandae consequatur maiores assumenda, eos doloremque expedita voluptate magnam ipsum? Quaerat sint praesentium suscipit ratione mollitia.
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, neque expedita! Voluptatibus eligendi unde rerum animi temporibus et, autem, quo culpa excepturi qui illum. Excepturi molestiae eligendi rem ex dicta.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem aperiam ab tempore corrupti error repudiandae consequatur maiores assumenda, eos doloremque expedita voluptate magnam ipsum? Quaerat sint praesentium suscipit ratione mollitia.
+    </h1>
+</form>
+        </div>
+        
+    </div>
+    
+
+
+<script>
+  $( document ).ready(function() {
+    $(function(){
+	var pane = $('.scroll-pane');
+	pane.jScrollPane({
+			showArrows: true,
+			animateScroll: true
+		}
+	);
+	var api = pane.data('jsp');
+
+	$('#but-scroll-to').bind(
+		'click',
+		function(){
+			api.scrollTo(parseInt($('#toX').val()), parseInt($('#toY').val()));
+			return false;
+		}
+	);
+
+	$('#but-scroll-by').bind(
+		'click',
+		function(){
+			api.scrollBy(parseInt($('#byX').val()), parseInt($('#byY').val()));
+			return false;
+		}
+	);
+});
+		
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<div id="campnames-template" type="text/x-handlebars-template">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{l10n "ad.campaigns"}}
+              </a>
+                <div class="dropdown-menu" aria-labelledby="Campaign">
+                  {{#each camps}}
+                  <a class="dropdown-item" href="camp.html?campname={{campname}}">{{campname}}</a>
+                  <br /> {{/each}}
+                </div>
+              </li>
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{l10n "ad.list"}}
+              </a>
+                <div class="dropdown-menu" aria-labelledby="List">
+                  {{#each camps}}
+                  <a class="dropdown-item" href="list.html?campname={{campname}}">{{campname}}</a>
+                  <br /> {{/each}}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+</div>

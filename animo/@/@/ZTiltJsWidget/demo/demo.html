@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://gijsroge.github.io/tilt.js/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Tilt.js - A tiny parallax tilt effect for jQuery</title>
+    <link href="./demo_files/css" rel="stylesheet">
+    <link rel="stylesheet" href="./demo_files/main.css">
+    <link href="./demo_files/css(1)" rel="stylesheet">
+    <meta name="description" content="Tilt.js, a small easy to use 60+fps requestAnimationFrame powered parallax hover tilt effect for jQuery. ">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@gijsroge">
+    <meta name="twitter:title" content="Tilt.js - Parallax tilt effect for jQuery">
+    <meta name="twitter:description" content="Tilt.js, a small easy to use parallax hover tilt effect for jQuery.">
+    <meta name="twitter:creator" content="@gijsroge">
+    <meta name="twitter:image" content="http://gijsroge.github.io/tilt.js/og-image-v2.jpg">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Tilt.js - Parallax tilt effect for jQuery">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://gijsroge.github.io/tilt.js/">
+    <meta property="og:image" content="http://gijsroge.github.io/tilt.js/og-image-v2.jpg">
+    <meta property="og:description" content="Tilt.js, a small easy to use parallax hover tilt effect for jQuery.">
+    <meta property="og:site_name" content="Tilt.js">
+<script id="_carbonads_projs" type="text/javascript" src="./demo_files/CKYIL53J.json"></script><script charset="utf-8" src="./demo_files/button.550007e6cc79c00bac51111d8131d860.js"></script></head>
+<body class="u-flex-set">
+
+<script id="twitter-wjs" src="./demo_files/widgets.js"></script><script async="" src="./demo_files/analytics.js"></script><script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-90756700-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+<aside>
+    <a href="http://gijsroge.github.io/tilt.js" class="c-logo js-tilt" data-tilt-glare="true" data-tilt-maxglare=".6" data-tilt-speed="400" data-tilt-scale="1.1" data-tilt-maxtilt="50" data-tilt-perspective="500">
+        <span class="backdrop"></span>
+        <span>Tilt.js</span>
+    <div class="js-tilt-glare" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden;"><div class="js-tilt-glare-inner" style="position: absolute; top: 50%; left: 50%; pointer-events: none; background-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%); width: 400px; height: 400px; transform: rotate(180deg) translate(-50%, -50%); transform-origin: 0% 0%; opacity: 0;"></div></div></a>
+    <script async="" type="text/javascript" src="./demo_files/carbon.js" id="_carbonads_js"></script>
+</aside>
+<main>
+    <header>
+        <p class="u-font-large">A tiny requestAnimationFrame powered <strong>60+fps</strong><br>
+            lightweight parallax hover tilt effect for jQuery.</p>
+        <strong>Notices:</strong>
+        <ul>
+            <li>Requires jQuery</li>
+            <li>No CSS is needed</li>
+            <li>Install <code class=" language-javascript">yarn add tilt<span class="token punctuation">.</span>js</code> or <a href="https://github.com/gijsroge/tilt.js" tiltle="Download tilt.js jquery plugin from Github">download</a></li>
+            <li><a href="https://github.com/gijsroge/tilt.js" title="Extra documentation about tilt.js plugin">Documentation</a></li>
+        </ul>
+        <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="./demo_files/tweet_button.69e02060c7c44baddf1b5629549acc0c.en.html" data-url="http://gijsroge.github.io/tilt.js/"></iframe>
+        <script>!function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + '://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'twitter-wjs');</script>
+        <span></span>
+        <script async="" defer="" id="github-bjs" src="./demo_files/buttons.js"></script>
+    </header>
+
+    <article class="[ c-example ]">
+        <div class="[ c-example__demo ]">
+            <div class="[ c-example__tilt ] js-tilt" data-tilt-perspective="300" data-tilt-speed="400" data-tilt-max="25"></div>
+        </div>
+        <div class="c-example__info">
+            <h3>The most basic usage:</h3>
+            <ol>
+                <li>Add <code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tilt.jquery.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code>
+                    right before the closing <code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span></code> tag
+                </li>
+                <li>Mark your elements with <code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">data-tilt</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span></code>
+                </li>
+            </ol>
+        </div>
+    </article>
+
+    <article class="[ c-example ]">
+        <div class="[ c-example__demo ]">
+            <div class="[ c-example__tilt ] js-tilt" data-tilt-perspective="300" data-tilt-speed="400" data-tilt-max="25">
+                <div class="c-example__tilt-inner"></div>
+            </div>
+        </div>
+        <div class="c-example__info">
+            <h3>Creating a parallax effect</h3>
+            <ol>
+                <li>Add <code class=" language-css"><span class="token property">transform-style</span><span class="token punctuation">:</span> preserve-3d</code> to your tilt element.</li>
+                <li>Add a <code class=" language-css"><span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>20px<span class="token punctuation">)</span></code> to your inner elements that have to pop out.</li>
+            </ol>
+        </div>
+    </article>
+
+    <article class="[ c-example ]">
+        <div class="[ c-example__demo ]">
+            <div class="[ c-example__tilt ] js-tilt" data-tilt-glare="true" data-tilt-maxglare=".5" data-tilt-perspective="300" data-tilt-speed="400" data-tilt-max="25"><div class="js-tilt-glare" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden;"><div class="js-tilt-glare-inner" style="position: absolute; top: 50%; left: 50%; pointer-events: none; background-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%); width: 200px; height: 200px; transform: rotate(180deg) translate(-50%, -50%); transform-origin: 0% 0%; opacity: 0;"></div></div></div>
+        </div>
+        <div class="c-example__info">
+            <h3>Glare effect:</h3>
+            <p>Setting this option will enable a glare effect. You can tweak the glare value with <code class=" language-javascript"><span class="token punctuation">{</span><span class="token string">'maxGlare'</span><span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token number">5</span><span class="token punctuation">}</span></code></p>
+            <pre class=" language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.js-tilt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tilt</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    glare<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    maxGlare<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token number">5</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+        </div>
+    </article>
+
+    <article class="[ c-example ]">
+        <div class="[ c-example__demo ]">
+            <div class="[ c-example__tilt ] js-tilt" data-tilt-reset="false" data-tilt-speed="400" data-tilt-max="25" data-tilt-perspective="300"></div>
+        </div>
+        <div class="c-example__info">
+            <h3>Keep floating:</h3>
+            <p>Setting this option will not reset the tilt element when the user mouse leaves the element.</p>
+            <pre class=" language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.js-tilt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tilt</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    reset<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+        </div>
+    </article>
+
+    <article class="[ c-example ]">
+        <div class="[ c-example__demo ]">
+            <div class="[ c-example__tilt ] js-tilt" data-tilt-speed="1000" data-tilt-max="20" data-tilt-scale="1.2" data-tilt-perspective="250"></div>
+        </div>
+        <div class="c-example__info">
+            <h3>Scale on hover</h3>
+            <p>Setting this option will scale tilt element on hover.</p>
+            <pre class=" language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.js-tilt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tilt</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    scale<span class="token punctuation">:</span> <span class="token number">1.2</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+        </div>
+    </article>
+
+    <article class="[ c-example ]">
+        <div class="[ c-example__demo ]">
+            <div class="[ c-example__tilt ] js-tilt" data-tilt-speed="250" data-tilt-max="50" data-tilt-axis="x" data-tilt-perspective="250"></div>
+        </div>
+        <div class="c-example__info">
+            <h3>Disable Y axis</h3>
+            <p>Setting this option will disable the Y-Axis on the tilt element.</p>
+            <pre class=" language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.js-tilt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tilt</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    axis<span class="token punctuation">:</span> x
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+        </div>
+    </article>
+
+    <article class="[ c-example ]">
+        <div class="[ c-example__demo ]">
+            <div class="[ c-example__tilt ] js-tilt" data-tilt-speed="250" data-tilt-max="50" data-tilt-axis="y" data-tilt-perspective="250"></div>
+        </div>
+        <div class="c-example__info">
+            <h3>Disable X axis</h3>
+            <p>Setting this option will disable the X-Axis on the tilt element.</p>
+            <pre class=" language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.js-tilt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tilt</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    axis<span class="token punctuation">:</span> y
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+        </div>
+    </article>
+
+    <article class="[ c-example ] js-parent">
+        <div class="[ c-example__demo ]">
+            <div class="[ c-example__tilt ] js-tilt" data-tilt-speed="250" data-tilt-reset="false" data-tilt-max="50" data-tilt-perspective="250"></div>
+        </div>
+        <div class="c-example__info">
+            <h3>Destroy method</h3>
+            <p>Call this method will remove all events and classes from the tilt element.</p>
+            <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">const</span> tilt <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.js-tilt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tilt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+tilt<span class="token punctuation">.</span>methods<span class="token punctuation">.</span>destroy<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>tilt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+            <button class="js-destroy c-button">Destroy</button>
+            <button class="js-enable c-button">Re-enable</button>
+        </div>
+    </article>
+
+    <article class="[ c-example ] js-parent">
+        <div class="[ c-example__demo ]">
+            <div class="[ c-example__tilt ] js-tilt-output" data-tilt-speed="250" data-tilt-max="50" data-tilt-perspective="250"></div>
+        </div>
+        <div class="c-example__info">
+            <h3>On change event</h3>
+            <p>The on change event wil output the x,y &amp; percentages of tilting.</p>
+            <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">const</span> tilt <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.js-tilt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tilt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+tilt<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'change'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> transforms<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+            <ul class="c-example__output js-output u-font-tiny"></ul>
+        </div>
+    </article>
+
+    <article class="[ c-example ]">
+        <div>
+            <h3>Features</h3>
+            <ul>
+                <li>
+                    <p>Options can be passed with the<code class=" language-js"><span class="token function">tilt</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code>function.</p>
+                    <pre class=" language-js"><code class=" language-js"><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.js-tilt'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">tilt</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    option<span class="token punctuation">:</span> value<span class="token punctuation">,</span>
+    option<span class="token punctuation">:</span> value<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+                </li>
+                <li>
+                    <p>
+                        All options are configurable trough data-attributes.
+                        <code class=" language-html">data-tilt-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">name</span><span class="token punctuation">&gt;</span></span>="value"</code>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </article>
+
+</main>
+<script src="/publish/yarner/tilt.js/src/prism.js"></script>
+<script src="/publish/yarner/tilt.js/src/jquery.slim.min.js"></script>
+<script src="/publish/yarner/tilt.js/src/tilt.jquery.js"></script>
+<script src="/publish/yarner/tilt.js/src/app.js"></script>
+<script>
+
+</script>
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./demo_files/widget_iframe.69e02060c7c44baddf1b5629549acc0c.html" title="Twitter settings iframe" style="display: none;"></iframe></body></html>

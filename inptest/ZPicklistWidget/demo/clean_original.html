@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">PickList</h3>
+        </div>
+        <div class="panel-body">
+
+            <div id="pickList"><div class="row">  <div class="col-sm-5">	 <select class="form-control pickListSelect pickData" multiple=""><option data-id="1">Isis</option><option data-id="2">Sophia</option><option data-id="3">Alice</option><option data-id="4">Isabella</option><option data-id="5">Manuela</option><option data-id="6">Laura</option><option data-id="7">Luiza</option><option data-id="7">Monica</option><option data-id="7">Dana</option><option data-id="7">Fiana</option><option data-id="7">Leyla</option></select> </div> <div class="col-sm-2 pickListButtons">	<button class="pAdd btn btn-primary btn-sm">Add</button>      <button class="pAddAll btn btn-primary btn-sm">Add All</button>	<button class="pRemove btn btn-primary btn-sm">Remove</button>	<button class="pRemoveAll btn btn-primary btn-sm">Remove All</button> </div> <div class="col-sm-5">    <select class="form-control pickListSelect pickListResult" multiple=""></select> </div></div></div>
+
+            <br><br>
+            <button class="btn btn-primary" id="getSelected">Get Selected</button>
+        </div>
+    </div>
+</div>
+
+<script src="./picklist/picklist.js"></script>
+<script>
+    $("#pickList").pickList();
+
+    var val = {
+        1: {id: 1, text: 'Isis'},
+        2: {id: 2, text: 'Sophia'},
+        3: {id: 3, text: 'Alice'},
+        4: {id: 4, text: 'Isabella'},
+        5: {id: 5, text: 'Manuela'},
+        6: {id: 6, text: 'Laura'}
+    };
+
+    var pick = $("#pickList").pickList({data: val});
+
+    var pick = $("#pickList").pickList({data: val});
+
+    $("#getSelected").click(function () {
+        console.log(pick.getValues());
+    });
+</script>
+</body>
+</html>

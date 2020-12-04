@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPanel</title>
+</head>
+<body>
+
+<!-- Your HTML goes here -->
+
+<!-- loading jsPanel javascript -->
+<!-- jsPanel CSS -->
+<link href="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/jspanel.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<!-- jsPanel JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/jspanel.js"></script>
+
+<!-- optional jsPanel extensions -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/modal/jspanel.modal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/tooltip/jspanel.tooltip.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/hint/jspanel.hint.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/layout/jspanel.layout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/contextmenu/jspanel.contextmenu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/dock/jspanel.dock.js"></script>
+<script>
+         // Panellarni yaratish 
+    var predefinedConfigs = {
+        one: {
+            id: 'panel1',
+            headerTitle: 'panel1',
+            theme: 'primary'
+        },
+        two: {
+            id: 'panel2',
+            headerTitle: 'panel2',
+            theme: 'info',
+            position: 'center 50 50'
+        },
+        three: {
+            id: 'panel3',
+            headerTitle: 'panel3',
+            theme: 'success',
+            position: 'center 0 100',
+            contentSize: '600 200'
+        }
+    };
+
+    for (var conf in predefinedConfigs) {
+        jsPanel.create(predefinedConfigs[conf]);
+    }
+
+
+         // save panel layout   Panelning tartibini saqlang va ularni yoping
+         var storedData = jsPanel.layout.save({
+             selector: '.jsPanel-standard',
+             storagename: 'mypanels'
+         });
+
+         // close panels, here we simply close all panels in the document
+         Array.prototype.slice.call(document.querySelectorAll('.jsPanel')).forEach(function (item) {
+             item.close();
+         });
+
+         // for demo purpose only log stored data to the console
+         console.log(storedData);
+
+
+         //  Barcha panellarni tiklash
+
+         jsPanel.layout.restore({
+             configs: predefinedConfigs,
+             storagename: 'mypanels'
+         });
+
+
+         // faqat bitta panelni yopish
+
+         jsPanel.layout.restoreId({
+             id: 'panel1',
+             config: predefinedConfigs.one,
+             storagename: 'mypanels'
+         });
+
+    
+
+</script>
+</body>
+</html>

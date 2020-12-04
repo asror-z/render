@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap-input-spinner</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://shaack.com/projekte/bootstrap-input-spinner/_node_modules/prismjs/themes/prism-tomorrow.css"/>
+
+
+    <style type="text/css">
+        h2 {
+            margin-top: 2rem;
+        }
+
+        h3 {
+            margin-top: 1rem;
+        }
+
+        /*noinspection CssUnusedSymbol*/
+        .input-group, input.test-value-input {
+            max-width: 250px;
+        }
+
+        .code {
+            background-color: #f1f2f3;
+            font-family: Courier, monospace;
+        }
+    </style>
+    
+</head>
+<body>
+<section class="container pt-3">
+
+    <p>
+        <input type="number" value="500" min="0" max="1000" step="10"/>
+      <div class="input-group">
+        <div class="input-group-prepend">
+         <button style="min-width: 2.5rem" class="btn btn-decrement btn-outline-secondary" type="button">
+           <strong>-</strong>
+         </button>
+       </div>
+      <input type="number" value="500" min="0" max="1000"/>
+
+      <div class="input-group-append">
+       <button style="min-width: 2.5rem" class="btn btn-increment btn-outline-secondary" type="button">
+          <strong>+</strong>
+       </button>
+    </div>
+    </div>
+    </p>
+      <br>
+    <p>
+        <input type="number" value="4.5" data-decimals="2" min="0" max="9" step="0.1"/>
+    </p>
+
+    <br>
+
+    <p>
+        <input type="number" id="changedInput" value="2500" min="0" max="5000000" data-decimals="2"/>
+    </p>
+    <br>
+
+    <p>
+
+        <input type="number" id="inputNet" value="100" min="0" max="10000" step="0.01" data-decimals="2"/>
+    </p>
+    <br>
+    <p>
+        <input type="number" id="inputGross" value="100" min="0" max="11900" step="0.01" data-decimals="2"/>
+    </p>
+    <br>
+    <form>
+        <p>
+            <input placeholder="Enter a number" required type="number" value="" min="-100" max="100"/>
+        </p>
+
+        <input type="submit" id="submitButton" class="btn btn-primary mb-4" value="Submit to test empty input"/>
+    </form>
+    <br>
+    <form>
+        <p>
+            <input id="inputDisabled" disabled type="number" value="50"/>
+        </p>
+
+        <div class="form-check">
+            <input type="checkbox" checked class="form-check-input" id="disabledSwitch">
+            <label class="form-check-label" for="disabledSwitch">Disabled</label>
+        </div>
+    </form>
+    <br>
+    <p>
+        <input id="inputChangeClass" class="is-valid" type="number" value="50"/>
+    </p>
+    <br>
+    <p>
+        <label for="classInput">CSS Class</label>
+        <input id="classInput" type="text" class="form-control test-value-input" value="is-valid"/>
+    </p>
+    <br>
+    <p>
+
+        <input class="form-control-sm" type="number" value="0.0" data-decimals="4" min="-1" max="1" step="0.0001"/>
+    </p>
+    <br>
+    <p>
+
+        <input class="form-control-lg" type="number" value="1000000" data-decimals="0" min="0" max="2000000" step="1"/>
+    </p>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <p>
+                <label for="minInput">min</label>
+                <input id="minInput" type="text" class="form-control test-value-input" value="0"/>
+            </p>
+        </div>
+        <div class="col-lg-3">
+            <p>
+                <label for="maxInput">max</label>
+                <input id="maxInput" type="text" class="form-control test-value-input" value="100"/>
+            </p>
+        </div>
+        <div class="col-lg-3">
+            <p>
+                <label for="stepInput">step</label>
+                <input id="stepInput" type="text" class="form-control test-value-input" value="0.05"/>
+            </p>
+        </div>
+        <div class="col-lg-3">
+            <p>
+                <label for="dataDecimalsInput">data-decimals</label>
+                <input id="dataDecimalsInput" type="text" class="form-control test-value-input" value="2"/>
+            </p>
+        </div>
+    </div>
+    <br>
+    <p>
+        <label for="minMaxTester">Try here</label>
+        <input id="minMaxTester" type="number" value="50" min="0" max="100" step="0.05" data-decimals="2"/>
+    </p>
+
+    <br>
+
+    <p>
+        <input data-prefix="$" value="100.0" data-decimals="2" min="0" max="1000" step="0.1" type="number"/>
+    </p>
+    <br>
+    <p>
+        <input data-suffix="°C" value="50" min="0" max="100" type="number"/>
+    </p>
+    <br>
+    <p>
+        <input type="number" id="inputLoop" value="0" data-decimals="0" min="-10" max="360" step="1"
+               data-step-max="10"/>
+    </p>
+    <br>
+    <div class="mb-3">
+        <input type="number" id="minMaxValue"/>
+    </div>
+    <button id="buttonTest1" class="btn btn-primary">test1</button>
+    <button id="buttonTest2" class="btn btn-primary">test2</button>
+    <script class="language-javascript">$("#buttonTest1").click(function() {
+        $("#minMaxValue").attr("min", 11)
+        $("#minMaxValue").attr("max", 1000)
+        $("#minMaxValue").val(45)
+        })
+        $("#buttonTest2").click(function() {
+        $("#minMaxValue").attr("min", 1)
+        $("#minMaxValue").attr("max", 10)
+        $("#minMaxValue").val(5)
+        })
+    </script>
+    <br/>
+</section>
+<!-- bootstrap needs jQuery -->
+<script src="https://shaack.com/projekte/bootstrap-input-spinner/_node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://shaack.com/projekte/bootstrap-input-spinner/_node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    $("input[type='number']").inputSpinner()
+</script>
+<script>
+    var $inputChangeClass = $("#inputChangeClass")
+    var $classInput = $("#classInput")
+    $classInput.on("input", function () {
+        $inputChangeClass.prop("class", this.value)
+    })
+</script>
+<script>
+    var $inputDisabled = $("#inputDisabled")
+    var $disabledSwitch = $("#disabledSwitch")
+    $disabledSwitch.on("change", function () {
+        $inputDisabled.prop("disabled", $(this).prop("checked"))
+    })
+</script>
+<!--suppress JSUnusedLocalSymbols -->
+<script>
+    var $changedInput = $("#changedInput")
+    var $valueOnInput = $("#valueOnInput")
+    var $valueOnChange = $("#valueOnChange")
+    $changedInput.on("input", function (event) {
+        $valueOnInput.html($changedInput.val())
+    })
+    $changedInput.on("change", function (event) {
+        $valueOnChange.html($changedInput.val())
+    })
+</script>
+<!--suppress JSUnusedLocalSymbols -->
+<script>
+    var $minInput = $("#minInput")
+    var $maxInput = $("#maxInput")
+    var $stepInput = $("#stepInput")
+    var $dataDecimalsInput = $("#dataDecimalsInput")
+    var $minMaxTester = $("#minMaxTester")
+    $minInput.on("change", function (event) {
+        $minMaxTester.attr("min", $minInput.val())
+    })
+    $maxInput.on("change", function (event) {
+        $minMaxTester.attr("max", $maxInput.val())
+    })
+    $stepInput.on("change", function (event) {
+        $minMaxTester.attr("step", $stepInput.val())
+    })
+    $dataDecimalsInput.on("change", function (event) {
+        $minMaxTester.attr("data-decimals", $dataDecimalsInput.val())
+    })
+</script>
+<!--suppress JSUnusedLocalSymbols -->
+<script>
+    var $inputNet = $("#inputNet{id}")
+    var $inputGross = $("#inputGross")
+    $inputNet.on("change", function (event) {
+        $inputGross.val($inputNet.val() * 1.19)
+    })
+    $inputGross.on("change", function (event) {
+        $inputNet.val($inputGross.val() / 1.19)
+    })
+    $inputGross.val($inputNet.val() * 1.19)
+</script>
+<script>
+    var $inputLoop = $("#inputLoop")
+    $inputLoop.on("change", function (event) {
+        var value = $inputLoop.val()
+        value = (value < 0) ? 360 + parseInt(value, 10) : value % 360
+        $inputLoop.val(value)
+    })
+</script>
+<script>
+    $("#buttonTest1").click(function() {
+        $("#minMaxValue").attr("min", 11)
+        $("#minMaxValue").attr("max", 1000)
+        $("#minMaxValue").val(45)
+    })
+    $("#buttonTest2").click(function() {
+        $("#minMaxValue").attr("min", 1)
+        $("#minMaxValue").attr("max", 10)
+        $("#minMaxValue").val(5)
+    })
+</script>
+</body>
+</html>

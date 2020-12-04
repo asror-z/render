@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mafa</title>
+
+    <!-- ---------  Styles ----------->
+
+
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/v4-shims.min.css">
+    <link rel="stylesheet" href="/publish/yarner/font-awesome/css/font-awesome.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/publish/asrorz/mdb/css/mdb.min.css">
+
+    <link href="/publish/asrorz/ven/css/theme.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/publish/yarner/icheck-material/icheck-material.css" type="text/css">
+
+    <link href="/publish/asrorz/ven/css/theme-responsive.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/publish/asrorz/css/ALL.css">
+    <!--<link rel="stylesheet" href="/publish/asrorz/css/<? /*= App*/ ?>.css">-->
+
+    <!-- ---------  Scripts ----------->
+
+    <!--  <script type="text/javascript" src="/publish/yarner/jquery/dist/jquery.min.js"></script>-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+
+
+    <script type="text/javascript" src="/publish/yarner/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+
+    <script type="text/javascript" src="/publish/yarner/mobile-detect/mobile-detect.min.js"></script>
+
+    <script src="/publish/yarner/cookiejs/dist/cookie.min.js"></script>
+    <script type="text/javascript" src="/publish/asrorz/ven/js/theme.js"></script>
+
+    <script type="text/javascript" src="/publish/asrorz/js/ALL.js"></script>
+
+    <script type="text/javascript" src="/publish/Copy-to-clipboard/index.js"></script>
+
+    <style>
+
+
+
+    </style>
+
+
+</head>
+<body>
+<!-- Material checked -->
+
+<div class="container">
+    <br>
+    <!-- Material inline 1 -->
+
+    <div class="col-lg-5">
+        <div class="col-lg-12">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialInline1">
+                <label class="form-check-label  " for="materialInline1">Выбрать все</label>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <!-- Material inline 2 -->
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="col-lg-12">
+                <div class="form-check " >
+                    <input type="checkbox" class="form-check-input" id="materialInline2">
+                    <label class="form-check-label  " for="materialInline2">#</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Material inline 3 -->
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="col-lg-12">
+                <div class="form-check ">
+                    <input type="checkbox" class="form-check-input" id="materialInline3">
+                    <label class="form-check-label " for="materialInline3">ID</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Material inline 4 -->
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="col-lg-12">
+                <div class="form-check ">
+                    <input type="checkbox" class="form-check-input" id="materialInline4">
+                    <label class="form-check-label " for="materialInline4">FIO</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Material inline 5 -->
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="col-lg-12">
+                <div class="form-check ">
+                    <input type="checkbox" class="form-check-input" id="materialInline5">
+                    <label class="form-check-label " for="materialInline5">Role</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Material inline 6  -->
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="col-lg-12">
+                <div class="form-check ">
+                    <input type="checkbox" class="form-check-input" id="materialInline6">
+                    <label class="form-check-label " for="materialInline6">Email</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<button onclick="goForward()">Show info</button>
+
+
+<span id="Get"  class="btn btn-info"></span>
+
+
+<script>
+
+
+    $('#materialInline1').change(function(e) {
+        if (e.currentTarget.checked) {
+            $('.form-check').find('input[type="checkbox"]').prop('checked', true);
+        } else {
+            $('.form-check').find('input[type="checkbox"]').prop
+            ('checked', false);
+        }
+    });
+
+
+
+    $(document).on("click", "#Get", function() {
+
+        var keys = "";
+        var checkedArray = [];
+
+        $("input").each(function (index) {
+            if ($(this).prop("checked")) {
+                keys += $(this).index() + "|";
+                checkedArray.push(keys);
+                console.log(checkedArray)
+            }
+        });
+
+        if (keys === "") {
+            alert("Элементы не выбраны?");
+
+        } else {
+
+            if (window.confirm("Вы действительно хотите клонировать все эти данные?")) {
+
+                window.location.href = "http://eyuf.zettest.uz/testing/%40%20Other/lazy1/cleanMafa.html?keys=" + keys;
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

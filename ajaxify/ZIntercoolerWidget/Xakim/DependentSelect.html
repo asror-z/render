@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intercooler@1.2.3/dist/intercooler.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-mockjax@2.5.0/dist/jquery.mockjax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<h3>Pick A Make/Model</h3>
+
+<form ic-post-to="/form">
+    <div class="form-group">
+        <label class="control-label">Make</label>
+        <select class="form-control" name="make" ic-post-to="/models" ic-target="#models" ic-indicator="#model-ind">
+            <option value="audi">Audi</option>
+            <option value="toyota">Toyota</option>
+            <option value="bmw">BMW</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Model <i id="model-ind" class="fa fa-spinner fa-spin" style="display: none"></i></label>
+        <select id="models" class="form-control" name="model">
+            <option value="a1">A1</option>
+            <option value="a3">A3</option>
+            <option value="a6">A6</option>
+        </select>
+    </div>
+
+    <button class="btn btn-default">Submit</button>
+</form>
+
+<script>
+
+
+    $.mockjax({
+        url: "/form",
+        response: function (settings) {
+            this.responseText = formTemplate();
+        }
+    });
+
+    $.mockjax({
+        url: "/models",
+        responseTime: 450 ,
+        response: function (settings) {
+            var params = decodeURIComponent(settings.data);
+            var make = dataStore.findMake(params['make']);
+            this.responseText = modelOptions(make['models']);
+        }
+    });
+
+
+    var originalForm = $('form').html();
+    function formTemplate() {
+        return originalForm;
+    }
+
+    function modelOptions(make) {
+        return $.map(make, function(val) {
+            return "<option value='" + val + "'>" + val +"</option>";
+        });
+    }
+
+    var dataStore = function(){
+        var data = {
+            audi : { models : ["A1", "A4", "A6"] },
+            toyota : { models : ["Landcruiser", "Landcruiser", "Landcruiser"] },
+            bmw : { models : ["325i", "325ix", "X5"] }
+        };
+        return {
+            findMake : function(make) {
+                return data[make];
+            }
+        }
+    }()
+
+
+
+</script>
+
+</body>
+</html>

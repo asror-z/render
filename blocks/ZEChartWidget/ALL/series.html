@@ -1,0 +1,2332 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+
+<script
+        type="text/javascript">
+
+
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null
+    option = {
+        "title": {
+            id: '',
+            "show": true,
+            "text": "ZCore ChartEx Widget v4",
+            "link": "",
+            target: 'self', //'blank',
+            "subtext": "",
+            "itemGap": 5,
+
+            textStyle: {
+                "align": "right",
+                color: '#333',
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+                fontFamily: 'sans-serif',
+                fontSize: 18,
+                lineHeight: 15,
+                width: 15,
+                height: 15,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+            },
+            rich: {
+                a: {
+                    color: '#999',
+                    lineHeight: 22,
+                    align: 'center'
+                },
+                // abg: {
+                //     backgroundColor: '#333',
+                //     width: '100%',
+                //     align: 'right',
+                //     height: 22,
+                //     borderRadius: [4, 4, 0, 0]
+                // },
+                hr: {
+                    borderColor: '#aaa',
+                    width: '100%',
+                    borderWidth: 0.5,
+                    height: 0.5,
+                },
+                b: {
+                    fontSize: 16,
+                    lineHeight: 33
+                },
+                per: {
+                    color: '#eee',
+                    backgroundColor: '#334455',
+                    padding: [2, 4],
+                    borderRadius: 2
+                }
+            },
+            "padding": [
+                10,
+                10,
+                10,
+                60
+            ]
+        },
+        "legend": {
+            "show": true,
+            "type": "scroll",
+            "selectedMode": "multiple",
+            "orient": "horizontal",
+            "align ": "right",
+            "left": "83%",
+            "top": "10%",
+            "right": "auto",
+            "bottom": "auto",
+            "height": "85%",
+            "padding": 5,
+            "itemGap": 10,
+            "animation": true,
+            "symbolKeepAspect": true,
+            "textStyle": {
+                "fontSize": "12"
+            },
+            "tooltip": {
+                "show": true
+            }
+        },
+        "dataZoom": [
+            {
+                "show": true,
+                "type": "inside",
+                "startValue": null,
+                "endValue": null,
+                "start": null,
+                "end": null
+            },
+            {
+                "show": true,
+                "type": "slider",
+                "filterMode": "filter",
+                "handleSize": "100%",
+                "showDataShadow": true,
+                "handleStyle": {
+                    "color": "black",
+                    "shadowBlur": 3,
+                    "shadowColor": "rgba(0, 0, 0, 0.6)",
+                    "shadowOffsetX": 4,
+                    "shadowOffsetY": 4
+                },
+                "orient": "horizontal",
+                "zoomLock": false,
+                "showDetail": true,
+                "textStyle": {
+                    "fontSize": "11",
+                    "fontWeight": "normal"
+                },
+                "startValue": null,
+                "endValue": null,
+                "start": null,
+                "end": null
+            }
+        ],
+        "grid": {
+            "show": true,
+            "left": "2%",
+            "right": "18%",
+            "top": "9%",
+            "bottom": "4%",
+            "containLabel": true,
+            "tooltip": {
+                "show": true
+            }
+        },
+        "tooltip": {
+            "show": true,
+            "trigger": "axis",
+            "alwaysShowContent": false,
+            "showContent": true,
+            "showDelay": 0,
+            "hideDelay": 100,
+            "enterable": false,
+            "confine": false,
+            "transitionDuration": 0.4,
+            "padding": 20,
+            "position": function (point, params, dom, rect, size) {
+                var left = point[0] + 100;
+                var top = 0;
+
+                return {left: left, top: top};
+            },
+            "triggerOn": "mousemove",
+            "textStyle": {
+                "fontStyle": "normal",
+                "fontSize": "11",
+                "fontWeight": "normal"
+            },
+            "axisPointer": {
+                "type": "cross",
+                "label": []
+            }
+        },
+        "axisPointer": {
+            "show": true,
+            "type": "line",
+            "label": {
+                "show": true,
+                "precision": 2,
+                "fontSize": "11"
+            },
+            "handle": {
+                "show": true,
+                "size": 25,
+                "throttle": 15
+            }
+        },
+        "toolbox": {
+            "show": true,
+            "orient": "horizontal",
+            "itemSize": 18,
+            "itemGap": 10,
+            "left": "auto",
+            "right": 0,
+            "top": 0,
+            "bottom": "auto",
+            "showTitle": true,
+            "feature": {
+                "saveAsImage": [],
+                "restore": [],
+                "dataView": [],
+                "dataZoom": {
+                    "yAxisIndex": "none"
+                },
+                "magicType": []
+            }
+        },
+        "textStyle": {
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "fontFamily": "Verdana",
+            "fontSize": "12",
+            "align": "center",
+            "verticalAlign": "middle"
+        },
+        "animation": true,
+        "useUTC": false,
+        "xAxis": {
+            "type": "category",
+            "position": "bottom",
+            "offset": -21,
+            "inverse": false,
+            "boundaryGap": true,
+            "scale": true,
+            "splitNumber": 10,
+            "axisLabel": {
+                "margin": 35,
+                "show": true,
+                "interval": "auto",
+                "color": "black",
+                "fontWeight": "bold",
+                "inside": false,
+                "rotate": 0,
+                "fontSize": "11",
+                "align": "center",
+                "verticalAlign": "middle"
+            },
+            "show": true,
+            "name": "",
+            "nameLocation": "center",
+            "nameTextStyle": {
+                "fontSize": "13"
+            },
+            "nameGap": 30,
+            "nameRotate": null,
+            "splitLine": {
+                "show": true
+            },
+            "axisLine": {
+                "show": true,
+                "symbol": "none",
+                "lineStyle": {
+                    "type": "solid"
+                }
+            },
+            "axisTick": {
+                "show": true
+            }
+        },
+        "yAxis": {
+            "position": "left",
+            "offset": 0,
+            "type": "value",
+            "inverse": false,
+            "boundaryGap": [
+                "0%",
+                "10%"
+            ],
+            "scale": true,
+            "splitNumber": 5,
+            "axisPointer": {
+                "show": true,
+                "triggerTooltip": false
+            },
+            "axisLabel": {
+                "margin": 25,
+                "show": true,
+                "interval": "auto",
+                "color": "black",
+                "fontWeight": "bold",
+                "inside": false,
+                "rotate": 0,
+                "fontSize": "11",
+                "align": "center",
+                "verticalAlign": "middle"
+            },
+            "show": true,
+            "name": "",
+            "nameLocation": "center",
+            "nameTextStyle": {
+                "fontSize": "13"
+            },
+            "nameGap": 30,
+            "nameRotate": null,
+            "splitLine": {
+                "show": true
+            },
+            "axisLine": {
+                "show": true,
+                "symbol": "none",
+                "lineStyle": {
+                    "type": "solid"
+                }
+            },
+            "axisTick": {
+                "show": true
+            }
+        },
+        "dataset": {
+            "source": [
+                [
+                    "Name",
+                    "In",
+                    "Out"
+                ],
+                [
+                    "Monday",
+                    43.3,
+                    853.8
+                ],
+                [
+                    "Tuesday",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "331",
+                    833.1,
+                    73.4
+                ],
+                [
+                    "Tue141sday",
+                    843.1,
+                    73.4
+                ],
+                [
+                    "Tue4sday",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "Tue4s4day",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "Tue44sday",
+                    83.1,
+                    73.4
+                ]
+            ]
+        },
+        "series": [
+            {
+                "seriesLayoutBy": "column",
+                "id": "",
+                "show": true,
+                "name": "",
+                "coordinateSystem": 'polar', //'polar', 'cartesian2d'
+                "xAxisIndex": 20,
+                "yAxisIndex": -20,
+                "polarIndex": '',
+                "label": {
+                    "show": true,
+                    "distance": 5,
+                    "rotate": 90,
+                    "formatter": '{b}',
+                    "position": "left", //'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                    "fontSize": "11",
+                    "fontFamily": 'sans-serif',
+                    "fontStyle": 'normal',// 'normal' 'italic' 'oblique'
+                    "align": "center", //'center' 'left' 'right'
+                    "verticalAlign": "middle",// 'top'  'middle'    'bottom'
+                    "emphasis": {
+                        "show": false,
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(0, 0, 0, 0.5)"
+                    },
+                    "backgroundColor": 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                    "borderColor": 'transparent',       //'auto'
+                    "borderWidth": 0,
+                    "borderRadius": 0,
+                    "position": "inside",
+                    "offset": [-10, -10],
+                    "padding": [0, 0],
+                    "color": "auto",
+                    "width": 0,
+                    "height": 0,
+                    "textBorderColor": 'transparent',
+                    "textBorderWidth": 0,
+                    "textShadowColor": 'transparent',
+                    "textShadowBlur": 0,
+                    "textShadowOffsetX": 0,
+                    "textShadowOffsetY": 0,
+                    "rich": {
+                        "a": {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'normal' 'italic' 'oblique'
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: "left", //'center' 'left' 'right'
+                            verticalAlign: 'top', // 'top'  'middle'    'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                        }
+                    }
+                },
+                "type": "line",
+                "symbol": "circle", // 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                "symbolSize": 6,
+                "symbolRotate": "arrow",
+                "symbolKeepAspect": true,
+                "showSymbol": true,
+                "symbolOffset": [0, 0],
+                "showAllSymbol": false,   //'auto', true, false
+                "smooth": true,
+                "hoverAnimation": true,
+                "legendHoverLink ": true,
+                "stack": "",
+                "cursor": "pointer", //CSS STYLE
+                "connectNulls": true,
+                "clip": true,
+                "step": true, // true, false 'start', 'middle', 'end'
+                "sampling": "max", // 'average''min' 'max''sum'
+                "itemStyle": {
+                    "color": "#fff",
+                    borderColor: "#fff",
+                    borderWidth: 0,
+                    borderType: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                lineStyle: {
+                    color: "#fff",
+                    width: 2,
+                    type: "solid",
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                areaStyle: {
+                    color: "#f0f0f0",
+                    origin: 'auto',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                emphasis: {
+
+                    label: {
+                        show: false,
+                        position: [10, 10], //'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                        distance: 5,
+                        rotate: 90,
+                        offset: [30, 40],
+                        formatter: '{b}: {@score}',
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',//'normal'     'bold'      'bolder' 'lighter'
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: "right", //'left'  'center'   'right'
+                        verticalAlign: "top",  // 'top'  'middle'    'bottom'
+                        lineHeight: 56,
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            "a": {
+                                color: "#fff",
+                                fontStyle: 'normal', // 'normal' 'italic' 'oblique'
+                                fontWeight: 'normal', //'normal'     'bold'      'bolder' 'lighter'
+                                fontFamily: 'sans-serif',
+                                fontSize: 12,
+                                align: "left", //'center' 'left' 'right'
+                                verticalAlign: 'top', // 'top'  'middle'    'bottom'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0,
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: 0,
+                                height: 0,
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+                            }
+                        }
+                    }
+                },
+                smoothMonotone: 'y',
+                dimensions: ['date', 'open', 'close', 'highest', 'lowest'],
+                /* encode: {
+                     x: [3, 1, 5],      // Dimension 3, 1, 5 is mapped to x axis.
+                     y: 2,              // Dimension 2 is mapped to y axis.
+                     tooltip: [3, 2, 4] // Dimension 3, 2, 4 will be displayed in tooltip.
+                 },*/
+                markPoint: {
+                    symbol: 'pin',
+                    symbolSize: 50,
+                    symbolRotate: 'arrow',
+                    symbolKeepAspect: false,
+                    symbolOffset: [0, 0],
+                    silent: true,
+                    label: {
+                        show: true,
+                        position: 'inside',
+                        distance: 5,
+                        rotate: 90,
+                        offset: [30, 40],
+                        formatter: '{b}: {@score}',
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: 'right',//'left' 'center'    'right'
+                        verticalAlign: 'middle', // 'top''bottom''middle'
+                        lineHeight: 65,
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            a: {
+                                color: "#fff",
+                                fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif',
+                                fontSize: 12,
+                                align: 'left', //'left''center''right'
+                                verticalAlign: 'middle', // 'top''bottom''middle'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0,
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: 0,
+                                height: 0,
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+                            }
+                        },
+                        emphasis: {
+                            show: false,
+                            position: 'top',//'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                            distance: 5,
+                            rotate: 90,
+                            offset: [30, 40],
+                            formatter: '{b}: {@score}',
+                            color: "#fff",
+                            fontStyle: 'normal',
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: '',
+                            verticalAlign: '',
+                            lineHeight: '',
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                            rich: {
+                                a: {
+                                    color: "#fff",
+                                    fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                                    fontWeight: 'normal',
+                                    fontFamily: 'sans-serif',
+                                    fontSize: 12,
+                                    align: 'left', //'left''center''right'
+                                    verticalAlign: 'middle', // 'top''bottom''middle'
+                                    lineHeight: 56,
+                                    backgroundColor: 'transparent',
+                                    borderColor: 'transparent',
+                                    borderWidth: 0,
+                                    borderRadius: 0,
+                                    padding: 0,
+                                    shadowColor: 'transparent',
+                                    shadowBlur: 0,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    width: 0,
+                                    height: 0,
+                                    textBorderColor: 'transparent',
+                                    textBorderWidth: 0,
+                                    textShadowColor: 'transparent',
+                                    textShadowBlur: 0,
+                                    textShadowOffsetX: 0,
+                                    textShadowOffsetY: 0,
+                                }
+                            },
+                        }
+                    },
+                    itemStyle: {
+                        color: '#f0f0f0',
+                        borderColor: "#000",
+                        borderWidth: 0,
+                        borderType: 'solid',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                        emphasis: {
+                            color: '#f0f0f0',
+                            borderColor: "#000",
+                            borderWidth: 0,
+                            borderType: 'solid',
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                        }
+                    },
+
+                },
+                markLine: {
+                    silent: false,
+                    symbol: '',
+                    symbolSize: '',
+                    precision: 2,
+
+                    label: {
+                        show: true,
+                        position: 'end',
+                        formatter: '',
+                        emphasis: {
+                            show: true,
+                            position: 'end',
+                            formatter: '',
+                        },
+                    },
+                    lineStyle: {
+                        color: "#000",
+                        width: 0,
+                        type: 'solid',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                        curveness: 0,
+
+                        emphasis: {
+                            color: "#000",
+                            width: 0,
+                            type: 'solid',
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                        }
+                    },
+
+                    data: [{
+                        0: {
+                            type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                            valueIndex: 0,
+                            valueDim: 'open',
+                            coord: [5, 33.4],
+                            name: 'starting point',
+                            x: 0,
+                            y: 0,
+                            value: 0,
+                            symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                            symbolSize: 10,
+                            symbolRotate: 'arrow',
+                            symbolKeepAspect: false,
+                            symbolOffset: [0, 0],
+                            lineStyle: {
+                                color: "#fff",
+                                width: 0,
+                                type: 'solid',  //'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                                emphasis: {
+                                    color: "#000",
+                                    width: 0,
+                                    type: 'solid',   //'solid''dashed' 'dotted'
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    opacity: 1,
+                                    curveness: 0,
+                                }
+                            },
+
+                            label: {
+                                show: true,
+                                position: 'end',
+                                formatter: "{b}: {d",
+                                emphasis: {
+                                    show: true,
+                                    position: 'end',
+                                    formatter: "{b}: {d",
+                                }
+                            }
+                        },
+
+                        1: {
+                            type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                            valueIndex: 0,
+                            valueDim: 'open',
+                            coord: [5, 33.4],
+                            name: 'starting point',
+                            x: 0,
+                            y: 0,
+                            value: 0,
+                            symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                            symbolSize: 10,
+                            symbolRotate: 'arrow',
+                            symbolKeepAspect: false,
+                            symbolOffset: [0, 0],
+
+                            lineStyle: {
+                                color: "#fff",
+                                width: 0,
+                                type: 'solid', //'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                                emphasis: {
+                                    color: "#000",
+                                    width: 0,
+                                    type: 'solid',//'solid''dashed' 'dotted'
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    opacity: 1,
+                                    curveness: 0,
+                                },
+
+                                label: {
+                                    show: true,
+                                    position: 'end',
+                                    formatter: '{b}: {d',
+                                    emphasis: {
+                                        show: true,
+                                        position: 'end',
+                                        formatter: '{b}: {d',
+                                    }
+                                }
+                            },
+                        }
+                    }],
+                },
+                markArea: {
+                    silent: false,
+                    label: {
+                        show: false,
+                        position: 'top',
+                        distance: 5,
+                        rotate: 90,
+                        offset: [30, 40],
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        lineHeight: 56,
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 10,
+                        height: 10,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            a: {
+                                color: "#fff",
+                                fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif',
+                                fontSize: 12,
+                                align: 'left', //'left''center''right'
+                                verticalAlign: 'middle', // 'top''bottom''middle'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0,
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: 0,
+                                height: 0,
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+                            }
+                        },
+                        emphasis: {
+                            show: false,
+                            position: 'top',//'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                            distance: 5,
+                            rotate: 90,
+                            offset: [30, 40],
+                            formatter: '{b}: {@score}',
+                            color: "#fff",
+                            fontStyle: 'normal',
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: '',
+                            verticalAlign: '',
+                            lineHeight: '',
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                            rich: {
+                                a: {
+                                    color: "#fff",
+                                    fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                                    fontWeight: 'normal',
+                                    fontFamily: 'sans-serif',
+                                    fontSize: 12,
+                                    align: 'left', //'left''center''right'
+                                    verticalAlign: 'middle', // 'top''bottom''middle'
+                                    lineHeight: 56,
+                                    backgroundColor: 'transparent',
+                                    borderColor: 'transparent',
+                                    borderWidth: 0,
+                                    borderRadius: 0,
+                                    padding: 0,
+                                    shadowColor: 'transparent',
+                                    shadowBlur: 0,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    width: 0,
+                                    height: 0,
+                                    textBorderColor: 'transparent',
+                                    textBorderWidth: 0,
+                                    textShadowColor: 'transparent',
+                                    textShadowBlur: 0,
+                                    textShadowOffsetX: 0,
+                                    textShadowOffsetY: 0,
+                                }
+                            },
+                        }
+                    },
+                    itemStyle: {
+                        color: '#f0f0f0',
+                        borderColor: "#000",
+                        borderWidth: 0,
+                        borderType: 'solid',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                        emphasis: {
+                            color: "#f0f0f0",
+                            borderColor: "#000",
+                            borderWidth: 0,
+                            borderType: 'solid',
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                        }
+                    },
+                    data: [{
+                        0: {
+                            type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                            valueIndex: 0,
+                            valueDim: 'open',
+                            coord: [5, 33.4],
+                            name: 'starting point',
+                            x: 0,
+                            y: 0,
+                            value: 0,
+                            symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                            symbolSize: 10,
+                            symbolRotate: 'arrow',
+                            symbolKeepAspect: false,
+                            symbolOffset: [0, 0],
+                            lineStyle: {
+                                color: "#fff",
+                                width: 0,
+                                type: 'solid',  //'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                                emphasis: {
+                                    color: "#000",
+                                    width: 0,
+                                    type: 'solid',   //'solid''dashed' 'dotted'
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    opacity: 1,
+                                    curveness: 0,
+                                }
+                            },
+
+                            label: {
+                                show: true,
+                                position: 'end',
+                                formatter: "{b}: {d",
+                                emphasis: {
+                                    show: true,
+                                    position: 'end',
+                                    formatter: "{b}: {d",
+                                }
+                            }
+                        },
+
+                        1: {
+                            type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                            valueIndex: 0,
+                            valueDim: 'open',
+                            coord: [5, 33.4],
+                            name: 'starting point',
+                            x: 0,
+                            y: 0,
+                            value: 0,
+                            symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                            symbolSize: 10,
+                            symbolRotate: 'arrow',
+                            symbolKeepAspect: false,
+                            symbolOffset: [0, 0],
+
+                            lineStyle: {
+                                color: "#fff",
+                                width: 0,
+                                type: 'solid', //'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                                emphasis: {
+                                    color: "#000",
+                                    width: 0,
+                                    type: 'solid',//'solid''dashed' 'dotted'
+                                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                    shadowBlur: 10,
+                                    shadowOffsetX: 0,
+                                    shadowOffsetY: 0,
+                                    opacity: 1,
+                                    curveness: 0,
+                                },
+
+                                label: {
+                                    show: true,
+                                    position: 'end',
+                                    formatter: '{b}: {d',
+                                    emphasis: {
+                                        show: true,
+                                        position: 'end',
+                                        formatter: '{b}: {d',
+                                    }
+                                }
+                            },
+                        }
+                    }],
+                },
+                zlevel: 0,
+                z: 2,
+                silent: false,
+                animation: true,
+                animationThreshold: 2000,
+                animationDuration: 1000,
+                animationEasing: 'linear',
+                animationDelay: 0,
+                animationDurationUpdate: 300,
+                animationEasingUpdate: function (k) {
+                    return --k * k * k + 1;
+                },
+                animationDelayUpdate: 0,
+                tooltip: {
+                    position: 'top',//'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                    formatter: '{b}: {@score}',
+                    backgroundColor: 'rgba(50,50,50,0.7)',
+                    borderColor: '#333',
+                    borderWidth: 0,
+                    padding: 5,
+
+                    textStyle: {
+                        color: '#fff',
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 14,
+                        lineHeight: 56,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                    },
+                    extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);', //style,
+                }
+            },
+            {
+              /*  id: "1",
+                name: "",
+                legendHoverLink: true,
+                coordinateSystem: 'cartesian2d',*/
+               /* xAxisIndex: 0,
+                yAxisIndex: 0,*/
+                roundCap: false,
+                "seriesLayoutBy": "column",
+                "label": {
+                    "show": true,
+                    "fontSize": "11",
+                    "align": "center",
+                    "position": "inside",
+                    "offset": [-10, -10],
+                    "padding": [0, 0],
+                    "color": "auto",
+                    "verticalAlign": "middle",
+                    lineHeight: 56,
+                    backgroundColor: 'transparent',
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0,
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: 0,
+                    height: 0,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        a: {
+                            color: "#fff",
+                            fontStyle: 'normal',
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: "center",
+                            verticalAlign: 'middle',
+                            lineHeight: 56,
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                        }
+                    },
+                    "emphasis": {
+                        "show": false,
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(0, 0, 0, 0.5)"
+                    },
+
+                },
+                /*itemStyle: {
+                    color: null,
+                    barBorderColor: '#000',
+                    barBorderWidth: 0,
+                    barBorderRadius: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                emphasis: {
+
+                    label: {
+                        show: false,
+                        position: [10, 10],
+                        distance: 5,
+                        rotate: 90,
+                        offset: [30, 40],
+                        formatter: '{b}: {@score}',
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: 'left',
+                        verticalAlign: 'middle',
+                        lineHeight: 56,
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            a: {
+
+                                color: "#fff",
+                                fontStyle: 'normal',
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif',
+                                fontSize: 12,
+                                align:'left',
+                                verticalAlign:'middle',
+                                lineHeight:56,
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0,
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width:0,
+                                height:0,
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+                            }
+                        }
+                    },
+                    itemStyle: {
+                        color: 'auto',
+                        barBorderColor: '#000',
+                        barBorderWidth: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity:1,
+                    }
+                },*/
+                "type": "bar",
+                "symbol": "circle",
+                "symbolSize": 6,
+                "symbolKeepAspect": true,
+                "showSymbol": true,
+                "showAllSymbol": false,
+                "smooth": true,
+                "sampling": "max",
+               /* stack:false ,*/
+                /*cursor: 'pointer' ,
+                barWidth:'60%' ,
+                barMaxWidth :'70%' ,
+                barMinWidth :'40%' ,
+                barMinHeight: 0 ,
+                barGap: '30%' ,
+                barCategoryGap: '20%' ,
+                large: false ,
+                largeThreshold: 400 ,
+                progressive: 5000 ,
+                progressiveThreshold: 3000 ,
+                progressiveChunkMode: 'sequential' ,
+                dimensions :['date', 'open', 'close', 'highest', 'lowest'] ,
+               /!* encode: {
+                    x: [3, 1, 5],      // Dimension 3, 1, 5 is mapped to x axis.
+                    y: 2,              // Dimension 2 is mapped to y axis.
+                    tooltip: [3, 2, 4] // Dimension 3, 2, 4 will be displayed in tooltip.
+                }*!/
+                seriesLayoutBy:'column',
+                datasetIndex:0,*/
+               
+
+            }
+        ]
+    };
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>
+<script !src="">
+    "series"= [
+        {
+            "seriesLayoutBy": "column",
+            "id": "",
+            "show": true,
+            "name": "",
+            "coordinateSystem": 'polar', //'polar', 'cartesian2d'
+            "xAxisIndex": 20,
+            "yAxisIndex": -20,
+            "polarIndex": '',
+            "label": {
+                "show": true,
+                "distance": 5,
+                "rotate": 90,
+                "formatter": '{b}',
+                "position": "left", //'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                "fontSize": "11",
+                "fontFamily": 'sans-serif',
+                "fontStyle": 'normal',// 'normal' 'italic' 'oblique'
+                "align": "center", //'center' 'left' 'right'
+                "verticalAlign": "middle",// 'top'  'middle'    'bottom'
+                "emphasis": {
+                    "show": false,
+                    "shadowBlur": 10,
+                    "shadowOffsetX": 0,
+                    "shadowColor": "rgba(0, 0, 0, 0.5)"
+                },
+                "backgroundColor": 'transparent', // '#123234', 'red', 'rgba(0,23,11,0.3)'
+                "borderColor": 'transparent',       //'auto'
+                "borderWidth": 0,
+                "borderRadius": 0,
+                "position": "inside",
+                "offset": [-10, -10],
+                "padding": [0, 0],
+                "color": "auto",
+                "width": 0,
+                "height": 0,
+                "textBorderColor": 'transparent',
+                "textBorderWidth": 0,
+                "textShadowColor": 'transparent',
+                "textShadowBlur": 0,
+                "textShadowOffsetX": 0,
+                "textShadowOffsetY": 0,
+                "rich": {
+                    "a": {
+                        color: "#fff",
+                        fontStyle: 'normal', // 'normal' 'italic' 'oblique'
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: "left", //'center' 'left' 'right'
+                        verticalAlign: 'top', // 'top'  'middle'    'bottom'
+                        lineHeight: 56,
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                    }
+                }
+            },
+            "type": "line",
+            "symbol": "circle", // 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+            "symbolSize": 6,
+            "symbolRotate": "arrow",
+            "symbolKeepAspect": true,
+            "showSymbol": true,
+            "symbolOffset": [0, 0],
+            "showAllSymbol": false,   //'auto', true, false
+            "smooth": true,
+            "hoverAnimation": true,
+            "legendHoverLink ": true,
+            "stack": "",
+            "cursor": "pointer", //CSS STYLE
+            "connectNulls": true,
+            "clip": true,
+            "step": true, // true, false 'start', 'middle', 'end'
+            "sampling": "max", // 'average''min' 'max''sum'
+            "itemStyle": {
+                "color": "#fff",
+                borderColor: "#fff",
+                borderWidth: 0,
+                borderType: 'solid',
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                opacity: 1,
+            },
+            lineStyle: {
+                color: "#fff",
+                width: 2,
+                type: "solid",
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                opacity: 1,
+            },
+            areaStyle: {
+                color: "#f0f0f0",
+                origin: 'auto',
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                opacity: 1,
+            },
+            emphasis: {
+
+                label: {
+                    show: false,
+                    position: [10, 10], //'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                    distance: 5,
+                    rotate: 90,
+                    offset: [30, 40],
+                    formatter: '{b}: {@score}',
+                    color: "#fff",
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',//'normal'     'bold'      'bolder' 'lighter'
+                    fontFamily: 'sans-serif',
+                    fontSize: 12,
+                    align: "right", //'left'  'center'   'right'
+                    verticalAlign: "top",  // 'top'  'middle'    'bottom'
+                    lineHeight: 56,
+                    backgroundColor: 'transparent',
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0,
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: 0,
+                    height: 0,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        "a": {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'normal' 'italic' 'oblique'
+                            fontWeight: 'normal', //'normal'     'bold'      'bolder' 'lighter'
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: "left", //'center' 'left' 'right'
+                            verticalAlign: 'top', // 'top'  'middle'    'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                        }
+                    }
+                }
+            },
+            smoothMonotone: 'y',
+            dimensions: ['date', 'open', 'close', 'highest', 'lowest'],
+            /* encode: {
+                 x: [3, 1, 5],      // Dimension 3, 1, 5 is mapped to x axis.
+                 y: 2,              // Dimension 2 is mapped to y axis.
+                 tooltip: [3, 2, 4] // Dimension 3, 2, 4 will be displayed in tooltip.
+             },*/
+            markPoint: {
+                symbol: 'pin',
+                symbolSize: 50,
+                symbolRotate: 'arrow',
+                symbolKeepAspect: false,
+                symbolOffset: [0, 0],
+                silent: true,
+                label: {
+                    show: true,
+                    position: 'inside',
+                    distance: 5,
+                    rotate: 90,
+                    offset: [30, 40],
+                    formatter: '{b}: {@score}',
+                    color: "#fff",
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontSize: 12,
+                    align: 'right',//'left' 'center'    'right'
+                    verticalAlign: 'middle', // 'top''bottom''middle'
+                    lineHeight: 65,
+                    backgroundColor: 'transparent',
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0,
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: 0,
+                    height: 0,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        a: {
+                            color: "#fff",
+                            fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: 'left', //'left''center''right'
+                            verticalAlign: 'middle', // 'top''bottom''middle'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                        }
+                    },
+                    emphasis: {
+                        show: false,
+                        position: 'top',//'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                        distance: 5,
+                        rotate: 90,
+                        offset: [30, 40],
+                        formatter: '{b}: {@score}',
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: '',
+                        verticalAlign: '',
+                        lineHeight: '',
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            a: {
+                                color: "#fff",
+                                fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif',
+                                fontSize: 12,
+                                align: 'left', //'left''center''right'
+                                verticalAlign: 'middle', // 'top''bottom''middle'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0,
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: 0,
+                                height: 0,
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+                            }
+                        },
+                    }
+                },
+                itemStyle: {
+                    color: '#f0f0f0',
+                    borderColor: "#000",
+                    borderWidth: 0,
+                    borderType: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                    emphasis: {
+                        color: '#f0f0f0',
+                        borderColor: "#000",
+                        borderWidth: 0,
+                        borderType: 'solid',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                    }
+                },
+
+            },
+            markLine: {
+                silent: false,
+                symbol: '',
+                symbolSize: '',
+                precision: 2,
+
+                label: {
+                    show: true,
+                    position: 'end',
+                    formatter: '',
+                    emphasis: {
+                        show: true,
+                        position: 'end',
+                        formatter: '',
+                    },
+                },
+                lineStyle: {
+                    color: "#000",
+                    width: 0,
+                    type: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                    curveness: 0,
+
+                    emphasis: {
+                        color: "#000",
+                        width: 0,
+                        type: 'solid',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                    }
+                },
+
+                data: [{
+                    0: {
+                        type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                        valueIndex: 0,
+                        valueDim: 'open',
+                        coord: [5, 33.4],
+                        name: 'starting point',
+                        x: 0,
+                        y: 0,
+                        value: 0,
+                        symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                        symbolSize: 10,
+                        symbolRotate: 'arrow',
+                        symbolKeepAspect: false,
+                        symbolOffset: [0, 0],
+                        lineStyle: {
+                            color: "#fff",
+                            width: 0,
+                            type: 'solid',  //'solid''dashed' 'dotted'
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                            curveness: 0,
+                            emphasis: {
+                                color: "#000",
+                                width: 0,
+                                type: 'solid',   //'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                            }
+                        },
+
+                        label: {
+                            show: true,
+                            position: 'end',
+                            formatter: "{b}: {d",
+                            emphasis: {
+                                show: true,
+                                position: 'end',
+                                formatter: "{b}: {d",
+                            }
+                        }
+                    },
+
+                    1: {
+                        type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                        valueIndex: 0,
+                        valueDim: 'open',
+                        coord: [5, 33.4],
+                        name: 'starting point',
+                        x: 0,
+                        y: 0,
+                        value: 0,
+                        symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                        symbolSize: 10,
+                        symbolRotate: 'arrow',
+                        symbolKeepAspect: false,
+                        symbolOffset: [0, 0],
+
+                        lineStyle: {
+                            color: "#fff",
+                            width: 0,
+                            type: 'solid', //'solid''dashed' 'dotted'
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                            curveness: 0,
+                            emphasis: {
+                                color: "#000",
+                                width: 0,
+                                type: 'solid',//'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                            },
+
+                            label: {
+                                show: true,
+                                position: 'end',
+                                formatter: '{b}: {d',
+                                emphasis: {
+                                    show: true,
+                                    position: 'end',
+                                    formatter: '{b}: {d',
+                                }
+                            }
+                        },
+                    }
+                }],
+            },
+            markArea: {
+                silent: false,
+                label: {
+                    show: false,
+                    position: 'top',
+                    distance: 5,
+                    rotate: 90,
+                    offset: [30, 40],
+                    color: "#fff",
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontSize: 12,
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    lineHeight: 56,
+                    backgroundColor: 'transparent',
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0,
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: 10,
+                    height: 10,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        a: {
+                            color: "#fff",
+                            fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align: 'left', //'left''center''right'
+                            verticalAlign: 'middle', // 'top''bottom''middle'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: 0,
+                            height: 0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                        }
+                    },
+                    emphasis: {
+                        show: false,
+                        position: 'top',//'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                        distance: 5,
+                        rotate: 90,
+                        offset: [30, 40],
+                        formatter: '{b}: {@score}',
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: '',
+                        verticalAlign: '',
+                        lineHeight: '',
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            a: {
+                                color: "#fff",
+                                fontStyle: 'normal',// 'normal' 'italic' 'oblique'
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif',
+                                fontSize: 12,
+                                align: 'left', //'left''center''right'
+                                verticalAlign: 'middle', // 'top''bottom''middle'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent',
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                borderRadius: 0,
+                                padding: 0,
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: 0,
+                                height: 0,
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+                            }
+                        },
+                    }
+                },
+                itemStyle: {
+                    color: '#f0f0f0',
+                    borderColor: "#000",
+                    borderWidth: 0,
+                    borderType: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                    emphasis: {
+                        color: "#f0f0f0",
+                        borderColor: "#000",
+                        borderWidth: 0,
+                        borderType: 'solid',
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1,
+                    }
+                },
+                data: [{
+                    0: {
+                        type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                        valueIndex: 0,
+                        valueDim: 'open',
+                        coord: [5, 33.4],
+                        name: 'starting point',
+                        x: 0,
+                        y: 0,
+                        value: 0,
+                        symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                        symbolSize: 10,
+                        symbolRotate: 'arrow',
+                        symbolKeepAspect: false,
+                        symbolOffset: [0, 0],
+                        lineStyle: {
+                            color: "#fff",
+                            width: 0,
+                            type: 'solid',  //'solid''dashed' 'dotted'
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                            curveness: 0,
+                            emphasis: {
+                                color: "#000",
+                                width: 0,
+                                type: 'solid',   //'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                            }
+                        },
+
+                        label: {
+                            show: true,
+                            position: 'end',
+                            formatter: "{b}: {d",
+                            emphasis: {
+                                show: true,
+                                position: 'end',
+                                formatter: "{b}: {d",
+                            }
+                        }
+                    },
+
+                    1: {
+                        type: "min",   //'min' minimum value.'max' maximum value.'average' average value.
+                        valueIndex: 0,
+                        valueDim: 'open',
+                        coord: [5, 33.4],
+                        name: 'starting point',
+                        x: 0,
+                        y: 0,
+                        value: 0,
+                        symbol: 'circle',   //'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                        symbolSize: 10,
+                        symbolRotate: 'arrow',
+                        symbolKeepAspect: false,
+                        symbolOffset: [0, 0],
+
+                        lineStyle: {
+                            color: "#fff",
+                            width: 0,
+                            type: 'solid', //'solid''dashed' 'dotted'
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                            curveness: 0,
+                            emphasis: {
+                                color: "#000",
+                                width: 0,
+                                type: 'solid',//'solid''dashed' 'dotted'
+                                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                opacity: 1,
+                                curveness: 0,
+                            },
+
+                            label: {
+                                show: true,
+                                position: 'end',
+                                formatter: '{b}: {d',
+                                emphasis: {
+                                    show: true,
+                                    position: 'end',
+                                    formatter: '{b}: {d',
+                                }
+                            }
+                        },
+                    }
+                }],
+            },
+            zlevel: 0,
+            z: 2,
+            silent: false,
+            animation: true,
+            animationThreshold: 2000,
+            animationDuration: 1000,
+            animationEasing: 'linear',
+            animationDelay: 0,
+            animationDurationUpdate: 300,
+            animationEasingUpdate: function (k) {
+                return --k * k * k + 1;
+            },
+            animationDelayUpdate: 0,
+            tooltip: {
+                position: 'top',//'top' 'left' 'right' 'bottom' 'inside' 'insideLeft''insideRight''insideTop''insideBottom'  'insideTopLeft'  'insideBottomLeft' 'insideTopRight'   'insideBottomRight'
+                formatter: '{b}: {@score}',
+                backgroundColor: 'rgba(50,50,50,0.7)',
+                borderColor: '#333',
+                borderWidth: 0,
+                padding: 5,
+
+                textStyle: {
+                    color: '#fff',
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontSize: 14,
+                    lineHeight: 56,
+                    width: 0,
+                    height: 0,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                },
+                extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);', //style,
+            }
+        },
+        {
+            /*  id: "1",
+              name: "",
+              legendHoverLink: true,
+              coordinateSystem: 'cartesian2d',*/
+            /* xAxisIndex: 0,
+             yAxisIndex: 0,*/
+            roundCap: false,
+            "seriesLayoutBy": "column",
+            "label": {
+                "show": true,
+                "fontSize": "11",
+                "align": "center",
+                "position": "inside",
+                "offset": [-10, -10],
+                "padding": [0, 0],
+                "color": "auto",
+                "verticalAlign": "middle",
+                lineHeight: 56,
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: 0,
+                height: 0,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                rich: {
+                    a: {
+                        color: "#fff",
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                        align: "center",
+                        verticalAlign: 'middle',
+                        lineHeight: 56,
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0,
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: 0,
+                        height: 0,
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                    }
+                },
+                "emphasis": {
+                    "show": false,
+                    "shadowBlur": 10,
+                    "shadowOffsetX": 0,
+                    "shadowColor": "rgba(0, 0, 0, 0.5)"
+                },
+
+            },
+            /*itemStyle: {
+                color: null,
+                barBorderColor: '#000',
+                barBorderWidth: 0,
+                barBorderRadius: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                opacity: 1,
+            },
+            emphasis: {
+
+                label: {
+                    show: false,
+                    position: [10, 10],
+                    distance: 5,
+                    rotate: 90,
+                    offset: [30, 40],
+                    formatter: '{b}: {@score}',
+                    color: "#fff",
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontSize: 12,
+                    align: 'left',
+                    verticalAlign: 'middle',
+                    lineHeight: 56,
+                    backgroundColor: 'transparent',
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0,
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: 0,
+                    height: 0,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        a: {
+
+                            color: "#fff",
+                            fontStyle: 'normal',
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif',
+                            fontSize: 12,
+                            align:'left',
+                            verticalAlign:'middle',
+                            lineHeight:56,
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            padding: 0,
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width:0,
+                            height:0,
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+                        }
+                    }
+                },
+                itemStyle: {
+                    color: 'auto',
+                    barBorderColor: '#000',
+                    barBorderWidth: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity:1,
+                }
+            },*/
+            "type": "bar",
+            "symbol": "circle",
+            "symbolSize": 6,
+            "symbolKeepAspect": true,
+            "showSymbol": true,
+            "showAllSymbol": false,
+            "smooth": true,
+            "sampling": "max",
+            /* stack:false ,*/
+            /*cursor: 'pointer' ,
+            barWidth:'60%' ,
+            barMaxWidth :'70%' ,
+            barMinWidth :'40%' ,
+            barMinHeight: 0 ,
+            barGap: '30%' ,
+            barCategoryGap: '20%' ,
+            large: false ,
+            largeThreshold: 400 ,
+            progressive: 5000 ,
+            progressiveThreshold: 3000 ,
+            progressiveChunkMode: 'sequential' ,
+            dimensions :['date', 'open', 'close', 'highest', 'lowest'] ,
+           /!* encode: {
+                x: [3, 1, 5],      // Dimension 3, 1, 5 is mapped to x axis.
+                y: 2,              // Dimension 2 is mapped to y axis.
+                tooltip: [3, 2, 4] // Dimension 3, 2, 4 will be displayed in tooltip.
+            }*!/
+            seriesLayoutBy:'column',
+            datasetIndex:0,*/
+
+
+        }
+    ]
+
+</script>

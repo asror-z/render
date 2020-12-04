@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null
+    option = {
+        title: {
+            id: '',
+            show: true,
+            text: 'text for you',
+            link: '',
+            target: 'blank',
+
+            textStyle: {
+                color: '#333',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 18,
+                lineHeight: 15,
+                width: 15,
+                height: 15,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+            },
+
+            rich: {
+                a: {
+                    color: '#999',
+                    lineHeight: 22,
+                    align: 'center'
+                },
+                // abg: {
+                //     backgroundColor: '#333',
+                //     width: '100%',
+                //     align: 'right',
+                //     height: 22,
+                //     borderRadius: [4, 4, 0, 0]
+                // },
+                hr: {
+                    borderColor: '#aaa',
+                    width: '100%',
+                    borderWidth: 0.5,
+                    height: 0.5,
+                },
+                b: {
+                    fontSize: 16,
+                    lineHeight: 33
+                },
+                per: {
+                    color: '#eee',
+                    backgroundColor: '#334455',
+                    padding: [2, 4],
+                    borderRadius: 2
+                }
+            },
+
+            subtext: 'subetext for you',
+            sublink: '',
+            subtarget: 'blank',
+
+            subtextStyle: {
+                color: '#aaa',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: 'center',
+                verticalAlign: '',
+                lineHeight: '',
+                width: "",
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+            },
+
+            textAlign: 'auto',
+            textVerticalAlign: 'auto',
+            triggerEvent: false,
+            padding: 5,
+            itemGap: 10,
+            zlevel: 0,
+            z: 2,
+            left: 'auto',
+            top: 'auto',
+            right: 'auto',
+            bottom: 'auto',
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            borderRadius: 0,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+        },
+
+
+        legend: {
+
+            type: '',
+            id: '',
+            show: true,
+            zlevel: 0,
+            z: 2,
+            left: 'auto',
+            top: 'auto',
+            right: 'auto',
+            bottom: 'auto',
+            width: 'auto',
+            height: 'auto',
+            orient: 'horizontal',
+            align: 'auto',
+            padding: 5,
+            itemGap: 10,
+            itemWidth: 25,
+            itemHeight: 14,
+            symbolKeepAspect: true,
+            formatter: '',
+            selectedMode: true,
+            inactiveColor: '#ccc',
+            selected: '',
+            textStyle: {
+                color: "#fff",
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: '',
+                verticalAlign: '',
+                lineHeight: '',
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: '',
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+            },
+
+            tooltip: '',
+            icon: '',
+
+            data: [{
+                name: '',
+                icon: '',
+                textStyle: '',
+            }],
+
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            borderRadius: 0,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+            scrollDataIndex: 0,
+            pageButtonItemGap: 5,
+            pageButtonGap: '',
+            pageButtonPosition: 'end',
+            pageFormatter: '{current}/{total}',
+
+            pageIcons: {
+                horizontal: '',
+                vertical: '',
+            },
+            pageIconColor: '#2f4554',
+            pageIconInactiveColor: '#aaa',
+            pageIconSize: 15,
+            pageTextStyle: {
+                color: ' #333',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                lineHeight: '',
+                width: '',
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+                selectorPosition: 'auto',
+                selectorItemGap: 7,
+                selectorButtonGap: 10,
+            },
+
+            animation: '',
+            animationDurationUpdate: 800,
+            selector: false,
+            selectorLabel: {
+                show: true,
+                distance: 5,
+                rotate: '',
+                offset: '',
+                color: "#fff",
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: '',
+                verticalAlign: '',
+                lineHeight: '',
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: '',
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+            },
+
+            selectorPosition: 'auto',
+            selectorItemGap: 7,
+            selectorButtonGap: 10,
+        },
+        grid: {
+            id: '',
+            show: true,
+            zlevel: 0,
+            z: 2,
+            left: '10%',
+            top: 60,
+            right: '10%',
+            bottom: 60,
+            width: 'auto',
+            height: 'auto',
+            containLabel: false,
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+        },
+        xAxis: {type: 'category'},
+        yAxis: {},
+        grid: {},
+        dataset: {
+            dimensions: ['product', '2015', '2016', '2017'],
+            source: [
+                {product: 'Matcha Latte', '2015': 43.3, '2016': 85.8, '2017': 93.7},
+                {product: 'Milk Tea', '2015': 83.1, '2016': 73.4, '2017': 55.1},
+                {product: 'Cheese Cocoa', '2015': 86.4, '2016': 65.2, '2017': 82.5},
+                {product: 'Walnut Brownie', '2015': 72.4, '2016': 53.9, '2017': 39.1}
+            ]
+        },
+        series: [
+            {type: 'bar'},
+            {type: 'bar'},
+            {type: 'bar'}
+        ],
+        toolbox: {},
+        tooltip: {},
+        textStyle: {},
+        axisPointer: {},
+        visialMap: {},
+        dataZoom: {},
+        /*color:'#fff' ,*/
+        backgroundColor: '#fff',
+        animation: true,
+        animationThreshold: 2000,
+        animationDuration: 1000,
+        animationEasing: function (k) {
+            return --k * k * k + 1;
+        },
+        animationDelay: 0,
+        animationDurationUpdate: 300,
+        animationEasingUpdate: function (k) {
+            return --k * k * k + 1;
+        },
+        animationDelayUpdate: 0,
+        blendMode: 'source-over',
+        useUTC: false,
+    }
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+    var sdesParameters = {
+
+
+        grid: {
+            id: '',
+            show: false,
+            zlevel: 0,
+            z: 2,
+            left: '10%',
+            top: 60,
+            right: '10%',
+            bottom: 60,
+            width: 'auto',
+            height: 'auto',
+            containLabel: false,
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+        }
+    }
+
+</script>
+</body>
+</html>
+

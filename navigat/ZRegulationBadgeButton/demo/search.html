@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input id="search" placeholder="search">
+<button>send</button>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+<script>
+    $('button').on('click', function () {
+        $.ajax({
+            url: '/tester/ajax/test.aspx',
+            method: 'POST',
+            data: {
+                data: $('#search').val()
+            },
+            success: function (result) {
+                console.log(result)
+            }
+        })
+    })
+</script>
+</body>
+</html>

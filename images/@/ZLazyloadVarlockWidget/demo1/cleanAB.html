@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
+</head>
+<body>
+
+
+<img class="lozad" data-src="testing/imeges/abdu.jpg" />
+<img class="lozad" data-src="testing/imeges/abdu.jpg" data-srcset="image.png 1000w, image-2x.png 2000w" />
+
+<article class="thumb">
+    <img class="lozad" data-src="images/thumbs/02.jpg" data-index="2" src="images/thumbs/02.jpg" data-loaded="true">
+    <noscript><img src="images/thumbs/02.jpg" data-index="2" /></noscript>
+    <h2>Image 2</h2>
+</article>
+<script >
+
+    var lozad = require('lozad');
+
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+
+     const el = document.querySelector('img');
+     const observer = lozad(el); // passing a `NodeList` (e.g. `document.querySelectorAll()`) is also valid
+     observer.observe();*/
+      const observer = lozad('.lozad', {
+          rootMargin: '10px 0px', // syntax similar to that of CSS Margin
+          threshold: 0.1 // ratio of element convergence
+      });
+      observer.observe();*/
+
+
+        lozad('.lozad', {
+            load: function(el) {
+                console.log('loading element');
+
+                // Custom implementation to load an element
+                // e.g. el.src = el.getAttribute('data-src');
+            }
+        });
+
+        lozad('.lozad', {
+            loaded: function(el) {
+                // Custom implementation on a loaded element
+                el.classList.add('loaded');
+            }
+        });
+
+        const observer = lozad();
+        observer.observe();
+
+        // ... code to dynamically add elements
+        observer.observe(); // observes newly added elements as well
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

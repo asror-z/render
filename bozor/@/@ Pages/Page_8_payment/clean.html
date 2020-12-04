@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.0/build/css/intlTelInput.css">
+    <style>
+        
+         .input-required label:after{
+            display: inline-block;
+            content: '*';
+            padding-left: 10px;
+        }
+        .price-product{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .input-required, .content, .options-delivery label, .options-delivery input{
+            font-size: 20px;
+        } 
+        
+        .basket, .order-total, .sum-total, .order-sum, .options-delivery input{
+            color: limegreen; 
+            font-size: 25px;          
+        }
+     .price-number, .sum, .order-sum, .price-product{
+         text-align: right;
+         
+     }
+        .form-agree .custom-control-input:checked~.custom-control-label::before,.form-subscribe-news .custom-control-input:checked~.custom-control-label::before{
+            border-color: limegreen;
+            background-color: limegreen;
+        }
+
+        .iti__flag {background-image: url("img/flags.png");}
+
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          .iti__flag {background-image: url("img/flags@2x.png");}
+        }
+
+        .iti{
+            width: 100%;
+        }
+
+
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+    
+
+    <section class="main-form">
+        <form action="" method="post" name="addReg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-auto">
+                        <h2 class="addres">Укажите адрес доставки</h2>
+                    </div>
+
+                    <div class="col-lg-10 mt-5">
+                        <div class="form-input-name input-required">
+                            <label for="street">Улица</label>
+                        </div>
+                        <input type="text" name="street" class="form-control mb-3" id="street" required="required">
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="row">
+
+                            <div class="col-lg-3 col-md-5">
+                                <div class="form-input-name input-required">
+                                    <label for="apartament">Квартира</label>
+                                </div>
+                                <input type="text" name="apartament" class="form-control mb-lg-5" id="apartament"
+                                    required="required">
+                            </div>
+
+                            <div class="col-lg-3 col-md-5">
+                                <div class="form-input-name input-required">
+                                    <label for="porch">Подъезд</label>
+                                </div>
+                                <input type="text" name="porch" class="form-control mb-lg-5" id="porch"
+                                    required="required">
+                            </div>
+
+                            <div class="col-lg-3 col-md-5">
+                                <div class="form-input-name input-required">
+                                    <label for="floor">Этаж</label>
+                                </div>
+                                <input type="text" name="floor" class="form-control" id="floor" required="required">
+                            </div>
+
+                            <div class="col-lg-3 col-md-5">
+                                <div class="form-input-name input-required">
+                                    <label for="intercom">Домофон</label>
+                                </div>
+                                <input type="text" name="intercom" class="form-control" id="intercom"
+                                    required="required">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-5 mb-5">
+                        <div class="form-input-name input-required">
+                            <label for="phone">Номер телефона получателя</label>
+                        </div>
+                        <input type="text" name="phone" class="form-control mb-5" id="phone" required="required">
+                    </div>
+
+                </div>
+            </div>
+            <div class="map-receiver">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d67808.92068796152!2d69.24979695487818!3d41.314101207542016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1587398355222!5m2!1sru!2s"
+                                width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                        <div class="col-lg-5 mt-3 d-flex justify-content-center">
+                            <button type="reset" class="btn btn-outline-dark w-100 mr-2">Отмена</button>
+                            <button type="submit" class="btn btn-success w-100 ">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <!-- ==== main_form_end ==== -->
+
+
+
+
+    <!-- ===== content_start ===== -->
+    <section class="basket-mune">
+        <div class="basket-top">
+            <!-- ----- basket_top ----- -->
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-lg-10">
+                        <h4 class="basket">Корзина №1</h4>
+                    </div>
+                    <div class="col-lg-6 col-md-8">
+                        <p class="sausages content">Колбаски Останкино Шашличные полукопченые (1шт)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="price-product"><span class="price-sausages price-number">40,000</span><span class="sum"> UZS</span></p>
+                    </div>
+                    <div class="col-lg-6 col-md-8">
+                        <p class="sire content">Сир Останкино (1шт)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="price-product"><span class="price-sire price-number">60,000</span><span class="sum"> UZS</span></p>
+                    </div>
+                    <div class="col-lg-6 col-md-8">
+                        <p class="delivery content">Стоимость доставки:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="price-product"><span class="price-delivery price-number">16,000</span><span class="sum"> UZS</span></p>
+                    </div>
+                    <div class="col-lg-6 col-md-8">
+                        <p class="total content">Итого:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="price-product"><span class="price-total price-number">116,000</span><span class="sum"> UZS</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ----- basket_bottom ------ -->
+        <div class="basket-bottom">
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-lg-10">
+                        <h4 class="basket">Корзина №2</h4>
+                    </div>
+                    <div class="col-lg-6 col-md-8">
+                        <p class="sausages content">Колбаски Останкино Шашличные полукопченые (1шт)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="price-product"><span class="price-sausages price-number">40,000</span><span class="sum"> UZS</span></p>
+                    </div>
+                    <div class="col-lg-6 col-md-8">
+                        <p class="delivery content">Стоимость доставки:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="price-product"><span class="price-delivery price-number">16,000</span> <span class="sum"> UZS</span></p>
+                    </div>
+                    <div class="col-lg-6 col-md-8">
+                        <p class="total content">Итого:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="price-product"><span class="price-total price-number">56,000</span> <span class="sum"> UZS</span></p>
+                    </div>
+                    <div class="col-lg-6 col-md-8">
+                        <p class="total-amount content">Общая сумма зказа:</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="price-product"><span class="order-total price-number">162,000</span><span class="order-sum"> UZS</span></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- ===== option_start ===== -->
+    <section class="options-delivery">
+        <form action="" method="post" name="delReg">
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h4 class="dilivery-title">Опции доставки</h4>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <label class="urgent"><input type="radio" name="time-delivery" checked><span></span> срочна</label>
+                        <label class="while"><input type="radio" name="time-delivery"><span></span> на время</label>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <select name="day-select" id="day-select" class="day-select">
+                            <option value="сегодня" class="day">сегодня</option>
+                        </select>
+                        <select name="time-select" id="time-select" class="time-select">
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </div>
+                    <div class="col-12 mt-4">
+                       <p><label class="cash"><input type="radio" name="payment-type" checked> Наличные</label></p>
+                       <p><label class="cashless"><input type="radio" name="payment-type"> Безналичные расчет</label></p>            
+                    </div>
+                    <div class="col-12 mb-5">
+                        <button type="submit" class="btn btn-success">Оформить заказ</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.0/build/js/intlTelInput.js"></script>
+   
+   <script>
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+          // allowDropdown: false,
+          autoHideDialCode: false,
+          // autoPlaceholder: "off",
+          // dropdownContainer: document.body,
+          // excludeCountries: false,
+          // formatOnDisplay: false,
+          // geoIpLookup: function(callback) {
+          //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+          //     var countryCode = (resp && resp.country) ? resp.country : "";
+          //     callback(countryCode);
+          //   });
+          // },
+          // hiddenInput: "full_number",
+          initialCountry: "uz",
+          // localizedCountries: { 'de': 'Deutschland' },
+          // nationalMode: false,
+          onlyCountries: ['ru', 'uz', 'de', 'us'],
+          // placeholderNumberType: "MOBILE",
+          // preferredCountries: ['cn', 'jp'],
+          // separateDialCode: true,
+          utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.0/build/js/utils.js",
+        });
+      </script>
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+#cdawrap {
+	--cda-width: 180px;
+	--cda-height: auto;
+	--cda-left: auto;
+	--cda-right: 15px;
+	--cda-top: 35px;
+	--cda-bottom: auto;
+	--cda-background: rgba(255,255,255,0.8);
+	--cda-border-width: 1px;
+	--cda-border-color: rgba(0,0,0,0.05);
+	--cda-text-color: #4f5152;
+	--cda-text-weight: 700;
+	--cda-text-align: left;
+	--cda-remove-color: #c81e60;
+	--cda-sp-color: #3653bc;
+	width: 180px;
+	width: var(--cda-width);
+	height: auto;
+	height: var(--cda-height);
+	right: 15px; 
+	right: var(--cda-right);
+	top: 35px;
+	top: var(--cda-top);
+	left: auto;
+	left: var(--cda-left);
+	bottom: auto;
+	bottom: var(--cda-bottom);
+	position: fixed; 
+	background: rgba(255,255,255,0.8);
+	background: var(--cda-background);
+	border: 1px solid rgba(0,0,0,0.05);
+	border-width: var(--cda-border-width);
+	border-color: var(--cda-border-color);
+	z-index: 1000000;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+	padding: 1rem;
+	font-size: 12px;
+	box-sizing: border-box;
+	letter-spacing: 0px;
+	text-align: var(--cda-text-align);
+	line-height: 1;
+}
+
+.cda-naked #cdawrap {
+	--cda-background: transparent;
+	padding: 0;
+	border: 0;
+	font-family: inherit;
+}
+
+.cda-alignright #cdawrap {
+	text-align: right;
+}
+
+.cda-noimg #cdawrap {
+	padding: 1rem;
+	--cda-width: 260px;
+}
+
+#cdawrap .carbon-img {
+	display: block;
+	border: none;
+	margin: 0.25rem 0 0.25rem;
+}
+
+.cda-noimg #cdawrap .carbon-img {
+	display: none;
+}
+
+#cdawrap .carbon-img img {
+	width: 150px;
+    height: auto;
+    max-width: 100%;
+}
+
+#cdawrap .carbon-text {
+	color: #4f5152;
+	color: var(--cda-text-color);
+	padding: 0.25rem 0 0.75rem;
+	display: block;
+	line-height: 1.4;
+	font-weight: 700;
+	font-weight: var(--cda-text-weight);
+	text-decoration: none;
+	text-transform: none;
+	letter-spacing: 0px;
+	border: 0;
+}
+
+.cda-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.cda-removeleft .cda-footer {
+	justify-content: flex-start;
+}
+
+.cda-alignright .cda-footer {
+	justify-content: flex-end;
+}
+
+#cdawrap a.carbon-poweredby,
+#cda-remove {
+	display: inline-block;
+	font-size: 10px;
+	color: #3653bc;
+	color: var(--cda-sp-color);
+	font-weight: 400;
+	text-decoration: none;
+	text-transform: none;
+	letter-spacing: 0px;
+	border: 0;
+}
+
+#cdawrap a.carbon-poweredby:hover,
+#cdawrap a.carbon-poweredby:focus {
+	color: var(--cda-sp-color);
+}
+
+#cda-remove {
+	position: relative;
+	cursor: pointer;
+	color: #c81e60;
+	color: var(--cda-remove-color);
+}
+
+#cda-remove::before {
+	content: '';
+	position: absolute;
+	width: 150%;
+	height: 150%;
+	left: -25%;
+	top: -25%;
+}
+
+.cda-removeleft #cda-remove,
+.cda-alignright #cda-remove {
+	margin-left: 1.5rem;
+}
+
+#cdawrap #cda-remove:hover,
+#cdawrap #cda-remove:focus {
+	color: var(--cda-remove-color);
+}
+
+.cda-noremove #cda-remove {
+	display: none;
+}
+
+.cda-horizontal #cdawrap {
+    padding: 13px;
+    min-height: 126px;
+    --cda-width: 320px;
+}
+
+.cda-horizontal #cdawrap .carbon-img {
+	float: left;
+	margin-right: 1rem;	
+}
+
+@media screen and (max-width: 800px){ 
+	body #cdawrap,
+	body.cda-noimg #cdawrap {
+		width: 100%; 
+		height: auto;
+		min-height: 0 !important; 
+		right: 0px; 
+		top: auto !important; 
+		bottom: 0px !important;
+		left: 0px !important;
+		position: fixed;
+		background: #121313 !important;
+		padding: 15px 10px 10px 10px;
+		text-align: left;
+		font-size: 11px;
+	}
+
+	body #cdawrap::before {
+		content: 'Our Sponsor';
+		position: absolute;
+		top: 0;
+		left: 0;
+		color: #424242;
+		font-size: 9px;
+		padding: 10px;
+	}
+
+	body #cdawrap #carbonads {
+		padding: 0 !important;
+	}
+
+	body #cdawrap .carbon-text {
+		color: #838383 !important;
+		padding: 15px 0 10px !important;
+	}
+
+	body #cdawrap .carbon-img {
+		display: none;
+	}
+
+	#cdawrap a.carbon-poweredby {
+		display: none;
+	}
+	body #cda-remove {
+		position: absolute;
+		top: 9px;
+		right: 1rem;
+		display: block;
+	}
+	body .cda-noremove #cda-remove {
+		display: block;
+	}
+
+}
+
+@media screen and (max-width: 460px){ 
+	body.cda-hidemobile #cdawrap { display: none; }
+}

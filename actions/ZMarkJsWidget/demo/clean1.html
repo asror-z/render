@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/publish/yarner/mark.js/dist/mark.min.js"></script>
+    <script src="/publish/yarner/mark.js/dist/jquery.mark.min.js"></script>
+
+</head>
+<body>
+    <style>
+        mark{
+    background: orange;
+    color: black;
+}
+
+    </style>
+    <script>
+        var instance = new Mark(context);
+        var instance = new Mark("div.context");
+        var context = document.querySelector(".context");
+        instance.mark(keyword [ options]);
+        $(".context").mark(keyword [ options]);
+        var instance = new Mark(document.querySelector("div.context"));
+instance.mark("text", {
+    "element": "span",
+    "className": "highlight"
+});
+$("div.context").mark("text", {
+    "element": "span",
+    "className": "highlight"
+});
+$("div.context").mark("text", {
+    "exclude": [
+        "h1",
+        ".byline *"
+    ]
+});
+
+<div class="context">
+    <p>My <span class="highlight">text</span> content</p>
+</div>
+
+    </script>
+    <script>
+    var options = {
+            element: "mark",
+            className: "",
+            exclude: [],
+            separateWordSearch: true,
+            accuracy: "partially",
+            diacritics: true,
+            iframes: false,
+            iframesTimeout: 5000,
+            acrossElements: false,
+            caseSensitive: false,
+            ignoreJoiners: false,
+            ignoreGroups: 0,
+            ignorePunctuation: [ ],
+            wildcards: "disabled",
+            debug: false,
+            log: console
+        };
+    
+    </script>
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading">Search</div>
+          <div class="panel-body">
+            <div class="search row">
+              <div class="col-xs-6">
+                <span>Type in a keyword:</span>
+                <input type="text" name="keyword" class="form-control input-sm" placeholder="Lorem ipsum...">
+              </div>
+              <div class="col-xs-6">
+                <span>Search options:</span>
+                <input type="checkbox" name="opt[]" value="separateWordSearch" checked> separate word search
+                <br>
+                <input type="checkbox" name="opt[]" value="diacritics" checked> diacritics
+                <br>
+                <input type="checkbox" name="opt[]" value="debug"> debug
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="panel panel-default">
+          <div class="panel-body context">
+            <p>
+                It's not true
+                Tell me I've been lied to
+                Crying isn't like you
+                Oh-oh-oh
+                What the hell did I do?
+                Never been the type to
+                Let someone see right through
+                Oh-oh-oh
+                Maybe won't you take it back
+                Say you were tryna make me laugh
+                And nothing has to change today
+                You didn't mean to say "I love you"
+                I love you and I don't want to
+                Oh-oh-oh
+                Up all night on another red eye
+                I wish we never learned to fly
+                I-I-I
+                Maybe we should just try
+                To tell ourselves a good lie
+                I didn't mean to make you cry
+                I-I-I
+                Maybe won't you take it back
+                Say you were tryna make me laugh
+                And nothing has to change today
+                You didn't mean to say "I love you"
+                I love you and I don't want…
+            </p>
+            
+          </div>
+        </div>
+        
+        <div class="panel panel-default">
+          
+        </div>
+    <style>
+        body {
+  margin: 15px;
+}
+
+div.search span,
+div.search input[name="keyword"] {
+  display: block;
+}
+
+div.search input[name="keyword"] {
+  margin-top: 4px;
+}
+
+div.panel {
+  margin-bottom: 15px;
+}
+
+div.panel .panel-body p:last-child {
+  margin-bottom: 0;
+}
+
+mark {
+  padding: 0;
+}
+   </style>       
+   <script>
+       // Create an instance of mark.js and pass an argument containing
+// the DOM object of the context (where to search for matches)
+var markInstance = new Mark(document.querySelector(".context"));
+// Cache DOM elements
+var keywordInput = document.querySelector("input[name='keyword']");
+var optionInputs = document.querySelectorAll("input[name='opt[]']");
+
+function performMark() {
+
+  // Read the keyword
+  var keyword = keywordInput.value;
+
+  // Determine selected options
+  var options = {};
+  [].forEach.call(optionInputs, function(opt) {
+    options[opt.value] = opt.checked;
+  });
+
+  // Remove previous marked elements and mark
+  // the new keyword inside the context
+  markInstance.unmark({
+  	done: function(){
+    	markInstance.mark(keyword, options);
+    }
+  });
+};
+
+// Listen to input and option changes
+keywordInput.addEventListener("input", performMark);
+for (var i = 0; i < optionInputs.length; i++) {
+  optionInputs[i].addEventListener("change", performMark);
+}
+
+   </script> 
+</body>
+</html>

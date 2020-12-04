@@ -1,0 +1,129 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	min-height: 100%;
+	height: 100%;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+	background-color: #525560;
+}
+
+.ferule {
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.container {
+	margin: 30px 0;
+	width: 90%;
+	min-height: 70%;
+	display: inline-block;
+	max-width: 1300px;
+	vertical-align: middle;
+	position: relative;
+}
+
+
+.logo {
+	top: 10%;
+	left: 25%;
+	right: 25%;
+	position: absolute;
+	display: inline-block;
+	z-index: 100;
+}
+
+.overlay {
+	top: -10px;
+	right: -10px;
+	left: -10px;
+	bottom: -10px;
+	position: absolute;
+	background-color: rgba(0,0,0,.3);
+	z-index: 50;
+}
+	.is-master .overlay {
+		border-bottom: 2px solid #000;
+	}
+
+.image {
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+.holes {
+	text-decoration: none;
+	cursor: pointer;
+	width: 157px;
+	height: 191px;
+	top: 50%;
+	left: 50%;
+	color: #fff;
+	padding-right: 15px;
+	margin: -77px 0 0 -85px;
+	padding-top: 30px;
+	z-index: 100;
+	position: absolute;
+	font-size: 80px;
+	font-weight: 500;
+	background: url('http://rubaxa.github.io/wormhole/holes.png') no-repeat;
+}
+	.holes:hover {
+		background-position: -175px 0;
+	}
+
+.variants {
+	width: 100%;
+	bottom: 30px;
+	position: absolute;
+	z-index: 110;
+}
+	.variant {
+		cursor: pointer;
+		width: 70px;
+		height: 70px;
+		background: url('variant.png') no-repeat;
+		display: inline-block;
+		margin-left: 20px;
+		background-color: #fff;
+		border: 3px solid #fff;
+		border-radius: 100%;
+	}
+		.variant:first-child {
+			margin-left: 0;
+		}
+
+		.variant:hover {
+			border-color: #ff0;
+			background-color: #ff0;
+		}
+
+		.variant.active {
+			opacity: .3;
+		}
+
+
+.marcus {
+	opacity: .4;
+	right: 10px;
+	bottom: 10px;
+	position: absolute;
+	z-index: 1000;
+}
+	.marcus,
+	.marcus a {
+		color: #fff;
+		font-size: 13px;
+		font-family: Arial, Geneva, sans-serif;
+	}
+
+	.marcus:hover {
+		opacity: .8;
+	}

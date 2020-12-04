@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layout HTML</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/render/asrorz/mdb/css/mdb.min.css">
+
+    <link href="/render/asrorz/ven/css/theme.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/render/asrorz/ven/css/theme-responsive.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/render/asrorz/css/ALL.css">
+    <!--<link rel="stylesheet" href="/render/asrorz/css/<? /*= App*/ ?>.css">-->
+
+
+    <!-- ---------  Scripts ----------->
+
+    <!--  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+
+
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.4/mobile-detect.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/pjax.js@0.5.5/pjax.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/cookiejs@1.0.26/dist/cookie.min.js"></script>
+    <script type="text/javascript" src="/render/asrorz/ven/js/theme.js"></script>
+
+    <script type="text/javascript" src="/render/asrorz/js/ALL.js"></script>
+    <!--  <script type="text/javascript" src="/render/asrorz/js/<?= App ?>.js"></script>-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/copy-to-clipboard@3.3.1/example/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intercooler@1.2.3/dist/intercooler.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-mockjax@2.5.0/dist/jquery.mockjax.min.js"></script>
+    <!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>-->
+    <link rel="icon" href="/render/asrorz/css/ALL.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css"/>
+
+</head>
+<body>
+
+<header class="bg-info">
+    <div class="pretty p-default">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Default</label>
+        </div>
+    </div>
+
+    <!-- add class p-fill -->
+    <div class="pretty p-default p-fill">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Fill</label>
+        </div>
+    </div>
+
+    <!-- add class p-thick -->
+    <div class="pretty p-default p-thick">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Thick</label>
+        </div>
+    </div>
+</header>
+
+<div class="d-flex">
+    <div class="w-25 bg-primary" style="height: 80vh">
+        <h2>My Site</h2>
+        <div class="container" id="pjax-container">
+            Go to <a href="/page/2">next page</a>.
+        </div>
+
+    </div>
+
+        layout
+    
+
+</div>
+
+<footer class="bg-success">
+    <div class="pretty p-default">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Default</label>
+        </div>
+    </div>
+
+    <!-- add class p-fill -->
+    <div class="pretty p-default p-fill">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Fill</label>
+        </div>
+    </div>
+    <br><br>
+    <!-- add class p-thick -->
+    <div class="pretty p-default p-thick">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Thick</label>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    /*$.mockjax({
+        url: "/tester/asror/main.aspx?path=render\\ajaxify\\SPA\\ZIntercoolerJsWidget\\content1.html",
+        response: function (settings, xhr) {
+            //console.log(settings)
+        },
+        success: function (responsData, textStatus, xhr) {
+            //console.log()
+        },
+        complete: function (xhr) {
+            console.log(xhr)
+        }
+    });*/
+    $(document).on('submit', 'form[data-pjax]', function (event) {
+        $.pjax.submit(event, '#pjax-container')
+    });
+
+    $.pjax.defaults = {
+        history: true,
+        cache: true,
+        timeout: 650,
+        push: true,
+        replace: false,
+        type: 'GET',
+        dataType: 'html',
+        scrollTo: 0,
+        scrollOffset: 0,
+        maxCacheLength: 20,
+        version: findVersion,
+        pushRedirect: false,
+        replaceRedirect: true,
+        skipOuterContainers: false,
+        ieRedirectCompatibility: true
+    };
+    $(window).on('popstate.pjax', onPjaxPopstate)
+
+</script>
+
+</body>
+</html>

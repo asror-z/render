@@ -1,0 +1,187 @@
+<!DOCTYPE html><html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WebRTC over SIP POC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <!-- <script src="js/jquery-latest.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jssip.js"></script>-->
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.statically.io/gh/versatica/JsSIP/master/dist/jssip.js"></script>
+    <script type="text/javascript" src="poc.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-md-12 column">
+          <div class="jumbotron">
+            <span>WebRTC over SIP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="col-md-8 column">
+          <div class="row">
+            <h2>Call</h2>
+            <div style="white-space:nowrap;">
+              <input type="text" style="width: 100%; height:100%" id="sipURI" value="" placeholder="Enter sip uri" />                            
+            </div><br />
+            <div style="white-space:nowrap;">
+              <input type="text" style="width: 100%; height:100%" id="sipText" value="" placeholder="Enter text message to send" />                            
+            </div><br />
+            <div class="btn-toolbar" >
+              <div class="btn-group pull-left">
+                <button id="btnConnect" class="btn btn-success" data-toggle="dropdown">Connect</button>
+              </div>
+              <div class="btn-group pull-right">
+                <button id="btnCall" class="btn btn-primary" data-toggle="dropdown" disabled="disabled">Call</button>
+              </div>
+              <div class="btn-group pull-right">
+                <button id="btnHangup" class="btn btn-warning" data-toggle="dropdown" disabled="disabled">Hangup</button>
+              </div>
+              <div class="btn-group pull-right">
+                <button id="btnSend" class="btn btn-info" data-toggle="dropdown" disabled="disabled">Send</button>
+              </div>
+            </div>
+          </div>
+          <div class="row"><br /></div>
+          <div class="row">
+            <div class="col-md-4 column">
+              <video id="my-video"></video>
+            </div>
+            <div class="col-md-4 column">
+              <video id="peer-video"></video>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 column">
+          <div id="mysipuri">
+          </div>
+          <div id="messageBoard">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    $(document).ready(function(){
+      var self = {};
+      var dismiss_button_str = '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+
+      function enableButtons () {
+        for (var i = arguments.length - 1; i >= 0; i--) {
+          $(arguments[i]).removeAttr('disabled');
+        };
+      }
+
+      function disableButtons () {
+        for (var i = arguments.length - 1; i >= 0; i--) {
+          $(arguments[i]).attr('disabled', 'disabled');
+        };
+      }
+
+      var sip_handlers = {
+        newRTCSession: function (e) {
+          var domElement = $('#messageBoard');
+          domElement.append('<div class="alert alert-info alert-dismissable">'+ dismiss_button_str+'newRTCSession!' +'</div>');
+          $('#messageBoard .alert-info:last').delay(2000).addClass("in").fadeOut(4000);
+        },
+        connected: function (e) {
+          var domElement = $('#messageBoard');
+          domElement.append('<div class="alert alert-info alert-dismissable">'+ dismiss_button_str+'connected!' +'</div>');
+          $('#messageBoard .alert-info:last').delay(2000).addClass("in").fadeOut(4000);
+        },
+        disconnected: function (e) {
+          var domElement = $('#messageBoard');
+          domElement.append('<div class="alert alert-info alert-dismissable">'+ dismiss_button_str+'disconnected!' +'</div>');
+          $('#messageBoard .alert-info:last').delay(2000).addClass("in").fadeOut(4000);
+          $('#mysipuri').children().remove();
+        },
+        newMessage: function (e) {
+          if (e.data.originator !== 'local' && e.data.message) {
+            var message = {
+              from: e.data.message.request.from.uri.user,
+              body: e.data.message.request.body,
+              data: e.data.message.request.data
+            };
+            $('input#sipURI').val(e.data.message.request.from.uri);
+            var domElement = $('#messageBoard');
+            domElement.append('<div class="alert alert-info alert-dismissable">'+ dismiss_button_str+'<strong>'+message.from+'</strong>: '+message.body +'</div>');
+            $('#messageBoard .alert-info:last').delay(2000).addClass("in").fadeOut(4000);
+          } else {
+            console.log(e.data);
+          }
+        },
+        registered: function (e) {
+          $('#mysipuri').append('<h4>My SIP URI:<br /><span></span></h4>');
+          var domElement = $('#mysipuri span')
+          domElement.removeClass();
+          domElement.addClass("label label-info");
+          domElement.text(self.siprtc.uri());
+          console.log(e.data.response);
+          $('#messageBoard').append('<div class="alert alert-success alert-dismissable">'+ dismiss_button_str+e.data.response.data +'</div>');
+          $('#messageBoard .alert-success:last').delay(5000).addClass("in").fadeOut(1000);
+          enableButtons('button#btnSend', 'button#btnCall');
+        },
+        unregistered: function (e) {
+          var domElement = $('#messageBoard');
+          domElement.append('<div class="alert alert-info alert-dismissable">'+ dismiss_button_str+'unregistered!' +'</div>');
+          $('#messageBoard .alert-info:last').delay(2000).addClass("in").fadeOut(4000);
+          $('#mysipuri').children().remove();
+        },
+        registrationFailed: function (e) {
+          var domElement = $('#messageBoard');
+          domElement.append('<div class="alert alert-info alert-dismissable">'+ dismiss_button_str+'registrationFailed!' +'</div>');
+          $('#messageBoard .alert-info:last').delay(2000).addClass("in").fadeOut(4000);
+        }
+      };
+
+      $('button#btnConnect').click(function (event) {
+        event.preventDefault();
+        var siprtc = self.siprtc = new SipRTC({
+          eventHandlers: sip_handlers
+        });
+        $(event.currentTarget).attr('disabled','disabled');
+      });
+
+      $('button#btnCall').click(function (event) {
+        event.preventDefault();
+        if (self.siprtc) {
+          var target = $('input#sipURI').val();
+          var options = {
+            'mediaConstraints': {'audio': true, 'video': true}
+          };
+          self.siprtc.call(target, options);
+        }
+      })
+
+      $('button#btnSend').click(function (event) {
+        event.preventDefault();
+        if (self.siprtc) {
+          var target = $('input#sipURI').val();
+          var message = $('input#sipText').val();
+          self.siprtc.sendMessage(target, message, {
+            eventHandlers: {
+              succeeded: function(e){
+                var domElement = $('#messageBoard');
+                domElement.append('<div class="alert alert-success alert-dismissable">'+ dismiss_button_str+'message sent!' +'</div>');
+                $('#messageBoard .alert-success:last').delay(2000).addClass("in").fadeOut(4000);
+              },
+              failed:    function(e){
+                var domElement = $('#messageBoard');
+                domElement.append('<div class="alert alert-danger alert-dismissable">'+ dismiss_button_str+'message not sent!' +'</div>');
+                $('#messageBoard .alert-danger:last').delay(2000).addClass("in").fadeOut(4000);
+              }
+            }
+          });
+        }
+      })
+    });
+    </script>
+</body></html>

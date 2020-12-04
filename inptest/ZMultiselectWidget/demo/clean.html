@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="/publish/yarner/select2/dist/css/select2.css" rel="stylesheet"/>
+    <script src="/publish/yarner/jquery/dist/jquery.js"></script>
+    <script src="/publish/yarner/select2/dist/js/select2.js"></script>
+</head>
+<body>
+
+
+
+<select class="js-example-programmatic-multi" multiple="multiple" style="width: 100%">
+    <option value="AL">Alabam</option>
+    <option value="CA">California</option>
+
+</select>
+<button class="js-programmatic-multi-set-val">Setval</button>
+<button class="js-programmatic-multi-clear">clear</button>
+
+
+<script>
+
+    var $exampleMulti = $(".js-example-programmatic-multi").select2();
+
+
+    
+
+    $(".js-programmatic-multi-set-val").on("click", function () { $exampleMulti.val(["CA", "AL"]).trigger("change"); });
+    $(".js-programmatic-multi-clear").on("click", function () { $exampleMulti.val(null).trigger("change"); });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://hectorguo.com/CKEditor-Markdown-Plugin/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>CKEditor with Markdown Plugin</title>
+<script src="./demo_files/ckeditor.js.download"></script><style>.cke{visibility:hidden;}</style>
+<style>
+    body {
+        width: 960px;
+        margin: 0 auto;
+    }
+    
+    pre {
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        -webkit-tab-size: 4;
+        tab-size: 4;
+    }
+    
+    pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+    }
+    
+    pre.samples {
+        background-color: #F7F7F7;
+        border: 1px solid #D7D7D7;
+        overflow: auto;
+        padding: 0.25em;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    </style>
+<script type="text/javascript" src="./demo_files/config.js.download"></script>
+<link rel="stylesheet" type="text/css" href="./demo_files/editor.css">
+<script type="text/javascript" src="./demo_files/en.js.download"></script>
+<script type="text/javascript" src="./demo_files/styles.js.download"></script>
+<script type="text/javascript" src="./demo_files/plugin.js.download"></script>
+<style>.cke_button__markdown_label {display: inline;}</style>
+<script type="text/javascript" src="./demo_files/to-markdown.js.download"></script>
+<link rel="stylesheet" type="text/css" href="./demo_files/codemirror.min.css">
+<script type="text/javascript" src="./demo_files/codemirror-gfm-min.js.download"></script>
+<script type="text/javascript" src="./demo_files/marked.js.download"></script>
+
+</head>
+<body>
+<h3>Demo</h3>
+<textarea cols="100" id="editor1" name="editor1" rows="10" style="visibility: hidden; display: none;"></textarea>
+
+
+
+<h3>Source Code</h3>
+<pre class="samples">    &lt;textarea name="editor1" id="editor1" rows="10"&gt;&lt;/textarea&gt;
+    &lt;script&gt;
+    CKEDITOR.replace('editor1', {
+        toolbarGroups: [
+            {name: 'tools'},
+            {name: 'links'},
+            {name: 'basicstyles', groups: ['basicstyles', 'cleanup']},
+            {name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ]},
+            {name: 'styles'},
+            {name: 'others'}
+        ],
+        extraPlugins: 'markdown'
+    });
+    &lt;/script&gt;
+    </pre>
+
+<script>
+CKEDITOR.replace('editor1', {
+    toolbarGroups: [
+        {name: 'tools'},
+        {name: 'links'},
+        {name: 'basicstyles', groups: ['basicstyles', 'cleanup']},
+        { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+        {name: 'styles'},
+        {name: 'others'}
+    ],
+    extraPlugins: 'markdown'
+});
+</script>
+
+</body></html>

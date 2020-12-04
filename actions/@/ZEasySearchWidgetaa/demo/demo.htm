@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0082)https://www.jqueryscript.net/demo/Minimal-jQuery-In-page-Filter-Plugin-easySearch/ -->
+<!DOCTYPE html PUBLIC "" ""><HTML><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+ 
+<META charset="utf-8"> 
+<META http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<META name="viewport" content="width=device-width, initial-scale=1">
+	 <TITLE>jQuery easySearch Plugin: Search in list</TITLE>	 <LINK href="demo_files/jquerysctipttop.css" 
+rel="stylesheet" type="text/css">	 <LINK href="demo_files/semantic.min.css" rel="stylesheet"> 
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD> 
+<BODY>
+<STYLE>
+body { background-color:#fafafa;}
+	.container {
+		width: 50%;
+		margin: 150px auto;
+	}
+	.column {
+		margin-bottom: 20px;
+	}
+	div.input {
+		width: 100%;
+	}
+	li:before {display: none;}
+	ul.ui.list {margin-left: 0}
+</STYLE>
+ 
+<DIV id="jquery-script-menu">
+<DIV class="jquery-script-center">
+<UL>
+  <LI><A href="https://www.jqueryscript.net/other/Minimal-jQuery-In-page-Filter-Plugin-easySearch.html">Download 
+  This Plugin</A></LI>
+  <LI><A href="https://www.jqueryscript.net/">Back To 
+jQueryScript.Net</A></LI></UL>
+<DIV class="jquery-script-ads">
+<SCRIPT type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</SCRIPT>
+ 
+<SCRIPT src="demo_files/f.txt" type="text/javascript"></SCRIPT>
+</DIV>
+<DIV class="jquery-script-clear"></DIV></DIV></DIV>
+<DIV class="ui container">
+<H1>jQuery easySearch Plugin: Search in list</H1>
+<DIV class="column">
+<DIV class="ui input focus"><INPUT type="text" placeholder="Search..." value="">
+	 </DIV></DIV>
+<DIV class="column">
+<UL class="ui middle aligned selection list">
+  <LI class="item"><IMG class="ui avatar image" src="demo_files/helen.jpg">	     
+  <DIV class="content">
+  <DIV class="header">Helen</DIV></DIV></LI>
+  <LI class="item"><IMG class="ui avatar image" src="demo_files/christian.jpg">	 
+      
+  <DIV class="content">
+  <DIV class="header">Christian</DIV></DIV></LI>
+  <LI class="item"><IMG class="ui avatar image" src="demo_files/daniel.jpg">	    
+ 
+  <DIV class="content">
+  <DIV class="header">Daniel</DIV></DIV></LI>
+  <LI class="item"><IMG class="ui avatar image" src="demo_files/christian.jpg">	 
+      
+  <DIV class="content">
+  <DIV class="header">Marybelle</DIV></DIV></LI>
+  <LI class="item"><IMG class="ui avatar image" src="demo_files/helen.jpg">	     
+  <DIV class="content">
+  <DIV class="header">Joeann</DIV></DIV></LI>
+  <LI class="item"><IMG class="ui avatar image" src="demo_files/christian.jpg">	 
+      
+  <DIV class="content">
+  <DIV class="header">Fallon</DIV></DIV></LI>
+  <LI class="item"><IMG class="ui avatar image" src="demo_files/daniel.jpg">	    
+ 
+  <DIV class="content">
+  <DIV class="header">Arturo</DIV></DIV></LI>
+</UL>
+</DIV>
+</DIV>
+<SCRIPT src="demo_files/jquery-1.12.0.min.js"></SCRIPT>
+ 
+<SCRIPT src="demo_files/jquery.easysearch.js"></SCRIPT>
+ 
+<SCRIPT>
+	$('input').jSearch({
+	    selector  : 'ul',
+	    child : 'li div.header',
+	    minValLength: 0,
+	    Found : function(elem, event){
+	        $(elem).parent().parent().show();
+	    },
+	    NotFound : function(elem, event){
+	        $(elem).parent().parent().hide();
+	    },
+	    After : function(t){
+	        if (!t.val().length) $('ul li').show();
+	    }
+	});
+</SCRIPT>
+ 
+<SCRIPT type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</SCRIPT>
+ </BODY></HTML>

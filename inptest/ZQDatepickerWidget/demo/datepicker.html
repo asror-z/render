@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>datepicker</title>
+
+	<!-- // picker css（加载了fonts,具体看scss文件夹） -->
+	<link rel="stylesheet" href="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/css/datepicker.css">
+	<link rel="stylesheet" href="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/css/iconfont.css">
+	
+	<!-- // rely on plugins -->
+	<script src="https://rawcdn.githack.com/qiuyaofan/datepicker/af09df99da5fcc03adb2d55c99a1aa73e7145dec/js/plugins/jquery.js"></script>
+	<script src="https://rawcdn.githack.com/qiuyaofan/datepicker/af09df99da5fcc03adb2d55c99a1aa73e7145dec/js/plugins/moment.min.js"></script>
+
+	<!-- // picker js -->
+	<script src="https://rawcdn.githack.com/qiuyaofan/datepicker/af09df99da5fcc03adb2d55c99a1aa73e7145dec/js/datepicker.all.min.js"></script>
+	<!-- <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/datepicker.all.min.js"></script> -->
+	<script src="https://rawcdn.githack.com/qiuyaofan/datepicker/af09df99da5fcc03adb2d55c99a1aa73e7145dec/js/datepicker.en.js"></script>
+
+</head>
+<body>
+
+
+	
+
+<div class="p20">
+         <div class="mt40">
+            <div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(❤️New) Single selection of hours, minutes and seconds, minimum value: 04:23:11 </font></font><span class="c999"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(HH: mm: ss single)</font></font></span></div>
+            <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-time mt10">
+               <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+               <input type="text" autocomplete="off" name="" placeholder="selection period" class=" c-datepicker-data-input only-time" value="">
+            </div>
+         </div>
+      </div>
+	
+
+	<script type="text/javascript">
+         $(function(){
+           //Select hour, minute and second
+           $('.J-datepicker-time').datePicker({
+             format: 'HH:mm:ss',
+             min: '02:23:11'
+           });
+           $('.J-datepicker-time-range').datePicker({
+             format: 'HH:mm:ss',
+             isRange: true,
+             min: '04:23:11',
+             max: '20:59:59'
+           });
+           //Hour, minute, second, year, month, day, single
+           $('.J-datepicker-en').datePicker({
+             hasShortcut: true,
+             min: '2018-01-01 04:00:00',
+             max: '2019-04-29 20:59:59',
+             language: 'en',
+             shortcutOptions: [{
+               name: 'today',
+               day: '0'
+             }, {
+               name: 'yesterday',
+               day: '-1',
+               time: '00:00:00'
+             }, {
+               name: 'last week',
+               day: '-7'
+             }],
+             hide: function () {
+               console.info(this)
+             }
+           });
+           var DATAPICKERAPI = {
+             // The default input displays the current month, and fills it after obtaining it by yourself
+             activeMonthRange: function () {
+               return {
+                 begin: moment().set({ 'date': 1, 'hour': 0, 'minute': 0, 'second': 0 }).format('YYYY-MM-DD HH:mm:ss'),
+                 end: moment().set({ 'hour': 23, 'minute': 59, 'second': 59 }).format('YYYY-MM-DD HH:mm:ss')
+               }
+             },
+             shortcutMonth: function () {
+               // Current month
+               var nowDay = moment().get('date');
+               var prevMonthFirstDay = moment().subtract(1, 'months').set({ 'date': 1 });
+               var prevMonthDay = moment().diff(prevMonthFirstDay, 'days');
+               return {
+                 now: '-' + nowDay + ',0',
+                 prev: '-' + prevMonthDay + ',-' + nowDay
+               }
+             },
+             // The calculation returns in the last n hours
+             shortcutPrevHours: function (hour) {
+               var nowDay = moment().get('date');
+               var prevHours = moment().subtract(hour, 'hours');
+               var prevDate=prevHours.get('date')- nowDay;
+               var nowTime=moment().format('HH:mm:ss');
+               var prevTime = prevHours.format('HH:mm:ss');
+               return {
+                 day: prevDate + ',0',
+                 time: prevTime+',' + nowTime,
+                 name: '近'+ hour+'小时'
+               }
+             },
+             // Note for function: shortcut option option: only within the same month
+             rangeMonthShortcutOption1: function () {
+               var result = DATAPICKERAPI.shortcutMonth();
+               // Nearly 18 hours
+               var resultTime= DATAPICKERAPI.shortcutPrevHours(18);
+               return [{
+                 name: 'yesterday',
+                 day: '-1,-1',
+                 time: '00:00:00,23:59:59'
+               }, {
+                 name: 'This month',
+                 day: result.now,
+                 time: '00:00:00,'
+               }, {
+                 name: 'Last month',
+                 day: result.prev,
+                 time: '00:00:00,23:59:59'
+               }, {
+                 name: resultTime.name,
+                 day: resultTime.day,
+                 time: resultTime.time
+               }];
+             },
+             // Shortcut option
+             rangeShortcutOption1: [{
+               name: 'Last week',
+               day: '-7,0'
+             }, {
+               name: 'Last month',
+               day: '-30,0'
+             }, {
+               name: 'The last three months',
+               day: '-90, 0'
+             }],
+             singleShortcutOptions1: [{
+               name: 'Nowadays',
+               day: '0',
+               time: '00:00:00'
+             }, {
+               name: 'yesterday',
+               day: '-1',
+               time: '00:00:00'
+             }, {
+               name: 'A week ago',
+               day: '-7'
+             }]
+           };
+             //Hour, minute, second, year, month, day, single
+             $('.J-datepicker').datePicker({
+               hasShortcut:true,
+               min:'2018-01-01 04:00:00',
+               max:'2019-04-29 20:59:59',
+               shortcutOptions:[{
+                 name: 'Nowadays',
+                 day: '0'
+               }, {
+                 name: 'yesterday',
+                 day: '-1',
+                 time: '00:00:00'
+               }, {
+                 name: 'A week ago',
+                 day: '-7'
+               }],
+               hide:function(){
+                 console.info(this)
+               }
+             });
+             
+             //Year Month Day Single
+             $('.J-datepicker-day').datePicker({
+               hasShortcut: true,
+               format:'YYYY-MM-DD',
+               shortcutOptions: [{
+                 name: 'Nowadays',
+                 day: '0'
+               }, {
+                 name: 'yesterday',
+                 day: '-1'
+               }, {
+                 name: 'A week ago',
+                 day: '-7'
+               }]
+             });
+             
+             //Year Month Day Range
+             $('.J-datepicker-range-day').datePicker({
+               hasShortcut: true,
+               format: 'YYYY-MM-DD',
+               isRange: true,
+               shortcutOptions: DATAPICKERAPI.rangeShortcutOption1
+             });
+         
+             //Ten years, months, and days
+             $('.J-datepickerTime-single').datePicker({
+               format: 'YYYY-MM-DD HH:mm'
+             });
+             
+             //Ten years, months, and days
+             $('.J-datepickerTime-range').datePicker({
+               format: 'YYYY-MM-DD HH:mm',
+               isRange: true
+             });
+             
+             //Hour, minute, second, year, month, and day ranges, including maximum and minimum values
+             $('.J-datepicker-range').datePicker({
+               hasShortcut: true,
+               min: '2018-01-01 06:00:00',
+               max: '2019-04-29 20:59:59',
+               isRange: true,
+               shortcutOptions: [{
+                 name: 'yesterday',
+                 day: '-1,-1',
+                 time: '00:00:00,23:59:59'
+               },{
+                 name: 'Last week',
+                 day: '-7,0',
+                 time:'00:00:00,'
+               }, {
+                 name: 'Last month',
+                 day: '-30,0',
+                 time: '00:00:00,'
+               }, {
+                 name: 'The last three months',
+                 day: '-90, 0',
+                 time: '00:00:00,'
+               }],
+               hide: function (type) {
+                 console.info(this.$input.eq(0).val(), this.$input.eq(1).val());
+                 console.info('Types of：',type)
+               }
+             });
+             //Hour, minute, second, year, month, and day range, the limit can only choose the same month, such as 2018-10-01 to 2018-10-30
+             $('.J-datepicker-range-betweenMonth').datePicker({
+               isRange: true,
+               between:'month',
+               hasShortcut: true,
+               shortcutOptions: DATAPICKERAPI.rangeMonthShortcutOption1()
+             });
+             
+             //Hour, minute, second, year, month, and day range, limit the number of days between start and end less than 30
+             $('.J-datepicker-range-between30').datePicker({
+               isRange: true,
+               between: 30
+             });
+             
+             //Year and month
+             $('.J-yearMonthPicker-single').datePicker({
+               format: 'YYYY-MM',
+               min: '2018-01',
+               max: '2019-04',
+               hide: function (type) {
+                 console.info(this.$input.eq(0).val());
+               }
+             });
+             
+             //Select year
+             $('.J-yearPicker-single').datePicker({
+               format: 'YYYY',
+               min: '2018',
+               max: '2020'
+             });
+             
+         });
+      </script>
+
+</body>
+</html>

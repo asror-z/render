@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- saved from url=(0109)https://www.jqueryscript.net/demo/Easy-Password-Visibility-Toggle-Plugin-For-jQuery-password-toggle-input-js/ -->
+<html>
+<head>
+
+
+</head>
+
+<body>
+
+
+
+    
+    <div class="password-toggle-input-container">
+    <input type="password" class="password-box form-control password-toggle-input" value="password">
+    
+    </div>
+    <br>
+  
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
+
+<script>
+    (function($) {
+    $.fn.passwordToggleInput = function(options) {
+    var defaults = {
+    state: 'hide',
+    containerClass: 'password-toggle-input-container',
+    toggleButtonClass: 'password-toggle-input-button',
+    inputClass: 'password-toggle-input',
+    iconClass: {
+    show: 'fa fa-eye',
+    hide: 'fa fa-eye-slash'
+    }
+    };
+
+    var settings = $.extend({}, defaults, options);
+
+    return this.each(function() {
+    //Check whether element is input[type="password"]
+    if ( ! $(this).is(':password') ) {
+    return;
+    }
+
+    var availableStates = [
+    'show',
+    'hide'
+    ];
+
+    var elem = $(this);
+
+    var container = $('<div class="' + settings.containerClass + '"></div>');
+    var toggleButton = $('<button class="' + settings.toggleButtonClass + '"></button>');
+
+    /**
+    * Toggle control state show/hide
+    */
+    function toggleState() {
+    var input = container.find('input');
+    var iconClass = getIconClass();
+
+    if (input.attr('type') === 'password') {
+    toggleButton.removeClass(iconClass.show).addClass(iconClass.hide);
+    input.attr('type', 'text');
+    } else {
+    toggleButton.removeClass(iconClass.hide).addClass(iconClass.show);
+    input.attr('type', 'password');
+    }
+    };
+
+    /**
+    * Safe get state setting
+    */
+    function getStateSetting() {
+    if (settings.state && availableStates.indexOf(settings.state) > -1) {
+    return settings.state;
+    }
+    return defaults.state;
+    }
+
+    /**
+    * Safe get icon class object
+    */
+    function getIconClass() {
+    if ($.isPlainObject(settings.iconClass)) {
+    return settings.iconClass;
+    }
+    return defaults.iconClass;
+    }
+
+    /**
+    * Initialize plugin
+    */
+    function initialize() {
+    var state = getStateSetting();
+    var iconClass = getIconClass();
+    switch (state) {
+    case 'show':
+    elem.attr('type', 'text');
+    toggleButton.addClass(iconClass.hide);
+    break;
+
+    case 'hide':
+    default:
+    elem.attr('type', 'password');
+    toggleButton.addClass(iconClass.show);
+    }
+
+    elem.addClass(settings.inputClass);
+
+    elem.replaceWith(container.append(elem.clone()).append(toggleButton));
+    }
+
+    initialize();
+    toggleButton.click(toggleState);
+    });
+    };
+    } (jQuery));
+</script>
+
+<script>
+    $('.password-box').passwordToggleInput({});
+</script>
+
+
+
+
+
+</body>
+
+</html>

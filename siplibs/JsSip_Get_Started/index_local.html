@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+
+    </header>
+
+    <main class="content">
+
+        <div class="logIn "  style="display: none;">
+            <label for="uri">Log In</label>
+            <input type="text" id="uri">
+            </br>
+            <label for="secret">Password</label>
+            <input type="text" id="secret">
+            <button id="button_auth"> Log In</button>
+
+            <h1 class="authUri" style="display: none;"></h1>
+        </div>
+       <div class="inputUsers">
+           <label for="inputNumber">Number</label>
+        <input type="text" id="inputNumber">
+
+        <button class="callButton" value="call">Call</button>
+        <button class="hangUpButton">HangUp</button>
+        <button class="answerButton">Answer</button>
+       </div>
+
+       <div>
+            <video id="my-video"></video>
+       </div>
+       <div>
+            <video id="peer-video"></video>
+       </div>
+       
+        
+
+
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+
+    
+
+    <script src="https://jssip.net/download/releases/jssip-3.4.6.js"></script>
+
+
+
+    <script>
+// ----------------------------------------------- Мои переменные --------------------------------------------
+
+        let callButton    = document.querySelector('.callButton'), // Нахожу кнопку Call
+            hangUpButton  = document.querySelector('.hangUpButton'),  // Нахожу кнопку Hangup
+            answerButton  = document.querySelector('.answerButton'),  // Нахожу кнопку Answer
+            inputNumber   = document.querySelector('#inputNumber');  // Нахожу инпут для звонкапо ID InputNumber
+            logInDiv      = document.querySelector('.logIn');// Нахожу div авторизации 
+            loginUri      = document.querySelector('#uri');  // Нахожу инпут  URI по ID uri
+            uriSecret     = document.querySelector('#secret');  // Нахожу инпут  Secret по ID secret
+            buttonAuth    = document.querySelector('#button_auth');  // Нахожу кнопку button_auth  по ID для авторизации 
+
+
+            // Это встроенный объект его нужно переназначить (сюда должны идут потоки видео свои и собеседника)
+            var views = {
+                'selfView':   document.getElementById('my-video'),
+                'remoteView': document.getElementById('peer-video')
+            };
+
+
+        // Create our JsSIP instance and run it:
+         var socket = new JsSIP.WebSocketInterface('wss://10.10.3.31:8089/ws');
+            var configuration = {
+            sockets  : [ socket ],
+            uri      : 'sip:301@10.10.3.31:5060',
+            password : '301'
+            };
+
+            var ua = new JsSIP.UA(configuration);
+
+            console.log(ua);
+
+            ua.start();
+
+            
+        
+
+        
+
+        // Register callbacks to desired call events
+        var eventHandlers = {
+            'connecting': function(e) {
+                console.log('connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting connecting')
+                console.log(e);
+                
+            },
+            'progress': function(e) {
+                console.log('call is in progress');
+                
+            },
+            'failed': function(e) {
+                console.log('call failed with cause: '+ e.data.cause);
+            },
+            'ended': function(e) {
+                console.log('call ended with cause: '+ e.data.cause);
+            },
+            'confirmed': function(e) {
+                console.log('call confirmed');
+            }
+        };
+
+        var options = {
+        'eventHandlers'    : eventHandlers,
+        'mediaConstraints' : { 'audio': true, 'video': true }
+        };
+
+        //var session = ua.call('sip:308@94.158.52.244:7777', options);
+
+
+
+// ----------------------------------------------- Мои Функции -----------------------------------------------
+
+        ua.on('newRTCSession', (data) => {
+            var newSession = data.session;
+
+            console.log("ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE ORGINATE");
+            console.log(newSession.direction);
+
+
+            if (newSession.direction == 'local'){
+
+
+            }else if (newSession.direction == 'incoming'){
+                //Поднимаем трубку при нажатии на кнопку Answer 
+                answerButton.addEventListener('click', function(){
+                    newSession.answer(options)   
+                });             
+                
+            }
+
+            
+
+
+        })
+
+
+
+
+        //Создаем звонок при нажатии на кнопку Call на номер из инпута 
+        callButton.addEventListener('click',function(){
+            console.log(inputNumber.value);
+
+            console.log(ua);
+            ua.call('sip:' + inputNumber.value + '@94.158.52.244:7777', options)
+        });
+
+        //сбрасываем звонок при нажатии на HangUP 
+        hangUpButton.addEventListener('click', function(){
+            ua.terminateSessions()
+
+        });
+        
+        
+
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

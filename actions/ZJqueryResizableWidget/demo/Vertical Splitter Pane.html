@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .panel-container-vertical {
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            border: 1px solid silver;
+            overflow: hidden;
+        }
+
+        .panel-top {
+            flex: 0 0 auto; /* only manually resize */
+            padding: 10px;
+            height: 150px;
+            width: 100%;
+            white-space: nowrap;
+
+            background: #838383;
+            color: white;
+        }
+
+        .splitter-horizontal {
+            flex: 0 0 auto;
+            height: 18px;
+            background: url(https://cdn.statically.io/gh/RickStrahl/jquery-resizable/7f6d6aa0/assets/hsizegrip.png) center center no-repeat #535353;
+            cursor: row-resize;
+        }
+
+        .panel-bottom {
+            flex: 1 1 auto; /* resizable */
+            padding: 10px;
+            min-height: 200px !important; /* NOTE: This won't be respected! Explicit resize forces size of this panel */
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="panel-container-vertical">
+
+    <div class="panel-top">
+        top panel
+    </div>
+
+    <div class="splitter-horizontal">
+    </div>
+
+    <div class="panel-bottom">
+        bottom panel
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.statically.io/gh/RickStrahl/jquery-resizable/master/src/jquery-resizable.js"></script>
+<script>
+    $(".panel-top").resizable({
+        handleSelector: ".splitter-horizontal",
+        resizeWidth: false
+    });
+    </script>
+</body>
+</html>

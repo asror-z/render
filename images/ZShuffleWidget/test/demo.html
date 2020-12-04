@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://vestride.github.io/Shuffle/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Shuffle.js</title>
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Shuffle.js">
+  <meta property="og:description" content="Categorize, sort, and filter a responsive grid of items">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vestride.github.io/Shuffle/">
+  <meta property="og:image" content="https://vestride.github.io/Shuffle/img/shuffle-open-graph.png">
+  <meta property="og:site_name" content="">
+  <meta property="fb:admins" content="771347349">
+  <meta name="author" content="Glen Cheney">
+  <meta name="description" content="Categorize, sort, and filter a responsive grid of items">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@Vestride">
+  <meta name="twitter:title" content="Shuffle.js">
+  <meta name="twitter:description" content="Categorize, sort, and filter a responsive grid of items">
+  <meta name="twitter:image" content="https://vestride.github.io/Shuffle/img/shuffle-open-graph.png">
+
+  <link href="https://plus.google.com/u/0/100210640453700033824" rel="author">
+
+
+  <link id="favicon" rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACYUlEQVQ4T62SwWsTURDG5212k02apiWNNc3W1EtqTWgqJilNFbFWomioQsnBg3+ABw89ePFib0IL6kmLByn2oCCUEBVv9iKKUI+miiVgJGnSJrF5+xrZbXaf7Nu2CCGnOqdhmPkx3zeD4JCBjPnh1ZkiAnAaedVDCtfenpq4mA6vVD2yZNTqpL9wLvJgIja0uEKIm9WsVCd1VRhkgPDqDN1fpOYhOPnudDCxHMpWPcS1B8Dj4cfB+PBClhA3qzmbCtSctq59AAaAzr0N8pdeh+PJzMjav4CxyKOTZ4aefSLE7WcATZUrvCi1AMq9O4XplyPRG8uD6c3eHZ/RTHBfMRJ7cj0UW1wl2JTQFtDoqtcDny/4Qx/GROzethjNv2WpmZLuqSnp6TZR3EytU1Oh1mFtlcDZqgU1n4w2Nq6kOWuVbZCz+EvPtVvJm/LCG0DgZQQNCHAw2iKB2mt5fv1ynM8l1qi9xgzD2lE4f+RF93FIW6mlhzdqgqbQO6lX5ZYrUHsNc7mrQev6ZNYEUOhQ7PLX/vKJipR7D4pDAmOK8gR0bJ7Rlb+bNWQZ+a6jUvR9n57yriUyigP7jGa+If4qcR8ncfTHF4vuOoaoDjrlCRLABMzNpbyCYGO5KG5q5fJ4ZakU9nSLWxYAB3Aqplz9W0MOiA4qCKwP7VppdnbWlEBHIwcbADSLS3zH1G3OnQnQJjORWhDH8a5Onugy0nVdRwCIAqk3ONPEjeTZg0/0IhU/pL3B+82+7ABSmIntIgdd5hn/B6C4b6IX7RbmtZ6Jed23MoBU9nVtgvz84zRNPEz8BVycFVRwFdgHAAAAAElFTkSuQmCC">
+
+  <script src="./demo_files/cb=gapi.loaded_1" async=""></script><script src="./demo_files/cb=gapi(1).loaded_0" async=""></script><script type="text/javascript" async="" src="./demo_files/platform.js.Без названия" gapi_processed="true"></script><script id="twitter-wjs" src="./demo_files/widgets.js.Без названия"></script><script>window.location.host.indexOf("github.io")>-1&&"https:"!=window.location.protocol&&(window.location.protocol="https:");</script>
+
+  <!-- Prefetch DNS for external assets -->
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com/">
+  <link rel="dns-prefetch" href="https://unpkg.com/">
+
+  <link rel="stylesheet" href="./demo_files/prism.css">
+  <link rel="stylesheet" href="./demo_files/normalize.css">
+  <link rel="stylesheet" href="./demo_files/style.css">
+  <link rel="stylesheet" href="./demo_files/shuffle-styles.css">
+  <link rel="stylesheet" href="./demo_files/css">
+  
+  
+  <script>window.site_url = "/Shuffle";</script>
+<script charset="utf-8" src="./demo_files/button.93a0c25c2d2f3081c705c98c2d9dec0e.js.Без названия"></script></head>
+<body class="home">
+
+<nav class="site-nav">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm site-nav__content">
+        <a class="site-nav__logo" href="https://vestride.github.io/Shuffle/">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
+            <title>Shuffle.js logo</title>
+            <rect x="2" y="2" width="8" height="18" fill="#2dcb71"></rect>
+            <rect x="12" y="2" width="8" height="8" fill="#9b59b5"></rect>
+            <rect x="22" y="2" width="8" height="12" fill="#f39b11"></rect>
+            <rect x="2" y="22" width="8" height="8" fill="#e74b3b"></rect>
+            <rect x="12" y="12" width="8" height="8" fill="#3397db"></rect>
+            <rect x="22" y="16" width="8" height="4" fill="#1abb9b"></rect>
+            <rect x="12" y="22" width="18" height="8" fill="#33495d"></rect>
+          </svg>
+          <span class="site-nav__name">Shuffle.js</span>
+        </a>
+        <div class="site-nav__links">
+          <div class="site-nav__link site-nav__link--dropdown">
+            <button class="site-nav__link-toggle btn" id="docs-dropdown-btn" aria-label="Click to reveal list of Shuffle demos" aria-haspopup="true" aria-controls="docs-dropdown" aria-expanded="false">Docs</button>
+            <div class="site-nav__dropdown site-nav__dropdown--simple-links" id="docs-dropdown" aria-labelledby="docs-dropdown-btn" style="max-height: 527px;">
+              <ol class="unstyled">
+                <li><a href="https://vestride.github.io/Shuffle/#install">Install</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#features">Features</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#options">Options</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#usage">Usage</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#filters">Filters</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#advanced-filters">Advanced Filters</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#sorting">Sorting</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#events">Events</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#adding-removing">Adding and Removing Items</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#public-methods">Public Methods</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#custom-styles">Custom Styles</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#dependencies">Dependencies</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#supported-browsers">Supported Browsers</a></li>
+                <li><a href="https://vestride.github.io/Shuffle/#changelog">Changelog</a></li>
+              </ol>
+            </div>
+          </div>
+          <div class="site-nav__link site-nav__link--dropdown">
+            <button class="site-nav__link-toggle btn" id="demos-dropdown-btn" aria-label="Click to reveal list of Shuffle demos" aria-haspopup="true" aria-controls="demos-dropdown" aria-expanded="false">Demos</button>
+            <div class="site-nav__dropdown" id="demos-dropdown" aria-labelledby="demos-dropdown-btn" style="max-height: 527px;">
+              <ul class="unstyled">
+                
+                  <li class="">
+                    
+                    <a href="https://vestride.github.io/Shuffle/basic">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/basic.webp" type="image/webp">
+                          <img src="./demo_files/basic.jpg" alt="Basic masonry layout">
+                        </picture>
+                        <figcaption>Basic masonry layout</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+                  <li class="">
+                    
+                    <a href="https://vestride.github.io/Shuffle/adding-removing">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/adding-removing.webp" type="image/webp">
+                          <img src="./demo_files/adding-removing.jpg" alt="Adding and removing items">
+                        </picture>
+                        <figcaption>Adding and removing items</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+                  <li class="">
+                    
+                    <a href="https://vestride.github.io/Shuffle/compound-filters">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/compound-filters.webp" type="image/webp">
+                          <img src="./demo_files/compound-filters.jpg" alt="Compound filtering">
+                        </picture>
+                        <figcaption>Compound filtering</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+                  <li class="">
+                    
+                    <a href="https://vestride.github.io/Shuffle/images">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/images.webp" type="image/webp">
+                          <img src="./demo_files/images.jpg" alt="Using images">
+                        </picture>
+                        <figcaption>Using images</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+                  <li class="">
+                    
+                    <a href="https://vestride.github.io/Shuffle/animated">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/animated.webp" type="image/webp">
+                          <img src="./demo_files/animated.jpg" alt="Animated viewport entry">
+                        </picture>
+                        <figcaption>Animated viewport entry</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+                  <li class="">
+                    
+                    <a href="https://vestride.github.io/Shuffle/bootstrap3-grid">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/bootstrap3-grid.webp" type="image/webp">
+                          <img src="./demo_files/bootstrap3-grid.jpg" alt="Bootstrap 3 grid">
+                        </picture>
+                        <figcaption>Bootstrap 3 grid</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+                  <li class="">
+                    
+                    <a href="https://vestride.github.io/Shuffle/flexbox-grid">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/flexbox-grid.webp" type="image/webp">
+                          <img src="./demo_files/flexbox-grid.jpg" alt="Flexbox grid">
+                        </picture>
+                        <figcaption>Flexbox grid</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+                  <li class="">
+                    
+                    <a href="https://vestride.github.io/Shuffle/requirejs">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/requirejs.webp" type="image/webp">
+                          <img src="./demo_files/requirejs.jpg" alt="Shuffle with RequireJS">
+                        </picture>
+                        <figcaption>Shuffle with RequireJS</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+                  <li class="">
+                    
+                    <a href="https://vestride.github.io/Shuffle/shuffle-with-react">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/shuffle-with-react.webp" type="image/webp">
+                          <img src="./demo_files/shuffle-with-react.jpg" alt="Shuffle with React">
+                        </picture>
+                        <figcaption>Shuffle with React</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+                  <li class="">
+                    
+                    <a href="https://vestride.github.io/Shuffle/ajax">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/ajax.webp" type="image/webp">
+                          <img src="./demo_files/ajax.jpg" alt="Loading ajax content">
+                        </picture>
+                        <figcaption>Loading ajax content</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+                  <li class="">
+                    
+                    <a href="http://codepen.io/pen?template=qrjOpX" target="_blank" rel="noopener">
+                    
+                      <figure>
+                        <picture>
+                          <source srcset="/Shuffle/img/demos/codepen-template.webp" type="image/webp">
+                          <img src="./demo_files/codepen-template.jpg" alt="CodePen template">
+                        </picture>
+                        <figcaption>CodePen template</figcaption>
+                      </figure>
+                    </a>
+                  </li>
+                
+              </ul>
+            </div>
+          </div>
+          <a class="site-nav__link hidden@xs" href="https://vestride.github.io/Shuffle/faq">FAQ</a>
+          <a class="site-nav__link hidden@xs" href="https://github.com/Vestride/Shuffle">
+            <img class="site-nav__link-img" src="./demo_files/github.svg" alt="View Shuffle on GitHub" title="" width="16" height="16">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<header class="container">
+  <div class="row">
+    <div class="col-10@sm">
+      <h1>Shuffle</h1>
+      <p class="intro-text">Categorize, sort, and filter a responsive grid of items</p>
+    </div>
+  </div>
+</header>
+
+<main role="main" id="main">
+  <section id="install">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+  <h2>Install<a href="https://vestride.github.io/Shuffle/#install"></a></h2>
+</div>
+<div class="col-12@sm">
+  <div class="code-block">
+    <pre class=" language-bash"><code class=" language-bash">npm install shufflejs</code></pre>
+  </div>
+</div>
+<div class="col-6@sm">
+  <nav>
+    <a href="http://codepen.io/pen?template=qrjOpX" target="_blank" rel="noopener">Start a CodePen with a Shuffle template</a>
+    <a href="https://github.com/Vestride/Shuffle/releases">See the latest releases</a>
+  </nav>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Example<a href="https://vestride.github.io/Shuffle/#demo"></a></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-4@sm col-3@md">
+        <div class="filters-group">
+          <label for="filters-search-input" class="filter-label">Search</label>
+          <input class="textfield filter__search js-shuffle-search" type="search" id="filters-search-input">
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-12@sm filters-group-wrap">
+        <div class="filters-group">
+          <p class="filter-label">Filter</p>
+          <div class="btn-group filter-options">
+            <button class="btn btn--primary" data-group="space">Space</button>
+            <button class="btn btn--primary" data-group="nature">Nature</button>
+            <button class="btn btn--primary" data-group="animal">Animal</button>
+            <button class="btn btn--primary active" data-group="city">City</button>
+          </div>
+        </div>
+        <fieldset class="filters-group">
+          <legend class="filter-label">Sort</legend>
+          <div class="btn-group sort-options">
+            <label class="btn active">
+              <input type="radio" name="sort-value" value="dom"> Default
+            </label>
+            <label class="btn">
+              <input type="radio" name="sort-value" value="title"> Title
+            </label>
+            <label class="btn">
+              <input type="radio" name="sort-value" value="date-created"> Date Created
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div id="grid" class="row my-shuffle-container shuffle" style="height: 488px; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;">
+      
+          
+          
+
+<figure class="col-3@xs col-4@sm col-3@md picture-item shuffle-item shuffle-item--hidden" data-groups="[&quot;nature&quot;]" data-date-created="2017-04-30" data-title="Lake Walchen" style="position: absolute; top: 0px; left: 0px; visibility: hidden; will-change: transform; opacity: 0; transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity; transform: translate(0px, 0px) scale(0.001);" aria-hidden="true">
+  <div class="picture-item__inner">
+    
+    <div class="aspect aspect--16x9">
+      <div class="aspect__inner">
+    
+        
+        <img src="./demo_files/photo-1493585552824-131927c85da2" srcset="https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=6ef0f8984525fc4500d43ffa53fe8190 1x, https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=6ef0f8984525fc4500d43ffa53fe8190 2x" alt="A deep blue lake sits in the middle of vast hills covered with evergreen trees">
+        <img class="picture-item__blur" src="./demo_files/photo-1493585552824-131927c85da2" srcset="https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=6ef0f8984525fc4500d43ffa53fe8190 1x, https://images.unsplash.com/photo-1493585552824-131927c85da2?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=6ef0f8984525fc4500d43ffa53fe8190 2x" alt="" aria-hidden="true">
+    
+      </div>
+    </div>
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/zshyCr6HGw0" target="_blank" rel="noopener">Lake Walchen</a></figcaption>
+      <p class="picture-item__tags hidden@xs">nature</p>
+    </div>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-3@xs col-8@sm col-6@md picture-item picture-item--overlay shuffle-item shuffle-item--visible" data-groups="[&quot;city&quot;]" data-date-created="2016-07-01" data-title="Golden Gate Bridge" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(0px, 0px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
+  <div class="picture-item__inner">
+    
+        
+        <img src="./demo_files/photo-1467348733814-f93fc480bec6" srcset="https://images.unsplash.com/photo-1467348733814-f93fc480bec6?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=2590c736835ec6555e952e19bb37f06e 1x, https://images.unsplash.com/photo-1467348733814-f93fc480bec6?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=2590c736835ec6555e952e19bb37f06e 2x" alt="Looking down over one of the pillars of the Golden Gate Bridge to the roadside and water below">
+        <img class="picture-item__blur" src="./demo_files/photo-1467348733814-f93fc480bec6" srcset="https://images.unsplash.com/photo-1467348733814-f93fc480bec6?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=2590c736835ec6555e952e19bb37f06e 1x, https://images.unsplash.com/photo-1467348733814-f93fc480bec6?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=2590c736835ec6555e952e19bb37f06e 2x" alt="" aria-hidden="true">
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/RRNbMiPmTZY" target="_blank" rel="noopener">Golden Gate Bridge</a></figcaption>
+      <p class="picture-item__tags hidden@xs">city</p>
+    </div>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-3@xs col-4@sm col-3@md picture-item shuffle-item shuffle-item--hidden" data-groups="[&quot;animal&quot;]" data-date-created="2016-08-12" data-title="Crocodile" style="position: absolute; top: 0px; left: 0px; visibility: hidden; will-change: transform; opacity: 0; transform: translate(0px, 0px) scale(0.001); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;" aria-hidden="true">
+  <div class="picture-item__inner">
+    
+    <div class="aspect aspect--16x9">
+      <div class="aspect__inner">
+    
+        
+        <img src="./demo_files/photo-1471005197911-88e9d4a7834d" srcset="https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=bd8b952c4c983d4bde5e2018c90c9124 1x, https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=bd8b952c4c983d4bde5e2018c90c9124 2x" alt="A close, profile view of a crocodile looking directly into the camera">
+        <img class="picture-item__blur" src="./demo_files/photo-1471005197911-88e9d4a7834d" srcset="https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=bd8b952c4c983d4bde5e2018c90c9124 1x, https://images.unsplash.com/photo-1471005197911-88e9d4a7834d?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=bd8b952c4c983d4bde5e2018c90c9124 2x" alt="" aria-hidden="true">
+    
+      </div>
+    </div>
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/YOX8ZMTo7hk" target="_blank" rel="noopener">Crocodile</a></figcaption>
+      <p class="picture-item__tags hidden@xs">animal</p>
+    </div>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--h2 shuffle-item shuffle-item--hidden" data-groups="[&quot;space&quot;]" data-date-created="2016-03-07" data-title="SpaceX" style="position: absolute; top: 0px; left: 0px; visibility: hidden; will-change: transform; opacity: 0; transform: translate(0px, 0px) scale(0.001); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;" aria-hidden="true">
+  <div class="picture-item__inner">
+    
+    <div class="aspect aspect--16x9">
+      <div class="aspect__inner">
+    
+        
+        <img src="./demo_files/photo-1457364559154-aa2644600ebb" srcset="https://images.unsplash.com/photo-1457364559154-aa2644600ebb?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=3d0e3e8d72fc5667fd9fbe354e80957b 1x, https://images.unsplash.com/photo-1457364559154-aa2644600ebb?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=3d0e3e8d72fc5667fd9fbe354e80957b 2x" alt="SpaceX launches a Falcon 9 rocket from Cape Canaveral Air Force Station">
+        <img class="picture-item__blur" src="./demo_files/photo-1457364559154-aa2644600ebb" srcset="https://images.unsplash.com/photo-1457364559154-aa2644600ebb?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=3d0e3e8d72fc5667fd9fbe354e80957b 1x, https://images.unsplash.com/photo-1457364559154-aa2644600ebb?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=3d0e3e8d72fc5667fd9fbe354e80957b 2x" alt="" aria-hidden="true">
+    
+      </div>
+    </div>
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/GDdRP7U5ct0" target="_blank" rel="noopener">SpaceX</a></figcaption>
+      <p class="picture-item__tags hidden@xs">space</p>
+    </div>
+    
+      <p class="picture-item__description">SpaceX launches a Falcon 9 rocket from Cape Canaveral Air Force Station</p>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-3@xs col-4@sm col-3@md picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;city&quot;]" data-date-created="2016-06-09" data-title="Crossroads" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(580px, 0px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
+  <div class="picture-item__inner">
+    
+    <div class="aspect aspect--16x9">
+      <div class="aspect__inner">
+    
+        
+        <img src="./demo_files/photo-1465447142348-e9952c393450" srcset="https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=7d97e22d36a9a73beb639a936e6774e9 1x, https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=7d97e22d36a9a73beb639a936e6774e9 2x" alt="A multi-level highway stack interchange in Puxi, Shanghai">
+        <img class="picture-item__blur" src="./demo_files/photo-1465447142348-e9952c393450" srcset="https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=7d97e22d36a9a73beb639a936e6774e9 1x, https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=7d97e22d36a9a73beb639a936e6774e9 2x" alt="" aria-hidden="true">
+    
+      </div>
+    </div>
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/7nrsVjvALnA" target="_blank" rel="noopener">Crossroads</a></figcaption>
+      <p class="picture-item__tags hidden@xs">city</p>
+    </div>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-6@xs col-8@sm col-6@md picture-item picture-item--overlay shuffle-item shuffle-item--hidden" data-groups="[&quot;space&quot;,&quot;nature&quot;]" data-date-created="2016-06-29" data-title="Milky Way" style="position: absolute; top: 0px; left: 0px; visibility: hidden; will-change: transform; opacity: 0; transform: translate(290px, 0px) scale(0.001); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;" aria-hidden="true">
+  <div class="picture-item__inner">
+    
+        
+        <img src="./demo_files/photo-1467173572719-f14b9fb86e5f" srcset="https://images.unsplash.com/photo-1467173572719-f14b9fb86e5f?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=e641d6b3c4c2c967e80e998d02a4d03b 1x, https://images.unsplash.com/photo-1467173572719-f14b9fb86e5f?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=e641d6b3c4c2c967e80e998d02a4d03b 2x" alt="Dimly lit mountains give way to a starry night showing the Milky Way">
+        <img class="picture-item__blur" src="./demo_files/photo-1467173572719-f14b9fb86e5f" srcset="https://images.unsplash.com/photo-1467173572719-f14b9fb86e5f?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=e641d6b3c4c2c967e80e998d02a4d03b 1x, https://images.unsplash.com/photo-1467173572719-f14b9fb86e5f?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=e641d6b3c4c2c967e80e998d02a4d03b 2x" alt="" aria-hidden="true">
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/_4Ib-a8g9aA" target="_blank" rel="noopener">Milky Way</a></figcaption>
+      <p class="picture-item__tags hidden@xs">space, nature</p>
+    </div>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-6@xs col-8@sm col-6@md picture-item picture-item--h2 shuffle-item shuffle-item--hidden" data-groups="[&quot;space&quot;]" data-date-created="2015-11-06" data-title="Earth" style="position: absolute; top: 0px; left: 0px; visibility: hidden; will-change: transform; opacity: 0; transform: translate(290px, 244px) scale(0.001); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;" aria-hidden="true">
+  <div class="picture-item__inner">
+    
+    <div class="aspect aspect--16x9">
+      <div class="aspect__inner">
+    
+        
+        <img src="./demo_files/photo-1446776811953-b23d57bd21aa" srcset="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=f4856588634def31d5885dc396fe9a2e 1x, https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=f4856588634def31d5885dc396fe9a2e 2x" alt="NASA Satellite view of Earth">
+        <img class="picture-item__blur" src="./demo_files/photo-1446776811953-b23d57bd21aa" srcset="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=f4856588634def31d5885dc396fe9a2e 1x, https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=f4856588634def31d5885dc396fe9a2e 2x" alt="" aria-hidden="true">
+    
+      </div>
+    </div>
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/yZygONrUBe8" target="_blank" rel="noopener">Earth</a></figcaption>
+      <p class="picture-item__tags hidden@xs">space</p>
+    </div>
+    
+      <p class="picture-item__description">NASA Satellite view of Earth</p>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-3@xs col-4@sm col-3@md picture-item picture-item--h2 shuffle-item shuffle-item--hidden" data-groups="[&quot;animal&quot;]" data-date-created="2015-07-23" data-title="Turtle" style="position: absolute; top: 0px; left: 0px; visibility: hidden; will-change: transform; opacity: 0; transform: translate(290px, 0px) scale(0.001); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;" aria-hidden="true">
+  <div class="picture-item__inner">
+    
+    <div class="aspect aspect--16x9">
+      <div class="aspect__inner">
+    
+        
+        <img src="./demo_files/photo-1437622368342-7a3d73a34c8f" srcset="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=bc4e1180b6b8789d38c614edc8d0dd01 1x, https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=bc4e1180b6b8789d38c614edc8d0dd01 2x" alt="A close up of a turtle underwater">
+        <img class="picture-item__blur" src="./demo_files/photo-1437622368342-7a3d73a34c8f" srcset="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=bc4e1180b6b8789d38c614edc8d0dd01 1x, https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=bc4e1180b6b8789d38c614edc8d0dd01 2x" alt="" aria-hidden="true">
+    
+      </div>
+    </div>
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/L-2p8fapOA8" target="_blank" rel="noopener">Turtle</a></figcaption>
+      <p class="picture-item__tags hidden@xs">animal</p>
+    </div>
+    
+      <p class="picture-item__description">A close up of a turtle underwater</p>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-3@xs col-4@sm col-3@md picture-item shuffle-item shuffle-item--hidden" data-groups="[&quot;nature&quot;]" data-date-created="2014-10-12" data-title="Stanley Park" style="position: absolute; top: 0px; left: 0px; visibility: hidden; will-change: transform; opacity: 0; transform: translate(870px, 0px) scale(0.001); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;" aria-hidden="true">
+  <div class="picture-item__inner">
+    
+    <div class="aspect aspect--16x9">
+      <div class="aspect__inner">
+    
+        
+        <img src="./demo_files/d141726c" srcset="https://images.unsplash.com/uploads/1413142095961484763cf/d141726c?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=6141097da144d759176d77b4024c064b 1x, https://images.unsplash.com/uploads/1413142095961484763cf/d141726c?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=6141097da144d759176d77b4024c064b 2x" alt="Many trees stand alonside a hill which overlooks a pedestrian path, next to the ocean at Stanley Park in Vancouver, Canada">
+        <img class="picture-item__blur" src="./demo_files/d141726c" srcset="https://images.unsplash.com/uploads/1413142095961484763cf/d141726c?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=6141097da144d759176d77b4024c064b 1x, https://images.unsplash.com/uploads/1413142095961484763cf/d141726c?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=6141097da144d759176d77b4024c064b 2x" alt="" aria-hidden="true">
+    
+      </div>
+    </div>
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/b-yEdfrvQ50" target="_blank" rel="noopener">Stanley Park</a></figcaption>
+      <p class="picture-item__tags hidden@xs">nature</p>
+    </div>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-3@xs col-4@sm col-3@md picture-item shuffle-item shuffle-item--hidden" data-groups="[&quot;animal&quot;]" data-date-created="2017-01-12" data-title="Astronaut Cat" style="position: absolute; top: 0px; left: 0px; visibility: hidden; will-change: transform; opacity: 0; transform: translate(580px, 0px) scale(0.001); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;" aria-hidden="true">
+  <div class="picture-item__inner">
+    
+    <div class="aspect aspect--16x9">
+      <div class="aspect__inner">
+    
+        
+        <img src="./demo_files/photo-1484244233201-29892afe6a2c" srcset="https://images.unsplash.com/photo-1484244233201-29892afe6a2c?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=98423596f72d9f0913a4d44f0580a34c 1x, https://images.unsplash.com/photo-1484244233201-29892afe6a2c?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=98423596f72d9f0913a4d44f0580a34c 2x" alt="An intrigued cat sits in grass next to a flag planted in front of it with an astronaut space kitty sticker on beige fabric.">
+        <img class="picture-item__blur" src="./demo_files/photo-1484244233201-29892afe6a2c" srcset="https://images.unsplash.com/photo-1484244233201-29892afe6a2c?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=98423596f72d9f0913a4d44f0580a34c 1x, https://images.unsplash.com/photo-1484244233201-29892afe6a2c?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=98423596f72d9f0913a4d44f0580a34c 2x" alt="" aria-hidden="true">
+    
+      </div>
+    </div>
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/FqkBXo2Nkq0" target="_blank" rel="noopener">Astronaut Cat</a></figcaption>
+      <p class="picture-item__tags hidden@xs">animal</p>
+    </div>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-3@xs col-8@sm col-6@md picture-item picture-item--overlay shuffle-item shuffle-item--visible" data-groups="[&quot;city&quot;]" data-date-created="2017-01-19" data-title="San Francisco" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(0px, 244px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
+  <div class="picture-item__inner">
+    
+        
+        <img src="./demo_files/photo-1484851050019-ca9daf7736fb" srcset="https://images.unsplash.com/photo-1484851050019-ca9daf7736fb?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=05325a7cc678f7f765cbbdcf7159ab89 1x, https://images.unsplash.com/photo-1484851050019-ca9daf7736fb?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=05325a7cc678f7f765cbbdcf7159ab89 2x" alt="Pier 14 at night, looking towards downtown San Francisco&#39;s brightly lit buildings">
+        <img class="picture-item__blur" src="./demo_files/photo-1484851050019-ca9daf7736fb" srcset="https://images.unsplash.com/photo-1484851050019-ca9daf7736fb?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=05325a7cc678f7f765cbbdcf7159ab89 1x, https://images.unsplash.com/photo-1484851050019-ca9daf7736fb?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=584&amp;h=329&amp;fit=crop&amp;s=05325a7cc678f7f765cbbdcf7159ab89 2x" alt="" aria-hidden="true">
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/h3jarbNzlOg" target="_blank" rel="noopener">San Francisco</a></figcaption>
+      <p class="picture-item__tags hidden@xs">city</p>
+    </div>
+    
+  </div>
+</figure>
+
+      
+          
+          
+
+<figure class="col-3@xs col-4@sm col-3@md picture-item shuffle-item shuffle-item--visible" data-groups="[&quot;nature&quot;,&quot;city&quot;]" data-date-created="2015-10-20" data-title="Central Park" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(870px, 0px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
+  <div class="picture-item__inner">
+    
+    <div class="aspect aspect--16x9">
+      <div class="aspect__inner">
+    
+        
+        <img src="./demo_files/photo-1445346366695-5bf62de05412" srcset="https://images.unsplash.com/photo-1445346366695-5bf62de05412?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=1822bfd69c4021973a3d926e9294b70f 1x, https://images.unsplash.com/photo-1445346366695-5bf62de05412?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=1822bfd69c4021973a3d926e9294b70f 2x" alt="Looking down on central park and the surrounding builds from the Rockefellar Center">
+        <img class="picture-item__blur" src="./demo_files/photo-1445346366695-5bf62de05412" srcset="https://images.unsplash.com/photo-1445346366695-5bf62de05412?ixlib=rb-0.3.5&amp;auto=format&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=1822bfd69c4021973a3d926e9294b70f 1x, https://images.unsplash.com/photo-1445346366695-5bf62de05412?ixlib=rb-0.3.5&amp;auto=format&amp;q=55&amp;fm=jpg&amp;dpr=2&amp;crop=entropy&amp;cs=tinysrgb&amp;w=284&amp;h=160&amp;fit=crop&amp;s=1822bfd69c4021973a3d926e9294b70f 2x" alt="" aria-hidden="true">
+    
+      </div>
+    </div>
+    
+    <div class="picture-item__details">
+      <figcaption class="picture-item__title"><a href="https://unsplash.com/photos/utwYoEu9SU8" target="_blank" rel="noopener">Central Park</a></figcaption>
+      <p class="picture-item__tags hidden@xs">nature, city</p>
+    </div>
+    
+  </div>
+</figure>
+
+      
+      <div class="col-1@sm col-1@xs my-sizer-element"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6@xs">
+        <p class="demo-link-container demo-link-container--external"><a href="https://codepen.io/Vestride/pen/ZVWmMX" target="_blank" rel="noopener">Open in CodePen</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demos">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Demos<a href="https://vestride.github.io/Shuffle/#demos"></a></h2>
+      </div>
+    </div>
+    <div class="row js-demos demo-list">
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="https://vestride.github.io/Shuffle/basic">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/basic.webp" type="image/webp">
+              <img src="./demo_files/basic.jpg" alt="Basic masonry layout">
+            </picture>
+          </div>
+          <figcaption>Basic masonry layout</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="https://vestride.github.io/Shuffle/adding-removing">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/adding-removing.webp" type="image/webp">
+              <img src="./demo_files/adding-removing.jpg" alt="Adding and removing items">
+            </picture>
+          </div>
+          <figcaption>Adding and removing items</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="https://vestride.github.io/Shuffle/compound-filters">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/compound-filters.webp" type="image/webp">
+              <img src="./demo_files/compound-filters.jpg" alt="Compound filtering">
+            </picture>
+          </div>
+          <figcaption>Compound filtering</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="https://vestride.github.io/Shuffle/images">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/images.webp" type="image/webp">
+              <img src="./demo_files/images.jpg" alt="Using images">
+            </picture>
+          </div>
+          <figcaption>Using images</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="https://vestride.github.io/Shuffle/animated">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/animated.webp" type="image/webp">
+              <img src="./demo_files/animated.jpg" alt="Animated viewport entry">
+            </picture>
+          </div>
+          <figcaption>Animated viewport entry</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="https://vestride.github.io/Shuffle/bootstrap3-grid">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/bootstrap3-grid.webp" type="image/webp">
+              <img src="./demo_files/bootstrap3-grid.jpg" alt="Bootstrap 3 grid">
+            </picture>
+          </div>
+          <figcaption>Bootstrap 3 grid</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="https://vestride.github.io/Shuffle/flexbox-grid">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/flexbox-grid.webp" type="image/webp">
+              <img src="./demo_files/flexbox-grid.jpg" alt="Flexbox grid">
+            </picture>
+          </div>
+          <figcaption>Flexbox grid</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="https://vestride.github.io/Shuffle/requirejs">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/requirejs.webp" type="image/webp">
+              <img src="./demo_files/requirejs.jpg" alt="Shuffle with RequireJS">
+            </picture>
+          </div>
+          <figcaption>Shuffle with RequireJS</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="https://vestride.github.io/Shuffle/shuffle-with-react">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/shuffle-with-react.webp" type="image/webp">
+              <img src="./demo_files/shuffle-with-react.jpg" alt="Shuffle with React">
+            </picture>
+          </div>
+          <figcaption>Shuffle with React</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="https://vestride.github.io/Shuffle/ajax">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/ajax.webp" type="image/webp">
+              <img src="./demo_files/ajax.jpg" alt="Loading ajax content">
+            </picture>
+          </div>
+          <figcaption>Loading ajax content</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+    <div class="col-3@sm col-3@xs figure-wrap js-demo">
+      
+      <a href="http://codepen.io/pen?template=qrjOpX" target="_blank" rel="noopener">
+      
+        <figure>
+          <div class="aspect aspect--4x3">
+            <picture>
+              <source srcset="/Shuffle/img/demos/codepen-template.webp" type="image/webp">
+              <img src="./demo_files/codepen-template.jpg" alt="CodePen template">
+            </picture>
+          </div>
+          <figcaption>CodePen template</figcaption>
+        </figure>
+      </a>
+    </div>
+  
+</div>
+
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Features<a href="https://vestride.github.io/Shuffle/#features"></a></h2>
+
+<ul>
+  <li>Fast - Only one forced synchronous layout (aka reflow) on init, sort, or filter.</li>
+  <li>Responsive (try resizing the window!)</li>
+  <li>Filter items by groups</li>
+  <li>Items can have multiple groups and be different sizes</li>
+  <li>Sort items</li>
+  <li>Advanced filtering (like searching)</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="options">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Options<a href="https://vestride.github.io/Shuffle/#options"></a></h2>
+
+<p>Settings you can change (these are the defaults).</p>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript"><span class="token comment">// Overrideable options</span>
+Shuffle<span class="token punctuation">.</span>options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  buffer<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">// Useful for percentage based heights when they might not always be exactly the same (in pixels).</span>
+  columnThreshold<span class="token punctuation">:</span> <span class="token number">0.01</span><span class="token punctuation">,</span> <span class="token comment">// Reading the width of elements isn't precise enough and can cause columns to jump between values.</span>
+  columnWidth<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">// A static number or function that returns a number which tells the plugin how wide the columns are (in pixels).</span>
+  delimiter<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment">// If your group is not json, and is comma delimeted, you could set delimiter to ','.</span>
+  easing<span class="token punctuation">:</span> <span class="token string">'cubic-bezier(0.4, 0.0, 0.2, 1)'</span><span class="token punctuation">,</span> <span class="token comment">// CSS easing function to use.</span>
+  filterMode<span class="token punctuation">:</span> Shuffle<span class="token punctuation">.</span>FilterMode<span class="token punctuation">.</span>ANY<span class="token punctuation">,</span> <span class="token comment">// When using an array with filter(), the element passes the test if any of its groups are in the array. With "all", the element only passes if all groups are in the array.</span>
+  group<span class="token punctuation">:</span> Shuffle<span class="token punctuation">.</span>ALL_ITEMS<span class="token punctuation">,</span> <span class="token comment">// Initial filter group.</span>
+  gutterWidth<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">// A static number or function that tells the plugin how wide the gutters between columns are (in pixels).</span>
+  initialSort<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment">// Shuffle can be initialized with a sort object. It is the same object given to the sort method.</span>
+  isCentered<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// Attempt to center grid items in each row.</span>
+  itemSelector<span class="token punctuation">:</span> <span class="token string">'*'</span><span class="token punctuation">,</span> <span class="token comment">// e.g. '.picture-item'.</span>
+  roundTransforms<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// Whether to round pixel values used in translate(x, y). This usually avoids blurriness.</span>
+  sizer<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment">// Element or selector string. Use an element to determine the size of columns and gutters.</span>
+  speed<span class="token punctuation">:</span> <span class="token number">250</span><span class="token punctuation">,</span> <span class="token comment">// Transition/animation speed (milliseconds).</span>
+  staggerAmount<span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token comment">// Transition delay offset for each item in milliseconds.</span>
+  staggerAmountMax<span class="token punctuation">:</span> <span class="token number">150</span><span class="token punctuation">,</span> <span class="token comment">// Maximum stagger delay in milliseconds.</span>
+  throttle<span class="token punctuation">:</span> throttle<span class="token punctuation">,</span> <span class="token comment">// By default, shuffle will throttle resize events. This can be changed or removed.</span>
+  throttleTime<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span> <span class="token comment">// How often shuffle can be called on resize (in milliseconds).</span>
+  useTransforms<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// Whether to use transforms or absolute positioning.</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<p>No options <em>need</em> to be specified, but <code>itemSelector</code> should be used. Other common options to change are <code>speed</code> and <code>sizer</code>.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="usage">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Usage<a href="https://vestride.github.io/Shuffle/#usage"></a></h2>
+
+<h3>The HTML Structure</h3>
+<p>The only real important thing here is the <code class=" token attr-name language-markup">data-groups</code> attribute. It has to be a <a href="http://jsonlint.com/">valid JSON</a> array of strings. It can also be a string delimeted by a value you provide with the <code>delimiter</code> option.</p>
+
+<p>This example is using this site's grid. Each item would be 4 columns at the "sm" breakpoint (768px).</p>
+
+<h3>Images</h3>
+<p>Images are wrapped in <code>.aspect</code> elements to take up the same amount of space the image will when it loads. For details, check out the <a href="https://vestride.github.io/Shuffle/images">images demo</a>.</p>
+
+<div class="code-block">
+  <pre rel="HTML" class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row my-shuffle-container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figure</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col-4@sm picture-item<span class="token punctuation">"</span></span> <span class="token attr-name">data-groups</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>[<span class="token punctuation">"</span>animal<span class="token punctuation">"</span>]<span class="token punctuation">'</span></span> <span class="token attr-name">data-date-created</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2016-08-12<span class="token punctuation">"</span></span> <span class="token attr-name">data-title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Crocodile<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aspect aspect--16x9<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aspect__inner<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>crocodile.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>A close, profile view of a crocodile looking directly into the camera<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figcaption</span><span class="token punctuation">&gt;</span></span>Crocodile<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figcaption</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figure</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figure</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col-4@sm picture-item<span class="token punctuation">"</span></span> <span class="token attr-name">data-groups</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>[<span class="token punctuation">"</span>city<span class="token punctuation">"</span>]<span class="token punctuation">'</span></span> <span class="token attr-name">data-date-created</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2016-06-09<span class="token punctuation">"</span></span> <span class="token attr-name">data-title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Crossroads<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aspect aspect--16x9<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aspect__inner<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>crossroads.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>A multi-level highway stack interchange in Puxi, Shanghai<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figcaption</span><span class="token punctuation">&gt;</span></span>Crossroads<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figcaption</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figure</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figure</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col-4@sm picture-item<span class="token punctuation">"</span></span> <span class="token attr-name">data-groups</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>[<span class="token punctuation">"</span>nature<span class="token punctuation">"</span>,<span class="token punctuation">"</span>city<span class="token punctuation">"</span>]<span class="token punctuation">'</span></span> <span class="token attr-name">data-date-created</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2015-10-20<span class="token punctuation">"</span></span> <span class="token attr-name">data-title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Central Park<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aspect aspect--16x9<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>aspect__inner<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>central-park.jpg<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Looking down on central park and the surrounding builds from the Rockefellar Center<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figcaption</span><span class="token punctuation">&gt;</span></span>Central Park<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figcaption</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figure</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col-1@sm my-sizer-element<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+</div>
+
+<h3 id="columns">How column widths work<a href="https://vestride.github.io/Shuffle/#how-column-widths-work"></a></h3>
+<p>There are 4 options for defining the width of the columns:</p>
+<ol>
+  <li>Use a <strong>sizer</strong> element. This is the easiest way to specify column and gutter widths. Add the sizer element and make it 1 column wide. Shuffle will measure the <code>width</code> and <code>margin-left</code> of this <code>sizer</code> element each time the grid resizes. This is awesome for responsive or fluid grids where the width of a column is a percentage.</li>
+  <li>Use a <strong>function</strong>. When a function is used, its first parameter will be the width of the shuffle element. You need to return the column width for shuffle to use (in pixels).</li>
+  <li>A <strong>number</strong>. This will explicitly set the column width to your number (in pixels).</li>
+  <li>By default, shuffle will use the width of the first item to calculate the column width.</li>
+</ol>
+
+<h3>A basic setup example</h3>
+<p>If you want functional buttons, check out <a href="./demo_files/homepage.js.Без названия">the js file</a>.</p>
+<p>Shuffle uses a UMD definition so that you can use it with globals, AMD, or CommonJS.</p>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> Shuffle <span class="token operator">=</span> window<span class="token punctuation">.</span>Shuffle<span class="token punctuation">;</span>
+<span class="token keyword">var</span> element <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.my-shuffle-container'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> sizer <span class="token operator">=</span> element<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.my-sizer-element'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> shuffleInstance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Shuffle</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  itemSelector<span class="token punctuation">:</span> <span class="token string">'.picture-item'</span><span class="token punctuation">,</span>
+  sizer<span class="token punctuation">:</span> sizer <span class="token comment">// could also be a selector: '.my-sizer-element'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="filters">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Filters<a href="https://vestride.github.io/Shuffle/#filters"></a></h2>
+
+<h3>Filter by a group</h3>
+<p>Use the <code>filter()</code> method. If, for example, you wanted to show only items that match <code>"space"</code>, you would do this:</p>
+
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">shuffleInstance<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token string">'space'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<h3>Filter by multiple groups</h3>
+<p>Show multiple groups at once by using an array.</p>
+
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">shuffleInstance<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'space'</span><span class="token punctuation">,</span> <span class="token string">'nature'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<p>By default, this will show items that match <code>space</code> <em>or</em> <code>nature</code>. To show only groups that match <code>space</code> <em>and</em> <code>nature</code>, set the <code>filterMode</code> option to <code>Shuffle.FilterMode.ALL</code>.</p>
+
+<h3>Show all items</h3>
+<p>To go back to having no items filtered, you can call <code>filter()</code> without a parameter, or use <code>Shuffle.ALL_ITEMS</code> (which by default is the string <code>"all"</code>).</p>
+
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">shuffleInstance<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>Shuffle<span class="token punctuation">.</span>ALL_ITEMS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// or .filter()</span></code></pre>
+</div>
+
+<h3>Overrides</h3>
+<p>You can override both <code>Shuffle.ALL_ITEMS</code> and <code>Shuffle.FILTER_ATTRIBUTE_KEY</code> if you want.</p>
+
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript"><span class="token comment">// Defaults</span>
+Shuffle<span class="token punctuation">.</span>ALL_ITEMS <span class="token operator">=</span> <span class="token string">'all'</span><span class="token punctuation">;</span>
+Shuffle<span class="token punctuation">.</span>FILTER_ATTRIBUTE_KEY <span class="token operator">=</span> <span class="token string">'groups'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// You can change them to something else.</span>
+Shuffle<span class="token punctuation">.</span>ALL_ITEMS <span class="token operator">=</span> <span class="token string">'any'</span><span class="token punctuation">;</span>
+Shuffle<span class="token punctuation">.</span>FILTER_ATTRIBUTE_KEY <span class="token operator">=</span> <span class="token string">'categories'</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<p>Then you would have to use <code>data-categories</code> attribute on your items instead of <code>data-groups</code>.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="advanced-filters">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Advanced Filters<a href="https://vestride.github.io/Shuffle/#advanced-filters"></a></h2>
+
+<p>By passing a function to <code>filter</code>, you can fully customize filtering items. Shuffle will iterate over each item and give your function the element and the shuffle instance. Return <code>true</code> to keep the element or <code>false</code> to hide it.</p>
+
+<h3>Example</h3>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript"><span class="token comment">// Filters elements with a data-title attribute with less than 10 characters</span>
+shuffleInstance<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> element<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-title'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<h3>Searching</h3>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript"><span class="token comment">// Advanced filtering</span>
+Demo<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">addSearchFilter</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.js-shuffle-search'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keyup'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_handleSearchKeyup<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Filter the shuffle instance by items with a title that matches the search input.</span>
+Demo<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">_handleSearchKeyup</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>evt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> searchText <span class="token operator">=</span> evt<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">this</span><span class="token punctuation">.</span>shuffle<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>element<span class="token punctuation">,</span> shuffle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> titleElement <span class="token operator">=</span> element<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.picture-item__title'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> titleText <span class="token operator">=</span> titleElement<span class="token punctuation">.</span>textContent<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> titleText<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>searchText<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<p class="demo-link-container">Check out the <a href="https://vestride.github.io/Shuffle/compound-filters">compounded filters demo</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sorting">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Sorting<a href="https://vestride.github.io/Shuffle/#sorting"></a></h2>
+
+<p>You can order the elements with a function you supply. In the demo above, each item has a <code>data-date-created</code> and <code>data-title</code> attribute which are used for sorting.</p>
+
+<div class="code-block">
+  <pre rel="HTML" class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>figure</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col-4@sm picture-item<span class="token punctuation">"</span></span> <span class="token attr-name">data-groups</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>[<span class="token punctuation">"</span>city<span class="token punctuation">"</span>]<span class="token punctuation">'</span></span> <span class="token attr-name">data-date-created</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2016-06-09<span class="token punctuation">"</span></span> <span class="token attr-name">data-title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Crossroads<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>…<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>figure</span><span class="token punctuation">&gt;</span></span></code></pre>
+</div>
+
+<div class="code-block">
+  <pre rel="HTML" class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sort-options<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Default<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>date-created<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Date Created<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">&gt;</span></span></code></pre>
+</div>
+
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">Demo<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">addSorting</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.sort-options'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'change'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_handleSortChange<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Demo<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">_handleSortChange</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>evt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> value <span class="token operator">=</span> evt<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">sortByDate</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> element<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-created'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">sortByTitle</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> element<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-title'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">var</span> options<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">===</span> <span class="token string">'date-created'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    options <span class="token operator">=</span> <span class="token punctuation">{</span>
+      reverse<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      by<span class="token punctuation">:</span> sortByDate<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">===</span> <span class="token string">'title'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    options <span class="token operator">=</span> <span class="token punctuation">{</span>
+      by<span class="token punctuation">:</span> sortByTitle<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    options <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">this</span><span class="token punctuation">.</span>shuffle<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code>
+</pre></div>
+
+<p>The <code>options</code> object can contain three properties:</p>
+<ul>
+  <li><code>reverse</code>: a boolean which will reverse the resulting order.</li>
+  <li><code>by</code>: a function with an element as the parameter. Above, we’re returning the value of the <code>data-date-created</code> or <code>data-title</code> attribute.</li>
+  <li><code>randomize</code>: Make the order random.</li>
+</ul>
+<p>Returning <code>undefined</code> from the <code>by</code> function will reset the order to DOM order.</p>
+<p>Calling sort with an empty object will reset the elements to DOM order.</p>
+<p class="demo-link-container">Check out the <a href="https://vestride.github.io/Shuffle/#demo">demo</a>.</p>
+
+<h3>Filter and sort</h3>
+<p>You can filter and sort at the same time by passing a <a href="https://vestride.github.io/Shuffle/#sorting">sort object</a> as the second parameter.</p>
+
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">shuffleInstance<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token string">'space'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  by<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> element<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-title'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<h3>Advanced sorting</h3>
+<p>You can provide the entire sort compare function if you need more control.</p>
+<p>The parameters (<code>a</code>, <code>b</code>) are <code>ShuffleItem</code> instances and you'll probably only use the <code>element</code> property. The <code>reverse</code> option still works with the <code>compare</code> function if you need it.</p>
+<p>For example, if you wanted to sort by the first group in <code>data-groups</code>, then by <code>data-age</code>, you could do this:</p>
+
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">shuffleInstance<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  compare<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Sort by first group, then by age.</span>
+    <span class="token keyword">var</span> groupA <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>element<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-groups'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> groupB <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>element<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-groups'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>groupA <span class="token operator">&gt;</span> groupB<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>groupA <span class="token operator">&lt;</span> groupB<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// At this point, the group strings are the exact same. Test the age.</span>
+    <span class="token keyword">var</span> ageA <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>element<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-age'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> ageB <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>element<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-age'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> ageA <span class="token operator">-</span> ageB<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="events">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Events<a href="https://vestride.github.io/Shuffle/#events"></a></h2>
+<p>Shuffle is a subclass of <a href="https://www.npmjs.com/package/tiny-emitter">TinyEmitter</a>. It emits an event when a layout happens and when elements are removed. The event names are <code>Shuffle.EventType.LAYOUT</code> and <code>Shuffle.EventType.REMOVED</code>.</p>
+
+<h3>Get notified when a layout happens</h3>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">shuffleInstance<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span>Shuffle<span class="token punctuation">.</span>EventType<span class="token punctuation">.</span>LAYOUT<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Things finished moving!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+
+<h3>Do something when an item is removed</h3>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">shuffleInstance<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span>Shuffle<span class="token punctuation">.</span>EventType<span class="token punctuation">.</span>REMOVED<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> data<span class="token punctuation">,</span> data<span class="token punctuation">.</span>collection<span class="token punctuation">,</span> data<span class="token punctuation">.</span>shuffle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<p class="demo-link-container">Check out the <a href="https://vestride.github.io/Shuffle/#demo">demo</a> at the top of the page, or its <a href="https://vestride.github.io/js/demos/homepage.js">JavaScript file.</a></p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="adding-removing">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Adding and Removing Items<a href="https://vestride.github.io/Shuffle/#adding-removing"></a></h2>
+<p>You can add and remove elements from shuffle after it has been created. This also works for infinite scrolling.</p>
+
+<h3>Adding elements</h3>
+<p>Wherever you add the element in the DOM is where it will show up in the grid (assuming you’re using the default sort-by-dom-order). With this in mind, you can append, prepend, or insert elements wherever you need to get them to show up in the right order.</p>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript"><span class="token comment">/**
+ * Create some DOM elements, append them to the shuffle container, then notify
+ * shuffle about the new items. You could also insert the HTML as a string.
+ */</span>
+Demo<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">onAppendBoxes</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> elements <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_getArrayOfElementsToAdd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  elements<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>shuffle<span class="token punctuation">.</span>element<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Tell shuffle elements have been appended.</span>
+  <span class="token comment">// It expects an array of elements as the parameter.</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>shuffle<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>elements<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<h3>Removing elements</h3>
+<p>Shuffle will animate the element away and then remove it from the DOM once it's finished. It will then emit the <code>Shuffle.EventType.REMOVED</code> event with the array of elements in <code>event.collection</code>.</p>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span>shuffle<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">[</span>element1<span class="token punctuation">,</span> element2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<p class="demo-link-container">Check out the <a href="https://vestride.github.io/Shuffle/adding-removing">adding and removing demo</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="public-methods">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Public Methods<a href="https://vestride.github.io/Shuffle/#public-methods"></a></h2>
+<p>A list of the methods available to you and what they do.</p>
+
+<ul>
+  <li><code>filter(category, sortObject)</code> - Filters all the shuffle items and then sorts them. <code>category</code> can be a string, array of strings, or a function. The sort object is optional and will use the last-used sort object.</li>
+  <li><code>sort(sortObject)</code> - Sorts the currently filtered shuffle items.</li>
+  <li><code>update()</code> - Repositions everything. Useful for when dimensions (like the window size) change.</li>
+  <li><code>layout()</code> - Use this instead of <code>update()</code> if you don't need the columns and gutters updated. Maybe an image loaded and now has a height.</li>
+  <li><code>add(newItems)</code> - New items have been appended to the shuffle container. <code>newItems</code> is an array of elements.</li>
+  <li><code>disable()</code> - Disables Shuffle from updating dimensions and layout on resize.</li>
+  <li><code>enable()</code> - Enables Shuffle again.</li>
+  <li><code>remove()</code> - Remove one or more shuffle items.</li>
+  <li><code>getItemByElement(element)</code> - Retrieve a <code>ShuffleItem</code> by its element.</li>
+  <li><code>destroy()</code> - Destroys Shuffle, removes events, styles, classes, and references.</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="custom-styles">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Customizing Styles<a href="https://vestride.github.io/Shuffle/#custom-styles"></a></h2>
+<p>You can customize the default styles which are applied to Shuffle items upon initialization, before layout, after layout, before hiding, and after hidden.</p>
+<p>Here are the defaults:</p>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">ShuffleItem<span class="token punctuation">.</span>Css <span class="token operator">=</span> <span class="token punctuation">{</span>
+  INITIAL<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    position<span class="token punctuation">:</span> <span class="token string">'absolute'</span><span class="token punctuation">,</span>
+    top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    left<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    visibility<span class="token punctuation">:</span> <span class="token string">'visible'</span><span class="token punctuation">,</span>
+    <span class="token string">'will-change'</span><span class="token punctuation">:</span> <span class="token string">'transform'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  VISIBLE<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    before<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      opacity<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      visibility<span class="token punctuation">:</span> <span class="token string">'visible'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    after<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      transitionDelay<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  HIDDEN<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    before<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      opacity<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    after<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      visibility<span class="token punctuation">:</span> <span class="token string">'hidden'</span><span class="token punctuation">,</span>
+      transitionDelay<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+ShuffleItem<span class="token punctuation">.</span>Scale <span class="token operator">=</span> <span class="token punctuation">{</span>
+  VISIBLE<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  HIDDEN<span class="token punctuation">:</span> <span class="token number">0.001</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<p>If you wanted to add a 50% red background to every item when they initialize, you could do this:</p>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">Shuffle<span class="token punctuation">.</span>ShuffleItem<span class="token punctuation">.</span>Css<span class="token punctuation">.</span>INITIAL<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token string">'rgba(255, 0, 0, 0.5)'</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<p>To set the text color to <code>teal</code> after the item has finished moving:</p>
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">Shuffle<span class="token punctuation">.</span>ShuffleItem<span class="token punctuation">.</span>Css<span class="token punctuation">.</span>VISIBLE<span class="token punctuation">.</span>after<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'teal'</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+<p>You can also customize the scaling effect with visible or hidden items.</p>
+
+<div class="code-block">
+  <pre rel="JavaScript" class=" language-javascript"><code class=" language-javascript">Shuffle<span class="token punctuation">.</span>ShuffleItem<span class="token punctuation">.</span>Scale<span class="token punctuation">.</span>HIDDEN <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">;</span></code></pre>
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="extra-features">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Extra Features<a href="https://vestride.github.io/Shuffle/#extra-features"></a></h2>
+
+        <p>Shuffle likely will not grow much farther than the current feature set. If you need something with drag and drop, filling in gaps, more layout modes, etc., I suggest looking into <a target="_blank" rel="noopener" href="http://packery.metafizzy.co/">packery</a> or <a target="_blank" rel="noopener" href="http://isotope.metafizzy.co/">isotope</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dependencies">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Dependencies<a href="https://vestride.github.io/Shuffle/#dependencies"></a></h2>
+        <p>Shuffle's <a href="https://github.com/Vestride/Shuffle/blob/master/package.json">dependencies</a> are bundled with the dist file.</p>
+        <p id="polyfills">Shuffle does, however, expect the following ES6/7 features: <code>Set</code>, <code>Array.from</code>, <code>Object.assign</code>, <code>Array.prototype.find</code>, and <code>Array.prototype.includes</code>. In order to support browsers like IE11 and Safari 8, <strong class="type--underline">you must include a polyfill</strong> for these features. You can use a service like <a href="https://polyfill.io/">polyfill.io</a> to only load the polyfills that specific browser needs, or a polyfill script like <a href="https://www.npmjs.com/package/@babel/polyfill">@babel/polyfill</a> (which uses <code>core-js</code> internally).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="supported-browsers">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Supported Browsers<a href="https://vestride.github.io/Shuffle/#supported-browsers"></a></h2>
+
+        <ul>
+          <li>Chrome</li>
+          <li>Firefox</li>
+          <li>Edge</li>
+          <li>IE 11</li>
+          <li>Safari</li>
+        </ul>
+
+        <p>Depending on what browsers you support, you may <a href="https://vestride.github.io/Shuffle/#polyfills">need to polyfill features used by Shuffle</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="be-social">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Be Social<a href="https://vestride.github.io/Shuffle/#be-social"></a></h2>
+        <div class="text-center">
+          <iframe src="./demo_files/github-btn.html" frameborder="0" scrolling="0" width="76px" height="30px" title="Star this repository on GitHub"></iframe>
+
+          <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 76px; height: 28px;" title="Twitter Tweet Button" src="./demo_files/tweet_button.c63890edc4243ee77048d507b181eeec.en.html"></iframe>
+
+          <div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I0_1589095878422" name="I0_1589095878422" src="./demo_files/fastbutton.html" data-gapiattached="true"></iframe></div><div class="g-plusone" data-annotation="none" data-gapiscan="true" data-onload="true" data-gapistub="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="changelog">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2>Changelog<a href="https://vestride.github.io/Shuffle/#changelog"></a></h2>
+<p>For a more detailed changelog, visit <a href="https://github.com/Vestride/Shuffle/releases">the latest releases</a> on GitHub.</p>
+<ul>
+  <li><code>v5.2.3</code> 2019-08-29 - Add missing inherited methods from <code>TinyEmitter</code> to TypeScript definitions.</li>
+  <li><code>v5.2.2</code> 2019-06-03 - Update TypeScript definitions.</li>
+  <li><code>v5.2.1</code> 2018-12-01 - Change `index.d.ts` to use `export default Shuffle` (<a href="https://github.com/Vestride/Shuffle/issues/214#issuecomment-441409237">#214</a>). Upgrade dev dependencies.</li>
+  <li><code>v5.2.0</code> 2018-08-19 - Lazily test whether the browser's <code>getComputedStyle</code> includes padding. This allows the bundled file to be imported in node for server side rendering.</li>
+  <li><code>v5.1.2</code> 2018-03-26 - Fix misspelled <code>delimiter</code> option. Both "delimiter" and "delimeter" will continue to work for v5.</li>
+  <li><code>v5.1.1</code> 2018-03-02 - Fix new item animation when there is an active filter.</li>
+  <li><code>v5.1.0</code> 2018-02-20 - Add <code>compare</code> option to sorter. Add <code>es</code> build to package and <code>"module"</code> field to <code>package.json</code>.</li>
+  <li><code>v5.0.3</code> 2017-10-30 - Fix rounding error.</li>
+  <li><code>v5.0.2</code> 2017-09-23 - Update type definitions. Upgrade dev dependencies.</li>
+  <li><code>v5.0.1</code> 2017-07-18 - Add <code>roundTransforms</code> option.</li>
+  <li><code>v5.0.0</code> 2017-07-18 - Change global export from <code>shuffle</code> to <code>Shuffle</code>. Remove bower support. Expect ES6 environment. Make Shuffle instances Event Emitters instead of dispatching <code>CustomEvent</code>.</li>
+  <li><code>v4.2.0</code> 2017-05-10 - Replace <code>webpack</code> build with <code>rollup</code>. Replace <code>jshint</code> and <code>jscs</code> with <code>eslint</code>. Add <code>filterMode</code> option.</li>
+  <li><code>v4.1.1</code> 2017-03-21 - the <code>before</code> styles for a <code>ShuffleItem</code> were not applied if the item didn’t move.</li>
+  <li><code>v4.1.0</code> 2017-01-30 - Use webpack-2 to bundle Shuffle.</li>
+  <li><code>v4.0.2</code> 2016-09-15 - Update <code>custom-event-polyfill</code> dependency.</li>
+  <li><code>v4.0.1</code> 2016-07-30 - Fix <code>delimiter</code> option.</li>
+  <li><code>v4.0.0</code> 2016-04-20 - Rewrite in ES6 with babel. Remove jQuery and Modernizr dependencies. Remove support for IE&lt;11. Docs improvements. Switch to gulp build system with webpack.</li>
+  <li><code>v3.1.0</code> 2015-03-23 - Allow zero speed option (<a href="https://github.com/Vestride/Shuffle/issues/64">#64</a>) and cancel previous animations instead of ignoring new ones (<a href="https://github.com/Vestride/Shuffle/issues/69">#69</a>). Handle non-integer columns better (<a href="https://github.com/Vestride/Shuffle/issues/46">#46</a>)</li>
+  <li><code>v3.0.4</code> 2015-02-16 - Publish to NPM.</li>
+  <li><code>v3.0.2</code> 2015-01-21 - Remove from jQuery plugins directory.</li>
+  <li><code>v3.0.1</code> 2014-12-29 - Add CommonJS support.</li>
+  <li><code>v3.0.0</code> 2014-10-06 - Refactored with improvements, added unit tests, more documentation. Removed some triggered events.</li>
+  <li><code>v2.1.2</code> 2014-06-01 - Use <code>window.jQuery</code> instead of <code>window.$</code> to work better with noConflict. Fixed <a href="https://github.com/Vestride/Shuffle/issues/25">#25</a>.</li>
+  <li><code>v2.1.1</code> 2014-04-16 - Fix items with zero opacity overlapping visible ones in IE&lt;10.</li>
+  <li><code>v2.1.0</code> 2014-04-12 - Register with bower as <code>shufflejs</code>.</li>
+  <li>2014-04-10 - Add AMD support.</li>
+  <li>2014-04-08 - Separate Modernizr into its own file and custom Shuffle build.</li>
+  <li>2014-03-08 - Add Bootstrap 3 demo. Fixed issue with percentage width items.</li>
+  <li>2013-10-04 - Moved some Shuffle instance properties to constants. Converted from 4 to 2 space indentation. Added events enum and pulled out some strings to constants.</li>
+  <li>2013-08-30 - Added animate-in demo.</li>
+  <li><code>v2.0.0</code> 2013-07-05 - Shuffle 2.0 with masonry, adding and removing, and more.</li>
+  <li>2012-11-03 - Replaced layout system with <a href="http://masonry.desandro.com/">masonry</a>. Items can now be different sizes! Added addtional examples.</li>
+  <li>2012-10-24 - Better handling of grid item dimensions. Added a minimal markup page.</li>
+  <li>2012-09-20 - Added <code>destroy</code> method</li>
+  <li>2012-09-18 - Added sorting ability and made plugin responsive. Updated to Modernizr 2.6.2</li>
+  <li>2012-07-21 - Rewrote plugin in more object oriented structure. Added custom events. Updated to Modernizr 2.6.1</li>
+  <li>2012-07-03 - Removed dependency on the css file and now apply the css with javascript</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+(function() {
+  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+  po.src = 'https://apis.google.com/js/platform.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+})();
+</script>
+
+</main>
+<footer class="site-footer light-text-dark-box">
+    <div class="container">
+      <div class="row">
+        <nav class="col-6@xs visible@xs">
+          <ul class="unstyled">
+            <li><a href="https://vestride.github.io/Shuffle/faq">FAQ</a></li>
+            <li><a href="https://github.com/Vestride/Shuffle">View Shuffle on GitHub</a></li>
+          </ul>
+        </nav>
+        <div class="col-6@xs col-12@sm">
+          
+            <p class="site-footer__credit">Photos by the amazing people on <a href="https://unsplash.com/collections/1008516/shuffle-images" target="_blank" rel="noopener">Unsplash.com</a>.</p>
+          
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+<script crossorigin="anonymous" src="./demo_files/polyfill.min.js.Без названия"></script>
+<!-- Syntax highlighting via Prism -->
+<script src="./demo_files/prism.js.Без названия"></script>
+<!-- Shuffle! -->
+<script src="./demo_files/shuffle.js.Без названия"></script>
+
+<script src="./demo_files/site-nav.js.Без названия"></script>
+
+
+
+
+
+<script src="./demo_files/homepage.js.Без названия"></script>
+
+<script src="./demo_files/animated-favicon.js.Без названия"></script><iframe name="oauth2relay852934828" id="oauth2relay852934828" src="./demo_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe>
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-39355642-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async="" src="./demo_files/analytics.js.Без названия"></script>
+
+
+
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./demo_files/widget_iframe.c63890edc4243ee77048d507b181eeec.html" title="Twitter settings iframe" style="display: none;"></iframe></body></html>

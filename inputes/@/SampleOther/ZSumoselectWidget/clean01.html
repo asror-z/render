@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/all.min.css">
+
+
+
+    <script type="text/javascript" src="/publish/yarner/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/multiselect/2.2.9/js/multiselect.min.js"></script>
+
+
+
+</head>
+<body>
+<div class="row">
+    <div class="col-5">
+        <select name="from[]" class="js-multiselect form-control" size="8" multiple="multiple">
+            <option value="1">Item 1</option>
+            <option value="2">Item 5</option>
+            <option value="2">Item 2</option>
+            <option value="2">Item 4</option>
+            <option value="3">Item 3</option>
+        </select>
+    </div>
+
+    <div class="col-2">
+        <button type="button" id="js_right_All_1" class="btn btn-block btn-info"><i class="fas fa-forward"></i></button>
+        <button type="button" id="js_right_Selected_1" class="btn btn-block btn-info"><i class="fas fa-chevron-right"></i></button>
+        <button type="button" id="js_left_Selected_1" class="btn btn-block btn-info"><i class="fas fa-chevron-left"></i></button>
+        <button type="button" id="js_left_All_1" class="btn btn-block btn-info"><i class="fas fa-backward"></i></button>
+    </div>
+
+    <div class="col-5">
+        <select name="to[]" id="js_multiselect_to_1" class="form-control" size="8" multiple="multiple"></select>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $('.js-multiselect').multiselect({
+            right: '#js_multiselect_to_1',
+            rightAll: '#js_right_All_1',
+            rightSelected: '#js_right_Selected_1',
+            leftSelected: '#js_left_Selected_1',
+            leftAll: '#js_left_All_1'
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<Alloy>
+    <Widget id="popover" src="com.skypanther.alloypopover">
+        <TableView id="table"/>
+    </Widget>
+</Alloy>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $('#popover').init({
+        title: 'Popover',
+        showLeftNavButton: true,
+        leftNavButtonTitle: 'Done',
+        leftNavCallback: function() {
+            // function run after left button is clicked
+        },
+        showRightNavButton: true,
+        rightNavButtonTitle: 'Next',
+        rightNavCallback: function() {
+        },
+
+        // set to true to disable tapping on backshade to close
+        disableBackshadeClose: false,
+
+        // view to show within the popover (if using this method of passing the view.
+        // If undefined, the widget child views from the view will be used)
+        
+
+        // time after left or right done buttons before the popover window is closed
+        duration: 200,  // defaults: iOS: 200 ms, Android: 1000 ms
+
+        openCallback: function() {
+            // called when popover is opened
+            alert('open callback');
+        },
+        closeCallback: function() {
+            // called when popover is closed
+            alert('close callback');
+        }
+
+    });
+
+</script>
+</body>
+</html>

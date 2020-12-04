@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://www.purcellyoon.com/git/uiglance/example/jQuery/# -->
+<html class="no-js" lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="./demo_files/normalize.min.css">
+        <link rel="stylesheet" href="./demo_files/main.css">
+		
+		<!--[if lt IE 9]>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+		<![endif]-->
+		
+        <script src="./demo_files/jquery.min.js.Без названия"></script>
+        <script>window.jQuery || document.write('<script src="../../src/3rdparty/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="./demo_files/main.js.Без названия"></script>
+		
+        <link href="./demo_files/uiglance.ocean.css" rel="stylesheet">
+        <script src="./demo_files/jquery.uiglance.min.js.Без названия"></script>
+    </head>
+    <body>
+
+        <div class="header-container">
+            <header class="wrapper clearfix">
+                <h1 class="title">h1.title</h1>
+                <nav>
+                    <ul>
+                        <li><a href="https://www.purcellyoon.com/git/uiglance/example/jQuery/#">nav ul li a</a></li>
+                        <li><a href="https://www.purcellyoon.com/git/uiglance/example/jQuery/#">nav ul li a</a></li>
+                        <li><a href="https://www.purcellyoon.com/git/uiglance/example/jQuery/#">nav ul li a</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div id="main" class="main-container">
+            <div class="main wrapper clearfix">
+
+                <article>
+                    <header data-uigstep="0" data-uigset="demo_set">
+                        <h1>article header h1</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
+                    </header>
+                    <section data-uigstep="1" data-uigset="demo_set">
+                        <h2>article section h2</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
+                    </section>
+                    <section data-uigstep="2" data-uigset="demo_set">
+                        <h2>article section h2</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
+                    </section>
+                    <footer data-uigstep="4" data-uigset="demo_set">
+                        <h3>article footer h3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
+                    </footer>
+                </article>
+
+                <aside data-uigstep="3" data-uigset="demo_set">
+                    <h3>aside</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
+                </aside>
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <h3>footer</h3>
+            </footer>
+        </div>
+		<script>
+		"use strict";
+		var uig = $("body").uiGlance({
+			onBeforeOpen:function(ui){
+				console.log("Before Open");
+			}
+			,onAfterOpen:function(ui){
+				console.log("After Open");
+			}
+			,onBeforeClose:function(ui){
+				console.log("Before Close");
+			}
+			,onAfterClose:function(ui){
+				console.log("After Close");
+			}
+			,onBeforeGoto:function(ui){
+				console.log("Before Goto");
+			}
+			,onAfterGoto:function(ui){
+				console.log("After Goto");
+			}
+			,steps:[
+				{
+					index:0
+					,set:"demo_set"
+					,title:"Welcome to uiGlance"
+					,desc:"uiGlance helps you communicate with your audience."
+					,html:"<div></div>"
+					,onBeforeStep:function(ui){
+						console.log("Before Step");
+					}
+					,onStep:function(ui){
+					
+						var stepIdx = ui.getCurrentStepIndex();
+						var step = ui.getCurrentStep();
+						var stepTitle = step.title;
+						var stepDesc = step.desc;
+						var stepSet = step.set;
+						var stepEl = step.element;
+	
+						console.log("On Step. Set: '"+stepSet+"', Index: '"+stepIdx+"', title: '"+stepTitle+"'" );
+					}
+					,onAfterStep:function(ui){
+						console.log("After Step");
+					}
+				}
+				,{
+					html:"<div></div>"
+					,onBeforeStep:function(ui){
+						console.log("Before Step");
+					}
+					,onStep:function(ui){
+						console.log("On Step");
+					}
+					,onAfterStep:function(ui){
+						console.log("After Step");
+					}
+				}
+			]
+		}).open();
+		</script>
+    
+
+</body></html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPanel</title>
+</head>
+<body>
+
+<!-- Your HTML goes here -->
+
+<!-- loading jsPanel javascript -->
+<!-- jsPanel CSS -->
+<link href="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/jspanel.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<!-- jsPanel JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/jspanel.js"></script>
+
+<!-- optional jsPanel extensions -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/modal/jspanel.modal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/tooltip/jspanel.tooltip.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/hint/jspanel.hint.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/layout/jspanel.layout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/contextmenu/jspanel.contextmenu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/dock/jspanel.dock.js"></script>
+<script>
+    var master2 = jsPanel.create({
+        theme: 'primary',
+        headerTitle: 'master',
+        contentSize: '400 200',
+        maximizedMargin: [5, 215, 5, 215]
+    });
+
+    var slaveRight = jsPanel.create({
+        theme: 'default',
+        headerTitle: 'slaveRight',
+        contentSize: '200 100'
+    }).dock({
+        master: master2,
+        position: {offsetX:5},
+        linkSlaveHeight: false,
+        linkSlaveWidth: false
+    });
+
+    var slaveLeft = jsPanel.create({
+        theme: 'success',
+        headerTitle: 'slaveLeft',
+        contentSize: '200 100'
+    }).dock({
+        master: master2,
+        position: {my:'right-top', at:'left-top', offsetX:-5},
+        linkSlaveHeight: true,
+        linkSlaveWidth: false
+    });
+
+</script>
+</body>
+</html>

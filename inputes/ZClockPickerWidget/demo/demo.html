@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://weareoutman.github.io/clockpicker/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClockPicker</title>
+<link rel="stylesheet" type="text/css" href="./demo_files/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./demo_files/bootstrap-clockpicker.min.css">
+<link rel="stylesheet" type="text/css" href="./demo_files/github.min.css">
+<style type="text/css">
+.navbar h3 {
+	color: #f5f5f5;
+	margin-top: 14px;
+}
+.hljs-pre {
+	background: #f8f8f8;
+	padding: 3px;
+}
+.footer {
+	border-top: 1px solid #eee;
+	margin-top: 40px;
+	padding: 40px 0;
+}
+.input-group {
+	width: 110px;
+	margin-bottom: 10px;
+}
+.pull-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+@media (max-width: 767px) {
+  .pull-center {
+    float: right;
+  }
+}
+</style>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="assets/js/html5shiv.js"></script>
+  <script src="assets/js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body class="" style="">
+
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+	<div class="container">
+		<ul class="nav navbar-nav pull-right">
+			<li><a href="https://github.com/weareoutman/clockpicker">Fork me on GitHub</a></li>
+		</ul>
+		<h3>ClockPicker</h3>
+	</div>
+</div>
+
+<div class="container">
+	<p class="lead">
+		A clock-style timepicker for Bootstrap (or jQuery).
+		<a href="https://travis-ci.org/weareoutman/clockpicker"><img src="./demo_files/passing.svg" alt="Build Status" data-canonical-src="https://travis-ci.org/weareoutman/clockpicker.svg" style="max-width:100%;"></a>
+	</p>
+
+	<p>
+		<a href="https://github.com/weareoutman/clockpicker/archive/gh-pages.zip" class="btn btn-lg btn-default" target="_blank">
+			<span class="glyphicon glyphicon-cloud-download"></span> Download ZIP
+		</a>
+		&nbsp; CSS &lt; 6KB, JS &lt; 9KB, after minified.
+	</p>
+
+	<h3>Browser support</h3>
+	<p>
+		All major browsers are supported, including IE 9+. It should look and behave well enough in IE 8.
+	</p>
+
+	<h3>Device support</h3>
+	<p>
+		Both desktop and mobile device are supported. It also works great in touch screen device.
+	</p>
+
+	<h3>Dependencies</h3>
+	<p>
+		ClockPicker was designed for Bootstrap in the beginning. So Bootstrap (and jQuery) is the only dependency(s).
+	</p>
+	<p>
+		Since it only used <code>.popover</code> and some of <code>.btn</code> styles of Bootstrap, I picked these styles to build a jQuery plugin.
+		Feel free to use <code>jquery-*</code> files instead of <code>bootstrap-*</code> , for non-bootstrap project.
+	</p>
+	<p>
+		<a href="http://weareoutman.github.io/clockpicker/jquery.html">See ClockPicker for jQuery</a>.
+	</p>
+
+	<h3>Examples</h3>
+	<a href="http://jsfiddle.net/weareoutman/YkvK9/">Try it on jsfiddle</a>
+	<div class="form-group">
+		<h4>Default: </h4>
+		<div class="input-group clockpicker">
+			<input type="text" class="form-control" value="09:30">
+			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-time"></span>
+			</span>
+		</div>
+		<pre class="hljs-pre"><code class="html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"input-group clockpicker"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"form-control"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">"09:30"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"input-group-addon"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"glyphicon glyphicon-time"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="javascript">
+$(<span class="hljs-string">'.clockpicker'</span>).clockpicker();
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+	</div>
+	<div class="form-group">
+		<h4>Place at left, align the arrow to top, auto close:</h4>
+		<div class="clearfix">
+			<div class="input-group clockpicker pull-center" data-placement="left" data-align="top" data-autoclose="true">
+				<input type="text" class="form-control" value="13:14">
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-time"></span>
+				</span>
+			</div>
+		</div>
+		<pre class="hljs-pre"><code class="html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"input-group clockpicker"</span> <span class="hljs-attribute">data-placement</span>=<span class="hljs-value">"left"</span> <span class="hljs-attribute">data-align</span>=<span class="hljs-value">"top"</span> <span class="hljs-attribute">data-autoclose</span>=<span class="hljs-value">"true"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"form-control"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">"13:14"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"input-group-addon"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"glyphicon glyphicon-time"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="javascript">
+$(<span class="hljs-string">'.clockpicker'</span>).clockpicker();
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+	</div>
+	<div class="form-group">
+		<h4>Set options in javascript, instead of <code>data-*</code> :</h4>
+		<div class="input-group clockpicker" data-placement="top" data-align="left" data-donetext="Done">
+			<input type="text" class="form-control" value="18:00">
+			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-time"></span>
+			</span>
+		</div>
+		<pre class="hljs-pre"><code class="html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"input-group clockpicker"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"form-control"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">"18:00"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"input-group-addon"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"glyphicon glyphicon-time"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="javascript">
+$(<span class="hljs-string">'.clockpicker'</span>).clockpicker({
+    placement: <span class="hljs-string">'top'</span>,
+    align: <span class="hljs-string">'left'</span>,
+    donetext: <span class="hljs-string">'Done'</span>
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+	</div>
+	<div class="form-group">
+		<h4>Set default value, input without addon, and manual operations:</h4>
+		<div class="clearfix">
+			<div class="pull-center clearfix" style="margin-bottom:10px;">
+				<button type="button" class="btn btn-default pull-right" id="check-minutes">Check the minutes</button>
+				<input class="form-control pull-right" id="single-input" value="" placeholder="Now" style="width:80px;margin-right:20px;">
+			</div>
+		</div>
+		<pre class="hljs-pre"><code class="html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"form-control"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"single-input"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"Now"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"button"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"check-minutes"</span>&gt;</span>Check the minutes<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">var</span> input = $(<span class="hljs-string">'#single-input'</span>).clockpicker({
+    placement: <span class="hljs-string">'bottom'</span>,
+    align: <span class="hljs-string">'left'</span>,
+    autoclose: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">'default'</span>: <span class="hljs-string">'now'</span>
+});
+
+<span class="hljs-comment">// Manually toggle to the minutes view</span>
+$(<span class="hljs-string">'#check-minutes'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span>{</span>
+    <span class="hljs-comment">// Have to stop propagation here</span>
+    e.stopPropagation();
+    input.clockpicker(<span class="hljs-string">'show'</span>)
+            .clockpicker(<span class="hljs-string">'toggleView'</span>, <span class="hljs-string">'minutes'</span>);
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre>
+	</div>
+	<div class="form-group">
+		<h4>Callbacks:</h4>
+		<div class="clearfix">
+			<div class="input-group clockpicker-with-callbacks">
+				<input type="text" class="form-control" value="10:10">
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-time"></span>
+				</span>
+			</div>
+		</div>
+		<pre class="hljs-pre">			<code class="html hljs ">
+                <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"form-control"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"single-input"</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"Now"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="javascript">
+                <span class="hljs-keyword">var</span> input = $(<span class="hljs-string">'.clockpicker-with-callbacks'</span>).clockpicker({
+                    donetext: <span class="hljs-string">'Done'</span>,
+                        init: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span> 
+                            console.log(<span class="hljs-string">"colorpicker initiated"</span>);
+                        },
+                        beforeShow: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                            console.log(<span class="hljs-string">"before show"</span>);
+                        },
+                        afterShow: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                            console.log(<span class="hljs-string">"after show"</span>);
+                        },
+                        beforeHide: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                            console.log(<span class="hljs-string">"before hide"</span>);
+                        },
+                        afterHide: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                            console.log(<span class="hljs-string">"after hide"</span>);
+                        },
+                        beforeHourSelect: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                            console.log(<span class="hljs-string">"before hour selected"</span>);
+                        },
+                        afterHourSelect: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                            console.log(<span class="hljs-string">"after hour selected"</span>);
+                        },
+                        beforeDone: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                            console.log(<span class="hljs-string">"before done"</span>);
+                        },
+                        afterDone: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                            console.log(<span class="hljs-string">"after done"</span>);
+                        }
+                });
+
+                <span class="hljs-comment">// Manually toggle to the minutes view</span>
+                $(<span class="hljs-string">'#check-minutes'</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span>{</span>
+                    <span class="hljs-comment">// Have to stop propagation here</span>
+                    e.stopPropagation();
+                    input.clockpicker(<span class="hljs-string">'show'</span>)
+                            .clockpicker(<span class="hljs-string">'toggleView'</span>, <span class="hljs-string">'minutes'</span>);
+                });
+                </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+            </code>
+		</pre>
+	</div>
+
+	<h3>Options</h3>
+	<table class="table table-bordered table-striped">
+	<thead><tr>
+	<th>Name</th>
+	<th>Default</th>
+	<th>Description</th>
+	</tr></thead>
+	<tbody>
+	<tr>
+	<td>default</td>
+	<td>''</td>
+	<td>default time, 'now' or '13:14' e.g.</td>
+	</tr>
+	<tr>
+	<td>placement</td>
+	<td>'bottom'</td>
+	<td>popover placement</td>
+	</tr>
+	<tr>
+	<td>align</td>
+	<td>'left'</td>
+	<td>popover arrow align</td>
+	</tr>
+	<tr>
+	<td>donetext</td>
+	<td>'完成'</td>
+	<td>done button text</td>
+	</tr>
+	<tr>
+	<td>autoclose</td>
+	<td>false</td>
+	<td>auto close when minute is selected</td>
+	</tr>
+	<tr>
+	<td>vibrate</td>
+	<td>true</td>
+	<td>vibrate the device when dragging clock hand</td>
+	</tr>
+	<tr>
+	<td>fromnow</td>
+	<td>0</td>
+	<td>set default time to * milliseconds from now (using with default = 'now')</td>
+	</tr>
+	<tr>
+		<td>init</td>
+		<td></td>
+		<td>callback function triggered after the colorpicker has been initiated</td>
+	</tr>
+	<tr>
+		<td>beforeShow</td>
+		<td></td>
+		<td>callback function triggered before popup is shown</td>
+	</tr>
+	<tr>
+		<td>afterShow</td>
+		<td></td>
+		<td>callback function triggered after popup is shown</td>
+	</tr>
+	<tr>
+		<td>beforeHide</td>
+		<td></td>
+		<td>callback function triggered before popup is hidden<br>
+			<b>Note:</b>&nbsp;<i>will be triggered between a beforeDone and afterDone</i>
+		</td>
+	</tr>
+	<tr>
+		<td>afterHide</td>
+		<td></td>
+		<td>callback function triggered after popup is hidden<br>
+			<b>Note:</b>&nbsp;<i>will be triggered between a beforeDone and afterDone</i>
+		</td>
+	</tr>
+	<tr>
+		<td>beforeHourSelect</td>
+		<td></td>
+		<td>callback function triggered before user makes an hour selection</td>
+	</tr>
+	<tr>
+		<td>afterHourSelect</td>
+		<td></td>
+		<td>callback function triggered after user makes an hour selection</td>
+	</tr>
+	<tr>
+		<td>beforeDone</td>
+		<td></td>
+		<td>callback function triggered before time is written to input</td>
+	</tr>
+	<tr>
+		<td>afterDone</td>
+		<td></td>
+		<td>callback function triggered after time is written to input</td>
+	</tr>
+	</tbody>
+	</table>
+
+	<h3>Operations</h3>
+	<table class="table table-bordered table-striped">
+	<thead><tr>
+	<th>operation</th>
+	<th>Arguments</th>
+	<th>Description</th>
+	</tr></thead>
+	<tbody>
+	<tr>
+	<td>show</td>
+	<td></td>
+	<td>show the clockpicker</td>
+	</tr>
+	<tr>
+	<td>hide</td>
+	<td></td>
+	<td>hide the clockpicker</td>
+	</tr>
+	<tr>
+	<td>remove</td>
+	<td></td>
+	<td>remove the clockpicker (and event listeners)</td>
+	</tr>
+	<tr>
+	<td>toggleView</td>
+	<td>'hours' or 'minutes'</td>
+	<td>toggle to hours or minutes view</td>
+	</tr>
+	</tbody>
+	</table>
+
+	<h3>What's included</h3>
+	<pre class="hljs-pre"><code class="bash hljs ">clockpicker/
+├── dist/
+│   ├── bootstrap-clockpicker.css      <span class="hljs-comment"># full code for bootstrap</span>
+│   ├── bootstrap-clockpicker.js
+│   ├── bootstrap-clockpicker.min.css  <span class="hljs-comment"># compiled and minified files for bootstrap</span>
+│   ├── bootstrap-clockpicker.min.js
+│   ├── jquery-clockpicker.css         <span class="hljs-comment"># full code for jquery</span>
+│   ├── jquery-clockpicker.js
+│   ├── jquery-clockpicker.min.css     <span class="hljs-comment"># compiled and minified files for jquery</span>
+│   └── jquery-clockpicker.min.js
+└── src/                               <span class="hljs-comment"># source code</span>
+    ├── clockpicker.css
+    ├── clockpicker.js
+    └── standalone.css                 <span class="hljs-comment"># some styles picked from bootstrap</span></code></pre>
+
+    <h3>License</h3>
+    <p>MIT</p>
+</div>
+
+<div class="container">
+	<div class="footer">
+		<p>
+			© Wang Shenwei. 
+			<a href="https://github.com/weareoutman/clockpicker">Fork me on GitHub</a>
+		</p>
+	</div>
+</div>
+
+<script type="text/javascript" src="./demo_files/jquery.min.js.download"></script>
+<script type="text/javascript" src="./demo_files/bootstrap.min.js.download"></script>
+<script type="text/javascript" src="./demo_files/bootstrap-clockpicker.min.js.download"></script>
+<script type="text/javascript">
+$('.clockpicker').clockpicker()
+	.find('input').change(function(){
+		console.log(this.value);
+	});
+var input = $('#single-input').clockpicker({
+	placement: 'bottom',
+	align: 'left',
+	autoclose: true,
+	'default': 'now'
+});
+
+$('.clockpicker-with-callbacks').clockpicker({
+		donetext: 'Done',
+		init: function() { 
+			console.log("colorpicker initiated");
+		},
+		beforeShow: function() {
+			console.log("before show");
+		},
+		afterShow: function() {
+			console.log("after show");
+		},
+		beforeHide: function() {
+			console.log("before hide");
+		},
+		afterHide: function() {
+			console.log("after hide");
+		},
+		beforeHourSelect: function() {
+			console.log("before hour selected");
+		},
+		afterHourSelect: function() {
+			console.log("after hour selected");
+		},
+		beforeDone: function() {
+			console.log("before done");
+		},
+		afterDone: function() {
+			console.log("after done");
+		}
+	})
+	.find('input').change(function(){
+		console.log(this.value);
+	});
+
+// Manually toggle to the minutes view
+$('#check-minutes').click(function(e){
+	// Have to stop propagation here
+	e.stopPropagation();
+	input.clockpicker('show')
+			.clockpicker('toggleView', 'minutes');
+});
+if (/mobile/i.test(navigator.userAgent)) {
+	$('input').prop('readOnly', true);
+}
+</script>
+<script type="text/javascript" src="./demo_files/highlight.min.js.download"></script>
+<script type="text/javascript">
+hljs.configure({tabReplace: '    '});
+hljs.initHighlightingOnLoad();
+</script>
+
+
+<div class="popover clockpicker-popover bottom clockpicker-align-left" style="display: none; top: 623px; left: 324.5px;"><div class="arrow"></div><div class="popover-title"><span class="clockpicker-span-hours">11</span> : <span class="clockpicker-span-minutes text-primary">20</span><span class="clockpicker-span-am-pm"></span></div><div class="popover-content"><div class="clockpicker-plate"><div class="clockpicker-canvas"><svg class="clockpicker-svg" width="200" height="200"><g transform="translate(100,100)"><circle class="clockpicker-canvas-bg clockpicker-canvas-bg-trans" r="13" cx="69.2820323027551" cy="39.999999999999986"></circle><circle class="clockpicker-canvas-fg" r="3.5" cx="69.2820323027551" cy="39.999999999999986"></circle><line x1="0" y1="0" x2="69.2820323027551" y2="39.999999999999986"></line><circle class="clockpicker-canvas-bearing" cx="0" cy="0" r="2"></circle></g></svg></div><div class="clockpicker-dial clockpicker-hours clockpicker-dial-out" style="visibility: hidden;"><div class="clockpicker-tick" style="left: 87px; top: 7px;">00</div><div class="clockpicker-tick" style="left: 114px; top: 40.2346px; font-size: 120%;">1</div><div class="clockpicker-tick" style="left: 133.765px; top: 60px; font-size: 120%;">2</div><div class="clockpicker-tick" style="left: 141px; top: 87px; font-size: 120%;">3</div><div class="clockpicker-tick" style="left: 133.765px; top: 114px; font-size: 120%;">4</div><div class="clockpicker-tick" style="left: 114px; top: 133.765px; font-size: 120%;">5</div><div class="clockpicker-tick" style="left: 87px; top: 141px; font-size: 120%;">6</div><div class="clockpicker-tick" style="left: 60px; top: 133.765px; font-size: 120%;">7</div><div class="clockpicker-tick" style="left: 40.2346px; top: 114px; font-size: 120%;">8</div><div class="clockpicker-tick" style="left: 33px; top: 87px; font-size: 120%;">9</div><div class="clockpicker-tick" style="left: 40.2346px; top: 60px; font-size: 120%;">10</div><div class="clockpicker-tick" style="left: 60px; top: 40.2346px; font-size: 120%;">11</div><div class="clockpicker-tick" style="left: 87px; top: 33px; font-size: 120%;">12</div><div class="clockpicker-tick" style="left: 127px; top: 17.718px;">13</div><div class="clockpicker-tick" style="left: 156.282px; top: 47px;">14</div><div class="clockpicker-tick" style="left: 167px; top: 87px;">15</div><div class="clockpicker-tick" style="left: 156.282px; top: 127px;">16</div><div class="clockpicker-tick" style="left: 127px; top: 156.282px;">17</div><div class="clockpicker-tick" style="left: 87px; top: 167px;">18</div><div class="clockpicker-tick" style="left: 47px; top: 156.282px;">19</div><div class="clockpicker-tick" style="left: 17.718px; top: 127px;">20</div><div class="clockpicker-tick" style="left: 7px; top: 87px;">21</div><div class="clockpicker-tick" style="left: 17.718px; top: 47px;">22</div><div class="clockpicker-tick" style="left: 47px; top: 17.718px;">23</div></div><div class="clockpicker-dial clockpicker-minutes" style="visibility: visible;"><div class="clockpicker-tick" style="left: 87px; top: 7px; font-size: 120%;">00</div><div class="clockpicker-tick" style="left: 127px; top: 17.718px; font-size: 120%;">05</div><div class="clockpicker-tick" style="left: 156.282px; top: 47px; font-size: 120%;">10</div><div class="clockpicker-tick" style="left: 167px; top: 87px; font-size: 120%;">15</div><div class="clockpicker-tick" style="left: 156.282px; top: 127px; font-size: 120%;">20</div><div class="clockpicker-tick" style="left: 127px; top: 156.282px; font-size: 120%;">25</div><div class="clockpicker-tick" style="left: 87px; top: 167px; font-size: 120%;">30</div><div class="clockpicker-tick" style="left: 47px; top: 156.282px; font-size: 120%;">35</div><div class="clockpicker-tick" style="left: 17.718px; top: 127px; font-size: 120%;">40</div><div class="clockpicker-tick" style="left: 7px; top: 87px; font-size: 120%;">45</div><div class="clockpicker-tick" style="left: 17.718px; top: 47px; font-size: 120%;">50</div><div class="clockpicker-tick" style="left: 47px; top: 17.718px; font-size: 120%;">55</div></div></div><span class="clockpicker-am-pm-block"></span></div><button type="button" class="btn btn-sm btn-default btn-block clockpicker-button">完成</button></div><div class="popover clockpicker-popover left clockpicker-align-top" style="display: none; left: 391.5px; top: 860px;"><div class="arrow"></div><div class="popover-title"><span class="clockpicker-span-hours">15</span> : <span class="clockpicker-span-minutes text-primary">30</span><span class="clockpicker-span-am-pm"></span></div><div class="popover-content"><div class="clockpicker-plate"><div class="clockpicker-canvas"><svg class="clockpicker-svg" width="200" height="200"><g transform="translate(100,100)"><circle class="clockpicker-canvas-bg clockpicker-canvas-bg-trans" r="13" cx="9.797174393178826e-15" cy="80"></circle><circle class="clockpicker-canvas-fg" r="3.5" cx="9.797174393178826e-15" cy="80"></circle><line x1="0" y1="0" x2="9.797174393178826e-15" y2="80"></line><circle class="clockpicker-canvas-bearing" cx="0" cy="0" r="2"></circle></g></svg></div><div class="clockpicker-dial clockpicker-hours clockpicker-dial-out" style="visibility: hidden;"><div class="clockpicker-tick" style="left: 87px; top: 7px;">00</div><div class="clockpicker-tick" style="left: 114px; top: 40.2346px; font-size: 120%;">1</div><div class="clockpicker-tick" style="left: 133.765px; top: 60px; font-size: 120%;">2</div><div class="clockpicker-tick" style="left: 141px; top: 87px; font-size: 120%;">3</div><div class="clockpicker-tick" style="left: 133.765px; top: 114px; font-size: 120%;">4</div><div class="clockpicker-tick" style="left: 114px; top: 133.765px; font-size: 120%;">5</div><div class="clockpicker-tick" style="left: 87px; top: 141px; font-size: 120%;">6</div><div class="clockpicker-tick" style="left: 60px; top: 133.765px; font-size: 120%;">7</div><div class="clockpicker-tick" style="left: 40.2346px; top: 114px; font-size: 120%;">8</div><div class="clockpicker-tick" style="left: 33px; top: 87px; font-size: 120%;">9</div><div class="clockpicker-tick" style="left: 40.2346px; top: 60px; font-size: 120%;">10</div><div class="clockpicker-tick" style="left: 60px; top: 40.2346px; font-size: 120%;">11</div><div class="clockpicker-tick" style="left: 87px; top: 33px; font-size: 120%;">12</div><div class="clockpicker-tick" style="left: 127px; top: 17.718px;">13</div><div class="clockpicker-tick" style="left: 156.282px; top: 47px;">14</div><div class="clockpicker-tick" style="left: 167px; top: 87px;">15</div><div class="clockpicker-tick" style="left: 156.282px; top: 127px;">16</div><div class="clockpicker-tick" style="left: 127px; top: 156.282px;">17</div><div class="clockpicker-tick" style="left: 87px; top: 167px;">18</div><div class="clockpicker-tick" style="left: 47px; top: 156.282px;">19</div><div class="clockpicker-tick" style="left: 17.718px; top: 127px;">20</div><div class="clockpicker-tick" style="left: 7px; top: 87px;">21</div><div class="clockpicker-tick" style="left: 17.718px; top: 47px;">22</div><div class="clockpicker-tick" style="left: 47px; top: 17.718px;">23</div></div><div class="clockpicker-dial clockpicker-minutes clockpicker-dial-out" style="visibility: visible;"><div class="clockpicker-tick" style="left: 87px; top: 7px; font-size: 120%;">00</div><div class="clockpicker-tick" style="left: 127px; top: 17.718px; font-size: 120%;">05</div><div class="clockpicker-tick" style="left: 156.282px; top: 47px; font-size: 120%;">10</div><div class="clockpicker-tick" style="left: 167px; top: 87px; font-size: 120%;">15</div><div class="clockpicker-tick" style="left: 156.282px; top: 127px; font-size: 120%;">20</div><div class="clockpicker-tick" style="left: 127px; top: 156.282px; font-size: 120%;">25</div><div class="clockpicker-tick" style="left: 87px; top: 167px; font-size: 120%;">30</div><div class="clockpicker-tick" style="left: 47px; top: 156.282px; font-size: 120%;">35</div><div class="clockpicker-tick" style="left: 17.718px; top: 127px; font-size: 120%;">40</div><div class="clockpicker-tick" style="left: 7px; top: 87px; font-size: 120%;">45</div><div class="clockpicker-tick" style="left: 17.718px; top: 47px; font-size: 120%;">50</div><div class="clockpicker-tick" style="left: 47px; top: 17.718px; font-size: 120%;">55</div></div></div><span class="clockpicker-am-pm-block"></span></div></div></body></html>

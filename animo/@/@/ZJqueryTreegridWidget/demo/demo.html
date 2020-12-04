@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://maxazan.github.io/jquery-treegrid/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="google-site-verification" content="Qsvvve1CBtl2_PikToO7CdVGsY7bwLrjc_9AgZtt_bk">
+        <title>Treegrid jquery plugin</title>
+
+        <link rel="stylesheet" href="./demo_files/styles.css">
+        <link rel="stylesheet" href="./demo_files/default.min.css">
+        <link rel="stylesheet" href="./demo_files/jquery.treegrid.css">
+        <script async="" src="./demo_files/analytics.js.download"></script><script src="./demo_files/highlight.min.js.download"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-43342702-1', 'maxazan.github.io');
+            ga('send', 'pageview');
+
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body style="">
+        <div class="wrapper">
+
+            <ul class="download" style="float:right;">
+                <li><a href="https://github.com/maxazan/jquery-treegrid/zipball/master">Download <br><strong>ZIP File</strong></a></li>
+                <li><a href="https://github.com/maxazan/jquery-treegrid/tarball/master">Download <br><strong>TAR Ball</strong></a></li>
+                <li><a href="https://github.com/maxazan/jquery-treegrid">View On <br><strong>GitHub</strong></a></li>
+            </ul>
+
+            <h1>TreeGrid jQuery plugin</h1>
+            <h2>Features</h2>
+            <ul>
+                <li>Create TreeGrid from HTML table</li>
+                <li>Simple and flexible javascript</li>
+                <li>Compatible with bootstrap</li>
+                <li>Ability to save the state of the tree</li>
+                <li>Events support</li>
+
+            </ul>            
+            <h2>Usage</h2>
+            <p>Step 1. Initialize plugin</p>
+            <pre><code class="xml">
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/jquery.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/jquery.treegrid.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"css/jquery.treegrid.css"</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+  $(<span class="string">'.tree'</span>).treegrid();
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+            <p>Step 2. Make table</p>
+            <pre><code class="html xml">
+<span class="tag">&lt;<span class="title">table</span> <span class="attribute">class</span>=<span class="value">"tree"</span>&gt;</span>
+	<span class="tag">&lt;<span class="title">tr</span> <span class="attribute">class</span>=<span class="value">"treegrid-1"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">td</span>&gt;</span>Root node<span class="tag">&lt;/<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">td</span>&gt;</span>Additional info<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+	<span class="tag">&lt;<span class="title">tr</span> <span class="attribute">class</span>=<span class="value">"treegrid-2 treegrid-parent-1"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">td</span>&gt;</span>Node 1-1<span class="tag">&lt;/<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">td</span>&gt;</span>Additional info<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+	<span class="tag">&lt;<span class="title">tr</span> <span class="attribute">class</span>=<span class="value">"treegrid-3 treegrid-parent-1"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">td</span>&gt;</span>Node 1-2<span class="tag">&lt;/<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">td</span>&gt;</span>Additional info<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+	<span class="tag">&lt;<span class="title">tr</span> <span class="attribute">class</span>=<span class="value">"treegrid-4 treegrid-parent-3"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">td</span>&gt;</span>Node 1-2-1<span class="tag">&lt;/<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">td</span>&gt;</span>Additional info<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+
+	  </code></pre>
+            <p>Step 3. See result</p>
+
+            <table class="tree">
+                <tbody><tr class="treegrid-1 treegrid-expanded">
+                    <td><span class="treegrid-expander treegrid-expander-expanded"></span>Root node</td><td>Additional info</td>
+                </tr>
+                <tr class="treegrid-2 treegrid-parent-1">
+                    <td><span class="treegrid-indent"></span><span class="treegrid-expander"></span>Node 1-1</td><td>Additional info</td>
+                </tr>
+                <tr class="treegrid-3 treegrid-parent-1 treegrid-expanded">
+                    <td><span class="treegrid-indent"></span><span class="treegrid-expander treegrid-expander-expanded"></span>Node 1-2</td><td>Additional info</td>
+                </tr>
+                <tr class="treegrid-4 treegrid-parent-3">
+                    <td><span class="treegrid-indent"></span><span class="treegrid-indent"></span><span class="treegrid-expander"></span>Node 1-2-1</td><td>Additional info</td>
+                </tr>
+            </tbody></table>            
+
+            <h2>Other examples</h2>
+            <p><a href="http://maxazan.github.io/jquery-treegrid/examples/example-basic.html" target="_blank">Basic example</a></p>
+            <p><a href="http://maxazan.github.io/jquery-treegrid/examples/example-column.html" target="_blank">Tree on 2nd column example</a></p>
+            <p><a href="http://maxazan.github.io/jquery-treegrid/examples/example-save-state.html" target="_blank">Save state example</a></p>
+            <p><a href="http://maxazan.github.io/jquery-treegrid/examples/example-bootstrap-2.html" target="_blank">TreeGrid for bootstrap 2.x</a></p>
+            <p><a href="http://maxazan.github.io/jquery-treegrid/examples/example-bootstrap-3.html" target="_blank">TreeGrid for bootstrap 3.x</a></p>
+            <p><a href="http://maxazan.github.io/jquery-treegrid/examples/example-bootstrap-resize.html" target="_blank">TreeGrid for bootstrap 3.x resize demo</a></p>
+            <p><a href="http://maxazan.github.io/jquery-treegrid/examples/example-events.html" target="_blank">Events examples</a></p>
+            <p><a href="http://maxazan.github.io/jquery-treegrid/examples/example-huge.html" target="_blank">Big data example</a></p>
+
+
+            <h2>Configuration Settings</h2>
+            <h3>Settings</h3>
+            <table>
+                <tbody><tr><th>Parameter</th><th>Type</th><th>Default value</th><th>Description</th></tr>
+                <tr>
+                    <td>treeColumn</td>
+                    <td>Numeric</td>
+                    <td>0</td>
+                    <td>Number of column using for tree</td>
+                </tr>
+
+                <tr>
+                    <td>initialState</td>
+                    <td>String</td>
+                    <td>expanded</td>
+                    <td>Initial state of tree<br>
+                        'expanded' - all nodes will be expanded<br>
+                        'collapsed' - all nodes will be collapsed<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>saveState</td>
+                    <td>Boolean</td>
+                    <td>false</td>
+                    <td>If true you can reload page and tree state was saved</td>
+                </tr>
+                <tr>
+                    <td>saveStateMethod</td>
+                    <td>String</td>
+                    <td>cookie</td>
+                    <td>
+                        'cookie' - save state to cookie<br>
+                        'hash' - save state to hash<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>saveStateName</td>
+                    <td>String</td>
+                    <td>tree-grid-state</td>
+                    <td>
+                        Name of cookie or hash to save state.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>expanderTemplate</td>
+                    <td>String</td>
+                    <td>&lt;span class="treegrid-expander"&gt;&lt;/span&gt;</td>
+                    <td>HTML Element when you click on that will be collapse/expand branches</td>
+                </tr>
+                <tr>
+                    <td>expanderExpandedClass</td>
+                    <td>String</td>
+                    <td>treegrid-expander-expanded</td>
+                    <td>Class using for expander element when it expanded</td>
+                </tr>
+                <tr>
+                    <td>expanderCollapsedClass</td>
+                    <td>String</td>
+                    <td>treegrid-expander-collapsed</td>
+                    <td>Class using for expander element when it collapsed</td>
+                </tr>
+                <tr>
+                    <td>indentTemplate</td>
+                    <td>String</td>
+                    <td>&lt;span class="treegrid-indent"&gt;&lt;/span&gt;</td>
+                    <td>HTML Element that will be placed as padding, depending on the depth of nesting node</td>
+                </tr>
+
+                <tr>
+                    <td>onCollapse</td>
+                    <td>Function</td>
+                    <td>null</td>
+                    <td>Function, which will be executed when one of node will be collapsed</td>
+                </tr>
+                <tr>
+                    <td>onExpand</td>
+                    <td>Function</td>
+                    <td>null</td>
+                    <td>Function, which will be executed when one of node will be expanded</td>
+                </tr>
+                <tr>
+                    <td>onChange</td>
+                    <td>Function</td>
+                    <td>null</td>
+                    <td>Function, which will be executed when one of node will be expanded or collapsed</td>
+                </tr>
+            </tbody></table>
+
+            <h3>Public methods</h3>
+
+            <table>
+                <tbody><tr>
+                    <th>Method name</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>getRootNodes</td>
+                    <td>Returns the root branches</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">// Expand all root nodes</span>
+$(<span class="string">'.tree'</span>).treegrid(<span class="string">'getRootNodes'</span>).treegrid(<span class="string">'expand'</span>);</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>getNodeId</td>
+                    <td>Return the id of node</td>
+                    <td>
+                        <pre><code class="javascript"><span class="keyword">if</span>($(<span class="string">'#node-2'</span>).treegrid(<span class="string">'getNodeId'</span>)===<span class="number">2</span>){
+  <span class="comment">// Do something with node 2</span>
+};</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>getParentNodeId</td>
+                    <td>Return the id of parent node or null if node is root</td>
+                    <td>
+                        <pre><code class="javascript"><span class="keyword">if</span>($(<span class="string">'#node-2'</span>).treegrid(<span class="string">'getParentNodeId'</span>)===<span class="number">2</span>){
+  <span class="comment">// Do something if parent node Id is 2</span>
+};</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>getAllNodes</td>
+                    <td>Return the all nodes of tree</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">// Find all nodes</span>
+  $(<span class="string">'#tree-1'</span>).treegrid(<span class="string">'getAllNodes'</span>).each(<span class="keyword">function</span>() {
+    <span class="keyword">if</span> ($(<span class="keyword">this</span>).treegrid(<span class="string">"isLast"</span>)) {
+      <span class="comment">//Do something with all last nodes</span>
+    }
+  });
+</code></pre>		  
+                    </td>
+                </tr>                 
+                <tr>
+                    <td>getParentNode</td>
+                    <td>Return the parent node or null if node is root</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">// Expand parent node</span>
+$(<span class="string">'#node-2'</span>).treegrid(<span class="string">'getParentNode'</span>).treegrid(<span class="string">'collapse'</span>);
+</code></pre>		  
+                    </td>
+                </tr>    
+                <tr>
+                    <td>getChildNodes</td>
+                    <td>Return the child nodes or null if node is leaf</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">// Expand child nodes</span>
+$(<span class="string">'#node-2'</span>).treegrid(<span class="string">'getChildNodes'</span>).treegrid(<span class="string">'expand'</span>);
+</code></pre>		  
+                    </td>
+                </tr>  
+                <tr>
+                    <td>getDepth</td>
+                    <td>Returns the depth of nested branch</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">// Expand all nodes 2nd nesting</span>
+$(<span class="string">'.tree'</span>).find(<span class="string">'tr'</span>).each(<span class="keyword">function</span>(){
+  <span class="keyword">if</span> ($(<span class="keyword">this</span>).treegrid(<span class="string">'getDepth'</span>)&lt;<span class="number">2</span>){
+	$(<span class="keyword">this</span>).treegrid(<span class="string">'expand'</span>);
+  }
+});</code></pre>
+                    </td>
+                </tr><tr>
+                    <td>isNode</td>
+                    <td>return true if element is node</td>
+                    <td>
+                        <pre><code class="javascript">
+  $(<span class="string">'#tree-1'</span>).find(<span class="string">'tr'</span>).each(<span class="keyword">function</span>() {
+    <span class="keyword">if</span> ($(<span class="keyword">this</span>).treegrid(<span class="string">"isNode"</span>)) {
+      <span class="comment">//Do something</span>
+    }
+  });
+</code></pre>
+                    </td>
+                </tr>                    
+                <tr>
+                    <td>isLeaf</td>
+                    <td>Is there a node leaf</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">// hide all files</span>
+$(<span class="string">'.tree'</span>).find(<span class="string">'tr'</span>).each(<span class="keyword">function</span>(){
+  <span class="keyword">if</span> ($(<span class="keyword">this</span>).treegrid(<span class="string">'isLeaf'</span>)){
+	$(<span class="keyword">this</span>).hide();
+  }
+});</code></pre>
+                    </td>
+
+                </tr>          
+                <tr>
+                    <td>isLast</td>
+                    <td>Return true if node is last in branch</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">// hide all last elements</span>
+$(<span class="string">'.tree'</span>).find(<span class="string">'tr'</span>).each(<span class="keyword">function</span>(){
+  <span class="keyword">if</span> ($(<span class="keyword">this</span>).treegrid(<span class="string">'isLast'</span>)){
+	$(<span class="keyword">this</span>).hide();
+  }
+});</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>isFirst</td>
+                    <td>Return true if node is first in branch</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">// hide all last elements</span>
+$(<span class="string">'.tree'</span>).find(<span class="string">'tr'</span>).each(<span class="keyword">function</span>(){
+  <span class="keyword">if</span> ($(<span class="keyword">this</span>).treegrid(<span class="string">'isFirst'</span>)){
+	$(<span class="keyword">this</span>).hide();
+  }
+});</code></pre>
+                    </td>
+                </tr>                
+                <tr>
+                    <td>isExpanded</td>
+                    <td>Is node expanded</td>
+                    <td>
+                        <pre><code class="javascript"><span class="keyword">if</span>($(<span class="string">'#node-2'</span>).treegrid(<span class="string">'isExpanded'</span>)){
+  <span class="comment">// Do something if node expanded</span>
+};</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>isCollapsed</td>
+                    <td>Is node collapsed</td>
+                    <td>
+                        <pre><code class="javascript"><span class="keyword">if</span>($(<span class="string">'#node-2'</span>).treegrid(<span class="string">'isCollapsed'</span>)){
+  <span class="comment">// Do something if node collapsed</span>
+};</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>isOneOfParentsCollapsed</td>
+                    <td>Is at least one of the parent nodes is collapsed</td>
+                    <td>
+                        <pre><code class="javascript"><span class="keyword">if</span>($(<span class="string">'#node-2'</span>).treegrid(<span class="string">'isOneOfParentCollapsed'</span>)){
+  <span class="comment">// Do something if one of parent collapsed</span>
+};</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>expand</td>
+                    <td>Expand node</td>
+                    <td>
+                        <pre><code class="javascript">$(<span class="string">'#node-2'</span>).treegrid(<span class="string">'expand'</span>);</code></pre>
+                    </td>
+                </tr>        
+                <tr>
+                    <td>collapse</td>
+                    <td>Collapse node</td>
+                    <td>
+                        <pre><code class="javascript">$(<span class="string">'#node-2'</span>).treegrid(<span class="string">'collapse'</span>);</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>expandRecursive</td>
+                    <td>Expand nodes recursively</td>
+                    <td>
+                        <pre><code class="javascript">$(<span class="string">'#node-2'</span>).treegrid(<span class="string">'expandRecursive'</span>);</code></pre>
+                    </td>
+                </tr>        
+                <tr>
+                    <td>collapseRecursive</td>
+                    <td>Collapse nodes recursively</td>
+                    <td>
+                        <pre><code class="javascript">$(<span class="string">'#node-2'</span>).treegrid(<span class="string">'collapseRecursive'</span>);</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>expandAll</td>
+                    <td>Expand all nodes</td>
+                    <td>
+                        <pre><code class="javascript">$(<span class="string">'#tree'</span>).treegrid(<span class="string">'expandAll'</span>);</code></pre>
+                    </td>
+                </tr>        
+                <tr>
+                    <td>collapseAll</td>
+                    <td>Collapse all nodes</td>
+                    <td>
+                        <pre><code class="javascript">$(<span class="string">'#tree'</span>).treegrid(<span class="string">'collapseAll'</span>);</code></pre>
+                    </td>
+                </tr>        
+                <tr>
+                    <td>toggle</td>
+                    <td>Collapse node if it expanded and expand when collapsed</td>
+                    <td>
+                        <pre><code class="javascript">$(<span class="string">'#node-2'</span>).treegrid(<span class="string">'toggle'</span>);</code></pre>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>render</td>
+                    <td>Redraw the node and all its children</td>
+                    <td>
+                        <pre><code class="javascript">$(<span class="string">'#node-2'</span>).treegrid(<span class="string">'render'</span>);</code></pre>
+                    </td>
+                </tr> 
+
+
+            </tbody></table>
+            <h3>Events</h3>
+            <table>
+                <tbody><tr>
+                    <th>Event name</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>collapse</td>
+                    <td>Will fire when node collapsed</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">//Alert when node in treegrid with class "tree" collapsed</span>
+$(<span class="string">'.tree'</span>).treegrid(<span class="string">'getRootNodes'</span>).on(<span class="string">'collapse'</span>, <span class="keyword">function</span>(){
+   alert(<span class="keyword">this</span>);
+});</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>expand</td>
+                    <td>Will fire when node expanded</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">//Alert when node with id "node1" expanded</span>
+$(<span class="string">'#node1'</span>).on(<span class="string">'expand'</span>, <span class="keyword">function</span>(){
+   alert(<span class="keyword">this</span>);
+});</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>change</td>
+                    <td>Will fire when node changed. Expanded or collapsed</td>
+                    <td>
+                        <pre><code class="javascript"><span class="comment">//Alert when node in treegrid with class "tree" changed. </span>
+$(<span class="string">'.tree'</span>).treegrid(<span class="string">'getRootNodes'</span>).on(<span class="string">'change'</span>, <span class="keyword">function</span>(){
+   alert(<span class="keyword">this</span>);
+});</code></pre>
+                    </td>
+                </tr>                
+            </tbody></table>
+            <h2><a href="http://maxazan.github.io/jquery-treegrid/test.html">Unit Tests</a></h2>
+
+        </div>
+        <script src="./demo_files/jquery.min.js.download"></script>
+        <script type="text/javascript" src="./demo_files/jquery.treegrid.min.js.download"></script>
+        <script type="text/javascript">
+            $('.tree').treegrid();
+        </script>    
+        <script type="text/javascript">
+            var metas = document.getElementsByTagName('meta');
+            var i;
+            if (navigator.userAgent.match(/iPhone/i)) {
+                for (i = 0; i < metas.length; i++) {
+                    if (metas[i].name == "viewport") {
+                        metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+                    }
+                }
+                document.addEventListener("gesturestart", gestureStart, false);
+            }
+            function gestureStart() {
+                for (i = 0; i < metas.length; i++) {
+                    if (metas[i].name == "viewport") {
+                        metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+                    }
+                }
+            }</script>
+
+    
+</body></html>

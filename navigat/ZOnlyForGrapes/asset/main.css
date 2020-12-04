@@ -1,0 +1,105 @@
+.fa-caret-right{
+    color: #005ecb;
+}
+.fa-caret-down{
+    color: #005ecb;
+}
+
+.icon-arrow{
+    float: left;
+}
+
+.parent:focus,
+.parent:hover,
+.parent:active {
+    outline: 0;
+    text-decoration: none;
+}
+
+.panel{
+    background-color: #f0f0fa;
+    transition: 0.4s ease-in-out all;
+    font-weight: 400;
+    width: 100%;
+}
+
+.panel-group .panel + .panel {
+    margin-top: 0;
+}
+
+.parent{
+    background-color: #f0f0fa;
+    border-bottom: 0.5px solid #005ecbd6;
+}
+
+.parent:hover{
+    background-color: #dedef7;
+}
+
+.panel-heading {
+    background-color: #f0f0fa;
+    border: none;
+    color: #081F62;
+    padding: 0;
+}
+
+.panel-title .parent {
+    display: block;
+    color: #081F62;
+    padding: 15px;
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.panel-body {
+    background-color: #FFFFFF;
+    font-size: .75rem;
+    padding: 10px 5px;
+    /*display: flex;*/
+    flex-wrap: wrap;
+    align-items: flex-end;
+    box-sizing: border-box;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.panel-heading .parent:before {
+
+    position: absolute;
+    font-family: 'Material Icons',sans-serif;
+    right: 5px;
+    top: 10px;
+    font-size: 24px;
+    transition: all 0.5s;
+    transform: scale(1);
+}
+
+.panel-heading.active .parent:before {
+
+    transition: all 0.5s;
+    transform: scale(0);
+}
+
+#bs-collapse .panel-heading .parent:after {
+
+    font-size: 24px;
+    position: absolute;
+    font-family: 'Material Icons',sans-serif;
+    right: 5px;
+    top: 10px;
+    transform: scale(0);
+    transition: all 0.5s;
+}
+
+#bs-collapse .panel-heading.active .parent:after {
+
+    transform: scale(1);
+    transition: all 0.5s;
+}
+
+.panel-heading.active .parent:before {
+    transform: rotate(2deg);
+    transition: all 0.5s;
+
+}

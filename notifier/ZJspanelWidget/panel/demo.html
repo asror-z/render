@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPanel</title>
+</head>
+<body>
+
+<!-- Your HTML goes here -->
+
+<!-- loading jsPanel javascript -->
+<!-- jsPanel CSS -->
+<link href="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/jspanel.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<!-- jsPanel JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/jspanel.js"></script>
+
+<!-- optional jsPanel extensions -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/modal/jspanel.modal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/tooltip/jspanel.tooltip.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/hint/jspanel.hint.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/layout/jspanel.layout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/contextmenu/jspanel.contextmenu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/dock/jspanel.dock.js"></script>
+<script>
+
+    /*
+        METHODS
+
+        .addControl({
+                html: '<span class="fa fa-cog"></span>',
+                name: 'settings',
+                handler: function(panel, control){
+                    panel.content.innerHTML = 'You clicked the "settings" control';
+                }
+            })
+
+         .addToolbar('header', tbar, function (panel) {
+                var tb = this.headertoolbar;
+                tb.querySelector('#btn-bus').addEventListener('click', function () {
+                    panel.content.innerHTML = 'you clicked the bus icon.';
+                }, false);
+                tb.querySelector('#btn-train').addEventListener('click', function () {
+                    panel.content.innerHTML = 'you clicked the train icon.';
+                }, false);
+                tb.querySelector('#btn-car').addEventListener('click', function () {
+                    panel.content.innerHTML = 'you clicked the car icon.';
+                }, false);
+                Array.prototype.slice.call(tb.querySelectorAll('span')).forEach(function (item) {
+                    item.style.cursor = 'pointer';
+                    item.style.margin = '3px 8px 1px 0';
+                });
+            });
+
+
+
+                panel.close();
+                panel.closeChildpanels();
+
+               panel.contentRemove(function () {
+                this.setTheme('darkgray');
+            });
+
+
+                panel.dragit('enable');
+
+              panel.front(function () {
+                this.setTheme('purple filledlight');
+              });
+
+    * */
+
+    jsPanel.create()
+        .addControl({
+            html: '<span class="fa fa-cog"></span>',
+            name: 'settings',
+            handler: function(panel, control){
+                panel.content.innerHTML = 'You clicked the "settings" control';
+            }
+        })
+        .addControl({
+            html: '<span class="fa fa-bars"></span>',
+            name: 'menu',
+            handler: function(panel, control){
+                panel.content.innerHTML = 'You clicked the "menu" control';
+            },
+            position: 7,
+            afterInsert: function(control){
+                // do with the control whatever is needed ...
+            }
+        });
+
+    var tbar = '<span id="btn-bus"><i class="fa fa-bus"></i></span>'+
+        '<span id="btn-train"><i class="fa fa-train"></i></span>'+
+        '<span id="btn-car"><i class="fa fa-car"></i></span>';
+
+
+
+    var panel = jsPanel.create({
+        onclosed: function() {
+            alert('panel with id: ' + this.id + ' was closed!');
+        }
+    });
+
+
+    var panel = jsPanel.create({contentSize: {width: '600px', height: '400px'}});
+
+    jsPanel.create({
+        container:  panel.content,
+        theme: 'success'
+    });
+    jsPanel.create({
+        container:  panel.content,
+        theme: 'primary',
+        position: 'center 40 40'
+    });
+
+    window.setTimeout(function () {
+        panel.closeChildpanels();
+    }, 2000);
+    var panel = jsPanel.create({
+        theme: 'purple',
+        content: '<p>Text content ...</p><p> Some more text content ...</p>'
+    });
+
+
+
+    jsPanel.create({position: 'center 50 50'});
+
+    var panel = jsPanel.create({contentSize: '600 400'});
+
+    jsPanel.create({
+        container: panel.content,
+        theme: 'success',
+        position: 'left-top 5 5',
+        syncMargins: true
+    });
+    jsPanel.create({
+        container: panel.content,
+        theme: 'primary',
+        position: 'left-top 50 50',
+        syncMargins: true
+    });
+
+
+
+    var parent = jsPanel.create({
+        contentSize: '600 400',
+        theme: 'primary',
+        contentOverflow: 'hidden'
+    });
+
+    var child = jsPanel.create({
+        container: parent.content,
+        theme: 'success',
+        maximizedMargin: 20
+    });
+
+    // maximizes within viewport
+    window.setTimeout(function () {
+        parent.maximize();
+    }, 1000);
+
+    // maximizes within parent panel and uses a callback
+    window.setTimeout(function () {
+        child.maximize(function(panel, status) {
+            this.content.innerHTML = '<p>panel ID: ' + panel.id + ',<br>panel status prior maximizing: ' + status + '</p>';
+        });
+    }, 2000);
+    var panel = jsPanel.create();
+
+    setTimeout(function() {
+        panel.minimize(function(panel, status) {
+            alert('minimized panel ID: ' + panel.id + '\nstatus before minimizing: ' + status);
+        });
+    }, 1000);
+    var panel = jsPanel.create({
+        setStatus: 'maximized'
+    });
+
+    setTimeout(function() {
+        panel.normalize(function(panel, status) {
+            this.content.innerHTML = 'normalized panel ID: ' + panel.id + '<br>status before normalizing: ' + status;
+        });
+    }, 1000);
+    // you can edit the code in order to try various settings
+
+    jsPanel.create({
+        headerTitle: 'panel.overlaps("#testcontainer", "paddingbox", event)',
+        container: '#testcontainer',
+        contentSize: '680 280',
+        content: 'Stat dragging the panel to see results',
+        theme: 'default filled',
+        dragit: {
+            drag: function (panel, pos, event) {
+                // the call of overlaps() while the panel is dragged
+                var oS = this.overlaps('#testcontainer', 'paddingbox', event);
+                // code to show results in panel
+                this.content.innerHTML = `<pre style="padding:10px;"><code class="language-javascript">overlaps: ${oS.overlaps},
+top:    ${Math.round(oS.top)},
+right:  ${Math.round(oS.right)},
+bottom: ${Math.round(oS.bottom)},
+left:   ${Math.round(oS.left)},
+parentBorderWidth: {top:${oS.parentBorderWidth.top}, right:${oS.parentBorderWidth.right}, bottom:${oS.parentBorderWidth.bottom}, left:${oS.parentBorderWidth.left}},
+referenceRect: {left:${Math.round(oS.referenceRect.left)}, top:${Math.round(oS.referenceRect.top)}, width:${Math.round(oS.referenceRect.width)}, height:${Math.round(oS.referenceRect.height)}, ...},
+panelRect: {left:${Math.round(oS.panelRect.left)}, top:${Math.round(oS.panelRect.top)}, width:${Math.round(oS.panelRect.width)}, height:${Math.round(oS.panelRect.height)}, ...},
+pointer: {clientX:${oS.pointer.clientX}, clientY:${oS.pointer.clientY}, left:${Math.round(oS.pointer.left)}, top:${Math.round(oS.pointer.top)}, right:${Math.round(oS.pointer.right)}, bottom:${Math.round(oS.pointer.bottom)}}
+</code></pre>`;
+                Prism.highlightAll();
+            },
+            opacity: 1
+        }
+    });
+
+
+    window.setTimeout(function () {
+        panel.reposition('left-top 50 50');
+    }, 1000);
+
+
+    window.setTimeout(function () {
+        panel
+            .resize({
+                width:  window.innerWidth/2,
+                height: 300
+            })
+            .reposition(); // reposition panel in order to maintain centered position
+    }, 1000);
+
+
+    panel.resizeit('disable');
+
+    panel.resizeit('enable');
+    jsPanel.create({
+        theme: 'primary'
+    })
+        .setBorder('dashed orange');
+    jsPanel.create({
+        theme: 'primary filled'
+    })
+        .setBorderRadius('0.5rem');
+    jsPanel.create()
+        .setControlStatus('minimize', 'disable')
+        .setControlStatus('smallify', 'remove');
+    jsPanel.create().setHeaderLogo('../../img/flyer53.jpg');
+
+    jsPanel.create({position: 'center 50 50'}).setHeaderLogo('<i class="fa fa-spinner fa-spin"></i>', function() {
+        this.headerlogo.querySelector('.fa-spinner').style.marginLeft = '8px';
+    });
+    jsPanel.create().setHeaderTitle('a new title ...');
+
+    jsPanel.create({position: 'center 50 50'}).setHeaderTitle(function () {
+        return 'Panel No ' + jsPanel.getPanels().length;
+    });
+    jsPanel.create().setTheme('primary');
+
+    jsPanel.create({position: 'center 50 50'}).setTheme({
+        bgPanel: 'linear-gradient(120deg,#155799,#159957)',
+        bgContent: 'transparent',
+        colorHeader: '#fff',
+        colorContent: '#fff',
+        border: '4px solid #157B75'
+    });
+    jsPanel.create().smallify();
+
+    jsPanel.create({
+        border: '4px solid',
+        theme: 'primary',
+        position: 'center 50 50'
+    }).smallify();
+    var panel = jsPanel.create({setStatus: 'smallified'});
+
+    window.setTimeout(function () {
+        panel.unsmallify();
+    }, 2000);
+
+    jsPanel.create({
+        content:     '<textarea id="simplemde"></textarea>',
+        contentSize: '550 350',
+        headerTitle: 'jsPanel with SimpleMDE',
+        theme:       'primary',
+        callback: function (panel) {
+            var simplemde = new SimpleMDE({
+                element: document.getElementById('simplemde')
+            });
+            $('.CodeMirror-wrap', panel.content).css({height: 'calc(100% - 83px)'});
+            $('.CodeMirror', panel.content).css({minHeight: 0});
+            $('#btn-1').attr('disabled', 'disabled');
+            panel.header.style.backgroundImage = 'linear-gradient(120deg,#155799,#159957)';
+        },
+        onclosed: function () {
+            $('#btn-1').attr('disabled', false);
+        },
+        footerToolbar: '<i class="fa fa-clock"></i><span class="clock">loading ...</span>',
+        callback: function (panel) {
+            function clock() {
+                var time = new Date(),
+                    hours = time.getHours(),
+                    minutes = time.getMinutes(),
+                    seconds = time.getSeconds();
+                panel.footer.querySelectorAll('.clock') [0].innerHTML = harold(hours) + ':' + harold(minutes) + ':' + harold(seconds);
+                function harold(standIn) {
+                    if (standIn < 3) {
+                        standIn = '0' + standIn
+                    }
+                    return standIn;
+                }
+            }
+            setInterval(clock, 1000);
+        }
+    });
+
+
+    var hintConfig = {
+        position: 'center-top 0 15 down',
+        contentSize: '330 auto',
+        border: 'thin',
+        header: false,
+        addCloseControl: 1,
+        animateIn: 'animated bounceInUp',
+        animateOut: 'animated flipOutX'
+    };
+
+    /*
+
+   options
+
+    addCloseControl: 1,
+
+    animateIn: 'jsPanelFadeIn',
+    animateOut: 'jsPanelFadeOut'
+
+    autoclose: 3000,
+     autoclose: {
+    time: '6s',
+    background: 'linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(0,255,17,1) 100%)'
+  }
+
+    border: "thick dashed orange",
+    borderRadius: '1rem',
+
+    boxShadow: 2,                 // type: integer range: 0 - 5
+
+    callback: function () {
+    this.content.innerHTML = '<p>Added via option.callback.</p>';
+  }
+
+    closeOnEscape: true,
+
+    config: hintConfig,     // type object
+
+    container: '#testcontainer',    // type: string (selector), node object, jQuery object
+
+    content: '<p>Appended with <i>Element.innerHTML</i></p>',        // type: string, element, function
+
+
+     contentAjax: {
+    url: '../docs/sample-content/sampleContent.html',   // url type: string, default: undefined
+    done: function (panel) {
+      panel.content.innerHTML = this.responseText;
+    },
+    evalscripttags: true
+  },                                            //  type: string, object
+
+
+    contentFetch: {
+    resource: '../docs/sample-content/delayedContent.php',
+    beforeSend: function() {
+      this.headerlogo.innerHTML = "<span class='fa fa-spinner fa-spin' style='margin-left:8px'></span>"
+    },
+    fetchInit: {
+      method: 'POST'
+    },
+    done: function (panel, response) {
+      this.content.innerHTML = response;
+      this.headerlogo.innerHTML = "<span class='fa fa-check' style='margin-left:8px'></span>";
+      this.resize('auto 300').reposition();
+    }
+  }                                              // type: string, object
+
+
+    contentOverflow: 'scroll',            // type: string
+
+    contentSize: '600 300',            // type: object, string
+    contentSize: {
+    width: function() {
+        return window.innerWidth/4;
+    },
+    height: 'auto'
+  }
+
+     data: 'foobar',                // type: string, number, array, plain object
+
+     dragit: {
+        axis: 'x',
+        cursor: 'move'
+        //.....
+  }                                  // type: object or boolean false (turns off dragit completely)
+
+
+    footerToolbar: '<span style="flex:1 1 auto">Some text content</span>'      //type: string, array, node object or function
+
+    header: false,        // type: boolean or string     string 'auto-show-hide'
+
+
+    headerControls: {
+    add: {
+      html: '<span class="fal fa-undo"></span>',
+      name: 'reset',
+      handler: function(panel, control){
+        panel.content.innerHTML = 'You clicked the "reset" control';
+      }
+    },
+    minimize: 'remove',
+    reset: 'enable'
+  }                                   // type: object or string
+
+
+    headerRemove: true
+
+    headerTitle: 'just another title'           // type: string, function or element
+
+     headerToolbar: '<span id="bus"><i class="fad fa-bus fa-fw"></i></span>'         // type: string, array, node object or function
+
+
+     iconfont: 'material-icons',               // type: string or array
+
+     id: 'mypanel-1',                         // type: string, function
+
+     maximizedMargin: [61, 5, 5, 5]             // type: number, array
+
+     onbeforeclose: function (panel, status, closedByUser) {
+        console.log(panel, status, closedByUser);
+     return confirm('Close panel?');
+  }
+
+    panelSize: '600 300',                          // type: object or string
+
+
+    position: {
+    my: 'right-top',
+    at: 'right-top',
+    of: 'body .main-content',
+    offsetX: '-0.5rem',
+    offsetY: '5px',
+    autoposition 'down'
+}                                                   // type: object, string or boolean false
+
+
+    resizeit: {
+    handles: 'e, se'
+  }                                               // type: object or boolean false (turns off resizeit completely)
+
+
+    theme: 'primary',                           // type: string object
+
+    */
+
+
+    jsPanel.create({
+        content: '<div id="thooClock"></div>',
+        contentSize: '180',
+        contentOverflow: 'hidden',
+        header: 'auto-show-hide',
+        headerTitle: '',
+        headerControls: 'closeonly xs',
+        theme: 'none',
+        boxShadow: 0,
+        dragit: {handles: '.jsPanel-content'},
+        resizeit: false,
+        callback: function () {
+            this.style.background = 'transparent';
+            this.header.style.background = 'transparent';
+            this.content.style.background = 'transparent';
+            this.controlbar.querySelector('.jsPanel-btn-close').style.marginRight = '76px';
+            $('#thooClock').thooClock({
+                size: 180,
+                brandText:'THOOYORK'
+            });
+        }
+    });
+
+    jsPanel.create({
+        headerTitle: '&nbsp;',
+        headerControls: 'closeonly xs',
+        theme: '#236467 fillcolor #417E80',
+        contentSize: 'auto auto',
+        contentAjax: {
+            url: '../docs/sample-content/vertical-toolbar.html',
+            done: function (panel) {
+                panel.content.innerHTML = this.responseText;
+                panel.controlbar.querySelector('.jsPanel-btn svg.jsPanel-icon').style.height = '24px';
+                panel.content.style.display = 'flex';
+                panel.content.querySelectorAll('span.fal').forEach(function(item){
+                    item.style.cursor = 'pointer';
+                });
+            }
+        }
+
+    });
+
+    jsPanel.create({
+        content:     '<textarea id="simplemde"></textarea>',
+        contentSize: '550 350',
+        headerTitle: 'jsPanel with SimpleMDE',
+        theme:       'primary',
+        callback: function (panel) {
+            var simplemde = new SimpleMDE({
+                element: document.getElementById('simplemde')
+            });
+            $('.CodeMirror-wrap', panel.content).css({height: 'calc(100% - 83px)'});
+            $('.CodeMirror', panel.content).css({minHeight: 0});
+            $('#btn-1').attr('disabled', 'disabled');
+            panel.header.style.backgroundImage = 'linear-gradient(120deg,#155799,#159957)';
+        },
+        onclosed: function () {
+            $('#btn-1').attr('disabled', false);
+        }
+    });
+
+
+
+
+
+</script>
+</body>
+</html>

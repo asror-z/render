@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
+
+    <title>rad0 - Mmenu</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <!-- 	<link type="text/css" rel="stylesheet" href="demo.css"> -->
+    <link type="text/css" rel="stylesheet" href="mmenu.css">
+
+    <link rel="stylesheet" href="mhead.css">
+    <link href="mburger.css" rel="stylesheet">
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div id="my-page">
+    <div class="header sticky" id="my-header">
+				<span class="stick" id="hamburger">
+					<a class="mburger mburger--collapse" href="#menu">
+	                    <b></b>
+	                    <b></b>
+	                    <b></b>
+                	</a>
+				</span>
+        <button class="open">Open</button>
+        <button>Close</button>
+    </div>
+
+    <nav id="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><span>About us</span>
+                <ul>
+                    <li><a href="#about/history">History</a></li>
+                    <li><span>The team</span>
+                        <ul>
+                            <li><a href="#about/team/management">Management</a></li>
+                            <li><a href="#about/team/sales">Sales</a></li>
+                            <li><a href="#about/team/development">Development</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#about/address">Our address</a></li>
+                </ul>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+
+            <li class="Divider">Other demos</li>
+            <li><a href="advanced.html">Advanced demo</a></li>
+            <li><a href="onepage.html">One page demo</a></li>
+        </ul>
+    </nav>
+    <div style="height: 1300px ; background: red"></div>
+</div>
+<!-- mmenu scripts -->
+
+<style>
+    html,
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    body {
+        background-color: #fff;
+        font-family: Arial, Helvetica, Verdana;
+        font-size: 14px;
+        line-height: 22px;
+        color: #666;
+        position: relative;
+        -webkit-text-size-adjust: none;
+    }
+    .header{
+        background: #3EA7E1FF;
+    }
+    .header .mburger{
+        color: white;
+    }
+    .text-by{
+        color: #3EA7E1FF
+    }
+</style>
+<script src="mmenu.polyfills.js"></script>
+<script src="mmenu.js"></script>
+<script src="mhead.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+  const menu = new Mmenu(document.querySelector('#menu'),
+      {
+          extensions: ['theme-white', 'shadow-page'],
+          setSelected: true,
+          counters: true,
+          searchfield: {
+              placeholder: 'Search menu items'
+          },
+          sidebar: {
+              collapsed		: {
+                  use 			: '(min-width: 450px)',
+                  blockMenu :false,
+                  size: 40,
+              },
+              expanded		: {
+                  use 			: '(min-width: 992px)',
+                  size			: 35,
+
+              }
+          },
+
+          navbars: [
+              {
+                  content: ['searchfield']
+              },
+              {
+                  content: ['prev', 'breadcrumbs', 'close']
+              },
+              {
+                  position: 'bottom',
+                  content: ['<p class="text-by"></p>']
+              }
+          ]
+      }, {
+          searchfield: {
+              clear: true
+          },
+          navbars: {
+              breadcrumbs: {
+                  removeFirst: true
+              }
+          }
+      }
+  );
+ const api = menu.API;
+  
+  const t = $("#hamburger").children(".mburger");
+  api.bind("close:finish", function () {
+      setTimeout(function () {
+          t.attr("href", "#menu")
+      }, 100)
+  }),
+      api.bind("open:finish", function () {
+          setTimeout(function () {
+              t.attr("href", "#page")
+          }, 100)
+      });
+  
+    new Mhead('.rad0-header.sticky', {
+        scroll: {
+            hide: 500
+        },
+
+    });
+    $(".r_open").click(function () {
+        const panel = document.querySelector( "#mm-panel" );
+        api.openPanel( panel );
+        alert("open")
+    });
+</script>
+</body>
+</html>

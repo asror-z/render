@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+
+            <!--
+            http://eyuf.zetsoft.uz/render/former/ZDatatableWidget/demo/ajax/example/AjaxDataSourceArrays.html
+
+        DataTables has the ability to read data from virtually any JSON data source that can be obtained by Ajax. This can be done, in its most simple form, by setting the ajax option to the address of the JSON data source.
+
+        The ajax option also allows for more advanced configuration such as altering how the Ajax request is made. See the ajax documentation or the other Ajax examples for DataTables for further information.
+
+        By default DataTables will assume that an array data source is to be used and will read the information to be displayed in each column from the row's array using the column index, making working with arrays very simple (note that this can be changed, or objects may use the columns.data option, shown in other examples).
+
+        The example below shows DataTables loading data for a table from arrays as the data source, where the structure of the row's data source in this example is:
+
+        Plain text
+
+        [
+        1    "Tiger Nixon",
+        2   "System Architect",
+        3  "Edinburgh",
+        4    "5421",
+        5    "2011/04/25",
+        6    "$3,120"
+        ]
+        For more details on loading a DataTable with Ajax data, please refer to the Ajax section of the manual.
+            !-->
+
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+            <script>
+                $(document).ready(function() {
+                    $('#example').DataTable( {
+                        "ajax": "../data/AjaxDataSourceArrays"
+                    } );
+                } );
+            </script>
+        </head>
+<body>
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>

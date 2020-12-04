@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+<head>
+       <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+		<!-- Fontawesome Icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+        function plus(id) {
+            var val = document.getElementById(id);
+            val.value++;
+            document.getElementById('in').innerHTML = val;
+        }
+        function minus(id) {
+            var val = document.getElementById(id);
+            if(val.value>1) {
+                val.value--;
+                document.getElementById('in').innerHTML = val;
+            }
+        }
+    </script>
+    </head>
+    <body>
+
+    <div class="container bg-white embed-responsive">
+        <table class="table">
+        <thead class="">
+        <tr class="p-5 text-uppercase">
+            <th><h6 class="font-weight-bold text-left">Product</h6></th>
+            <th><h6 class="font-weight-bold text-center">Price</h6></th>
+            <th><h6 class="font-weight-bold text-center">Quantity</h6></th>
+            <th><h6 class="font-weight-bold text-center">Total</h6></th>
+            <th class=""></th>
+        </tr>
+        </thead>
+        <tbody>
+        <!---->
+        <tr class="d-print-table-row border-bottom">
+            <td class="align-middle">
+                <div class="row">
+                    <img src="https://micoedward.com/wp-content/uploads/2018/04/Love-your-product.png" class="mt-1" alt="" width="100" height="100">
+                    <div class="ml-4">
+                        <h6><a href="#">Samsung Smart Led Tv</a></h6>
+                        <ul class="list-unstyled list-inline text-warning small">
+                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                            <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                        </ul>
+                        <ul class="list-unstyled col-sz">
+                            <li class="text-black-50">Color : <b>Red</b></li>
+                            <li class="text-black-50">Size : <b>M</b></li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+            <td class="align-middle text-center">
+                <!---->
+                <div>
+                    <h6 class="font-weight-bold">$189.00</h6>
+                </div><!---->
+                <!---->
+            </td>
+            <td class="align-middle text-center">
+                <!---->
+
+                <div class="btn-group" role="group">
+                    <input type="button" onclick="minus('in')" class="btn btn-light btn-outline-info" value="-" class="minus">
+                    <input id="in" type="number" step="1" min="1" max="10" value="1" class="text-center" readonly="" style="width: 50px">
+                    <input type="button" onclick="plus('in')" class="btn btn-light btn-outline-info" value="+" class="plus">
+                </div>
+            </td>
+            <td class="align-middle text-center">           
+                <div>
+                    <h6 class="font-weight-bold">$189.00</h6>
+                </div>
+            </td>
+            <td class="align-middle text-center">
+                <div style="padding: 7px 0px; border: 1px solid darkgrey; border-radius: 50%;">
+                    <a href="#"><i class="small fa fa-trash-o"></i></a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+    
+
+    
+
+    
+
+</body></html>

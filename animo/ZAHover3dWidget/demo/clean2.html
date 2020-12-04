@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!-- saved from url=(0093)https://www.jqueryscript.net/demo/3D-Interactive-Image-Hover-Effect-With-jQuery-CSS3-hover3d/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AHover by Otabek Nosirov</title>
+
+    </head>
+
+    <style>
+
+        * { box-sizing: border-box; }
+
+        *:before, *:after { box-sizing: border-box; }
+
+        body {
+            font-family: "Noto Sans", sans-serif;
+            line-height: 1.8;
+            color: #666;
+            background-color:#fafafa;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: Hind, sans-serif;
+            color: #333;
+            margin: 2em 0 1em;
+        }
+
+        a {
+            text-decoration: none;
+            color: #9999ff;
+        }
+
+        .site-content {
+            width: 990px;
+            max-width: 100%;
+            margin: 150px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .project {
+            width: 100%;
+            width: 45%;
+            float: left;
+            margin-right: 5%;
+        }
+
+        .project-list:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+        .project__image {
+            display: block;
+            position: relative;
+        }
+
+        .project__image img {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+        }
+
+        .project__image:after {
+            content: " ";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+            transition: opacity .3s ease;
+            opacity: 0;
+        }
+
+        .project__card {
+            position: relative;
+            will-change: transform;
+            transition: box-shadow .3s ease;
+            box-shadow: 0 10px 30px transparent;
+        }
+
+        .project__card.hover-in {
+            transition: -webkit-transform .2s ease-out;
+            transition: transform .2s ease-out;
+            transition: transform .2s ease-out, -webkit-transform .2s ease-out;
+        }
+
+        .project__card.hover-out {
+            transition: -webkit-transform .2s ease-in;
+            transition: transform .2s ease-in;
+            transition: transform .2s ease-in, -webkit-transform .2s ease-in;
+        }
+
+        .project:hover .project__card { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); }
+
+        .project:hover .project__image:after { opacity: 1; }
+
+        .project:hover .project__detail {
+            border-width: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .project:hover .project__title, .project:hover .project__category {
+            -webkit-transform: translateY(0) scale(1);
+            -ms-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .project__detail {
+            position: absolute;
+            left: 30px;
+            right: 30px;
+            top: 30px;
+            bottom: 30px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            text-align: center;
+            pointer-events: none;
+            -webkit-transform: translateZ(30px);
+            transform: translateZ(30px);
+            border: 0 solid #00BCD4;
+            transition: border .4s ease;
+        }
+
+        .project__title {
+            margin: 0 0 10px;
+            font-size: 36px;
+            font-weight: 700;
+            transition: .4s ease;
+            opacity: 0;
+            -webkit-transform: translateY(40px) scale(0);
+            -ms-transform: translateY(40px) scale(0);
+            transform: translateY(40px) scale(0);
+            will-change: transform;
+        }
+
+        .project__title a { color: white; }
+
+        .project__category {
+            opacity: 0;
+            transition: .4s ease;
+            transition-delay: .1s;
+            -webkit-transform: translateY(40px) scale(0);
+            -ms-transform: translateY(40px) scale(0);
+            transform: translateY(40px) scale(0);
+            will-change: transform;
+        }
+
+        .project__category a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.3em;
+        }
+
+        .movie { float: left; }
+
+        .movie-list:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+        .movie__card {
+            position: relative;
+            width: 250px;
+            height: 370px;
+        }
+
+        .movie__card.hover-in { transition: .3s ease-out; }
+
+        .movie__card.hover-out { transition: .3s ease-in; }
+
+        .movie [class*="layer"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 10px;
+        }
+
+
+        .movie .shine { border-radius: 10px; }
+
+    </style>
+
+<body>
+
+<div class="site-content">
+
+    <h2 class="section-title">jQuery hover3d Plugin Example 1</h2>
+    <div class="project-list">
+        <div class="project" style="perspective: 1000px; transform-style: preserve-3d;">
+            <div class="project__card hover-out" style="perspective: 1000px; transform-style: preserve-3d; transform: rotateX(0deg) rotateY(0deg);">
+                <a href="https://www.jqueryscript.net/demo/3D-Interactive-Image-Hover-Effect-With-jQuery-CSS3-hover3d/" class="project__image"><img src="./demo_files/1012-600x400.jpg" width="600" height="400" alt=""></a>
+                <div class="project__detail">
+                    <h2 class="project__title"><a href="https://www.jqueryscript.net/demo/3D-Interactive-Image-Hover-Effect-With-jQuery-CSS3-hover3d/#">Project Name</a></h2>
+                    <small class="project__category"><a href="https://www.jqueryscript.net/demo/3D-Interactive-Image-Hover-Effect-With-jQuery-CSS3-hover3d/#">Photography</a></small>
+                </div>
+                <div class="shine" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; z-index: 9; background: linear-gradient(64.1556deg, rgba(255, 255, 255, 0.365) 0%, rgba(255, 255, 255, 0) 80%);"></div></div>
+        </div>
+
+        <div class="project" style="perspective: 1000px; transform-style: preserve-3d;">
+            <div class="project__card hover-in" style="perspective: 1000px; transform-style: preserve-3d; transform: rotateY(-4.65deg) rotateX(-0.75deg);">
+                <a href="https://www.jqueryscript.net/demo/3D-Interactive-Image-Hover-Effect-With-jQuery-CSS3-hover3d/" class="project__image"><img src="./demo_files/287-600x400.jpg" width="600" height="400" alt=""></a>
+                <div class="project__detail">
+                    <h2 class="project__title"><a href="https://www.jqueryscript.net/demo/3D-Interactive-Image-Hover-Effect-With-jQuery-CSS3-hover3d/#">Project Name</a></h2>
+                    <small class="project__category"><a href="https://www.jqueryscript.net/demo/3D-Interactive-Image-Hover-Effect-With-jQuery-CSS3-hover3d/#">Photography</a></small>
+                </div>
+                <div class="shine" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; z-index: 9; background: linear-gradient(80.8377deg, rgba(255, 255, 255, 0.27) 0%, rgba(255, 255, 255, 0) 80%);"></div></div>
+        </div>
+    </div>
+
+    <h2 class="section-title">jQuery hover3d Plugin Example 2</h2>
+
+
+    <div class="movie" style="perspective: 1000px; transform-style: preserve-3d;">
+        <div class="movie__card" style="perspective: 1000px; transform-style: preserve-3d; transform: rotateX(0deg) rotateY(0deg);">
+            <div class="layer-1"></div>
+            <div class="layer-2"></div>
+            <div class="layer-3"></div>
+            <div class="shine" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; z-index: 9; background: linear-gradient(171.254deg, rgba(255, 255, 255, 0.024) 0%, rgba(255, 255, 255, 0) 80%);"></div></div>
+    </div>
+
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<script src="https://raw.githack.com/ariona/hover3d/master/dist/js/jquery.hover3d.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(".project").hover3d({
+            selector: ".project__card",
+            shine: true,
+        });
+
+        $(".movie").hover3d({
+            selector: ".movie__card",
+            shine: true,
+            sensitivity: 20,
+        });
+    });
+
+</script>
+
+</body>
+
+</html>

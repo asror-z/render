@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://kenwheeler.github.io/slick/ -->
+<html lang="en" style="" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>slick - the last carousel you'll ever need</title>
+	<link href="demo_files/css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="demo_files/slick.css">
+	<link rel="stylesheet" type="text/css" href="demo_files/slick-theme.css">
+	<link rel="stylesheet" type="text/css" href="demo_files/style.css">
+	<link rel="stylesheet" type="text/css" href="demo_files/prism.css">
+	<meta name="description" content="slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping &amp; much more!">
+	<meta name="keywords" content="slick, responsive, carousel, slider, jQuery, plugin, CSS3, swipe, touch">
+	<!-- Open Graph -->
+	<meta property="og:title" content="slick - the last carousel you&#39;ll ever need">
+	<meta property="og:description" content="slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping &amp; much more!">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="http://kenwheeler.github.io/slick/">
+	<meta property="og:image" content="http://kenwheeler.github.io/slick/img/slick.gif">
+	<meta property="og:image:type" content="image/gif">
+	<meta property="og:image:width" content="300">
+	<meta property="og:image:height" content="300">
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="slick - the last carousel you&#39;ll ever need">
+	<meta name="twitter:description" content="slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping &amp; much more!">
+	<meta name="twitter:creator" content="@ken_wheeler">
+	<meta name="twitter:image:src" content="http://kenwheeler.github.io/slick/img/slick.gif">
+	<meta name="twitter:domain" content="http://kenwheeler.github.io/slick/">
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<script async="" src="demo_files/analytics.js.Без%20названия"></script><script src="demo_files/modernizr.min.js.Без%20названия" type="text/javascript"></script>
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-4390117-9', 'kenwheeler.github.io');
+		ga('send', 'pageview');
+
+	</script>
+	<script src="demo_files/native.js.Без%20названия" type="text/javascript"></script>
+<script src="demo_files/CK7D627J.json"></script><script type="text/javascript" async="" src="demo_files/embed.js.Без%20названия"></script><script id="_carbonads_projs" type="text/javascript" src="demo_files/CKYI55QL.json"></script><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.9a11b91b20ca66d0cf6475e0f5c1ab1a.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.f9554506a08a1cc2b021f0dfc3f59ebb.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.3130273e39cea7ac6e72980ac388e5e0.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"><script src="demo_files/alfalfalfa.0823c767a3bc925f628afd9bed26c958.js.Без%20названия" async="" charset="UTF-8"></script></head>
+
+<body style="">
+
+	<div class="header">
+		<div class="header-content">
+			<h1 class="title">slick</h1>
+			<p class="subheading">the last carousel you'll ever need</p>
+			<ul class="nav">
+				<li>
+					<a href="http://kenwheeler.github.io/slick/#demos">demos</a>
+				</li>
+				<li>
+					<a href="http://kenwheeler.github.io/slick/#getting-started">usage</a>
+				</li>
+				<li>
+					<a href="http://kenwheeler.github.io/slick/#settings">settings</a>
+				</li>
+				<li>
+					<a href="http://maxgalleria.com/downloads/slick-slider-for-wordpress/">wordpress</a>
+				</li>
+				<li>
+					<a href="http://kenwheeler.github.io/slick/#go-get-it">get it now</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="fixed-header" style="display: block;">
+		<div class="header-content">
+			<h1 class="title">slick</h1>
+			<p class="subheading">the last carousel you'll ever need</p>
+			<ul class="nav">
+				<li>
+					<a href="http://kenwheeler.github.io/slick/#demos">demos</a>
+				</li>
+				<li>
+					<a href="http://kenwheeler.github.io/slick/#getting-started">usage</a>
+				</li>
+				<li>
+					<a href="http://kenwheeler.github.io/slick/#settings">settings</a>
+				</li>
+				<li>
+					<a href="http://maxgalleria.com/shop/slick-carousel-wordpress/">wordpress</a>
+				</li>
+				<li>
+					<a href="http://kenwheeler.github.io/slick/#go-get-it">get it now</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<section id="features" class="blue">
+
+
+		<div class="native-js"></div>
+
+		<script async="" type="text/javascript" src="demo_files/carbon.js.Без%20названия" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42QYF6YIT5QYCEY4YKQMFTAD5KQWC6AICZ3JCWADE2JNCV7I653KC6BIE5QEF6YDVK3EHJNCLSIZ?segment=placement:kenwheelergithubio;" class="carbon-img" target="_blank" rel="noopener sponsored"><img src="demo_files/1587992741-BuySellAds_Carbon_Register.png" alt="ads via Carbon" border="0" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42QYF6YIT5QYCEY4YKQMFTAD5KQWC6AICZ3JCWADE2JNCV7I653KC6BIE5QEF6YDVK3EHJNCLSIZ?segment=placement:kenwheelergithubio;" class="carbon-text" target="_blank" rel="noopener sponsored">Explore the future of data development on MongoDB. Free, virtual, global event.</a></span><a href="http://carbonads.net/?utm_source=kenwheelergithubio&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a></span></div>
+		<div class="content">
+			<h2>Features</h2>
+			<ul class="features">
+				<li>Fully responsive. Scales with its container.</li>
+				<li>Separate settings per breakpoint</li>
+				<li>Uses CSS3 when available. Fully functional when not.</li>
+				<li>Swipe enabled. Or disabled, if you prefer.</li>
+				<li>Desktop mouse dragging</li>
+				<li>Infinite looping.</li>
+				<li>Fully accessible with arrow key navigation</li>
+				<li>Add, remove, filter &amp; unfilter slides</li>
+				<li>Autoplay, dots, arrows, callbacks, etc...</li>
+			</ul>
+			<hr id="demos">
+			<h2>Single Item</h2>
+			<div class="slider single-item slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 4480px; transform: translate3d(-1120px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 560px;" tabindex="-1">
+					<h3>6</h3>
+				</div><div class="slick-slide" data-slick-index="0" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide00">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide01">
+					<h3>2</h3>
+				</div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide02">
+					<h3>3</h3>
+				</div><div class="slick-slide" data-slick-index="3" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide03">
+					<h3>4</h3>
+				</div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide04">
+					<h3>5</h3>
+				</div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide05">
+					<h3>6</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 560px;" tabindex="-1">
+					<h3>1</h3>
+				</div></div></div>
+
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="" aria-hidden="true" role="presentation" aria-selected="true" aria-controls="navigation00" id="slick-slide00"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="false" role="presentation" aria-selected="false" aria-controls="navigation01" id="slick-slide01" class="slick-active"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation02" id="slick-slide02"><button type="button" data-role="none" role="button" tabindex="0">3</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation03" id="slick-slide03"><button type="button" data-role="none" role="button" tabindex="0">4</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation04" id="slick-slide04"><button type="button" data-role="none" role="button" tabindex="0">5</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation05" id="slick-slide05"><button type="button" data-role="none" role="button" tabindex="0">6</button></li></ul></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.single-item'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Multiple Items</h2>
+			<div class="slider multiple-items slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2805px; transform: translate3d(-561px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>7</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>8</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>9</h3>
+				</div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide10">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide11">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide12">
+					<h3>3</h3>
+				</div><div class="slick-slide" data-slick-index="3" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide13">
+					<h3>4</h3>
+				</div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide14">
+					<h3>5</h3>
+				</div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide15">
+					<h3>6</h3>
+				</div><div class="slick-slide" data-slick-index="6" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide16">
+					<h3>7</h3>
+				</div><div class="slick-slide" data-slick-index="7" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide17">
+					<h3>8</h3>
+				</div><div class="slick-slide" data-slick-index="8" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide18">
+					<h3>9</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="9" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="10" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="11" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>3</h3>
+				</div></div></div>
+
+
+
+
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation10" id="slick-slide10"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation11" id="slick-slide11"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation12" id="slick-slide12"><button type="button" data-role="none" role="button" tabindex="0">3</button></li></ul></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.multiple-items'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  infinite<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  slidesToScroll<span class="token punctuation">:</span> <span class="token number">3</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Responsive Display</h2>
+			<div class="slider responsive slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow slick-disabled" aria-label="Previous" role="button" aria-disabled="true" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 1120px; transform: translate3d(0px, 0px, 0px);" role="listbox"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide50">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide51">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide52">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide53">
+					<h3>4</h3>
+				</div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide54">
+					<h3>5</h3>
+				</div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide55">
+					<h3>6</h3>
+				</div><div class="slick-slide" data-slick-index="6" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide56">
+					<h3>7</h3>
+				</div><div class="slick-slide" data-slick-index="7" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide57">
+					<h3>8</h3>
+				</div></div></div>
+
+
+
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;" aria-disabled="false">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation50" id="slick-slide50"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation51" id="slick-slide51"><button type="button" data-role="none" role="button" tabindex="0">2</button></li></ul></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.responsive'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  dots<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  infinite<span class="token punctuation">:</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
+  speed<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+  slidesToScroll<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+  responsive<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      breakpoint<span class="token punctuation">:</span> <span class="token number">1024</span><span class="token punctuation">,</span>
+      settings<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        slidesToShow<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+        slidesToScroll<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+        infinite<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+        dots<span class="token punctuation">:</span> <span class="token keyword">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      breakpoint<span class="token punctuation">:</span> <span class="token number">600</span><span class="token punctuation">,</span>
+      settings<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        slidesToShow<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        slidesToScroll<span class="token punctuation">:</span> <span class="token number">2</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      breakpoint<span class="token punctuation">:</span> <span class="token number">480</span><span class="token punctuation">,</span>
+      settings<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        slidesToShow<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        slidesToScroll<span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// You can unslick at a given breakpoint now by adding:
+</span>    <span class="token comment" spellcheck="true">// settings: "unslick"
+</span>    <span class="token comment" spellcheck="true">// instead of a settings object
+</span>  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Variable Width</h2>
+			<div class="slider variable-width slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable" style="padding: 0px 50px;"><div class="slick-track" style="opacity: 1; width: 30000px; transform: translate3d(-220px, 0px, 0px);" role="listbox"><div style="width: 225px;" class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1">
+					<p>225</p>
+				</div><div style="width: 125px;" class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1">
+					<p>125</p>
+				</div><div style="width: 200px;" class="slick-slide slick-current slick-active slick-center" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide20">
+					<p>200</p>
+				</div><div style="width: 175px;" class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide21">
+					<p>175</p>
+				</div><div style="width: 150px;" class="slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide22">
+					<p>150</p>
+				</div><div style="width: 300px;" class="slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide23">
+					<p>300</p>
+				</div><div style="width: 225px;" class="slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide24">
+					<p>225</p>
+				</div><div style="width: 125px;" class="slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide25">
+					<p>125</p>
+				</div><div style="width: 200px;" class="slick-slide slick-cloned slick-center" data-slick-index="6" aria-hidden="true" tabindex="-1">
+					<p>200</p>
+				</div><div style="width: 175px;" class="slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" tabindex="-1">
+					<p>175</p>
+				</div></div></div>
+
+
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation20" id="slick-slide20"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation21" id="slick-slide21"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation22" id="slick-slide22"><button type="button" data-role="none" role="button" tabindex="0">3</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation23" id="slick-slide23"><button type="button" data-role="none" role="button" tabindex="0">4</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation24" id="slick-slide24"><button type="button" data-role="none" role="button" tabindex="0">5</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation25" id="slick-slide25"><button type="button" data-role="none" role="button" tabindex="0">6</button></li></ul></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.variable-width'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  dots<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  infinite<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  speed<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  centerMode<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  variableWidth<span class="token punctuation">:</span> <span class="token keyword">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        </code></pre>
+			<hr>
+			<h2>Adaptive Height</h2>
+			<div class="slider one-time slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable" style="height: 142px;"><div class="slick-track" style="opacity: 1; width: 3360px; transform: translate3d(-560px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 560px;" tabindex="-1">
+					<h3>4</h3>
+					<p>Woo!</p>
+				</div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide40">
+					<h3>1</h3>
+				</div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide41">
+					<h3>2</h3>
+					<p>Look ma!</p>
+				</div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide42">
+					<h3>3</h3>
+					<p>Check
+						<br>this out!</p>
+				</div><div class="slick-slide" data-slick-index="3" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide43">
+					<h3>4</h3>
+					<p>Woo!</p>
+				</div><div class="slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" style="width: 560px;" tabindex="-1">
+					<h3>1</h3>
+				</div></div></div>
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation40" id="slick-slide40"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation41" id="slick-slide41"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation42" id="slick-slide42"><button type="button" data-role="none" role="button" tabindex="0">3</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation43" id="slick-slide43"><button type="button" data-role="none" role="button" tabindex="0">4</button></li></ul></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.one-time'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  dots<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  infinite<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  speed<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  adaptiveHeight<span class="token punctuation">:</span> <span class="token keyword">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Data Attribute Settings</h2>
+			<p>In slick 1.5 you can now add settings using the data-slick attribute. You still need to call $(element).slick() to initialize
+				slick on the element.</p>
+			<div class="data slick-initialized slick-slider" data-slick="{&quot;slidesToShow&quot;: 4, &quot;slidesToScroll&quot;: 4}"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 1960px; transform: translate3d(-560px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>4</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>5</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>6</h3>
+				</div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide30">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide31">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide32">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide33">
+					<h3>4</h3>
+				</div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide34">
+					<h3>5</h3>
+				</div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide35">
+					<h3>6</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="9" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>4</h3>
+				</div></div></div>
+
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button></div>
+			<pre class=" language-markup"><code class=" language-markup">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-slick</span><span class="token attr-value"><span class="token punctuation">=</span>'{<span class="token punctuation">"</span>slidesToShow<span class="token punctuation">"</span>: 4, <span class="token punctuation">"</span>slidesToScroll<span class="token punctuation">"</span>: 4}'</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				</code></pre>
+			<hr>
+			<h2>Center Mode</h2>
+			<div class="slider center slick-initialized slick-slider"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable" style="padding: 0px 60px;"><div class="slick-track" style="opacity: 1; width: 2058px; transform: translate3d(-441px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 147px;" tabindex="-1">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 147px;" tabindex="-1">
+					<h3>4</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 147px;" tabindex="-1">
+					<h3>5</h3>
+				</div><div class="slick-slide slick-cloned slick-active" data-slick-index="-1" aria-hidden="false" style="width: 147px;" tabindex="-1">
+					<h3>6</h3>
+				</div><div class="slick-slide slick-current slick-active slick-center" data-slick-index="0" aria-hidden="false" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide60">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide61">
+					<h3>2</h3>
+				</div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide62">
+					<h3>3</h3>
+				</div><div class="slick-slide" data-slick-index="3" aria-hidden="true" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide63">
+					<h3>4</h3>
+				</div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide64">
+					<h3>5</h3>
+				</div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 147px;" tabindex="-1" role="option" aria-describedby="slick-slide65">
+					<h3>6</h3>
+				</div><div class="slick-slide slick-cloned slick-center" data-slick-index="6" aria-hidden="true" style="width: 147px;" tabindex="-1">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 147px;" tabindex="-1">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" style="width: 147px;" tabindex="-1">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="9" aria-hidden="true" style="width: 147px;" tabindex="-1">
+					<h3>4</h3>
+				</div></div></div>
+
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.center'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  centerMode<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  centerPadding<span class="token punctuation">:</span> <span class="token string">'60px'</span><span class="token punctuation">,</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  responsive<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      breakpoint<span class="token punctuation">:</span> <span class="token number">768</span><span class="token punctuation">,</span>
+      settings<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        arrows<span class="token punctuation">:</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
+        centerMode<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+        centerPadding<span class="token punctuation">:</span> <span class="token string">'40px'</span><span class="token punctuation">,</span>
+        slidesToShow<span class="token punctuation">:</span> <span class="token number">3</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      breakpoint<span class="token punctuation">:</span> <span class="token number">480</span><span class="token punctuation">,</span>
+      settings<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        arrows<span class="token punctuation">:</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
+        centerMode<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+        centerPadding<span class="token punctuation">:</span> <span class="token string">'40px'</span><span class="token punctuation">,</span>
+        slidesToShow<span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Lazy Loading</h2>
+			<div class="slider lazy slick-initialized slick-slider"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2244px; transform: translate3d(-561px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<div class="image">
+						<img data-lazy="img/lazyfonz4.png" class="slick-loading">
+					</div>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<div class="image">
+						<img data-lazy="img/lazyfonz5.png" class="slick-loading">
+					</div>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<div class="image">
+						<img data-lazy="img/lazyfonz6.png" class="slick-loading">
+					</div>
+				</div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide70">
+					<div class="image">
+						<img class="" src="demo_files/lazyfonz1.png" style="opacity: 1;">
+					</div>
+				</div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide71">
+					<div class="image">
+						<img class="" src="demo_files/lazyfonz2.png" style="opacity: 1;">
+					</div>
+				</div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide72">
+					<div class="image">
+						<img class="" style="opacity: 1;" src="demo_files/lazyfonz3.png">
+					</div>
+				</div><div class="slick-slide" data-slick-index="3" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide73">
+					<div class="image">
+						<img data-lazy="img/lazyfonz4.png" class="slick-loading">
+					</div>
+				</div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide74">
+					<div class="image">
+						<img data-lazy="img/lazyfonz5.png" class="slick-loading">
+					</div>
+				</div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide75">
+					<div class="image">
+						<img data-lazy="img/lazyfonz6.png" class="slick-loading">
+					</div>
+				</div><div class="slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<div class="image">
+						<img class="" src="demo_files/lazyfonz1.png" style="opacity: 1;">
+					</div>
+				</div><div class="slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<div class="image">
+						<img class="" style="opacity: 1;" src="demo_files/lazyfonz2.png">
+					</div>
+				</div><div class="slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<div class="image">
+						<img class="" style="opacity: 1;" src="demo_files/lazyfonz3.png">
+					</div>
+				</div></div></div>
+
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+<span class="token comment" spellcheck="true">// To use lazy loading, set a data-lazy attribute
+</span><span class="token comment" spellcheck="true">// on your img tags and leave off the src
+</span>
+<span class="token operator">&lt;</span>img data<span class="token operator">-</span>lazy<span class="token operator">=</span><span class="token string">"img/lazyfonz1.png"</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+
+$<span class="token punctuation">(</span><span class="token string">'.lazy'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  lazyLoad<span class="token punctuation">:</span> <span class="token string">'ondemand'</span><span class="token punctuation">,</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  slidesToScroll<span class="token punctuation">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Autoplay</h2>
+			<div class="slider autoplay slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2244px; transform: translate3d(-1122px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>4</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>5</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>6</h3>
+				</div><div class="slick-slide" data-slick-index="0" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide80">
+					<h3>1</h3>
+				</div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide81">
+					<h3>2</h3>
+				</div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide82">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-current slick-active" data-slick-index="3" aria-hidden="false" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide83">
+					<h3>4</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide84">
+					<h3>5</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="5" aria-hidden="false" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide85">
+					<h3>6</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" style="width: 187px;" tabindex="-1">
+					<h3>3</h3>
+				</div></div></div>
+
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="" aria-hidden="true" role="presentation" aria-selected="true" aria-controls="navigation80" id="slick-slide80"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation81" id="slick-slide81" class=""><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation82" id="slick-slide82" class=""><button type="button" data-role="none" role="button" tabindex="0">3</button></li><li aria-hidden="false" role="presentation" aria-selected="false" aria-controls="navigation83" id="slick-slide83" class="slick-active"><button type="button" data-role="none" role="button" tabindex="0">4</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation84" id="slick-slide84" class=""><button type="button" data-role="none" role="button" tabindex="0">5</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation85" id="slick-slide85" class=""><button type="button" data-role="none" role="button" tabindex="0">6</button></li></ul></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.autoplay'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  slidesToScroll<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  autoplay<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  autoplaySpeed<span class="token punctuation">:</span> <span class="token number">2000</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Fade</h2>
+			<div class="slider fade slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 1680px;" role="listbox"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 560px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" tabindex="-1" role="option" aria-describedby="slick-slide90">
+					<div class="image">
+						<img src="demo_files/fonz1.png">
+					</div>
+				</div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 560px; position: relative; left: -560px; top: 0px; z-index: 998; opacity: 0;" tabindex="-1" role="option" aria-describedby="slick-slide91">
+					<div class="image">
+						<img src="demo_files/fonz2.png">
+					</div>
+				</div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 560px; position: relative; left: -1120px; top: 0px; z-index: 998; opacity: 0;" tabindex="-1" role="option" aria-describedby="slick-slide92">
+					<div class="image">
+						<img src="demo_files/fonz3.png">
+					</div>
+				</div></div></div>
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation90" id="slick-slide90"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation91" id="slick-slide91"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation92" id="slick-slide92"><button type="button" data-role="none" role="button" tabindex="0">3</button></li></ul></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.fade'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  dots<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  infinite<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  speed<span class="token punctuation">:</span> <span class="token number">500</span><span class="token punctuation">,</span>
+  fade<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  cssEase<span class="token punctuation">:</span> <span class="token string">'linear'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Add &amp; Remove</h2>
+			<div class="slider add-remove slick-initialized slick-slider">
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 187px; transform: translate3d(0px, 0px, 0px);" role="listbox"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 187px;" tabindex="-1" role="option" aria-describedby="slick-slide100">
+					<h3>1</h3>
+				</div></div></div>
+			</div>
+			<div class="buttons">
+				<a href="javascript:void(0)" class="button js-add-slide">Add Slide</a>
+				<a href="javascript:void(0)" class="button js-remove-slide">Remove Slide</a>
+			</div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.add-remove'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  slidesToScroll<span class="token punctuation">:</span> <span class="token number">3</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$<span class="token punctuation">(</span><span class="token string">'.js-add-slide'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on<span class="token punctuation">(</span></span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  slideIndex<span class="token operator">++</span><span class="token punctuation">;</span>
+  $<span class="token punctuation">(</span><span class="token string">'.add-remove'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token string">'slickAdd'</span><span class="token punctuation">,</span><span class="token string">'&lt;div&gt;&lt;h3&gt;'</span> <span class="token operator">+</span> slideIndex <span class="token operator">+</span> <span class="token string">'&lt;/h3&gt;&lt;/div&gt;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+$<span class="token punctuation">(</span><span class="token string">'.js-remove-slide'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on<span class="token punctuation">(</span></span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  $<span class="token punctuation">(</span><span class="token string">'.add-remove'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token string">'slickRemove'</span><span class="token punctuation">,</span>slideIndex <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>slideIndex <span class="token operator">!</span><span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    slideIndex<span class="token operator">--</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Filtering</h2>
+			<div class="slider filtering slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2800px; transform: translate3d(-560px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>9</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>10</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>11</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>12</h3>
+				</div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide110">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide111">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide112">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide113">
+					<h3>4</h3>
+				</div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide114">
+					<h3>5</h3>
+				</div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide115">
+					<h3>6</h3>
+				</div><div class="slick-slide" data-slick-index="6" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide116">
+					<h3>7</h3>
+				</div><div class="slick-slide" data-slick-index="7" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide117">
+					<h3>8</h3>
+				</div><div class="slick-slide" data-slick-index="8" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide118">
+					<h3>9</h3>
+				</div><div class="slick-slide" data-slick-index="9" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide119">
+					<h3>10</h3>
+				</div><div class="slick-slide" data-slick-index="10" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide1110">
+					<h3>11</h3>
+				</div><div class="slick-slide" data-slick-index="11" aria-hidden="true" style="width: 140px;" tabindex="-1" role="option" aria-describedby="slick-slide1111">
+					<h3>12</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="12" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="13" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="14" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="15" aria-hidden="true" style="width: 140px;" tabindex="-1">
+					<h3>4</h3>
+				</div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation110" id="slick-slide110"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation111" id="slick-slide111"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation112" id="slick-slide112"><button type="button" data-role="none" role="button" tabindex="0">3</button></li></ul></div>
+			<div class="filter">
+				<a href="javascript:void(0)" class="button js-filter">Filter Slides</a>
+			</div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.filtering'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+  slidesToScroll<span class="token punctuation">:</span> <span class="token number">4</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> filtered <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+
+$<span class="token punctuation">(</span><span class="token string">'.js-filter'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on<span class="token punctuation">(</span></span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>filtered <span class="token operator">===</span> <span class="token keyword">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    $<span class="token punctuation">(</span><span class="token string">'.filtering'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token string">'slickFilter'</span><span class="token punctuation">,</span><span class="token string">':even'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    $<span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text<span class="token punctuation">(</span></span><span class="token string">'Unfilter Slides'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    filtered <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    $<span class="token punctuation">(</span><span class="token string">'.filtering'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token string">'slickUnfilter'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    $<span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text<span class="token punctuation">(</span></span><span class="token string">'Filter Slides'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    filtered <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Destroy</h2>
+			<p class="destroy">If you really want to be that guy...</p>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.your-slider'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token string">'unslick'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Slider Syncing</h2>
+			<div class="slider slider-for slick-initialized slick-slider">
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2800px;" role="listbox"><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 560px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" tabindex="-1" role="option" aria-describedby="slick-slide120">
+					<h3>1</h3>
+				</div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 560px; position: relative; left: -560px; top: 0px; z-index: 998; opacity: 0;" tabindex="-1" role="option" aria-describedby="slick-slide121">
+					<h3>2</h3>
+				</div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 560px; position: relative; left: -1120px; top: 0px; z-index: 998; opacity: 0;" tabindex="-1" role="option" aria-describedby="slick-slide122">
+					<h3>3</h3>
+				</div><div class="slick-slide" data-slick-index="3" aria-hidden="true" style="width: 560px; position: relative; left: -1680px; top: 0px; z-index: 998; opacity: 0;" tabindex="-1" role="option" aria-describedby="slick-slide123">
+					<h3>4</h3>
+				</div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 560px; position: relative; left: -2240px; top: 0px; z-index: 998; opacity: 0;" tabindex="-1" role="option" aria-describedby="slick-slide124">
+					<h3>5</h3>
+				</div></div></div>
+
+
+
+
+			</div>
+			<div class="slider slider-nav slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable" style="padding: 0px 50px;"><div class="slick-track" style="opacity: 1; width: 2002px; transform: translate3d(-462px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 154px;" tabindex="-1">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 154px;" tabindex="-1">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 154px;" tabindex="-1">
+					<h3>4</h3>
+				</div><div class="slick-slide slick-cloned slick-active" data-slick-index="-1" aria-hidden="false" style="width: 154px;" tabindex="-1">
+					<h3>5</h3>
+				</div><div class="slick-slide slick-current slick-active slick-center" data-slick-index="0" aria-hidden="false" style="width: 154px;" tabindex="-1" role="option" aria-describedby="slick-slide130">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 154px;" tabindex="-1" role="option" aria-describedby="slick-slide131">
+					<h3>2</h3>
+				</div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 154px;" tabindex="-1" role="option" aria-describedby="slick-slide132">
+					<h3>3</h3>
+				</div><div class="slick-slide" data-slick-index="3" aria-hidden="true" style="width: 154px;" tabindex="-1" role="option" aria-describedby="slick-slide133">
+					<h3>4</h3>
+				</div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 154px;" tabindex="-1" role="option" aria-describedby="slick-slide134">
+					<h3>5</h3>
+				</div><div class="slick-slide slick-cloned slick-center" data-slick-index="5" aria-hidden="true" style="width: 154px;" tabindex="-1">
+					<h3>1</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 154px;" tabindex="-1">
+					<h3>2</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 154px;" tabindex="-1">
+					<h3>3</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" style="width: 154px;" tabindex="-1">
+					<h3>4</h3>
+				</div></div></div>
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation130" id="slick-slide130"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation131" id="slick-slide131"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation132" id="slick-slide132"><button type="button" data-role="none" role="button" tabindex="0">3</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation133" id="slick-slide133"><button type="button" data-role="none" role="button" tabindex="0">4</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation134" id="slick-slide134"><button type="button" data-role="none" role="button" tabindex="0">5</button></li></ul></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+ $<span class="token punctuation">(</span><span class="token string">'.slider-for'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  slidesToScroll<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  arrows<span class="token punctuation">:</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
+  fade<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  asNavFor<span class="token punctuation">:</span> <span class="token string">'.slider-nav'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+$<span class="token punctuation">(</span><span class="token string">'.slider-nav'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  slidesToShow<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+  slidesToScroll<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  asNavFor<span class="token punctuation">:</span> <span class="token string">'.slider-for'</span><span class="token punctuation">,</span>
+  dots<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  centerMode<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+  focusOnSelect<span class="token punctuation">:</span> <span class="token keyword">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<h2>Right to Left</h2>
+			<div dir="rtl" class="slider single-item-rtl slick-initialized slick-slider slick-dotted" role="toolbar"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+				<div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 4480px; transform: translate3d(560px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 560px;" tabindex="-1">
+					<h3>6</h3>
+				</div><div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide140">
+					<h3>1</h3>
+				</div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide141">
+					<h3>2</h3>
+				</div><div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide142">
+					<h3>3</h3>
+				</div><div class="slick-slide" data-slick-index="3" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide143">
+					<h3>4</h3>
+				</div><div class="slick-slide" data-slick-index="4" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide144">
+					<h3>5</h3>
+				</div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 560px;" tabindex="-1" role="option" aria-describedby="slick-slide145">
+					<h3>6</h3>
+				</div><div class="slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 560px;" tabindex="-1">
+					<h3>1</h3>
+				</div></div></div>
+
+
+
+
+
+			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button><ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation140" id="slick-slide140"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation141" id="slick-slide141"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation142" id="slick-slide142"><button type="button" data-role="none" role="button" tabindex="0">3</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation143" id="slick-slide143"><button type="button" data-role="none" role="button" tabindex="0">4</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation144" id="slick-slide144"><button type="button" data-role="none" role="button" tabindex="0">5</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation145" id="slick-slide145"><button type="button" data-role="none" role="button" tabindex="0">6</button></li></ul></div>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span><span class="token string">'.single-item-rtl'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+  rtl<span class="token punctuation">:</span> <span class="token keyword">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+
+			<p>
+				<strong>Note:</strong> the HTML tag or the parent of the slider must have the attribute "dir" set to "rtl".</p>
+			<hr>
+			<h4 class="more">and a whole lot more...</h4>
+		</div>
+	</section>
+	<section id="getting-started" class="white">
+		<div class="content">
+			<h2 class="margin-40">Getting Started</h2>
+			<p>Set up your HTML markup.</p>
+			<pre class=" language-markup"><code class=" language-markup">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>your-class<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>your content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>your content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>your content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+				</code></pre>
+			<hr>
+			<p>Move the /slick folder into your project</p>
+			<hr>
+			<p>Add slick.css in your &lt;head&gt;</p>
+			<pre class=" language-markup"><code class=" language-markup">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>slick/slick.css<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+// Add the new slick-theme.css if you want the default styling
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>slick/slick-theme.css<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+				</code></pre>
+			<hr>
+			<p>Add slick.js before your closing &lt;body&gt; tag, after jQuery (requires jQuery 1.7 +)</p>
+			<pre class=" language-markup"><code class=" language-markup">
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//<a class="vglnk" href="demo_files/jquery-1.11.0.min.js.Без%20названия" rel="nofollow"><span>code</span><span>.</span><span>jquery</span><span>.</span><span>com</span><span>/</span><span>jquery</span><span>-</span><span>1</span><span>.</span><span>11</span><span>.</span><span>0</span><span>.</span><span>min</span><span>.</span><span>js</span></a><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//<a class="vglnk" href="demo_files/jquery-migrate-1.2.1.min.js.Без%20названия" rel="nofollow"><span>code</span><span>.</span><span>jquery</span><span>.</span><span>com</span><span>/</span><span>jquery</span><span>-</span><span>migrate</span><span>-</span><span>1</span><span>.</span><span>2</span><span>.</span><span>1</span><span>.</span><span>min</span><span>.</span><span>js</span></a><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>slick/slick.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+				</code></pre>
+			<hr>
+			<p>Initialize your slider in your script file or an inline script tag</p>
+			<pre class=" language-javascript"><code class=" language-javascript">
+$<span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready<span class="token punctuation">(</span></span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  $<span class="token punctuation">(</span><span class="token string">'.your-class'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+    setting<span class="token operator">-</span>name<span class="token punctuation">:</span> setting<span class="token operator">-</span>value
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				</code></pre>
+			<hr>
+			<p>When complete, your HTML should look something like:</p>
+			<pre class=" language-markup"><code class=" language-markup">
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>My Now Amazing Webpage<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>slick/slick.css<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>slick/slick-theme.css<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>your-class<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>your content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>your content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>your content<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//<a class="vglnk" href="demo_files/jquery-1.11.0.min.js.Без%20названия" rel="nofollow"><span>code</span><span>.</span><span>jquery</span><span>.</span><span>com</span><span>/</span><span>jquery</span><span>-</span><span>1</span><span>.</span><span>11</span><span>.</span><span>0</span><span>.</span><span>min</span><span>.</span><span>js</span></a><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+  <span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//<a class="vglnk" href="demo_files/jquery-migrate-1.2.1.min.js.Без%20названия" rel="nofollow"><span>code</span><span>.</span><span>jquery</span><span>.</span><span>com</span><span>/</span><span>jquery</span><span>-</span><span>migrate</span><span>-</span><span>1</span><span>.</span><span>2</span><span>.</span><span>1</span><span>.</span><span>min</span><span>.</span><span>js</span></a><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+  <span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>slick/slick.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+
+  <span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    $<span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready<span class="token punctuation">(</span></span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      $<span class="token punctuation">(</span><span class="token string">'.your-class'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token punctuation">{</span>
+        setting<span class="token operator">-</span>name<span class="token punctuation">:</span> setting<span class="token operator">-</span>value
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+				</code></pre>
+			<p class="note">NOTE: I highly recommend putting your initialization script in an external JS file.</p>
+		</div>
+	</section>
+	<section id="settings" class="blue">
+		<div class="content">
+			<h2>Settings</h2>
+			<table class="settings">
+				<thead>
+					<tr>
+						<th class="first">Setting</th>
+						<th class="type">Type</th>
+						<th class="default">Default</th>
+						<th class="last">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>accessibility</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Enables tabbing and arrow key navigation</td>
+					</tr>
+					<tr>
+						<td>adaptiveHeight</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Enables adaptive height for single slide horizontal carousels.</td>
+					</tr>
+					<tr>
+						<td>autoplay</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Enables Autoplay</td>
+					</tr>
+					<tr>
+						<td>autoplaySpeed</td>
+						<td>int(ms)</td>
+						<td>3000</td>
+						<td>Autoplay Speed in milliseconds</td>
+					</tr>
+					<tr>
+						<td>arrows</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Prev/Next Arrows</td>
+					</tr>
+					<tr>
+						<td>asNavFor</td>
+						<td>string</td>
+						<td>null</td>
+						<td>Set the slider to be the navigation of other slider (Class or ID Name)</td>
+					</tr>
+					<tr>
+						<td>appendArrows</td>
+						<td>string</td>
+						<td>$(element)</td>
+						<td>Change where the navigation arrows are attached (Selector, htmlString, Array, Element, jQuery object)</td>
+					</tr>
+					<tr>
+						<td>appendDots</td>
+						<td>string</td>
+						<td>$(element)</td>
+						<td>Change where the navigation dots are attached (Selector, htmlString, Array, Element, jQuery object)</td>
+					</tr>
+					<tr>
+						<td>prevArrow</td>
+						<td>string (html|jQuery selector) | object (DOM node|jQuery object)</td>
+						<td>&lt;button type="button" class="slick-prev"&gt;Previous&lt;/button&gt;</td>
+						<td>Allows you to select a node or customize the HTML for the "Previous" arrow.</td>
+					</tr>
+					<tr>
+						<td>nextArrow</td>
+						<td>string (html|jQuery selector) | object (DOM node|jQuery object)</td>
+						<td>&lt;button type="button" class="slick-next"&gt;Next&lt;/button&gt;</td>
+						<td>Allows you to select a node or customize the HTML for the "Next" arrow.</td>
+					</tr>
+					<tr>
+						<td>centerMode</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Enables centered view with partial prev/next slides. Use with odd numbered slidesToShow counts.</td>
+					</tr>
+					<tr>
+						<td>centerPadding</td>
+						<td>string</td>
+						<td>'50px'</td>
+						<td>Side padding when in center mode (px or %)</td>
+					</tr>
+					<tr>
+						<td>cssEase</td>
+						<td>string</td>
+						<td>'ease'</td>
+						<td>CSS3 Animation Easing</td>
+					</tr>
+					<tr>
+						<td>customPaging</td>
+						<td>function</td>
+						<td>n/a</td>
+						<td>Custom paging templates. See source for use example.</td>
+					</tr>
+					<tr>
+						<td>dots</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Show dot indicators</td>
+					</tr>
+					<tr>
+						<td>dotsClass</td>
+						<td>string</td>
+						<td>'slick-dots'</td>
+						<td>Class for slide indicator dots container</td>
+					</tr>
+					<tr>
+						<td>draggable</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Enable mouse dragging</td>
+					</tr>
+					<tr>
+						<td>fade</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Enable fade</td>
+					</tr>
+					<tr>
+						<td>focusOnSelect</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Enable focus on selected element (click)</td>
+					</tr>
+					<tr>
+						<td>easing</td>
+						<td>string</td>
+						<td>'linear'</td>
+						<td>Add easing for jQuery animate. Use with easing libraries or default easing methods</td>
+					</tr>
+					<tr>
+						<td>edgeFriction</td>
+						<td>integer</td>
+						<td>0.15</td>
+						<td>Resistance when swiping edges of non-infinite carousels</td>
+					</tr>
+					<tr>
+						<td>infinite</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Infinite loop sliding</td>
+					</tr>
+					<tr>
+						<td>initialSlide</td>
+						<td>integer</td>
+						<td>0</td>
+						<td>Slide to start on</td>
+					</tr>
+					<tr>
+						<td>lazyLoad</td>
+						<td>string</td>
+						<td>'ondemand'</td>
+						<td>Set lazy loading technique. Accepts 'ondemand' or 'progressive'</td>
+					</tr>
+					<tr>
+						<td>mobileFirst</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Responsive settings use mobile first calculation</td>
+					</tr>
+					<tr>
+						<td>pauseOnFocus</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Pause Autoplay On Focus</td>
+					</tr>
+					<tr>
+						<td>pauseOnHover</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Pause Autoplay On Hover</td>
+					</tr>
+					<tr>
+						<td>pauseOnDotsHover</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Pause Autoplay when a dot is hovered</td>
+					</tr>
+					<tr>
+						<td>respondTo</td>
+						<td>string</td>
+						<td>'window'</td>
+						<td>Width that responsive object responds to. Can be 'window', 'slider' or 'min' (the smaller of the two)</td>
+					</tr>
+					<tr>
+						<td>responsive</td>
+						<td>object</td>
+						<td>none</td>
+						<td>Object containing breakpoints and settings objects (see demo). Enables settings sets at given screen width. Set settings
+							to "unslick" instead of an object to disable slick at a given breakpoint.</td>
+					</tr>
+					<tr>
+						<td>rows</td>
+						<td>int</td>
+						<td>1</td>
+						<td>Setting this to more than 1 initializes grid mode. Use slidesPerRow to set how many slides should be in each row.</td>
+					</tr>
+					<tr>
+						<td>slide</td>
+						<td>element</td>
+						<td>''</td>
+						<td>Element query to use as slide</td>
+					</tr>
+					<tr>
+						<td>slidesPerRow</td>
+						<td>int</td>
+						<td>1</td>
+						<td>With grid mode intialized via the rows option, this sets how many slides are in each grid row. dver</td>
+					</tr>
+					<tr>
+						<td>slidesToShow</td>
+						<td>int</td>
+						<td>1</td>
+						<td># of slides to show</td>
+					</tr>
+					<tr>
+						<td>slidesToScroll</td>
+						<td>int</td>
+						<td>1</td>
+						<td># of slides to scroll</td>
+					</tr>
+					<tr>
+						<td>speed</td>
+						<td>int(ms)</td>
+						<td>300</td>
+						<td>Slide/Fade animation speed</td>
+					</tr>
+					<tr>
+						<td>swipe</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Enable swiping</td>
+					</tr>
+					<tr>
+						<td>swipeToSlide</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Allow users to drag or swipe directly to a slide irrespective of slidesToScroll</td>
+					</tr>
+					<tr>
+						<td>touchMove</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Enable slide motion with touch</td>
+					</tr>
+					<tr>
+						<td>touchThreshold</td>
+						<td>int</td>
+						<td>5</td>
+						<td>To advance slides, the user must swipe a length of (1/touchThreshold) * the width of the slider</td>
+					</tr>
+					<tr>
+						<td>useCSS</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Enable/Disable CSS Transitions</td>
+					</tr>
+					<tr>
+						<td>useTransform</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Enable/Disable CSS Transforms</td>
+					</tr>
+					<tr>
+						<td>variableWidth</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Variable width slides</td>
+					</tr>
+					<tr>
+						<td>vertical</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Vertical slide mode</td>
+					</tr>
+					<tr>
+						<td>verticalSwiping</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Vertical swipe mode</td>
+					</tr>
+					<tr>
+						<td>rtl</td>
+						<td>boolean</td>
+						<td>false</td>
+						<td>Change the slider's direction to become right-to-left</td>
+					</tr>
+					<tr>
+						<td>waitForAnimate</td>
+						<td>boolean</td>
+						<td>true</td>
+						<td>Ignores requests to advance the slide while animating</td>
+					</tr>
+					<tr>
+						<td>zIndex</td>
+						<td>number</td>
+						<td>1000</td>
+						<td>Set the zIndex values for slides, useful for IE9 and lower</td>
+					</tr>
+				</tbody>
+			</table>
+			<h2>Events</h2>
+			<p>In slick 1.4, callback methods have been deprecated and replaced with events. Use them as shown below:</p>
+			<pre class=" language-javascript"><code class=" language-javascript">
+<span class="token comment" spellcheck="true">// On swipe event
+</span>$<span class="token punctuation">(</span><span class="token string">'.your-element'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on<span class="token punctuation">(</span></span><span class="token string">'swipe'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span> slick<span class="token punctuation">,</span> direction<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span>direction<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// left
+</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// On edge hit
+</span>$<span class="token punctuation">(</span><span class="token string">'.your-element'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on<span class="token punctuation">(</span></span><span class="token string">'edge'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span> slick<span class="token punctuation">,</span> direction<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">'edge was hit'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// On before slide change
+</span>$<span class="token punctuation">(</span><span class="token string">'.your-element'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on<span class="token punctuation">(</span></span><span class="token string">'beforeChange'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">,</span> slick<span class="token punctuation">,</span> currentSlide<span class="token punctuation">,</span> nextSlide<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span>nextSlide<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        </code></pre>
+			<table class="methods">
+				<thead>
+					<tr>
+						<th class="first">Event</th>
+						<th>Arguments</th>
+						<th class="last">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>afterChange</td>
+						<td>slick, currentSlide</td>
+						<td>Fires after slide change</td>
+					</tr>
+					<tr>
+						<td>beforeChange</td>
+						<td>slick, currentSlide, nextSlide</td>
+						<td>Fires before slide change</td>
+					</tr>
+					<tr>
+						<td>breakpoint</td>
+						<td>event, slick, breakpoint</td>
+						<td>Fires after a breakpoint is hit.</td>
+					</tr>
+					<tr>
+						<td>destroy</td>
+						<td>event, slick</td>
+						<td>When slider is destroyed, or unslicked.</td>
+					</tr>
+					<tr>
+						<td>edge</td>
+						<td>slick, direction</td>
+						<td>Fires when an edge is overscrolled in non-infinite mode.</td>
+					</tr>
+					<tr>
+						<td>init</td>
+						<td>slick</td>
+						<td>Fires after first initialization.</td>
+					</tr>
+					<tr>
+						<td>reInit</td>
+						<td>slick</td>
+						<td>Fires after every re-initialization</td>
+					</tr>
+					<tr>
+						<td>setPosition</td>
+						<td>slick</td>
+						<td>Fires after position/size changes</td>
+					</tr>
+					<tr>
+						<td>swipe</td>
+						<td>slick, direction</td>
+						<td>Fires after swipe/drag</td>
+					</tr>
+					<tr>
+						<td>lazyLoaded</td>
+						<td>event, slick, image, imageSource</td>
+						<td>Fires after image loads lazily</td>
+					</tr>
+					<tr>
+						<td>lazyLoadError</td>
+						<td>event, slick, image, imageSource</td>
+						<td>Fires after image fails to load</td>
+					</tr>
+				</tbody>
+			</table>
+			<h2>Methods</h2>
+			<p>Methods are called on slick instances through the slick method itself in version 1.4, see below:</p>
+			<pre class=" language-javascript"><code class=" language-javascript">
+<span class="token comment" spellcheck="true">// Add a slide
+</span>$<span class="token punctuation">(</span><span class="token string">'.your-element'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token string">'slickAdd'</span><span class="token punctuation">,</span><span class="token string">"&lt;div&gt;&lt;/div&gt;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Get the current slide
+</span><span class="token keyword">var</span> currentSlide <span class="token operator">=</span> $<span class="token punctuation">(</span><span class="token string">'.your-element'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token string">'slickCurrentSlide'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        </code></pre>
+
+			<p>This new syntax allows you to call any internal slick method as well:</p>
+			<pre class=" language-javascript"><code class=" language-javascript">
+<span class="token comment" spellcheck="true">// Manually refresh positioning of slick
+</span>$<span class="token punctuation">(</span><span class="token string">'.your-element'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick<span class="token punctuation">(</span></span><span class="token string">'setPosition'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        </code></pre>
+
+			<table class="methods">
+				<thead>
+					<tr>
+						<th class="first">Method</th>
+						<th>Arguments</th>
+						<th class="last">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>slickCurrentSlide</td>
+						<td>none</td>
+						<td>Returns the current slide index</td>
+					</tr>
+					<tr>
+						<td>slickGoTo</td>
+						<td>int : slide number, boolean: dont animate</td>
+						<td>Navigates to a slide by index</td>
+					</tr>
+					<tr>
+						<td>slickNext</td>
+						<td>none</td>
+						<td>Navigates to the next slide</td>
+					</tr>
+					<tr>
+						<td>slickPrev</td>
+						<td>none</td>
+						<td>Navigates to the previous slide</td>
+					</tr>
+					<tr>
+						<td>slickPause</td>
+						<td>none</td>
+						<td>Pauses autoplay</td>
+					</tr>
+					<tr>
+						<td>slickPlay</td>
+						<td>none</td>
+						<td>Starts autoplay</td>
+					</tr>
+					<tr>
+						<td>slickAdd</td>
+						<td>html or DOM object, index, addBefore</td>
+						<td>Add a slide. If an index is provided, will add at that index, or before if addBefore is set. If no index is provided,
+							add to the end or to the beginning if addBefore is set. Accepts HTML String || Object</td>
+					</tr>
+					<tr>
+						<td>slickRemove</td>
+						<td>index, removeBefore</td>
+						<td>Remove slide by index. If removeBefore is set true, remove slide preceding index, or the first slide if no index is
+							specified. If removeBefore is set to false, remove the slide following index, or the last slide if no index is set.</td>
+					</tr>
+					<tr>
+						<td>slickFilter</td>
+						<td>Selector or Function</td>
+						<td>Filters slides using jQuery .filter()</td>
+					</tr>
+					<tr>
+						<td>slickUnfilter</td>
+						<td>index</td>
+						<td>Removes applied filtering</td>
+					</tr>
+					<tr>
+						<td>slickGetOption</td>
+						<td>option : string</td>
+						<td>Gets an individual option value.</td>
+					</tr>
+					<tr>
+						<td>slickSetOption</td>
+						<td>option : string, value : depends on option, refresh : boolean</td>
+						<td>Sets an individual value live. Set refresh to true if it's a UI update.</td>
+					</tr>
+					<tr>
+						<td>unslick</td>
+						<td>none</td>
+						<td>Deconstructs slick</td>
+					</tr>
+					<tr>
+						<td>getSlick</td>
+						<td>none</td>
+						<td>Get Slick Object</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<section id="wordpress" class="white">
+		<h2>Wordpress</h2>
+	</section>
+	<section id="go-get-it" class="white">
+		<div class="content">
+			<h2>Go Get It</h2>
+			<a class="button first" href="https://github.com/kenwheeler/slick/archive/v1.8.1.zip">Download Now</a>
+			<a class="button last" href="https://github.com/kenwheeler/slick/">View On Github</a>
+			<hr>
+			<p class="cdn">You can also use slick with the jsDelivr CDN!</p>
+			<pre class=" language-markup"><code class=" language-markup">
+CSS
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//<a class="vglnk" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="nofollow"><span>cdn</span><span>.</span><span>jsdelivr</span><span>.</span><span>net</span><span>/</span><span>npm</span><span>/</span><span>slick</span><span>-</span><span>carousel</span><span>@</span><span>1</span><span>.</span><span>8</span><span>.</span><span>1</span><span>/</span><span>slick</span><span>/</span><span>slick</span><span>.</span><span>css</span></a><span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+
+JS
+
+<span class="token script"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//<a class="vglnk" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" rel="nofollow"><span>cdn</span><span>.</span><span>jsdelivr</span><span>.</span><span>net</span><span>/</span><span>npm</span><span>/</span><span>slick</span><span>-</span><span>carousel</span><span>@</span><span>1</span><span>.</span><span>8</span><span>.</span><span>1</span><span>/</span><span>slick</span><span>/</span><span>slick</span><span>.</span><span>min</span><span>.</span><span>js</span></a><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+				</code></pre>
+			<hr>
+			<p class="guff">If you like slick, and also like Sass, try my
+				<a href="http://kenwheeler.github.io/guff">Guff</a> mixin library!</p>
+			<hr>
+			<div id="disqus_thread"><iframe id="dsq-app1450" name="dsq-app1450" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" sandbox="allow-forms allow-popups allow-same-origin allow-scripts" width="100%" src="demo_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 537px !important;"></iframe><iframe id="dsq-app1447" name="dsq-app1447" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="demo_files/saved_resource(1).html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 447px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe><iframe id="dsq-app1452" name="dsq-app1452" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" sandbox="allow-forms allow-popups allow-same-origin allow-scripts" width="100%" src="demo_files/saved_resource(2).html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 537px !important;"></iframe><iframe id="indicator-north" name="indicator-north" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 560px !important; border: none !important; overflow: hidden !important; top: 0px !important; min-width: 560px !important; max-width: 560px !important; position: fixed !important; z-index: 2147483646 !important; height: 0px !important; min-height: 0px !important; max-height: 0px !important; display: none !important;" src="demo_files/saved_resource(3).html"></iframe><iframe id="indicator-south" name="indicator-south" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 560px !important; border: none !important; overflow: hidden !important; bottom: 0px !important; min-width: 560px !important; max-width: 560px !important; position: fixed !important; z-index: 2147483646 !important; height: 0px !important; min-height: 0px !important; max-height: 0px !important; display: none !important;" src="demo_files/saved_resource(4).html"></iframe></div>
+		</div>
+	</section>
+
+	<script>
+		_native.init("CK7D627J", {
+			targetClass: 'native-js'
+		});
+	</script>
+
+	<script src="demo_files/jquery-1.11.0.min.js.Без%20названия"></script>
+	<script src="demo_files/jquery-migrate-1.2.1.min.js.Без%20названия"></script>
+	<script type="text/javascript" src="demo_files/slick.js.Без%20названия"></script>
+	<script type="text/javascript" src="demo_files/scripts.js.Без%20названия"></script>
+	<script type="text/javascript" src="demo_files/prism.js.Без%20названия"></script>
+	<script type="text/javascript">
+		var disqus_shortname = 'slickcarousel';
+
+		(function () {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+
+
+
+<iframe style="display: none;" src="demo_files/saved_resource(5).html"></iframe></body></html>

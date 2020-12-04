@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-spinedit@0.0.1/js/bootstrap-spinedit.min.js" ></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <form>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="control-label">Before:</label>
+                        <input class="form-control" type="number" value="1" min="1" max="10" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">After:</label>
+                        <input id="after" class="form-control" type="number" value="1" min="1" max="10" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Colorful:</label>
+                        <input id="colorful" class="form-control" type="number" value="1" min="1" max="10" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js" ></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" ></script>
+<script src="assets/main.js" ></script>
+<script>
+    // Remember set you events before call bootstrapSwitch or they will fire after bootstrapSwitch's events
+    $('#after').bootstrapNumber();
+    $('#colorful').bootstrapNumber({
+        upClass: 'success',
+        downClass: 'danger'
+    });
+
+
+
+</script>
+</body>
+</html>

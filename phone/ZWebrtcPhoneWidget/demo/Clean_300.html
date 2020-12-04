@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>btn</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+   <!-- <link rel="stylesheet" href="https://cdn.statically.io/gh/alepolidori/jssip-webrtc-phone/master/src/css/style.css">-->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div class="call" id="calling">
+        <div class="opacity mt-3">
+            <div class="number text-center">
+                <div class="dismiss">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="text-white" id="output-lbl">Ready</div>
+                <div class=" buuton-goup mb-lg-1 mb-1 text-center">
+                    <div class=" ml-4 mr-5">
+                        <div class="user-img1 ml-5 mr-5 text-center">
+                            <i type="button" id="answer-btn" class="Phone is-animating"></i>
+                        </div>
+                    </div>
+                    <!--<input type="range" class="slider" min="0" max="100" />-->
+                    <a type="button" class=" button0 btn btn-floating"><i class="fas fa-volume-up"></i></a>
+                    <a type="button" class=" button0 btn btn-floating"><i class="fas fa-grip-horizontal"></i></a>
+                    <a type="button" class=" button0 btn btn-floating"><i class="fas fa-microphone-alt"></i></a>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" id="hangup-btn" class="end-button btn btn-floating">
+                        <i class="red-call fas  fa-phone"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss" class="ml-lg-2 ml-2 mt-lg-2 mt-2">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="opacity mt-3">
+            <div class="number text-center">
+                <div class=" ml-5 mr-5">
+                    <div class="user-img1 ml-4 mr-5">
+                    </div>
+                </div>
+                <form>
+                    <div class="ml-4 mr-4">
+                        <div class=" md-form input-with-post-icon mt-lg-1">
+                            <input type="text" id="call-to" class="text-white text-center" required>
+                            <label for="call-to"></label>
+                        </div>
+                    </div>
+                    <div class=" buuton-goup mb-lg-1 mb-1 text-center">
+                        <a type="button" class=" button1 btn btn-floating" value="1"
+                           onclick="dis('1')"><b>1</b></a>
+                        <!--  onclick="dis('2')" -->
+                        <a type="button" class=" button1 btn btn-floating" value="2"
+                           onclick="dis('2')">2</a>
+                        <a type="button" class=" button1 btn btn-floating" value="3"
+                           onclick="dis('3')">3</a>
+                        <br>
+                        <a type="button" class=" button1 btn btn-floating" value="4"
+                           onclick="dis('4')">4</a>
+                        <a type="button" class=" button1 btn btn-floating" value="5"
+                           onclick="dis('5')">5</a>
+                        <a type="button" class=" button1 btn btn-floating" value="6"
+                           onclick="dis('6')">6</a>
+                        <br>
+                        <a type="button" class=" button1 btn btn-floating" value="7"
+                           onclick="dis('7')">7</a>
+                        <a type="button" class=" button1 btn btn-floating" value="8"
+                           onclick="dis('8')">8</a>
+                        <a type="button" class=" button1 btn btn-floating" value="9"
+                           onclick="dis('9')">9</a>
+                        <br>
+                        <a type="button" class=" button1 btn btn-floating" value="+"
+                           onclick="dis('+')">+</a>
+                        <a type="button" class=" button1 btn btn-floating" value="0"
+                           onclick="dis('0')">0</a>
+                        <a type="button" class=" button1 btn btn-floating" value="c" onclick="clr()">
+                            x</a>
+                    </div>
+                    <div class="mb-3">
+                        <button type="button" id="call-audio-btn" class="button4 btn btn-floating">
+                            <i class="green-call fas  fa-phone"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content  -->
+    <div id="content">
+        <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-phone"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="content1">
+        <div class="buttons text-center">
+            <a type="button" id="one" class="modal-button">in coming</a>
+        </div>
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+<div id="modal-container">
+    <div class="modal-background">
+        <div class="modal1">
+            <div class="text-center">
+                <!--<i type="button" id="answer-btn" class="Phone is-animating"></i>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="input-group embed-responsive embed-responsive-16by9 remote" style="display: none">
+    <span class="remote-text">Local</span>
+    <video autoplay id="local-stream-video" style="display: none" class="embed-responsive-item hidden"></video>
+    <audio autoplay id="remote-stream-audio"></audio>
+</div>
+
+<!--<script>
+    document.getElementById('switcherContainer').addEventListener('click', function (e) {
+        var target = e.target;
+        if (!target.classList.contains('switcher')) {
+            return;
+        }
+
+        document.getElementById('menu').className = 'style' + target.getAttribute('data-style');
+        document.getElementById('bg').className = 'style' + target.getAttribute('data-style');
+    });
+
+</script>-->
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.statically.io/gh/alepolidori/jssip-webrtc-phone/master/lib/jssip-3.3.6.js"></script>
+<script src="https://cdn.statically.io/gh/alepolidori/jssip-webrtc-phone/master/src/js/app.js"></script>
+<script src="js/javascript.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<!-- jQuery Custom Scroller CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+<script>
+    setTimeout(function () {
+        webrtcPhone.initAndLogin({
+            server: '10.10.3.30',
+            name: 'bunyod',
+            exten: '300',
+            password: '300',
+            audioId: 'remote-stream-audio',
+            localVideoId: 'local-stream-video',
+            remoteVideoId: 'remote-stream-video'
+        });
+    }, 1000)
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*$("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });*/
+
+        $('#dismiss').on('click', function () {
+            $('#sidebar').removeClass('active');
+            $('.overlay').removeClass('active');
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').addClass('active');
+            $('.overlay').addClass('active');
+        });
+
+        $('.end-button, .dismiss').on('click', function () {
+            $('.overlay').removeClass('active');
+            $('.call').removeClass('active');
+            $('#sidebar').removeClass('active');
+            $('.button4').removeAttr('disabled');
+        });
+
+        $('.button4').on('click', function () {
+            $('.call').addClass('active');
+            $('#sidebar').removeClass('active');
+            $('.button4').attr('disabled','disabled');
+        })
+
+
+
+
+        $(".modal-button").on("click", function () {
+            btnId = $(this).attr("id");
+
+            $("#modal-container").removeAttr("class").addClass(btnId);
+            $(".content1").removeAttr("class").addClass("content1");
+        });
+
+        $("#answer-btn").on("click", function () {
+            $("#modal-container.one").addClass("out");
+
+        });
+    });
+
+    function dis(val) {
+        document.getElementById("call-to").value += val
+    }
+
+    function clr() {
+        document.getElementById("call-to").value = ""
+    }
+</script>
+
+
+<!--<script>
+    //function for displaying values
+    function dis(val) {
+        document.getElementById("call-to").value += val
+    }
+
+    function clr() {
+        document.getElementById("call-to").value = ""
+    }
+
+    /*$('.icon-iks').on('click', function (event) {
+        $('.col-absolute').removeClass('mobile_phone');
+    });
+    $('.cont-button').on('click', function (event) {
+        $('.right_block').addClass('back_mobi');
+    });
+    $('.cont-but').on('click', function (event) {
+        $('.right_block').removeClass('back_mobi');
+    });
+    $('.icon-iks').on('click', function (event) {
+        $('.right_block').removeClass('back_mobi');
+    });*/
+
+   /* $('#res_btn').click(function () {
+        // $(this).preventDefault();
+        $('.or2').toggleClass('res_active');
+    });
+
+    $('.out_phone').click(function () {
+        $('.or2').removeClass('res_active');
+    });*/
+
+
+</script>-->
+
+
+</body>
+</html>

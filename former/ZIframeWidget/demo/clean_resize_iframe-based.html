@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title>easyXDM</title>
+    <script type="text/javascript" src="/testing/Iframe/easyXDM-master/src/easyXDM.debug.js"></script>
+
+
+</head>
+<body>
+<iframe src="http://eyuf.zettest.uz/testing/Iframe/clean_iframe_height.html"></iframe>
+<script type="text/javascript">
+    new easyXDM.Socket({
+        remote: "#",
+        container: document.getElementById("container"),
+        onMessage: function(message, origin){
+            this.container.getElementsByTagName("iframe")[0].style.height = message + "px";
+        },
+        onReady:  function(){
+            socket.postMessage(document.body.scrollHeight)
+        }
+    });
+</script>
+
+</body>
+</html>

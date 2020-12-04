@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- metas, title, styles, etc -->
+    <title>My Cool Blog</title>
+    <meta name="description" content="Welcome to My Cool Blog">
+    <link href="/styles.css" rel="stylesheet">
+</head>
+
+<body>
+<header class="the-header row">
+    <nav class="row">
+        <a href="/testing/pjax.html" class="is-active">Home</a>
+        <a href="/testing/about.html">About</a>
+        <a href="/testing/contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="the-content">
+    <h1>My Cool Blog</h1>
+    <p>
+        Page 1
+    </p>
+</section>
+
+<aside class="the-sidebar">
+    <h3>arfgvsdfrvsdfvbd</h3>
+    <!-- sidebar content -->
+</aside>
+
+<footer class="the-footer">
+    &copy; zSvzvf
+</footer>
+
+<script src="/publish/yarner/pjax/pjax.min.js"></script>
+<script>
+    var pjax = new Pjax({
+        selectors: [
+            "title",
+            "meta[name=description]",
+            ".the-header",
+            ".the-content",
+            ".the-sidebar",
+        ]
+    });
+</script>
+</body>
+</html>

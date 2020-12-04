@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--
+http://eyuf.zetsoft.uz/render/former/ZDatatableWidget/demo/ajax/example/DeferredRenderingForSpeed.html
+
+When working with large data sources, you might seek to improve the speed at which DataTables runs. One method to do this is to make use of the built-in deferred rendering option in DataTables with the deferRender option.
+
+When deferred rendering is enabled, rather than having DataTables create all TR and TD nodes required for the table when the data is loaded, DataTables will only create the nodes required for each individual row at the time of that row being drawn on the page (these nodes are then retained in case they are needed again so they aren't created multiple times). This can give a significant performance increase, since a lot less work is done at initialisation time.
+
+The example below shows DataTables with deferred rendering enabled. For this small example you'll likely notice no difference, but larger tables can benefit significantly from simply enabling this parameter.
+!-->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "ajax": "../data/DeferredRenderingForSpeed",
+                "deferRender": true
+            } );
+        } );
+    </script>
+
+</head>
+<body>
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text highlight jQuery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<style>
+    .highlight{
+        background-color: yellow;
+        font-weight: bold;
+    }
+</style>
+<body>
+<input type="text" id="search">
+<p>Some text to check it this highlighting stuff works or not, i do really need this thing get done works or not, i do really need this thing get done Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est distinctio nam voluptates numquam totam hic, veritatis blanditiis nemo expedita eveniet? Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus numquam iste rerum nihil quia fuga doloribus saepe recusandae magnam consectetur nostrum velit in, hic cum? </p>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#search").keyup(function(){
+            searchHighlight($(this).val());
+        });
+    });
+
+    function searchHighlight(searchText) {
+        if (searchText) {
+            var content = $("p").text();
+            var searchExp = new RegExp(searchText, "ig");
+            var matches = content.match(searchExp);
+            if(matches)
+            {
+                $('p').html(content.replace(searchExp, function(match){
+                    return "<span class='highlight'>" + match + "</span>";
+                }));
+            }
+        }
+    }
+</script>
+</html>

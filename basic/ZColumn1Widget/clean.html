@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZColumn 1 Widget</title>
+    <link rel="stylesheet" href="https://cdn.statically.io/gh/twbs/bootstrap/master/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.12.17/css/grapes.min.css">
+</head>
+
+<style>
+
+    .row div{
+        min-height: 75px;
+    }
+    .row , .row div{
+        border: 1px solid ;
+    }
+
+</style>
+
+<body>
+<div id="gjs">
+    <h1>Hello World Component!</h1>
+    <div class="container">
+        <div class="row m-1">
+            <div class="col-12 p-1"></div>
+        </div>
+    </div>
+
+</div>
+<div id="blocks"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.12.17/grapes.min.js"></script>
+
+<script>
+    const editor = grapesjs.init({
+        // Indicate where to init the editor. You can also pass an HTMLElement
+        container: '#gjs',
+        // Get the content for the canvas directly from the element
+        // As an alternative we could use: `components: '<h1>Hello World Component!</h1>'`,
+        fromElement: true,
+        // Size of the editor
+        height: '300px',
+        width: 'auto',
+        // Disable the storage manager for the moment
+        storageManager: false,
+        // Avoid any default panel
+        panels: { defaults: [] },
+        blockManager: {
+            appendTo: '#blocks',
+            blocks: [
+                {
+                    id: 'section', // id is mandatory
+                    label: '<b>Section</b>', // You can use HTML/SVG inside labels
+                    attributes: { class:'gjs-block-section' },
+                    content: `<section>
+          <h1>This is a simple title</h1>
+          <div>This is just a Lorem text: Lorem ipsum dolor sit amet</div>
+        </section>`,
+                }, {
+                    id: 'text',
+                    label: 'Text',
+                    content: '<div data-gjs-type="text">Insert your text here</div>',
+                }, {
+                    id: 'image',
+                    label: 'Image',
+                    // Select the component once it's dropped
+                    select: true,
+                    // You can pass components as a JSON instead of a simple HTML string,
+                    // in this case we also use a defined component type `image`
+                    content: { type: 'image' },
+                    // This triggers `active` event on dropped components and the `image`
+                    // reacts by opening the AssetManager
+                    activate: true,
+                }
+            ]
+        }
+    });
+</script>
+
+</body>
+</html>

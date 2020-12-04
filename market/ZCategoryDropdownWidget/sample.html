@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        li.child_div  {
+            display: block;
+            transition-duration: 0.5s;
+        }
+
+        li.child_div :hover {
+            cursor: pointer;
+        }
+
+        ul li #hidden_div {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            transition: all 0.5s ease;
+            margin-top: 1rem;
+            left: 0;
+            display: none;
+        }
+
+        ul li.child_div:hover > ul.drop_div,
+        ul li ul #hidden_div:hover {
+            visibility: visible;
+            opacity: 1;
+            display: block;
+        }
+
+        .drop_div ul li ul li {
+            clear: both;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="drop_div">
+        <ul class="parent_div">
+            <li class="child_div">
+                     <div >
+                         <span class="ship-to">Доставка 99<i class="css_flag css_uz"></i></span>
+                         <span class="split">/</span>
+                         <span class="currency">RUB</span>
+                     </div>
+
+                <ul id="hidden_div" class="dropdown">
+                    <span class="label">Доставка в</span>
+                    <select class="form-control form-control-sm">
+                        <option>Uzb</option>
+                        <option>Russia</option>
+                        <option>Turk</option>
+                    </select>
+                    <span class="label">Валюта</span>
+                    <select class="form-control form-control-sm">
+                        <option>RUB</option>
+                        <option>USD</option>
+                        <option>SUM</option>
+                    </select>
+                    <div class="dropdown-divider"></div>
+                    <button class="btn btn-warning">Сохранить</button>
+                </ul>
+
+            </li>
+        </ul>
+    </div>
+
+
+
+        <!--<div style="margin-top:15%">
+                <div class="show_div" >
+                    <span class="ship-to">Доставка 99<i class="css_flag css_uz"></i></span>
+                    <span class="split">/</span>
+                    <span class="currency">RUB</span>
+                </div>
+                <div class="hidden_div">
+                    <span class="label">Доставка в</span>
+                    <select class="form-control form-control-sm">
+                        <option>Uzb</option>
+                        <option>Russia</option>
+                        <option>Turk</option>
+                    </select>
+                    <span class="label">Валюта</span>
+                    <select class="form-control form-control-sm">
+                        <option>RUB</option>
+                        <option>USD</option>
+                        <option>SUM</option>
+                    </select>
+                    <div class="dropdown-divider"></div>
+                    <button class="btn btn-warning">Сохранить</button>
+                </div>
+            </div>    -->
+</body>
+</html>

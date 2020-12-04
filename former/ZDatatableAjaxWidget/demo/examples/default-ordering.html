@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"> </script>
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "order": [[ 3, "desc" ]]
+            } );
+        } );
+    </script>
+</head>
+<body>
+
+<!-- https://datatables.net/examples/basic_init/table_sorting.html
+With DataTables you can alter the ordering characteristics of the table at initialisation time. Using the order initialisation parameter, you can set the table to display the data in exactly the order that you want.
+The order parameter is an array of arrays where the first value of the inner array is the column to order on, and the second is 'asc' (ascending ordering) or 'desc' (descending ordering) as required. order is a 2D array to allow multi-column ordering to be defined.
+The table below is ordered (descending) by the Age column.
+-->
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td>61</td>
+        <td>2011/04/25</td>
+        <td>$320,800</td>
+    </tr>
+    <tr>
+        <td>Garrett Winters</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td>63</td>
+        <td>2011/07/25</td>
+        <td>$170,750</td>
+    </tr>
+
+    </tbody>
+
+    
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

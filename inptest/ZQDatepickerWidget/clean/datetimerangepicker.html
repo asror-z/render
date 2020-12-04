@@ -1,0 +1,68 @@
+<html lang="en" class="">
+<head>
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/css/datepicker.css">
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/css/iconfont.css">
+  <style>
+    .p20{padding:20px; }
+    .mt20{margin-top:20px; }
+    .mt40{margin-top:40px; }
+    .mt10{margin-top:10px; }
+    .hide{display: none; }
+    .c999{color:#999; font-size:12px; }
+    
+  </style>
+</head>
+<body>
+ 
+
+  <div class="mt40">
+        <div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Year, month, day, hour, minute and second range selection, minimum value: 2018-01-01 06:00:00, maximum value: 2019-04-29 20:59:59 </font></font><span class="c999"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(YYYY-MM-DD HH: mm: ss range)</font></font></span></div>
+        <div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Open the console and observe the type of hide</font></font></div>
+        <div class="c-datepicker-date-editor J-datepicker-range mt10">
+          <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+          <input placeholder="start date" name="" class="c-datepicker-data-input" value="2018-01-01 04:00:00">
+          <span class="c-datepicker-range-separator"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-</font></font></span>
+          <input placeholder="End date" name="" class="c-datepicker-data-input" value="2018-03-01 04:00:00">
+        </div>
+      </div>
+
+
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/plugins/jquery.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/plugins/moment.min.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/datepicker.all.min.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/datepicker.en.js"></script>
+  <script type="text/javascript">
+           //Hour, minute, second, year, month, and day ranges, including maximum and minimum values
+          $('.J-datepicker-range').datePicker({
+            hasShortcut: true,
+            language: 'en',
+            min: '2018-01-01 06:00:00',
+            max: '2019-04-29 20:59:59',
+            // between:'month',
+            between:30,
+            isRange: true,
+            shortcutOptions: [{
+              name: 'yesterday',
+              day: '-1,-1',
+              time: '00:00:00,23:59:59'
+            },{
+              name: 'Last week',
+              day: '-7,0',
+              time:'00:00:00,'
+            }, {
+              name: 'Last month',
+              day: '-30,0',
+              time: '00:00:00,'
+            }, {
+              name: 'The last three months',
+              day: '-90, 0',
+              time: '00:00:00,'
+            }],
+            hide: function (type) {
+              console.info(this.$input.eq(0).val(), this.$input.eq(1).val());
+              console.info('Types of：',type)
+            }
+          });
+      </script>
+    </body>
+    </html>

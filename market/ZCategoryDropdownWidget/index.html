@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <style>
+        li {
+            display: block;
+            transition-duration: 0.5s;
+        }
+
+        li:hover {
+            cursor: pointer;
+        }
+
+        ul li ul {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            transition: all 0.5s ease;
+            margin-top: 1rem;
+            left: 0;
+            display: none;
+        }
+
+        ul li:hover > ul,
+        ul li ul:hover {
+            visibility: visible;
+            opacity: 1;
+            display: block;
+        }
+
+        ul li ul li {
+            clear: both;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+        <ul>
+            <li>
+            <div>
+                <span class="ship-to">Доставка в<i class="css_flag css_uz"></i></span>
+                <span class="split">/</span>
+                <span class="currency">RUB</span>
+            </div>
+
+                <ul class="dropdown">
+                    <span class="label">Доставка в</span>
+                    <select class="form-control form-control-sm">
+                        <option>Uzb</option>
+                        <option>Russia</option>
+                        <option>Turk</option>
+                    </select>
+                    <span class="label">Валюта</span>
+                    <select class="form-control form-control-sm">
+                        <option>RUB</option>
+                        <option>USD</option>
+                        <option>SUM</option>
+                    </select>
+                    <div class="dropdown-divider"></div>
+                    <button class="btn btn-warning">Сохранить</button>
+                </ul>
+            </li>
+        </ul>
+
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+</head>
+<body>
+    <img class="lozad" data-src="https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&w=1000&q=80" />
+    <!-- responsive image example -->
+    <img class="lozad" data-src="https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&w=1000&q=80" data-srcset="https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&w=1000&q=80 1000w, https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&w=1000&q=80 2000w" />
+    <!-- For an element to be caught, add a block type that is different from the inline and some min-height for correct caught into view -->
+    <picture class="lozad" style="display: block; min-height: 1rem" data-iesrc="https://www.slashgear.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg" data-alt="">
+        <source srcset="https://www.slashgear.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg" media="(min-width: 1280px)">
+        <source srcset="https://www.slashgear.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg" media="(min-width: 980px)">
+        <source srcset="https://www.slashgear.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg" media="(min-width: 320px)">
+        <!-- NO img element -->
+        <!-- instead of img element, there will be the last source with the minimum dimensions -->
+        <!-- for disabled JS you can set <noscript><img src="images/thumbs/04.jpg" alt=""></noscript> -->
+    </picture>
+   <!-- <video class="lozad" data-poster="images/backgrounds/video-poster.jpeg">
+        <source data-src="video/mov_bbb.mp4" type="video/mp4">
+        <source data-src="video/mov_bbb.ogg" type="video/ogg">
+    </video>-->
+    <script>
+        const observer = lozad('.lozad', {
+            rootMargin: '10px 0px', // syntax similar to that of CSS Margin
+            threshold: 0.1 // ratio of element convergence
+        });
+        observer.observe();
+    </script>
+
+</body>
+</html>

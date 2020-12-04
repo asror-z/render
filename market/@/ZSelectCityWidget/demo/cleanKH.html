@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css-modal@1.5.0/build/modal.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <style media="screen">
+        .close-action{
+            position: relative ;
+            float:right ;
+        }
+    </style>
+
+</head>
+<body>
+<p>
+    Your city: <a href="#{id}" class="cityName">______</a>
+</p>
+
+
+
+
+<!-- The Modal -->
+<section class="modal--show" id="{id}" tabindex="-1"
+         role="dialog" aria-labelledby="modal-label" aria-hidden="true" data-stackable="false">
+    <div class="modal-inner">
+        <header>
+            <h2>Uzbekistan
+                <a href="#!" class="close-action"
+                   title="Close this modal"
+                   data-dismiss="modal">x</a>
+            </h2>
+        </header>
+        <div class="modal-content">
+            <div class="container" style="margin: 0px ;">
+                <input class="form-control mb-4" id="tableSearch" type="text"
+                       placeholder="Type something to search list items">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="card col-md-3 col-sm-3"  style="width: 10rem; font-size:1rem ; border: 0 ;">
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Margilan</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Bekabad</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Shakhrisabz</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Kokand</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Khiva</a>
+                        </div>
+                        <div class="card col-md-3 col-sm-3"  style="width: 10rem;  font-size:1rem ; border: 0 ;">
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Angren</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Chirchik</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Nukus</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Urgench</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Almalik</a>
+                        </div>
+                        <div class="card col-md-3 col-sm-3"  style="width: 10rem;  font-size:1rem ; border: 0 ;">
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Termez</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Karshi</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Bukhara</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Gulistan</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Jizakh</a>
+
+                        </div>
+                        <div class="card col-md-3 col-sm-3"  style="width: 10rem;  font-size:1rem ; border: 0 ;">
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Fergana</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Namangan</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Andijan</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Samarkand</a>
+                            <a href="#!" class="close-action" title="Close this modal" data-dismiss="modal" style='margin:3px ;'>Tashkent</a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/css-modal@1.5.0/modal.min.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#tableSearch").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".card a").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        $('a').on('click',function(){
+            var city = $(this).text() ;
+
+            $('.cityName').text(city) ;
+            $('#{id}').modal().hide() ;
+            $('#tableSearch').val('');
+        }) ;
+    });
+
+</script>
+</body>
+</html>

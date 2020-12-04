@@ -1,0 +1,53 @@
+    <script src="SIPml-api.js?svn=230" type="text/javascript" defer></script>
+    <script src="corePhone.js" type="text/javascript" defer></script>
+    <script src="phonePopupUI.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" type="text/css" href="phonePopupUI.css">
+    
+    <p> счётчик страниц:&nbsp;<label id="window_count_label"></label> </p>
+    
+    <div id="popup">
+        <div id="popup_bar">
+            Телефон
+            <span id="btn_close"> [X] </span>
+        </div>
+        <p>
+            Номер:
+            <input id="phone_popup_number" type="text" size="16">
+        </p>
+        <p>
+            <input type="button" id="btnRegister" value="Register" onclick='register();' />
+            <input type="button" id="btnUnRegister" value="Unregister" onclick='unregister();' disabled/>
+        </p>
+        <p>
+            <input type="button" disabled id="btnCall" value="Call" onclick='call();' />
+            <input type="button" disabled id="btnHangUp" value="HangUp" onclick='hangup();' />
+        </p>
+
+        <div style="font-size:10pt;">
+        <p>
+            соединение с сервером:&nbsp;
+            <label id="txtRegStatus"></label>
+        </p>
+        <p>
+            статус звонка:&nbsp;
+            <label id="txtCallStatus"></label>
+        </p>
+        <p>
+            состояние:&nbsp;
+            <label id="txtState"></label>
+        </p>
+        </div>
+    </div>
+
+    <div id="aside_popup_phone">
+        <input type="button" id="btnShowHidePopup" value="Телефон" onclick='show_hide_popup();' />
+    </div>
+<!--    <p>
+        <input type="button" id="btnRegister" value="Register" onclick='register();' />
+        <input type="button" id="btnUnRegister" value="Unregister" onclick='unregister();' />
+    </p>-->
+
+    <audio id="audio_remote" autoplay="autoplay" />
+    <audio id="ringtone" loop src="sounds/ringtone.wav" />
+    <audio id="ringbacktone" loop src="sounds/ringbacktone.wav" />
+

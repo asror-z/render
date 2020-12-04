@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/publish/yarner/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.js"></script>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<div class="container ml-5">
+
+
+<div class="input-group clockpicker" data-placement="right" data-align="top">
+    <input type="text" class="form-control">
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+    </span>
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+
+    $('.clockpicker').clockpicker({
+
+
+        donetext: 'Done',
+        placement : "bottom",
+        align : 'left',
+        autoclose : true,
+        vibrate : true,
+        fromnow : 0,
+        'default' : 'now',
+        
+        
+
+        init: function() {
+            console.log("colorpicker initiated");
+        },
+        beforeShow: function() {
+            console.log("before show");
+        },
+        afterShow: function() {
+            console.log("after show");
+        },
+        beforeHide: function() {
+            console.log("before hide");
+        },
+        afterHide: function() {
+            console.log("after hide");
+        },
+        beforeHourSelect: function() {
+            console.log("before hour selected");
+        },
+        afterHourSelect: function() {
+            console.log("after hour selected");
+        },
+        beforeDone: function() {
+            console.log("before done");
+        },
+        afterDone: function() {
+            console.log("after done");
+        }
+
+    });
+
+
+</script>
+
+
+
+</body>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/paulzi-form@3.0.6/dist/paulzi-form.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/form-extra-events@2.0.3/dist/form-extra-events.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-iframe-ajax@1.0.2/dist/jquery-iframe-ajax.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/paulzi-form@3.0.6/dist/paulzi-form.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/form-association-polyfill@2.0.2/dist/form-association-polyfill.js"></script>
+
+
+
+
+
+
+
+<body>
+
+<div id="example-no-empty" class="example">
+    <form action="https://paulzi.ru/paulzi-form/action.php" method="post" data-submit-empty="false" class="panel panel-default">
+        <div class="panel-heading">Form</div>
+        <div class="panel-body">
+            Price: <input type="text" name="price1" value=""> - <input type="text" name="price2" value=""><br>
+            Type: <select name="type">
+            <option value="">- select -</option>
+            <option value="free">Free</option>
+            <option value="shareware">Shareware</option>
+        </select><br>
+            <fieldset data-submit-empty="true">
+                <legend>Colors</legend>
+                <input type="hidden" name="colors" value="">
+                <input type="checkbox" name="colors[]" value="1"> black
+                <input type="checkbox" name="colors[]" value="2"> red
+            </fieldset>
+            <button type="submit">Filter</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+<script>
+    $(document).on('submitlast',       '#form-ajax', function () { $(this).find('.events').append("submitlast\n"); });
+    $(document).on('submitajax',       '#form-ajax', function () { $(this).find('.events').append("submitajax\n"); });
+    $(document).on('submitbefore',     '#form-ajax', function (e) { e.preventDefault(); $(this).find('.events').append("submitbefore\n"); });
+    $(document).on('submitstart',      '#form-ajax', function () { $(this).find('.events').append("submitstart\n"); });
+    $(document).on('submitdone',       '#form-ajax', function () { $(this).find('.events').append("submitdone\n"); });
+    $(document).on('uploadprogress',   '#form-ajax', function (e) { $(this).find('.events').append("uploadprogress loaded=" + e.loaded +" total=" + e.total + "\n"); });
+    $(document).on('uploadend',        '#form-ajax', function (e) { $(this).find('.events').append("uploadend loaded=" + e.loaded +" total=" + e.total + "\n"); });
+    $(document).on('downloadprogress', '#form-ajax', function (e) { $(this).find('.events').append("downloadprogress loaded=" + e.loaded +" total=" + e.total + "\n"); });
+    $(document).on('submitfail',       '#form-ajax', function () { $(this).find('.events').append("submitfail\n"); });
+    $(document).on('submitend',        '#form-ajax', function () { $(this).find('.events').append("submitend\n"); });
+    $(document).on('submit',           '#form-ajax', function () { $(this).find('.events').append("submit\n"); });
+
+   /* window.PaulZiForm = $.extend(true, window.PaulZiForm || {}, {
+        classes: {
+            
+            formLoading: 'my-form-class',
+            btnLoading:  'btn-loading',
+            
+        },
+        attributes: {
+            lock: 'data-may-attribute',
+            via: 'data-via'
+        }
+    });
+*/
+</script>
+
+
+<script src="">
+window.PaulZiForm = $.extend(true, window.PaulZiForm || {}, {
+    buttonLoadingTemplate: function (data) {
+        if (data.btn.id === 'btn-template') {
+            return 'My template (text = ' + data.text + ')';
+        } else if (data.btn.id === 'btn-notemplate') {
+            return false;
+        } else {
+            return window.PaulZiForm.defaultTemplate(data);
+        }
+    }
+
+    
+});</script>
+
+
+
+
+      <!--options:-->
+<!--classes (plain object) - a list of classes overrides
+formLoading (string) default: 'form-loading' - class for form submission state
+btnLoading (string) default: 'btn-loading' - class for submit button in submission state
+attributes (plain object) - a list of attributes names overrides
+via (string) default: 'data-via' - form submitting method attribute name
+lock (string) default: 'data-lock' - form second submitting lock attribute name
+submitEmpty (string) default: 'data-submit-empty' - do not submit empty field attribute name
+to (string) default: 'data-insert-to' - ajax response handling target attribute name
+context (string) default: 'data-insert-context' - ajax response handling context attribute name
+mode (string) default: 'data-insert-mode' - ajax response handling mode attribute name
+params (string) default: 'data-insert-param' - ajax response handling mode params
+loadingText (string) default: 'data-loading-text' - set text of submitting state button attribute name
+loadingIcon (string) default: 'data-loading-icon' - set icon of submitting state button attribute name
+defaults (plain object) - a list of default values
+lock (bool) default: true - lock second submitting in all form by default
+submitEmpty (bool) default: true - submit empty fields in all form by default
+to (string) default: 'output' - ajax response handling default target
+context (string) default: 'this' - ajax response handling default context
+mode (string) default: 'html' - ajax response handling default mode
+params (string) default: 'true' - ajax response handling default mode params
+skipOnError (bool) default: false - ajax response handling skip by error
+buttonLoadingTemplate (function) - template of submitting button state (more see below)
+defaultTemplate (function) - store default function for template (you can re-use)
+buttonLoadingForce (bool) default: false - force using a template, even if the attributes data-loading-text and data-loading-icon are not set
+buttonLoadingTemplate in function pass plain object with data:
+
+form - form element;
+btn - button element;
+text - content of data-loading-text attribute;
+icon - content of data-loading-icon attribute.-->
+
+</body>
+</html>

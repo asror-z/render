@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8"/>
+    <title>PIE</title>
+</head>
+
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%; overflow-x: hidden; overflow-y: hidden"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+        backgroundColor: '#fff',
+        title: {
+            show: true,
+            text: "Your name of chart",
+            link: "",
+            target: "blank",
+            textStyle: {
+                color: "#333",
+                fontSize: 25,
+                /**
+                 //      *'normal'
+                 //      *'bold'
+                 //      *'bolder'
+                 //      *'lighter'
+                 //      *100 | 200 | 300 | 400...
+                 //      */
+                fontStyle: "normal",
+                lineHeight: 8,
+                width: 25,
+                height: 25,
+                textBorderColor: "transparent",
+                textBorderWidth: 0,
+                textShadowColor: "2px 2px #ff0000",
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0
+            },
+            subtext: "Your decribtion of chart",
+            sublink: "",
+            subtarget: "blank",
+            subtextStyle: {
+                color: "#333",
+                fontSize: 15,
+                /**
+                 *'normal'
+                 *'bold'
+                 *'bolder'
+                 *'lighter'
+                 *100 | 200 | 300 | 400...
+                 */
+                fontStyle: "normal",
+                lineHeight: 8,
+                width: 25,
+                height: 25,
+                textBorderColor: "transparent",
+                textBorderWidth: 0,
+                textShadowColor: "2px 2px #ff0000",
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0
+            },
+            /**
+             *'auto', 'left', 'right', 'center'
+             */
+            textAlign: "auto",
+            /**
+             *'auto', 'top', 'bottom', 'middle'
+             */
+            textVerticalAlign: "auto",
+            triggerEvent: false,
+            padding: 25,
+            itemGap: 10,
+            zlevel: 0,
+            z: 2,
+            left: "20%",
+            top: "5%",
+            right: "auto",
+            bottom: "auto",
+            backgroundColor: "transparent",
+            borderColor: "#ccc",
+            borderWidth: 1,
+            borderRadius: 0,
+            shadowOffsetX: 0,
+            shadowOffsetY: 0
+        },
+        tooltip: {
+            trigger: "item",
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            show: true,
+            zlevel: 1,
+            width: 12,
+            height: 13,
+            // plain | scroll
+            type: "plain",
+            orient: "horizontal",
+            left: 10,
+            align: "left",
+            padding: 4,
+            itemGap: 15,
+            itemWidth: 30,
+            itemHeight: 20,
+            symbolKeepAspect: false,
+            data: [
+                "OIL",
+                "GAS",
+                "METAN",
+                "BUTAN",
+                "CO2",
+                "CO3",
+                "H20",
+                "H3PO4",
+                "HCO3",
+                "Al20"
+            ],
+            textStyle: {
+                color: "#fff",
+                fontStyle: "normal",
+                fontWeight: "normal",
+                fontFamily: "sans-serif",
+                fontSize: 15,
+                backgroundColor: "none",
+                borderColor: "#eee",
+                borderWidth: 0,
+                borderRadius: 0,
+                height: 12,
+                width: 32,
+                padding: 0,
+                shadowColor: "none",
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                textBorderColor: "red",
+                textBorderWidth: 0,
+                textShadowColor: "2px 2px red",
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0
+            },
+            backgroundColor: "#32a856",
+            borderColor: "black",
+            borderWidth: 15,
+            borderRadius: 45,
+            shadowOffsetX: 2,
+            shadowOffsetY: 8,
+            scrollDataIndex: 5,
+            pageButtonItemGap: 5,
+            pageIconColor: "black",
+            pageIconInactiveColor: "blue",
+            pageIconSize: 1,
+            selector: true,
+            selectorItemGap: 7,
+            selectorButtonGap: 1
+        },
+        visualMap: {
+            show: false,
+            min: 80,
+            max: 600,
+        },
+        grid: {
+            show: true,
+            zlevel: 0,
+            z: 2,
+            left: "20%",
+            top: "20%",
+            right: "20%",
+            bottom: "20%",
+            width: "auto",
+            height: "auto",
+            containLabel: true,
+            backgroundColor: "transparent",
+            borderColor: "#ccc",
+            borderWidth: 1,
+            shadowBlur: 10,
+            shadowColor: "rgba(0, 255, 0, 0.5)",
+
+            //tooltip settings in the coordinate system component.
+            tooltip: {
+                show: true,
+                trigger: "item",
+                axisPointer: {
+                    type: "line",
+                    label: {
+                        show: true,
+                        precision: "auto",
+                        formatter: "{b0}: {c0}<br />{b1}: {c1}",
+                        margin: 3,
+                        color: "#fff",
+                        fontStyle: "normal",
+                        fontWeight: "normal",
+                        fontFamily: "sans-serif",
+                        fontSize: 12,
+                        lineHeight: 26,
+                        width: 25,
+                        height: 25,
+                        textBorderColor: "none",
+                        textBorderWidth: 0,
+                        textShadowColor: "transparent",
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        padding: [5, 7, 5, 7],
+                        backgroundColor: "auto",
+                        borderColor: "#red",
+                        borderWidth: 0,
+                        shadowBlur: 3,
+                        shadowColor: " #aaa",
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0
+                    }
+                },
+                position: [10, 10],
+                formatter: "{b0}: {c0}<br />{b1}: {c1}",
+                backgroundColor: "rgba(50,50,50,0.7)",
+                borderColor: "#333",
+                borderWidth: 0,
+                padding: 5,
+                extraCssText: "box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);"
+            }
+        },
+
+        toolbox: {
+            show: true,
+            showTitle: false, // hide the default text so they don't overlap each other
+            /* orient: "horizontal",*/
+            /* itemSize: 15,
+             itemGap: 10,*/
+            feature: {
+                saveAsImage: {
+                    show: true,
+                    title: "Save As Image"
+                },
+                restore: {
+                    show: true,
+                    title: "restore",
+                    /*iconStyle: {
+
+                    },*/
+                    /*emphasis: {
+
+                    }*/
+                },
+
+
+                brush: {
+                    /**
+                     *'rect': Enabling selecting with rectangle area.
+                     *'polygon': Enabling selecting with any shape.
+                     *'lineX': Enabling horizontal selecting.
+                     *'lineY': Enabling vertical selecting.
+                     *'keep': Switching between single selecting and multiple selecting. The latter one can select multiple areas, while the former one cancels previous selection.
+                     *'clear': Clearing all selection.
+                     */
+                    type: "rect",
+                    title: {
+                        rect: "Rectangle selection",
+                        polygon: "Polygon selection",
+                        lineX: "Horizontal selection",
+                        lineY: "Vertical selection",
+                        keep: "Keep previous selection",
+                        clear: "Clear selection"
+                    }
+                },
+                dataView: {
+                    show: true,
+                    title: "Data View",
+                    /*    iconStyle: {
+
+                        },*/
+
+                    /*emphasis: {
+                      iconStyle: {
+                      }
+                    },*/
+                    readOnly: false,
+                    // contentToOption:(container:HTMLDomElement, option:Object) => Object,
+                    lang: ["data view", "turn off", "refresh"],
+                }
+            },
+            tooltip: {
+                // same as option.tooltip
+                show: true,
+                /* formatter: function(param) {
+                   return "<div>" + param.title + "</div>"; // user-defined DOM structure
+                 },*/
+                backgroundColor: "#222",
+                textStyle: {
+                    fontSize: 12
+                },
+                extraCssText: "box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);" // user-defined CSS styles
+            }
+        },
+        series: [
+            {
+                name: "ROSNEFT",
+                type: "pie",
+                selectedMode: "single",
+                roseType: 'radius',
+                radius: [0, "30%"],
+
+                label: {
+                    position: "inner"
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    {
+                        value: 335,
+                        name: "OIL",
+                        selected: true
+                    },
+                    {
+                        value: 679,
+                        name: "GAS"
+                    },
+                    {
+                        value: 1548,
+                        name: "METAN"
+                    }
+                ]
+            },
+            {
+                name: "ROSNEFT",
+                type: "pie",
+                radius: ["40%", "55%"],
+                roseType: 'radius',
+                label: {
+                    formatter: "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
+                    backgroundColor: "#eee",
+                    borderColor: "#aaa",
+                    borderWidth: 1,
+                    borderRadius: 4,
+                    shadowBlur: 3,
+                    shadowOffsetX: 2,
+                    shadowOffsetY: 2,
+                    shadowColor: "#999",
+                    padding: [0, 7],
+                    rich: {
+                        a: {
+                            color: "#999",
+                            lineHeight: 22,
+                            align: "center"
+                        },
+                        abg: {
+                            backgroundColor: "#333",
+                            width: "100%",
+                            align: "right",
+                            height: 22,
+                            borderRadius: [4, 4, 0, 0]
+                        },
+                        hr: {
+                            borderColor: "#aaa",
+                            width: "100%",
+                            borderWidth: 0.5,
+                            height: 0
+                        },
+                        b: {
+                            fontSize: 16,
+                            lineHeight: 33
+                        },
+                        per: {
+                            color: "#eee",
+                            backgroundColor: "#334455",
+                            padding: [2, 4],
+                            borderRadius: 2
+                        }
+                    }
+                },
+                data: [
+                    {
+                        value: 335,
+                        name: "OIL"
+                    },
+                    {
+                        value: 310,
+                        name: "BUTAN"
+                    },
+                    {
+                        value: 234,
+                        name: "CO2"
+                    },
+                    {
+                        value: 135,
+                        name: "CO3"
+                    },
+                    {
+                        value: 1048,
+                        name: "H20"
+                    },
+                    {
+                        value: 251,
+                        name: "H3PO4"
+                    },
+                    {
+                        value: 147,
+                        name: "HCO3"
+                    },
+                    {
+                        value: 102,
+                        name: "Al20"
+                    }
+                ]
+            }
+        ],
+
+        animation: true,
+        animationThreshold: 2000,
+        animationDuration: 1000,
+        animationEasing: function (k) {
+            if ((k *= 2) < 1) {
+                return 0.5 * k * k * k;
+            }
+            return 0.5 * ((k -= 2) * k * k + 2);
+        },
+        animationDelay: 0,
+        animationDurationUpdate: 300,
+        animationEasingUpdate: function (k) {
+            if ((k *= 2) < 1) {
+                return 0.5 * k * k * k;
+            }
+            return 0.5 * ((k -= 2) * k * k + 2);
+        },
+        animationDelayUpdate: 0,
+        blendMode: 'source-over',
+        useUTC: false,
+    };
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>

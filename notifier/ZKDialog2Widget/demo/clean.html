@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<!-- <link rel="stylesheet" href="render/notifier/ZKDialog2Widget/demo/kartik-v-yii2-dialog-6106d07/src/assets/css/bootstrap-dialog-bs3.css"> -->
+<link rel="stylesheet" href="https://cdn.statically.io/gh/kartik-v/yii2-dialog/6106d070/src/assets/css/bootstrap-dialog-bs3.min.css">
+<link rel="stylesheet" href="https://cdn.statically.io/gh/kartik-v/yii2-dialog/6106d070/src/assets/css/bootstrap-dialog-bs3.min.css">
+<script src="https://cdn.statically.io/gh/kartik-v/yii2-dialog/master/src/assets/js/bootstrap-dialog.min.js"></script>
+<script src="https://cdn.statically.io/gh/kartik-v/yii2-dialog/master/src/assets/js/dialog.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<body>
+
+<button type="button" id="btn-alert" class="btn btn-info">Alert</button>
+<button type="button" id="btn-confirm" class="btn btn-warning">Confirm</button>
+<button type="button" id="btn-prompt" class="btn btn-primary">Prompt</button>
+<button type="button" id="btn-dialog" class="btn btn-secondary">Dialog</button>
+
+
+<script>
+
+
+    $("#btn-alert").on("click", function() {
+        krajeeDialog.alert("This is a Krajee Dialog Alert!")
+    });
+    $("#btn-confirm").on("click", function() {
+        krajeeDialog.confirm("Are you sure you want to proceed?", function (result) {
+            if (result) {
+                alert('Great! You accepted!');
+            } else {
+                alert('Oops! You declined!');
+            }
+        });
+    });
+    $("#btn-prompt").on("click", function() {
+        krajeeDialog.prompt({label:'Provide reason', placeholder:'Upto 30 characters...'}, function (result) {
+            if (result) {
+                alert('Great! You provided a reason: \n\n' + result);
+            } else {
+                alert('Oops! You declined to provide a reason!');
+            }
+        });
+    });
+    $("#btn-dialog").on("click", function() {
+        krajeeDialog.dialog(
+            'This is a <b>custom dialog</b>. The dialog box is <em>draggable</em> by default and <em>closable</em> ' +
+            '(try it). Note that the Ok and Cancel buttons will do nothing here until you write the relevant JS code ' +
+            'for the buttons within "options". Exit the dialog by clicking the cross icon on the top right.',
+            function (result) {alert(result);}
+        );
+    });
+</script>
+
+
+</body>
+</html>

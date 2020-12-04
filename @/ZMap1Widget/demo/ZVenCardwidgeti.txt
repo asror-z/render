@@ -1,0 +1,100 @@
+<?php
+
+/**
+ *
+ *
+ * Author:  Asror Zakirov
+ * https://www.linkedin.com/in/asror-zakirov
+ * https://github.com/asror-z
+ *
+ */
+
+namespace zetsoft\widgets\themes;
+
+use zetsoft\system\helpers\ZArrayHelper;
+use rmrevin\yii\fontawesome\FA;
+use zetsoft\system\kernels\ZWidget;
+use zetsoft\widgets\navigat\ZButtonWidget;
+
+class ZVenCardWidget  extends ZWidget
+{
+    public $config = [];
+    public $_config = [
+
+    ];
+
+
+
+    private $venCards_item = [
+        'icon' => FA::_MAP_MARKER_ALT,
+        'iconSize' => ZButtonWidget::iconSize['2x'],
+        'layout' => ZButtonWidget::layout['floating'],
+    ];
+
+
+    public function codes()
+    {
+
+        $allcontent = '';
+
+        foreach ($this->data as $key => $venCard_item) {
+            $venCard_item = ZArrayHelper::merge($this->venCards_item, $venCard_item);
+            $allcontent .= <<<HTML
+                          <a href="#" class="white-text {$venCard_item['layout']}">   <i class="fa fa-{$venCard_item['icon']} {$venCard_item['iconSize']} pr-1"></i></a>
+HTML;
+
+
+            $this->htm = <<<HTML
+   
+   <div class="card w-50">
+
+  <div class="view overlay">
+   
+            <div class="d-flex mb-3 card-header light-blue lighten-1  py-5">
+  <div class="mr-auto p-2">
+  {$allcontent}
+</div>
+  
+  <div class="p-2">
+     <li class="list-inline-item white-text pr-2">
+     {$allcontent}
+      </li>
+      
+      <li class="list-inline-item pr-2">
+      {$allcontent}
+      </li>
+      
+      <li class="list-inline-item pr-2">
+      {$allcontent}
+      </li>
+      
+      <li class="list-inline-item pr-2">
+      {$allcontent}
+      </li></div>
+  </div>  
+
+
+
+   
+    
+   
+
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title">Card title</h4>
+    <hr>
+    <!-- Text -->
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+  </div>
+ 
+</div>
+HTML;
+
+
+        }
+    }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+      <!--
+            https://datatables.net/examples/basic_init/hidden_columns.html
+      Hidden columns
+There are times when you might find it useful to display only a sub-set of the information that was available in the original table. For example you might want to reduce the amount of data shown on screen to make it clearer for the user (consider also using the Responsive extension for this). This is done through the columns.visible column option.
+
+The column that is hidden is still part of the table and can be made visible through the api column().visible() API method at a future time if you wish to have columns which can be shown and hidden.
+
+Furthermore, as the hidden data is still part of the table, it can still, optionally, be filtered upon allowing the user access to that data (for example 'tag' information for a row entry might used).
+
+In the table below both the office and age version columns have been hidden, the former is not searchable, the latter is.-->
+
+
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td>61</td>
+        <td>2011/04/25</td>
+        <td>$320,800</td>
+    </tr>
+    <tr>
+        <td>Tiger Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td>61</td>
+        <td>2011/04/25</td>
+        <td>$320,800</td>
+    </tr>
+    </tfoot>
+</table>
+
+       <script>
+           $(document).ready(function() {
+               $('#example').DataTable( {
+                   "columnDefs": [
+                       {
+                           "targets": [ 2 ],
+                           "visible": false,
+                           "searchable": false
+                       },
+                       {
+                           "targets": [ 3 ],
+                           "visible": false
+                       }
+                   ]
+               } );
+           } );
+       </script>
+</body>
+</html>

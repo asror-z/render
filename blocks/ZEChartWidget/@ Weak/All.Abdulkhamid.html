@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null
+    option = {
+        title: {},
+        legend: {},
+        xAxis: {
+            show: true,
+            gridIndex: 0,
+            position:'top',
+            offset: 0,
+            type: 'category',
+            name: 'time',
+            nameLocation: 'end',
+
+            nameTextStyle: {
+                color:'#000213',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align:'right',
+                verticalAlign :'bottom',
+                lineHeight:56,
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width:25,
+                height:25,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                
+            }
+        },
+        yAxis: {},
+        grid: {},
+        dataset: {
+            source: [
+                ['product', '2015', '2016', '2017'],
+                ['Matcha Latte', 43.3, 85.8, 93.7],
+                ['Milk Tea', 83.1, 73.4, 55.1],
+                ['Cheese Cocoa', 86.4, 65.2, 82.5],
+                ['Walnut Brownie', 72.4, 53.9, 39.1]
+            ]
+        },
+        series: [
+            {type: 'bar'},
+            {type: 'bar'},
+            {type: 'bar'}
+        ],
+        toolbox: {},
+        tooltip: {},
+        textStyle: {},
+        axisPointer: {},
+        visialMap: {},
+        dataZoom: {},
+        color: '#32a8df',
+        backgroundColor: '#fff',
+        animation: true,
+        animationThreshold: 2000,
+        animationDuration: 1000,
+        animationEasing: function (k) {
+            return --k * k * k + 1;
+        },
+        animationDelay: 0,
+        animationDurationUpdate: 300,
+        animationEasingUpdate: function (k) {
+            return --k * k * k + 1;
+        },
+        animationDelayUpdate: 0,
+        blendMode: 'source-over',
+        useUTC: false,
+    }
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>
+

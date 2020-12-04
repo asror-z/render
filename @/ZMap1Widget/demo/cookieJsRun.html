@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie js</title>
+
+    <script src="/publish/yarner/cookiejs/dist/cookie.min.js"></script>
+    <script type="text/javascript">
+        cookie("test", "tank", 1);
+    </script>
+</head>
+<body>
+<div id="first"></div>
+<div id="second"></div>
+
+<script>
+    /* cookie('test', 'tank', 1)    // Create a cookie that expires 1 days from now
+     cookie('test')               // Create a cookie, valid across the entire site
+     cookie('test', null)         // Delete cookie `test`
+     cookie()                     // Get all cookie
+
+     cookie.set('test', 'tank', 1) // ====cookie('test', 'tank', 1)
+     cookie.get('test')            // ====cookie('test')
+     cookie.remove('test')         // ====cookie('test',null)
+     cookie.remove('test3', 'test4') // Delete cookie `test3` and `test4`
+
+     cookie.clear()                // Clean all cookie
+     cookie.all()                  // Get all cookie
+
+
+     cookie.set({
+         name1: 'value1',
+         name2: 'value2'
+     });
+
+     cookie('test', 'tank', 30);  // Create a cookie that expires 30 days from now
+
+     cookie({ 'test':'123', 'test2':'456' }, {
+         'expires': 30,
+         'path': '/',
+         'domain':''
+     });
+
+     cookie('test', '123', { 'expires': 30, 'path': '/', 'domain':'' });
+
+     cookie('name', 'value', { 'expires': 30, 'path': '/', 'domain':'' });
+     cookie.get('name')
+     cookie.remove('name')
+
+     cookie('name', 'value', { 'expires': 30 });
+
+     cookie.set('name', 'value', {path:''});
+     cookie.get('name'); // => 'value'*/
+
+
+
+    document.getElementById('first').innerHTML = cookie.get('checked');
+    cookie.set('checked', 'true', {expires: 30});
+    document.getElementById('second').innerHTML = cookie.get('checked');
+</script>
+</body>
+</html>

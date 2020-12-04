@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="zxx"><head>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Animate Css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.css">
+
+    <!-- Owl Slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+<!--    <link rel="stylesheet" href="./clean_files/style.css">-->
+<!--        <link rel="stylesheet" href="./clean_files/responsive.css">-->
+    <style>
+        .category {
+            padding: 50px 0;
+        }
+
+        .category .category-box {
+            margin-bottom: 35px;
+        }
+
+        .category .category-box .sec-title h6 {
+            color: #444444;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        .category .category-box #accordion .card {
+            border: none;
+            margin-bottom: 8px;
+        }
+
+        .category .category-box #accordion .card .card-header {
+            padding: 0;
+            background: transparent;
+            border-bottom: none;
+        }
+
+        .category .category-box #accordion .card .card-header a {
+            display: block;
+        }
+
+        .category .category-box #accordion .card .card-header a span {
+            color: #666666;
+            font-weight: 600;
+        }
+
+        .category .category-box #accordion .card .card-header a i {
+            float: right;
+            margin-top: 4px;
+        }
+
+        .category .category-box #accordion .card .card-header a[aria-expanded="true"] span {
+            color: #5677fc;
+        }
+
+        .category .category-box #accordion .card .card-header a[aria-expanded="true"] i {
+            -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+            color: #5677fc;
+        }
+
+        .category .category-box #accordion .card .card-body {
+            padding: 10px;
+        }
+
+        .category .category-box #accordion .card .card-body ul li {
+            margin-bottom: 5px;
+        }
+
+        .category .category-box #accordion .card .card-body ul li a i {
+            color: #969696;
+            margin-right: 3px;
+        }
+
+        .category .category-box #accordion .card .card-body ul li a:hover {
+            color: #5677fc;
+        }
+
+        .category .cat-brand {
+            margin-bottom: 25px;
+        }
+
+        .category .cat-brand .sec-title h6 {
+            color: #444444;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        .category .cat-brand .brand-box ul li input {
+            margin-right: 8px;
+        }
+
+        .category .cat-brand .brand-box ul li input:hover {
+            cursor: pointer;
+        }
+
+        .category .cat-brand .brand-box ul li label {
+            color: #666666;
+            vertical-align: middle;
+            font-weight: 600;
+        }
+
+        .category .cat-brand .brand-box ul li label:hover {
+            cursor: pointer;
+        }
+
+        .category .price-range {
+            margin-bottom: 35px;
+        }
+
+        .category .price-range .sec-title h6 {
+            color: #444444;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .category .price-range .price-filter #slider-range.ui-slider {
+            background: #eeeeee none repeat scroll 0 0;
+            width: 100%;
+            height: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #e5e5e5;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            border-radius: 30px;
+            position: relative;
+        }
+
+        .category .price-range .price-filter #slider-range.ui-slider .ui-slider-range {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            z-index: 1;
+            display: block;
+            background: #5677fc none repeat scroll 0 0;
+        }
+
+        .category .price-range .price-filter #slider-range.ui-slider span.ui-slider-handle {
+            position: absolute;
+            top: -5px;
+            width: 18px;
+            height: 18px;
+            background: #666666;
+            z-index: 2;
+            margin-left: -8px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .category .price-range .price-filter #slider-range.ui-slider span.ui-slider-handle:hover {
+            cursor: pointer;
+        }
+
+        .category .price-range .price-filter #slider-range.ui-slider span.ui-slider-handle:focus {
+            outline: none;
+        }
+
+        .category .price-range .price-filter input {
+            font-size: 17px;
+            font-weight: 600;
+            border: none;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .category .price-range .price-filter button {
+            font-size: 15px;
+            color: #5677fc;
+            background: transparent;
+            border: 1px solid #5677fc;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            border-radius: 30px;
+            padding: 3px 25px;
+            font-weight: 600;
+        }
+
+        .category .price-range .price-filter button:hover {
+            background: #5677fc;
+            color: #fff;
+        }
+
+        .category .color {
+            margin-bottom: 25px;
+        }
+
+        .category .color .sec-title h6 {
+            color: #444444;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        .category .color ul.color-box li input {
+            margin-right: 8px;
+        }
+
+        .category .color ul.color-box li input:hover {
+            cursor: pointer;
+        }
+
+        .category .color ul.color-box li label {
+            color: #666666;
+            vertical-align: middle;
+            font-weight: 600;
+        }
+
+        .category .color ul.color-box li label span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            border-radius: 30px;
+            margin-right: 8px;
+        }
+
+        .category .color ul.color-box li label:hover {
+            cursor: pointer;
+        }
+
+        .category .pro-tag {
+            margin-bottom: 30px;
+        }
+
+        .category .pro-tag .sec-title h6 {
+            color: #444444;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .category .pro-tag .tag-box a {
+            font-size: 13px;
+            border: 1px solid #e5e5e5;
+            padding: 5px 14px 4px;
+            margin: 0 5px 10px 0;
+            display: inline-block;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            border-radius: 30px;
+        }
+
+        .category .pro-tag .tag-box a:hover {
+            color: #fff;
+            background: #5677fc;
+            border-color: #5677fc;
+        }
+
+        .category .add-box {
+            position: relative;
+        }
+
+        .category .add-box:before {
+            position: absolute;
+            content: '';
+            background: rgba(255, 255, 255, 0.7);
+            width: 100%;
+            height: 30px;
+            bottom: -30px;
+            left: 0;
+            -webkit-transition: 0.4s ease;
+            -moz-transition: 0.4s ease;
+            -ms-transition: 0.4s ease;
+            -o-transition: 0.4s ease;
+            transition: 0.4s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .category .add-box:after {
+            position: absolute;
+            content: '';
+            background: rgba(255, 255, 255, 0.7);
+            width: 30px;
+            height: 100%;
+            top: 0;
+            left: -30px;
+            -webkit-transition: 0.4s ease;
+            -moz-transition: 0.4s ease;
+            -ms-transition: 0.4s ease;
+            -o-transition: 0.4s ease;
+            transition: 0.4s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .category .add-box:hover:before {
+            opacity: 1;
+            visibility: visible;
+            bottom: 100%;
+        }
+
+        .category .add-box:hover:after {
+            opacity: 1;
+            visibility: visible;
+            left: 100%;
+        }
+
+        .category .product-box .cat-box {
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .category .product-box .cat-box .view {
+            padding-top: 3px;
+        }
+
+        .category .product-box .cat-box .view ul.nav {
+            border: none;
+        }
+
+        .category .product-box .cat-box .view ul.nav li.nav-item a.nav-link {
+            font-size: 20px;
+            color: #8D8E92;
+            border: none;
+            padding: 0;
+            margin-right: 10px;
+        }
+
+        .category .product-box .cat-box .view ul.nav li.nav-item a.nav-link.active {
+            color: #444444;
+        }
+
+        .category .product-box .cat-box .sortby {
+            position: relative;
+        }
+
+        .category .product-box .cat-box .sortby span {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .category .product-box .cat-box .sortby select.sort-box {
+            color: #666666;
+            border: 1px solid #dddddd;
+            width: 90px;
+            padding: 5px 12px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            border-radius: 30px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .category .product-box .cat-box .sortby select.sort-box:focus {
+            outline: none;
+        }
+
+        .category .product-box .cat-box .sortby:after {
+            position: absolute;
+            float: right;
+            content: "\f107";
+            font-family: 'FontAwesome';
+            font-size: 13px;
+            color: #666666;
+            top: 7px;
+            right: 12px;
+        }
+
+        .category .product-box .cat-box .show-item {
+            position: relative;
+        }
+
+        .category .product-box .cat-box .show-item span {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .category .product-box .cat-box .show-item select.show-box {
+            color: #666666;
+            border: 1px solid #dddddd;
+            width: 55px;
+            padding: 5px 12px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            border-radius: 30px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .category .product-box .cat-box .show-item select.show-box:focus {
+            outline: none;
+        }
+
+        .category .product-box .cat-box .show-item:after {
+            position: absolute;
+            float: right;
+            content: "\f107";
+            font-family: 'FontAwesome';
+            font-size: 13px;
+            color: #666666;
+            top: 7px;
+            right: 12px;
+        }
+
+        .category .product-box .cat-box .page {
+            padding-top: 6px;
+        }
+
+        .category .product-box .cat-box .page p {
+            font-weight: 600;
+        }
+
+        .category .product-box .tab-content {
+            margin-bottom: 20px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item {
+            overflow: hidden;
+            border: 1px solid #eeeeee;
+            margin-bottom: 30px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-heading ul {
+            margin-bottom: 3px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-heading ul li a {
+            font-size: 13px;
+            color: #969696;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-heading ul li a:hover {
+            color: #e45151;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-heading p {
+            margin-bottom: 6px;
+            padding: 0 15px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-heading p a {
+            font-size: 16px;
+            color: #5677fc;
+            font-weight: 600;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-heading p a:hover {
+            color: #e45151;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-img {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-img img.main-img {
+            max-width: 100%;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-img img.sec-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            -webkit-transition: 0.5s ease;
+            -moz-transition: 0.5s ease;
+            -ms-transition: 0.5s ease;
+            -o-transition: 0.5s ease;
+            transition: 0.5s ease;
+            opacity: 0;
+            visibility: hidden;
+            max-width: 100%;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-img span.sale {
+            font-size: 12px;
+            color: #fff;
+            font-weight: 600;
+            background: #e45151;
+            text-transform: uppercase;
+            width: 42px;
+            height: 42px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+            text-align: center;
+            padding-top: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-img span.new {
+            font-size: 12px;
+            color: #fff;
+            font-weight: 600;
+            background: #5677fc;
+            text-transform: uppercase;
+            width: 42px;
+            height: 42px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+            text-align: center;
+            padding-top: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-img .layer-box a {
+            border: 1px solid #dddddd;
+            padding: 5px 7px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            right: -45px;
+            margin-right: 10px;
+            -webkit-transition: 0.3s ease;
+            -moz-transition: 0.3s ease;
+            -ms-transition: 0.3s ease;
+            -o-transition: 0.3s ease;
+            transition: 0.3s ease;
+            z-index: 9;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-img .layer-box a img {
+            max-width: 16px;
+            display: inline-block;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-img .layer-box a:hover {
+            border-color: #e45151;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-img .layer-box a.it-comp {
+            margin-top: 60px;
+            -webkit-transition-delay: 0.1s;
+            -o-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .tab-img .layer-box a.it-fav {
+            margin-top: 15px;
+            -webkit-transition-delay: 0.0s;
+            -o-transition-delay: 0.0s;
+            transition-delay: 0.0s;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .img-content {
+            padding: 0 15px 10px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .img-content ul.fav {
+            margin-bottom: 6px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .img-content ul.fav li {
+            margin: 0;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .img-content ul.fav li i {
+            font-size: 13px;
+            color: #fdba2d;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .img-content ul.price li {
+            font-size: 18px;
+            color: #444444;
+            font-weight: 600;
+            letter-spacing: 0;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .img-content ul.price li:last-child {
+            font-size: 14px;
+            color: #969696;
+            font-weight: normal;
+            text-decoration: line-through;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .img-content a {
+            background: #eeeeee;
+            display: inline-block;
+            padding: 10px 12px;
+            border: 1px solid #dddddd;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+            margin-top: 8px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item .img-content a:hover {
+            border-color: #e45151;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item:hover .tab-img img.sec-img {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item:hover .tab-img .layer-box a {
+            right: 0;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 {
+            overflow: hidden;
+            border: 1px solid #eeeeee;
+            margin-bottom: 30px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .tab-img {
+            position: relative;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .tab-img img.main-img {
+            max-width: 100%;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .tab-img img.sec-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            -webkit-transition: 0.5s ease;
+            -moz-transition: 0.5s ease;
+            -ms-transition: 0.5s ease;
+            -o-transition: 0.5s ease;
+            transition: 0.5s ease;
+            opacity: 0;
+            visibility: hidden;
+            max-width: 100%;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .tab-img span.sale {
+            font-size: 12px;
+            color: #fff;
+            font-weight: 600;
+            background: #e45151;
+            text-transform: uppercase;
+            width: 42px;
+            height: 42px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+            text-align: center;
+            padding-top: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .tab-img span.new {
+            font-size: 12px;
+            color: #fff;
+            font-weight: 600;
+            background: #5677fc;
+            text-transform: uppercase;
+            width: 42px;
+            height: 42px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+            text-align: center;
+            padding-top: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading {
+            padding-right: 30px;
+            padding-top: 22px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-top ul.cate {
+            margin-bottom: 3px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-top ul.cate li a {
+            font-size: 13px;
+            color: #969696;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-top ul.cate li a:hover {
+            color: #e45151;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-top p {
+            margin-bottom: 6px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-top p a {
+            font-size: 18px;
+            color: #5677fc;
+            font-weight: 600;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-top p a:hover {
+            color: #e45151;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-top ul.fav {
+            margin-bottom: 6px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-top ul.fav li {
+            margin: 0;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-top ul.fav li i {
+            font-size: 13px;
+            color: #fdba2d;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-price ul.price {
+            padding-top: 15px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-price ul.price li {
+            font-size: 20px;
+            color: #444444;
+            font-weight: 600;
+            letter-spacing: 0;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-heading .item-price ul.price li:last-child {
+            font-size: 15px;
+            color: #969696;
+            font-weight: normal;
+            text-decoration: line-through;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-content {
+            padding-right: 30px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-content p {
+            font-size: 15px;
+            line-height: 26px;
+            margin-bottom: 20px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-content a.it-cart {
+            background: #eeeeee;
+            display: inline-block;
+            padding-right: 10px;
+            border: 1px solid #dddddd;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            border-radius: 30px;
+            margin-right: 8px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-content a.it-cart span.it-img {
+            background: #fff;
+            display: inline-block;
+            padding: 7px 10px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-content a.it-cart span.it-title {
+            color: #444444;
+            font-weight: 600;
+            padding-left: 5px;
+            cursor: pointer;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-content a.it-cart:hover {
+            border-color: #5677fc;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-content a.it-fav {
+            border: 1px solid #dddddd;
+            display: inline-block;
+            padding: 7px 10px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-content a.it-fav:hover {
+            border-color: #5677fc;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-content a.it-comp {
+            border: 1px solid #dddddd;
+            display: inline-block;
+            padding: 7px 10px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2 .item-content a.it-comp:hover {
+            border-color: #5677fc;
+        }
+
+        .category .product-box .tab-content .tab-pane .tab-item2:hover .tab-img img.sec-img {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .category .product-box .pagination-box ul li a {
+            font-size: 15px;
+            color: #5677fc;
+            width: 35px;
+            height: 35px;
+            background: #fff;
+            display: block;
+            padding-top: 7px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .category .product-box .pagination-box ul li.active a {
+            background: #5677fc;
+            color: #fff;
+        }
+
+    </style>
+    </head>
+    <body>
+        <section class="category">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="product-box">
+                            <div class="cat-box d-flex justify-content-between">
+                                <!-- Nav tabs -->
+                                <div class="view">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#grid"><i class="fa fa-th-large"></i></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#list"><i class="fa fa-th-list"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sortby">
+                                    <span>Sort By</span>
+                                    <select class="sort-box">
+                                        <option>Position</option>
+                                        <option>Name</option>
+                                        <option>Price</option>
+                                        <option>Rating</option>
+                                    </select>
+                                </div>
+                                <div class="show-item">
+                                    <span>Show</span>
+                                    <select class="show-box">
+                                        <option>12</option>
+                                        <option>24</option>
+                                        <option>36</option>
+                                    </select>
+                                </div>
+                                <div class="page">
+                                    <p>Page 1 of 20</p>
+                                </div>
+                            </div>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade" id="grid" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="tab-item">
+                                                <div class="tab-img">
+                                                    <img class="main-img img-fluid" src="images/tab-1.png" alt="">
+                                                    <img class="sec-img img-fluid" src="images/tab-16.png" alt="">
+                                                    <div class="layer-box">
+                                                        <a href="" class="it-comp" data-toggle="tooltip" data-placement="left" title="" data-original-title="Compare"><img src="images/it-comp.png" alt=""></a>
+                                                        <a href="" class="it-fav" data-toggle="tooltip" data-placement="left" title="" data-original-title="Favourite"><img src="images/it-fav.png" alt=""></a>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-heading">
+                                                    <p><a href="">Samsung Smart Led Tv 42"</a></p>
+                                                </div>
+                                                <div class="img-content d-flex justify-content-between">
+                                                    <div>
+                                                        <ul class="list-unstyled list-inline fav">
+                                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                            <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                                        </ul>
+                                                        <ul class="list-unstyled list-inline price">
+                                                            <li class="list-inline-item">$120.00</li>
+                                                            <li class="list-inline-item">$150.00</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div>
+                                                        <a href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart"><img src="images/it-cart.png" alt=""></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="tab-item">
+                                                <div class="tab-img">
+                                                    <img class="main-img img-fluid" src="images/tab-2.png" alt="">
+                                                    <img class="sec-img img-fluid" src="images/tab-16.png" alt="">
+                                                    <span class="sale">Sale</span>
+                                                    <div class="layer-box">
+                                                        <a href="" class="it-comp" data-toggle="tooltip" data-placement="left" title="" data-original-title="Compare"><img src="images/it-comp.png" alt=""></a>
+                                                        <a href="" class="it-fav" data-toggle="tooltip" data-placement="left" title="" data-original-title="Favourite"><img src="images/it-fav.png" alt=""></a>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-heading">
+                                                    <p><a href="">Samsung Smart Led Tv 42"</a></p>
+                                                </div>
+                                                <div class="img-content d-flex justify-content-between">
+                                                    <div>
+                                                        <ul class="list-unstyled list-inline fav">
+                                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                            <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                                        </ul>
+                                                        <ul class="list-unstyled list-inline price">
+                                                            <li class="list-inline-item">$120.00</li>
+                                                            <li class="list-inline-item">$150.00</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div>
+                                                        <a href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart"><img src="images/it-cart.png" alt=""></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade active show" id="list" role="tabpanel">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="tab-item2">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-12">
+                                                        <div class="tab-img">
+                                                            <img class="main-img img-fluid" src="images/tab-1.png" alt="">
+                                                            <img class="sec-img img-fluid" src="images/tab-16.png" alt="">
+                                                            <span class="sale">Sale</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-8 col-md-12">
+                                                        <div class="item-heading d-flex justify-content-between">
+                                                            <div class="item-top">
+                                                                <ul class="list-unstyled list-inline cate">
+                                                                    <li class="list-inline-item"><a href="#">Home Appliance,</a></li>
+                                                                    <li class="list-inline-item"><a href="#">Smart Led</a></li>
+                                                                </ul>
+                                                                <p><a href="">Samsung Smart Led Tv 42"</a></p>
+                                                                <ul class="list-unstyled list-inline fav">
+                                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="item-price">
+                                                                <ul class="list-unstyled list-inline price">
+                                                                    <li class="list-inline-item">$120.00</li>
+                                                                    <li class="list-inline-item">$150.00</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem atque dolores aliquid culpa maiores beatae est quod officia veniam fugit? Molestiae, illum voluptatibus nisi error recusandae cum expedita. Laborum, expedita!</p>
+                                                            <a href="" class="it-cart"><span class="it-img"><img src="images/it-cart.png" alt=""></span><span class="it-title">Add To Cart</span></a>
+                                                            <a href="" class="it-fav" data-toggle="tooltip" data-placement="top" title="" data-original-title="Favourite"><img src="images/it-fav.png" alt=""></a>
+                                                            <a href="" class="it-comp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Compare"><img src="images/it-comp.png" alt=""></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-6">
+                                            <div class="tab-item2">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-12">
+                                                        <div class="tab-img">
+                                                            <img class="main-img img-fluid" src="images/tab-2.png" alt="">
+                                                            <img class="sec-img img-fluid" src="images/tab-16.png" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-8 col-md-12">
+                                                        <div class="item-heading d-flex justify-content-between">
+                                                            <div class="item-top">
+                                                                <ul class="list-unstyled list-inline cate">
+                                                                    <li class="list-inline-item"><a href="#">Home Appliance,</a></li>
+                                                                    <li class="list-inline-item"><a href="#">Smart Led</a></li>
+                                                                </ul>
+                                                                <p><a href="">Samsung Smart Led Tv 42"</a></p>
+                                                                <ul class="list-unstyled list-inline fav">
+                                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="item-price">
+                                                                <ul class="list-unstyled list-inline price">
+                                                                    <li class="list-inline-item">$120.00</li>
+                                                                    <li class="list-inline-item">$150.00</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-content">
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem atque dolores aliquid culpa maiores beatae est quod officia veniam fugit? Molestiae, illum voluptatibus nisi error recusandae cum expedita. Laborum, expedita!</p>
+                                                            <a href="" class="it-cart"><span class="it-img"><img src="images/it-cart.png" alt=""></span><span class="it-title">Add To Cart</span></a>
+                                                            <a href="" class="it-fav" data-toggle="tooltip" data-placement="top" title="" data-original-title="Favourite"><img src="images/it-fav.png" alt=""></a>
+                                                            <a href="" class="it-comp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Compare"><img src="images/it-comp.png" alt=""></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- jQuery JS -->
+        <script src="js/assets/price-filter.js"></script>
+        <script src="js/assets/popper.min.js"></script>
+        <script src="js/assets/bootstrap.min.js"></script>
+
+        <!-- Mean Menu -->
+        <script src="js/assets/jquery.meanmenu.min.js"></script>
+
+        <!-- Custom JS -->
+        <script src="js/plugins.js"></script>
+        <script src="js/custom.js"></script>
+
+
+
+    </body>
+</html>

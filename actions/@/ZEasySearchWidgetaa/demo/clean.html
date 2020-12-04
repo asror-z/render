@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+
+    <title>Easy Search</title>
+</head>
+
+<style>
+    .container {
+        width: 50%;
+        margin: 150px auto;
+    }
+    ul{
+        list-style: none;
+    }
+    .column {
+        margin-bottom: 20px;
+    }
+    div.input {
+        width: 100%;
+    }
+    li:before {display: none;}
+    ul.ui.list {margin-left: 0}
+</style>
+
+
+<body>
+
+<div class="ui container">
+    <div class="column">
+        <div class="ui input focus"><INPUT type="text" placeholder="Search..." value="">
+        </div></div>
+    <div class="column">
+        <ul class="ui middle aligned selection list">
+            <li class="item"><img class="ui avatar image" src="">
+                <div class="content">
+                    <div class="header">Helen</div></div></li>
+            <li class="item"><img class="ui avatar image" src="">
+
+                <DIV class="content">
+                    <DIV class="header">Christian</DIV></DIV></li>
+            <li class="item"><img class="ui avatar image" src="">
+                <div class="content">
+                    <div class="header">Daniel</div>
+                </div>
+            </li>
+            <li class="item"><img class="ui avatar image" src="">
+
+                <div class="content">
+                    <div class="header">Marybelle</div>
+                </div>
+            </li>
+            <li class="item"><img class="ui avatar image" src="">
+                <div class="content">
+                    <div class="header">Joeann</div>
+                </div>
+            </li>
+            <li class="item">
+                <img class="ui avatar image" src="">
+
+                <div class="content">
+                    <div class="header">Fallon</div>
+                </div>
+            </li>
+            <li class="item">
+                <img class="ui avatar image" src="">
+                <div class="content">
+                    <div class="header">Arturo</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<script src="https://cdn.statically.io/gh/Archakov06/jQuery-easySearch/master/jquery.easysearch.js"></script>
+
+<script>
+    $(document).ready(function (){
+        $('input').jSearch({
+            selector  : 'ul',
+            child : 'li div.header',
+            minValLength: 0,
+            Found : function(elem, event){
+                $(elem).parent().parent().show();
+            },
+            NotFound : function(elem, event){
+                $(elem).parent().parent().hide();
+            },
+            After : function(t){
+                if (!t.val().length) $('ul li').show();
+            }
+        });
+    });
+</script>
+</body>
+</html>

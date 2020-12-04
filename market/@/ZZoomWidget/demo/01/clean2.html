@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- get jQuery from the google apis or use your own -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- CSS STYLE-->
+<link rel="stylesheet" type="text/css" href="css/xzoom.css" media="all" />
+
+<!-- XZOOM JQUERY PLUGIN  -->
+<script type="text/javascript" src="js/xzoom.min.js"></script>
+ 
+  <body>
+
+
+
+<!-- demo start -->
+<img class="xzoom" src="path/to/preview_image_01.jpg" xoriginal="path/to/original_image_01.jpg" />
+
+<div class="xzoom-thumbs">
+  <a href="path/to/original_image_01.jpg">
+    <img class="xzoom-gallery" width="80" src="path/to/thumbs_image_01.jpg"  xpreview="path/to/preview_image_01.jpg">
+  </a>
+  <a href="path/to/original_image_02.jpg">
+    <img class="xzoom-gallery" width="80" src="path/to/preview_image_02.jpg">
+  </a>
+  <a href="path/to/original_image_03.jpg">
+    <img class="xzoom-gallery" width="80" src="path/to/preview_image_03.jpg">
+  </a>
+  <a href="path/to/original_image_04.jpg">
+    <img class="xzoom-gallery" width="80" src="path/to/preview_image_04.jpg">
+  </a>
+</div>
+<!-- demo end -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/foundation@4.2.1-1/js/foundation/foundation.js"></script>
+<script type="text/javascript">
+jQuery(document).foundation('reflow');
+jQuery(document).ready(function() {
+  jQuery('#banner').show().revolution({
+    delay:9000,
+    startheight:500,
+    fullWidth:"on",
+    forceFullWidth: "off",
+    fullScreen:"off",                                   
+    hideBulletsOnMobile: "on",
+    hideArrowsOnMobile:"off",
+    startWithSlide:0,
+    navigationType:"bullet",
+    navigationArrows:"solo",
+        
+    touchenabled:"on",
+    swipe_velocity:"0.7",
+    swipe_max_touches:"1",
+    swipe_min_touches:"1",
+    hideTimerBar: "on",
+    lazyLoad:"on",
+    parallaxLevels:[7,4,3,2,5,4,3,2,1,0]
+  });
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48989648-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+</body></html>

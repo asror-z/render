@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
+
+    <script src="https://cdn.statically.io/gh/apm1467/jQuery.Custom-Caret/master/jquery.custom-caret-1.1.js"></script>
+
+
+</head>
+
+
+<body>
+
+</body>
+
+<div id="demo" contenteditable="true" spellcheck="false">ZjQueryCustomCaretWidget is here.</div>
+
+
+<script>
+
+    $("#demo").customCaret();
+
+</script>
+
+
+<style>
+
+    :root {
+        --blue: #268bd2;
+        --background: #002b36;
+        --text: #839496;
+    }
+
+    
+
+    #caret {
+        border-right: 0.5em solid var(--text);
+        margin-right: -0.5em;
+        animation: blink-animation 1s steps(2, start) infinite;
+    }
+
+    @keyframes blink-animation {
+        to {
+            visibility: hidden;
+        }
+    }
+
+    #demo {
+        border: 3px solid var(--blue);
+        outline: none;
+        margin: 20px;
+        padding: 10px;
+        color: transparent;
+        text-shadow: 0 0 var(--text);
+    }
+</style>
+

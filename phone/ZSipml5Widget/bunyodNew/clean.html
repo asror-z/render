@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/css/mdb.min.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- begin snippet: js hide: false -->
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <link rel="stylesheet" href="/render/phone/ZSipml5Widget/bunyodNew/css/style.css">
+</head>
+<body>
+
+<!--<div class="scene scene&#45;&#45;card">
+    <div class="card">
+        <div class="card__face card__face&#45;&#45;front">front</div>
+        <div class="card__face card__face&#45;&#45;back">back</div>
+    </div>
+</div>-->
+
+<div class="col">
+    <!-- Card package -->
+    <div class="cardContainer">
+        <div class="card">
+            <div class="front">
+                <div id="dismiss" class="ml-lg-2 ml-2 mt-lg-2 mt-2">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="opacity">
+                    <div class="number text-center">
+                        <div class="">
+                            <button id="callBtn" class="btn btn-floating" title="Call" onclick='sipCall("call-audio");'>
+                                <i class="fa fa-phone"></i></button>
+
+                            <button id="videoBtn" class="btn btn-floating" onclick='sipCall("call-audiovideo");'>
+                                <i class="fas success-ic fa-video"></i>
+                            </button>
+
+                            <button class="btn btn-floating" id="btnHangUp" title="Hangup" onclick='sipHangUp();'>
+                                <i class="fas red-ic  fa-phone-slash"></i>
+                            </button>
+                        </div>
+
+                        <div class="ml-4 mr-4">
+                            <div id="txtCallStatus" class=""></div>
+                            <div id="txtRegStatus"></div>
+
+                            <div class="md-form input-with-post-icon mt-lg-1">
+
+                                <input type="text" id="txtPhoneNumber" class="text-white text-center">
+                                <label for="txtPhoneNumber"></label>
+                            </div>
+                        </div>
+                        <div class=" buuton-goup mb-lg-1 mb-1 text-center">
+
+                            <a type="button" class=" button1 btn btn-floating" value="1" onclick="dis('1')">1</a>
+                            <a type="button" class=" button1 btn btn-floating" value="2" onclick="dis('2')">2</a>
+                            <a type="button" class=" button1 btn btn-floating" value="3" onclick="dis('3')">3</a>
+                            <br>
+                            <a type="button" class=" button1 btn btn-floating" value="4" onclick="dis('4')">4</a>
+                            <a type="button" class=" button1 btn btn-floating" value="5" onclick="dis('5')">5</a>
+                            <a type="button" class=" button1 btn btn-floating" value="6" onclick="dis('6')">6</a>
+                            <br>
+                            <a type="button" class=" button1 btn btn-floating" value="7" onclick="dis('7')">7</a>
+                            <a type="button" class=" button1 btn btn-floating" value="8" onclick="dis('8')">8</a>
+                            <a type="button" class=" button1 btn btn-floating" value="9" onclick="dis('9')">9</a>
+                            <br>
+                            <a type="button" class=" button1 btn btn-floating" value="+" onclick="dis('+')">+</a>
+                            <a type="button" class=" button1 btn btn-floating" value="0" onclick="dis('0')">0</a>
+                            <a type="button" class=" button1 btn btn-floating" value="c" onclick="clr()">
+                                <i class="fas red-ic fa-backspace "></i></a>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="back bg-dark">
+                <div class="content">
+
+                    <p id="happy"></p>
+                    <a id="rotate_nemove" type="button" class="btn-floating btn-lg btn-default"><i
+                            class="fas fa-bolt"></i></a>
+                    <div id="dismiss" class="ml-lg-2 ml-2 mt-lg-2 mt-2">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="opacity">
+                        <div class="number text-center">
+                            <div class="">
+                                <button id="callBtn" class="btn btn-floating" title="Call" onclick='sipCall("call-audio");'>
+                                    <i class="fa fa-phone"></i></button>
+
+                                <button id="videoBtn" class="btn btn-floating" onclick='sipCall("call-audiovideo");'>
+                                    <i class="fas success-ic fa-video"></i>
+                                </button>
+
+                                <button class="btn btn-floating" id="btnHangUp" title="Hangup" onclick='sipHangUp();'>
+                                    <i class="fas red-ic  fa-phone-slash"></i>
+                                </button>
+                            </div>
+
+                            <div class="ml-4 mr-4">
+                                <div id="txtCallStatus" class=""></div>
+                                <div id="txtRegStatus"></div>
+
+                                <div class="md-form input-with-post-icon mt-lg-1">
+
+                                    <input type="text" id="txtPhoneNumber" class="text-white text-center">
+                                    <label for="txtPhoneNumber"></label>
+                                </div>
+                            </div>
+                            <div class=" buuton-goup mb-lg-1 mb-1 text-center">
+
+                                <a type="button" class=" button1 btn btn-floating" value="1" onclick="dis('1')">1</a>
+                                <a type="button" class=" button1 btn btn-floating" value="2" onclick="dis('2')">2</a>
+                                <a type="button" class=" button1 btn btn-floating" value="3" onclick="dis('3')">3</a>
+                                <br>
+                                <a type="button" class=" button1 btn btn-floating" value="4" onclick="dis('4')">4</a>
+                                <a type="button" class=" button1 btn btn-floating" value="5" onclick="dis('5')">5</a>
+                                <a type="button" class=" button1 btn btn-floating" value="6" onclick="dis('6')">6</a>
+                                <br>
+                                <a type="button" class=" button1 btn btn-floating" value="7" onclick="dis('7')">7</a>
+                                <a type="button" class=" button1 btn btn-floating" value="8" onclick="dis('8')">8</a>
+                                <a type="button" class=" button1 btn btn-floating" value="9" onclick="dis('9')">9</a>
+                                <br>
+                                <a type="button" class=" button1 btn btn-floating" value="+" onclick="dis('+')">+</a>
+                                <a type="button" class=" button1 btn btn-floating" value="0" onclick="dis('0')">0</a>
+                                <a type="button" class=" button1 btn btn-floating" value="c" onclick="clr()">
+                                    <i class="fas red-ic fa-backspace "></i></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+    <!--<button id="rotate" type="button" class=""></button>-->
+    <a id="rotate" type="button" class="btn-floating btn-lg btn-default"><i class="fas fa-bolt"></i></a>
+</div>
+</div>
+<!-- Card package -->
+
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/js/mdb.min.js"></script>
+
+
+<!--<script type="txt/javascript" src="/render/phone/ZSipml5Widget/bunyodNew/js/main.js"></script>-->
+<script>
+    $('#rotate').click(function () {
+        $(".card").addClass('flipped');
+    });
+    $('#rotate_nemove').click(function () {
+        $(".card").removeClass('flipped');
+    });
+
+
+    /* var card = document.querySelector('.card');
+     card.addEventListener( 'click', function() {
+         card.classList.toggle('is-flipped');
+     });*/
+</script>
+
+</body>
+</html>

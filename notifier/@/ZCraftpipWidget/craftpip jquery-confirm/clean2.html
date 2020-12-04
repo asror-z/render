@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.11.0/css/mdb.lite.css">
+    <script src="/publish/bower/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn btn-primary example2">Load from text.txt</button>
+
+    <script>
+        $('.example2').on('click', function() {
+            $.confirm({
+                title: 'Title',
+                content: 'url:text.txt',
+                columnClass: 'col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1', // this is for size
+                onContentReady: function() {
+                    var self = this;
+                    this.setContentPrepend('<div>Prepended text</div>');
+                    setTimeout(function() {
+                        self.setContentAppend('<div>Appended text after 2 seconds</div>');
+                    }, 200);
+                },
+                columnClass: 'small',
+            });
+        });
+    </script>
+</body>
+
+</html>

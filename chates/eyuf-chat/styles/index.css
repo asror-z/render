@@ -1,0 +1,240 @@
+.read-icon {
+    font-size: 12px;
+}
+
+.close-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 4px;
+    background: none;
+    transition: background-color 200ms;
+}
+
+.close-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.chat-frame {
+    height: 80vh;
+}
+
+/*aziz rozmetov start*/
+@media only screen and (min-width: 370px) and (max-width: 600px) {
+    .chat, .chat-frame__sidebar {
+        width: 100%;
+    }
+
+    .chat-frame:not(.chat-frame--open) .chat {
+        display: none;
+    }
+
+    .chat-frame.chat-frame--open .chat-frame__sidebar {
+        display: none;
+    }
+}
+
+/*aziz rozmetov end*/
+
+.chat-frame__sidebar {
+    max-height: 100%;
+    overflow: hidden auto;
+}
+
+.users-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.user-chat {
+    padding: 16px;
+    cursor: pointer;
+    transition: background-color 200ms;
+}
+
+.user-chat:hover {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.user-chat--active {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.user-chat__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.user-chat__name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+}
+
+.user-chat__message {
+    display: flex;
+    align-items: center;
+}
+
+.user-chat__message p {
+    max-width: 200px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-chat__status {
+    font-size: 12px;
+}
+
+.user-chat__status--online {
+    color: var(--success);
+}
+
+.user-chat__status--offline {
+    color: var(--danger);
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+}
+
+.chat-header__profile {
+    cursor: pointer;
+}
+
+.chat-header__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0;
+    padding: 16px;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.messages-list__item {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.messages-list__item--mine {
+    justify-content: flex-end;
+}
+
+.messages-list__item:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.message-form__button {
+    background: #E9ECEF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0 4px 4px 0;
+}
+
+.message {
+    display: flex;
+    justify-content: flex-start;
+    min-width: 200px;
+    max-width: 55%;
+}
+
+.message--mine {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.message__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.message__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.message__content {
+    padding: 16px;
+    border-radius: 4px;
+    color: var(--white);
+    background: var(--success);
+    max-width: 100%;
+}
+
+.message--mine .message__content {
+    margin-left: auto;
+    background: var(--primary);
+}
+
+.message__author {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.message__text {
+    max-width: 100%;
+    font-size: 14px;
+    word-break: break-all;
+}
+
+.message__time {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.tabs.active {
+    border-bottom-color: #4c8bf5 !important;
+}
+
+
+/*animation*/
+/*start:TursunaliyevAbdulloh*/
+
+@keyframes placeholder-shimmer {
+    0% {
+        background-position: -668px 0
+    }
+    100% {
+        background-position: 668px 0
+    }
+}
+
+.animated-background {
+    animation-duration: 5.25s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeholder-shimmer;
+    animation-timing-function: linear;
+    background: #F6F6F6;
+    background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
+    background-size: 800px 104px;
+    height: 80vh;
+    position: relative;
+}
+
+/*end:TursunaliyevAbdulloh*/
+
+/*animation end*/

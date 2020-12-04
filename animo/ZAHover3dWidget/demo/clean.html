@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery hover3d Plugin Examples</title>
+       <link rel="stylesheet" href="\publish\Animos\Hovers\CSSJS, 3D\Ariona Hover3d\hover3d-master\demos\style.css">
+       
+</head>
+<body>
+<div class="project" style="perspective: 1000px; transform-style: preserve-3d;">
+    <div class="project__card" style="perspective: 1000px; transform-style: preserve-3d; transform: rotateX(0deg) rotateY(0deg);">
+        <a href="" class="project__image"><img src="\publish\Animos\Hovers\CSSJS, 3D\Ariona Hover3d\hover3d-master\demos\1012-600x400.jpg" width="600" height="400" alt=""></a>
+        <div class="project__detail">
+            <h2 class="project__title"><a href="#">Project Name</a></h2>
+            <small class="project__category"><a href="#">Photography</a></small>
+        </div>
+    <div class="shine" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; z-index: 9; background: linear-gradient(217.972deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 80%);"></div></div>
+</div>
+
+<script src="\publish\yarner\jquery\dist\jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.12.1.min.js"><\\/script>')</script>
+<script src="\publish\Animos\Hovers\CSSJS, 3D\Ariona Hover3d\hover3d-master\demos\jquery.hover3d.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(".project").hover3d({
+            selector: ".project__card",
+            shine: true,
+        });
+
+        $(".movie").hover3d({
+            selector: ".movie__card",
+            shine: true,
+            sensitivity: 20,
+        });
+    });
+
+</script>
+</body>
+</html>

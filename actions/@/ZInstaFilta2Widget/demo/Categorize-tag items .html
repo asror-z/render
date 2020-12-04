@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Insta Filta cleaned by Otabek Nosirov</title>
+</head>
+
+<style>
+    ul{
+        list-style: none;
+    }
+</style>
+
+<body>
+
+<h1>
+    Jquery Insta Filta 2 Widget
+</h1>
+
+<!--Insta Filta 2 input /*obdev*/-->
+
+<div class="box l-1-2">
+    <div class="example" id="ex1">
+        <fieldset class="controls">
+            <input type="text" class="instafilta-trigger" placeholder="Type here to filter">
+        </fieldset>
+        <ul class="example-list example-list-quad">
+            <li><span class="instafilta-target instafilta-match">Carbon</span></li>
+            <li><span class="instafilta-target instafilta-match">Cobalt</span></li>
+            <li><span class="instafilta-target instafilta-match">Copper</span></li>
+            <li><span class="instafilta-target instafilta-match">Gallium</span></li>
+            <li><span class="instafilta-target instafilta-match">Gold</span></li>
+            <li><span class="instafilta-target instafilta-match">Hafnium</span></li>
+            <li><span class="instafilta-target instafilta-match">Iridium</span></li>
+            <li><span class="instafilta-target instafilta-match">Xenon</span></li>
+        </ul>
+    </div>
+</div>
+
+
+<select class="instafilta-trigger">
+    <option value="">Show all</option>
+    <option value="machine" selected="selected">Machines</option>
+    <option value="human">Humans</option>
+    <option value="non-fictional">Non-fictional</option>
+</select>
+
+<span class="instafilta-target" data-instafilta-category="human">Gordon Freeman</span>
+<span class="instafilta-target" data-instafilta-category="machine">Wall-E</span>
+<span class="instafilta-target" data-instafilta-category="human,machine">RoboCop</span>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js">
+
+</script>
+
+<script src="https://cdn.statically.io/gh/chromawoods/instaFilta2/master/instafilta.min.js">
+
+</script>
+
+<script src="https://rawcdn.githack.com/chromawoods/instaFilta2/b2db0d021a95b0abf17fa92a4d722e8e7c389bbc/demo/demo.js">
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#my-list').instaFilta();
+    })
+</script>
+</body>
+</html>

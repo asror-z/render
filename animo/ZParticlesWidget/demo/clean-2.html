@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>particles</title>
+
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/v4-shims.css">
+
+
+    <link rel="stylesheet" href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/publish/theme/mdbpro/css/mdb.min.css">
+    <link rel="stylesheet" href="/publish/yarner/mburger-css/dist/mburger.css">
+    <link rel="stylesheet" href="/publish/menus/mmenu/mmenuextension.css">
+
+
+    <script type="text/javascript" src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/publish/yarner/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+
+    <link rel="stylesheet" href="/publish/asrorz/css/all.css">
+    <script type="text/javascript" src="/publish/asrorz/js/all.js"></script>
+
+
+    <link href="/publish/inputs/user-inputs/demo_files/theme.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/publish/inputs/user-inputs/demo_files/theme-responsive.min.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="/publish/yarner/mobile-detect/mobile-detect.min.js"></script>
+
+
+    <script type="text/javascript" src="/publish/inputs/user-inputs/demo_files/breakpoints.js"></script>
+    <script type="text/javascript"
+            src="/publish/inputs/user-inputs/demo_files/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="/publish/inputs/user-inputs/demo_files/theme.js"></script>
+
+
+</head>
+<body>
+
+<style>
+    /* ---- reset ---- */
+
+
+    /* ---- particles.js container ---- */
+
+    #particles-js {
+        width: 100%;
+        height: 100vh;
+        background-color: #4285F4;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+
+    .LogoImage {
+        width: 100px;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+    }
+
+    .card-1 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        width: 40%;
+        border-top: 5px solid #1be9da;
+    }
+
+    .card-2 {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        width: 40%;
+        border-top: 5px solid #1be9da;
+    }
+    @media screen and (max-width: 768px){
+        .card-1{
+            width: 100%;
+        }
+        .card-2{
+            top: 55%;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 620px){
+        .card-1{
+            width: 100%;
+        }
+        .card-2{
+            top: 60%;
+            width: 100%;
+        }
+    }
+</style>
+
+<div id="particles-js"></div>
+
+<!-- stats - count particles -->
+<img src="/publish/image/profile.png" alt="Logo" class="LogoImage">
+
+<div class="card card-1">
+    <div class="card-body">
+        <p class="card-text text-center">Some quick example text to build</p>
+    </div>
+</div>
+
+<div class="card card-2 mt-2">
+    <div class="card-body">
+        <h5 class="card-title text-center">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.
+            Some quick example text to build on the card title and make up the bulk of the card's
+            content. </p>
+    </div>
+</div>
+
+
+<script src="/publish/yarner/particles.js/particles.js"></script>
+<script>
+    /* ---- particles.js config ---- */
+
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 100,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ffffff"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                },
+                "image": {
+                    "src": "img/github.svg",
+                    "width": 100,
+                    "height": 100
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 140,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "bubble": {
+                    "distance": 400,
+                    "size": 40,
+                    "duration": 2,
+                    "opacity": 8,
+                    "speed": 3
+                },
+                "repulse": {
+                    "distance": 200,
+                    "duration": 0.4
+                },
+                "push": {
+                    "particles_nb": 4
+                },
+                "remove": {
+                    "particles_nb": 2
+                }
+            }
+        },
+        "retina_detect": true
+    });
+
+</script>
+
+</body>
+</html>

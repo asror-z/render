@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css">
+    <link href="/publish/Iconers/IconPick/all.css" rel="stylesheet">
+    <link href="/publish/yarner/bootstrap-iconpicker/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css">
+
+</head>
+
+<body>
+
+<script>
+$('#target').iconpicker();
+$('#target').iconpicker({ /!*options*!/});
+$.iconpicker.batch('#target', 'iconpickerMethod', 'methodArg1', 'methodArg2');</script>
+
+<script type="/publish/yarner/analytics.js/lib/analytics.js"></script>
+<script async="" src="/publish/Iconers/IconPick/js"></script>
+<script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+<script src="/publish/yarner/bootstrap-iconpicker/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/publish/Iconers/IconPick/fontawesome-iconpicker.js"></script>
+
+
+<script>
+/*
+    $('#target').iconpicker();
+    $('#target').iconpicker({ /!*options*!/});
+    $.iconpicker.batch('.my', 'iconpickerMethod', 'methodArg1', 'methodArg2');*/
+
+$('#target').iconpicker({
+        title: false,
+        selected: false,
+        defaultValue: false,
+        placement: 'bottom',
+        collision: 'none',
+        animation: true,
+        hideOnSelect: false,
+        showFooter: false,
+        searchInFooter: false,
+        mustAccept: false,
+        selectedCustomClass: 'bg-primary',
+        icons: [],
+        fullClassFormatter: function (val) {
+            return 'fa ' + val;
+        },
+        input: 'input,.iconpicker-input',
+        inputSearch: false,
+        container: false,
+        component: '.input-group-addon,.iconpicker-component',
+        templates: {
+            popover: '<div class="iconpicker-popover popover"><div class="arrow"></div>' +
+                '<div class="popover-title"></div><div class="popover-content"></div></div>',
+            footer: '<div class="popover-footer"></div>',
+            buttons: '<button class="iconpicker-btn iconpicker-btn-cancel btn btn-default btn-sm">Cancel</button>' +
+                ' <button class="iconpicker-btn iconpicker-btn-accept btn btn-primary btn-sm">Accept</button>',
+            search: '<input type="search" class="form-control iconpicker-search" placeholder="Type to filter" />',
+            iconpicker: '<div class="iconpicker"><div class="iconpicker-items"></div></div>',
+            iconpickerItem: '<a role="button" href="#" class="iconpicker-item"><i></i></a>',
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+{
+  "name": "zetsoft/framework",
+  "keywords": [
+    "zetsoft",
+    "framework",
+    "adminlte"
+  ],
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "version": "3.2.0",
+  "description": "AsrorZ Project | Asror-Z",
+  "homepage": "https://github.com/asror-z",
+  "authors": [
+    {
+      "name": "Asror Zakirov",
+      "email": "asror.zk@gmail.com",
+      "homepage": "https://www.linkedin.com/in/asror-zakirov",
+      "role": "Project manager and Lead developer"
+    }
+  ],
+  "support": {
+    "email": "asror.zk@gmail.com",
+    "phone": "+99897 403-72-43"
+  },
+  "config": {
+    "autoloader-suffix": "AsrorZKFlysystem",
+    "process-timeout": 6000,
+    "use-include-path": false,
+    "preferred-install": "dist",
+    "store-auths": true,
+    "github-protocols": [
+      "https",
+      "git"
+    ],
+    "disable-tls": false,
+    "secure-http": true,
+    "vendor-dir": "vendor",
+    "cache-files-ttl": 15552000,
+    "cache-files-maxsize": "300MiB",
+    "bin-compat": "full",
+    "prepend-autoloader": true,
+    "optimize-autoloader": true,
+    "sort-packages": false,
+    "classmap-authoritative": false,
+    "apcu-autoloader": false,
+    "use-github-api": false,
+    "notify-on-install": true,
+    "discard-changes": true,
+    "archive-format": "tar",
+    "archive-dir": ".",
+    "htaccess-protect": false
+  },
+  "require": {
+    "league/flysystem": "^1.0",
+    "league/flysystem-ziparchive": "^1.0",
+    "league/flysystem-sftp": "^1.0"
+  },
+  "require-dev": {
+
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postCreateProject"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Acme\\": "vendors/phpoffice/phpword/"
+    }
+  }
+}

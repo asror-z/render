@@ -1,0 +1,60 @@
+<?php
+include("config.php");
+?>
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <script src="bootstrap/js/ie-emulation-modes-warning.js"></script>
+</head>
+<body>
+<div id="reload" class="text-center"></div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{l10n "nav.status"}}
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li id="calls"><a href="../../pbx/status/calls.html">Calls</a></li>
+                    <li id="peers"><a href="../../pbx/status/peers.html">Peers</a></li>
+                    <li id="queues"><a href="../../pbx/status/queues.html">Queues</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{l10n "nav.application"}}
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li id="cdr"><a href="../../res/dialer/newcamp.html">{{l10n "ad.newcamp"}}</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="stopcamp"><a href="#" onClick="stopCamp();"><i>{{l10n "ad.stop"}} campaigns</i></a></li>
+            <li><a href="#" onClick="coreReload();"><i>{{l10n "nav.reload"}}</i></a></li>
+            <li><a href="#" data-toggle="modal" data-target="#basicModal">{{l10n "nav.contrib"}}</a></li>
+            <li><a href="../../res/admin/admin.html">{{l10n "nav.admin"}}</a></li>
+            <li><a href="../../auth.php?sessionDestroy=1" value="Oops"> {{l10n "nav.exit"}} &#x27A5;</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header pull-center">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><a href="https://asterisk-pbx.ru" target="_blank">https://asterisk-pbx.ru</a>
+                </h4>
+                <h4 class="modal-title" id="myModalLabelTo"><a href="mailto:info@asterisk-pbx.ru" target="_blank">info@asterisk-pbx.ru</a>
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

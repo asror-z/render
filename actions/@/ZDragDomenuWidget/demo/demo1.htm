@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://mechanicious.github.io/domenu/ -->
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <title>jQuery doMenu Plugin</title>
+  <link rel="stylesheet" type="text/css" href="./demo1_files/presentation-style.css">
+  <link rel="stylesheet" type="text/css" href="./demo1_files/jquery.domenu-0.100.77.css">
+  <link rel="stylesheet" type="text/css" href="./demo1_files/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="./demo1_files/github.min.css">
+  <script src="./demo1_files/jquery.min.js.download"></script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="http://mechanicious.github.io/domenu/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://mechanicious.github.io/domenu/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="http://mechanicious.github.io/domenu/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://mechanicious.github.io/domenu/favicon/favicon-16x16.png">
+  <link rel="manifest" href="http://mechanicious.github.io/domenu/favicon/manifest.json">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<div class="header">
+  <a href="http://mechanicious.github.io/domenu/#"><img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAsCAYAAAA0NKuuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AUkSYqIQkQSoghodkVUcERRUUEG8igiAOOjoCMFVEsDIoK2AfkIaKOg6OIisr74Xuja9a89+bN/rXXPues852zzwfACAyWSDNRNYAMqUIeEeCDx8TG4eQuQIEKJHAAEAizZCFz/SMBAPh+PDwrIsAHvgABeNMLCADATZvAMByH/w/qQplcAYCEAcB0kThLCIAUAEB6jkKmAEBGAYCdmCZTAKAEAGDLY2LjAFAtAGAnf+bTAICd+Jl7AQBblCEVAaCRACATZYhEAGg7AKzPVopFAFgwABRmS8Q5ANgtADBJV2ZIALC3AMDOEAuyAAgMADBRiIUpAAR7AGDIIyN4AISZABRG8lc88SuuEOcqAAB4mbI8uSQ5RYFbCC1xB1dXLh4ozkkXKxQ2YQJhmkAuwnmZGTKBNA/g88wAAKCRFRHgg/P9eM4Ors7ONo62Dl8t6r8G/yJiYuP+5c+rcEAAAOF0ftH+LC+zGoA7BoBt/qIl7gRoXgugdfeLZrIPQLUAoOnaV/Nw+H48PEWhkLnZ2eXk5NhKxEJbYcpXff5nwl/AV/1s+X48/Pf14L7iJIEyXYFHBPjgwsz0TKUcz5IJhGLc5o9H/LcL//wd0yLESWK5WCoU41EScY5EmozzMqUiiUKSKcUl0v9k4t8s+wM+3zUAsGo+AXuRLahdYwP2SycQWHTA4vcAAPK7b8HUKAgDgGiD4c93/+8//UegJQCAZkmScQAAXkQkLlTKsz/HCAAARKCBKrBBG/TBGCzABhzBBdzBC/xgNoRCJMTCQhBCCmSAHHJgKayCQiiGzbAdKmAv1EAdNMBRaIaTcA4uwlW4Dj1wD/phCJ7BKLyBCQRByAgTYSHaiAFiilgjjggXmYX4IcFIBBKLJCDJiBRRIkuRNUgxUopUIFVIHfI9cgI5h1xGupE7yAAygvyGvEcxlIGyUT3UDLVDuag3GoRGogvQZHQxmo8WoJvQcrQaPYw2oefQq2gP2o8+Q8cwwOgYBzPEbDAuxsNCsTgsCZNjy7EirAyrxhqwVqwDu4n1Y8+xdwQSgUXACTYEd0IgYR5BSFhMWE7YSKggHCQ0EdoJNwkDhFHCJyKTqEu0JroR+cQYYjIxh1hILCPWEo8TLxB7iEPENyQSiUMyJ7mQAkmxpFTSEtJG0m5SI+ksqZs0SBojk8naZGuyBzmULCAryIXkneTD5DPkG+Qh8lsKnWJAcaT4U+IoUspqShnlEOU05QZlmDJBVaOaUt2ooVQRNY9aQq2htlKvUYeoEzR1mjnNgxZJS6WtopXTGmgXaPdpr+h0uhHdlR5Ol9BX0svpR+iX6AP0dwwNhhWDx4hnKBmbGAcYZxl3GK+YTKYZ04sZx1QwNzHrmOeZD5lvVVgqtip8FZHKCpVKlSaVGyovVKmqpqreqgtV81XLVI+pXlN9rkZVM1PjqQnUlqtVqp1Q61MbU2epO6iHqmeob1Q/pH5Z/YkGWcNMw09DpFGgsV/jvMYgC2MZs3gsIWsNq4Z1gTXEJrHN2Xx2KruY/R27iz2qqaE5QzNKM1ezUvOUZj8H45hx+Jx0TgnnKKeX836K3hTvKeIpG6Y0TLkxZVxrqpaXllirSKtRq0frvTau7aedpr1Fu1n7gQ5Bx0onXCdHZ4/OBZ3nU9lT3acKpxZNPTr1ri6qa6UbobtEd79up+6Ynr5egJ5Mb6feeb3n+hx9L/1U/W36p/VHDFgGswwkBtsMzhg8xTVxbzwdL8fb8VFDXcNAQ6VhlWGX4YSRudE8o9VGjUYPjGnGXOMk423GbcajJgYmISZLTepN7ppSTbmmKaY7TDtMx83MzaLN1pk1mz0x1zLnm+eb15vft2BaeFostqi2uGVJsuRaplnutrxuhVo5WaVYVVpds0atna0l1rutu6cRp7lOk06rntZnw7Dxtsm2qbcZsOXYBtuutm22fWFnYhdnt8Wuw+6TvZN9un2N/T0HDYfZDqsdWh1+c7RyFDpWOt6azpzuP33F9JbpL2dYzxDP2DPjthPLKcRpnVOb00dnF2e5c4PziIuJS4LLLpc+Lpsbxt3IveRKdPVxXeF60vWdm7Obwu2o26/uNu5p7ofcn8w0nymeWTNz0MPIQ+BR5dE/C5+VMGvfrH5PQ0+BZ7XnIy9jL5FXrdewt6V3qvdh7xc+9j5yn+M+4zw33jLeWV/MN8C3yLfLT8Nvnl+F30N/I/9k/3r/0QCngCUBZwOJgUGBWwL7+Hp8Ib+OPzrbZfay2e1BjKC5QRVBj4KtguXBrSFoyOyQrSH355jOkc5pDoVQfujW0Adh5mGLw34MJ4WHhVeGP45wiFga0TGXNXfR3ENz30T6RJZE3ptnMU85ry1KNSo+qi5qPNo3ujS6P8YuZlnM1VidWElsSxw5LiquNm5svt/87fOH4p3iC+N7F5gvyF1weaHOwvSFpxapLhIsOpZATIhOOJTwQRAqqBaMJfITdyWOCnnCHcJnIi/RNtGI2ENcKh5O8kgqTXqS7JG8NXkkxTOlLOW5hCepkLxMDUzdmzqeFpp2IG0yPTq9MYOSkZBxQqohTZO2Z+pn5mZ2y6xlhbL+xW6Lty8elQfJa7OQrAVZLQq2QqboVFoo1yoHsmdlV2a/zYnKOZarnivN7cyzytuQN5zvn//tEsIS4ZK2pYZLVy0dWOa9rGo5sjxxedsK4xUFK4ZWBqw8uIq2Km3VT6vtV5eufr0mek1rgV7ByoLBtQFr6wtVCuWFfevc1+1dT1gvWd+1YfqGnRs+FYmKrhTbF5cVf9go3HjlG4dvyr+Z3JS0qavEuWTPZtJm6ebeLZ5bDpaql+aXDm4N2dq0Dd9WtO319kXbL5fNKNu7g7ZDuaO/PLi8ZafJzs07P1SkVPRU+lQ27tLdtWHX+G7R7ht7vPY07NXbW7z3/T7JvttVAVVN1WbVZftJ+7P3P66Jqun4lvttXa1ObXHtxwPSA/0HIw6217nU1R3SPVRSj9Yr60cOxx++/p3vdy0NNg1VjZzG4iNwRHnk6fcJ3/ceDTradox7rOEH0x92HWcdL2pCmvKaRptTmvtbYlu6T8w+0dbq3nr8R9sfD5w0PFl5SvNUyWna6YLTk2fyz4ydlZ19fi753GDborZ752PO32oPb++6EHTh0kX/i+c7vDvOXPK4dPKy2+UTV7hXmq86X23qdOo8/pPTT8e7nLuarrlca7nuer21e2b36RueN87d9L158Rb/1tWeOT3dvfN6b/fF9/XfFt1+cif9zsu72Xcn7q28T7xf9EDtQdlD3YfVP1v+3Njv3H9qwHeg89HcR/cGhYPP/pH1jw9DBY+Zj8uGDYbrnjg+OTniP3L96fynQ89kzyaeF/6i/suuFxYvfvjV69fO0ZjRoZfyl5O/bXyl/erA6xmv28bCxh6+yXgzMV70VvvtwXfcdx3vo98PT+R8IH8o/2j5sfVT0Kf7kxmTk/8EA5jz/GMzLdsAAEE9aVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/Pgo8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzA2NyA3OS4xNTc3NDcsIDIwMTUvMDMvMzAtMjM6NDA6NDIgICAgICAgICI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgICAgICAgICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICAgICAgICAgICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgICAgICAgICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgICAgICAgICAgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiCiAgICAgICAgICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxNSAoV2luZG93cyk8L3htcDpDcmVhdG9yVG9vbD4KICAgICAgICAgPHhtcDpDcmVhdGVEYXRlPjIwMTMtMDktMDhUMTc6MTc6MjUrMDI6MDA8L3htcDpDcmVhdGVEYXRlPgogICAgICAgICA8eG1wOk1ldGFkYXRhRGF0ZT4yMDE2LTAyLTI4VDE3OjAxOjIxKzAxOjAwPC94bXA6TWV0YWRhdGFEYXRlPgogICAgICAgICA8eG1wOk1vZGlmeURhdGU+MjAxNi0wMi0yOFQxNzowMToyMSswMTowMDwveG1wOk1vZGlmeURhdGU+CiAgICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2UvcG5nPC9kYzpmb3JtYXQ+CiAgICAgICAgIDx4bXBNTTpJbnN0YW5jZUlEPnhtcC5paWQ6NzcyZTk2MWItMDhhZC1iYjQ4LWIxNTQtNmNhMGUxZDZlZjhlPC94bXBNTTpJbnN0YW5jZUlEPgogICAgICAgICA8eG1wTU06RG9jdW1lbnRJRD5hZG9iZTpkb2NpZDpwaG90b3Nob3A6NzdhOWFkZTMtZGUzNC0xMWU1LWFmMjUtY2FlMDVmNzE5OWY2PC94bXBNTTpEb2N1bWVudElEPgogICAgICAgICA8eG1wTU06T3JpZ2luYWxEb2N1bWVudElEPnhtcC5kaWQ6RjY3REVBNDc5ODE4RTMxMThEQjhGMkEzRjNCMDZDQTQ8L3htcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD4KICAgICAgICAgPHhtcE1NOkhpc3Rvcnk+CiAgICAgICAgICAgIDxyZGY6U2VxPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmFjdGlvbj5jcmVhdGVkPC9zdEV2dDphY3Rpb24+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDppbnN0YW5jZUlEPnhtcC5paWQ6RjY3REVBNDc5ODE4RTMxMThEQjhGMkEzRjNCMDZDQTQ8L3N0RXZ0Omluc3RhbmNlSUQ+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDp3aGVuPjIwMTMtMDktMDhUMTc6MTc6MjUrMDI6MDA8L3N0RXZ0OndoZW4+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDpzb2Z0d2FyZUFnZW50PkFkb2JlIFBob3Rvc2hvcCBDUzUgV2luZG93czwvc3RFdnQ6c29mdHdhcmVBZ2VudD4KICAgICAgICAgICAgICAgPC9yZGY6bGk+CiAgICAgICAgICAgICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6YWN0aW9uPnNhdmVkPC9zdEV2dDphY3Rpb24+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDppbnN0YW5jZUlEPnhtcC5paWQ6Rjc3REVBNDc5ODE4RTMxMThEQjhGMkEzRjNCMDZDQTQ8L3N0RXZ0Omluc3RhbmNlSUQ+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDp3aGVuPjIwMTMtMDktMDhUMTc6MTg6MzArMDI6MDA8L3N0RXZ0OndoZW4+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDpzb2Z0d2FyZUFnZW50PkFkb2JlIFBob3Rvc2hvcCBDUzUgV2luZG93czwvc3RFdnQ6c29mdHdhcmVBZ2VudD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmNoYW5nZWQ+Lzwvc3RFdnQ6Y2hhbmdlZD4KICAgICAgICAgICAgICAgPC9yZGY6bGk+CiAgICAgICAgICAgICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6YWN0aW9uPnNhdmVkPC9zdEV2dDphY3Rpb24+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDppbnN0YW5jZUlEPnhtcC5paWQ6MGY3ZGNmOGEtZWQzOC03YzQ3LWJkZDAtMzIzOWU0YTI5NTEwPC9zdEV2dDppbnN0YW5jZUlEPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6d2hlbj4yMDE2LTAyLTI4VDE3OjAxOjIxKzAxOjAwPC9zdEV2dDp3aGVuPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6c29mdHdhcmVBZ2VudD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxNSAoV2luZG93cyk8L3N0RXZ0OnNvZnR3YXJlQWdlbnQ+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDpjaGFuZ2VkPi88L3N0RXZ0OmNoYW5nZWQ+CiAgICAgICAgICAgICAgIDwvcmRmOmxpPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmFjdGlvbj5jb252ZXJ0ZWQ8L3N0RXZ0OmFjdGlvbj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnBhcmFtZXRlcnM+ZnJvbSBhcHBsaWNhdGlvbi92bmQuYWRvYmUucGhvdG9zaG9wIHRvIGltYWdlL3BuZzwvc3RFdnQ6cGFyYW1ldGVycz4KICAgICAgICAgICAgICAgPC9yZGY6bGk+CiAgICAgICAgICAgICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6YWN0aW9uPmRlcml2ZWQ8L3N0RXZ0OmFjdGlvbj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnBhcmFtZXRlcnM+Y29udmVydGVkIGZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmc8L3N0RXZ0OnBhcmFtZXRlcnM+CiAgICAgICAgICAgICAgIDwvcmRmOmxpPgogICAgICAgICAgICAgICA8cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OmFjdGlvbj5zYXZlZDwvc3RFdnQ6YWN0aW9uPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6aW5zdGFuY2VJRD54bXAuaWlkOjc3MmU5NjFiLTA4YWQtYmI0OC1iMTU0LTZjYTBlMWQ2ZWY4ZTwvc3RFdnQ6aW5zdGFuY2VJRD4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OndoZW4+MjAxNi0wMi0yOFQxNzowMToyMSswMTowMDwvc3RFdnQ6d2hlbj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0OnNvZnR3YXJlQWdlbnQ+QWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpPC9zdEV2dDpzb2Z0d2FyZUFnZW50PgogICAgICAgICAgICAgICAgICA8c3RFdnQ6Y2hhbmdlZD4vPC9zdEV2dDpjaGFuZ2VkPgogICAgICAgICAgICAgICA8L3JkZjpsaT4KICAgICAgICAgICAgPC9yZGY6U2VxPgogICAgICAgICA8L3htcE1NOkhpc3Rvcnk+CiAgICAgICAgIDx4bXBNTTpEZXJpdmVkRnJvbSByZGY6cGFyc2VUeXBlPSJSZXNvdXJjZSI+CiAgICAgICAgICAgIDxzdFJlZjppbnN0YW5jZUlEPnhtcC5paWQ6MGY3ZGNmOGEtZWQzOC03YzQ3LWJkZDAtMzIzOWU0YTI5NTEwPC9zdFJlZjppbnN0YW5jZUlEPgogICAgICAgICAgICA8c3RSZWY6ZG9jdW1lbnRJRD5hZG9iZTpkb2NpZDpwaG90b3Nob3A6YWZiMDNmYjgtYTM4NS0xMWU1LTk1ZmUtZjEzMTgyYmQwNzQ4PC9zdFJlZjpkb2N1bWVudElEPgogICAgICAgICAgICA8c3RSZWY6b3JpZ2luYWxEb2N1bWVudElEPnhtcC5kaWQ6RjY3REVBNDc5ODE4RTMxMThEQjhGMkEzRjNCMDZDQTQ8L3N0UmVmOm9yaWdpbmFsRG9jdW1lbnRJRD4KICAgICAgICAgPC94bXBNTTpEZXJpdmVkRnJvbT4KICAgICAgICAgPHBob3Rvc2hvcDpDb2xvck1vZGU+MzwvcGhvdG9zaG9wOkNvbG9yTW9kZT4KICAgICAgICAgPHBob3Rvc2hvcDpJQ0NQcm9maWxlPnNSR0IgSUVDNjE5NjYtMi4xPC9waG90b3Nob3A6SUNDUHJvZmlsZT4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlvbj4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+NzIwMDAwLzEwMDAwPC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj43MjAwMDAvMTAwMDA8L3RpZmY6WVJlc29sdXRpb24+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDxleGlmOkNvbG9yU3BhY2U+MTwvZXhpZjpDb2xvclNwYWNlPgogICAgICAgICA8ZXhpZjpQaXhlbFhEaW1lbnNpb24+NTg8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+NDQ8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAKPD94cGFja2V0IGVuZD0idyI/PsbbS4UAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAAVRJREFUeNrsmjFrhEAQhT8lbdKffcj9+W0ugTtD/tOREFJoYYrMghzizRTBWXceDIjKsoPu8/Ox8KdnIAGfUknOzXUAXoEBmDasAXiT+QAwTdPdAngBrgsDXuVa1mXjBm/rYm00rQyWZo0OzhodLI028qo+saxv4DGPhz81udF7aqlELfCxcv19djw6m7t5PscVMzruyYyy8ybgSyrdOC5AJ0943LjBUebRWc2oeGnMqNHctAc9qDy8aXbhutV8XizSMHE2rjPw44CeeqCzWLOWiX1+igyNapnYJRerXFfMSMvELrk4zGhBWib2ycWGNaplYoCTszV6MgGxkolz7NI74eIeOFjMqGhVw7rVuG41v2mtgWE7Wdgect1+/uOtVeS6ketGrhu5blG5rj9+/adc1x2/Rq5bNQLWAvXBuhS0hyFYN1g3WDdYd5esG3sYKGAPw+8AZA47dRKCdD0AAAAASUVORK5CYII=" alt=""></a>
+  <h1>doMenu <sup>v0.100.77</sup></h1>
+  <div><span></span>
+    <span></span></div>
+  <p>Customized version of Nestable for back-end hierarchical menu creation </p>
+  <div class="menu-container">
+    <ul class="menu">
+      <li><a href="https://github.com/mechanicious/domenu/">Github Repository</a></li>
+      <li><a href="http://mechanicious.github.io/domenu/#quick-installation-guide">Quick Installation Guide</a></li>
+      <li><a href="http://mechanicious.github.io/domenu/#introduction">Introduction</a></li>
+      <li><a href="http://mechanicious.github.io/domenu/#options">Options</a></li>
+      <li><a href="http://mechanicious.github.io/domenu/#tokens-and-attributes">Tokens &amp; Attributes</a></li>
+      <li><a href="http://mechanicious.github.io/domenu/#quick-api">Quick API</a></li>
+      <!--<li><a href="">API</a></li>-->
+      <li><a href="https://github.com/mechanicious/domenu/archive/master.zip">Download (.zip)</a></li>
+    </ul>
+  </div>
+</div>
+<section>
+  <div class="dd" id="domenu-0" style="margin-left: 20%;">
+    <button class="dd-new-item">+</button>
+    <li class="dd-item-blueprint">
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">[item_name]</span>
+        <div class="dd-button-container">
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <div class="dd-edit-box" style="display: none;">
+          <input type="text" name="title" autocomplete="off" placeholder="Item" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li>
+    <ol class="dd-list"><li class="dd-item">
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Hi, drag me!</span>
+        <div class="dd-button-container">
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <div class="dd-edit-box" style="display: none;">
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li><li class="dd-item">
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">No! Wait, drag me instead!</span>
+        <div class="dd-button-container">
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <div class="dd-edit-box" style="display: none;">
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li></ol>
+  </div>
+</section>
+<script>
+  $(document).ready(function() {
+    $('#domenu-0').domenu({
+      data: '[{"title":"Hi, drag me!","customSelect":"select something...","select2ScrollPosition":{"x":0,"y":0}},{"title":"No! Wait, drag me instead!","customSelect":"http://test.com","select2ScrollPosition":{"x":0,"y":0}}]'
+    }).parseJson()
+  });
+</script>
+<section>
+  <h2 id="quick-installation-guide">Quick Installation Guide</h2>
+  <ol>
+    <li>Download the repository and unpack the <code>.js</code> and <code>.css</code> files.</li>
+    <li>Add tags (make sure they point to your files)
+      <pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"jquery.domenu-0.100.77.css"</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>...<br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"jquery.domenu-0.100.77.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre></li>
+    <li>Add the HTML template
+      <pre><code class="html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>...<br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dd"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"domenu-0"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dd-new-item"</span>&gt;</span>+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dd-item-blueprint"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">data-action</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span>&gt;</span>–<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expand"</span> <span class="hljs-attr">data-action</span>=<span class="hljs-string">"expand"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span>&gt;</span>+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dd-handle dd3-handle"</span>&gt;</span>Drag<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dd3-content"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item-name"</span>&gt;</span>[item_name]<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dd-button-container"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item-add"</span>&gt;</span>+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item-remove"</span> <span class="hljs-attr">data-confirm-class</span>=<span class="hljs-string">"item-remove-confirm"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dd-edit-box"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"title"</span> <span class="hljs-attr">autocomplete</span>=<span class="hljs-string">"off"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Item"</span></span><br><span class="hljs-tag">               <span class="hljs-attr">data-placeholder</span>=<span class="hljs-string">"Any nice idea for the title?"</span></span><br><span class="hljs-tag">               <span class="hljs-attr">data-default-value</span>=<span class="hljs-string">"doMenu List Item. {?numeric.increment}"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"end-edit"</span>&gt;</span>save<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dd-list"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>...<br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+    </li>
+    <li>
+      Add the initialization code
+      <pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</span><br><span class="javascript">  $(<span class="hljs-string">'#domenu-0'</span>).domenu({</span><br><span class="javascript">    data: <span class="hljs-string">'[{"title":"Hi, drag me!","customSelect":"select something...","select2ScrollPosition":{"x":0,"y":0}},{"title":"No! Wait, drag me instead!","customSelect":"http://test.com","select2ScrollPosition":{"x":0,"y":0}}]'</span></span><br><span class="javascript">  }).parseJson()</span><br><span class="javascript">});</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+    </li>
+    <li>You're done!</li>
+  </ol>
+</section>
+<section>
+  <h2 id="introduction">Introduction</h2>
+  <p class="desc">This example represents an integrated <a href="http://mechanicious.github.io/domenu/#user-menu">doMenu instance</a> with <code>Select2</code>.
+                  This instance of doMenu takes advantage of the robust customization
+                  capabilities of the plugin where we have created a custom edit button, created custom input fields and integrated Select2.
+                  Try opening your <code>browser console</code> to see a log of the fired events.
+  </p>
+  <p>Things to try out:</p>
+  <ol>
+    <li>Drag (using gray handle on the left) the second list item named <code>Settings</code> horizontally to the right to make it a child of <code>Account</code>
+      <span class="info">To unset a child drag it horizontally to the left.</span>
+    </li>
+    <li>Now you should be able to collapse and expand <code>Account</code> by clicking on <code>–</code> and <code>+</code>
+        respectively, next to the item's name. <span class="info">In your HTML markup you might change the appearance of the button editing
+        the <code>.dd-item-blueprint</code> template.</span>
+      <pre><code class="hljs javascript">&lt;button <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"expand"</span> data-action=<span class="hljs-string">"expand"</span> type=<span class="hljs-string">"button"</span> style=<span class="hljs-string">"display: none;"</span>&gt;+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></code></pre></li>
+    <li>Hover your mouse cursor over the <code>Settings</code> list item and click on the pencil button on the right to enter the <code>edit mode</code>.
+      <span class="info">You might also click directly on the item's name to enter the edit mode.</span>
+    </li>
+    <li>Click on the select and enter a custom URL press the <code>enter key</code> to confirm. Then click on <code>save</code> and observe on the right how the doMenu generated JSON changes.
+      <span class="info">In the <code>edit mode</code> you can specify the values for the input fields as specified in your <code>.dd-item-blueprint</code> template. Currently we have specified
+    one <code>text input</code> for the title of the item and an additional <code>select input</code> named <code>custom-select</code> for everything else.
+    Using integrated <code>Select2</code> with <code>tags</code> turned on you can create new options in realtime.</span>
+      <pre><code class="html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"custom-select"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>select something...<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">optgroup</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Pages"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span>http://example.com/page/1<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    ...<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">optgroup</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">optgroup</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Categories"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3"</span>&gt;</span>News<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    ...<br>  <span class="hljs-tag">&lt;/<span class="hljs-name">optgroup</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span></code></pre></li>
+    <li>Drag an item from <code>User menu</code> to the <code>Shop menu</code>.
+      <span class="info">You can mix items from different instances together, doMenu will handle that.</span>
+    </li>
+    <li>Have fun with doMenu.</li>
+  </ol>
+  <h3 id="user-menu">User menu</h3>
+  <div class="dd" id="domenu-1">
+    <button id="domenu-add-item-btn" class="dd-new-item">+</button>
+    <!-- .dd-item-blueprint is a template for all .dd-item's -->
+    <li class="dd-item-blueprint">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">[item_name]</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="custom-button-example">✎</button>
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Item" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          </select>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li>
+
+    <ol class="dd-list"><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Account</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="custom-button-example">✎</button>
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select" style="width: 45%;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 45%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-custom-select-u6-container"><span class="select2-selection__rendered" id="select2-custom-select-u6-container" title="select something...">select something...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Settings</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="custom-button-example">✎</button>
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select" style="width: 45%;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 45%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-custom-select-02-container"><span class="select2-selection__rendered" id="select2-custom-select-02-container" title="select something...">select something...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Call</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="custom-button-example">✎</button>
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select" style="width: 45%;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 45%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-custom-select-77-container"><span class="select2-selection__rendered" id="select2-custom-select-77-container" title="select something...">select something...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Support</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="custom-button-example">✎</button>
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select" style="width: 45%;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 45%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-custom-select-8q-container"><span class="select2-selection__rendered" id="select2-custom-select-8q-container" title="select something...">select something...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Email</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="custom-button-example">✎</button>
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select" style="width: 45%;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 45%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-custom-select-id-container"><span class="select2-selection__rendered" id="select2-custom-select-id-container" title="select something...">select something...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Orders</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="custom-button-example">✎</button>
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select" style="width: 45%;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 45%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-custom-select-ds-container"><span class="select2-selection__rendered" id="select2-custom-select-ds-container" title="select something...">select something...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Manage</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="custom-button-example">✎</button>
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select" style="width: 45%;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 45%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-custom-select-8v-container"><span class="select2-selection__rendered" id="select2-custom-select-8v-container" title="select something...">select something...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Settings</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="custom-button-example">✎</button>
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select" style="width: 45%;" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 45%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-custom-select-qb-container"><span class="select2-selection__rendered" id="select2-custom-select-qb-container" title="select something...">select something...</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li></ol>
+  </div>
+
+  <div id="domenu-1-output" class="output-preview-container">
+    <h4>JSON Output Preview (User menu)</h4>
+    <textarea style="width: 100%; min-height: 300px;" name="jsonOutput" class="jsonOutput"></textarea>
+    <input type="checkbox" name="keepchages" class="keepChanges" checked=""> Keep changes after page reload (localStorage)
+    <br><br>
+    <input style="display:none;" type="button" name="clearLocalStorage" class="clearLocalStorage" value="Reset demo">
+  </div>
+</section>
+
+<script>
+  $(document).ready(function() {
+    var $domenu            = $('#domenu-1'),
+        domenu             = $('#domenu-1').domenu(),
+        $outputContainer   = $('#domenu-1-output'),
+        $jsonOutput        = $outputContainer.find('.jsonOutput'),
+        $keepChanges       = $outputContainer.find('.keepChanges'),
+        $clearLocalStorage = $outputContainer.find('.clearLocalStorage');
+
+    $domenu.domenu({
+        slideAnimationDuration: 0,
+        allowListMerging: ['domenu-2'],
+        select2:                {
+          support: true,
+          params:  {
+            tags: true
+          }
+        },
+        data:                   window.localStorage.getItem('domenu-1Json') || '[{"title":"Account","customSelect":"select something...","select2ScrollPosition":{"x":0,"y":0}},{"title":"Settings","customSelect":"select something...","select2ScrollPosition":{"x":0,"y":0}},{"title":"Call","customSelect":"select something..."},{"title":"Support","customSelect":"select something..."},{"title":"Email","customSelect":"select something..."},{"title":"Orders","customSelect":"select something..."},{"title":"Manage","customSelect":"select something..."},{"title":"Settings","customSelect":"select something..."}]'
+      })
+      // Example: initializing functionality of a custom button #21
+      .onCreateItem(function(blueprint) {
+        // We look with jQuery for our custom button we denoted with class "custom-button-example"
+        // Note 1: blueprint holds a reference of the element which is about to be added the list
+        var customButton = $(blueprint).find('.custom-button-example');
+
+        // Here we define our custom functionality for the button,
+        // we will forward the click to .dd3-content span and let
+        // doMenu handle the rest
+        customButton.click(function() {
+          blueprint.find('.dd3-content span').first().click();
+        });
+      })
+      // Now every element which will be parsed will go through our onCreateItem event listener, and therefore
+      // initialize the functionality our custom button
+      .parseJson()
+      .on(['onItemCollapsed', 'onItemExpanded', 'onItemAdded', 'onSaveEditBoxInput', 'onItemDrop', 'onItemDrag', 'onItemRemoved', 'onItemEndEdit'], function(a, b, c) {
+        $jsonOutput.val(domenu.toJson());
+        if($keepChanges.is(':checked')) window.localStorage.setItem('domenu-1Json', domenu.toJson());
+      })
+      .onToJson(function() {
+        if(window.localStorage.length) $clearLocalStorage.show();
+      });
+
+    // Console event examples
+    domenu.on('*', function(a, b, c) {
+        console.log('event:', '*', 'arguments:', arguments, 'context:', this);
+      })
+      .onParseJson(function() {
+        console.log('event: onFromJson', 'arguments:', arguments, 'context:', this);
+      })
+      .onToJson(function() {
+        console.log('event: onToJson', 'arguments:', arguments, 'context:', this);
+      })
+      .onSaveEditBoxInput(function() {
+        console.log('event: onSaveEditBoxInput', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemDrag(function() {
+        console.log('event: onItemDrag', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemDrop(function() {
+        console.log('event: onItemDrop', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemAdded(function() {
+        console.log('event: onItemAdded', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemCollapsed(function() {
+        console.log('event: onItemCollapsed', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemExpanded(function() {
+        console.log('event: onItemExpanded', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemRemoved(function() {
+        console.log('event: onItemRemoved', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemStartEdit(function() {
+        console.log('event: onItemStartEdit', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemEndEdit(function() {
+        console.log('event: onItemEndEdit', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemAddChildItem(function() {
+        console.log('event: onItemAddChildItem', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemAddChildItem(function() {
+        console.log('event: onItemAddChildItem', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemAddChildItem(function() {
+        console.log('event: onItemAddChildItem', 'arguments:', arguments, 'context:', this);
+      })
+      .onItemAddChildItem(function() {
+        console.log('event: onItemAddChildItem', 'arguments:', arguments, 'context:', this);
+      });
+
+    if(window.localStorage.length) $clearLocalStorage.show();
+
+
+    $clearLocalStorage.click(function() {
+      if(true) window.localStorage.clear();
+      if(!window.localStorage.length) $clearLocalStorage.hide();
+      // Part of the reset demo routine
+      window.location.reload();
+    });
+
+    // Init textarea
+    $jsonOutput.val(domenu.toJson());
+    $keepChanges.on('click', function() {
+      if(!$keepChanges.is(':checked')) window.localStorage.setItem('domenu-1KeepChanges', false);
+      if($keepChanges.is(':checked')) window.localStorage.setItem('domenu-1KeepChanges', true);
+    });
+
+    if(window.localStorage.getItem('domenu-1KeepChanges') === "false") $keepChanges.attr('checked', false);
+  });
+</script>
+<section>
+  <h3>Shop menu</h3>
+  <p>Here is an example of a doMenu instance with just few custom input fields added. Everything else comes out of the
+     box with doMenu.</p>
+  <div class="dd" id="domenu-2">
+    <button class="dd-new-item">+</button>
+    <!-- .dd-item-blueprint is a template for all .dd-item's -->
+    <li class="dd-item-blueprint">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">[item_name]</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Item" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          </select>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li>
+    <ol class="dd-list"><li class="dd-item"><div class="dd-handle dd3-handle">Drag</div>
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      
+      <div class="dd3-content">
+        <span class="item-name">Another list</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    <ol class="dd-list"><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">News</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Categories</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2" selected="selected">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          </select>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li></ol></li><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">Check</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li><li class="dd-item">
+      <!-- @migrating-from 0.48.59 button container -->
+      <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+      <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+      <div class="dd-handle dd3-handle">Drag</div>
+      <div class="dd3-content">
+        <span class="item-name">New</span>
+        <!-- @migrating-from 0.13.29 button container-->
+        <!-- .dd-button-container will hide once an item enters the edit mode -->
+        <div class="dd-button-container">
+          <!-- @migrating-from 0.13.29 add button-->
+          <button class="item-add">+</button>
+          <button class="item-remove" data-confirm-class="item-remove-confirm">×</button>
+        </div>
+        <!-- Inside of .dd-edit-box you can add your custom input fields -->
+        <div class="dd-edit-box" style="display: none;">
+          <!-- data-placeholder has a higher priority than placeholder -->
+          <!-- data-placeholder can use token-values; when not present will be set to "" -->
+          <!-- data-default-value specifies a default value for the input; when not present will be set to "" -->
+          <input type="text" name="title" autocomplete="off" placeholder="Any nice idea for the title?" data-placeholder="Any nice idea for the title?" data-default-value="doMenu List Item. {?numeric.increment}">
+          <select name="custom-select">
+            <option>select something...</option>
+            <optgroup label="Pages">
+              <option value="1">http://example.com/page/1</option>
+              <option value="2">http://example.com/page/2</option>
+            </optgroup>
+            <optgroup label="Categories">
+              <option value="3">News</option>
+              <option value="4">Stories</option>
+            </optgroup>
+          <option value="select something...">select something...</option></select>
+          <!-- @migrating-from 0.13.29 an element ".end-edit" within ".dd-edit-box" exists the edit mode on click -->
+          <i class="end-edit">save</i>
+        </div>
+      </div>
+    </li></ol>
+  </div>
+  <div id="domenu-2-output" class="output-preview-container">
+    <h4>JSON Output Preview (Shop menu)</h4>
+    <textarea style="width: 100%; min-height: 300px;" name="jsonOutput" class="jsonOutput"></textarea>
+    <input type="checkbox" name="keepchages" class="keepChanges" checked=""> Keep changes after page reload (localStorage)
+    <br><br>
+    <input style="display:none;" type="button" name="clearLocalStorage" class="clearLocalStorage" value="Reset demo">
+  </div>
+</section>
+
+<script>
+  $(document).ready(function() {
+    var $domenu            = $('#domenu-2'),
+        domenu             = $('#domenu-2').domenu(),
+        $outputContainer   = $('#domenu-2-output'),
+        $jsonOutput        = $outputContainer.find('.jsonOutput'),
+        $keepChanges       = $outputContainer.find('.keepChanges'),
+        $clearLocalStorage = $outputContainer.find('.clearLocalStorage');
+
+    $('#domenu-2').domenu({
+        slideAnimationDuration: 0,
+        allowListMerging: ['domenu-1'],
+        data:                   window.localStorage.getItem('domenu-2Json') || '[{"id":11,"title":"Another list","http":"","superselect":"2","customSelect":"select something...","children":[{"id":10,"title":"News","http":"","superselect":"1","customSelect":"select something..."},{"id":9,"title":"Categories","http":"","superselect":"1","customSelect":"2"}]},{"title":"Check","customSelect":"select something..."},{"title":"New","customSelect":"select something..."}]'
+      })
+      .parseJson()
+      .on(['onItemCollapsed', 'onItemExpanded', 'onItemAdded', 'onSaveEditBoxInput', 'onItemDrop', 'onItemDrag', 'onItemRemoved', 'onItemEndEdit'], function(a, b, c) {
+        $jsonOutput.val(domenu.toJson());
+        if($keepChanges.is(':checked')) window.localStorage.setItem('domenu-2Json', domenu.toJson());
+      })
+      .onToJson(function() {
+        if(window.localStorage.length) $clearLocalStorage.show();
+      });
+
+    $clearLocalStorage.click(function() {
+      window.localStorage.clear();
+      if(!window.localStorage.length) $clearLocalStorage.hide();
+      // Part of the reset demo routine
+      window.location.reload();
+    });
+
+    // Init textarea
+    $jsonOutput.val(domenu.toJson());
+    $keepChanges.on('click', function() {
+      if(!$keepChanges.is(':checked')) window.localStorage.setItem('domenu-2KeepChanges', false);
+      if($keepChanges.is(':checked')) window.localStorage.setItem('domenu-2KeepChanges', true);
+    });
+
+    if(window.localStorage.getItem('domenu-2KeepChanges') === "false") $keepChanges.attr('checked', false);
+  });
+</script>
+<section>
+  <h2 id="options">Options</h2>
+  <p>Specify your options to the <code>domenu(options)</code> call e.g.:
+  </p><pre><code class="hljs javascript">$(<span class="hljs-string">'#domenu-0'</span>).domenu({<br> listNodeName: <span class="hljs-string">'ol'</span>,<br> itemNodeName: <span class="hljs-string">'li'</span>,<br> rootClass: <span class="hljs-string">'dd'</span>,<br>
+             listClass: <span class="hljs-string">'dd-list'</span>,<br> itemClass: <span class="hljs-string">'dd-item'</span>,<br> ...<br>})</code></pre>
+  <p></p>
+  <h3>Default options</h3>
+  <p>Options supplied to a doMenu instance by default.</p>
+  <pre><code class="js hljs javascript">
+    {
+      listNodeName:           <span class="hljs-string">'ol'</span>,
+      itemNodeName:           <span class="hljs-string">'li'</span>,
+      rootClass:              <span class="hljs-string">'dd'</span>,
+      listClass:              <span class="hljs-string">'dd-list'</span>,
+      itemClass:              <span class="hljs-string">'dd-item'</span>,
+      itemBlueprintClass:     <span class="hljs-string">'dd-item-blueprint'</span>,
+      dragClass:              <span class="hljs-string">'dd-dragel'</span>,
+      handleClass:            <span class="hljs-string">'dd-handle'</span>,
+      collapsedClass:         <span class="hljs-string">'dd-collapsed'</span>,
+      placeClass:             <span class="hljs-string">'dd-placeholder'</span>,
+      noDragClass:            <span class="hljs-string">'dd-nodrag'</span>, <span class="hljs-comment">// Items with this class will be undraggable</span>
+      emptyClass:             <span class="hljs-string">'dd-empty'</span>,
+      contentClass:           <span class="hljs-string">'dd3-content'</span>,
+      itemAddBtnClass:        <span class="hljs-string">'item-add'</span>,
+      removeBtnClass:         <span class="hljs-string">'item-remove'</span>,
+      itemRemoveBtnConfirmClass: <span class="hljs-string">'confirm-class'</span>,
+      addBtnSelector:         <span class="hljs-string">''</span>, <span class="hljs-comment">// Provide a global selector for an add button</span>
+      addBtnClass:            <span class="hljs-string">'dd-new-item'</span>,
+      editBoxClass:           <span class="hljs-string">'dd-edit-box'</span>,
+      inputSelector:          <span class="hljs-string">'input, select, textarea'</span>, <span class="hljs-comment">// Selects input fields to serialize to JSON</span>
+      collapseBtnClass:       <span class="hljs-string">'collapse'</span>,
+      expandBtnClass:         <span class="hljs-string">'expand'</span>,
+      endEditBtnClass:        <span class="hljs-string">'end-edit'</span>,
+      itemBtnContainerClass:  <span class="hljs-string">'dd-button-container'</span>,
+      itemNameClass:          <span class="hljs-string">'item-name'</span>,
+
+      data:                   <span class="hljs-string">''</span>, <span class="hljs-comment">// JSON data to build an instance from (don't forget to call parseJson)</span>
+      allowListMerging:       <span class="hljs-literal">false</span>,  <span class="hljs-comment">// Accept incoming items from foreign lists e.g:</span>
+                                      <span class="hljs-comment">// true – accept all</span>
+                                      <span class="hljs-comment">// false – deny all</span>
+                                      <span class="hljs-comment">// ['domenu-2'] – accept from instances matching #domenu-2</span>
+      select2: {
+
+        support:     <span class="hljs-literal">false</span>, <span class="hljs-comment">// Enable Select2 support</span>
+        selectWidth: <span class="hljs-string">'45%'</span>, <span class="hljs-comment">// Any CSS-supported value is valid</span>
+        params:      {}     <span class="hljs-comment">// Provide Select2 params</span>
+      },
+      slideAnimationDuration: <span class="hljs-number">0</span>,
+      maxDepth:               <span class="hljs-number">5</span>,    <span class="hljs-comment">// Item nesting limit</span>
+      threshold:              <span class="hljs-number">20</span>,   <span class="hljs-comment">// Dragging sensitivity</span>
+      refuseConfirmDelay:     <span class="hljs-number">2000</span>, <span class="hljs-comment">// Time (in ms) to wait on confirmation of an item removal</span>
+      newItemFadeIn:          <span class="hljs-number">350</span>,  <span class="hljs-comment">// Set 0 for no fadeIn effect</span>
+      event:                  {
+        onToJson:           [],
+        onParseJson:        [],
+        onSaveEditBoxInput: [],
+        onItemDrag:         [],
+        onItemAddChildItem: [],
+        onItemDrop:         [],
+        onItemAdded:        [],
+        onItemExpanded:     [],
+        onItemCollapsed:    [],
+        onItemRemoved:      [],
+        onItemStartEdit:    [],
+        onItemEndEdit:      [],
+        onCreateItem:       [],
+        onItemMaxDepth:     [],
+        onItemSetParent:    [],
+        onItemUnsetParent:  []
+      },
+      paramsDataKey:          <span class="hljs-string">'__domenu_params'</span> <span class="hljs-comment">// The property under which internal settings will be serialized</span>
+    }
+  </code></pre>
+</section>
+<section>
+  <h2 id="tokens-and-attributes">Tokens &amp; Attributes</h2>
+  <p>Tokens and attributes work together to supply you with precomputed variables which you might use with your input
+     fields.</p>
+  <h3>Tokens</h3>
+  <p>Use tokens inside of your attributes e.g. <code>data-placeholder</code> and <code>data-default-value</code>. E.g.:
+  </p>
+  <pre><code class="hljs cs">&lt;input type=<span class="hljs-string">"text"</span> name=<span class="hljs-string">"title"</span> placeholder=<span class="hljs-string">"Item"</span> data-placeholder=<span class="hljs-string">"Item {?numeric.increment}"</span> data-<span class="hljs-keyword">default</span>-<span class="hljs-keyword">value</span>=<span class="hljs-string">"Item {?numeric.increment}"</span>&gt;  </code></pre>
+  <ul>
+    <li><code>{?date.gregorian-slashed-DMY}</code> current date in gregorian DMY format</li>
+    <li><code>{?date.mysql-datetime}</code> valid MySQL datetime format</li>
+    <li><code>{?numeric.increment}</code> increments itself and outputs a number</li>
+    <li><code>{?value}</code> current value of the input</li>
+  </ul>
+  <h3>Attributes</h3>
+  <p>Adding attributes to your input fields allows you to make them more dynamic.</p>
+  <ul>
+    <li><code>data-placeholder</code> works like the <code>placeholder</code> attribute but has a higher priority and
+                                      supports <code>Tokens</code></li>
+    <li><code>data-default-value</code> the value of this attribute will be used by <code>toJson</code> as a default
+      <code>value</code> when no user supplied <code>value</code> is present
+    </li>
+  </ul>
+</section>
+<section>
+  <h2 id="quick-api">Quick API</h2>
+  <p>Access the <code>PublicPlugin</code> API with:
+  </p><pre><code class="hljs javascript">$(<span class="hljs-string">'#your-domenu-element'</span>).domenu()</code></pre>
+  <p></p>
+  <h3>Usage example</h3>
+  <pre><code class="hljs javascript">$(<span class="hljs-string">'#domenu-0'</span>).domenu().onItemAdded(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  alert(<span class="hljs-string">'An item has been added'</span>);
+});</code></pre>
+  <h3>Quick overview</h3>
+  <ul class="quick-api">
+    <li>
+      <pre><code class="c hljs cpp"><span class="hljs-function"><span class="hljs-built_in">array</span> <span class="hljs-title">getLists</span><span class="hljs-params">()</span></span></code></pre>
+      <p>Returns the doMenu instance <code>list element</code>.</p></li>
+    <li>
+      <h3>parseJson(string jsonData[, bool override = false])</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">parseJson</span><span class="hljs-params">(<span class="hljs-built_in">string</span> data[, <span class="hljs-keyword">bool</span> override = <span class="hljs-literal">false</span>])</span></span></code></pre>
+      <p>Converts JSON output to a doMenu instance. <code>jsonData</code> takes valid JSON as argument. If <code>override</code>
+      is set to <code>true</code> then the current <cdoe>jsonData</cdoe> will replace the current list items. If <code>override</code>
+         is set to <code>false</code> then the current <cdoe>jsonData</cdoe> be appended to the current list.</p></li>
+    <li>
+      <h3>toJson()</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">toJson</span><span class="hljs-params">()</span></span></code></pre>
+      <p>Serializes the instance and returns it as JSON.</p></li>
+    <li>
+      <h3>expandAll()</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">expandAll</span><span class="hljs-params">()</span></span></code></pre>
+      <p>Expands all items in a recursive fashion.</p></li>
+    <li>
+      <h3>collapseAll()</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">collapseAll</span><span class="hljs-params">()</span></span></code></pre>
+      <p>Collapses all items in a recursive fashion.</p></li>
+    <li>
+      <h3>expand(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">expand</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>The <code>callback</code> takes <code>item element</code> as argument.
+         If the <code>callback</code> will return <code>true</code> then the
+         item will get expanded.</p></li>
+    <li>
+      <h3>collapse(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">collapse</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>The <code>callback</code> takes <code>item element</code> as argument.
+         If the callback will return <code>true</code> then the
+         item will get collapsed.</p></li>
+    <li>
+      <h3>onParseJson(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onParseJson</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after the <code>parseJson()</code> call.</p></li>
+    <li>
+      <h3>onToJson(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onToJson</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after a <code>toJson()</code> call.</p></li>
+    <li>
+      <h3>onSaveEditBoxInput(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onSaveEditBoxInput</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after the input fields are saved just before exiting the <code>edit mode</code>. The
+        <code>callback</code> takes <code>jQuery $item</code>
+         of the item being edited and <code>array inputCollection</code> containing input fields of the item being
+         edited as arguments.</p></li>
+    <li>
+      <h3>onItemDrag(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemDrag</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after an item has been dragged. The <code>callback</code> takes <code>jQuery $item</code> of
+         the item being dragged as argument.</p></li>
+    <li>
+      <h3>onItemDrop(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemDrop</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after an item has been dropped. The <code>callback</code> takes <code>jQuery $item</code> of
+         the item being dropped as argument.</p></li>
+    
+    <li>
+      <h3>onItemAdded(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemAdded</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after an item has been added. The <code>callback</code> takes <code>jQuery $item</code> of the
+         added item as argument.</p></li>
+    
+    <li>
+      <h3>onItemRemoved(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemRemoved</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after an item has been removed. The <code>callback</code> takes <code>jQuery $item</code> of
+         the removed item and <code>int id</code> as first and second argument respectively–where <code>int id</code> is the id of removed item.</p></li>
+    
+    <li>
+      <h3>onItemStartEdit(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemStartEdit</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after an item has entered the <code>edit mode</code>. The <code>callback</code> takes <code>jQuery
+                                                                                                           $item</code>
+         of the item in <code>edit mode</code> as argument.</p></li>
+    
+    <li>
+      <h3>onItemEndEdit(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemEndEdit</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after an item has exited the <code>edit mode</code>. The <code>callback</code> takes <code>jQuery $item</code>
+         of the item exiting <code>edit mode</code> as argument.</p></li>
+    
+    <li>
+      <h3>onItemAddChildItem(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemAddChildItem</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after an item has added an item. The <code>callback</code> takes <code>jQuery $item</code> of
+         the added item as argument.</p></li>
+    
+    <li>
+      <h3>onCreateItem(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onCreateItem</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires just before an item has been created. The <code>callback</code> takes <code>jQuery $item</code>
+         of the item which is being created as argument.</p></li>
+    
+    <li>
+      <h3>onItemCollapsed(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemCollapsed</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after an item has been collapsed. The <code>callback</code> takes <code>jQuery $item</code> of
+         the item which has been collapsed as argument.</p></li>
+    
+    <li>
+      <h3>onItemExpanded(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemExpanded</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after an item has been expanded. The <code>callback</code> takes <code>jQuery $item</code> of
+         the item which has been expanded as argument.</p></li>
+    
+    <li>
+      <h3>onItemMaxDepth(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemMaxDepth</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires when the max depth of an item prevents nesting additional children. The <code>callback</code> takes
+        <code>jQuery $item</code> of the item which is being dragged as argument.</p></li>
+    
+    <li>
+      <h3>onItemSetParent(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemSetParent</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after an item becomes a parent. The <code>callback</code> takes <code>jQuery $item</code> of
+         the item which has become a parent as argument.</p></li>
+    
+    <li>
+      <h3>onItemUnsetParent(callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">onItemUnsetParent</span><span class="hljs-params">(callback)</span></span></code></pre>
+      <p>Fires after a parent item becomes an item without child items. The <code>callback</code> takes <code>jQuery
+                                                                                                              $item</code>
+         of the parent item as argument.</p></li>
+    
+    <li>
+      <h3>on(eventBag, callback)</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">PublicPlugin <span class="hljs-title">on</span><span class="hljs-params">(eventBag, callback)</span></span></code></pre>
+      <p>Allows you to setup a callback for multiple events. <code>string || array || '*' eventBag</code> carries the
+         name of the events you want the <code>callback</code> to
+         be subscribed to. <code>'*'</code> will subscribe the callback for all events. <code>function callback</code>
+         the function to be applied on the subscribed set of events after an event fires.</p>
+      <h4>Example</h4>
+      <pre><code class="c hljs cpp">.on([<span class="hljs-string">'onItemCollapsed'</span>, <span class="hljs-string">'onItemExpanded'</span>], function(a, b, c) {
+  $jsonOutput.val(domenu.toJson());
+  <span class="hljs-keyword">if</span>($keepChanges.is(<span class="hljs-string">':checked'</span>)) window.localStorage.setItem(<span class="hljs-string">'domenu-2Json'</span>, domenu.toJson());
+});</code></pre>
+      <p>Register an event listener for <code>onItemCollapsed</code> and <code>onItemExpanded</code>.</p>
+    </li>
+    <li>
+      <h3>getListNodes()</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function"><span class="hljs-built_in">array</span> <span class="hljs-title">getListNodes</span><span class="hljs-params">()</span></span></code></pre>
+      <p>Returns all elements within the doMenu instance of type <code>listNodeName</code></p>
+    </li>
+    <li>
+      <h3>getPluginOptions()</h3>
+      <pre><code class="c hljs cpp"><span class="hljs-function">Object <span class="hljs-title">getPluginOptions</span><span class="hljs-params">()</span></span></code></pre>
+      <p>Returns the current set of options of a doMenu instance.</p>
+    </li>
+  </ul>
+</section>
+<section style="margin-top: 150px;">
+  <span></span>
+  <span></span>
+  <br><br>
+  <a href="https://pledgie.com/campaigns/31198"><img alt="Click here to lend your support to: doMenu Donations and make a donation at pledgie.com !" src="https://pledgie.com/campaigns/31198.png?skin_name=chrome" border="0"></a>
+  <p class="small">Copyright © 2015-2016 Mateusz Zawartka (<a href="https://github.com/mechanicious">Github</a>
+    <span></span>,
+    <a href="https://www.behance.net/mechanicious">Behance</a>) | MIT Licensed
+    <br>
+                   Build upon Nestable from <a href="http://dbushell.com/">David Bushell</a></p></section>
+<script src="./demo1_files/jquery.domenu-0.100.77.min.js.download"></script>
+<script src="./demo1_files/select2.min.js.download"></script>
+<script src="./demo1_files/highlight.min.js.download"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script async="" defer="" id="github-bjs" src="./demo1_files/buttons.js.download"></script>
+
+
+<iframe class="searchbar8546186567310434" src="./demo1_files/saved_resource.html" scrolling="no" style="border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; display: none; position: fixed; z-index: 2147483646; top: 0px; bottom: auto; left: auto; right: 0px; height: 40px; width: 100%;"></iframe><bdi class="searchbar8546186567310434" style="border: 1px solid rgb(176, 176, 176); margin: 0px; padding: 2px; outline: 0px; vertical-align: baseline; display: none; position: fixed; height: auto; width: auto; z-index: 2147483647; background: none rgb(255, 255, 255); max-height: none; max-width: none; min-height: 0px;"><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi></bdi><iframe class="searchbar8546186567310434" src="./demo1_files/saved_resource(1).html" scrolling="no" style="border: 0px; margin: -186px 0px 0px -202px; padding: 0px; outline: 0px; vertical-align: baseline; display: none; position: fixed; top: 50%; left: 50%; z-index: 2147483645; border-radius: 5px;"></iframe></body><style>@media print{.searchbar8546186567310434{display:none!important;}}</style></html>

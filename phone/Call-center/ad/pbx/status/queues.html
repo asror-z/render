@@ -1,0 +1,273 @@
+<?php
+include("../../config.php");
+?>
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Asterisk RealTime Interface">
+    <meta name="author" content="info@asterisk-pbx.ru">
+    <meta http-equiv="cache-control" content="max-age=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta http-equiv="pragma" content="no-cache">
+    <link rel="icon" href="../../img/favicon.ico">
+    <title>Queues</title>
+    <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
+    <script src="../../jquery/dist/jquery.min.js"></script>
+    <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../js/handlebars.js"></script>
+    <script src="../../js/func.js"></script>
+    <script src="../../js/locale.js"></script>
+    <script src="../../js/helpers.js"></script>
+    <script>
+    $(function() {
+        var theTemplateScript = $("#nav-template").html();
+        var theTemplate = Handlebars.compile(theTemplateScript);
+        var theCompiledHtml = theTemplate(window.locale);
+        $('.nav-placeholder').html(theCompiledHtml);
+    });
+    
+    function guid() {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
+        return s4() + s4();
+    }
+
+
+function queuePause(id, state) {
+    $.ajax({
+        url: 'ajam.php',
+        method: 'POST',
+        data: 'Action=QueuePause&ActionId=' + guid() + '&Interface=' + id + '&Paused=' + state,
+        success: function(data) {
+            $('#test').html(data);
+        }
+    });
+}
+
+
+$(function getQueueSummary() {
+    $(function() {
+        $.ajax({
+            type: 'POST',
+            url: 'ajam.php',
+            data: 'Action=QueueSummary&ActionId=' + guid() + '&Queue=',
+            success: function(data) {
+                var queuesum = JSON.parse(data);
+                //$('#queuesum').html(data);
+                var theTemplateScript = $("#queuesum-template").html();
+                var theTemplate = Handlebars.compile(theTemplateScript);
+                var context = { Queuesum: queuesum };
+                var theCompiledHtml = theTemplate(context);
+                $('.queuesum-placeholder').html(theCompiledHtml);
+            }
+        });
+    });
+    setTimeout(getQueueSummary, 5000);
+});
+
+$(function getQueueStatus() {
+    $(function() {
+        $.ajax({
+            type: 'POST',
+            url: 'ajam.php',
+            data: 'Action=QueueStatus&ActionId=' + guid() + '&Queue=',
+            success: function(data) {
+                var queue = JSON.parse(data);
+                //$('#queues').html(data);
+                var theTemplateScript = $("#queues-template").html();
+                var theTemplate = Handlebars.compile(theTemplateScript);
+                var context = { Queues: queue };
+                var theCompiledHtml = theTemplate(context);
+                $('.queues-placeholder').html(theCompiledHtml);
+            }
+        });
+    });
+    setTimeout(getQueueStatus, 3000);
+});
+
+
+
+
+Handlebars.registerHelper("ifQ", function(conditional, options) {
+    if (conditional == options.hash.equals) {
+        return options.fn(this);
+    } else {
+        return options.inverse(this);
+    }
+});
+
+Handlebars.registerHelper("ifM", function(conditional, options) {
+    if (conditional == options.hash.equals) {
+        return options.fn(this);
+    } else {
+        return options.inverse(this);
+    }
+});
+
+Handlebars.registerHelper("qmStatus", function(status) {
+    var s = status;
+    switch (s) {
+        case '0':
+            var mStatus = "UNKNOWN";
+            break;
+        case '1':
+            var mStatus = "<span class='text-info'>NOT_INUSE</span>";
+            break;
+        case '2':
+            var mStatus = "<span class='text-warning'>INUSE</span>";
+            break;
+        case '3':
+            var mStatus = "<span class='text-danger'>BUSY</span>";
+            break;
+        case '4':
+            var mStatus = "<span class='text-danger'>INVALID</span>";
+            break;
+        case '5':
+            var mStatus = "<span class='text-muted'>UNAVAILABLE</span>";
+            break;
+        case '6':
+            var mStatus = "<span class='text-success'>RINGING</span>";
+            break;
+        case '7':
+            var mStatus = "RINGINUSE";
+            break;
+        case '8':
+            var mStatus = "HOLD";
+            break;
+    }
+    return new Handlebars.SafeString(mStatus);
+});
+
+Handlebars.registerHelper("qmPaused", function(paused) {
+    var p = paused;
+    switch (p) {
+        case '0':
+            var mPaused = "<span class='text-success'>In Queue</span>";
+            break;
+        case '1':
+            var mPaused = "<span class='text-warning'>Paused</span>";
+
+    }
+    return new Handlebars.SafeString(mPaused);
+});
+
+    </script>
+    <script id="nav-template" type="text/x-handlebars-template">
+        <?php include "../../nav.html"; ?>
+    </script>
+    <script id="queuesum-template" type="text/x-handlebars-template">
+        <div class="table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Queue</th>
+                        <th>LoggedIn</th>
+                        <th>Available</th>
+                        <th>Callers</th>
+                        <th>HoldTime</th>
+                        <th>TalkTime</th>
+                        <th>LongestHoldTime</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Queuesum}}
+                    <tr>
+                        <td>{{Queue}}</td>
+                        <td>{{LoggedIn}}</td>
+                        <td>{{Available}}</td>
+                        <td>{{Callers}}</td>
+                        <td>{{HoldTime}}</td>
+                        <td>{{TalkTime}}</td>
+                        <td>{{LongestHoldTime}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </script>
+    <script id="queues-template" type="text/x-handlebars-template">
+        <div class="table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Queue</th>
+                        <th>Max</th>
+                        <th>Strategy</th>
+                        <th>Calls</th>
+                        <th>Completed</th>
+                        <th>Abandoned</th>
+                        <th>Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Queues}} {{#ifQ Event equals="QueueParams"}}
+                    <tr>
+                        <th scope="row">{{Queue}}</th>
+                        <td>{{Max}}</td>
+                        <td>{{Strategy}}</td>
+                        <td>{{Calls}}</td>
+                        <td>{{Completed}}</td>
+                        <td>{{Abandoned}}</td>
+                        <td>{{Weight}}</td>
+                    </tr>
+                    {{/ifQ}} {{/each}}
+                </tbody>
+            </table>
+            <table class="table table-striped">
+                <h3>Agents</h3>
+                <thead>
+                    <tr>
+                        <th scope="col">Queue</th>
+                        <th scope="col">Name</th>
+                        <!--th scope="col">Location</th>
+             <th scope="col">Stateinterface</th-->
+                        <th scope="col">InCall</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Paused</th>
+                        <th scope="col">Enter</th>
+                        <th scope="col">Exit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Queues}} {{#ifM Event equals="QueueMember"}}
+                    <tr>
+                        <th scope="row">{{Queue}}</th>
+                        <td>{{Name}}</td>
+                        <!--td>{{Location}}</td>
+             <td>{{StateInterface}}</td-->
+                        <td>{{InCall}}</td>
+                        <td>{{qmStatus Status}}</td>
+                        <td>{{qmPaused Paused}}</td>
+                        <td>
+                            <button class="btn btn-success btn-sm" id="{{Location}}" onclick="queuePause(this.id, 'false');"><span class="glyphicon glyphicon-ok-sign"></span?</button>
+             </td>
+             <td>
+              <button class="btn btn-warning btn-sm" id="{{Location}}" onclick="queuePause(this.id, 'true');"><span class="glyphicon glyphicon-remove-sign"></span></button>&nbsp;
+                        </td>
+                    </tr>
+                    {{/ifM}} {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </script>
+</head>
+
+<body>
+    <div class="nav-placeholder"></div>
+    <div class="col-lg-8 col-lg-offset-2 main">
+        <h3>Queues Summary</h3>
+        <div class="queuesum-placeholder">null</div>
+        <!--         <h3>Queues Realtime</h3> -->
+        <div class="queues-placeholder">null</div>
+    </div>
+</body>
+
+</html>

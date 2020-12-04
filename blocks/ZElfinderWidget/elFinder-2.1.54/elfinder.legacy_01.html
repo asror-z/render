@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <title>elFinder 2.1.x source version with PHP connector</title>
+
+    <!-- Section CSS -->
+    <!-- jQuery UI (REQUIRED) -->
+    <link rel="stylesheet" type="text/css"
+          href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <!-- elFinder CSS (REQUIRED) -->
+    <link rel="stylesheet" type="text/css" href="css/elfinder.min.css">
+    <link rel="stylesheet" type="text/css" href="css/theme.css">
+
+    <!-- Section JavaScript -->
+    <!-- jQuery and jQuery UI (REQUIRED) -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- elFinder JS (REQUIRED) -->
+    <script src="/testing/blocks/ZElfinderWidget/asset/js/elfinder.full.js"></script>
+
+    <!-- Extra contents editors (OPTIONAL) -->
+    <script src="js/extras/editors.default.min.js"></script>
+
+    <!-- GoogleDocs Quicklook plugin for GoogleDrive Volume (OPTIONAL) -->
+    <!--<script src="js/extras/quicklook.googledocs.js"></script>-->
+
+    <!-- elFinder initialization (REQUIRED) -->
+    <script type="text/javascript" charset="utf-8">
+        // Documentation for client options:
+        // https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
+        $(document).ready(function () {
+            $('#elfinder').elfinder(
+                // 1st Arg - options
+                {
+                    cssAutoLoad: false,               // Disable CSS auto loading
+                    baseUrl: './',                    // Base URL to css/*, js/*
+                    url: '/tester/asror/elfinder.aspx',  // connector URL (REQUIRED)
+                    lang: 'ru',                             // language (OPTIONAL)
+                    customData: {},
+                    cssClass: '',
+                    rememberLastDir: true,
+                    useBrowserHistory: true,
+                    onlyMimes: [],
+                    validName: false,
+                    defaultView: 'icons',
+                    sort: 'nameDirsFirst',
+                    sortDirect: 'asc',
+                    width: 'auto',
+                    height: '400',
+                    clientFormatDate: true,
+                    UTCDate: false,
+                    dateFormat: '',
+                    fancyDateFormat: '',
+                    commands: ['*'],
+                    commandsOptions: {
+                        // configure value for "getFileCallback" used for editor integration
+                        getfile: {
+                            // send only URL or URL+path if false
+                            onlyURL: false,
+
+                            // allow to return multiple files info
+                            multiple: false,
+
+                            // allow to return folders info
+                            folders: false,
+
+                            // action after callback (close/destroy)
+                            oncomplete: ''
+                        },
+
+                        // "upload" command options.
+                        upload: {
+                            ui: 'uploadbutton'
+                        },
+
+                        // "quicklook" command options. For additional extensions
+                        quicklook: {
+                            autoplay: true,
+                            jplayer: 'extensions/jplayer'
+                        },
+
+                        // configure custom editor for file editing command
+                        edit: {
+                            // list of allowed mimetypes to edit
+                            // if empty - any text files can be edited
+                            mimes: [],
+
+                            // edit files in wysisyg's
+                            editors: [
+                                // {
+                                // 	/**
+                                // 	 * files mimetypes allowed to edit in current wysisyg
+                                // 	 * @type  Array
+                                // 	 */
+                                // 	mimes : ['text/html'],
+                                // 	/**
+                                // 	 * Called when "edit" dialog loaded.
+                                // 	 * Place to init wysisyg.
+                                // 	 * Can return wysisyg instance
+                                // 	 *
+                                // 	 * @param  DOMElement  textarea node
+                                // 	 * @return Object
+                                // 	 */
+                                // 	load : function(textarea) { },
+                                // 	/**
+                                // 	 * Called before "edit" dialog closed.
+                                // 	 * Place to destroy wysisyg instance.
+                                // 	 *
+                                // 	 * @param  DOMElement  textarea node
+                                // 	 * @param  Object      wysisyg instance (if was returned by "load" callback)
+                                // 	 * @return void
+                                // 	 */
+                                // 	close : function(textarea, instance) { },
+                                // 	/**
+                                // 	 * Called before file content send to backend.
+                                // 	 * Place to update textarea content if needed.
+                                // 	 *
+                                // 	 * @param  DOMElement  textarea node
+                                // 	 * @param  Object      wysisyg instance (if was returned by "load" callback)
+                                // 	 * @return void
+                                // 	 */
+                                // 	save : function(textarea, editor) {}
+                                //
+                                // }
+                            ]
+                        },
+
+                        // help dialog tabs
+                        help: {view: ['about', 'shortcuts', 'help']}
+                    },
+					getFileCallback: null,
+					handlers : {
+						// extract archive files on upload
+						upload : function(event, instance) {
+							var uploadedFiles = event.data.added;
+							var archives = ['application/zip', 'application/x-gzip', 'application/x-tar', 'application/x-bzip2'];
+							for (i in uploadedFiles) {
+								var file = uploadedFiles[i];
+								if (jQuery.inArray(file.mime, archives) >= 0) {
+									instance.exec('extract', file.hash);
+								}
+							}
+						},
+
+						open   : function(event) { console.log(event.data); }
+					},
+					ui: ['toolbar', 'tree', 'path', 'stat'],
+					uiOptions : {
+						// toolbar configuration
+						toolbar : [
+							['back', 'forward'],
+							// ['reload'],
+							// ['home', 'up'],
+							['mkdir', 'mkfile', 'upload'],
+							['open', 'download', 'getfile'],
+							['info'],
+							['quicklook'],
+							['copy', 'cut', 'paste'],
+							['rm'],
+							['duplicate', 'rename', 'edit', 'resize'],
+							['extract', 'archive'],
+							['search'],
+							['view'],
+							['help']
+						],
+
+						// directories tree options
+						tree : {
+							// expand current root on init
+							openRootOnLoad : true,
+							// auto load current dir parents
+							syncTree : true
+						},
+
+						// navbar options
+						navbar : {
+							minWidth : 150,
+							maxWidth : 500
+						},
+
+						// current working directory options
+						cwd : {
+							// display parent directory in listing as ".."
+							oldSchool : false
+						}
+					},
+					contextmenu : {
+						// navbarfolder menu
+						navbar : ['open', '|', 'copy', 'cut', 'paste', 'duplicate', '|', 'rm', '|', 'info'],
+
+						// current directory menu
+						cwd    : ['reload', 'back', '|', 'upload', 'mkdir', 'mkfile', 'paste', '|', 'info'],
+
+						// current directory file menu
+						files  : [
+							'getfile', '|','open', 'quicklook', '|', 'download', '|', 'copy', 'cut', 'paste', 'duplicate', '|',
+							'rm', '|', 'edit', 'rename', 'resize', '|', 'archive', 'extract', '|', 'info'
+						]
+					},
+					resizable: true,
+					notifyDelay: 500,
+					dragUploadAllow: 'auto',
+					allowShortcuts: 'true',
+					loadTmbs: 5,
+					showFiles: 30,
+					showThreshold: 50,
+                    requestType: 'get',
+                    urlUpload: '',
+                    iframeTimeout: 0,
+                    sync: 0,
+                    cookie : {
+                        expires : 30,
+                        domain  : '',
+                        path    : '/',
+                        secure  : false
+                    },
+                    debug : ['error', 'warning', 'event-destroy'],
+                    bootCallback: function (fm, extraObj) {
+                        /* any bind functions etc. */
+                        fm.bind('init', function () {
+                            // any your code
+                        });
+                        fm.bind('select', function (event) { // called on file(s) select/unselect
+
+                            var files = fm.selected();
+                            var hash = files[0];
+                            var encPath = hash.substr(hash.indexOf('_') + 1);
+                            // full path of selected file
+                            // encFilePath
+                            var path = 'render' + '/' + atob(encPath.replace(/\-/g, '+').replace(/_/g, '/').replace(/\./g, '='));
+                            // search
+
+
+                            var selectedFilesOf = fm.selectedFiles();
+                            var some = selectedFilesOf[0].hash;
+
+                            $("#" + some).dblclick(function (event) {
+                                if (!$("#" + some).hasClass('directory')) {
+                                    event.stopPropagation();
+                                    window.open('http://eyuf.zettest.uz/tester/asror/main.aspx?path=' + path, '_blank');
+
+                                } else {
+                                }
+                                /*event.stopPropagation();
+                                window.open('http://eyuf.zettest.uz/tester/asror/main.aspx?path='+path, '_blank');*/
+
+                            });
+
+
+                        });
+                        // for example set document.title dynamically.
+                        var title = document.title;
+                        fm.bind('open', function () {
+                            var path = '',
+                                cwd = fm.cwd();
+                            if (cwd) {
+                                path = fm.path(cwd.hash) || null;
+                            }
+                            document.title = path ? path + ':' + title : title;
+                        }).bind('destroy', function () {
+                            document.title = title;
+                        });
+                    },
+                },
+
+                // 2nd Arg - before boot up function
+                function (fm, extraObj) {
+                    // `init` event callback function
+                    fm.bind('init', function () {
+                        // Optional for Japanese decoder "encoding-japanese.js"
+                        if (fm.lang === 'ja') {
+                            fm.loadScript(
+                                ['//cdn.rawgit.com/polygonplanet/encoding.js/1.0.26/encoding.min.js'],
+                                function () {
+                                    if (window.Encoding && Encoding.convert) {
+                                        fm.registRawStringDecoder(function (s) {
+                                            return Encoding.convert(s, {to: 'UNICODE', type: 'string'});
+                                        });
+                                    }
+                                },
+                                {loadType: 'tag'}
+                            );
+                        }
+                    });
+                    // Optional for set document.title dynamically.
+                    var title = document.title;
+                    fm.bind('open', function () {
+                        var path = '',
+                            cwd = fm.cwd();
+                        if (cwd) {
+                            path = fm.path(cwd.hash) || null;
+                        }
+                        document.title = path ? path + ':' + title : title;
+                    }).bind('destroy', function () {
+                        document.title = title;
+                    });
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+
+<!-- Element where elFinder will be created (REQUIRED) -->
+<div id="elfinder"></div>
+
+</body>
+</html>

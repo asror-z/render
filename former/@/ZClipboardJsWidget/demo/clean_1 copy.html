@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+2 <html lang="en"> 
+3 <head> 
+4     <meta charset="UTF-8"> 
+5     <title>constructor-selector</title> 
+6     <meta name="viewport" content="width=device-width, initial-scale=1"> 
+7 </head> 
+8 <body> 
+9     <!-- 1. Define some markup --> 
+10     <button class="btn" data-clipboard-text="1">Copy</button> 
+11     <button class="btn" data-clipboard-text="2">Copy</button> 
+12     <button class="btn" data-clipboard-text="3">Copy</button> 
+13 
+        <!-- Target -->
+<input id="foo" value="https://github.com/zenorocha/clipboard.js.git">
+
+<!-- Trigger -->
+<button class="btn" data-clipboard-target="#foo">
+    <img src="assets/clippy.svg" alt="Copy to clipboard">
+</button>
+
+14     <!-- 2. Include library --> 
+15     <script src="../dist/clipboard.min.js"></script> 
+16 
+ 
+17     <!-- 3. Instantiate clipboard by passing a string selector --> 
+18     <script> 
+19     var clipboard = new ClipboardJS('.btn'); 
+20 
+ 
+21     clipboard.on('success', function(e) { 
+22         console.log(e); 
+23     }); 
+24 
+ 
+25     clipboard.on('error', function(e) { 
+26         console.log(e); 
+27     }); 
+28     </script> 
+29 </body> 
+30 </html> 

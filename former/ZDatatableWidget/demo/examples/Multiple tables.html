@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
+
+    <style>
+        div.dataTables_wrapper {
+            margin-bottom: 3em;
+        }
+    </style>
+
+<!--    Often you might wish to initialise multiple tables with a single statement.
+This is trivially done by using a jQuery selector which will pick up multiple tables.
+The tables are independent for user control (i.e. user controlled paging on one table does not effect the others),
+but they do share the initialisation parameters given (for example if you specific the Spanish language file,
+all tables will be shown in Spanish). Additionally, the API can be used to manipulate both together, or independently.
+    */
+    /*
+    The example below shows two tables initialised with a single line of code, through the use of the table.
+    display selector (i.e. select all elements which have the class of table.
+    display (which is suitable in this example, you might wish to use a different selector).
+*/!-->
+</head>
+<body>
+<table id="" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Jena Gaines</td>
+        <td>Office Manager</td>
+        <td>London</td>
+        <td>30</td>
+        <td>$90,560</td>
+    </tr>
+    <tr>
+        <td>Haley Kennedy</td>
+        <td>Senior Marketing Designer</td>
+        <td>London</td>
+        <td>43</td>
+        <td>$313,500</td>
+    </tr>
+    <tr>
+        <td>Tatyana Fitzpatrick</td>
+        <td>Regional Director</td>
+        <td>London</td>
+        <td>19</td>
+        <td>$385,750</td>
+    </tr>
+    <tr>
+        <td>Michael Silva</td>
+        <td>Marketing Designer</td>
+        <td>London</td>
+        <td>66</td>
+        <td>$198,500</td>
+    </tr>
+    <tr>
+        <td>Bradley Greer</td>
+        <td>Software Engineer</td>
+        <td>London</td>
+        <td>41</td>
+        <td>$132,000</td>
+    </tr>
+    <tr>
+        <td>Angelica Ramos</td>
+        <td>Chief Executive Officer (CEO)</td>
+        <td>London</td>
+        <td>47</td>
+        <td>$1,200,000</td>
+    </tr>
+    <tr>
+        <td>Suki Burks</td>
+        <td>Developer</td>
+        <td>London</td>
+        <td>53</td>
+        <td>$114,500</td>
+    </tr>
+    <tr>
+        <td>Prescott Bartlett</td>
+        <td>Technical Author</td>
+        <td>London</td>
+        <td>27</td>
+        <td>$145,000</td>
+    </tr>
+    <tr>
+        <td>Timothy Mooney</td>
+        <td>Office Manager</td>
+        <td>London</td>
+        <td>37</td>
+        <td>$136,200</td>
+    </tr>
+    <tr>
+        <td>Bruno Nash</td>
+        <td>Software Engineer</td>
+        <td>London</td>
+        <td>38</td>
+        <td>$163,500</td>
+    </tr>
+    <tr>
+        <td>Hermione Butler</td>
+        <td>Regional Director</td>
+        <td>London</td>
+        <td>47</td>
+        <td>$356,250</td>
+    </tr>
+    <tr>
+        <td>Lael Greer</td>
+        <td>Systems Administrator</td>
+        <td>London</td>
+        <td>21</td>
+        <td>$103,500</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('table.display').DataTable();
+    } );
+</script>

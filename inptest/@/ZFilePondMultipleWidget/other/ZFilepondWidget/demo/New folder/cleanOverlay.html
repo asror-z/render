@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/publish/yarner/filepond/distOverlay/filepond.css" rel="stylesheet">
+    <link href="/publish/yarner/filepond/distOverlay/filepond-plugin-image-overlay.css" rel="stylesheet">
+
+    <link href="/publish/yarner/filepond/distOverlay/filepond-plugin-image-preview.css" rel="stylesheet">
+
+    <style>
+        .demo {
+            text-align: center;
+            font-family: Helvetica;
+            margin: 4em auto 0;
+            width: 450px;
+            align-items: center;
+            
+
+        }
+        a {
+            color: dodgerblue;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="demo filepond--root filepond--hooper">
+    <h3>Image Overlay plugin for FilePond demo</h3>
+    <input type="file" multiple="true"/><div></div>
+    <a onclick="toggleImagePreview()">Enable Image Preview plugin</a> | <a href="https://github.com/nielsboogaard/filepond-plugin-image-overlay">Return to the source code</a>
+</div>
+
+
+                  <script>
+
+                      // Get a reference to the file input element
+                      const inputElement = document.querySelector('input[type="file"]');
+
+                      function toggleImagePreview() {
+                          FilePond.registerPlugin(FilePondPluginImagePreview);
+                          FilePond.destroy(inputElement);
+                          init();
+                      }
+
+                      function init() {
+                          // Register the plugin with FilePond
+                          FilePond.registerPlugin(FilePondPluginImageOverlay);
+
+                          // Create the FilePond instance
+                          const pond = FilePond.create(inputElement);
+                          pond.addFile('./nature.jpg');
+                      }
+
+                      init();
+
+                  </script>
+
+<script src="/publish/yarner/filepond/distOverlay/filepond-plugin-image-overlay.js"></script>
+<script src="/publish/yarner/filepond/distOverlay/filepond.js"></script>
+<script src="/publish/yarner/filepond/distOverlay/filepond-plugin-image-preview.js"></script>
+
+
+</body>
+</html>

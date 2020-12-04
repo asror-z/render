@@ -1,0 +1,365 @@
+ul, i, p, h2, h3{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    background: #DDD;
+    font-family: 'Archivo Narrow', sans-serif;
+}
+#page-wrap{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.layout-container{
+    width: 350px;
+    height: 600px;
+    background: #282832 url('https://cloud.githubusercontent.com/assets/8037580/18605179/85a080d2-7cbd-11e6-9079-ec09a8024662.png')repeat;
+    border: 15px solid #000;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(75, 75, 75, .8), 0 2px 5px rgba(75, 75, 75, .8);
+    margin: 20px;
+    animation: slideInDown .8s ease-in-out;
+}
+.layout-container.user-bg{
+    background: url('https://cloud.githubusercontent.com/assets/8037580/20611513/e4c939c8-b2e6-11e6-96d7-97bf68ee4e9b.jpg')no-repeat;
+    background-size: cover;
+    background-position: 50% 0;
+}
+.layout-container.caller-bg{
+    background: url('https://cloud.githubusercontent.com/assets/8037580/20611514/e4ca301c-b2e6-11e6-8fa3-ec461a872551.jpg')no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+.top-bar{
+    background: rgba(75, 75, 75, .8);
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    z-index: 20;
+}
+.bar-icons{
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    color: #FFF;
+}
+.bar-icons i{
+    margin-left: 2px;
+}
+.bar-icons small{
+    font-size: 13px;
+}
+.phone-to-call h2{
+    font-size: 25px;
+    color: #FAFAFA;
+    position: absolute;
+    font-variant: small-caps;
+    top: 24px;
+    padding-top: 30px;
+    left: 80px;
+}
+.phone-to-call input{
+    position: absolute;
+    top:40px;
+    left: 80px;
+    width: 270px;
+    height: 40px;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    background: none;
+    color: #FAFAFA;
+}
+.phone-to-call p{
+    position: absolute;
+    top:85px;
+    left: 160px;
+    font-size: 13px;
+    color: #FFF;
+}
+.input-control::-webkit-input-placeholder{
+    color: #777;
+}
+.phone-dialpad{
+    position: absolute;
+    top:120px;
+    left: 45px;
+}
+.phone-dialpad li{
+    display: inline-flex;
+    padding: 10px;
+    margin: 8px 15px;
+    background: rgba(75, 75, 75, .9);
+    border: 1px solid rgba(238, 238, 238, .2);
+    border-radius: 20px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    line-height: 20px;
+}
+.phone-dialpad li:hover{
+    background: rgba(255, 255, 255, .4);
+}
+.phone-dialpad li span{
+    font-size: 8px;
+    display: flex;
+    justify-content: center;
+}
+.phone-dialpad li:nth-child(14){
+    background: rgb(12, 101, 16);
+}
+.phone-dialpad li:nth-child(14):hover{
+    background: rgba(12, 101, 16, .5);
+}
+.phone-dialpad li:nth-child(13) i,
+.phone-dialpad li:nth-child(14) i,
+.phone-dialpad li:nth-child(15) i{
+    line-height: 35px;
+    font-size: 25px;
+    color: #FAFAFA;
+}
+.phone-dialpad li{
+    text-decoration: none;
+    color: #FAFAFA;
+    text-transform: uppercase;
+    font-size: 18px;
+    display: inline-block;
+    text-align: center;
+}
+.calling-info{
+    position: absolute;
+    top:30px;
+    left:100px;
+    color: #FAFAFA;
+}
+.calling-info h2{
+    font-size: 25px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 20px;
+}
+.calling-info p{
+    text-align: center;
+    margin: 0 15px 20px 15px;
+}
+.calling-info small{
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 40px;
+    width: 100px;
+    color: #FFFFFF;
+    background: #C11B17;
+    text-transform: uppercase;
+}
+.overlay{
+    background: rgba(75, 75, 75, .8);
+    width: 100%;
+    height: 100%;
+}
+.call-icons{
+    position: absolute;
+    top:200px;
+    left: 35px;
+}
+.call-icons li{
+    display: inline-flex;
+    border: 1px solid rgba(255, 255, 255, .6);
+    background: transparent;
+    padding: 10px;
+    color: #FFF;
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+    margin: 25px 10px;
+    cursor: pointer;
+    flex-direction: row;
+    flex-flow: row wrap;
+    line-height: 20px;
+}
+.call-icons li:hover{
+    background: rgba(255, 255, 255, .4);
+}
+.call-icons li a i{
+    font-size: 30px;
+    margin: 10px 10px;
+    display: flex;
+    justify-content: center;
+}
+.call-icons li span{
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+.end-call-button{
+    position: absolute;
+    bottom:0;
+    background: #C11B17;
+    width: 100%;
+}
+.end-call-button span{
+    display: flex;
+    justify-content: center;
+}
+.end-call-button i{
+    transform: rotate(135deg);
+    font-size: 60px;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+}
+.end-call-button a{
+    cursor: pointer;
+}
+.caller-status{
+    position: absolute;
+    color: #888;
+    width: 100%;
+    top: 105px;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+}
+.caller-status h2{
+    font-size: 15px;
+    font-weight: 200;
+    color: #000;
+    padding: 10px;
+    background: rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    width: 120px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.caller-info{
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+}
+.caller-info h3{
+    font-size: 25px;
+    color: #FAFAFA;
+    font-weight: 200;
+    margin: 0;
+    padding: 20px 20px 0 10px;
+    display: flex;
+    justify-content: center;
+}
+.caller-info p{
+    margin: 0;
+    color: #FAFAFA;
+    padding: 0 20px 20px 10px;
+    text-align: center;
+}
+.user-buttons{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    border-radius: 50%;
+    outline: 0;
+    border: 0;
+    color: #FFF;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+.call-to-action i{
+    margin: 15px 0;
+}
+.call-to-action p{
+    font-size: 12px;
+    padding-top: 5px;
+}
+.user-buttons.answer{
+    background: rgb(12, 101, 16);
+    top: 500px;
+    left: 30px;
+}
+.user-buttons.answer:hover{
+    background: rgba(12, 101, 16, .7);
+}
+.user-buttons.end{
+    top: 500px;
+    left: 270px;
+    background: rgb(223, 41, 80);
+}
+.user-buttons.end:hover{
+    background: rgba(223, 41, 80, .7)
+}
+.user-buttons i{
+    display: flex;
+    justify-content: center;
+}
+.user-buttons.message{
+    top: 400px;
+    left: 30px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .6);
+    color: #FFF;
+    border-radius: 25px;
+}
+.user-buttons.message:hover,
+.user-buttons.silent:hover{
+    background: rgba(255, 255, 255, .4);
+}
+.user-buttons.silent{
+    top: 400px;
+    left: 270px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .6);
+    color: #FFF;
+    border-radius: 25px;
+}
+.user-buttons.end i{
+    transform: rotate(135deg);
+    color: #FFF;
+}
+.user-buttons .message i{
+    color: #FFF;
+}
+.user-buttons .answer i{
+    color: #FFF;
+}
+.right-icons span:nth-of-type(3) i{
+    transform: rotate(-90deg);
+    font-size: 12px;
+}
+.right-icons small{
+    font-size: 15px;
+}
+.add-ons{
+    position: absolute;
+    bottom: 15px;
+    left:50px;
+}
+.add-ons li{
+    display: inline-flex;
+    padding: 10px;
+    margin: 10px 15px;
+    font-size: 30px;
+    background: transparent;
+    cursor: pointer;
+    /*border: 1px solid rgba(255, 255, 255, .5);*/
+}
+.add-ons li a{
+    color: #FFF;
+    text-decoration: none;
+}
+.add-ons li:hover a{
+    color: rgba(75, 75, 75, 10);
+}
+.add-ons li:nth-child(2){
+    background: #609;
+    border-radius: 20px;
+    width: 50px;
+    height: 30px;
+    justify-content: center;
+}

@@ -1,0 +1,64 @@
+.zlilo {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+}
+.container-fluid{
+    max-width: 100%;
+}
+.lilo-accordion-control {
+    font-size: 16px;
+    padding: 6px 13px;
+    font-weight: 500;
+    position: relative;
+    background-color: white;
+}
+.lilo-accordion-control.active {
+    background-color: #e0e0e0;
+}
+
+.lilo-accordion-content {
+    padding: 10px;
+    color: #223344;
+    font-weight: normal;
+    font-size: 14px;
+
+}
+
+.lilo-accordion-control::before {
+    content: "";
+    margin-right: 16px;
+    text-align: center;
+    width: 8px;
+    height: 2px;
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 16px;
+    background-color: grey;
+}
+
+.lilo-accordion-control::after {
+    content: "";
+    margin-right: 16px;
+    text-align: center;
+    width: 8px;
+    height: 2px;
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 16px;
+    transform: rotate(90deg);
+    transition: .3s linear;
+    background-color: grey;
+}
+
+.lilo-accordion-control.active::after {
+    transform: rotate(0deg);
+}
+
+.lilo-accordion-content:first-child {
+    margin-top: 0;
+}
+
+.lilo-accordion-content:last-child {
+    margin-bottom: 0;
+}

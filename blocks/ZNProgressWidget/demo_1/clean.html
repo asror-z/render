@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://ricostacruz.com/nprogress/
+
+Fayzullo
+Saidakbarov
+02:10_17.04.2020
+-->
+
+<html lang="en" class=" ">
+<head>
+
+    <link href="https://ghcdn.rawgit.org/akahon/nprogress/9409d81b2aa045f243dba135d090119feba7080e/support/style.css" rel="stylesheet">
+    <link href="https://ghcdn.rawgit.org/rstacruz/nprogress/master/support/extras.css" rel="stylesheet">
+    <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+
+</head>
+
+<body style="display: block;">
+
+<header class="page-header">
+    <span class="nprogress-logo fade"></span>
+</header>
+
+<div class="contents fade">
+    <div class="controls">
+        <p>
+            <button class="button play" id="b-0"></button>
+            <i>NProgress</i><b>.start()</b>
+            —
+            shows the progress bar
+        </p>
+        <p>
+            <button class="button play" id="b-40"></button>
+            <i>NProgress</i><b>.set(0.4)</b>
+            —
+            sets a percentage
+        </p>
+        <p>
+            <button class="button play" id="b-inc"></button>
+            <i>NProgress</i><b>.inc()</b>
+            —
+            increments by a little
+        </p>
+        <p>
+            <button class="button play" id="b-100"></button>
+            <i>NProgress</i><b>.done()</b>
+            —
+            completes the progress
+        </p>
+    </div>
+    <div class="actions">
+        
+        <a href="" class="button primary big">
+            Button
+        </a>
+        
+    </div>
+</div>
+
+<script>
+    document.body.style.display = 'block'
+
+    NProgress.start()
+
+    setTimeout(function () {
+        NProgress.done()
+        var els = [].slice.call(document.querySelectorAll('.out'))
+        els.forEach(function (el) {
+            el.className = el.className.replace(' out', '')
+        })
+    }, 600)
+
+    on(id('b-0'), 'click', function () {
+        NProgress.start()
+    })
+    on(id('b-40'), 'click', function () {
+        NProgress.set(0.4)
+    })
+    on(id('b-inc'), 'click', function () {
+        NProgress.inc()
+    })
+    on(id('b-100'), 'click', function () {
+        NProgress.done()
+    })
+
+    function id(val) {
+        return document.getElementById(val)
+    }
+
+    function on(el, event, handler) {
+        if (el.addEventListener) {
+            el.addEventListener(event, handler)
+        } else {
+            el.attachEvent('on' + event, function () {
+                handler.call(el)
+            })
+        }
+    }
+</script>
+
+
+</body>
+</html>

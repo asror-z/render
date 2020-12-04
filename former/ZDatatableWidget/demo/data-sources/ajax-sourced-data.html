@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://github.com/downloads/lafeber/world-flags-sprite/flags32.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"> </script>
+
+    
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "ajax": '../ajax/data/arrays'
+            } );
+        } );
+    </script>
+</head>
+<body>
+
+<!--https://datatables.net/examples/basic_init/data_rendering.html
+
+Data within DataTables can be easily rendered to add graphics or colour to your tables, as demonstrated in the example on this page. These examples make use of columns.render to customise the cells in three ways:
+
+A flag is added to the Office column
+a HTML5 progress bar is added to the Progress column
+and the built-in number renderer is used to format the Salary.
+See the data rendering manual page for more details on how to use data renderers. Also, this example uses Ajax to load the data. More Ajax examples are available.
+-->
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

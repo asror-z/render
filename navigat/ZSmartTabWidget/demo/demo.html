@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://techlaboratory.net/jquery-smarttab#demo -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Dipu Raj">
+
+  <title>jQuery Smart Tab - The flexible jQuery tab control plugin - Tech Laboratory</title>
+  <meta property="og:title" content="jQuery Smart Tab - The flexible jQuery tab control plugin - Tech Laboratory">
+
+  <meta name="description" content="The flexible jQuery tab control plugin">
+  <meta property="og:description" content="The flexible jQuery tab control plugin">
+  <meta property="og:image" content="http://techlaboratory.net/assets/media/jquery-smart-tab/smarttab-v3-default.png">
+  <link rel="image_src" href="http://techlaboratory.net/assets/media/jquery-smart-tab/smarttab-v3-default.png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://techlaboratory.net/">
+  <meta property="og:site_name" content="TechLaboratory.net">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- define site's owner twitter id -->
+  <meta name="twitter:site" content="tlaboratory">
+  <!--<meta property="fb:admins" content="673048839" />-->
+  <meta property="fb:app_id" content="673048839">
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#0da4d3">
+  <!-- Windows Phone -->
+  <meta name="msapplication-TileColor" content="#0da4d3">
+  <meta name="msapplication-navbutton-color" content="#0da4d3">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-startup-image" href="http://techlaboratory.net/assets/images/TechLaboratory_logo.png">
+
+  <meta name="KEYWORDS" content="jQuery, shoppingcart, cart, smartcart, smartwizard, smarttab, step wizard, wizard, jcart, jwizard, shopping, plugin">
+
+  <!-- Favicon -->
+  <link rel="icon" href="http://techlaboratory.net/assets/images/fav/favicon-16x16.png" type="image/png">
+  <link rel="icon" href="http://techlaboratory.net/assets/images/fav/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="http://techlaboratory.net/assets/images/fav/favicon.ico" type="image/x-icon">
+  <meta name="msapplication-TileImage" content="assets/images/fav/favicon-96x96.png">
+
+  <link rel="stylesheet" href="./demo_files/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Argon CSS -->
+  <link type="text/css" href="./demo_files/argon.min.css" rel="stylesheet">
+  <link type="text/css" href="./demo_files/style.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="./demo_files/css(1)" rel="stylesheet">
+  <!-- Icons -->
+  <link href="./demo_files/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Demo files -->
+  <link href="./demo_files/smart_tab_all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script src="./demo_files/f(5).txt"></script><script src="./demo_files/f(6).txt"></script><script src="./demo_files/osd.js.Без названия"></script><script type="text/javascript" async="" src="./demo_files/analytics.js.Без названия"></script><script src="./demo_files/f(7).txt" id="google_shimpl"></script><script async="" src="./demo_files/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-18629864-3');
+  </script>
+
+  <!-- Google Ads -->
+  <script data-ad-client="ca-pub-8226185437441708" async="" src="./demo_files/f(8).txt" data-checked-head="true"></script>
+<link rel="stylesheet" type="text/css" href="./demo_files/prettify.css"><style>._3vFA8--container{height:0;width:100%;position:relative;background:radial-gradient(44.6% 929.87% at 22.02% 63.39%,#ae6fff 0,#8d35fd 100%);cursor:pointer;overflow:hidden;transition:.8s}._3vFA8--container .AeJ0I--row{padding:11px;margin:0 auto;width:-webkit-max-content;width:-moz-max-content;width:max-content}._3vFA8--container .AeJ0I--row ._1yCun--logo{position:relative;width:51px;height:39px;float:left;margin-right:104px;background:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNDEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNy40MDQgOC43TDEuNDU0IDM2LjMyNWMtLjI1OC40NDctLjM4Ny42Ny0uNDUxLjgzOWEyLjIzNiAyLjIzNiAwIDAwMS43MzMgMy4wMDFjLjE3OC4wMy40MzYuMDMuOTUyLjAzLjEwNiAwIC4xNTggMCAuMjEtLjAwM2EyLjIzNyAyLjIzNyAwIDAwMS4yNTItLjQ1Mmw2Ljg1OS00LjcyMWMuNDczLS4zLjkwOC0uNjU0IDEuMjk2LTEuMDUyLjM1NC4wOC43MjcuMTg1IDEuMTQ1LjMwMSAxLjk1LjU0NCA0Ljg4MyAxLjM2IDExLjUxNiAxLjM2IDcuNjcyIDAgMTAuNjEtLjg3NCAxMi4xNTQtMS40NzEuMzguMzQzLjc5Ni42NDYgMS4yNDQuOTA0bDcuNDg4IDQuODE0Yy4zMjQuMjA4LjcwMi4zMiAxLjA4OC4zMiAxLjU1IDAgMi41MTgtMS42NzggMS43NDMtMy4wMkwzMy4yNDIgOC43Yy0yLjU3LTQuNDUyLTMuODU2LTYuNjc5LTUuNTI1LTcuNDQzYTUuNzUxIDUuNzUxIDAgMDAtNC43ODggMGMtMS42NjkuNzY0LTIuOTU0IDIuOTktNS41MjUgNy40NDN6bTguNTYyIDIyLjUyNGMtNC4yNDYgMC03LjU0OC0uNTk4LTkuOTI1LTEuNTM0bC4wMDEtLjAwMmMtLjU2MS0uMjQtMS40MjItLjc4My0xLjIyOC0xLjI5NS4xOTctLjUyIDEuNDQ0LS41MDcgMi4xOC0uMzRsNS4wNzYtOC43MiAzLjU1LTIuNTQ0LTIuMjUuMzEuMDE0LS4wMjMtMi40NTMuMjdjLS40NC4wNS0uNjU4LjA3My0uNzU0LjAwNGEuMzA0LjMwNCAwIDAxLS4xMjMtLjI3MmMuMDEtLjExNy4xNzItLjI2Ni40OTYtLjU2NCAxLjMwNS0xLjE5OCAzLjM3Mi0zLjA5IDMuNzQ3LTMuMzk4YTEuNDM4IDEuNDM4IDAgMDEyLjIwMy40NzhsNy4zMTcgMTMuNDc4Yy45MjItLjI0NCAyLjMwOC0uMzU2IDIuNDU1LjQ4OC4xMy43NDMtLjYwNyAxLjI1OS0yLjM2NyAyLjAyNC0xLjcyMy44LTQuNjY3IDEuNjQtNy45MzkgMS42NHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=)}._3vFA8--container .AeJ0I--row ._1yCun--logo ._2GogZ--stars ._1ErQY--star-1,._3vFA8--container .AeJ0I--row ._1yCun--logo ._2GogZ--stars ._2JsUk--star-2,._3vFA8--container .AeJ0I--row ._1yCun--logo ._2GogZ--stars ._181pR--star-3{position:absolute}._3vFA8--container .AeJ0I--row ._1yCun--logo ._2GogZ--stars ._1ErQY--star-1{background:url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjU2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbHRlcj0idXJsKCNmaWx0ZXIwX2QpIj48cGF0aCBkPSJNNTUuNjU1IDM3LjAyNWMuNDc0LTEuNjMgMi41ODYtMi4wNTUgMy42NTMtLjczNWwzLjU4NSA0LjQzNWMuNDE0LjUxMiAxLjA0My44IDEuNy43OGw1LjctLjE3OGMxLjY5OC0uMDUzIDIuNzU1IDEuODI0IDEuODI5IDMuMjQ4bC0zLjExIDQuNzhhMi4xMDIgMi4xMDIgMCAwMC0uMjE3IDEuODU4bDEuOTMxIDUuMzY2Yy41NzUgMS41OTgtLjg4NCAzLjE4My0yLjUyNCAyLjc0MmwtNS41MDctMS40ODFhMi4xMDIgMi4xMDIgMCAwMC0xLjgzNC4zNjlsLTQuNTA3IDMuNDk0Yy0xLjM0MiAxLjA0LTMuMy4xNDMtMy4zODctMS41NTNsLS4yOTQtNS42OTVhMi4xMDIgMi4xMDIgMCAwMC0uOTE3LTEuNjNsLTQuNzE3LTMuMjA3Yy0xLjQwNC0uOTU1LTEuMTU1LTMuMDk0LjQzLTMuNzAybDUuMzI3LTIuMDM4YTIuMTAyIDIuMTAyIDAgMDAxLjI2Ny0xLjM3N2wxLjU5Mi01LjQ3NnoiIGZpbGw9IiNGRkQ2MDAiLz48L2c+PGRlZnM+PGZpbHRlciBpZD0iZmlsdGVyMF9kIiB4PSIuMTI3IiB5PSItMTEuMDkiIHdpZHRoPSIxMTkuMzI3IiBoZWlnaHQ9IjExOC40NjIiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPjxmZUNvbG9yTWF0cml4IGluPSJTb3VyY2VBbHBoYSIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAxMjcgMCIvPjxmZU9mZnNldC8+PGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMjIiLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMSAwIDAgMCAwIDEgMCAwIDAgMCAxIDAgMCAwIDAuNSAwIi8+PGZlQmxlbmQgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0iZWZmZWN0MV9kcm9wU2hhZG93Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iZWZmZWN0MV9kcm9wU2hhZG93IiByZXN1bHQ9InNoYXBlIi8+PC9maWx0ZXI+PC9kZWZzPjwvc3ZnPg==");width:120px;height:56px;top:-12px;left:-103px;background-size:120px 56px}._3vFA8--container .AeJ0I--row ._1yCun--logo ._2GogZ--stars ._2JsUk--star-2{background:url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE1IiBoZWlnaHQ9IjU2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbHRlcj0idXJsKCNmaWx0ZXIwX2QpIj48cGF0aCBkPSJNNTguMzg4LTUuNjljLjg4NS0xLjAyNSAyLjU1Ny0uNjMzIDIuODkzLjY3OUw2Mi40MS0uNjA2Yy4xMy41MDguNDkuOTI2Ljk3NCAxLjEzbDQuMTkzIDEuNzYxYzEuMjQ4LjUyNCAxLjM5MiAyLjIzNi4yNDggMi45NjFsLTMuODQgMi40MzVjLS40NDQuMjgtLjczLjc1My0uNzc0IDEuMjc2bC0uMzggNC41MzFjLS4xMTMgMS4zNS0xLjY5NiAyLjAxNS0yLjc0IDEuMTUxbC0zLjUwMS0yLjlhMS42NzYgMS42NzYgMCAwMC0xLjQ1My0uMzQxbC00LjQyNyAxLjA0Yy0xLjMxOC4zMDktMi40NC0uOTkyLTEuOTQxLTIuMjVsMS42NzYtNC4yMjhhMS42NzYgMS42NzYgMCAwMC0uMTI0LTEuNDg3TDQ3Ljk2NC41ODRjLS43MDItMS4xNTguMTg5LTIuNjI3IDEuNTQtMi41NDFsNC41MzguMjg4YTEuNjc2IDEuNjc2IDAgMDAxLjM3Ni0uNTc4bDIuOTctMy40NDN6IiBmaWxsPSIjRkZENjAwIi8+PC9nPjxkZWZzPjxmaWx0ZXIgaWQ9ImZpbHRlcjBfZCIgeD0iLjk2MiIgeT0iLTUyLjY2OCIgd2lkdGg9IjExMy40NzciIGhlaWdodD0iMTEyLjgyMSIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+PGZlQ29sb3JNYXRyaXggaW49IlNvdXJjZUFscGhhIiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDEyNyAwIi8+PGZlT2Zmc2V0Lz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIyMiIvPjxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAxIDAgMCAwIDAgMSAwIDAgMCAwIDEgMCAwIDAgMC41IDAiLz48ZmVCbGVuZCBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJlZmZlY3QxX2Ryb3BTaGFkb3ciLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJlZmZlY3QxX2Ryb3BTaGFkb3ciIHJlc3VsdD0ic2hhcGUiLz48L2ZpbHRlcj48L2RlZnM+PC9zdmc+");width:114px;height:53px;left:9px;top:-12.63px;background-size:120px 62px}._3vFA8--container .AeJ0I--row ._1yCun--logo ._2GogZ--stars ._181pR--star-3{background:url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAzIiBoZWlnaHQ9IjU2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbHRlcj0idXJsKCNmaWx0ZXIwX2QpIj48cGF0aCBkPSJNNTEuODAyIDM2LjA5OGMxLjA5OS0xLjQ5MSAzLjQyLTEuMTMyIDQuMDE2LjYyMmwyLjAwMSA1Ljg4N2MuMjMxLjY4Ljc2NyAxLjIxMSAxLjQ0OCAxLjQzN2w1LjkgMS45NjFjMS43NTguNTg0IDIuMTMzIDIuOTAzLjY1IDQuMDExbC00Ljk4IDMuNzIzYTIuMjkyIDIuMjkyIDAgMDAtLjkyIDEuODIxbC0uMDQyIDYuMjE4Yy0uMDEyIDEuODUyLTIuMTAxIDIuOTI2LTMuNjE0IDEuODU4bC01LjA4LTMuNTg3YTIuMjkyIDIuMjkyIDAgMDAtMi4wMTYtLjMxMmwtNS45MjYgMS44ODJjLTEuNzY1LjU2LTMuNDMyLTEuMDk1LTIuODgzLTIuODY0bDEuODQtNS45MzlhMi4yOTIgMi4yOTIgMCAwMC0uMzI1LTIuMDE0bC0zLjYyMi01LjA1NWMtMS4wNzgtMS41MDUtLjAxOS0zLjYwMSAxLjgzMy0zLjYyNmw2LjIxOC0uMDg1YTIuMjkyIDIuMjkyIDAgMDAxLjgxNC0uOTMybDMuNjg4LTUuMDA2eiIgZmlsbD0iI0ZGRDYwMCIvPjwvZz48ZGVmcz48ZmlsdGVyIGlkPSJmaWx0ZXIwX2QiIHg9Ii43ODgiIHk9Ii0xLjUzNCIgd2lkdGg9IjEwMi4xMzUiIGhlaWdodD0iMTAxLjEyOSIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+PGZlQ29sb3JNYXRyaXggaW49IlNvdXJjZUFscGhhIiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDEyNyAwIi8+PGZlT2Zmc2V0Lz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxNy4yNDYiLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMSAwIDAgMCAwIDEgMCAwIDAgMCAxIDAgMCAwIDAuNSAwIi8+PGZlQmxlbmQgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0iZWZmZWN0MV9kcm9wU2hhZG93Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iZWZmZWN0MV9kcm9wU2hhZG93IiByZXN1bHQ9InNoYXBlIi8+PC9maWx0ZXI+PC9kZWZzPjwvc3ZnPg==");width:114px;height:75px;left:34px;top:-12.63px;background-size:120px 57px}._3vFA8--container .AeJ0I--row ._2CXkc--title{float:left;width:-webkit-max-content;width:-moz-max-content;width:max-content;height:23px;font-family:Montserrat,sans-serif;font-style:normal;font-weight:400;font-size:18px;line-height:37px;color:#fff;text-shadow:0 0 16px #5600c5;margin-right:20px}._3vFA8--container .AeJ0I--row ._1CujY--btn{float:left;flex-direction:row;padding:6px 22px;width:111px;margin-top:-2px;height:38px;background:#ffd600;box-shadow:0 0 28px hsla(0,0%,100%,.5);border-radius:5px}._3vFA8--container .AeJ0I--row ._1CujY--btn ._2Wo2K--btnText{width:66px;height:14px;font-family:Montserrat,serif;font-style:normal;font-weight:600;font-size:11px;line-height:14px;text-align:center;letter-spacing:-.01em;color:#9645fd;align-self:center;margin:6px 0}</style><link rel="preload" href="./demo_files/f(9).txt" as="script"><script type="text/javascript" src="./demo_files/f(9).txt"></script><link rel="preload" href="./demo_files/f(10).txt" as="script"><script type="text/javascript" src="./demo_files/f(10).txt"></script></head>
+
+<body>
+  <header class="header-global">
+    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--not-bottom headroom--not-top headroom--unpinned">
+      <div class="container">
+        <a class="navbar-brand mr-lg-5" href="http://techlaboratory.net/">
+          <img src="./demo_files/TechLaboratory_40.png" alt="brand">
+        </a>
+        <button class="navbar-toggler text-muted" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars fa-lg"></i>
+        </button>
+        <div class="navbar-collapse collapse" id="navbar_global">
+          <div class="navbar-collapse-header">
+            <div class="row">
+              <div class="col-6 collapse-brand">
+                <a href="http://techlaboratory.net/">
+                  <img src="./demo_files/TechLaboratory_logo_40.png" alt="brand">
+                </a>
+              </div>
+              <div class="col-6 collapse-close">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                  <span></span>
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <ul class="navbar-nav navbar-nav-hover align-items-lg-center ml-lg-auto">
+            <li class="nav-item">
+              <a href="http://techlaboratory.net/" class="nav-link" role="button">
+                <span class="nav-link-inner--text">Home</span>
+              </a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a href="http://techlaboratory.net/jquery-smarttab#" class="nav-link" data-toggle="dropdown" role="button">
+                <i class="ni ni-ui-04 d-lg-none"></i>
+                <span class="nav-link-inner--text">Projects</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-xl">
+                <div class="dropdown-menu-inner">
+                  <a href="http://techlaboratory.net/jquery-smartwizard" class="media d-flex align-items-center">
+                    <div class="media-body ml-3">
+                      <h6 class="text-primary mb-md-1">jQuery Smart Wizard</h6>
+                      <p class="description d-md-inline-block mb-0">The awesome jQuery step wizard plugin</p>
+                    </div>
+                  </a>
+                  <a href="http://techlaboratory.net/smartcart" class="media d-flex align-items-center">
+                    <div class="media-body ml-3">
+                      <h6 class="text-primary mb-md-1">jQuery Smart Cart</h6>
+                      <p class="description d-md-inline-block mb-0">jQuery Shopping Cart plugin with PayPal payment support</p>
+                    </div>
+                  </a>
+                  <a href="http://techlaboratory.net/jquery-smarttab" class="media d-flex align-items-center">
+                    <div class="media-body ml-3">
+                      <h6 class="text-primary mb-md-1">jQuery Smart Tab</h6>
+                      <p class="description d-md-inline-block mb-0">Flexible jQuery Tab Control plug-in</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon pt-0 pb-0 text-primary" href="https://github.com/techlab" data-toggle="tooltip" title="" data-original-title="Visit us on GitHub">
+                <i class="fa fa-github fa-border- shadow"></i>
+                <span class="nav-link-inner--text d-lg-none">GitHub</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-icon pt-0 pb-0 text-primary" href="https://www.paypal.me/dipuraj" data-toggle="tooltip" title="" data-original-title="Donate on PayPal">
+                <i class="fa fa-paypal fa-border- shadow"></i>
+                <span class="nav-link-inner--text d-lg-none">Paypal</span>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main style="height: auto !important;">
+    <section class="section section-lg pb-5" style="height: auto !important;">
+      <div class="container" style="height: auto !important;">
+        <div class="row row-grid" style="height: auto !important;">
+
+          <div class="col-md-12" style="height: auto !important;">
+            <div class="mt-3" style="height: auto !important;">
+
+              <h1 class="text-lg-left text-center">jQuery Smart Tab</h1>
+              <p class="lead mt-0">The flexible jQuery tab control plugin</p>
+              <hr class="mt-0">
+              <div class="article-content" style="height: auto !important;">
+                <p>
+                  <strong>jQuery Smart Tab</strong> is a jQuery plugin for easy implemetaion of tab interface.
+                  Flexible and easy to implement with a lot of features that you will love like Ajax contents, verity of themes, cool animation effects, event support, easy to customize.
+                </p>
+
+                <p>
+                  <a href="./demo_files/passing.svg"><img src="./demo_files/passing.svg" alt="Build Status" height="18"></a>
+                  <a href="https://badge.fury.io/js/jquery-smarttab"><img src="./demo_files/jquery-smarttab.svg" alt="npm version" height="18"></a>
+                  <a href="https://packagist.org/packages/techlab/jquery-smarttab"><img src="./demo_files/stable-v301-28a3dfsvg.svg" alt="Latest Stable Version" height="18"></a>
+                  <a href="https://github.com/techlab/jquery-smarttab/blob/master/LICENSE"><img src="./demo_files/license-MIT-blue.svg" alt="GitHub license" height="18"></a>
+                  <a href="https://www.paypal.me/dipuraj"><img src="./demo_files/PayPal-dipuraj-blue.svg" alt="Donate on Paypal" height="18"></a>
+                </p>
+
+                <h3 id="demo" class="mt-4 mb-4">Demo <a href="http://techlaboratory.net/jquery-smarttab#demo" class="anchor-link"><i class="fa fa-link"></i></a></h3>
+
+                <h5 class="text-uppercase">Live Example</h5>
+                <div class="demo-1">
+                  <!-- External Buttons -->
+                  <div class="row mb-3 align-items-center valign-items-center ">
+                      <div class="col-auto ">
+                          <label>Theme:</label>
+                          <select id="theme_selector" class="form-control">
+                                <option value="default" selected="">Default</option>
+                                <option value="classic">Classic</option>
+                                <option value="dark">Dark</option>
+                                <option value="brick">Brick</option>
+                                <option value="bstabs">Bootstrap Tabs</option>
+                                <option value="bspills">Bootstrap Pills</option>
+                                <option value="">No Theme</option>
+                          </select>
+                        </div>
+                        <div class="col-auto ">
+                          <label>Animation:</label>
+                          <select id="animation" class="form-control">
+                                <option value="none">None</option>
+                                <option value="fade">Fade</option>
+                                <option value="slide-horizontal">Slide Horizontal</option>
+                                <option value="slide-vertical">Slide Vertical</option>
+                                <option value="slide-swing">Slide Swing</option>
+                          </select>
+                        </div>
+                        <div class="col-auto ">
+                            <label>Go To:</label>
+                            <select id="got_to_tab" class="form-control">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                            </select>
+                        </div>
+
+                        <div class="col-auto ">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="is_vertical" value="1">
+                            <label class="custom-control-label" for="is_vertical">Vertical</label>
+                          </div>
+                        </div>
+                        <div class="col-auto ">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="is_justified" value="1" checked="">
+                            <label class="custom-control-label" for="is_justified">Justified</label>
+                          </div>
+                        </div>
+                  </div>
+
+                  <!-- SmartTab html -->
+                  <div id="smarttab" class="st st-justified st-theme-default st-horizontal">
+
+                      <ul class="nav">
+                          <li>
+                            <a class="nav-link active" href="http://techlaboratory.net/jquery-smarttab#tab-1">
+                              <strong>Tab 1</strong> This is tab description
+                            </a>
+                          </li>
+                          <li>
+                            <a class="nav-link" href="http://techlaboratory.net/jquery-smarttab#tab-2">
+                              <strong>Tab 2</strong> This is tab description
+                            </a>
+                          </li>
+                          <li>
+                            <a class="nav-link" href="http://techlaboratory.net/jquery-smarttab#tab-3">
+                              <strong>Tab 3</strong> This is tab description
+                            </a>
+                          </li>
+                          <li>
+                            <a class="nav-link" href="http://techlaboratory.net/jquery-smarttab#tab-4">
+                              <strong>Tab 4</strong> This is tab description
+                            </a>
+                          </li>
+                      </ul>
+
+                      <div class="tab-content" style="height: 190px;">
+                          <div id="tab-1" class="tab-pane" role="tabpanel" style="display: block;">
+                              <h3>Tab 1 Content</h3>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                          </div>
+                          <div id="tab-2" class="tab-pane" role="tabpanel" style="display: none;">
+                              <h3>Tab 2 Content</h3>
+                              <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </div>
+                          </div>
+                          <div id="tab-3" class="tab-pane" role="tabpanel" style="display: none;">
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                          </div>
+                          <div id="tab-4" class="tab-pane" role="tabpanel" style="display: none;">
+                              <h3>Tab 4 Content</h3>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                          </div>
+                      </div>
+                  </div>
+
+                </div><div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-8226185437441708" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 280px;"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:1010px;background-color:transparent;"><ins id="aswift_2_anchor" style="display: block; border: none; height: 280px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 1010px; background-color: transparent; overflow: visible;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:1010px;height:280px;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1010" height="280" frameborder="0" src="./demo_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!2" data-google-query-id="CPuT8Z_XzOkCFZSEmgodUL0MnA" data-load-complete="true"></iframe></ins></ins></ins></div>
+
+                <br>
+                <ul>
+                  <li><a href="http://techlaboratory.net/projects/demo/jquery-smart-tab/v3" title="Basic">Basic example</a></li>
+                  <li><a href="http://techlaboratory.net/projects/demo/jquery-smart-tab/v3/ajax" title="Ajax">Ajax example</a></li>
+                  <li><a href="http://techlaboratory.net/projects/demo/jquery-smart-tab/v3/multiple" title="Multiple Tab">Multiple Tab</a></li>
+                </ul>
+
+                <h3 id="installation" class="mt-4 mb-4">Installation <a href="http://techlaboratory.net/jquery-smarttab#installation" class="anchor-link"><i class="fa fa-link"></i></a></h3>
+                <h6><a href="https://www.npmjs.com/package/jquery-smarttab">NPM</a></h6>
+                <pre class="prettyprint lang-cl prettyprinted" style=""><span class="pln">npm install jquery</span><span class="pun">-</span><span class="pln">smarttab</span></pre>
+
+                <h6><a href="https://yarn.pm/jquery-smarttab">Yarn</a></h6>
+                <pre class="prettyprint lang-cl prettyprinted" style=""><span class="pln">yarn </span><span class="kwd">add</span><span class="pln"> jquery</span><span class="pun">-</span><span class="pln">smarttab</span></pre>
+
+                <h6><a href="https://packagist.org/packages/techlab/jquery-smarttab">Composer</a></h6>
+                <pre class="prettyprint lang-cl prettyprinted" style=""><span class="pln">composer </span><span class="kwd">require</span><span class="pln"> techlab</span><span class="pun">/</span><span class="pln">jquery</span><span class="pun">-</span><span class="pln">smarttab</span></pre>
+
+                <h6><a href="https://www.jsdelivr.com/package/npm/jquery-smarttab">CDN - jsDelivr</a></h6>
+<pre class="prettyprint lang-html prettyprinted" style=""><span class="com">&lt;!-- CSS --&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://cdn.jsdelivr.net/npm/jquery-smarttab@3.0.1/dist/css/smart_tab_all.min.css"</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+
+</span><span class="com">&lt;!-- JavaScript --&gt;</span><span class="pln">
+</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://cdn.jsdelivr.net/npm/jquery-smarttab@3.0.1/dist/js/jquery.smartTab.min.js"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;&lt;/script&gt;</span></pre>
+
+<h6><a href="https://unpkg.com/">CDN - UNPKG</a></h6>
+<pre class="prettyprint lang-html prettyprinted" style=""><span class="com">&lt;!-- CSS --&gt;</span><span class="pln">
+</span><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://unpkg.com/jquery-smarttab@3.0.1/dist/css/smart_tab_all.min.css"</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="pln"> </span><span class="tag">/&gt;</span><span class="pln">
+
+</span><span class="com">&lt;!-- JavaScript --&gt;</span><span class="pln">
+</span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://unpkg.com/jquery-smarttab@3.0.1/dist/js/jquery.smartTab.min.js"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="tag">&gt;&lt;/script&gt;</span></pre>
+
+                <h3 id="downloads" class="mt-4 mb-4">Downloads <a href="http://techlaboratory.net/jquery-smarttab#downloads" class="anchor-link"><i class="fa fa-link"></i></a></h3>
+                <p>
+                  <a href="https://github.com/techlab/jquery-smarttab/archive/master.zip" title="Download jQuery Smart Tab on GitHub" class="btn btn-primary btn-sm">
+                    <i class="fa fa-download"></i> Download jQuery Smart Tab
+                  </a>
+                </p>
+
+                <h3 id="features" class="mt-4 mb-4">Features <a href="http://techlaboratory.net/jquery-smarttab#features" class="anchor-link"><i class="fa fa-link"></i></a></h3>
+                <ul class="feature-list">
+                  <li>Responsive design</li>
+                  <li>Standalone CSS</li>
+                  <li>Bootstrap compatible</li>
+                  <li>Various themes included</li>
+                  <li>Customizable CSS</li>
+                  <li>URL navigation and tab selection</li>
+                  <li>Event support</li>
+                  <li>Ajax content loading support</li>
+                  <li>Keyboard navigation</li>
+                  <li>Auto content height adjustment</li>
+                  <li>Compatible with all jQuery versions (jQuery 1.11.1+, jQuery 2+, jQuery 3.5+)</li>
+                  <li>Easy to implement and minimal HTML required</li>
+                  <li>Supports all modern browsers</li>
+                  <li>Auto Progress (automatic navigation of tabs)</li>
+                  <li>Cool transition animations (fade/slide-horizontal/slide-vertical/slide-swing)</li>
+                  <li>External anchor support</li>
+                </ul>
+
+                <h3 id="documentation" class="mt-4 mb-4">Documentation <a class="anchor-link" href="http://techlaboratory.net/jquery-smarttab#documentation"><i class="fa fa-link"></i></a></h3>
+
+                <h5 id="requirements">Requirements</h5>
+                <ol class="feature-list">
+                  <li><a href="http://jquery.com/">jQuery</a> (supports jQuery 1.11.1+, jQuery 2+, jQuery 3.5+)</li>
+                </ol>
+
+
+                <h5>Include jQuery SmartTab CSS</h5>
+                <pre class="prettyprint linenums lang-html prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;link</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"../dist/css/smart_tab_all.min.css"</span><span class="pln"> </span><span class="atn">rel</span><span class="pun">=</span><span class="atv">"stylesheet"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="tag">&gt;</span></li></ol></pre>
+
+<h5>The HTML Markup</h5>
+<pre class="prettyprint linenums lang-html prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"smarttab"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;ul</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">       </span><span class="tag">&lt;li&gt;</span></li><li class="L3"><span class="pln">           </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav-link"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#tab-1"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">              Tab 1</span></li><li class="L5"><span class="pln">           </span><span class="tag">&lt;/a&gt;</span></li><li class="L6"><span class="pln">       </span><span class="tag">&lt;/li&gt;</span></li><li class="L7"><span class="pln">       </span><span class="tag">&lt;li&gt;</span></li><li class="L8"><span class="pln">           </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav-link"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#tab-2"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">              Tab 2</span></li><li class="L0"><span class="pln">           </span><span class="tag">&lt;/a&gt;</span></li><li class="L1"><span class="pln">       </span><span class="tag">&lt;/li&gt;</span></li><li class="L2"><span class="pln">       </span><span class="tag">&lt;li&gt;</span></li><li class="L3"><span class="pln">           </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav-link"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#tab-3"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">              Tab 3</span></li><li class="L5"><span class="pln">           </span><span class="tag">&lt;/a&gt;</span></li><li class="L6"><span class="pln">       </span><span class="tag">&lt;/li&gt;</span></li><li class="L7"><span class="pln">       </span><span class="tag">&lt;li&gt;</span></li><li class="L8"><span class="pln">           </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"nav-link"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"#tab-4"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">              Tab 4</span></li><li class="L0"><span class="pln">           </span><span class="tag">&lt;/a&gt;</span></li><li class="L1"><span class="pln">       </span><span class="tag">&lt;/li&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/ul&gt;</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"tab-content"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">       </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"tab-1"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"tab-pane"</span><span class="pln"> </span><span class="atn">role</span><span class="pun">=</span><span class="atv">"tabpanel"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">          Tab content</span></li><li class="L7"><span class="pln">       </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="pln">       </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"tab-2"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"tab-pane"</span><span class="pln"> </span><span class="atn">role</span><span class="pun">=</span><span class="atv">"tabpanel"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">          Tab content</span></li><li class="L0"><span class="pln">       </span><span class="tag">&lt;/div&gt;</span></li><li class="L1"><span class="pln">       </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"tab-3"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"tab-pane"</span><span class="pln"> </span><span class="atn">role</span><span class="pun">=</span><span class="atv">"tabpanel"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">          Tab content</span></li><li class="L3"><span class="pln">       </span><span class="tag">&lt;/div&gt;</span></li><li class="L4"><span class="pln">       </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"tab-4"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"tab-pane"</span><span class="pln"> </span><span class="atn">role</span><span class="pun">=</span><span class="atv">"tabpanel"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">          Tab content</span></li><li class="L6"><span class="pln">       </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+
+<h5>Include jQuery (ignore this if you have already included on the page)</h5>
+<pre class="prettyprint linenums lang-html prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://code.jquery.com/jquery-3.3.1.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li></ol></pre>
+
+<h5>Include jQuery SmartTab JavaScript</h5>
+<pre class="prettyprint linenums lang-html prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/javascript"</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"../dist/js/jquery.smartTab.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li></ol></pre>
+
+<h5>Initialize the jQuery SmartTab</h5>
+<pre class="prettyprint linenums lang-js prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="pln">document</span><span class="pun">).</span><span class="pln">ready</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">  </span><span class="com">// SmartTab initialize</span></li><li class="L3"><span class="pln">  $</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">();</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pun">});</span></li></ol></pre>
+
+That is it!
+<br> <br>
+<h5 id="css-selection">CSS Files Selection  <a class="anchor-link" href="http://techlaboratory.net/jquery-smarttab#css-selection"><i class="fa fa-link"></i></a></h5>
+<p>
+You can see many CSS files at <code>dist/css/</code> folder and may be confused about which one to use.
+The answer is you can use any of them, all the CSS files are standalone.
+</p>
+<p>
+The only difference in the files is the theme.
+The file <code>../dist/css/smart_tab_all.css</code> contains all the themes,
+while the <code>../dist/css/smart_tab.css</code> only contains the default theme.
+Also other files are theme-specific file named with the respective theme names, like <code>../dist/css/smart_tab_(theme name).css</code>.
+</p><div class="google-auto-placed ap_container" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-8226185437441708" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent; height: 280px;"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:1010px;background-color:transparent;"><ins id="aswift_1_anchor" style="display: block; border: none; height: 280px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 1010px; background-color: transparent; overflow: visible;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:1010px;height:280px;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1010" height="280" frameborder="0" src="./demo_files/ads(1).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!1" data-google-query-id="CPOv_5_XzOkCFYWcmwod0Q8A5A" data-load-complete="true"></iframe></ins></ins></ins></div>
+<p>
+All these files have corresponding min files that compressed for size reduction,
+those files are recommended unless you don't want to customize the CSS yourself.
+Ex. <code>../dist/css/smart_tab_all.min.css</code>
+</p>
+
+<h3 id="advanced-options" class="mt-4 mb-4">Advanced Options <a class="anchor-link" href="http://techlaboratory.net/jquery-smarttab#advanced-options"><i class="fa fa-link"></i></a></h3>
+
+<h5>with all optional parameters</h5>
+<pre class="prettyprint linenums lang-js prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">({</span></li><li class="L1"><span class="pln">  selected</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Initial selected tab, 0 = first tab</span></li><li class="L2"><span class="pln">  theme</span><span class="pun">:</span><span class="pln"> </span><span class="str">'default'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// theme for the tab, related css need to include for other than default theme</span></li><li class="L3"><span class="pln">  orientation</span><span class="pun">:</span><span class="pln"> </span><span class="str">'horizontal'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Nav menu orientation. horizontal/vertical</span></li><li class="L4"><span class="pln">  justified</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Nav menu justification. true/false</span></li><li class="L5"><span class="pln">  autoAdjustHeight</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Automatically adjust content height</span></li><li class="L6"><span class="pln">  backButtonSupport</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Enable the back button support</span></li><li class="L7"><span class="pln">  enableURLhash</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Enable selection of the tab based on url hash</span></li><li class="L8"><span class="pln">  transition</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">      animation</span><span class="pun">:</span><span class="pln"> </span><span class="str">'none'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing</span></li><li class="L0"><span class="pln">      speed</span><span class="pun">:</span><span class="pln"> </span><span class="str">'400'</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Transion animation speed</span></li><li class="L1"><span class="pln">      easing</span><span class="pun">:</span><span class="str">''</span><span class="pln"> </span><span class="com">// Transition animation easing. Not supported without a jQuery easing plugin</span></li><li class="L2"><span class="pln">  </span><span class="pun">},</span></li><li class="L3"><span class="pln">  autoProgress</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">// Auto navigate tabs on interval</span></li><li class="L4"><span class="pln">      enabled</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Enable/Disable Auto navigation</span></li><li class="L5"><span class="pln">      interval</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3500</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Auto navigate Interval (used only if "autoProgress" is set to true)</span></li><li class="L6"><span class="pln">      stopOnFocus</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Stop auto navigation on focus and resume on outfocus</span></li><li class="L7"><span class="pln">  </span><span class="pun">},</span></li><li class="L8"><span class="pln">  keyboardSettings</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">      keyNavigation</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span><span class="com">// Enable/Disable keyboard navigation(left and right keys are used if enabled)</span></li><li class="L0"><span class="pln">      keyLeft</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">37</span><span class="pun">],</span><span class="pln"> </span><span class="com">// Left key code</span></li><li class="L1"><span class="pln">      keyRight</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="lit">39</span><span class="pun">]</span><span class="pln"> </span><span class="com">// Right key code</span></li><li class="L2"><span class="pln">  </span><span class="pun">}</span></li><li class="L3"><span class="pun">});</span></li></ol></pre>
+
+<h5 class="subTitle">Implement Ajax Contents</h5>
+<p>
+    Ajax is not built-in, instead you can listen to <code>tabContent</code> event and provide the ajax contents.
+    This is usefull to load ajax contents and give you full control on the ajax calls.
+    The <code>tabContent</code> event can accept Promise as return or you can return the string as the content of the tab.
+    The event will be passed with two parameters, <code>anchorObject</code> the jQuery object of the selected tab
+    and <code>tabIndex</code> the zero based index number of the tabs.
+
+    Here is an ajax call example with Promise.
+</p>
+
+<pre class="prettyprint linenums lang-js prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="com">// Ajax content loading with "tabContent" event</span></li><li class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">"#smarttab"</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">"tabContent"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">,</span><span class="pln"> anchorObject</span><span class="pun">,</span><span class="pln"> tabIndex</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> repo    </span><span class="pun">=</span><span class="pln"> anchorObject</span><span class="pun">.</span><span class="pln">data</span><span class="pun">(</span><span class="str">'repo'</span><span class="pun">);</span></li><li class="L4"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> ajaxURL </span><span class="pun">=</span><span class="pln"> </span><span class="str">"https://api.npms.io/v2/package/"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> repo</span><span class="pun">;</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="pln">    </span><span class="com">// Return a promise object</span></li><li class="L7"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Promise</span><span class="pun">((</span><span class="pln">resolve</span><span class="pun">,</span><span class="pln"> reject</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="pln">      </span><span class="com">// Ajax call to fetch your content</span></li><li class="L0"><span class="pln">      $</span><span class="pun">.</span><span class="pln">ajax</span><span class="pun">({</span></li><li class="L1"><span class="pln">          method  </span><span class="pun">:</span><span class="pln"> </span><span class="str">"GET"</span><span class="pun">,</span></li><li class="L2"><span class="pln">          url     </span><span class="pun">:</span><span class="pln"> ajaxURL</span><span class="pun">,</span></li><li class="L3"><span class="pln">          beforeSend</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln"> xhr </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">              </span><span class="com">// Show the loader</span></li><li class="L5"><span class="pln">              $</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">(</span><span class="str">"loader"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"show"</span><span class="pun">);</span></li><li class="L6"><span class="pln">          </span><span class="pun">}</span></li><li class="L7"><span class="pln">      </span><span class="pun">}).</span><span class="pln">done</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln"> res </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="pln">          </span><span class="kwd">var</span><span class="pln"> html </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Ajax data about '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> repo </span><span class="pun">+</span><span class="pln"> </span><span class="str">' loaded from GitHub'</span><span class="pun">;</span></li><li class="L0"><span class="pln">          html </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'URL:'</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> ajaxURL</span><span class="pun">;</span></li><li class="L1"><span class="pln">          html </span><span class="pun">+=</span><span class="pln"> </span><span class="str">'Name: '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> res</span><span class="pun">.</span><span class="pln">collected</span><span class="pun">.</span><span class="pln">metadata</span><span class="pun">.</span><span class="pln">name</span><span class="pun">;</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="pln">          </span><span class="com">// Resolve the Promise with the tab content</span></li><li class="L4"><span class="pln">          resolve</span><span class="pun">(</span><span class="pln">html</span><span class="pun">);</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="pln">          </span><span class="com">// Hide the loader</span></li><li class="L7"><span class="pln">          $</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">(</span><span class="str">"loader"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hide"</span><span class="pun">);</span></li><li class="L8"><span class="pln">      </span><span class="pun">}).</span><span class="pln">fail</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">err</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">        </span><span class="com">// Reject the Promise with error message to show as tab content</span></li><li class="L1"><span class="pln">        reject</span><span class="pun">(</span><span class="pln"> </span><span class="str">"An error loading the resource"</span><span class="pln"> </span><span class="pun">);</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="pln">        </span><span class="com">// Hide the loader</span></li><li class="L4"><span class="pln">        $</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">(</span><span class="str">"loader"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hide"</span><span class="pun">);</span></li><li class="L5"><span class="pln">      </span><span class="pun">});</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">    </span><span class="pun">});</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="pun">});</span></li><li class="L0"><span class="pln">&nbsp;</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="com">// SmartTab initialize</span></li><li class="L3"><span class="pln">$</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">();</span></li></ol></pre>
+
+<h5 class="subTitle">Public functions</h5>
+<p>
+  There are public methods that are handy to do certain functions
+</p>
+
+<h6>goToTab</h6>
+<p>
+  Allow you to go to a certain tab.
+</p>
+<pre class="prettyprint linenums lang-js prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="com">// Go to tab</span></li><li class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">(</span><span class="str">"goToTab"</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">);</span></li></ol></pre>
+
+<h6>setOptions</h6>
+<p>
+  Allow you to set the options dynamically.
+</p>
+<pre class="prettyprint linenums lang-js prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="com">// Change theme</span></li><li class="L1"><span class="kwd">var</span><span class="pln"> options </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">  theme</span><span class="pun">:</span><span class="pln"> </span><span class="str">'dark'</span></li><li class="L3"><span class="pun">};</span></li><li class="L4"><span class="pln">$</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">(</span><span class="str">"setOptions"</span><span class="pun">,</span><span class="pln"> options</span><span class="pun">);</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="com">// Change Orientation and Justify</span></li><li class="L7"><span class="kwd">var</span><span class="pln"> options </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">  orientation</span><span class="pun">:</span><span class="pln"> </span><span class="str">'vertical'</span><span class="pun">,</span></li><li class="L9"><span class="pln">  justified</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span></li><li class="L0"><span class="pun">};</span></li><li class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">(</span><span class="str">"setOptions"</span><span class="pun">,</span><span class="pln"> options</span><span class="pun">);</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="com">// Change animation</span></li><li class="L4"><span class="kwd">var</span><span class="pln"> options </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">  transition</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">      animation</span><span class="pun">:</span><span class="pln"> </span><span class="str">'slide-h'</span></li><li class="L7"><span class="pln">  </span><span class="pun">},</span></li><li class="L8"><span class="pun">};</span></li><li class="L9"><span class="pln">$</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">(</span><span class="str">"setOptions"</span><span class="pun">,</span><span class="pln"> options</span><span class="pun">);</span></li></ol></pre>
+
+<h6>loader</h6>
+<p>
+  Allow you to show/hide the built-n loader animation.
+</p>
+<pre class="prettyprint linenums lang-js prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="com">// Show the loader</span></li><li class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">(</span><span class="str">"loader"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"show"</span><span class="pun">);</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="com">// Hide the loader</span></li><li class="L4"><span class="pln">$</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">(</span><span class="str">"loader"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hide"</span><span class="pun">);</span></li></ol></pre>
+
+
+<h3 id="parameters" class="mt-4 mb-4">Parameter Description:</h3>
+<div class="table-responsive">
+<table class="table" align="left" border="0" cellpadding="3" cellspacing="0">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+    <tr>
+      <th>selected</th>
+      <td><code>(integer)</code> Specify the selected tab on the first load</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>theme</th>
+      <td><code>(string)</code> Theme for the tab</td>
+      <td><code>'default'</code></td>
+    </tr>
+    <tr>
+      <th>orientation</th>
+      <td><code>(string)</code> Nav menu orientation</td>
+      <td><code>'horizontal'</code></td>
+    </tr>
+    <tr>
+      <th>justified</th>
+      <td><code>(boolean)</code> Nav menu justification</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <th>autoAdjustHeight</th>
+      <td><code>(boolean)</code> Automatically adjust content height</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <th>backButtonSupport</th>
+      <td><code>(boolean)</code> Enable the back button support</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <th>enableURLhash</th>
+      <td><code>(boolean)</code> Enable selection of the tab based on url hash</td>
+      <td>true</td>
+    </tr>
+
+    <tr>
+      <th>transition</th>
+      <td colspan="3">
+        <code>(object)</code> with settings for the transition
+        <br><br>
+        <table class="table" cellspacing="0" cellpadding="3" border="0" align="left">
+          <tbody><tr>
+              <th>animation</th>
+              <td><code>(string)</code> Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing</td>
+              <td><code>'none'</code></td>
+          </tr>
+          <tr>
+              <th>speed</th>
+              <td><code>(number)</code> Transion animation speed</td>
+              <td><code>'400'</code></td>
+          </tr>
+          <tr>
+              <th>easing</th>
+              <td><code>(string)</code> Transition animation easing. Not supported without a jQuery easing plugin</td>
+              <td>''</td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+
+    <tr>
+      <th>autoProgress</th>
+      <td colspan="3">
+        <code>(object)</code> with settings for the auto navigate tabs on interval
+        <br><br>
+        <table class="table" cellspacing="0" cellpadding="3" border="0" align="left">
+          <tbody><tr>
+              <th>enabled</th>
+              <td><code>(boolean)</code> Enable/Disable Auto navigation</td>
+              <td><code>false</code></td>
+          </tr>
+          <tr>
+              <th>interval</th>
+              <td><code>(number)</code> Auto navigate Interval (used only if "autoProgress" is enabled)</td>
+              <td><code>3500</code></td>
+          </tr>
+          <tr>
+              <th>stopOnFocus</th>
+              <td><code>(boolean)</code> Stop auto navigation on focus and resume on outfocus (used only if "autoProgress" is enabled)</td>
+              <td><code>true</code></td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+
+    <tr>
+      <th>keyboardSettings</th>
+      <td colspan="3">
+        <code>(object)</code> with settings for the keyboard navigation
+        <br><br>
+        <table class="table" cellspacing="0" cellpadding="3" border="0" align="left">
+          <tbody><tr>
+              <th>keyNavigation</th>
+              <td><code>(boolean)</code> Enable/Disable keyboard navigation</td>
+              <td><code>true</code></td>
+          </tr>
+          <tr>
+              <th>keyLeft</th>
+              <td><code>(array)</code> Left key code</td>
+              <td><code>[37]</code></td>
+          </tr>
+          <tr>
+              <th>keyRight</th>
+              <td><code>(array)</code> Right key code</td>
+              <td><code>[39]</code></td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+
+</tbody></table>
+</div>
+
+<h3 id="events" class="mt-4 mb-4">Event Description</h3>
+<div class="table-responsive">
+<table class="table" align="left" border="0" cellpadding="3" cellspacing="0">
+  <tbody><tr>
+    <th nowrap="nowrap">Event</th>
+    <th>Description</th>
+    <th width="300px">Parameters</th>
+  </tr>
+  <tr>
+    <th>leaveTab</th>
+    <td>Triggers when leaving a tab.<br>
+        This is a decision making event. based on its function return value (true/false)
+        the current navigation can be cancelled.
+    </td>
+    <td><b>Object:</b> jQuery object of the tab anchor element.<br>
+        <b>Int:</b> Index of the tab.<br>
+    </td>
+  </tr>
+
+  <tr>
+    <th>showTab</th>
+    <td>Triggers after a tab is loaded with content.
+    </td>
+    <td><b>Object:</b> jQuery object of the tab anchor element.<br>
+        <b>Int:</b> Index of the tab.<br>
+    </td>
+  </tr>
+
+  <tr>
+    <th>tabContent</th>
+    <td>Triggers when a tab is about to load.<br>
+        This event will allow you to pass a string value as return parameter.
+        The string value will be used as the content of the tab.
+        You can also pass a Promise object
+        and on Promise completion the result will be used as the content of the tab.
+        This is usefull to load ajax contents and give you more control on the ajax calls.
+    </td>
+    <td><b>Object:</b> jQuery object of the tab anchor element.<br>
+        <b>Int:</b> Index of the tab.<br>
+    </td>
+  </tr>
+
+</tbody></table>
+</div>
+
+<h4 class="subTitle">Event Initialize Examples</h4>
+<pre class="prettyprint linenums lang-js prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="com">// Initialize the leaveTab event</span></li><li class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">"#smarttab"</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">"leaveTab"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">,</span><span class="pln"> anchorObject</span><span class="pun">,</span><span class="pln"> tabIndex</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">   </span><span class="kwd">return</span><span class="pln"> confirm</span><span class="pun">(</span><span class="str">"Do you want to leave the tab "</span><span class="pun">+</span><span class="pln">tabIndex</span><span class="pun">+</span><span class="str">"?"</span><span class="pun">);</span></li><li class="L3"><span class="pun">});</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="com">// Initialize the showTab event</span></li><li class="L6"><span class="pln">$</span><span class="pun">(</span><span class="str">"#smarttab"</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">"showTab"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">,</span><span class="pln"> anchorObject</span><span class="pun">,</span><span class="pln"> tabIndex</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L7"><span class="pln">   alert</span><span class="pun">(</span><span class="str">"You are on tab "</span><span class="pun">+</span><span class="pln">tabIndex</span><span class="pun">+</span><span class="str">" now"</span><span class="pun">);</span></li><li class="L8"><span class="pun">});</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="com">// Initialize Smart Tab</span></li><li class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">'#smarttab'</span><span class="pun">).</span><span class="pln">smartTab</span><span class="pun">();</span></li></ol></pre></div><div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-8226185437441708" data-adsbygoogle-status="done" style="display: block; margin: 24px auto 10px; background-color: transparent; height: 280px;"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:1010px;background-color:transparent;"><ins id="aswift_3_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:1010px;background-color:transparent;"></ins></ins></ins></div>
+
+              <h3 id="license" class="mt-4 mb-4">License <a href="http://techlaboratory.net/jquery-smarttab#license" class="anchor-link"><i class="fa fa-link"></i></a></h3>
+              <p>Released under the terms of the <a href="https://github.com/techlab/jquery-smarttab/blob/master/MIT-LICENSE.txt">MIT License</a>
+               (<a href="http://en.wikipedia.org/wiki/MIT_License">more</a>).
+               You are free to use on both personal and commercial environment as long as the copyright header is left intact.</p>
+
+               <div class="card bg-gradient-info-2 shadow-lg border-0 mt-5 mb-5">
+                 <div class="p-5">
+                   <div class="row align-items-center">
+                     <div class="col-lg-8">
+                       <h3 class="text-white">A little help is always a beautiful thing...</h3>
+                       <p class="lead text-white mt-3">
+                         We are committed to deliver free and open source projects. Your support keep us on the track and make us deliver bigger things for you.
+                       </p>
+                     </div>
+                     <div class="col-lg-3 ml-lg-auto text-lg-left text-center">
+                       <a href="https://www.paypal.me/dipuraj" class="btn btn-secondary">
+                         <img alt="PayPal - The safer, easier way to pay online!" src="./demo_files/btn_donate_pp_142x27.png">
+                       </a>
+                     </div>
+                   </div><div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-8226185437441708" data-adsbygoogle-status="done" style="display: block; margin: 24px auto 10px; background-color: transparent; height: 280px;"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:914px;background-color:transparent;"><ins id="aswift_4_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:914px;background-color:transparent;"></ins></ins></ins></div>
+                 </div>
+               </div>
+
+
+                <h3 id="help-us-improve" class="mt-4 mb-4">Help us improve <a href="http://techlaboratory.net/jquery-smarttab#help-us-improve" class="anchor-link"><i class="fa fa-link"></i></a></h3>
+                <p>
+                  jQuery Smart Tab is a free and open-source project, and we are trying hard to improve the project as per the feedback from you.
+                  Please help us finding bugs or issues on this project, or give us an idea for a feature.
+                  Also, you are most welcome to improve the code, please create a pull-request on the project repository on <a href="https://github.com/techlab/jquery-smarttab">GitHub</a>.
+                </p>
+                <div class="alert alert-secondary message-box mt-3" role="alert">
+                  <span class="alert-inner--icon"><i class="fa fa-github fa-lg"></i></span>
+                  <span class="alert-inner--text">Please do feature requests and bug reports on <a href="https://github.com/techlab/jquery-smarttab/issues">GitHub Issue Tracker</a>  on the repository.</span>
+                </div>
+
+                <div class="alert alert-secondary message-box" role="alert">
+                  <span class="alert-inner--icon"><i class="fa fa-stack-overflow fa-lg"></i></span>
+                  <span class="alert-inner--text">For help and support questions, please ask or search on <a href="http://stackoverflow.com/questions/tagged/smart-tab">StackOverflow</a> with <a href="http://stackoverflow.com/questions/tagged/smart-tab">smart-tab</a> tag.</span>
+                </div>
+
+                <h3 id="archive" class="mt-4 mb-4">Archive <a href="http://techlaboratory.net/jquery-smarttab#archive" class="anchor-link"><i class="fa fa-link"></i></a></h3>
+                <p>
+                  Please see the older versions archive of this plugin.
+                </p>
+
+                <a href="http://techlaboratory.net/archive/jquery-smart-tab/v2" class="btn btn-secondary btn-sm" role="button" aria-disabled="true">jQuery Smart Tab v2</a>
+
+                <div class="card mt-5 shadow">
+                 <div class="row no-gutters">
+                   <div class="col-md-2">
+                     <img src="./demo_files/488b32c3a59f67ff35b1d15037fd6749.jpeg" class="card-img " alt="Dipu Raj">
+                   </div>
+                   <div class="col-md-10">
+                     <div class="card-body">
+                       <h4 class="card-title mb-1"><a href="http://dipu.me/">Dipu Raj</a></h4>
+                       <p class="card-text text-muted-">
+                          Full-stack developer in JavaScript, PHP and C# with added interest in Angular, React, jQuery and Bootstrap.
+                          Believes the code should be as beautiful as the design.
+                      </p>
+                     </div>
+                   </div>
+                 </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+  </main>
+
+  <footer class="footer bg-gradient-lighter2 border-top2">
+    <div class="container container-lg">
+      <div class="row align-items-center justify-content-md-between">
+        <div class="col-md-4 col-sm-12 text-lg-left text-center">
+          <div class="copyright">
+            ©
+            <script>
+              document.write(new Date().getFullYear())
+            </script>2020
+            <a href="http://techlaboratory.net/">Tech Laboratory</a>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-sm-12">
+          <ul class="nav nav-footer  justify-content-center justify-content-lg-end text-lg-right text-center">
+            <li class="nav-item">
+              <a href="http://techlaboratory.net/" class="nav-link">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="http://techlaboratory.net/jquery-smartwizard" class="nav-link">jQuery Smart Wizard</a>
+            </li>
+            <li class="nav-item">
+              <a href="http://techlaboratory.net/smartcart" class="nav-link">jQuery Smart Cart</a>
+            </li>
+            <li class="nav-item">
+              <a href="http://techlaboratory.net/jquery-smarttab" class="nav-link">jQuery Smart Tab</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="http://techlaboratory.net/privacy" class="nav-link">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core -->
+  <script src="./demo_files/jquery-3.4.1.min.js.Без названия" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="./demo_files/popper.min.js.Без названия" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="./demo_files/bootstrap.min.js.Без названия" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="./demo_files/headroom.min.js.Без названия"></script>
+  <script src="./demo_files/argon.js.Без названия"></script>
+
+  <!-- Include SmartTab JavaScript source -->
+  <script type="text/javascript" src="./demo_files/jquery.smartTab.min.js.Без названия"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function() {
+
+          // SmartTab initialize
+          $('#smarttab').smartTab({
+            backButtonSupport: false, // Enable the back button support
+            enableURLhash: false,
+            autoProgress: { // Auto navigate tabs on interval
+                enabled: false, // Enable/Disable Auto navigation
+                interval: 3500, // Auto navigate Interval (used only if "autoProgress" is set to true)
+                stopOnFocus: true, // Stop auto navigation on focus and resume on outfocus
+            }
+          });
+
+
+          // Demo Button Events
+          $("#got_to_tab").on("change", function() {
+              // Go to tab
+              var tab_index = $(this).val() - 1;
+              $('#smarttab').smartTab("goToTab", tab_index);
+              return true;
+          });
+
+          $("#is_vertical").on("click", function() {
+              // Change Orientation
+              var options = {
+                orientation: ($(this).prop("checked") == true) ? 'vertical' : 'horizontal'
+              };
+              $('#smarttab').smartTab("setOptions", options);
+              return true;
+          });
+
+          $("#is_justified").on("click", function() {
+              // Change Justify
+              var options = {
+                justified: $(this).prop("checked")
+              };
+
+              $('#smarttab').smartTab("setOptions", options);
+              return true;
+          });
+
+          $("#animation").on("change", function() {
+              // Change theme
+              var options = {
+                transition: {
+                    animation: $(this).val()
+                },
+              };
+              $('#smarttab').smartTab("setOptions", options);
+              return true;
+          });
+
+          $("#theme_selector").on("change", function() {
+              // Change theme
+              var options = {
+                theme: $(this).val()
+              };
+              $('#smarttab').smartTab("setOptions", options);
+              return true;
+          });
+
+          // Set selected theme on page refresh
+          $("#theme_selector").change();
+
+      });
+  </script>
+
+  
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" src="./demo_files/ads(2).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!0" data-load-complete="true"></iframe></ins></ins></ins><iframe id="google_osd_static_frame_180697005737" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./demo_files/saved_resource(2).html"></iframe></body><iframe id="google_esf" name="google_esf" src="./demo_files/zrt_lookup.html" data-ad-client="ca-pub-8226185437441708" style="display: none;"></iframe></html>

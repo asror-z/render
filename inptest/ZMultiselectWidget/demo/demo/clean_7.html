@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Title Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/css/multi-select.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/css/multi-select.min.css">
+</head>
+<body>
+  <!-- start -->
+  <h1>Searchable</h1>
+  <select multiple class="searchable" name="searchable[]">
+    <option value='elem_1'>elem 1</option>
+    <option value='elem_2'>elem 2</option>
+    <option value='elem_3'>elem 3</option>
+    <option value='elem_4'>elem 4</option>
+    <option value='elem_5'>elem 5</option>
+    <option value='elem_6'>elem 6</option>
+    <option value='elem_7'>elem 7</option>
+    <option value='elem_8'>elem 8</option>
+    <option value='elem_9'>elem 9</option>
+    <option value='elem_10'>elem 10</option>
+    <option value='elem_11'>elem 11</option>
+    <option value='elem_12'>elem 12</option>
+    <option value='elem_13'>elem 13</option>
+    <option value='elem_14'>elem 14</option>
+    <option value='elem_15'>elem 15</option>
+    <option value='elem_16'>elem 16</option>
+    <option value='elem_17'>elem 17</option>
+    <option value='elem_18'>elem 18</option>
+    <option value='elem_19'>elem 19</option>
+    <option value='elem_20'>elem 20</option>
+
+    <option value='elem_100'>elem 100</option>
+  </select>
+  <style>
+      input{
+        width: 167px;
+      }
+  </style>
+  
+  <!-- ends -->
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/js/jquery.multi-select.min.js"></script>
+  <script src="./quicksearch-master/jquery.quicksearch.js"></script>
+  <script type="text/javascript">
+  // run pre selected options
+  $('#custom-headers').multiSelect();
+  //$('#pre-selected-options').multiSelect('addOptions',{ dblClick false} ); 
+  
+  </script>
+ <script>
+  $('.searchable').multiSelect({
+  selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"12\"'>",
+  selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"4\"'>",
+  afterInit: function(ms){
+    var that = this,
+        $selectableSearch = that.$selectableUl.prev(),
+        $selectionSearch = that.$selectionUl.prev(),
+        selectableSearchString = '#'+that.$container.attr('id')+' .ms-elem-selectable:not(.ms-selected)',
+        selectionSearchString = '#'+that.$container.attr('id')+' .ms-elem-selection.ms-selected';
+
+    that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+    .on('keydown', function(e){
+      if (e.which === 40){
+        that.$selectableUl.focus();
+        return false;
+      }
+    });
+
+    that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+    .on('keydown', function(e){
+      if (e.which == 40){
+        that.$selectionUl.focus();
+        return false;
+      }
+    });
+  },
+  afterSelect: function(){
+    this.qs1.cache();
+    this.qs2.cache();
+  },
+  afterDeselect: function(){
+    this.qs1.cache();
+    this.qs2.cache();
+  }
+});
+
+ </script> 
+</body>
+
+</html>

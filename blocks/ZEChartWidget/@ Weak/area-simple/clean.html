@@ -1,0 +1,146 @@
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>Simple map</title>
+</head>
+<body style="height: 100%; margin: 0">
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<div id="container"
+     style="height: 100%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;"
+     _echarts_instance_="ec_1579684599094">
+    <div style="position: relative; width: 1920px; height: 935px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+        <canvas data-zr-dom-id="zr_0" width="1920" height="935"
+                style="position: absolute; left: 0px; top: 0px; width: 1920px; height: 935px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+    </div>
+    <div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px/21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 586px; top: 93.5px; pointer-events: none;">
+        1970/3/1<br><span
+            style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:rgb(255, 70, 131);"></span>模拟数据:
+        481
+    </div>
+</div>
+
+<script src="/testing/Blocker/Chart/CSSJS/ECharts/Done/Maps.js"></script>
+<script>
+    myChart.showLoading();
+
+    $.get(ROOT_PATH + 'data/asset/geo/HK.json', function (geoJson) {
+
+        myChart.hideLoading();
+
+        echarts.registerMap('HK', geoJson);
+
+        myChart.setOption(option = {
+            title: {
+                text: '香港18区人口密度 （2011）',
+                subtext: '人口密度数据来自Wikipedia',
+                sublink: 'http://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%A1%8C%E6%94%BF%E5%8D%80%E5%8A%83#cite_note-12'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}<br/>{c} (p / km2)'
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                left: 'right',
+                top: 'center',
+                feature: {
+                    dataView: {readOnly: false},
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            visualMap: {
+                min: 800,
+                max: 50000,
+                text: ['High', 'Low'],
+                realtime: false,
+                calculable: true,
+                inRange: {
+                    color: ['lightskyblue', 'yellow', 'orangered']
+                }
+            },
+            series: [
+                {
+                    name: '香港18区人口密度',
+                    type: 'map',
+                    mapType: 'HK', // 自定义扩展图表类型
+                    label: {
+                        show: true
+                    },
+                    data: [
+                        {name: '中西区', value: 20057.34},
+                        {name: '湾仔', value: 15477.48},
+                        {name: '东区', value: 31686.1},
+                        {name: '南区', value: 6992.6},
+                        {name: '油尖旺', value: 44045.49},
+                        {name: '深水埗', value: 40689.64},
+                        {name: '九龙城', value: 37659.78},
+                        {name: '黄大仙', value: 45180.97},
+                        {name: '观塘', value: 55204.26},
+                        {name: '葵青', value: 21900.9},
+                        {name: '荃湾', value: 4918.26},
+                        {name: '屯门', value: 5881.84},
+                        {name: '元朗', value: 4178.01},
+                        {name: '北区', value: 2227.92},
+                        {name: '大埔', value: 2180.98},
+                        {name: '沙田', value: 9172.94},
+                        {name: '西贡', value: 3368},
+                        {name: '离岛', value: 806.98}
+                    ],
+                    // 自定义名称映射
+                    nameMap: {
+                        'Central and Western': '中西区',
+                        'Eastern': '东区',
+                        'Islands': '离岛',
+                        'Kowloon City': '九龙城',
+                        'Kwai Tsing': '葵青',
+                        'Kwun Tong': '观塘',
+                        'North': '北区',
+                        'Sai Kung': '西贡',
+                        'Sha Tin': '沙田',
+                        'Sham Shui Po': '深水埗',
+                        'Southern': '南区',
+                        'Tai Po': '大埔',
+                        'Tsuen Wan': '荃湾',
+                        'Tuen Mun': '屯门',
+                        'Wan Chai': '湾仔',
+                        'Wong Tai Sin': '黄大仙',
+                        'Yau Tsim Mong': '油尖旺',
+                        'Yuen Long': '元朗'
+                    }
+                }
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>

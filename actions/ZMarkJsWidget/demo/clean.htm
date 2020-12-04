@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 15px;
+    }
+
+    div.search span,
+    div.search input[name="keyword"] {
+      display: block;
+    }
+
+    div.search input[name="keyword"] {
+      margin-top: 4px;
+    }
+
+    div.panel {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2><a href="#" target="_blank">mark.js</a> example with animated mark</h2>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Search</div>
+    <div class="panel-body">
+      <div class="search row">
+        <div class="col-xs-6">
+          <span>Type in a keyword:</span>
+          <input type="text" name="keyword" class="form-control input-sm" value="Lorem ipsum">
+        </div>
+        <div class="col-xs-6">
+          <span>Search options:</span>
+          <input type="checkbox" name="opt[]" value="separateWordSearch" checked> separate word search
+          <br>
+          <input type="checkbox" name="opt[]" value="diacritics" checked> diacritics
+          <br>
+          <input type="checkbox" name="opt[]" value="debug"> debug
+          <br>
+          <span>There are a lot more <a target="_blank" href="https://markjs.io/configurator.html">options</a>!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body context">
+      <p>
+        Lorem ipsum dolor sit āmet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, nò sea takimata
+        sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+        justo duo dolores et ea
+        rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+        amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+        Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+        çonsequat, vel illum dolore
+        eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit prāesent luptatum zzril
+        delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
+      </p>
+
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p>
+        <small>Demo by <a href="https://github.com/julmot" target="_blank">Julian Motz</a></small>
+      </p>
+    </div>
+  </div>
+  <script src="/publish/yarner/jquery/dist/jquery.js"></script>
+  <script src="/publish/yarner/mark.js/dist/jquery.mark.es6.js"></script>
+  
+
+  <script>
+    $(function () {
+
+      var mark = function () {
+
+        // Read the keyword
+        var keyword = $("input[name='keyword']").val();
+
+        // Determine selected options
+        var options = {
+          "each": function (element) {
+            setTimeout(function () {
+              $(element).addClass("animate");
+            }, 250);
+          }
+        };
+        $("input[name='opt[]']").each(function () {
+          options[$(this).val()] = $(this).is(":checked");
+        });
+
+        // Mark the keyword inside the context
+        $(".context").unmark({
+          done: function () {
+            $(".context").mark(keyword, options);
+          }
+        });
+      };
+
+      $("input[name='keyword']").on("keyup", mark);
+      $("input[type='checkbox']").on("change", mark);
+      mark();
+
+    });
+
+  </script>
+</body>
+
+</html>

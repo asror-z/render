@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>clean real</title>
+
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.jsdelivr.net/npm/domenu@0.99.77/jquery.domenu-0.99.77.css"/>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+</head>
+<body>
+<div class="dd" id="domenu-1">
+    <button id="domenu-add-item-btn" class="dd-new-item">+</button>
+    <li class="dd-item-blueprint">
+        <button class="collapse" data-action="collapse" type="button" style="display: none;">–</button>
+        <button class="expand" data-action="expand" type="button" style="display: none;">+</button>
+        <div class="dd-handle dd3-handle">D</div>
+        <div class="dd3-content">
+            <span class="item-name">[item_name]</span>
+
+            <div class="dd-button-container">
+
+                <button class="custom-button-example">✎</button>
+                <button class="item-add">+</button>
+                <button class="item-remove" data-confirm-class="item-remove-confirm">&times;</button>
+            </div>
+
+            <div class="dd-edit-box" style="display: none;">
+
+                <input type="text" name="title" autocomplete="off" placeholder="Item"
+                       data-placeholder="Any nice idea for the title?"
+                       data-default-value="doMenu List Item. {?numeric.increment}">
+
+
+                <i class="end-edit">save</i>
+            </div>
+        </div>
+    </li>
+
+    <ol class="dd-list"></ol>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var $domenu = $('#domenu-1'),
+            domenu = $('#domenu-1').domenu(),
+            $outputContainer = $('#domenu-1-output'),
+            $jsonOutput = $outputContainer.find('.jsonOutput'),
+            $keepChanges = $outputContainer.find('.keepChanges'),
+            $clearLocalStorage = $outputContainer.find('.clearLocalStorage');
+
+        $domenu.domenu({
+            
+            data: window.localStorage.getItem('domenu-1Json') || '[{"title":"Account","customSelect":"select something...","select2ScrollPosition":{"x":0,"y":0}},{"title":"Settings","customSelect":"select something...","select2ScrollPosition":{"x":0,"y":0}},{"title":"Call","customSelect":"select something..."},{"title":"Support","customSelect":"select something..."},{"title":"Email","customSelect":"select something..."},{"title":"Orders","customSelect":"select something..."},{"title":"Manage","customSelect":"select something..."},{"title":"Settings","customSelect":"select something..."}]'
+        })
+
+            .onCreateItem(function (blueprint) {
+                var customButton = $(blueprint).find('.custom-button-example');
+
+
+                customButton.click(function () {
+                    blueprint.find('.dd3-content span').first().click();
+                });
+            })
+
+            .parseJson()
+            .on(['onItemCollapsed', 'onItemExpanded', 'onItemAdded', 'onSaveEditBoxInput', 'onItemDrop', 'onItemDrag', 'onItemRemoved', 'onItemEndEdit'], function (a, b, c) {
+                $jsonOutput.val(domenu.toJson());
+                if ($keepChanges.is(':checked')) window.localStorage.setItem('domenu-1Json', domenu.toJson());
+            })
+            .onToJson(function () {
+                if (window.localStorage.length) $clearLocalStorage.show();
+            });
+
+
+        // Init textarea
+        $jsonOutput.val(domenu.toJson());
+        $keepChanges.on('click', function () {
+            if (!$keepChanges.is(':checked')) window.localStorage.setItem('domenu-1KeepChanges', false);
+            if ($keepChanges.is(':checked')) window.localStorage.setItem('domenu-1KeepChanges', true);
+        });
+
+        if (window.localStorage.getItem('domenu-1KeepChanges') === "false") $keepChanges.attr('checked', false);
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/domenu@0.99.77/jquery.domenu-0.99.77.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+</body>
+</html>

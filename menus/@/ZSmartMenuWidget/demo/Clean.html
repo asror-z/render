@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart menu</title>
+    <link rel="stylesheet" href="/publish/yarner/smartmenus/dist/css/sm-core-css.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/publish/yarner/smartmenus/dist/css/sm-blue/sm-blue.css" type="text/css" media="all">
+
+
+<style>
+    @media (min-width: 768px) {
+    /* horizontal sub menus */
+    li[data-sm-horizontal-sub] {
+    position: static;
+    }
+    li[data-sm-horizontal-sub] > ul {
+    right: 0 !important;
+    left: 0 !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    }
+    li[data-sm-horizontal-sub] > ul > li {
+    float: left;
+    }
+    li[data-sm-horizontal-sub] > .scroll-up, li[data-sm-horizontal-sub] > .scroll-down {
+    display: none !important;
+    }}
+
+</style>
+</head>
+<body>
+<ul id="main-menu" class="sm sm-blue">
+    <li><a href="#">Item 1</a></li>
+    <li><a href="#">Item 2</a>
+        <ul>
+            <li><a href="#">Item 2-1</a></li>
+            <li><a href="#">Item 2-2</a></li>
+            <li><a href="#">Item 2-3</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Item</a></li>
+    <li><a href="#">Item 3</a></li>
+    <li data-sm-horizontal-sub="true"><a href="#">Item</a>
+        <ul>
+            <li><a href="#">Sub item 1</a></li>
+            <li><a href="#">Sub item 2</a></li>
+        </ul>
+    </li>
+
+    <script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+    <script src="/publish/yarner/smartmenus/dist/jquery.smartmenus.js"></script>
+
+    <script>
+        $(function() {
+            $('#main-menu').smartmenus({
+                bootstrapHighlightClasses : 'text-dark bg-light',
+                bottomToTopSubMenus : false,
+                collapsibleBehavior : 'default',
+                collapsibleHideDuration : 0,
+                collapsibleHideFunction : function($ul, complete) { $ul.slideUp(200, complete); },
+                collapsibleShowDuration : 0,
+                collapsibleShowFunction : function($ul, complete) { $ul.slideDown(250, complete); },
+                hideDuration : 0,
+                hideFunction : function($ul, complete) { $ul.fadeOut(250, complete); },
+                hideOnClick : true,
+                hideTimeout : 500,
+                isPopup : false,
+                keepHighlighted : true,
+                keepInViewport : true,
+                mainMenuSubOffsetX : 0,
+                mainMenuSubOffsetY : 0,
+                markCurrentItem : false,
+                markCurrentTree : true,
+                noMouseOver : false,
+                overlapControlsInIE : true,
+                rightToLeftSubMenus : false,
+                scrollAccelerate : true,
+                scrollStep : 30,
+                showDuration : 0,
+                showFunction : function($ul, complete) { $ul.fadeIn(250, complete); },
+                showOnClick : false,
+                showTimeout : 250,
+                subIndicators : true,
+                subIndicatorsPos : 'append',
+                subIndicatorsText : '',
+                subMenusMaxWidth : '20em',
+                subMenusMinWidth : '10em',
+                subMenusSubOffsetX : 0,
+                subMenusSubOffsetY : 0
+
+            });
+        });
+    </script>
+</body>
+</html>

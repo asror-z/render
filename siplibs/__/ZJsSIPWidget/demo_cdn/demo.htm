@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://tryit.jssip.net/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>tryit-jssip</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+    <link rel="stylesheet" href="./demo_files/tryit-jssip.css">
+
+
+    <!--<script src="https://cdn.statically.io/gh/versatica/tryit-jssip/master/resources/js/antiglobal.js"></script>-->
+    <!--<script src="https://cdn.statically.io/gh/versatica/tryit-jssip/master/resources/js/antiglobal.js" ></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/antiglobal@1.0.1/dist/antiglobal-1.0.1.js"></script>
+    <script>
+        // Set debug
+        window.localStorage.setItem('debug', '* -engine* -socket* *ERROR* *WARN*');
+
+        // Set antiglobal
+        window.antiglobal('___browserSync___oldSocketIo', 'JSON3', 'io', '___browserSync___', '__core-js_shared__', 'MediaStream', 'RTCPeerConnection', 'callstats', 'jssipCallstats');
+        setInterval(window.antiglobal, 5000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/callstats-js@3.64.3/callstats.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/callstats-sipjs@1.1.2/dist/callstats-sipjs.min.js"></script>
+
+    <script>
+        // Uncomment and fill the SETTINGS object in order to use hardcoded settings
+        //
+        // You don't need to set display_name nor uri, they can be set via HTTP form in
+        // the Login section of the web
+        //
+        // window.SETTINGS =
+        // {
+        // 	display_name        : null,
+        // 	uri                 : null,
+        // 	password            : null,
+        // 	socket              :
+        // 	{
+        // 		uri           : 'wss://sip.yourdomain.com',
+        // 		via_transport : 'auto',
+        // 	},
+        // 	registrar_server    : null,
+        // 	contact_uri         : null,
+        // 	authorization_user  : null,
+        // 	instance_id         : null,
+        // 	session_timers      : true,
+        // 	use_preloaded_route : false,
+        // 	pcConfig            :
+        // 	{
+        // 		rtcpMuxPolicy : 'negotiate',
+        // 		iceServers    :
+        // 		[
+        // 			{ urls : [ 'stun:stun.l.google.com:19302' ] }
+        // 		]
+        // 	},
+        // 	callstats           :
+        // 	{
+        // 		enabled   : false,
+        // 		AppID     : null,
+        // 		AppSecret : null
+        // 	}
+        // };
+    </script>
+
+    <script src="./demo_files/tryit-jssip.js"></script>
+</head>
+
+<body>
+<div id="tryit-jssip-container">
+    <div data-component="App">
+        <div class="notifications-wrapper"></div>
+        <div data-component="Phone" class="">
+            <header>
+                <div class="topbar">
+                    <div data-component="Logo" class="small"><h1><span class="colorized">TRYIT</span>J<span
+                            class="small">S</span>SIP</h1></div>
+                    <div style="display: inline-block; position: relative;">
+                        <button tabindex="0" type="button"
+                                style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 12px; outline: none; font-size: 0px; font-weight: inherit; position: relative; overflow: visible; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; width: 48px; height: 48px; background: none;">
+                            <div>
+                                <svg viewBox="0 0 24 24"
+                                     style="display: inline-block; color: rgba(0, 0, 0, 0.87); fill: rgb(255, 255, 255); height: 24px; width: 24px; user-select: none; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                                </svg>
+                            </div>
+                        </button>
+                        <div style="display: none;"></div>
+                    </div>
+                </div>
+                <div data-component="Dialer">
+                    <div class="userchip-container">
+                        <div data-component="UserChip" class="full-width" tabindex="0"
+                             style="border: 10px; box-sizing: border-box; display: flex; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; background-color: rgb(224, 224, 224); border-radius: 16px; white-space: nowrap; width: fit-content;">
+                            <div size="32" class="status registered"
+                                 style="color: rgb(255, 255, 255); background-color: rgb(188, 188, 188); user-select: none; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; border-radius: 50%; height: 32px; width: 32px; margin-right: -4px;"></div>
+                            <span style="color: rgba(0, 0, 0, 0.87); font-size: 14px; font-weight: 400; line-height: 32px; padding-left: 12px; padding-right: 12px; user-select: none; white-space: nowrap;">203 <span
+                                    class="uri">&lt;203@10.10.3.30:5160&gt;</span></span></div>
+                    </div>
+                    <form class="uri-form" action="https://tryit.jssip.net/">
+                        <div class="uri-container">
+                            <div style="font-size: 16px; line-height: 24px; width: 100%; height: 48px; display: inline-block; position: relative; background-color: transparent; font-family: Roboto, sans-serif; transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; cursor: auto;">
+                                <div style="position: absolute; opacity: 1; color: rgba(0, 0, 0, 0.3); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; bottom: 12px;">
+                                    SIP URI or username
+                                </div>
+                                <input type="text" id="undefined-SIPURIorusername-undefined-16129" value=""
+                                       style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0.87); cursor: inherit; font: inherit; opacity: 1; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%;">
+                                <div>
+                                    <hr aria-hidden="true"
+                                        style="border-top: none rgb(158, 158, 158); border-left: none rgb(158, 158, 158); border-right: none rgb(158, 158, 158); border-bottom: 1px solid rgb(158, 158, 158); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%;">
+                                    <hr aria-hidden="true"
+                                        style="border-top: none rgb(0, 188, 212); border-left: none rgb(0, 188, 212); border-right: none rgb(0, 188, 212); border-bottom: 2px solid rgb(0, 188, 212); bottom: 8px; box-sizing: content-box; margin: 0px; position: absolute; width: 100%; transform: scaleX(0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="color: rgba(0, 0, 0, 0.87); background-color: rgb(255, 255, 255); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; box-sizing: border-box; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border-radius: 2px; display: inline-block; min-width: 88px;">
+                            <button tabindex="-1" type="button"
+                                    style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: default; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: inherit; font-weight: inherit; position: relative; height: 36px; line-height: 36px; width: 100%; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; background-color: rgb(229, 229, 229); text-align: center;"
+                                    disabled="">
+                                <div style="height: 36px; border-radius: 2px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; top: 0px;">
+                                    <span style="position: relative; opacity: 1; font-size: 14px; letter-spacing: 0px; text-transform: uppercase; font-weight: 500; margin: 0px; user-select: none; padding-left: 16px; padding-right: 16px; color: rgba(0, 0, 0, 0.3);">Call</span>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </header>
+            <div class="content"></div>
+        </div>
+        <div style="position: fixed; left: 50%; display: flex; bottom: 0px; z-index: 2900; visibility: hidden; transform: translate(-50%, 48px); transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+            <div width="3"
+                 style="font-family: Roboto, sans-serif; background-color: rgba(0, 0, 0, 0.87); padding: 0px 24px; height: 48px; line-height: 48px; border-radius: 2px; max-width: 568px; min-width: 288px; width: auto; flex-grow: 0; text-align: center;">
+                <div style="font-size: 14px; color: rgb(255, 255, 255); opacity: 0; transition: opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;">
+                    <span></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tryit-jssip-media-query-detector"></div>
+
+
+<style>
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+</style>
+</body>
+</html>

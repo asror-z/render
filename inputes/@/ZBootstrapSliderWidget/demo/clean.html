@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slider</title>
+    <!-- <link rel="stylesheet" href="/publish/yarner/bootstrap/dist/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="/publish/yarner/bootstrap-slider/dist/css/bootstrap-slider.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="/publish/yarner/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+</head>
+<body>
+    
+    <br>
+    <br>
+    <input id="ex1" 
+            data-slider-id='ex1Slider' 
+            type="text" 
+            data-slider-min="0" 
+            data-slider-max="20" 
+            data-slider-step="1" 
+            data-slider-value="10"/>
+    <script>
+        
+        $('#ex1').slider({
+	        formatter: function(value) {
+		        return 'Current value: ' + value;
+	        },
+            
+            tooltip: 'show'
+          
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./demo_files/monokai.min.css">
+    <link rel="shortcut icon" href="https://kamranahmed.info/driver.js/favicon.png">
+    <link href="./demo_files/driver-demo.min.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div class="page-wrap">
+    <hr class="hr__fancy">
+    <section class="section__examples">
+        <div id="creation-forms" class="driver-fix-stacking">
+            <input type="text" id="creation-input" onclick="myFunction(this)"
+                   class="form-control driver-highlighted-element driver-position-relative"
+                   placeholder="Focus any of the inputs">
+            <input type="text" id="creation-input-2" onclick="myFunction(this)" class="form-control"
+                   placeholder="Focus any of the inputs">
+            <input type="text" id="creation-input-3" onclick="myFunction(this)" class="form-control"
+                   placeholder="Focus any of the inputs">
+            <input type="text" id="creation-input-4" onclick="myFunction(this)" class="form-control"
+                   placeholder="Focus any of the inputs">
+        </div>
+    </section>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/driver.js@0.9.8/dist/driver.min.js"></script>
+
+
+<script>
+    const driver = new Driver();
+
+    function myFunction(e) {
+        driver.highlight("#" + e.getAttribute('id'));
+    }
+</script>
+</body>
+</html>

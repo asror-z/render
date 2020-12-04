@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery-Collapse</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="jquery.collapse.js"></script>
+</head>
+<body>
+<div id="test" data-collapse>
+    <h2>Section 1</h2>
+    <p>I'm first</p>
+    <h2>Section 2</h2>
+    <p>I'm second/p>
+</div>
+<script>
+    $("#test").trigger("open") // Open all sections
+    $("#test").trigger("close") // Close all sections
+    $("#test h2 a").first().trigger("open") // Open first section
+</script>
+</body>
+</html>

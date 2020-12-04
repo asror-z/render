@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ResizableBox</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.statically.io/gh/RickStrahl/jquery-resizable/master/src/jquery-resizable.js"></script>
+    <style>
+
+
+        .box {
+            margin: 40px;
+            box-shadow: 5px 5px 10px #535353;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            position: relative;
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+            /* limit size with min/max-width/height*/
+            min-height: 100px;
+            min-width: 200px;
+            max-width: 999px;
+            max-height: 800px;
+        }
+
+        .boxheader {
+            background: #535353;
+            color: white;
+            padding: 5px;
+        }
+
+
+
+        .win-size-grip {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            padding: 4px;
+            bottom: 0;
+            right: 0;
+            cursor: nwse-resize;
+            background: url(https://cdn.statically.io/gh/RickStrahl/jquery-resizable/7f6d6aa0/assets/wingrip.png) no-repeat;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+    <div class="box">
+        <div class="boxheader">Box 1</div>
+       
+        <div class="win-size-grip"></div>
+    </div>
+</div>
+
+<script>
+    $(".box").resizable({
+        handleSelector: "> .win-size-grip",
+        onDragStart: function (e, $el, opt) {
+            $el.css("cursor", "nwse-resize");
+        },
+        onDragStop: function (e, $el, opt) {
+            $el.css("cursor", "");
+        }
+    });
+</script>
+</body>
+</html>

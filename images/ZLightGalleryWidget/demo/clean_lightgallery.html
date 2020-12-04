@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/publish/yarner/lightgallery.js/dist/css/lightgallery.css">
+
+</head>
+<body>
+<div id="lightgallery">
+    <a href="/publish/yarner/lightgallery.js/dist/img/loading.gif">
+        <img src="/publish/yarner/lightgallery.js/dist/img/loading.gif">
+    </a>
+    <a href="/publish/yarner/lightgallery.js/dist/img/video-play.png">
+        <img src="/publish/yarner/lightgallery.js/dist/img/video-play.png">
+    </a>
+    <a href="/publish/yarner/lightgallery.js/dist/img/vimeo-play.png">
+        <img src="/publish/yarner/lightgallery.js/dist/img/vimeo-play.png">
+    </a>
+    <a href="/publish/yarner/lightgallery.js/dist/img/youtube-play.png">
+        <img src="/publish/yarner/lightgallery.js/dist/img/youtube-play.png">
+    </a>
+</div>
+
+<!--https://sachinchoolur.github.io/lightgallery.js/docs/api.html#lg-pager-->
+<script src="/publish/yarner/lightgallery.js/dist/js/lightgallery.js"></script>
+
+<script>
+    lightGallery(document.getElementById('lightgallery'),{
+        mode: 'lg-fade', /*'lg-slide''lg-fade''lg-zoom-in''lg-zoom-in-big''lg-zoom-out''lg-zoom-out-big''lg             -zoom-out-in''lg-zoom-in-out''lg-soft-zoom''lg-scale-up''lg-slide-circular''lg-slide                -circular-vertical''lg-slide-vertical''lg-slide-vertical-growth''lg-slide-skew-only                 ''lg-slide-skew-only-rev''lg-slide-skew-only-y''lg-slide-skew-only-y-rev''lg-slide                  -skew''lg-slide-skew-rev''lg-slide-skew-cross''lg-slide-skew-cross-rev''lg-slide                    -skew-ver''lg-slide-skew-ver-rev''lg-slide-skew-ver-cross''lg-slide-skew-ver-cross                  -rev''lg-lollipop''lg-lollipop-rev''lg-rotate''lg-rotate-rev''lg-tube'*/
+        cssEasing : 'cubic-bezier(0.25, 0, 0.25, 1)',
+        speed: 600,
+        height: '100%',
+        widht: '100%',
+        addClass: '',
+        startClass: 'lg-start-zoom',
+        backdropDuration: 150,
+        hideBarsDelay: 6000,
+        useLeft: false,
+        closable: true,
+        loop: true,
+        escKey: true,
+        keyPress: false,
+        controls: true,
+        slideEndAnimatoin: false,
+        hideControlOnEnd: false,
+        getCaptionFromTitleOrAlt: true,
+        appendSubHtmlTo: '.lg-sub-html',
+        subHtmlSelectorRelative: true,
+        preload: 1,
+        showAfterLoad: true,
+        selector: '',
+        selectorWith: '',
+        nextHtml: '',
+        prevHtml: '',
+        download: true,
+        counter: true,
+        appendCounterTo: '.lg-toolbar',
+        swipeThreshold: 50,
+        enableDrag: true,
+        enableTouch: true,
+        dynamic: false,
+        dynamicEl: 	[] //(src, iframe, subHtml, thumb, poster, responsive, srcset sizes) 
+    });
+    var lg = document.getElementById('lightgallery');
+
+    // Perform any action just before opening the gallery
+    lg.addEventListener('onBeforeOpen', function(e){
+        alert('Open');
+    }, false);
+
+    // custom event with extra parameters
+    // event.detail.index - index of the slide
+    // event.detail.fromTouch - true if slide function called via touch event or mouse drag
+    // event.detail.fromThumb - true if slide function called via thumbnail click
+    /*lg.addEventListener('onBeforeSlide', function(event){
+        console.log(event.detail.index, event.detail.fromTouch, event.detail.fromThumb);
+    }, false);*/
+
+    lightGallery(lg);
+</script>
+</body>
+</html>

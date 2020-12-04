@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<DIV class="ui container">
+    <H1>jQuery easySearch Plugin: Search in list</H1>
+    <DIV class="column">
+        <DIV class="ui input focus"><INPUT type="text" placeholder="Search..." value="">
+        </DIV></DIV>
+    <DIV class="column">
+        <UL class="ui middle aligned selection list">
+            <LI class="item"><IMG class="ui avatar image" src="demo_files/helen.jpg">
+                <DIV class="content">
+                    <DIV class="header">Helen</DIV></DIV></LI>
+            <LI class="item"><IMG class="ui avatar image" src="demo_files/christian.jpg">
+
+                <DIV class="content">
+                    <DIV class="header">Christian</DIV></DIV></LI>
+            <LI class="item"><IMG class="ui avatar image" src="demo_files/daniel.jpg">
+
+                <DIV class="content">
+                    <DIV class="header">Daniel</DIV></DIV></LI>
+            <LI class="item"><IMG class="ui avatar image" src="demo_files/christian.jpg">
+
+                <DIV class="content">
+                    <DIV class="header">Marybelle</DIV></DIV></LI>
+            <LI class="item"><IMG class="ui avatar image" src="demo_files/helen.jpg">
+                <DIV class="content">
+                    <DIV class="header">Joeann</DIV></DIV></LI>
+            <LI class="item"><IMG class="ui avatar image" src="demo_files/christian.jpg">
+
+                <DIV class="content">
+                    <DIV class="header">Fallon</DIV></DIV></LI>
+            <LI class="item"><IMG class="ui avatar image" src="demo_files/daniel.jpg">
+
+                <DIV class="content">
+                    <DIV class="header">Arturo</DIV></DIV></LI>
+        </UL>
+    </DIV>
+</DIV>
+
+<script>
+    $('input').jSearch({
+        selector  : 'ul',
+        child : 'li div.header',
+        minValLength: 0,
+        Found : function(elem){
+            $(elem).parent().parent().show();
+        },
+        NotFound : function(elem){
+            $(elem).parent().parent().hide();
+        },
+        After : function(t){
+            if (!t.val().length) $('ul li').show();
+        }
+    });
+</script>
+
+</body>
+</html>

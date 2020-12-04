@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="no-js" lang='en'>
+<head>
+    <title>Input Spinner</title>
+
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <form>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="control-label">Before:</label>
+                        <input class="form-control" type="number" value="1" min="1" max="10"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">After:</label>
+                        <input id="after" class="form-control" type="number" value="1" min="1" max="10"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Colorful:</label>
+                        <input id="colorful" class="form-control" type="number" value="1" min="1" max="10"/>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="bootstrap-number-input.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#qty_input').prop('disabled', true);
+        $('#plus-btn').click(function () {
+            $('#qty_input').val(parseInt($('#qty_input').val()) + 1);
+        });
+        $('#minus-btn').click(function () {
+            $('#qty_input').val(parseInt($('#qty_input').val()) - 1);
+            if ($('#qty_input').val() == 0) {
+                $('#qty_input').val(1);
+            }
+
+        });
+    });
+</script>
+
+
+</body>
+</html>

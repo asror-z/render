@@ -1,0 +1,102 @@
+
+<!-- saved from url=(0038)https://eknowles.github.io/resizerjs/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./demo_files/bulma.min.css">
+  <link rel="stylesheet" href="./demo_files/font-awesome.min.css">
+  <link rel="stylesheet" href="./demo_files/resizer.css">
+  <style>
+    .item {
+      flex: 1 1 auto;
+      border-radius: 0;
+      margin-bottom: 0 !important;
+    }
+
+    .demo-container {
+      height: 225px;
+    }
+
+    [data-rz] {
+      display: flex;
+      position: relative;
+      flex-flow: row nowrap;
+      align-items: stretch;
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Resizer.js</h1>
+      <h2 class="subtitle">Simple resizing for flexbox</h2>
+      <p><a href="https://travis-ci.org/eknowles/resizerjs"><img src="./demo_files/master.svg" alt="Build Status"></a>
+        <a href="https://coveralls.io/github/eknowles/resizerjs?branch=master"><img src="./demo_files/master(1).svg" alt="Coveralls"></a>
+        <a href="https://www.npmjs.com/package/resizerjs"><img src="./demo_files/resizerjs.svg" alt="NPM Version"></a>
+        <a href="https://www.npmjs.com/package/resizerjs"><img src="./demo_files/resizerjs(1).svg" alt="NPM Downloads"></a>
+        <a href="https://github.com/eknowles/resizerjs/stargazers"><img src="./demo_files/resizerjs(2).svg" alt="GitHub stars"></a>
+        <a href="https://github.com/eknowles/resizerjs/issues"><img src="./demo_files/resizerjs(3).svg" alt="GitHub issues"></a>
+        <a href="https://twitter.com/intent/tweet?text=Resizer.js%20-%20Simple%20resizing%20for%20flexbox&amp;url=https://github.com/eknowles/resizerjs"><img src="./demo_files/resizerjs(4).svg" alt="Twitter"></a>
+    </p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h3 class="title">Resizing Horizontally</h3>
+    <h3 class="subtitle">Drag to adjust column size</h3>
+    <p>Add</p>
+  </div>
+</section>
+
+<section>
+  <div class="columns demo-container rz-demo" style="">
+    <div class="column item notification is-primary has-text-centered" style=""></div>
+    <div class="column item notification is-warning has-text-centered"></div>
+    <div class="column item notification is-success has-text-centered"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p>
+      <a href="https://eknowles.github.io/resizerjs/#" onclick="addResizer()" class="button is-primary">Add</a>
+      <a href="https://eknowles.github.io/resizerjs/#" onclick="removeResizer()" class="button">Remove</a>
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Resizer.js</strong> by <a href="http://twitter.com/nedknowles">Edward Knowles</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+      </p>
+      <p>
+        <a class="icon" href="https://github.com/eknowles/resizerjs">
+          <i class="fa fa-github"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="./demo_files/resizer.js.download"></script>
+<script>
+  const selector = '.rz-demo'
+
+  let resizer = new Resizer(selector)
+
+  function addResizer() {
+    resizer = new Resizer(selector)
+  }
+
+  function removeResizer() {
+    Resizer.removeBySelector(selector)
+  }
+</script>
+
+
+</body></html>

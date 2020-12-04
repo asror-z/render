@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 400px;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkxS5l87lclaC6MIWSGejdCXL13wSShRo&callback=success">
+    </script>
+    <script type="text/javascript" >
+        x = navigator.geolocation;
+        x.getCurrentPosition(success, failure);
+
+        function success(position) {
+            var lat  = position.coords.latitude;
+            var long  = position.coords.longitude;
+
+            var mYcoords = new google.maps.LatLng(lat,  long);
+            var mapOptions = {
+                zoom:9,
+                center:mYcoords,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions)
+            var market = new google.maps.Marker({map:map,  position:mYcoords});
+        }
+        function failure() {
+
+        }
+
+    </script>
+</head>
+<body>
+<div id="map"></div>
+
+  
+
+</body>
+</html>

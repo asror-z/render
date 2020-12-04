@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://franverona.com/loadgo/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="franverona">
+    <meta name="description" content="Javascript plugin for using your own images as a progress bar">
+    <meta name="keywords" content="loadgo jquery plugin progress bar javascript html5 web development">
+
+    <title>LoadGo - Your own images as a progress bar</title>
+
+    <link rel="stylesheet" type="text/css" href="./demo_files/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="./demo_files/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="./demo_files/style.css">
+
+    <link href="./demo_files/css" rel="stylesheet" type="text/css">
+
+    <style>
+        .embed-responsive {
+            position: relative;
+            display: block;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .embed-responsive .embed-responsive-item,
+        .embed-responsive iframe,
+        .embed-responsive embed,
+        .embed-responsive object,
+        .embed-responsive video {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .embed-responsive-16by9 {
+            padding-bottom: 56.25%;
+        }
+
+        .embed-responsive-4by3 {
+            padding-bottom: 75%;
+        }
+    </style>
+
+</head>
+<body data-spy="scroll" data-target="#navigation" data-offset="200">
+
+<a href="https://github.com/franverona/loadgo" class="hidden-xs hidden-sm"><img
+        style="position: fixed; top: 0; right: 0; border: 0;z-index: 9999;"
+        src="./demo_files/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
+        alt="Fork me on GitHub"
+        data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+
+<div class="row" style="margin: 0;">
+    <nav class="header navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0; border-radius: 0;">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="navbar-header" style="float:left;">
+                    <a class="navbar-brand" href="http://franverona.com/loadgo/#" style="padding:0;padding-top: 10px;">
+                        <img src="./demo_files/logo.png" alt="LoadGo" class="img-responsive" style="margin: 0 auto;">
+                    </a>
+                </div>
+                <div id="navigation" class="visible-lg">
+                    <ul class="nav navbar-nav" role="tablist">
+                        <li class="liheader" data-href="what">
+                            <a href="http://franverona.com/loadgo/#what">
+                                <span class="fa fa-question-circle"></span>&nbsp;What is LoadGo?
+                            </a>
+                        </li>
+                        <li class="liheader" data-href="how">
+                            <a href="http://franverona.com/loadgo/#how">
+                                <span class="fa fa-hand-o-right"></span>&nbsp;How to use
+                            </a>
+                        </li>
+                        <li class="liheader active" data-href="examples">
+                            <a href="http://franverona.com/loadgo/#examples">
+                                <span class="fa fa-check"></span>&nbsp;Examples
+                            </a>
+                        </li>
+                        <li class="liheader" data-href="documentation">
+                            <a href="http://franverona.com/loadgo/#documentation">
+                                <span class="fa fa-book"></span>&nbsp;Documentation
+                            </a>
+                        </li>
+                        <li class="liheader" data-href="download">
+                            <a href="http://franverona.com/loadgo/#download">
+                                <span class="fa fa-arrow-circle-o-down"></span>&nbsp;Download
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visible-md visible-sm">
+                    <ul class="nav navbar-nav" role="tablist">
+                        <li class="active liheader" data-href="what">
+                            <a href="http://franverona.com/loadgo/#what">
+                                What is LoadGo?
+                            </a>
+                        </li>
+                        <li class="liheader" data-href="how">
+                            <a href="http://franverona.com/loadgo/#how">
+                                How to use
+                            </a>
+                        </li>
+                        <li class="liheader" data-href="examples">
+                            <a href="http://franverona.com/loadgo/#examples">
+                                Examples
+                            </a>
+                        </li>
+                        <li class="liheader" data-href="documentation">
+                            <a href="http://franverona.com/loadgo/#documentation">
+                                Documentation
+                            </a>
+                        </li>
+                        <li class="liheader" data-href="download">
+                            <a href="http://franverona.com/loadgo/#download">
+                                Download
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visible-xs">
+                    <a class="btn btn-loadgo" style="float:right;margin-top:7px;" role="button" data-toggle="collapse"
+                       href="http://franverona.com/loadgo/#header-collapsed" aria-expanded="false"
+                       aria-controls="header-collapsed">
+                        <span class="fa fa-bars"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <ul id="header-collapsed" class="nav navbar-nav collapse" role="tablist" style="margin: 10px 0px;">
+            <li class="active liheader" data-href="what">
+                <a href="http://franverona.com/loadgo/#">
+                    <span class="fa fa-question-circle"></span>&nbsp;What is LoadGo?
+                </a>
+            </li>
+            <li class="liheader" data-href="how">
+                <a href="http://franverona.com/loadgo/#">
+                    <span class="fa fa-hand-o-right"></span>&nbsp;How to use
+                </a>
+            </li>
+            <li class="liheader" data-href="examples">
+                <a href="http://franverona.com/loadgo/#">
+                    <span class="fa fa-check"></span>&nbsp;Examples
+                </a>
+            </li>
+            <li class="liheader" data-href="documentation">
+                <a href="http://franverona.com/loadgo/#">
+                    <span class="fa fa-book"></span>&nbsp;Documentation
+                </a>
+            </li>
+            <li class="liheader" data-href="download">
+                <a href="http://franverona.com/loadgo/#">
+                    <span class="fa fa-arrow-circle-o-down"></span>&nbsp;Download
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="container" style="padding-top:60px;padding-bottom:60px;background: #fff;position:relative;">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div id="what">
+                <h2 style="padding: 0 15px;"><span class="fa fa-question-circle"></span>&nbsp;What is LoadGo?</h2>
+                <div style="padding: 0 15px;">
+                    <h4>
+                        <strong>LoadGo</strong> is a Javascript plugin that allows you to create a progress bar using
+                        your own images.
+                    </h4>
+                    <h4 style="padding-left:20px;font-size:17px;">
+                        - Perfect for logo animation when user is waiting for something to be loaded (a website,
+                        retrieving information, updating status, etc.)
+                    </h4>
+                    <h4 style="padding-left:20px;font-size:17px;">
+                        - It creates an overlay above your <code>img</code> element and simulates a loading process
+                        using dimension changes.
+                    </h4>
+                    <h4 style="padding-left:20px;font-size:17px;">
+                        - Tested up in IE 9, IE 10, IE Edge, Google Chrome and Mozilla Firefox.
+                    </h4>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <div class="loadgo-container" style="position: relative">
+                                <div class="loadgo-overlay"
+                                     style="background-color: rgb(255, 255, 255); opacity: 0.5; width: 285px; height: 89px; position: absolute; transition: width 0.6s ease 0s, height 0.6s ease 0s, top 0.6s ease 0s; right: 0px;"></div>
+                                <img id="cocacola" src="./demo_files/cocacola.png" alt="Coca Cola Logo"
+                                     class="img-responsive logo" style="margin: 0 auto;"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-md-12 text-center">
+                            <div id="demo-progress-1"
+                                 style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                            </div>
+                            <div id="demo-msg-1">
+                                <div style="margin-bottom:10px;font-size:16px;">
+                                    Try <strong>LoadGo</strong> by pressing <strong>Start</strong> button.
+                                </div>
+                                <button class="btn btn-primary"
+                                        onclick="playDemo(&#39;cocacola&#39;, 1, cocacolaInterval);">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;margin-left:0;margin-right:0;">
+                        <div class="col-md-12 alert alert-info">
+                            <span class="label label-info">Announcement</span> You can now use LoadGo without jQuery
+                            (yay!). Every example is coded with and without jQuery.
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row" style="margin-top:10px;margin-left:0;margin-right:0;">
+                        <div class="col-md-12" style="padding-left: 0">
+                            <h3><i class="fa fa-wordpress"></i> <strong>LoadGo for Wordpress</strong> is alive!</h3>
+                            <h4>
+                                As many of you requested, you can now use LoadGo in your Wordpress with <strong>LoadGo
+                                for WP</strong>. Just install it, upload your own logo and see how it will be updated
+                                when your page is loading.
+                            </h4>
+                            <h4>
+                                You can download it from <a href="https://wordpress.org/plugins/loadgo-for-wp/">LoadGo
+                                for WP official Wordpress site</a>.
+                            </h4>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="./demo_files/VjSE7KzZU60.html"
+                                        data-dm-button-id="download-master-button-171675901"></iframe>
+                                <div class="download-master-mm-button"
+                                     title="Download video LoadGo - Your own images as a progress bar"
+                                     id="download-master-button-171675901"
+                                     style="visibility: visible; top: 0px; left: 0px;">
+                                    <div class="download-master-button-content"><img
+                                            src="chrome-extension://dljdacfojgikogldjffnkdcielnklkce/ui/assets/img/download-mm.png"><span>Download video</span><img
+                                            class="download-master-settings"
+                                            src="chrome-extension://dljdacfojgikogldjffnkdcielnklkce/ui/assets/img/download-mm-settings.png"><img
+                                            class="download-master-close"
+                                            src="chrome-extension://dljdacfojgikogldjffnkdcielnklkce/ui/assets/img/download-mm-close.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="donate">
+                <h2 style="padding: 0 15px;"><span class="fa fa-smile-o"></span>&nbsp;Donate</h2>
+                <div style="padding: 0 15px;">
+                    <h4>
+                        This plugin is <strong>100% free</strong>. You dont't need to pay for it and you can use it both
+                        personal and comercial purposes. But if you want to thank me for creating it, <a
+                            href="https://paypal.me/franverona">you can make a donation using Paypal</a>.
+                    </h4>
+                </div>
+            </div>
+            <hr>
+            <div id="how">
+                <h2 style="padding: 0 15px;"><span class="fa fa-hand-o-right"></span>&nbsp;How to use LoadGo</h2>
+                <div style="padding: 0 15px;">
+                    <h4>
+                        If you are using <a href="http://jquery.com/download/" target="_blank">jQuery</a>, you have to
+                        include it <strong>BEFORE</strong> using this plugin. It works with jQuery &gt;= 1.11.2.
+                    </h4>
+                    <h4>
+                        If you are not using jQuery, just include <strong>LoadGo</strong> script and start using it.
+                    </h4>
+                    <h4 style="margin-top:20px;">
+                        <strong><i class="fa fa-arrow-right"></i>&nbsp;Production environment (CDN)</strong>
+                    </h4>
+                    <h4>
+                        <span class="label label-info">(17-Oct-2015)</span> LoadGo is now hosted on <a
+                            href="https://cdnjs.com/libraries/LoadGo">cdnjs</a>, so you can link it directly. Thanks so
+                        much to cdnjs team for their quickly response! (<a
+                            href="https://github.com/cdnjs/cdnjs/issues/5927" target="_blank">issue#5927</a>)
+                    </h4>
+                    <pre class="col-md-12 language-html prettyprint highlight lang-html linenums theme-balupton prettyprint-has"
+                         style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol class="linenums"><li
+                            class="L0"><span class="com">&lt;!-- If you use jQuery--&gt;</span><span class="pln"></span><br></li><li
+                            class="L1"><span class="pln"></span><span class="tag">&lt;script</span><span
+                            class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span
+                            class="atv">"text/javascript"</span><span class="pln"> </span><span
+                            class="atn">src</span><span class="pun">=</span><span class="atv">"https://cdnjs.cloudflare.com/ajax/libs/LoadGo/2.2/loadgo.min.js"</span><span
+                            class="tag">&gt;&lt;/script&gt;</span><span class="pln"></span><br></li><li class="L2"><span
+                            class="pln"></span><br></li><li class="L3"><span class="pln"></span><span class="com">&lt;!-- If you don't use jQuery --&gt;</span><span
+                            class="pln"></span><br></li><li class="L4"><span class="pln"></span><span class="tag">&lt;script</span><span
+                            class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span
+                            class="atv">"text/javascript"</span><span class="pln"> </span><span
+                            class="atn">src</span><span class="pun">=</span><span class="atv">"https://cdnjs.cloudflare.com/ajax/libs/LoadGo/2.2/loadgo-nojquery.min.js"</span><span
+                            class="tag">&gt;&lt;/script&gt;</span></li></ol></pre>
+                    <h5>
+                        <i class="fa fa-info-circle"></i>&nbsp;<a
+                            href="http://stackoverflow.com/questions/2145277/what-are-the-advantages-and-disadvantages-of-using-a-content-delivery-network-c"
+                            target="_blank">What are the advantages and disadvantages of using a content delivery
+                        network (CDN)? </a>
+                    </h5>
+                    <h4 style="margin-top:20px;">
+                        <strong><i class="fa fa-arrow-right"></i>&nbsp;Development environment</strong>
+                    </h4>
+                    <h4>
+                        1. Download LoadGo from <a href="https://github.com/franverona/loadgo/archive/master.zip">this
+                        link</a> or <a href="https://github.com/franverona/loadgo">clone it from GitHub</a>.
+                    </h4>
+                    <h4>
+                        2. Uncompress it (if zipped) and copy LoadGo folder into your JS scripts.
+                    </h4>
+                    <h4>
+                        3. Insert the following code in your webpage:
+                    </h4>
+                    <pre class="col-md-12 language-html prettyprint highlight lang-html linenums theme-balupton prettyprint-has"
+                         style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol class="linenums"><li
+                            class="L0"><span class="com">&lt;!-- If you use jQuery --&gt;</span><span
+                            class="pln"></span><br></li><li class="L1"><span class="pln"></span><span class="tag">&lt;script</span><span
+                            class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span
+                            class="atv">"text/javascript"</span><span class="pln"> </span><span
+                            class="atn">src</span><span class="pun">=</span><span
+                            class="atv">"loadgo/loadgo.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span
+                            class="pln"></span><br></li><li class="L2"><span class="pln"></span><br></li><li class="L3"><span
+                            class="pln"></span><span class="com">&lt;!-- If you don't use jQuery --&gt;</span><span
+                            class="pln"></span><br></li><li class="L4"><span class="pln"></span><span class="tag">&lt;script</span><span
+                            class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span
+                            class="atv">"text/javascript"</span><span class="pln"> </span><span
+                            class="atn">src</span><span class="pun">=</span><span class="atv">"loadgo/loadgo-nojquery.js"</span><span
+                            class="tag">&gt;&lt;/script&gt;</span></li></ol></pre>
+                    <h4>
+                        You can also use the <a href="http://en.wikipedia.org/wiki/Minification_(programming)"
+                                                target="_blank">minified</a> version:
+                    </h4>
+                    <pre class="col-md-12 language-html prettyprint highlight lang-html linenums theme-balupton prettyprint-has"
+                         style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol class="linenums"><li
+                            class="L0"><span class="com">&lt;!-- If you use jQuery --&gt;</span><span
+                            class="pln"></span><br></li><li class="L1"><span class="pln"></span><span class="tag">&lt;script</span><span
+                            class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span
+                            class="atv">"text/javascript"</span><span class="pln"> </span><span
+                            class="atn">src</span><span class="pun">=</span><span
+                            class="atv">"loadgo/loadgo.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span><span
+                            class="pln"></span><br></li><li class="L2"><span class="pln"></span><br></li><li class="L3"><span
+                            class="pln"></span><span class="com">&lt;!-- If you don't use jQuery --&gt;</span><span
+                            class="pln"></span><br></li><li class="L4"><span class="pln"></span><span class="tag">&lt;script</span><span
+                            class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span
+                            class="atv">"text/javascript"</span><span class="pln"> </span><span
+                            class="atn">src</span><span class="pun">=</span><span class="atv">"loadgo/loadgo-nojquery.min.js"</span><span
+                            class="tag">&gt;&lt;/script&gt;</span></li></ol></pre>
+                    <h4 style="margin-top:15px;">
+                        <span class="label label-danger">Important</span> <strong>LoadGo</strong> needs fully loaded
+                        images in order to read its dimensions correctly. If you are not sure when this is going to
+                        happen,
+                        you can use this piece of code with each image:
+                    </h4>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-md-6">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">//jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">"#my-image"</span><span
+                                    class="pun">).</span><span class="pln">load</span><span class="pun">(</span><span
+                                    class="kwd">function</span><span class="pun">()</span><span
+                                    class="pln"> </span><span class="pun">{</span><span class="pln"></span><br></li><li
+                                    class="L2"><span class="pln">&nbsp; $</span><span class="pun">(</span><span
+                                    class="str">'#my-image'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">();</span><span
+                                    class="pln"></span><br></li><li class="L3"><span class="pln"></span><span
+                                    class="pun">}).</span><span class="pln">each</span><span class="pun">(</span><span
+                                    class="kwd">function</span><span class="pun">()</span><span
+                                    class="pln"> </span><span class="pun">{</span><span class="pln"></span><br></li><li
+                                    class="L4"><span class="pln">&nbsp; </span><span class="kwd">if</span><span
+                                    class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span
+                                    class="pln">complete</span><span class="pun">)</span><span
+                                    class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span
+                                    class="pun">).</span><span class="pln">load</span><span class="pun">();</span><span
+                                    class="pln"></span><br></li><li class="L5"><span class="pln"></span><span
+                                    class="pun">});</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Javascript</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln"></span><span
+                                    class="kwd">var</span><span class="pln"> image </span><span
+                                    class="pun">=</span><span class="pln"> document</span><span
+                                    class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"my-image"</span><span
+                                    class="pun">);</span><span class="pln"></span><br></li><li class="L2"><span
+                                    class="pln">image</span><span class="pun">.</span><span
+                                    class="pln">onload </span><span class="pun">=</span><span class="pln"> </span><span
+                                    class="kwd">function</span><span class="pln"> </span><span
+                                    class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"></span><br></li><li class="L3"><span class="pln">&nbsp; </span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">init</span><span class="pun">(</span><span class="kwd">this</span><span
+                                    class="pun">);</span><span class="pln"></span><br></li><li class="L4"><span
+                                    class="pln"></span><span class="pun">};</span></li></ol></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="examples">
+                <h2 style="padding: 0 15px;"><span class="fa fa-check"></span>&nbsp;Example #1: default</h2>
+                <div style="padding: 0 15px;">
+                    <h4>
+                        Image logo with default properties.
+                    </h4>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-md-6">
+                            <h4>
+                                <strong>jQuery</strong>
+                            </h4>
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span
+                                    class="str">'#disney'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">();</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>
+                                <strong>Javascript</strong>
+                            </h4>
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="typ">Loadgo</span><span
+                                    class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"disney"</span><span
+                                    class="pun">));</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <div class="loadgo-container" style="position: relative">
+                                <div class="loadgo-overlay"
+                                     style="background-color: rgb(255, 255, 255); opacity: 0.5; width: 285px; height: 93px; position: absolute; transition: width 0.6s ease 0s, height 0.6s ease 0s, top 0.6s ease 0s; right: 0px;"></div>
+                                <img id="disney" src="./demo_files/disney.png" alt="Disney Logo"
+                                     class="img-responsive logo" style="margin: 0 auto;"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-md-12 text-center">
+                            <div id="demo-progress-2"
+                                 style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                            </div>
+                            <div id="demo-msg-2">
+                                <button class="btn btn-primary"
+                                        onclick="playDemo(&#39;disney&#39;, 2, disneyInterval);">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2><span class="fa fa-check"></span>&nbsp;Example #2: opacity, no transition animation and background
+                    color</h2>
+                <div style="padding: 0 15px;">
+                    <h4>
+                        Image logo with opacity set to <code>0.2</code>, without width transition when changing progress
+                        and background set to <code>#01AEF0</code>.
+                    </h4>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-md-6">
+                            <h4>
+                                <strong>jQuery</strong>
+                            </h4>
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span
+                                    class="str">'#superman'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">({</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">&nbsp; </span><span
+                                    class="str">'opacity'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="lit">0.2</span><span class="pun">,</span><span class="pln"></span><br></li><li
+                                    class="L2"><span class="pln">&nbsp; </span><span class="str">'animated'</span><span
+                                    class="pun">:</span><span class="pln"> &nbsp; </span><span
+                                    class="kwd">false</span><span class="pun">,</span><span class="pln"></span><br></li><li
+                                    class="L3"><span class="pln">&nbsp; </span><span class="str">'bgcolor'</span><span
+                                    class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span class="str">'#01AEF0'</span><span
+                                    class="pln"></span><br></li><li class="L4"><span class="pln"></span><span
+                                    class="pun">});</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>
+                                <strong>Javascript</strong>
+                            </h4>
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="typ">Loadgo</span><span
+                                    class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"superman"</span><span
+                                    class="pun">),</span><span class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">&nbsp; </span><span
+                                    class="str">'opacity'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="lit">0.2</span><span class="pun">,</span><span class="pln"></span><br></li><li
+                                    class="L2"><span class="pln">&nbsp; </span><span class="str">'animated'</span><span
+                                    class="pun">:</span><span class="pln"> &nbsp; </span><span
+                                    class="kwd">false</span><span class="pun">,</span><span class="pln"></span><br></li><li
+                                    class="L3"><span class="pln">&nbsp; </span><span class="str">'bgcolor'</span><span
+                                    class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span class="str">'#01AEF0'</span><span
+                                    class="pln"></span><br></li><li class="L4"><span class="pln"></span><span
+                                    class="pun">});</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <div class="loadgo-container" style="position: relative">
+                                <div class="loadgo-overlay"
+                                     style="background-color: rgb(1, 174, 240); opacity: 0.2; width: 0px; height: 211px; position: absolute; right: 0px;"></div>
+                                <img id="superman" src="./demo_files/superman.png" alt="Disney Logo"
+                                     class="img-responsive logo" style="margin: 0 auto;"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-md-12 text-center">
+                            <div id="demo-progress-3"
+                                 style="margin-bottom: 10px; font-size: 16px; opacity: 0; font-weight: bold;">100%
+                            </div>
+                            <div id="demo-msg-3" style="opacity: 1;">
+                                <button class="btn btn-primary"
+                                        onclick="playDemo(&#39;superman&#39;, 3, supermanInterval);">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2><span class="fa fa-check"></span>&nbsp;Example #3: image overlay</h2>
+                <div style="padding: 0 15px;">
+                    <h4>
+                        Image logo is the original (in this case, Batman's logo with yellow background) and overlay
+                        image is the one with some filter, or other effect pretty similar to the original image logo (in
+                        this case, Batman's logo with white background).
+                    </h4>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-md-6">
+                            <h4>
+                                <strong>jQuery</strong>
+                            </h4>
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span
+                                    class="str">'#batman'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">({</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">&nbsp; </span><span
+                                    class="str">'opacity'</span><span class="pun">:</span><span
+                                    class="pln"> &nbsp;</span><span class="lit">1</span><span class="pun">,</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                    class="str">'image'</span><span class="pun">:</span><span
+                                    class="pln"> &nbsp; &nbsp;</span><span class="str">'batman-overlay.png'</span><span
+                                    class="pln"></span><br></li><li class="L3"><span class="pln"></span><span
+                                    class="pun">});</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>
+                                <strong>Javascript</strong>
+                            </h4>
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="typ">Loadgo</span><span
+                                    class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"batman"</span><span
+                                    class="pun">),</span><span class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">&nbsp; </span><span
+                                    class="str">'opacity'</span><span class="pun">:</span><span
+                                    class="pln"> &nbsp;</span><span class="lit">1</span><span class="pun">,</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                    class="str">'image'</span><span class="pun">:</span><span
+                                    class="pln"> &nbsp; &nbsp;</span><span class="str">'batman-overlay.png'</span><span
+                                    class="pln"></span><br></li><li class="L3"><span class="pln"></span><span
+                                    class="pun">});</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <div class="loadgo-container" style="position: relative">
+                                <div class="loadgo-overlay"
+                                     style="background-color: rgb(255, 255, 255); opacity: 1; width: 285px; height: 155px; position: absolute; transition: width 0.6s ease 0s, height 0.6s ease 0s, top 0.6s ease 0s; background-image: url(&quot;logos/batman-overlay.png&quot;); background-repeat: no-repeat; background-size: cover; background-position: 100% 0%; right: 0px;"></div>
+                                <img id="batman" src="./demo_files/batman.png" alt="Batman Logo"
+                                     class="img-responsive logo" style="margin: 0 auto;"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-md-12 text-center">
+                            <div id="demo-progress-4"
+                                 style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                            </div>
+                            <div id="demo-msg-4">
+                                <button class="btn btn-primary"
+                                        onclick="playDemo(&#39;batman&#39;, 4, batmanInterval);">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2><span class="fa fa-check"></span>&nbsp;Example #4: playing with directions</h2>
+                <div style="padding: 0 15px;">
+                    <h4>
+                        Loading animation can be set from: left to right (<code>lt</code>), right to left
+                        (<code>rl</code>), bottom to top (<code>bt</code>) or top to bottom (<code>tb</code>);
+                    </h4>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span
+                                    class="com">// Left to Right - jQuery</span><span class="pln"></span><br></li><li
+                                    class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">'#jurassiclr'</span><span
+                                    class="pun">).</span><span class="pln">loadgo</span><span class="pun">({</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                    class="str">'direction'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'lr'</span><span class="pln"></span><br></li><li class="L3"><span
+                                    class="pln"></span><span class="pun">});</span><span class="pln"></span><br></li><li
+                                    class="L4"><span class="pln"></span><br></li><li class="L5"><span
+                                    class="pln"></span><span class="com">// Left to Right - Javascript</span><span
+                                    class="pln"></span><br></li><li class="L6"><span class="pln"></span><span
+                                    class="kwd">var</span><span class="pln"> jlr </span><span class="pun">=</span><span
+                                    class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"jurassiclr"</span><span class="pun">);</span><span
+                                    class="pln"></span><br></li><li class="L7"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">init</span><span class="pun">(</span><span class="pln">jlr</span><span
+                                    class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"></span><br></li><li class="L8"><span class="pln">&nbsp; </span><span
+                                    class="str">'direction'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'lr'</span><span class="pln"></span><br></li><li class="L9"><span
+                                    class="pln"></span><span class="pun">});</span></li></ol></pre>
+                            <div class="col-sm-12">
+                                <div class="loadgo-container" style="position: relative">
+                                    <div class="loadgo-overlay"
+                                         style="background-color: rgb(255, 255, 255); opacity: 0.5; width: 413px; height: 284px; position: absolute; transition: width 0.6s ease 0s, height 0.6s ease 0s, top 0.6s ease 0s; right: 0px;"></div>
+                                    <img id="jurassiclr" src="./demo_files/jurassic.png" alt="Jurassic Park Logo"
+                                         class="img-responsive logo" style="margin: 0 auto;"></div>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <div id="demo-progress-5"
+                                     style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                                </div>
+                                <div id="demo-msg-5">
+                                    <button class="btn btn-primary"
+                                            onclick="playDemo(&#39;jurassiclr&#39;, 5, jurassicIntervalLR);">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span
+                                    class="com">// Right to Left - jQuery</span><span class="pln"></span><br></li><li
+                                    class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">'#jurassicrl'</span><span
+                                    class="pun">).</span><span class="pln">loadgo</span><span class="pun">({</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                    class="str">'direction'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'rl'</span><span class="pln"></span><br></li><li class="L3"><span
+                                    class="pln"></span><span class="pun">});</span><span class="pln"></span><br></li><li
+                                    class="L4"><span class="pln"></span><br></li><li class="L5"><span
+                                    class="pln"></span><span class="com">// Right to Left - Javascript</span><span
+                                    class="pln"></span><br></li><li class="L6"><span class="pln"></span><span
+                                    class="kwd">var</span><span class="pln"> jrl </span><span class="pun">=</span><span
+                                    class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"jurassicrl"</span><span class="pun">);</span><span
+                                    class="pln"></span><br></li><li class="L7"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">init</span><span class="pun">(</span><span class="pln">jrl</span><span
+                                    class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"></span><br></li><li class="L8"><span class="pln">&nbsp; </span><span
+                                    class="str">'direction'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'rl'</span><span class="pln"></span><br></li><li class="L9"><span
+                                    class="pln"></span><span class="pun">});</span></li></ol></pre>
+                            <div class="col-sm-12">
+                                <div class="loadgo-container" style="position: relative">
+                                    <div class="loadgo-overlay"
+                                         style="background-color: rgb(255, 255, 255); opacity: 0.5; width: 413px; height: 284px; position: absolute; transition: width 0.6s ease 0s, height 0.6s ease 0s, top 0.6s ease 0s; left: 0px;"></div>
+                                    <img id="jurassicrl" src="./demo_files/jurassic.png" alt="Jurassic Park Logo"
+                                         class="img-responsive logo" style="margin: 0 auto;"></div>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <div id="demo-progress-6"
+                                     style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                                </div>
+                                <div id="demo-msg-6">
+                                    <button class="btn btn-primary"
+                                            onclick="playDemo(&#39;jurassicrl&#39;, 6, jurassicIntervalRL);">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span
+                                    class="com">// Bottom to Top - jQuery</span><span class="pln"></span><br></li><li
+                                    class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">'#jurassicbt'</span><span
+                                    class="pun">).</span><span class="pln">loadgo</span><span class="pun">({</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                    class="str">'direction'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'bt'</span><span class="pln"></span><br></li><li class="L3"><span
+                                    class="pln"></span><span class="pun">});</span><span class="pln"></span><br></li><li
+                                    class="L4"><span class="pln"></span><br></li><li class="L5"><span
+                                    class="pln"></span><span class="com">// Bottom to Top - Javascript</span><span
+                                    class="pln"></span><br></li><li class="L6"><span class="pln"></span><span
+                                    class="kwd">var</span><span class="pln"> jbt </span><span class="pun">=</span><span
+                                    class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"jurassicbt"</span><span class="pun">);</span><span
+                                    class="pln"></span><br></li><li class="L7"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">init</span><span class="pun">(</span><span class="pln">jbt</span><span
+                                    class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"></span><br></li><li class="L8"><span class="pln">&nbsp; </span><span
+                                    class="str">'direction'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'bt'</span><span class="pln"></span><br></li><li class="L9"><span
+                                    class="pln"></span><span class="pun">});</span></li></ol></pre>
+                            <div class="col-sm-12">
+                                <div class="loadgo-container" style="position: relative">
+                                    <div class="loadgo-overlay"
+                                         style="background-color: rgb(255, 255, 255); opacity: 0.5; width: 413px; height: 284px; position: absolute; transition: width 0.6s ease 0s, height 0.6s ease 0s, top 0.6s ease 0s; top: 0px;"></div>
+                                    <img id="jurassicbt" src="./demo_files/jurassic.png" alt="Jurassic Park Logo"
+                                         class="img-responsive logo" style="margin: 0 auto;"></div>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <div id="demo-progress-7"
+                                     style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                                </div>
+                                <div id="demo-msg-7">
+                                    <button class="btn btn-primary"
+                                            onclick="playDemo(&#39;jurassicbt&#39;, 7, jurassicIntervalBT);">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span
+                                    class="com">// Top to Bottom - jQuery</span><span class="pln"></span><br></li><li
+                                    class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">'#jurassictb'</span><span
+                                    class="pun">).</span><span class="pln">loadgo</span><span class="pun">({</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                    class="str">'direction'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'tb'</span><span class="pln"></span><br></li><li class="L3"><span
+                                    class="pln"></span><span class="pun">});</span><span class="pln"></span><br></li><li
+                                    class="L4"><span class="pln"></span><br></li><li class="L5"><span
+                                    class="pln"></span><span class="com">// Top to Bottom - Javascript</span><span
+                                    class="pln"></span><br></li><li class="L6"><span class="pln"></span><span
+                                    class="kwd">var</span><span class="pln"> jtb </span><span class="pun">=</span><span
+                                    class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"jurassictb"</span><span class="pun">);</span><span
+                                    class="pln"></span><br></li><li class="L7"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">init</span><span class="pun">(</span><span class="pln">jtb</span><span
+                                    class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"></span><br></li><li class="L8"><span class="pln">&nbsp; </span><span
+                                    class="str">'direction'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'tb'</span><span class="pln"></span><br></li><li class="L9"><span
+                                    class="pln"></span><span class="pun">});</span></li></ol></pre>
+                            <div class="col-sm-12">
+                                <div class="loadgo-container" style="position: relative">
+                                    <div class="loadgo-overlay"
+                                         style="background-color: rgb(255, 255, 255); opacity: 0.5; width: 413px; height: 284px; position: absolute; transition: width 0.6s ease 0s, height 0.6s ease 0s, top 0.6s ease 0s; bottom: 0px;"></div>
+                                    <img id="jurassictb" src="./demo_files/jurassic.png" alt="Jurassic Park Logo"
+                                         class="img-responsive logo" style="margin: 0 auto;"></div>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <div id="demo-progress-8"
+                                     style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                                </div>
+                                <div id="demo-msg-8">
+                                    <button class="btn btn-primary"
+                                            onclick="playDemo(&#39;jurassictb&#39;, 8, jurassicIntervalTB);">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2><span class="fa fa-check"></span>&nbsp;Example #5: filters</h2>
+                <div style="padding: 0 15px;">
+                    <h4>
+                        CSS3 image filters applied for progress instead of an overlay. Filters can be:
+                        <code>sepia</code>, <code>blur</code>, <code>invert</code>, <code>hue-rotate</code>, <code>opacity</code>
+                        or <code>gayscale</code>.
+                    </h4>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Sepia - jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#spidermanSepia'</span><span
+                                    class="pun">).</span><span class="pln">loadgo</span><span class="pun">({</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                    class="str">'filter'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'sepia'</span><span class="pln"></span><br></li><li class="L3"><span
+                                    class="pln"></span><span class="pun">});</span><span class="pln"></span><br></li><li
+                                    class="L4"><span class="pln"></span><br></li><li class="L5"><span
+                                    class="pln"></span><span class="com">// Sepia - Javascript</span><span
+                                    class="pln"></span><br></li><li class="L6"><span class="pln"></span><span
+                                    class="kwd">var</span><span class="pln"> ssepia </span><span
+                                    class="pun">=</span><span class="pln"> document</span><span
+                                    class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"spidermanSepia"</span><span
+                                    class="pun">);</span><span class="pln"></span><br></li><li class="L7"><span
+                                    class="pln"></span><span class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">init</span><span class="pun">(</span><span
+                                    class="pln">ssepia</span><span class="pun">,</span><span class="pln"> </span><span
+                                    class="pun">{</span><span class="pln"></span><br></li><li class="L8"><span
+                                    class="pln">&nbsp; </span><span class="str">'filter'</span><span
+                                    class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'sepia'</span><span class="pln"></span><br></li><li class="L9"><span
+                                    class="pln"></span><span class="pun">});</span></li></ol></pre>
+                            <div class="col-sm-12" style="margin-top:30px">
+                                <img id="spidermanSepia" src="./demo_files/spiderman.png" alt="spiderman Logo"
+                                     class="img-responsive logo"
+                                     style="margin: 0px auto; filter: sepia(1); transition: -webkit-filter 0.6s ease 0s;">
+                            </div>
+                            <div class="col-sm-12 text-center" style="margin-top:10px">
+                                <div id="demo-progress-9"
+                                     style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                                </div>
+                                <div id="demo-msg-9">
+                                    <button class="btn btn-primary"
+                                            onclick="playDemo(&#39;spidermanSepia&#39;, 9, spidermanSepiaInterval);">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Blur - jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#spidermanBlur'</span><span
+                                    class="pun">).</span><span class="pln">loadgo</span><span class="pun">({</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                    class="str">'filter'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'blur'</span><span class="pln"></span><br></li><li class="L3"><span
+                                    class="pln"></span><span class="pun">});</span><span class="pln"></span><br></li><li
+                                    class="L4"><span class="pln"></span><br></li><li class="L5"><span
+                                    class="pln"></span><span class="com">// Blur - Javascript</span><span
+                                    class="pln"></span><br></li><li class="L6"><span class="pln"></span><span
+                                    class="kwd">var</span><span class="pln"> sblur </span><span
+                                    class="pun">=</span><span class="pln"> document</span><span
+                                    class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"spidermanBlur"</span><span
+                                    class="pun">);</span><span class="pln"></span><br></li><li class="L7"><span
+                                    class="pln"></span><span class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">init</span><span class="pun">(</span><span class="pln">sblur</span><span
+                                    class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"></span><br></li><li class="L8"><span class="pln">&nbsp; </span><span
+                                    class="str">'filter'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'blur'</span><span class="pln"></span><br></li><li class="L9"><span
+                                    class="pln"></span><span class="pun">});</span></li></ol></pre>
+                            <div class="col-sm-12" style="margin-top:30px">
+                                <img id="spidermanBlur" src="./demo_files/spiderman.png" alt="spiderman Logo"
+                                     class="img-responsive logo"
+                                     style="margin: 0px auto; filter: blur(10px); transition: -webkit-filter 0.6s ease 0s;">
+                            </div>
+                            <div class="col-sm-12 text-center" style="margin-top:10px">
+                                <div id="demo-progress-10"
+                                     style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                                </div>
+                                <div id="demo-msg-10">
+                                    <button class="btn btn-primary"
+                                            onclick="playDemo(&#39;spidermanBlur&#39;, 10, spidermanBlurInterval);">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Invert - jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#spidermanInvert'</span><span
+                                    class="pun">).</span><span class="pln">loadgo</span><span class="pun">({</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                    class="str">'filter'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'invert'</span><span class="pln"></span><br></li><li class="L3"><span
+                                    class="pln"></span><span class="pun">});</span><span class="pln"></span><br></li><li
+                                    class="L4"><span class="pln"></span><br></li><li class="L5"><span
+                                    class="pln"></span><span class="com">// Invert - Javascript</span><span
+                                    class="pln"></span><br></li><li class="L6"><span class="pln"></span><span
+                                    class="kwd">var</span><span class="pln"> sinvert </span><span
+                                    class="pun">=</span><span class="pln"> document</span><span
+                                    class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"spidermanInvert"</span><span
+                                    class="pun">);</span><span class="pln"></span><br></li><li class="L7"><span
+                                    class="pln"></span><span class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">init</span><span class="pun">(</span><span
+                                    class="pln">sinvert</span><span class="pun">,</span><span class="pln"> </span><span
+                                    class="pun">{</span><span class="pln"></span><br></li><li class="L8"><span
+                                    class="pln">&nbsp; </span><span class="str">'filter'</span><span
+                                    class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span class="str">'invert'</span><span
+                                    class="pln"></span><br></li><li class="L9"><span class="pln"></span><span
+                                    class="pun">});</span></li></ol></pre>
+                            <div class="col-sm-12" style="margin-top:30px">
+                                <img id="spidermanInvert" src="./demo_files/spiderman.png" alt="spiderman Logo"
+                                     class="img-responsive logo"
+                                     style="margin: 0px auto; filter: invert(1); transition: -webkit-filter 0.6s ease 0s;">
+                            </div>
+                            <div class="col-sm-12 text-center" style="margin-top:10px">
+                                <div id="demo-progress-11"
+                                     style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                                </div>
+                                <div id="demo-msg-11">
+                                    <button class="btn btn-primary"
+                                            onclick="playDemo(&#39;spidermanInvert&#39;, 11, spidermanInvertInterval);">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Hue Rotate - jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#spidermanHue'</span><span
+                                    class="pun">).</span><span class="pln">loadgo</span><span class="pun">({</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                    class="str">'filter'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'hue-rotate'</span><span class="pln"></span><br></li><li
+                                    class="L3"><span class="pln"></span><span class="pun">});</span><span
+                                    class="pln"></span><br></li><li class="L4"><span class="pln"></span><br></li><li
+                                    class="L5"><span class="pln"></span><span
+                                    class="com">// Hue Rotate - Javascript</span><span class="pln"></span><br></li><li
+                                    class="L6"><span class="pln"></span><span class="kwd">var</span><span class="pln"> shue </span><span
+                                    class="pun">=</span><span class="pln"> document</span><span
+                                    class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">"spidermanHue"</span><span
+                                    class="pun">);</span><span class="pln"></span><br></li><li class="L7"><span
+                                    class="pln"></span><span class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">init</span><span class="pun">(</span><span class="pln">shue</span><span
+                                    class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"></span><br></li><li class="L8"><span class="pln">&nbsp; </span><span
+                                    class="str">'filter'</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp;</span><span
+                                    class="str">'hue-rotate'</span><span class="pln"></span><br></li><li
+                                    class="L9"><span class="pln"></span><span class="pun">});</span></li></ol></pre>
+                            <div class="col-sm-12" style="margin-top:30px">
+                                <img id="spidermanHue" src="./demo_files/spiderman.png" alt="spiderman Logo"
+                                     class="img-responsive logo"
+                                     style="margin: 0px auto; filter: hue-rotate(0deg); transition: -webkit-filter 0.6s ease 0s;">
+                            </div>
+                            <div class="col-sm-12 text-center" style="margin-top:10px">
+                                <div id="demo-progress-12"
+                                     style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                                </div>
+                                <div id="demo-msg-12">
+                                    <button class="btn btn-primary"
+                                            onclick="playDemo(&#39;spidermanHue&#39;, 12, spidermanHueInterval);">
+                                        <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-6" style="margin-bottom:20px;">
+                        <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                             style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol class="linenums"><li
+                                class="L0"><span class="com">// Opacity - jQuery</span><span
+                                class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                class="pun">(</span><span class="str">'#spidermanOpacity'</span><span
+                                class="pun">).</span><span class="pln">loadgo</span><span class="pun">({</span><span
+                                class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                class="str">'filter'</span><span class="pun">:</span><span
+                                class="pln"> &nbsp; &nbsp;</span><span class="str">'opacity'</span><span
+                                class="pln"></span><br></li><li class="L3"><span class="pln"></span><span class="pun">});</span><span
+                                class="pln"></span><br></li><li class="L4"><span class="pln"></span><br></li><li
+                                class="L5"><span class="pln"></span><span
+                                class="com">// Opacity - Javascript</span><span class="pln"></span><br></li><li
+                                class="L6"><span class="pln"></span><span class="kwd">var</span><span class="pln"> sopacity </span><span
+                                class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span
+                                class="pln">getElementById</span><span class="pun">(</span><span class="str">"spidermanOpacity"</span><span
+                                class="pun">);</span><span class="pln"></span><br></li><li class="L7"><span
+                                class="pln"></span><span class="typ">Loadgo</span><span class="pun">.</span><span
+                                class="pln">init</span><span class="pun">(</span><span class="pln">sopacity</span><span
+                                class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span
+                                class="pln"></span><br></li><li class="L8"><span class="pln">&nbsp; </span><span
+                                class="str">'filter'</span><span class="pun">:</span><span
+                                class="pln"> &nbsp; &nbsp;</span><span class="str">'opacity'</span><span
+                                class="pln"></span><br></li><li class="L9"><span class="pln"></span><span class="pun">});</span></li></ol></pre>
+                        <div class="col-sm-12" style="margin-top:30px">
+                            <img id="spidermanOpacity" src="./demo_files/spiderman.png" alt="spiderman Logo"
+                                 class="img-responsive logo"
+                                 style="margin: 0px auto; filter: opacity(0); transition: -webkit-filter 0.6s ease 0s;">
+                        </div>
+                        <div class="col-sm-12 text-center" style="margin-top:10px">
+                            <div id="demo-progress-13"
+                                 style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                            </div>
+                            <div id="demo-msg-13">
+                                <button class="btn btn-primary"
+                                        onclick="playDemo(&#39;spidermanOpacity&#39;, 13, spidermanOpacityInterval);">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom:20px;">
+                        <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                             style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol class="linenums"><li
+                                class="L0"><span class="com">// Grayscale - jQuery</span><span
+                                class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                class="pun">(</span><span class="str">'#spidermanGrayscale'</span><span
+                                class="pun">).</span><span class="pln">loadgo</span><span class="pun">({</span><span
+                                class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; </span><span
+                                class="str">'filter'</span><span class="pun">:</span><span
+                                class="pln"> &nbsp; &nbsp;</span><span class="str">'grayscale'</span><span
+                                class="pln"></span><br></li><li class="L3"><span class="pln"></span><span class="pun">});</span><span
+                                class="pln"></span><br></li><li class="L4"><span class="pln"></span><br></li><li
+                                class="L5"><span class="pln"></span><span
+                                class="com">// Grayscale - Javascript</span><span class="pln"></span><br></li><li
+                                class="L6"><span class="pln"></span><span class="kwd">var</span><span
+                                class="pln"> sgray </span><span class="pun">=</span><span
+                                class="pln"> document</span><span class="pun">.</span><span
+                                class="pln">getElementById</span><span class="pun">(</span><span class="str">"spidermanGrayscale"</span><span
+                                class="pun">);</span><span class="pln"></span><br></li><li class="L7"><span
+                                class="pln"></span><span class="typ">Loadgo</span><span class="pun">.</span><span
+                                class="pln">init</span><span class="pun">(</span><span class="pln">sgray</span><span
+                                class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span
+                                class="pln"></span><br></li><li class="L8"><span class="pln">&nbsp; </span><span
+                                class="str">'filter'</span><span class="pun">:</span><span
+                                class="pln"> &nbsp; &nbsp;</span><span class="str">'grayscale'</span><span
+                                class="pln"></span><br></li><li class="L9"><span class="pln"></span><span class="pun">});</span></li></ol></pre>
+                        <div class="col-sm-12" style="margin-top:30px">
+                            <img id="spidermanGrayscale" src="./demo_files/spiderman.png" alt="spiderman Logo"
+                                 class="img-responsive logo"
+                                 style="margin: 0px auto; filter: grayscale(1); transition: -webkit-filter 0.6s ease 0s;">
+                        </div>
+                        <div class="col-sm-12 text-center" style="margin-top:10px">
+                            <div id="demo-progress-14"
+                                 style="margin-bottom:10px;font-size:16px;opacity:0;font-weight:bold;">0 %
+                            </div>
+                            <div id="demo-msg-14">
+                                <button class="btn btn-primary"
+                                        onclick="playDemo(&#39;spidermanGrayscale&#39;, 14, spidermanGrayscaleInterval);">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;Start
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="documentation">
+                <h2 style="padding: 0 15px;"><span class="fa fa-book"></span>&nbsp;Documentation</h2>
+                <div style="padding: 0 15px;">
+                    <h3><span class="fa fa-arrow-right"></span>&nbsp;Introduction</h3>
+                    <h4><strong>LoadGo</strong> is a plugin which provides you a better way to keep your users updated
+                        about a loading process. Some use cases may be:</h4>
+                    <h4>
+                        <ul>
+                            <li>User uploads a file to your server.</li>
+                            <li>System is converting a file to PDF.</li>
+                            <li>Current page is loading.</li>
+                        </ul>
+                    </h4>
+                    <div class="row" style="margin:0;margin-top:15px;">
+                        <div class="col-md-12 alert alert-info">
+                            <span class="label label-info">Important</span> This plugin <strong>does not</strong>
+                            control asynchronous behaviour for your loading process, so you have to do that by yourself
+                            in your app.
+                        </div>
+                    </div>
+                    <h4>To do this, <strong>LoadGo</strong> wraps your image into a <code>div</code>, and add an overlay
+                        inside this wrapper. Then, it will change overlay's dimensions when setting a progress to
+                        simulate a loading behaviour.</h4>
+                    <h4><strong>LoadGo</strong> will work only on <code>img</code> elements given by <code>id</code>.
+                    </h4>
+                    <h4>This piece of code is a minimum example:</h4>
+                    <div class="row" style="margin-top:10px;margin-left: 0;margin-right: 0;">
+                        <pre class="col-md-12 language-html prettyprint highlight lang-html linenums theme-balupton prettyprint-has"
+                             style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol class="linenums"><li
+                                class="L0"><span class="tag">&lt;div&gt;</span><span class="pln"></span><br></li><li
+                                class="L1"><span class="pln">&nbsp; </span><span class="tag">&lt;img</span><span
+                                class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span
+                                class="atv">"logo"</span><span class="pln"> </span><span class="atn">src</span><span
+                                class="pun">=</span><span class="atv">"logo.png"</span><span class="pln"> </span><span
+                                class="atn">alt</span><span class="pun">=</span><span class="atv">"Logo"</span><span
+                                class="pln"> </span><span class="tag">/&gt;</span><span class="pln"></span><br></li><li
+                                class="L2"><span class="pln"></span><span
+                                class="tag">&lt;/div&gt;</span></li></ol></pre>
+                        <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                             style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol class="linenums"><li
+                                class="L0"><span class="com">// jQuery</span><span class="pln"></span><br></li><li
+                                class="L1"><span class="pln">$</span><span class="pun">(</span><span
+                                class="str">'#logo'</span><span class="pun">).</span><span
+                                class="pln">loadgo</span><span class="pun">();</span><span class="pln"></span><br></li><li
+                                class="L2"><span class="pln"></span><br></li><li class="L3"><span
+                                class="pln"></span><span class="com">// Javascript</span><span
+                                class="pln"></span><br></li><li class="L4"><span class="pln"></span><span class="typ">Loadgo</span><span
+                                class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span
+                                class="pln">document</span><span class="pun">.</span><span
+                                class="pln">getElementById</span><span class="pun">(</span><span
+                                class="str">'logo'</span><span class="pun">));</span></li></ol></pre>
+                    </div>
+                    <h3><span class="fa fa-arrow-right"></span>&nbsp;Initialization</h3>
+                    <h4><strong>LoadGo</strong> needs to be initialized in an <code>img</code> element before use.</h4>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-md-5">
+                            <h4>
+                                <strong>jQuery</strong>
+                            </h4>
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span
+                                    class="str">'#logo'</span><span class="pun">).</span><span class="pln">loadgo</span><span
+                                    class="pun">();</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-7">
+                            <h4>
+                                <strong>Javascript</strong>
+                            </h4>
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="typ">Loadgo</span><span
+                                    class="pun">.</span><span class="pln">init</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">'logo'</span><span class="pun">));</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <h4>Now, you are capable of set progress and simulate any kind of progression.
+                        <strong>LoadGo</strong> have methods and a couple of options which will help you.</h4>
+                    <h4>LoadGo also applies an empty CSS class to overlay called <code>loadgo-overlay</code> in case
+                        that you want to implement your own resize function or some other advanced features.</h4>
+                    <h3><span class="fa fa-arrow-right"></span>&nbsp;Options</h3>
+                    <h4>
+                        <ul>
+                            <li><strong>bgcolor</strong>: background overlay color in hexadecimal or RGB. Default is
+                                <span style="background: #FFFFFF;width:20px;height:20px;border-radius:2px;display:inline-block;border: 1px solid #ddd;"></span>
+                                <strong>#FFFFFF</strong>.
+                            </li>
+                            <li><strong>opacity</strong>: overlay transparency. Default is <strong>0.5</strong></li>
+                            <li><strong>animated</strong>: true if <code>setprogress</code> CSS width transitions are
+                                enable, false otherwise. Default is <strong>true</strong> (remember that <u>Internet
+                                    Explorer does not support CSS transitions</u>).
+                            </li>
+                            <li><strong>image</strong>: image url to be used if you want a background image instead of a
+                                simple color. This option disables <strong>bgcolor</strong> option.
+                            </li>
+                            <li><strong>class</strong>: CSS class which will be applied to overlay. Make sure that all
+                                looks good because some CSS options could invalidate other <strong>LoadGo</strong>
+                                plugin CSS options. Default is <strong>null</strong>.
+                            </li>
+                            <li><strong>resize</strong>: resize function. <strong>LoadGo</strong> provides a function
+                                which automatically resizes <strong>LoadGo</strong> overlay by default, but you can use
+                                your own.
+                            </li>
+                            <li><strong>direction</strong>: animation direction. Possible values: <code>lr</code> (left
+                                to right), <code>rl</code> (right to left), <code>bt</code> (bottom to top),
+                                <code>tb</code> (top to bottom). Default is <strong><code>lr</code></strong>.
+                            </li>
+                            <li><strong>filter</strong>: CSS image filter according to <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter">CSS filter
+                                property</a>. Possible values: <code>blur</code>, <code>grayscale</code>,
+                                <code>sepia</code>, <code>hue-rotate</code>, <code>invert</code>, <code>opacity</code>.
+                            </li>
+                        </ul>
+                    </h4>
+                    <h3><span class="fa fa-arrow-right"></span>&nbsp;Methods</h3>
+                    <h4>
+                        <ul>
+                            <li><strong>Get / Set options</strong>: Get/Set plugin options. When setting options, the
+                                parameter must be a JSON object. This is specially useful if element is already
+                                initiate, and you want to change properties dynamically based on your app's logic.
+                            </li>
+                        </ul>
+                    </h4>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-md-5">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span
+                                    class="com">// jQuery - Get current options</span><span class="pln"></span><br></li><li
+                                    class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">'#logo'</span><span
+                                    class="pun">).</span><span class="pln">loadgo</span><span class="pun">(</span><span
+                                    class="str">'options'</span><span class="pun">);</span><span class="pln"></span><br></li><li
+                                    class="L2"><span class="pln"></span><br></li><li class="L3"><span
+                                    class="pln"></span><span class="com">// jQuery - Set options</span><span
+                                    class="pln"></span><br></li><li class="L4"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#logo'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">(</span><span
+                                    class="str">'options'</span><span class="pun">,</span><span
+                                    class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"> direction</span><span class="pun">:</span><span
+                                    class="pln"> </span><span class="str">'bt'</span><span class="pln"> </span><span
+                                    class="pun">});</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-7">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Javascript - Get current options</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">options</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">'logo'</span><span class="pun">));</span><span
+                                    class="pln"></span><br></li><li class="L2"><span class="pln"></span><br></li><li
+                                    class="L3"><span class="pln"></span><span
+                                    class="com">// Javascript - Set options</span><span class="pln"></span><br></li><li
+                                    class="L4"><span class="pln"></span><span class="typ">Loadgo</span><span
+                                    class="pun">.</span><span class="pln">options</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">'logo'</span><span class="pun">),</span><span
+                                    class="pln"> </span><span class="pun">{</span><span
+                                    class="pln"> direction</span><span class="pun">:</span><span
+                                    class="pln"> </span><span class="str">'bt'</span><span class="pln"> </span><span
+                                    class="pun">});</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <h4>
+                        <ul>
+                            <li><strong>Set Progress</strong>: Set progress number to loading overlay. This number must
+                                be between 0 and 100.
+                            </li>
+                        </ul>
+                    </h4>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-md-5">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#logo'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">(</span><span
+                                    class="str">'setprogress'</span><span class="pun">,</span><span class="pln"> </span><span
+                                    class="lit">50</span><span class="pun">);</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-7">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Javascript</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">setprogress</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">'logo'</span><span class="pun">),</span><span
+                                    class="pln"> </span><span class="lit">50</span><span class="pun">);</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <h4>
+                        <ul>
+                            <li><strong>Reset progress</strong>: Reset current progress. This is really useful when you
+                                are using the same element for multiple loads, and you need to reset all before starting
+                                a new one.
+                            </li>
+                        </ul>
+                    </h4>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-md-5">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#logo'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">(</span><span
+                                    class="str">'resetprogress'</span><span class="pun">);</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-7">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Javascript</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">resetprogress</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">'logo'</span><span class="pun">));</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <h4>
+                        <ul>
+                            <li><strong>Get progress</strong>: Get current progress. This number will be between 0 and
+                                100.
+                            </li>
+                        </ul>
+                    </h4>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-md-5">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#logo'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">(</span><span
+                                    class="str">'getprogress'</span><span class="pun">);</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-7">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Javascript</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">getprogress</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">'logo'</span><span class="pun">));</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <h4>
+                        <ul>
+                            <li><strong>Loop</strong>: Sets overlay to loop indefinitely until stopped. This is useful
+                                for situations where you have no way of measuring the progress. This method accepts a
+                                duration (ms) parameter to customize animation speed.
+                            </li>
+                        </ul>
+                    </h4>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-md-5">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#logo'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">(</span><span
+                                    class="str">'loop'</span><span class="pun">,</span><span class="pln"> </span><span
+                                    class="lit">10</span><span class="pun">);</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-7">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Javascript</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">loop</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">'logo'</span><span class="pun">),</span><span
+                                    class="pln"> </span><span class="lit">10</span><span class="pun">);</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <h4>
+                        <ul>
+                            <li><strong>Stop</strong>: Stops the loop previously initiated with <code>loop</code> method
+                                and shows the full image. Since loops are indefinite we need to use this method to
+                                manually stop it.
+                            </li>
+                        </ul>
+                    </h4>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-md-5">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#logo'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">(</span><span
+                                    class="str">'stop'</span><span class="pun">);</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-7">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Javascript</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">stop</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">'logo'</span><span class="pun">));</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <h4>
+                        <ul>
+                            <li><strong>Destroy</strong>: Removes all plugin properties and restore everything. This
+                                method will also removes div elements created (<code>loadgo-container</code> and <code>loadgo-overlay</code>),
+                                so make sure that you are not using them for anything else before calling
+                                <code>destroy</code>.
+                            </li>
+                        </ul>
+                    </h4>
+                    <div class="row" style="margin-top:15px;">
+                        <div class="col-md-5">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// jQuery</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                    class="pun">(</span><span class="str">'#logo'</span><span class="pun">).</span><span
+                                    class="pln">loadgo</span><span class="pun">(</span><span
+                                    class="str">'destroy'</span><span class="pun">);</span></li></ol></pre>
+                        </div>
+                        <div class="col-md-7">
+                            <pre class="language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                                 style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol
+                                    class="linenums"><li class="L0"><span class="com">// Javascript</span><span
+                                    class="pln"></span><br></li><li class="L1"><span class="pln"></span><span
+                                    class="typ">Loadgo</span><span class="pun">.</span><span
+                                    class="pln">destroy</span><span class="pun">(</span><span
+                                    class="pln">document</span><span class="pun">.</span><span class="pln">getElementById</span><span
+                                    class="pun">(</span><span class="str">'logo'</span><span class="pun">));</span></li></ol></pre>
+                        </div>
+                    </div>
+                    <h3><span class="fa fa-arrow-right"></span>&nbsp;Real example</h3>
+                    <h4>In your webpage, you are using a jQuery plugin like <a href="http://www.uploadify.com/">Uploadify</a>
+                        to give your users a way to upload files to you page (for example: update his/her web avatar).
+                        Most of these plugins provide events like <code>onUploadStart</code>,
+                        <code>onUploadProgress</code> or <code>onUploadComplete</code>. These events have variables
+                        which give you a lot of information about your current load progress (file size, current
+                        uploaded bytes, etc).</h4>
+                    <h4>You can use this information with <strong>LoadGo</strong> to update logo overlay like this:</h4>
+                    <div class="row" style="margin:0;margin-top:10px;">
+                        <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                             style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol class="linenums"><li
+                                class="L0"><span class="com">// Set LoadGo on your Logo</span><span
+                                class="pln"></span><br></li><li class="L1"><span class="pln">$</span><span
+                                class="pun">(</span><span class="str">'#logo'</span><span class="pun">).</span><span
+                                class="pln">loadgo</span><span class="pun">();</span><span class="pln"></span><br></li><li
+                                class="L2"><span class="pln"></span><br></li><li class="L3"><span
+                                class="pln"></span><span class="com">// Set Uploadify on your upload input</span><span
+                                class="pln"></span><br></li><li class="L4"><span class="pln">$</span><span
+                                class="pun">(</span><span class="str">'#uploadinput'</span><span
+                                class="pun">).</span><span class="pln">uploadify</span><span class="pun">({</span><span
+                                class="pln"></span><br></li><li class="L5"><span class="pln">&nbsp; </span><span
+                                class="com">// init options...</span><span class="pln"></span><br></li><li
+                                class="L6"><span class="pln">&nbsp; onUploadStart</span><span class="pun">:</span><span
+                                class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span
+                                class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span
+                                class="pln"> </span><span class="pun">{</span><span class="pln"></span><br></li><li
+                                class="L7"><span class="pln">&nbsp; &nbsp; </span><span class="com">// Upload is going to start, so we need to reset loadgo</span><span
+                                class="pln"></span><br></li><li class="L8"><span class="pln">&nbsp; &nbsp; $</span><span
+                                class="pun">(</span><span class="str">'#logo'</span><span class="pun">).</span><span
+                                class="pln">loadgo</span><span class="pun">(</span><span
+                                class="str">'resetprogress'</span><span class="pun">);</span><span
+                                class="pln"></span><br></li><li class="L9"><span class="pln">&nbsp; </span><span
+                                class="pun">},</span><span class="pln"></span><br></li><li class="L0"><span class="pln">&nbsp; onUploadProgress</span><span
+                                class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span
+                                class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span
+                                class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span
+                                class="pln"></span><br></li><li class="L1"><span class="pln">&nbsp; &nbsp; </span><span
+                                class="com">// We receive some bytes on our upload and updates loadgo progress,</span><span
+                                class="pln"></span><br></li><li class="L2"><span class="pln">&nbsp; &nbsp; </span><span
+                                class="com">// but first, we should calculate total uploaded percentage</span><span
+                                class="pln"></span><br></li><li class="L3"><span class="pln">&nbsp; &nbsp; </span><span
+                                class="kwd">var</span><span class="pln"> p </span><span class="pun">=</span><span
+                                class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span
+                                class="pln">bytesLoaded </span><span class="pun">/</span><span class="pln"> </span><span
+                                class="kwd">event</span><span class="pun">.</span><span
+                                class="pln">bytesTotal</span><span class="pun">;</span><span
+                                class="pln"></span><br></li><li class="L4"><span class="pln">&nbsp; &nbsp; $</span><span
+                                class="pun">(</span><span class="str">'#logo'</span><span class="pun">).</span><span
+                                class="pln">loadgo</span><span class="pun">(</span><span
+                                class="str">'setprogress'</span><span class="pun">,</span><span
+                                class="pln"> p</span><span class="pun">);</span><span class="pln"></span><br></li><li
+                                class="L5"><span class="pln">&nbsp; </span><span class="pun">},</span><span
+                                class="pln"></span><br></li><li class="L6"><span
+                                class="pln">&nbsp; onUploadComplete</span><span class="pun">:</span><span
+                                class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span
+                                class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span
+                                class="pln"> </span><span class="pun">{</span><span class="pln"></span><br></li><li
+                                class="L7"><span class="pln">&nbsp; &nbsp; </span><span
+                                class="com">// Upload complete</span><span class="pln"></span><br></li><li
+                                class="L8"><span class="pln">&nbsp; </span><span class="pun">}</span><span
+                                class="pln"></span><br></li><li class="L9"><span class="pln"></span><span class="pun">});</span></li></ol></pre>
+                    </div>
+                    <h3><span class="fa fa-arrow-right"></span>&nbsp;Current LoadGo examples</h3>
+                    <h4>To create <strong>LoadGo</strong> minimum examples, some intervals were set to recreate this
+                        effect. Following code is used by CocaCola example at the beginning of this page:</h4>
+                    <div class="row" style="margin:0;margin-top:10px;">
+                        <pre class="col-md-12 language-javascript prettyprint highlight lang-javascript linenums theme-balupton prettyprint-has"
+                             style="overflow: hidden; white-space: pre-wrap; max-height: none;"><ol class="linenums"><li
+                                class="L0"><span class="pln">$</span><span class="pun">(</span><span class="pln">document</span><span
+                                class="pun">).</span><span class="pln">ready</span><span class="pun">(</span><span
+                                class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span
+                                class="pln"> </span><span class="pun">{</span><span class="pln"></span><br></li><li
+                                class="L1"><span class="pln">&nbsp; $</span><span class="pun">(</span><span class="str">'#cocacola'</span><span
+                                class="pun">).</span><span class="pln">loadgo</span><span class="pun">();</span><span
+                                class="pln"></span><br></li><li class="L2"><span class="pln"></span><span class="pun">});</span><span
+                                class="pln"></span><br></li><li class="L3"><span class="pln"></span><br></li><li
+                                class="L4"><span class="pln"></span><span class="com">// We create an interval which will be removed when progress completes</span><span
+                                class="pln"></span><br></li><li class="L5"><span class="pln"></span><span class="kwd">var</span><span
+                                class="pln"> cocacolaInterval</span><span class="pun">;</span><span
+                                class="pln"></span><br></li><li class="L6"><span class="pln"></span><span class="kwd">function</span><span
+                                class="pln"> mainDemo </span><span class="pun">()</span><span class="pln"> </span><span
+                                class="pun">{</span><span class="pln"></span><br></li><li class="L7"><span class="pln">&nbsp; </span><span
+                                class="kwd">var</span><span class="pln"> p </span><span class="pun">=</span><span
+                                class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span
+                                class="pln"></span><br></li><li class="L8"><span class="pln">&nbsp; $</span><span
+                                class="pun">(</span><span class="str">'#cocacola'</span><span class="pun">).</span><span
+                                class="pln">loadgo</span><span class="pun">(</span><span
+                                class="str">'resetprogress'</span><span class="pun">);</span><span
+                                class="pln"> &nbsp; </span><span
+                                class="com">// reset progress to start again</span><span class="pln"></span><br></li><li
+                                class="L9"><span class="pln">&nbsp; cocacolaInterval </span><span
+                                class="pun">=</span><span class="pln"> window</span><span class="pun">.</span><span
+                                class="pln">setInterval</span><span class="pun">(</span><span
+                                class="kwd">function</span><span class="pln"> </span><span class="pun">(){</span><span
+                                class="pln"></span><br></li><li class="L0"><span class="pln">&nbsp; &nbsp; </span><span
+                                class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span
+                                class="pln">$</span><span class="pun">(</span><span class="str">'#cocacola'</span><span
+                                class="pun">).</span><span class="pln">loadgo</span><span class="pun">(</span><span
+                                class="str">'getprogress'</span><span class="pun">)</span><span
+                                class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span
+                                class="lit">100</span><span class="pun">)</span><span class="pln"> </span><span
+                                class="pun">{</span><span class="pln"></span><br></li><li class="L1"><span class="pln">&nbsp; &nbsp; &nbsp; </span><span
+                                class="com">// When progress completes, we have to clear the interval</span><span
+                                class="pln"></span><br></li><li class="L2"><span
+                                class="pln">&nbsp; &nbsp; &nbsp; window</span><span class="pun">.</span><span
+                                class="pln">clearInterval</span><span class="pun">(</span><span class="pln">cocacolaInterval</span><span
+                                class="pun">);</span><span class="pln"></span><br></li><li class="L3"><span class="pln">&nbsp; &nbsp; </span><span
+                                class="pun">}</span><span class="pln"></span><br></li><li class="L4"><span class="pln">&nbsp; &nbsp; </span><span
+                                class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span
+                                class="pln"></span><br></li><li class="L5"><span
+                                class="pln">&nbsp; &nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> prog </span><span
+                                class="pun">=</span><span class="pln"> p</span><span class="pun">*</span><span
+                                class="lit">10</span><span class="pun">;</span><span class="pln"></span><br></li><li
+                                class="L6"><span class="pln">&nbsp; &nbsp; &nbsp; $</span><span
+                                class="pun">(</span><span class="str">'#cocacola'</span><span class="pun">).</span><span
+                                class="pln">loadgo</span><span class="pun">(</span><span
+                                class="str">'setprogress'</span><span class="pun">,</span><span class="pln"> prog</span><span
+                                class="pun">);</span><span class="pln"></span><br></li><li class="L7"><span class="pln">&nbsp; &nbsp; &nbsp; p</span><span
+                                class="pun">++;</span><span class="pln"></span><br></li><li class="L8"><span
+                                class="pln">&nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"></span><br></li><li
+                                class="L9"><span class="pln">&nbsp; </span><span class="pun">},</span><span
+                                class="pln"> </span><span class="lit">150</span><span class="pun">);</span><span
+                                class="pln"></span><br></li><li class="L0"><span class="pln"></span><span
+                                class="pun">};</span></li></ol></pre>
+                    </div>
+                    <h4><code>mainDemo</code> function is actually bind to 'Start' button, so when you click on it this
+                        function will be executed.</h4>
+                </div>
+            </div>
+            <hr>
+            <div id="download">
+                <h2 style="padding: 0 15px;"><span class="fa fa-arrow-circle-o-down"></span>&nbsp;Download</h2>
+                <div style="padding: 0 15px;">
+                    <h4>You can obtain <strong>LoadGo</strong> using following methods:</h4>
+                    <h4 style="font-size:16px;padding-left:15px;">- Direct download: <a
+                            href="https://github.com/franverona/loadgo/archive/master.zip">ZIP</a></h4>
+                    <h4 style="font-size:16px;padding-left:15px;">- Github repository: <a
+                            href="https://github.com/franverona/loadgo">link</a></h4>
+                    <h4><strong>LoadGo</strong> is under MIT License. Feel free to download, modify and adapt it to your
+                        own purposes.</h4>
+                </div>
+            </div>
+            <hr>
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments
+                powered by Disqus.</a></noscript>
+            <hr>
+            <div class="text-center">
+                <h5>
+                    <img src="./demo_files/logo-footer.png" alt="LoadGo">
+                </h5>
+                <h4>
+                    Created by Fran Verona - <span id="pagedate">2019</span>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <a href="http://franverona.com/loadgo/#" class="back-to-top" style="display: inline;">
+        <div>
+            <i class="fa fa-arrow-up"></i> Back to top
+        </div>
+    </a>
+
+
+    <script async="" src="./demo_files/analytics.js"></script>
+    <script type="text/javascript" src="./demo_files/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="./demo_files/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="./demo_files/jquery.syntaxhighlighter.min.js"></script>
+
+    <script type="text/javascript" src="./demo_files/loadgo.js"></script>
+    <script type="text/javascript" src="./demo_files/main.js"></script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-45396364-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+</div>
+<iframe class="searchbar027540673805837912" src="./demo_files/saved_resource.html" scrolling="no"
+        style="border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; display: none; position: fixed; z-index: 2147483646; top: 0px; bottom: auto; left: auto; right: 0px; height: 40px; width: 100%;"></iframe>
+<bdi class="searchbar027540673805837912"
+     style="border: 1px solid rgb(176, 176, 176); margin: 0px; padding: 2px; outline: 0px; vertical-align: baseline; display: none; position: fixed; height: auto; width: auto; z-index: 2147483647; background: none rgb(255, 255, 255); max-height: none; max-width: none; min-height: 0px;">
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+    <bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi>
+</bdi>
+<iframe class="searchbar027540673805837912" src="./demo_files/saved_resource(1).html" scrolling="no"
+        style="border: 0px; margin: -186px 0px 0px -202px; padding: 0px; outline: 0px; vertical-align: baseline; display: none; position: fixed; top: 50%; left: 50%; z-index: 2147483645; border-radius: 5px;"></iframe>
+<script type="text/javascript" src="./demo_files/prettify.min.js"
+        id="script-jslibsprettifyprettifyminjs"></script>
+<link type="text/css" rel="stylesheet" media="screen" href="./demo_files/prettify.min.css"
+      id="stylesheet-jslibsprettifyprettifymincss">
+<link type="text/css" rel="stylesheet" media="screen" href="./demo_files/style.min.css"
+      id="stylesheet-jslibsprettifystylesstylemincss">
+<link type="text/css" rel="stylesheet" media="screen" href="./demo_files/theme-balupton.min.css"
+      id="stylesheet-jslibsprettifystylesthemebaluptonmincss">
+</body>
+<style>@media print {
+    .searchbar027540673805837912 {
+        display: none !important;
+    }
+}</style>
+</html>

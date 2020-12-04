@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--
+
+When loading data from an Ajax source, by default, DataTables will look for the data to use in the data parameter of a returned object (e.g. { "data": [...] }). This can easily be change by using the dataSrc option of the ajax initiation option.
+
+The ajax.dataSrc has a number of ways in which it can be used:
+
+As a string (e.g. dataSrc: 'myData') - obtain data from a different property in the source object.
+As an empty string (e.g. dataSrc: '') - the data source is not an object but an array.
+As a function (e.g. dataSrc: function(json) {}) - a function can be used to transform the data from one source format to another (for example you could convert from XML to a Javascript object). The value returned from the function is used as the data for the table.
+The example below shows ajax.dataSrc being used as an empty string. This tells DataTables that the JSON loaded is a plain array, not an object with an array inside it as is the default.
+    !-->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "ajax": {
+                    "url": "../data/FlatArrayDataSource",
+                    "dataSrc": ""
+                },
+                "columns": [
+                    { "data": "name" },
+                    { "data": "position" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]
+            } );
+        } );
+    </script>
+</head>
+<body>
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="House of cards demo using animation library snabbt.js">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@danielundin">
+    <meta name="twitter:creator" content="@danielundin">
+    <meta name="twitter:title" content="snabbt.js">
+    <meta name="twitter:description" content="House of cards demo using animation library snabbt.js">
+    <meta name="twitter:image" content="http://daniel-lundin.github.io/snabbt.js/assets/snabbt-sharing.png">
+
+    <meta property="og:url" content="http://daniel-lundin.github.io/snabbt.js/cards.html">
+    <meta property="og:title" content="snabbt.js" />
+    <meta property="og:description" content="House of cards demo using animation library snabbt.js" />
+    <meta property="og:image" content="http://daniel-lundin.github.io/snabbt.js/assets/snabbt-sharing.png">
+
+
+    <title>snabbt.js</title>
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/randomcolor/0.1.1/randomColor.min.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.1/skeleton.min.css">
+
+    <style>
+      body, html {
+        height: 100%;
+      }
+      body {
+        transform: translateZ(1000px);
+        -webkit-transform: translateZ(1000px);
+      }
+      #container {
+        width: 100%;
+        height: 80%;
+        margin: auto;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+      }
+      #surface {
+        width: 100%;
+        height: 80%;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+      }
+      .card {
+        position: absolute;
+        border-radius: 10%;
+        /* Fix jagged edges in firefox */
+        outline: 1px solid transparent;
+      }
+      #toolbar {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body onload="init()">
+    <div id="container">
+      <div id="surface">
+      </div>
+    </div>
+
+    <div id="toolbar" class="container">
+      <button id="pile_button" class="button-primary">Pile</button>
+      <button id="house_button">House</button>
+      <button id="wall_button">Wall</button>
+      <button id="cylinder_button">Cylinder</button>
+    </div>
+    <div class="container">
+      <p>DOM elements animated with <a href="index.html">snabbt.js</a>.</p>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"></script>
+    <script src="snabbt.min.js"></script>
+    <script src="cards.js"></script>
+  </body>
+</html>
+
+

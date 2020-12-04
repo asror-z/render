@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/awesomplete@1.1.5/awesomplete.css">
+    <script src="https://https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/awesomplete@1.1.5/awesomplete.min.js"></script>
+</head>
+<body>
+
+<input type="text" class="awesomplete" id="ajax-example">
+
+<script>
+
+    /*Start Js*/
+    var input = document.querySelector('#ajax-example');
+
+    function getData () {
+        let query = input.value;
+        $.ajax({
+            type: 'GET',
+            url: `https://nominatim.openstreetmap.org/search?q=${query}&format=json`,
+            success: function(response) {
+                var list = JSON.parse(JSON.stringify(response)).map(function(i) {
+                    console.log(i.display_name);
+                    return i.display_name;
+                });
+                new Awesomplete(document.querySelector("#ajax-example input"),{
+                    list: list,
+                    minChars: 3,
+                    maxItems: 15,
+
+                }).open();
+            },
+
+        })
+    }
+
+    input.addEventListener('change', getData);
+    //var search = document.querySelector('#ajax-example').value;
+
+    /*
+    <div class="awesomplete">
+    <input type="text" class="awesomplete" id="ajax-example" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_1" role="combobox">
+    <ul hidden="" role="listbox" id="awesomplete_list_1"></ul>
+    <span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true">Type 2 or more characters for results.
+    </span>
+    </div>
+
+    * <div class="awesomplete"><div class="awesomplete"><input type="text" class="awesomplete" id="ajax-example" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_2" role="combobox"><ul role="listbox" id="awesomplete_list_2" hidden=""></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true" hidden="">Type 3 or more characters for results.</span></div><ul hidden="" role="listbox" id="awesomplete_list_1"></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true">No results found</span></div>
+    *
+    *
+    *
+    * <div class="awesomplete"><input type="text" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_6" role="combobox"><ul hidden="" role="listbox" id="awesomplete_list_6"></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true">Type 2 or more characters for results.</span></div>
+    *
+    *
+    *
+    *
+    * <div class="awesomplete"><input type="text" autocomplete="off" aria-expanded="false" aria-owns="awesomplete_list_6" role="combobox"><ul role="listbox" id="awesomplete_list_6" hidden=""><li role="option" aria-selected="false" id="awesomplete_list_6_item_0"><mark>Fr</mark>ance</li><li role="option" aria-selected="false" id="awesomplete_list_6_item_1"><mark>Fr</mark>ench Guiana</li><li role="option" aria-selected="false" id="awesomplete_list_6_item_2"><mark>Fr</mark>ench Polynesia</li><li role="option" aria-selected="false" id="awesomplete_list_6_item_3">Central A<mark>fr</mark>ican Republic</li><li role="option" aria-selected="false" id="awesomplete_list_6_item_4"><mark>Fr</mark>ench Southern and Antarctic Lands</li></ul><span class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true" hidden="">5 results found</span></div>
+    * */
+
+</script>
+
+</body>
+</html>

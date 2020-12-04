@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="zetsoft\service\smart\Insert" namespace="zetsoft\service\smart" name="Insert" abstract="false" final="false" start="27" end="519">
+  <file path="D:/Develop/Projects/ALL/asrorz/zetsoft/service/smart" file="Insert.php" realpath="D:/Develop/Projects/ALL/asrorz/zetsoft/service/smart/Insert.php" size="12731" time="2020-10-04T22:44:16+05:00" unixtime="1601833456" sha1="87e9692efd39e11ea1494d11a5392c6e0c3faf3d" relative="Insert.php"/>
+  <extends full="zetsoft\system\kernels\ZFrame" namespace="zetsoft\system\kernels" name="ZFrame" unresolved="true"/>
+  <constant type="string" name="suffix" value="'Insert'"/>
+  <constant type="integer" name="maxData" value="50000"/>
+  <constant type="boolean" name="addEmpty" value="true"/>
+  <constant type="boolean" name="skipEmpty" value="true"/>
+  <constant type="expression" name="pathInsert" value="Root . '/inserts/' . Ap"/>
+  <member name="classes" visibility="public" static="false" line="39"/>
+  <member name="model" visibility="public" static="false" line="42">
+    <docblock>
+      <var description="$model" type="object">
+        <type full="zetsoft\system\module\Models" namespace="zetsoft\system\module" name="Models"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="isDepend" default="false" type="boolean" visibility="public" static="false" line="45"/>
+  <member name="source" default="" type="array" visibility="public" static="false" line="47"/>
+  <member name="sorted" default="" type="array" visibility="public" static="false" line="48"/>
+  <member name="release" default="" type="array" visibility="public" static="false" line="49"/>
+  <member name="class" visibility="public" static="false" line="51"/>
+  <method name="layout" start="59" end="80" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="clean" start="83" end="87" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="init" start="89" end="94" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="create" start="105" end="126" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="table" start="128" end="223" abstract="false" final="false" static="false" visibility="private">
+    <inline>
+      <comment value="Config" line="134"/>
+      <comment value="Process Data" line="153"/>
+      <todo value="ravshan" line="189"/>
+      <comment value="Write File" line="200"/>
+    </inline>
+  </method>
+  <method name="lines" start="225" end="233" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="export" start="235" end="306" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="datas" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getVal" start="309" end="393" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="type" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="apply" start="400" end="466" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="Make required classes array" line="420"/>
+      <comment value="Sort Arrays" line="447"/>
+    </inline>
+  </method>
+  <method name="sort" start="469" end="481" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="execute" start="484" end="514" abstract="false" final="false" static="false" visibility="private"/>
+</class>

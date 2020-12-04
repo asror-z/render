@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paulzi Form by Otabek Nosirov</title>
+
+    <!--Paulzo Form links /*obdev*/-->
+
+    <link rel="stylesheet"
+          href="https://rawcdn.githack.com/twbs/bootstrap/b9bc5beb1de82b3a97f6374fc429cb8f292bd18e/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+          href="https://rawcdn.githack.com/FortAwesome/Font-Awesome/4e6402443679e0a9d12c7401ac8783ef4646657f/css/fontawesome.min.css">
+
+    <link rel="stylesheet" href="../demo/demo_files/github.min.css">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../demo/demo_files/main.css">
+
+</head>
+
+<!--Paulzi Form style/*obdev*/-->
+
+<style>
+    #form-state .state {
+        display: none;
+    }
+
+    #form-state.form-loading .state {
+        display: inline;
+    }
+
+    #form-state .btn-loading {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+<!--Paulzo Form html /*obdev*/-->
+
+<!-- HEADER -->
+<div id="header_wrap" class="outer">
+    <header class="inner">
+        <h1 id="project_title">PaulZi Form</h1>
+    </header>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main_content_wrap" class="outer">
+    <section id="main_content" class="inner">
+        <h1>
+            <a id="paulzi-form-module" class="anchor" href="https://paulzi.ru/paulzi-form/#paulzi-form-module"
+               aria-hidden="true">
+                <span class="octicon octicon-link glyphicon glyphicon-link"></span>
+            </a>
+        </h1>
+
+
+        <h2>
+            <a id="extra-events" class="anchor" href="https://paulzi.ru/paulzi-form/#extra-events" aria-hidden="true">
+                <span class="octicon octicon-link glyphicon glyphicon-link"></span>
+            </a>Form extra events
+        </h2>
+
+        <div id="example-extra-events" class="example">
+            <form id="form1" action="https://paulzi.ru/paulzi-form/action.php?delay=1" method="post"
+                  class="panel panel-default">
+                <div class="panel-heading">Form 1</div>
+                <div class="panel-body">
+                    <button type="submit">Submit</button>
+                </div>
+                <pre></pre>
+            </form>
+        </div>
+        
+        <pre id="example-extra-events-source" class="collapse source" data-source="#example-extra-events">
+            <code class="hljs xml">
+                <span class="hljs-tag">&lt;
+                    <span class="hljs-title">form</span>
+                    <span class="hljs-attribute">id</span>=
+                    <span class="hljs-value">"form1"</span>
+                    <span class="hljs-attribute">action</span>=
+                    <span class="hljs-value">"action.php?delay=1"</span>
+                    <span class="hljs-attribute">method</span>=
+                    <span class="hljs-value">"post"</span>
+                    <span class="hljs-attribute">class</span>=
+                    <span class="hljs-value">"panel panel-default"</span>&gt;
+                </span>
+
+                <span class="hljs-tag">&lt;
+                    <span class="hljs-title">div</span>
+                    <span class="hljs-attribute">class</span>=
+                    <span class="hljs-value">"panel-heading"</span>&gt;</span>Form 1
+                    <span class="hljs-tag">&lt;/
+                    <span class="hljs-title">div</span>&gt;
+                </span>
+                
+                <span class="hljs-tag">&lt;
+                    <span class="hljs-title">div</span>
+                    <span class="hljs-attribute">class</span>=
+                    <span class="hljs-value">"panel-body"</span>&gt;
+                </span>
+
+                <span class="hljs-tag">&lt;
+                    <span class="hljs-title">button</span>
+                    <span class="hljs-attribute">type</span>=
+                    <span class="hljs-value">"submit"</span>&gt;
+                    </span>Submit<span class="hljs-tag">&lt;/
+                    <span class="hljs-title">button</span>&gt;
+                </span>
+
+                <span class="hljs-tag">&lt;/
+                    <span class="hljs-title">div</span>&gt;
+                </span>
+
+                <span class="hljs-tag">&lt;
+                    <span class="hljs-title">pre</span>&gt;
+                </span>
+
+                <span class="hljs-tag">&lt;/
+                    <span class="hljs-title">pre</span>&gt;
+                </span>
+                
+                <span class="hljs-tag">&lt;/
+                    <span class="hljs-title">form</span>&gt;
+                </span>
+
+                <span class="hljs-tag">&lt;
+                    <span class="hljs-title">script</span>&gt;
+                </span>
+
+                <span class="javascript">
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitlast'</span>,   <span
+                        class="hljs-string">'#form1'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                        class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                        class="hljs-string">'pre'</span>).append(<span class="hljs-string">"submitlast\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitbefore'</span>, <span
+                        class="hljs-string">'#form1'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                        class="hljs-params">e</span>) </span>{ e.preventDefault(); $(<span
+                        class="hljs-keyword">this</span>).find(<span class="hljs-string">'pre'</span>).append(<span
+                        class="hljs-string">"submitbefore\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitstart'</span>,  <span
+                        class="hljs-string">'#form1'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                        class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                        class="hljs-string">'pre'</span>).append(<span class="hljs-string">"submitstart\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitend'</span>,    <span
+                        class="hljs-string">'#form1'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                        class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                        class="hljs-string">'pre'</span>).append(<span class="hljs-string">"submitend\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submit'</span>,       <span
+                        class="hljs-string">'#form1'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                        class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                        class="hljs-string">'pre'</span>).append(<span class="hljs-string">"submit\n"</span>); });
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;
+                </span>
+            </code>
+        </pre>
+
+
+        <h2>
+            <a id="polyfill" class="anchor" href="https://paulzi.ru/paulzi-form/#polyfill" aria-hidden="true">
+                <span class="octicon octicon-link glyphicon glyphicon-link"></span>
+            </a>HTML5 form attributes polyfill
+        </h2>
+
+        <div id="example-html5-polyfill" class="example">
+            <form id="form2" action="https://paulzi.ru/paulzi-form/action.php?text=Added+to+cart" method="post"
+                  class="panel panel-default">
+                <div class="panel-heading">Form 2 (items)</div>
+                <div class="panel-body">
+                    <p><input type="checkbox" name="items[]" value="item1" checked=""> Item 1
+                        <button type="submit" form="form3" name="item" value="item1">Add to favorites</button>
+                    </p>
+                    <p><input type="checkbox" name="items[]" value="item2" checked=""> Item 2
+                        <button type="submit" form="form3" name="item" value="item2">Add to favorites</button>
+                    </p>
+                    <p><input type="checkbox" name="items[]" value="item3" checked=""> Item 3
+                        <button type="submit" form="form3" name="item" value="item3">Add to favorites</button>
+                    </p>
+                    <button type="submit">Add to cart</button>
+                    <button type="submit" formaction="action.php?text=Deleted">Delete</button>
+                </div>
+            </form>
+            <form id="form3" action="https://paulzi.ru/paulzi-form/action.php?text=Added+to+favorites" method="post"
+                  class="panel panel-default">
+                <div class="panel-heading">Form 3 (add to favorites)</div>
+            </form>
+        </div>
+
+        
+        <pre id="example-html5-polyfill-source" class="collapse source" data-source="#example-html5-polyfill">
+            <code class="hljs xml">
+                <span class="hljs-tag">&lt;
+                    <span class="hljs-title">form</span>
+                    <span class="hljs-attribute">id</span>=
+                    <span class="hljs-value">"form2"</span>
+                    <span class="hljs-attribute">action</span>=
+                    <span class="hljs-value">"action.php?text=Added+to+cart"</span>
+                    <span class="hljs-attribute">method</span>=
+                    <span class="hljs-value">"post"</span>
+                    <span class="hljs-attribute">class</span>=
+                    <span class="hljs-value">"panel panel-default"</span>&gt;
+                </span>
+                
+                <span class="hljs-tag">&lt;
+                    <span class="hljs-title">div</span>
+                    <span class="hljs-attribute">class</span>=
+                    <span class="hljs-value">"panel-heading"</span>&gt;
+                </span>Form 2 (items)
+
+                <span class="hljs-tag">&lt;/
+                    <span class="hljs-title">div</span>&gt;
+                </span>
+
+                <span class="hljs-tag">&lt;
+                    <span class="hljs-title">div</span>
+                    <span class="hljs-attribute">class</span>=
+                    <span class="hljs-value">"panel-body"</span>&gt;
+                    </span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;<span
+                    class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"checkbox"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"items[]"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"item1"</span> <span
+                    class="hljs-attribute">checked</span>=<span class="hljs-value">""</span>&gt;</span> Item 1 <span
+                    class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                    class="hljs-value">"submit"</span> <span class="hljs-attribute">form</span>=<span
+                    class="hljs-value">"form3"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"item"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"item1"</span>&gt;</span>Add to favorites<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span><span
+                    class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;<span
+                    class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"checkbox"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"items[]"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"item2"</span> <span
+                    class="hljs-attribute">checked</span>=<span class="hljs-value">""</span>&gt;</span> Item 2 <span
+                    class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                    class="hljs-value">"submit"</span> <span class="hljs-attribute">form</span>=<span
+                    class="hljs-value">"form3"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"item"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"item2"</span>&gt;</span>Add to favorites<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span><span
+                    class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;<span
+                    class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"checkbox"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"items[]"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"item3"</span> <span
+                    class="hljs-attribute">checked</span>=<span class="hljs-value">""</span>&gt;</span> Item 3 <span
+                    class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                    class="hljs-value">"submit"</span> <span class="hljs-attribute">form</span>=<span
+                    class="hljs-value">"form3"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"item"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"item3"</span>&gt;</span>Add to favorites<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span><span
+                    class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span>&gt;</span>Add to cart<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">formaction</span>=<span
+                class="hljs-value">"action.php?text=Deleted"</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">id</span>=<span
+        class="hljs-value">"form3"</span> <span class="hljs-attribute">action</span>=<span class="hljs-value">"action.php?text=Added+to+favorites"</span> <span
+        class="hljs-attribute">method</span>=<span class="hljs-value">"post"</span> <span
+        class="hljs-attribute">class</span>=<span class="hljs-value">"panel panel-default"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-heading"</span>&gt;</span>Form 3 (add to favorites)<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+                </code></pre>
+
+
+        <h2><a id="no-empty" class="anchor" href="https://paulzi.ru/paulzi-form/#no-empty" aria-hidden="true"><span
+                class="octicon octicon-link glyphicon glyphicon-link"></span></a>Do not send empty fields</h2>
+
+        <div id="example-no-empty" class="example">
+            <form action="https://paulzi.ru/paulzi-form/action.php" method="post" data-submit-empty="false"
+                  class="panel panel-default">
+                <div class="panel-heading">Form</div>
+                <div class="panel-body">
+                    Price: <input type="text" name="price1" value=""> - <input type="text" name="price2" value=""><br>
+                    Type: <select name="type">
+                    <option value="">- select -</option>
+                    <option value="free">Free</option>
+                    <option value="shareware">Shareware</option>
+                </select><br>
+                    <fieldset data-submit-empty="true">
+                        <legend>Colors</legend>
+                        <input type="hidden" name="colors" value="">
+                        <input type="checkbox" name="colors[]" value="1"> black
+                        <input type="checkbox" name="colors[]" value="2"> red
+                    </fieldset>
+                    <button type="submit">Filter</button>
+                </div>
+            </form>
+        </div>
+        <p>
+
+        <pre id="example-no-empty-source" class="collapse source" data-source="#example-no-empty"><code
+                class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span
+                class="hljs-attribute">action</span>=<span class="hljs-value">"action.php"</span> <span
+                class="hljs-attribute">method</span>=<span class="hljs-value">"post"</span> <span
+                class="hljs-attribute">data-submit-empty</span>=<span class="hljs-value">"false"</span> <span
+                class="hljs-attribute">class</span>=<span class="hljs-value">"panel panel-default"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-heading"</span>&gt;</span>Form<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-body"</span>&gt;</span>
+        Price: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span
+                    class="hljs-value">"text"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"price1"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">""</span>&gt;</span> - <span
+                    class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span
+                    class="hljs-value">"text"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"price2"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">""</span>&gt;</span><span
+                    class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
+        Type: <span class="hljs-tag">&lt;<span class="hljs-title">select</span> <span class="hljs-attribute">name</span>=<span
+                    class="hljs-value">"type"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">option</span> <span class="hljs-attribute">value</span>=<span
+                    class="hljs-value">""</span>&gt;</span>- select -<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">option</span> <span class="hljs-attribute">value</span>=<span
+                    class="hljs-value">"free"</span>&gt;</span>Free<span class="hljs-tag">&lt;/<span class="hljs-title">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">option</span> <span class="hljs-attribute">value</span>=<span
+                    class="hljs-value">"shareware"</span>&gt;</span>Shareware<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">select</span>&gt;</span><span class="hljs-tag">&lt;<span
+                    class="hljs-title">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">fieldset</span> <span class="hljs-attribute">data-submit-empty</span>=<span
+                class="hljs-value">"true"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">legend</span>&gt;</span>Colors<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">legend</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"hidden"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"colors"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">""</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"checkbox"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"colors[]"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"1"</span>&gt;</span> black
+            <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"checkbox"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"colors[]"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"2"</span>&gt;</span> red
+        <span class="hljs-tag">&lt;/<span class="hljs-title">fieldset</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span>&gt;</span>Filter<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+                </code></pre>
+
+
+        <h2><a id="lock" class="anchor" href="https://paulzi.ru/paulzi-form/#lock" aria-hidden="true"><span
+                class="octicon octicon-link glyphicon glyphicon-link"></span></a>Lock re-submit the form</h2>
+
+        <div id="example-lock" class="example">
+            <form action="https://paulzi.ru/paulzi-form/action.php?delay=1&amp;action=success" method="post"
+                  class="panel panel-default" data-lock="true" data-via="ajax">
+                <div class="panel-heading">Form locked</div>
+                <div class="panel-body">
+                    Your name: <input type="text" name="name" value="John">
+                    <button type="submit">Submit</button>
+                    <small>(press the button several times quickly)</small>
+                </div>
+                <div class="my-output"></div>
+            </form>
+            <form action="https://paulzi.ru/paulzi-form/action.php?delay=1&amp;action=success" method="post"
+                  class="form-ajax panel panel-default" data-lock="false" data-via="ajax">
+                <div class="panel-heading">Form unlocked</div>
+                <div class="panel-body">
+                    Your name: <input type="text" name="name" value="John">
+                    <button type="submit">Submit</button>
+                    <small>(press the button several times quickly)</small>
+                </div>
+                <div class="my-output"></div>
+            </form>
+        </div>
+
+        
+        <pre id="example-lock-source" class="collapse source" data-source="#example-lock"><code class="hljs xml"><span
+                class="hljs-tag">&lt;<span class="hljs-title">form</span> <span
+                class="hljs-attribute">action</span>=<span class="hljs-value">"action.php?delay=1&amp;amp;action=success"</span> <span
+                class="hljs-attribute">method</span>=<span class="hljs-value">"post"</span> <span
+                class="hljs-attribute">class</span>=<span class="hljs-value">"panel panel-default"</span> <span
+                class="hljs-attribute">data-lock</span>=<span class="hljs-value">"true"</span> <span
+                class="hljs-attribute">data-via</span>=<span class="hljs-value">"ajax"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-heading"</span>&gt;</span>Form locked<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-body"</span>&gt;</span>
+        Your name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"name"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"John"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span> <span
+                    class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(press the button several times quickly)<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"my-output"</span>&gt;</span><span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">action</span>=<span
+        class="hljs-value">"action.php?delay=1&amp;amp;action=success"</span> <span class="hljs-attribute">method</span>=<span
+        class="hljs-value">"post"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"form-ajax panel panel-default"</span> <span
+        class="hljs-attribute">data-lock</span>=<span class="hljs-value">"false"</span> <span class="hljs-attribute">data-via</span>=<span
+        class="hljs-value">"ajax"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-heading"</span>&gt;</span>Form unlocked<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-body"</span>&gt;</span>
+        Your name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"name"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"John"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span> <span
+                    class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(press the button several times quickly)<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"my-output"</span>&gt;</span><span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+                </code></pre>
+
+
+        <h2><a id="state" class="anchor" href="https://paulzi.ru/paulzi-form/#state" aria-hidden="true"><span
+                class="octicon octicon-link glyphicon glyphicon-link"></span></a>Displays submitting status of forms
+        </h2>
+        <div id="example-state" class="example">
+
+            <form id="form-state" action="https://paulzi.ru/paulzi-form/action.php?delay=1" method="post"
+                  class="panel panel-default">
+                <div class="panel-heading">Form state <span class="state">(please wait)</span></div>
+                <div class="panel-body">
+                    Your name: <input type="text" name="name" value="John"> <small>(try to submit with
+                    ENTER)</small><br>
+                    <button type="submit" data-loading-icon="fa fa-refresh fa-spin" data-loading-text=" Exporting...">
+                        Export
+                    </button>
+                    <button type="submit" data-loading-text="Saving..." id="btn-template">Save (custom template)
+                    </button>
+                    <button type="submit" data-loading-text="Saving..." id="btn-notemplate">Save (no template)</button>
+                </div>
+            </form>
+
+        </div>
+        
+        <pre id="example-state-source" class="collapse source" data-source="#example-state"><code class="hljs xml"><span
+                class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+<span class="hljs-id">#form-state</span> <span class="hljs-class">.state</span> <span class="hljs-rules">{ <span
+                class="hljs-rule"><span class="hljs-attribute">display</span>:<span
+                class="hljs-value"> none</span></span>; }</span>
+<span class="hljs-id">#form-state</span><span class="hljs-class">.form-loading</span> <span
+                class="hljs-class">.state</span> <span class="hljs-rules">{ <span class="hljs-rule"><span
+                class="hljs-attribute">display</span>:<span class="hljs-value"> inline</span></span>; }</span>
+<span class="hljs-id">#form-state</span> <span class="hljs-class">.btn-loading</span> <span class="hljs-rules">{ <span
+                class="hljs-rule"><span class="hljs-attribute">font-weight</span>:<span class="hljs-value"> bold</span></span>; }</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">id</span>=<span
+        class="hljs-value">"form-state"</span> <span class="hljs-attribute">action</span>=<span class="hljs-value">"action.php?delay=1"</span> <span
+        class="hljs-attribute">method</span>=<span class="hljs-value">"post"</span> <span
+        class="hljs-attribute">class</span>=<span class="hljs-value">"panel panel-default"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-heading"</span>&gt;</span>Form state <span class="hljs-tag">&lt;<span
+                    class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"state"</span>&gt;</span>(please wait)<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span
+                    class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-body"</span>&gt;</span>
+        Your name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"name"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"John"</span>&gt;</span> <span
+                    class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(try to submit with ENTER)<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span><span
+                    class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">data-loading-icon</span>=<span
+                class="hljs-value">"fa fa-refresh fa-spin"</span> <span class="hljs-attribute">data-loading-text</span>=<span
+                class="hljs-value">" Exporting..."</span>&gt;</span>Export<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">data-loading-text</span>=<span
+                class="hljs-value">"Saving..."</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"btn-template"</span>&gt;</span>Save (custom template)<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">data-loading-text</span>=<span
+                class="hljs-value">"Saving..."</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"btn-notemplate"</span>&gt;</span>Save (no template)<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<span class="hljs-built_in">window</span>.PaulZiForm = $.extend(<span class="hljs-literal">true</span>, <span
+                    class="hljs-built_in">window</span>.PaulZiForm || {}, {
+    buttonLoadingTemplate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params">data</span>) </span>{
+        <span class="hljs-keyword">if</span> (data.btn.id === <span class="hljs-string">'btn-template'</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'My template (text = '</span> + data.text + <span
+                    class="hljs-string">')'</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (data.btn.id === <span
+                    class="hljs-string">'btn-notemplate'</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.PaulZiForm.defaultTemplate(data);
+        }
+    }
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+                </code></pre>
+
+
+        <h2><a id="ajax" class="anchor" href="https://paulzi.ru/paulzi-form/#ajax" aria-hidden="true"><span
+                class="octicon octicon-link glyphicon glyphicon-link"></span></a>Sending form via AJAX</h2>
+        <div id="example-ajax" class="example">
+            <form id="form-ajax" action="https://paulzi.ru/paulzi-form/action.php?delay=1" method="post"
+                  enctype="multipart/form-data" class="panel panel-default" data-via="ajax">
+                <div class="panel-heading">Form ajax</div>
+                <div class="panel-body">
+                    Your name: <input type="text" name="name" value="John"><br>
+                    Avatar: <input type="file" name="file"><br>
+                    <button type="submit" data-loading-icon="fa fa-refresh fa-spin" data-loading-text=" Saving...">
+                        Save
+                    </button>
+                    <input type="image" name="image" src="./demo_files/btn-image.png">
+                    <button type="submit" data-loading-text="..." formaction="action.php?action=error">Error</button>
+                </div>
+                <pre class="events"></pre>
+                <div class="my-output"></div>
+            </form>
+
+        </div>
+        
+        <pre id="example-ajax-source" class="collapse source" data-source="#example-ajax"><code class="hljs xml"><span
+                class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">id</span>=<span
+                class="hljs-value">"form-ajax"</span> <span class="hljs-attribute">action</span>=<span
+                class="hljs-value">"action.php?delay=1"</span> <span class="hljs-attribute">method</span>=<span
+                class="hljs-value">"post"</span> <span class="hljs-attribute">enctype</span>=<span class="hljs-value">"multipart/form-data"</span> <span
+                class="hljs-attribute">class</span>=<span class="hljs-value">"panel panel-default"</span> <span
+                class="hljs-attribute">data-via</span>=<span class="hljs-value">"ajax"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-heading"</span>&gt;</span>Form ajax<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-body"</span>&gt;</span>
+        Your name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"name"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"John"</span>&gt;</span><span
+                    class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
+        Avatar: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"file"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"file"</span>&gt;</span><span
+                    class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">data-loading-icon</span>=<span
+                class="hljs-value">"fa fa-refresh fa-spin"</span> <span class="hljs-attribute">data-loading-text</span>=<span
+                class="hljs-value">" Saving..."</span>&gt;</span>Save<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"image"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"image"</span> <span
+                class="hljs-attribute">src</span>=<span class="hljs-value">"i/btn-image.png"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">data-loading-text</span>=<span
+                class="hljs-value">"..."</span> <span class="hljs-attribute">formaction</span>=<span class="hljs-value">"action.php?action=error"</span>&gt;</span>Error<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">pre</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"events"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">pre</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"my-output"</span>&gt;</span><span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitlast'</span>,       <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span class="hljs-string">"submitlast\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitajax'</span>,       <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span class="hljs-string">"submitajax\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitbefore'</span>,     <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params">e</span>) </span>{ e.preventDefault(); $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span class="hljs-string">"submitbefore\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitstart'</span>,      <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span class="hljs-string">"submitstart\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitdone'</span>,       <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span class="hljs-string">"submitdone\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'uploadprogress'</span>,   <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params">e</span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span
+                    class="hljs-string">"uploadprogress loaded="</span> + e.loaded +<span
+                    class="hljs-string">" total="</span> + e.total + <span class="hljs-string">"\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'uploadend'</span>,        <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params">e</span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span class="hljs-string">"uploadend loaded="</span> + e.loaded +<span
+                    class="hljs-string">" total="</span> + e.total + <span class="hljs-string">"\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'downloadprogress'</span>, <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params">e</span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span
+                    class="hljs-string">"downloadprogress loaded="</span> + e.loaded +<span class="hljs-string">" total="</span> + e.total + <span
+                    class="hljs-string">"\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitfail'</span>,       <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span class="hljs-string">"submitfail\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitend'</span>,        <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span class="hljs-string">"submitend\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submit'</span>,           <span
+                    class="hljs-string">'#form-ajax'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span
+                    class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span
+                    class="hljs-string">'.events'</span>).append(<span class="hljs-string">"submit\n"</span>); });
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+                </code></pre>
+
+
+        <h2><a id="scenarios" class="anchor" href="https://paulzi.ru/paulzi-form/#scenarios" aria-hidden="true"><span
+                class="octicon octicon-link glyphicon glyphicon-link"></span></a>Scenarios</h2>
+        <div id="example-scenarios" class="example">
+            <form action="https://paulzi.ru/paulzi-form/action.php" method="post" class="panel panel-default">
+                <div class="panel-heading">Form ajax</div>
+                <div class="panel-body">
+                    Your name: <input type="text" name="name" value=""><br>
+                    Export name: <input type="text" name="export_name" value="" data-via="default"> <small>(only via
+                    default)</small><br>
+                    <fieldset data-via="default">
+                        <legend>Export settings (only via default)</legend>
+                        <input type="checkbox" name="compress" value="1" checked=""> compress
+                    </fieldset>
+                    <button type="submit" data-via="ajax">Save (via ajax)</button>
+                    <button type="submit" data-via="default">Export (via default)</button>
+                </div>
+                <div class="my-output"></div>
+            </form>
+        </div>
+        <pre id="example-scenarios-source" class="collapse source" data-source="#example-scenarios"><code
+                class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span
+                class="hljs-attribute">action</span>=<span class="hljs-value">"action.php"</span> <span
+                class="hljs-attribute">method</span>=<span class="hljs-value">"post"</span> <span
+                class="hljs-attribute">class</span>=<span class="hljs-value">"panel panel-default"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-heading"</span>&gt;</span>Form ajax<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"panel-body"</span>&gt;</span>
+        Your name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"name"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">""</span>&gt;</span><span
+                    class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
+        Export name: <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"export_name"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">""</span> <span class="hljs-attribute">data-via</span>=<span
+                    class="hljs-value">"default"</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(only via default)<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span><span
+                    class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">fieldset</span> <span class="hljs-attribute">data-via</span>=<span
+                class="hljs-value">"default"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">legend</span>&gt;</span>Export settings (only via default)<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">legend</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span
+                    class="hljs-attribute">type</span>=<span class="hljs-value">"checkbox"</span> <span
+                    class="hljs-attribute">name</span>=<span class="hljs-value">"compress"</span> <span
+                    class="hljs-attribute">value</span>=<span class="hljs-value">"1"</span> <span
+                    class="hljs-attribute">checked</span>=<span class="hljs-value">""</span>&gt;</span> compress
+        <span class="hljs-tag">&lt;/<span class="hljs-title">fieldset</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">data-via</span>=<span
+                class="hljs-value">"ajax"</span>&gt;</span>Save (via ajax)<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">data-via</span>=<span
+                class="hljs-value">"default"</span>&gt;</span>Export (via default)<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+            class="hljs-value">"my-output"</span>&gt;</span><span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+                </code></pre>
+
+
+        <h2><a id="handling" class="anchor" href="https://paulzi.ru/paulzi-form/#handling" aria-hidden="true"><span
+                class="octicon octicon-link glyphicon glyphicon-link"></span></a>AJAX response handling</h2>
+        <div id="example-handling" class="example">
+            <div>Amounts in cart: <span class="cart-amount has-tooltip" title="" data-insert-to=".cart-amount"
+                                        data-insert-context="document" data-insert-mode="replaceWith"
+                                        data-original-title="second tooltip">15</span> <small>(note: reinit toolip after
+                ajax!)</small></div>
+            <div class="product-card">
+                <form action="https://paulzi.ru/paulzi-form/action.php?action=handling" method="post" data-via="ajax"
+                      class="">
+                    <div><s class="custom-mode">new content</s></div>
+                    <input type="text" name="amount" value="1">
+                    <button type="submit" data-insert-to="#btn-add-to-cart" data-insert-mode="replaceWith">Added to
+                        cart
+                    </button>
+                    <button type="submit" formaction="action.php?action=redirect">Ajax redirect</button>
+                    <button type="submit" formaction="action.php?action=error" class="">Error</button>
+                    <div class="my-output">
+                        <div class="alert alert-success">Product added in cart!</div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        
+        <pre id="example-handling-source" class="collapse source" data-source="#example-handling"><code
+                class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>Amounts in cart: <span
+                class="hljs-tag">&lt;<span class="hljs-title">span</span> <span
+                class="hljs-attribute">class</span>=<span class="hljs-value">"cart-amount has-tooltip"</span> <span
+                class="hljs-attribute">title</span>=<span class="hljs-value">"first tooltip"</span>&gt;</span>0<span
+                class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span> <span class="hljs-tag">&lt;<span
+                class="hljs-title">small</span>&gt;</span>(note: reinit toolip after ajax!)<span
+                class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span><span class="hljs-tag">&lt;/<span
+                class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+        class="hljs-value">"product-card"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">action</span>=<span
+            class="hljs-value">"action.php?action=handling"</span> <span class="hljs-attribute">method</span>=<span
+            class="hljs-value">"post"</span> <span class="hljs-attribute">data-via</span>=<span class="hljs-value">"ajax"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span><span class="hljs-tag">&lt;<span
+                    class="hljs-title">s</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"custom-mode"</span>&gt;</span>Custom mode contents<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">s</span>&gt;</span><span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"text"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"amount"</span> <span
+                class="hljs-attribute">value</span>=<span class="hljs-value">"1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"btn-add-to-cart"</span>&gt;</span>Add to cart<span
+                    class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">formaction</span>=<span
+                class="hljs-value">"action.php?action=redirect"</span>&gt;</span>Ajax redirect<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span
+                class="hljs-value">"submit"</span> <span class="hljs-attribute">formaction</span>=<span
+                class="hljs-value">"action.php?action=error"</span>&gt;</span>Error<span class="hljs-tag">&lt;/<span
+                    class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span
+                class="hljs-value">"my-output"</span>&gt;</span><span class="hljs-tag">&lt;/<span
+                    class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+$.fn.replaceContent = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
+    $(<span class="hljs-keyword">this</span>).html($(element).contents());
+};
+
+<span class="hljs-comment">// universal init components after ajax and page load</span>
+$(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-built_in">document</span>).trigger(<span class="hljs-string">'contentinit'</span>, [$(<span
+                    class="hljs-built_in">document</span>)]);
+});
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'contentinit'</span>, <span
+                    class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e, $elements, operation, $target</span>) </span>{
+    $($elements).find(<span class="hljs-string">'.has-tooltip'</span>).addBack(<span
+                    class="hljs-string">'.has-tooltip'</span>).tooltip();
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+                </code></pre>
+
+
+       <!-- <h2><a id="global" class="anchor" href="https://paulzi.ru/paulzi-form/#global" aria-hidden="true"><span
+                class="octicon octicon-link glyphicon glyphicon-link"></span></a>Global options</h2>
+
+        <div id="example-global" class="example">
+
+        </div>
+        
+        <pre id="example-global-source" class="collapse source" data-source="#example-global"><code
+                class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span
+                class="javascript">
+<span class="hljs-built_in">window</span>.PaulZiForm = $.extend(<span class="hljs-literal">true</span>, <span
+                class="hljs-built_in">window</span>.PaulZiForm || {}, {
+    defaults: {
+        to: <span class="hljs-string">'.my-output'</span>
+    }
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+                </code></pre>
+                 -->
+
+    </section>
+</div>
+
+<!--Paulzi Form scripts/*obdev*/-->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<script src="https://rawcdn.githack.com/twbs/bootstrap/b9bc5beb1de82b3a97f6374fc429cb8f292bd18e/dist/js/bootstrap.min.js"></script>
+
+<script src="https://rawcdn.githack.com/paulzi/paulzi-form/6743dd27bd41a0d34b779fa26699fe00cd27b399/dist/paulzi-form.min.js"></script>
+
+
+<script>
+    window.PaulZiForm = $.extend(true, window.PaulZiForm || {}, {
+        buttonLoadingTemplate: function (data) {
+            if (data.btn.id === 'btn-template') {
+                return 'My template (text = ' + data.text + ')';
+            } else if (data.btn.id === 'btn-notemplate') {
+                return false;
+            } else {
+                return window.PaulZiForm.defaultTemplate(data);
+            }
+        }
+    });
+</script>
+
+<script>
+    window.PaulZiForm = $.extend(true, window.PaulZiForm || {}, {
+        defaults: {
+            to: '.my-output'
+        }
+    });
+</script>
+
+<script>
+    $(document).on('submitlast', '#form1', function () {
+        $(this).find('pre').append("submitlast\n");
+    });
+    $(document).on('submitbefore', '#form1', function (e) {
+        e.preventDefault();
+        $(this).find('pre').append("submitbefore\n");
+    });
+    $(document).on('submitstart', '#form1', function () {
+        $(this).find('pre').append("submitstart\n");
+    });
+    $(document).on('submitend', '#form1', function () {
+        $(this).find('pre').append("submitend\n");
+    });
+    $(document).on('submit', '#form1', function () {
+        $(this).find('pre').append("submit\n");
+    });
+</script>
+
+<script>
+    $(document).on('submitlast', '#form-ajax', function () {
+        $(this).find('.events').append("submitlast\n");
+    });
+    $(document).on('submitajax', '#form-ajax', function () {
+        $(this).find('.events').append("submitajax\n");
+    });
+    $(document).on('submitbefore', '#form-ajax', function (e) {
+        e.preventDefault();
+        $(this).find('.events').append("submitbefore\n");
+    });
+    $(document).on('submitstart', '#form-ajax', function () {
+        $(this).find('.events').append("submitstart\n");
+    });
+    $(document).on('submitdone', '#form-ajax', function () {
+        $(this).find('.events').append("submitdone\n");
+    });
+    $(document).on('uploadprogress', '#form-ajax', function (e) {
+        $(this).find('.events').append("uploadprogress loaded=" + e.loaded + " total=" + e.total + "\n");
+    });
+    $(document).on('uploadend', '#form-ajax', function (e) {
+        $(this).find('.events').append("uploadend loaded=" + e.loaded + " total=" + e.total + "\n");
+    });
+    $(document).on('downloadprogress', '#form-ajax', function (e) {
+        $(this).find('.events').append("downloadprogress loaded=" + e.loaded + " total=" + e.total + "\n");
+    });
+    $(document).on('submitfail', '#form-ajax', function () {
+        $(this).find('.events').append("submitfail\n");
+    });
+    $(document).on('submitend', '#form-ajax', function () {
+        $(this).find('.events').append("submitend\n");
+    });
+    $(document).on('submit', '#form-ajax', function () {
+        $(this).find('.events').append("submit\n");
+    });
+</script>
+
+<script>
+    $.fn.replaceContent = function (element) {
+        $(this).html($(element).contents());
+    };
+
+    // universal init components after ajax and page load
+    $(function () {
+        $(document).trigger('contentinit', [$(document)]);
+    });
+    $(document).on('contentinit', function (e, $elements, operation, $target) {
+        $($elements).find('.has-tooltip').addBack('.has-tooltip').tooltip();
+    });
+</script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

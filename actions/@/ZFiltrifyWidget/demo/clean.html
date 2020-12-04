@@ -1,0 +1,744 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+<HEAD>
+    <META charset="utf-8">
+     <TITLE>Filtrify - Block "data" attributes</TITLE>
+    <LINK href="demo_files/style.css" rel="stylesheet">
+    <LINK href="demo_files/sunburst.css" rel="stylesheet">
+    <LINK href="/publish/action/Filtering/Luis-Almeida Filtrify/filtrify.css" rel="stylesheet">
+
+    <SCRIPT src="demo_files/jquery.min.js"></SCRIPT>
+
+    <SCRIPT src="/publish/action/Filtering/Luis-Almeida Filtrify/highlight.pack.js"></SCRIPT>
+
+    <SCRIPT src="demo_files/script.js"></SCRIPT>
+
+    <SCRIPT src="/publish/action/Filtering/Luis-Almeida Filtrify/filtrify.min.js"></SCRIPT>
+
+    <STYLE type="text/css">
+
+        ul#container > li:before {
+            content: attr(data-title);
+        }
+
+        ul#container > li:after {
+            content: attr(data-genre) "\A\A" attr(data-main-actors) "\A\A imdb: " attr(data-rating);
+            white-space: pre-wrap;
+        }
+
+    </STYLE>
+
+    <SCRIPT type="text/javascript">
+
+        $(function() {
+
+            $.filtrify("container", "placeHolder", {
+                block : ["data-title", "data-rating"]
+            });
+
+        });
+
+    </SCRIPT>
+
+</HEAD>
+<BODY>
+
+<DIV id="main" role="main">
+    <DIV class="demo" id="content">
+        <H2>Block "data" attributes</H2>
+        <PRE class="show html">
+        <CODE>&lt;div id="placeHolder"&gt;&lt;/div&gt;
+&lt;ul id="container"&gt;
+    &lt;li data-title="25th Hour" data-genre="Crime, Drama" data-main-actors="Edward Norton, Barry Pepper, Philip Seymour Hoffman, Rosario Dawson" data-director="Spike Lee" data-rating="7.8" data-imdb-rating-range="7 - 8"&gt; ... &lt;/li&gt;
+    &lt;li data-title="28 Days Later..." data-genre="Horror, Sci-Fi, Thriller" data-main-actors="Cillian Murphy, Naomie Harris, Christopher Eccleston, Alex Palmer" data-director="Danny Boyle" data-rating="7.6" data-imdb-rating-range="7 - 8"&gt; ... &lt;/li&gt;
+    &lt;li data-title="300" data-genre="Action, Fantasy, History, War" data-main-actors="Gerard Butler, Lena Headey, David Wenham, Dominic West" data-director="Zack Snyder" data-rating="7.8" data-imdb-rating-range="7 - 8"&gt; ... &lt;/li&gt;
+    ...
+&lt;/ul&gt;
+</CODE></PRE>
+
+<PRE class="show css">
+<CODE>ul#container &gt; li:before {
+    content: attr(data-title);
+}
+
+ul#container &gt; li:after {
+    content: attr(data-genre) "\A\A" attr(data-main-actors) "\A\A imdb: " attr(data-rating);
+    white-space: pre-wrap;
+}
+</CODE></PRE>
+
+        
+        <DIV id="placeHolder"></DIV>
+        <UL id="container">
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Spike Lee"
+                data-main-actors="Edward Norton, Barry Pepper, Philip Seymour Hoffman, Rosario Dawson"
+                data-genre="Crime, Drama" data-title="25th Hour"><IMG src="demo_files/25thHour.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.6" data-director="Danny Boyle"
+                data-main-actors="Cillian Murphy, Naomie Harris, Christopher Eccleston, Alex Palmer"
+                data-genre="Horror, Sci-Fi, Thriller" data-title="28 Days Later..."><IMG src="demo_files/28DaysLater.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Zack Snyder"
+                data-main-actors="Gerard Butler, Lena Headey, David Wenham, Dominic West"
+                data-genre="Action, Fantasy, History, War" data-title="300"><IMG src="demo_files/300.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="Ron Howard"
+                data-main-actors="Russell Crowe, Ed Harris, Jennifer Connelly, Christopher Plummer"
+                data-genre="Biography, Drama" data-title="A Beautiful Mind"><IMG src="demo_files/ABeautifulMind.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.0" data-director="David Cronenberg"
+                data-main-actors="Michael Fassbender, Keira Knightley, Viggo Mortensen, Vincent Cassel"
+                data-genre="Biography, Drama, Thriller" data-title="A Dangerous Method"><IMG
+                    src="demo_files/ADangerousMethod.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.8" data-director="Ridley Scott"
+                data-main-actors="Russell Crowe, Abbie Cornish, Albert Finney, Marion Cotillard"
+                data-genre="Comedy, Drama, Romance" data-title="A Good Year"><IMG src="demo_files/AGoodYear.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.6" data-director="David Cronenberg"
+                data-main-actors="Viggo Mortensen, Maria Bello, Ed Harris, William Hurt"
+                data-genre="Crime, Drama, Thriller" data-title="A History of Violence"><IMG
+                    src="demo_files/AHistoryofViolence.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.3" data-director="Danny Boyle"
+                data-main-actors="Cameron Diaz, Ewan McGregor, Holly Hunter, Delroy Lindo"
+                data-genre="Drama, Romance, Comedy, Crime, Fantasy" data-title="A Life Less Ordinary"><IMG
+                    src="demo_files/ALifeLessOrdinary.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.3" data-director="Clint Eastwood"
+                data-main-actors="Kevin Costner, Clint Eastwood, Laura Dern, T.J. Lowther"
+                data-genre="Crime, Drama, Thriller, Western" data-title="A Perfect World"><IMG
+                    src="demo_files/APerfectWorld.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.1" data-director="Ethan Coen, Joel Coen"
+                data-main-actors="Michael Stuhlbarg, Richard Kind, Sari Lennick, Fred Melamed"
+                data-genre="Drama" data-title="A Serious Man"><IMG src="demo_files/ASeriousMan.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.0" data-director="Steven Spielberg"
+                data-main-actors="Haley Joel Osment, Jude Law, Frances O'Connor, Sam Robards"
+                data-genre="Adventure, Drama, Sci-Fi" data-title="A.I. Artificial Intelligence"><IMG
+                    src="demo_files/AIArtificialIntelligence.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.6" data-director="Clint Eastwood"
+                data-main-actors="Clint Eastwood, Gene Hackman, Ed Harris, Laura Linney"
+                data-genre="Crime, Drama, Thriller" data-title="Absolute Power"><IMG src="demo_files/AbsolutePower.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.6" data-director="Tim Burton"
+                data-main-actors="Mia Wasikowska, Johnny Depp, Helena Bonham Carter, Anne Hathaway"
+                data-genre="Adventure, Family, Fantasy" data-title="Alice in Wonderland"><IMG
+                    src="demo_files/AliceinWonderland.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.5" data-director="Ridley Scott"
+                data-main-actors="Sigourney Weaver, Tom Skerritt, John Hurt, Veronica Cartwright"
+                data-genre="Horror, Sci-Fi" data-title="Alien"><IMG
+                    src="demo_files/Alien.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.3" data-director="David Fincher"
+                data-main-actors="Sigourney Weaver, Charles S. Dutton, Charles Dance, Paul McGann"
+                data-genre="Action, Sci-Fi, Thriller" data-title="Alien3"><IMG src="demo_files/Alien3.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.5" data-director="James Cameron"
+                data-main-actors="Sigourney Weaver, Michael Biehn, Carrie Henn, Paul Reiser"
+                data-genre="Action, Adventure, Sci-Fi, Thriller" data-title="Aliens"><IMG src="demo_files/Aliens.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.6" data-director="Sam Mendes"
+                data-main-actors="Kevin Spacey, Annette Bening, Thora Birch, Wes Bentley"
+                data-genre="Drama" data-title="American Beauty"><IMG src="demo_files/AmericanBeauty.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.9" data-director="Ridley Scott"
+                data-main-actors="Denzel Washington, Russell Crowe, Chiwetel Ejiofor, Josh Brolin"
+                data-genre="Biography, Crime, Drama" data-title="American Gangster"><IMG src="demo_files/AmericanGangster.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.7" data-director="Ron Howard"
+                data-main-actors="Tom Hanks, Ewan McGregor, Ayelet Zurer, Stellan SkarsgÃ¥rd"
+                data-genre="Mystery, Thriller" data-title="Angels &amp; Demons"><IMG src="demo_files/AngelsandDemons.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.1" data-director="James Cameron"
+                data-main-actors="Sam Worthington, Zoe Saldana, Sigourney Weaver, Michelle Rodriguez"
+                data-genre="Action, Adventure, Fantasy, Sci-Fi" data-title="Avatar"><IMG src="demo_files/Avatar.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.6" data-director="Tim Burton"
+                data-main-actors="Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl"
+                data-genre="Crime, Fantasy, Thriller" data-title="Batman"><IMG src="demo_files/Batman.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="Christopher Nolan"
+                data-main-actors="Christian Bale, Michael Caine, Ken Watanabe, Liam Neeson"
+                data-genre="Action, Crime, Drama, Thriller" data-title="Batman Begins"><IMG
+                    src="demo_files/BatmanBegins.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.9" data-director="Tim Burton"
+                data-main-actors="Michael Keaton, Danny DeVito, Michelle Pfeiffer, Christopher Walken"
+                data-genre="Action, Crime, Fantasy, Thriller" data-title="Batman Returns"><IMG
+                    src="demo_files/BatmanReturns.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="Tim Burton"
+                data-main-actors="Ewan McGregor, Albert Finney, Billy Crudup, Jessica Lange"
+                data-genre="Adventure, Drama, Fantasy" data-title="Big Fish"><IMG src="demo_files/BigFish.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Ridley Scott"
+                data-main-actors="Josh Hartnett, Ewan McGregor, Tom Sizemore, Eric Bana"
+                data-genre="Action, Drama, History, War" data-title="Black Hawk Down"><IMG
+                    src="demo_files/BlackHawkDown.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.5" data-director="Ridley Scott"
+                data-main-actors="Michael Douglas, Andy Garcia, Ken Takakura, Kate Capshaw"
+                data-genre="Action, Crime, Drama, Thriller" data-title="Black Rain"><IMG src="demo_files/BlackRain.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="Darren Aronofsky"
+                data-main-actors="Natalie Portman, Mila Kunis, Vincent Cassel, Winona Ryder"
+                data-genre="Drama, Mystery, Thriller" data-title="Black Swan"><IMG src="demo_files/BlackSwan.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="Ridley Scott"
+                data-main-actors="Harrison Ford, Rutger Hauer, Sean Young, Edward James Olmos"
+                data-genre="Drama, Sci-Fi, Thriller" data-title="Blade Runner"><IMG src="demo_files/BladeRunner.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.1" data-director="Ridley Scott"
+                data-main-actors="Leonardo DiCaprio, Russell Crowe, Mark Strong, Golshifteh Farahani"
+                data-genre="Action, Drama, Thriller" data-title="Body of Lies"><IMG src="demo_files/BodyofLies.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.9" data-director="Paul Thomas Anderson"
+                data-main-actors="Mark Wahlberg, Julianne Moore, Burt Reynolds, Luis GuzmÃ¡n"
+                data-genre="Drama" data-title="Boogie Nights"><IMG src="demo_files/BoogieNights.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.1" data-director="Ethan Coen, Joel Coen"
+                data-main-actors="Brad Pitt, Frances McDormand, George Clooney, John Malkovich"
+                data-genre="Comedy, Crime, Drama" data-title="Burn After Reading"><IMG src="demo_files/BurnAfterReading.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Roman Polanski"
+                data-main-actors="Jodie Foster, Kate Winslet, Christoph Waltz, John C. Reilly"
+                data-genre="Comedy, Drama" data-title="Carnage"><IMG src="demo_files/Carnage.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Steven Spielberg"
+                data-main-actors="Leonardo DiCaprio, Tom Hanks, Christopher Walken, Martin Sheen"
+                data-genre="Biography, Comedy, Crime, Drama"
+                data-title="Catch Me If You Can"><IMG
+                    src="demo_files/CatchMeIfYouCan.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.9" data-director="Clint Eastwood"
+                data-main-actors="Angelina Jolie, Colm Feore, Amy Ryan, Gattlin Griffith"
+                data-genre="Drama, Mystery, Thriller" data-title="Changeling"><IMG src="demo_files/Changeling.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.9" data-director="Tim Burton"
+                data-main-actors="Johnny Depp, Freddie Highmore, David Kelly, Helena Bonham Carter"
+                data-genre="Adventure, Comedy, Family, Fantasy, Musical" data-title="Charlie and the Chocolate Factory"><IMG
+                    src="demo_files/CharlieandtheChocolateFactory.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.3" data-director="Steven Soderbergh"
+                data-main-actors="Julia Ormond, Benicio Del Toro, Oscar Isaac, Pablo Guevara"
+                data-genre="Biography, Drama, History, War" data-title="Che: Part One"><IMG
+                    src="demo_files/Che.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.9" data-director="Steven Soderbergh"
+                data-main-actors="DemiÃ¡n Bichir, Rodrigo Santoro, Benicio Del Toro, Catalina Sandino Moreno"
+                data-genre="Biography, Drama, History, War" data-title="Che: Part Two"><IMG
+                    src="demo_files/Che.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="Ron Howard"
+                data-main-actors="Russell Crowe, RenÃ©e Zellweger, Craig Bierko, Paul Giamatti"
+                data-genre="Biography, Drama, Romance, Sport" data-title="Cinderella Man"><IMG
+                    src="demo_files/CinderellaMan.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.9" data-director="Steven Soderbergh"
+                data-main-actors="Matt Damon, Kate Winslet, Jude Law, Gwyneth Paltrow"
+                data-genre="Drama, Thriller" data-title="Contagion"><IMG src="demo_files/Contagion.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Tim Burton, Mike Johnson"
+                data-main-actors="Johnny Depp, Helena Bonham Carter, Emily Watson, Tracey Ullman"
+                data-genre="Animation, Fantasy, Musical, Romance"
+                data-title="Corpse Bride"><IMG src="demo_files/CorpseBride.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Zack Snyder"
+                data-main-actors="Sarah Polley, Ving Rhames, Mekhi Phifer, Jake Weber"
+                data-genre="Action, Horror, Sci-Fi, Thriller"
+                data-title="Dawn of the Dead"><IMG src="demo_files/DawnoftheDead.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.2" data-director="Quentin Tarantino"
+                data-main-actors="Kurt Russell, Zoe Bell, Rosario Dawson, Vanessa Ferlito"
+                data-genre="Action, Thriller" data-title="Death Proof"><IMG src="demo_files/DeathProof.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.1" data-director="Robert Rodriguez"
+                data-main-actors="Antonio Banderas, Salma Hayek, Joaquim de Almeida, Cheech Marin"
+                data-genre="Action, Crime, Thriller, Western" data-title="Desperado"><IMG src="demo_files/Desperado.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.9" data-director="Steven Spielberg"
+                data-main-actors="Henry Thomas, Drew Barrymore, Peter Coyote, Dee Wallace"
+                data-genre="Adventure, Drama, Family, Fantasy, Sci-Fi" data-title="E.T.: The Extra-Terrestrial"><IMG
+                    src="demo_files/ETTheExtraTerrestrial.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="David Cronenberg"
+                data-main-actors="Naomi Watts, Viggo Mortensen, Armin Mueller-Stahl, Josef Altin"
+                data-genre="Crime, Drama, Mystery, Thriller"
+                data-title="Eastern Promises"><IMG src="demo_files/EasternPromises.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="Tim Burton"
+                data-main-actors="Johnny Depp, Martin Landau, Sarah Jessica Parker, Patricia Arquette"
+                data-genre="Biography, Comedy, Drama" data-title="Ed Wood"><IMG src="demo_files/EdWood.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="Tim Burton"
+                data-main-actors="Johnny Depp, Winona Ryder, Dianne Wiest, Anthony Michael Hall"
+                data-genre="Drama, Fantasy, Romance" data-title="Edward Scissorhands"><IMG
+                    src="demo_files/EdwardScissorhands.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.2" data-director="Gus Van Sant"
+                data-main-actors="Elias McConnell, Alex Frost, Eric Deulen, John Robinson"
+                data-genre="Crime, Drama" data-title="Elephant"><IMG src="demo_files/Elephant.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.9" data-director="Doug Liman"
+                data-main-actors="Naomi Watts, Sean Penn, Sonya Davison, Vanessa Chong"
+                data-genre="Biography, Drama, Thriller" data-title="Fair Game"><IMG src="demo_files/FairGame.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="Joel Coen"
+                data-main-actors="William H. Macy, Frances McDormand, Steve Buscemi, Peter Stormare"
+                data-genre="Crime, Drama, Thriller" data-title="Fargo"><IMG src="demo_files/Fargo.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.8" data-director="David Fincher"
+                data-main-actors="Brad Pitt, Edward Norton, Helena Bonham Carter, Meat Loaf"
+                data-genre="Drama" data-title="Fight Club"><IMG
+                    src="demo_files/FightClub.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.2" data-director="Gus Van Sant"
+                data-main-actors="Sean Connery, Rob Brown, F. Murray Abraham, Anna Paquin"
+                data-genre="Drama" data-title="Finding Forrester"><IMG src="demo_files/FindingForrester.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.1" data-director="Clint Eastwood"
+                data-main-actors="Ryan Phillippe, Barry Pepper, Joseph Cross, Jesse Bradford"
+                data-genre="Drama, History, War" data-title="Flags of Our Fathers"><IMG src="demo_files/FlagsofOurFathers.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.4" data-director="Allison Anders, Alexandre Rockwell"
+                data-main-actors="Tim Roth, Amanda De Cadenet, David Proval, Jennifer Beals"
+                data-genre="Comedy" data-title="Four Rooms"><IMG src="demo_files/FourRooms.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.2" data-director="Robert Rodriguez"
+                data-main-actors="Harvey Keitel, George Clooney, Juliette Lewis, Quentin Tarantino"
+                data-genre="Action, Crime, Horror, Thriller"
+                data-title="From Dusk Till Dawn"><IMG
+                    src="demo_files/FromDuskTillDawn.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Ron Howard"
+                data-main-actors="Frank Langella, Michael Sheen, Kevin Bacon, Sam Rockwell"
+                data-genre="Drama, History" data-title="Frost/Nixon"><IMG src="demo_files/FrostNixon.jpg"></LI>
+            <LI data-imdb-rating-range="5 - 6" data-rating="5.6" data-director="Ridley Scott"
+                data-main-actors="Demi Moore, Viggo Mortensen, Anne Bancroft, Jason Beghe"
+                data-genre="Action, Drama" data-title="G.I. Jane"><IMG src="demo_files/GIJane.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Martin Scorsese"
+                data-main-actors="Leonardo DiCaprio, Cameron Diaz, Daniel Day-Lewis, Jim Broadbent"
+                data-genre="Crime, Drama, History" data-title="Gangs of New York"><IMG src="demo_files/GangsofNewYork.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.2" data-director="Gus Van Sant"
+                data-main-actors="Casey Affleck, Matt Damon" data-genre="Adventure, Drama, Mystery"
+                data-title="Gerry"><IMG src="demo_files/Gerry.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.4" data-director="Ridley Scott"
+                data-main-actors="Russell Crowe, Joaquin Phoenix, Connie Nielsen, Oliver Reed"
+                data-genre="Action, Adventure, Drama, History" data-title="Gladiator"><IMG
+                    src="demo_files/Gladiator.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.1" data-director="Gus Van Sant"
+                data-main-actors="Robin Williams, Matt Damon, Ben Affleck, Stellan SkarsgÃ¥rd"
+                data-genre="Drama" data-title="Good Will Hunting"><IMG src="demo_files/GoodWillHunting.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.8" data-director="Martin Scorsese"
+                data-main-actors="Robert De Niro, Ray Liotta, Joe Pesci, Lorraine Bracco"
+                data-genre="Biography, Crime, Drama, Thriller" data-title="Goodfellas"><IMG
+                    src="demo_files/Goodfellas.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="Clint Eastwood"
+                data-main-actors="Clint Eastwood, Bee Vang, Christopher Carley, Ahney Her"
+                data-genre="Drama" data-title="Gran Torino"><IMG src="demo_files/GranTorino.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.0" data-director="Paul Greengrass"
+                data-main-actors="Matt Damon, Jason Isaacs, Greg Kinnear, Brendan Gleeson"
+                data-genre="Action, Drama, Thriller, War" data-title="Green Zone"><IMG src="demo_files/GreenZone.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Robert Rodriguez, Eli Roth"
+                data-main-actors="Kurt Russell, Rose McGowan, Danny Trejo, Cheech Marin"
+                data-genre="Action, Horror, Thriller" data-title="Grindhouse"><IMG src="demo_files/Grindhouse.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.5" data-director="Ridley Scott"
+                data-main-actors="Anthony Hopkins, Julianne Moore, Gary Oldman, Ray Liotta"
+                data-genre="Crime, Drama, Thriller" data-title="Hannibal"><IMG src="demo_files/Hannibal.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.2" data-director="Paul Thomas Anderson"
+                data-main-actors="Philip Baker Hall, John C. Reilly, Gwyneth Paltrow, Samuel L. Jackson"
+                data-genre="Crime, Drama, Thriller" data-title="Hard Eight"><IMG src="demo_files/HardEight.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.6" data-director="Steven Soderbergh"
+                data-main-actors="Gina Carano, Ewan McGregor, Michael Fassbender, Michael Angarano"
+                data-genre="Action, Thriller" data-title="Haywire"><IMG src="demo_files/Haywire.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.6" data-director="Clint Eastwood"
+                data-main-actors="Matt Damon, CÃ©cile De France, Bryce Dallas Howard, Thierry Neuvic"
+                data-genre="Drama, Fantasy" data-title="Hereafter"><IMG src="demo_files/Hereafter.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="Martin Scorsese"
+                data-main-actors="Asa Butterfield, ChloÃ« Grace Moretz, Christopher Lee, Ben Kingsley"
+                data-genre="Adventure, Drama, Family, Fantasy, Mystery" data-title="Hugo"><IMG
+                    src="demo_files/Hugo.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.9" data-director="Christopher Nolan"
+                data-main-actors="Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Ken Watanabe"
+                data-genre="Action, Adventure, Sci-Fi, Thriller" data-title="Inception"><IMG
+                    src="demo_files/Inception.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.4" data-director="Steven Spielberg"
+                data-main-actors="Harrison Ford, Cate Blanchett, Shia LaBeouf, Karen Allen"
+                data-genre="Action, Adventure" data-title="Indiana Jones and the Kingdom of the Crystal Skull"><IMG
+                    src="demo_files/IndianaJonesandtheKingdomoftheCrystalSkull.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="Steven Spielberg"
+                data-main-actors="Harrison Ford, Sean Connery, Alison Doody, Denholm Elliott"
+                data-genre="Action, Adventure"
+                data-title="Indiana Jones and the Last Crusade"><IMG src="demo_files/IndianaJonesandtheLastCrusade.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.5" data-director="Steven Spielberg"
+                data-main-actors="Harrison Ford, Kate Capshaw, Jonathan Ke Quan, Amrish Puri"
+                data-genre="Action, Adventure" data-title="Indiana Jones and the Temple of Doom"><IMG
+                    src="demo_files/IndianaJonesandtheTempleofDoom.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.9" data-director="David Lynch"
+                data-main-actors="Laura Dern, Jeremy Irons, Justin Theroux, Karolina Gruszka"
+                data-genre="Mystery, Thriller" data-title="Inland Empire"><IMG src="demo_files/InlandEmpire.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Spike Lee"
+                data-main-actors="Denzel Washington, Clive Owen, Jodie Foster, Christopher Plummer"
+                data-genre="Crime, Drama, Thriller" data-title="Inside Man"><IMG src="demo_files/InsideMan.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.3" data-director="Joel Coen"
+                data-main-actors="George Clooney, Catherine Zeta-Jones, Billy Bob Thornton, Geoffrey Rush"
+                data-genre="Comedy, Romance, Crime" data-title="Intolerable Cruelty"><IMG src="demo_files/IntolerableCruelty.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Clint Eastwood"
+                data-main-actors="Morgan Freeman, Matt Damon, Tony Kgoroge, Patrick Mofokeng"
+                data-genre="Biography, Drama, History, Sport" data-title="Invictus"><IMG src="demo_files/Invictus.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.2" data-director="Clint Eastwood"
+                data-main-actors="Leonardo DiCaprio, Armie Hammer, Naomi Watts, Josh Hamilton"
+                data-genre="Biography, Drama" data-title="J. Edgar"><IMG src="demo_files/JEdgar.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.6" data-director="Quentin Tarantino"
+                data-main-actors="Pam Grier, Samuel L. Jackson, Robert Forster, Bridget Fonda"
+                data-genre="Crime, Drama, Thriller" data-title="Jackie Brown"><IMG src="demo_files/JackieBrown.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.1" data-director="Sam Mendes"
+                data-main-actors="Jake Gyllenhaal, Jamie Foxx, Lucas Black, Scott MacDonald"
+                data-genre="Biography, Drama, War" data-title="Jarhead"><IMG src="demo_files/Jarhead.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.2" data-director="Steven Spielberg"
+                data-main-actors="Roy Scheider, Robert Shaw, Richard Dreyfuss, Lorraine Gary"
+                data-genre="Thriller" data-title="Jaws"><IMG src="demo_files/Jaws.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.9" data-director="Steven Spielberg"
+                data-main-actors="Sam Neill, Laura Dern, Jeff Goldblum, Richard Attenborough"
+                data-genre="Adventure, Sci-Fi" data-title="Jurassic Park"><IMG src="demo_files/JurassicPark.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.9" data-director="Matthew Vaughn"
+                data-main-actors="Aaron Johnson, Nicolas Cage, ChloÃ« Grace Moretz, Garrett M. Brown"
+                data-genre="Action, Adventure, Comedy" data-title="Kick-Ass"><IMG src="demo_files/KickAss.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.2" data-director="Quentin Tarantino"
+                data-main-actors="Uma Thurman, David Carradine, Daryl Hannah, Michael Madsen"
+                data-genre="Action, Crime, Drama, Thriller"
+                data-title="Kill Bill: Vol. 1"><IMG src="demo_files/KillBillVol1.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="Quentin Tarantino"
+                data-main-actors="Uma Thurman, David Carradine, Michael Madsen, Daryl Hannah"
+                data-genre="Crime, Drama, Thriller" data-title="Kill Bill: Vol. 2"><IMG src="demo_files/KillBillVol2.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.5" data-director="Peter Jackson"
+                data-main-actors="Naomi Watts, Jack Black, Adrien Brody, Thomas Kretschmann"
+                data-genre="Action, Adventure, Drama, Romance, Thriller" data-title="King Kong"><IMG
+                    src="demo_files/KingKong.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.1" data-director="Ridley Scott"
+                data-main-actors="Orlando Bloom, Eva Green, Liam Neeson, Martin Hancock"
+                data-genre="Action, Adventure, History, War"
+                data-title="Kingdom of Heaven"><IMG src="demo_files/KingdomofHeaven.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Matthew Vaughn"
+                data-main-actors="Daniel Craig, Sienna Miller, Michael Gambon, Tom Hardy"
+                data-genre="Crime, Drama, Thriller" data-title="Layer Cake"><IMG src="demo_files/LayerCake.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.2" data-director="Ridley Scott"
+                data-main-actors="Tom Cruise, Mia Sara, Tim Curry, David Bennent" data-genre="Fantasy, Adventure, Romance"
+                data-title="Legend"><IMG src="demo_files/Legend.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.2" data-director="Guy Ritchie"
+                data-main-actors="Jason Flemyng, Dexter Fletcher, Nick Moran, Jason Statham"
+                data-genre="Crime, Thriller"
+                data-title="Lock, Stock and Two Smoking Barrels"><IMG src="demo_files/LockStockandTwoSmokingBarrels.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.0" data-director="Ethan Maniquis, Robert Rodriguez"
+                data-main-actors="Danny Trejo, Michelle Rodriguez, Robert De Niro, Jessica Alba"
+                data-genre="Action, Comedy, Thriller" data-title="Machete"><IMG src="demo_files/Machete.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="Paul Thomas Anderson"
+                data-main-actors="Tom Cruise, Jason Robards, Julianne Moore, Philip Seymour Hoffman"
+                data-genre="Drama" data-title="Magnolia"><IMG
+                    src="demo_files/Magnolia.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Spike Lee"
+                data-main-actors="Denzel Washington, Angela Bassett, Delroy Lindo, Spike Lee"
+                data-genre="Biography, Drama, History" data-title="Malcolm X"><IMG src="demo_files/MalcolmX.jpg"></LI>
+            <LI data-rating="N/A" data-director="Zack Snyder" data-main-actors="Henry Cavill, Amy Adams, Russell Crowe, Kevin Costner"
+                data-genre="Action, Adventure, Fantasy, Sci-Fi" data-title="Man of Steel"><IMG
+                    src="demo_files/ManofSteel.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Ridley Scott"
+                data-main-actors="Nicolas Cage, Alison Lohman, Sam Rockwell, Bruce Altman"
+                data-genre="Comedy, Crime, Drama, Thriller" data-title="Matchstick Men"><IMG
+                    src="demo_files/MatchstickMen.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.6" data-director="Christopher Nolan"
+                data-main-actors="Guy Pearce, Carrie-Anne Moss, Joe Pantoliano, Mark Boone Junior"
+                data-genre="Drama, Mystery, Thriller" data-title="Memento"><IMG src="demo_files/Memento.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.5" data-director="Clint Eastwood"
+                data-main-actors="John Cusack, Kevin Spacey, Jack Thompson, Irma P. Hall"
+                data-genre="Comedy, Crime, Drama, Mystery, Thriller" data-title="Midnight in the Garden of Good and Evil"><IMG
+                    src="demo_files/MidnightintheGardenofGoodandEvil.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Gus Van Sant"
+                data-main-actors="Sean Penn, Josh Brolin, Emile Hirsch, Diego Luna"
+                data-genre="Biography, Drama, History" data-title="Milk"><IMG src="demo_files/Milk.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.2" data-director="Clint Eastwood"
+                data-main-actors="Hilary Swank, Clint Eastwood, Morgan Freeman, Jay Baruchel"
+                data-genre="Drama, Sport" data-title="Million Dollar Baby"><IMG src="demo_files/MillionDollarBaby.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Steven Spielberg"
+                data-main-actors="Tom Cruise, Colin Farrell, Samantha Morton, Max von Sydow"
+                data-genre="Action, Mystery, Sci-Fi, Thriller"
+                data-title="Minority Report"><IMG src="demo_files/MinorityReport.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.4" data-director="Doug Liman"
+                data-main-actors="Brad Pitt, Angelina Jolie, Adam Brody, Vince Vaughn"
+                data-genre="Action, Comedy, Romance" data-title="Mr. &amp; Mrs. Smith"><IMG
+                    src="demo_files/MrandMrsSmith.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="David Lynch"
+                data-main-actors="Naomi Watts, Laura Harring, Justin Theroux, Ann Miller"
+                data-genre="Drama, Mystery, Thriller" data-title="Mulholland Drive"><IMG src="demo_files/MulhollandDrive.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Steven Spielberg"
+                data-main-actors="Eric Bana, Daniel Craig, Marie-JosÃ©e Croze, CiarÃ¡n Hinds"
+                data-genre="Drama, History, Thriller" data-title="Munich"><IMG src="demo_files/Munich.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="Clint Eastwood"
+                data-main-actors="Sean Penn, Tim Robbins, Kevin Bacon, Emmy Rossum"
+                data-genre="Crime, Drama, Mystery, Thriller" data-title="Mystic River"><IMG
+                    src="demo_files/MysticRiver.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.2" data-director="Ethan Coen, Joel Coen"
+                data-main-actors="Tommy Lee Jones, Javier Bardem, Josh Brolin, Woody Harrelson"
+                data-genre="Crime, Drama, Thriller" data-title="No Country for Old Men"><IMG
+                    src="demo_files/NoCountryforOldMen.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Joel Coen"
+                data-main-actors="George Clooney, John Turturro, Tim Blake Nelson, John Goodman"
+                data-genre="Comedy, Adventure, Crime, Music" data-title="O Brother, Where Art Thou?"><IMG
+                    src="demo_files/OBrotherWhereArtThou.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Steven Soderbergh"
+                data-main-actors="George Clooney, Brad Pitt, Julia Roberts, Matt Damon"
+                data-genre="Crime, Thriller" data-title="Ocean's Eleven"><IMG src="demo_files/OceansEleven.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.9" data-director="Steven Soderbergh"
+                data-main-actors="George Clooney, Brad Pitt, Matt Damon, Michael Mantell"
+                data-genre="Crime, Thriller" data-title="Ocean's Thirteen"><IMG src="demo_files/OceansThirteen.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.1" data-director="Steven Soderbergh"
+                data-main-actors="George Clooney, Brad Pitt, Julia Roberts, Catherine Zeta-Jones"
+                data-genre="Crime, Thriller" data-title="Ocean's Twelve"><IMG src="demo_files/OceansTwelve.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.9" data-director="Roman Polanski"
+                data-main-actors="Barney Clark, Ben Kingsley, Jeremy Swift, Ian McNeice"
+                data-genre="Drama, Family" data-title="Oliver Twist"><IMG src="demo_files/OliverTwist.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.3" data-director="Robert Rodriguez"
+                data-main-actors="Antonio Banderas, Salma Hayek, Johnny Depp, Willem Dafoe"
+                data-genre="Action, Thriller, Western"
+                data-title="Once Upon a Time in Mexico"><IMG src="demo_files/OnceUponaTimeinMexico.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.9" data-director="David Fincher"
+                data-main-actors="Jodie Foster, Kristen Stewart, Forest Whitaker, Dwight Yoakam"
+                data-genre="Thriller" data-title="Panic Room"><IMG src="demo_files/PanicRoom.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Olivier Assayas, FrÃ©dÃ©ric Auburtin"
+                data-main-actors="Juliette Binoche, Leonor Watling, Ludivine Sagnier, Florence Muller"
+                data-genre="Drama, Romance" data-title="Paris, je t'aime"><IMG src="demo_files/Parisjetaime.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.5" data-director="Darren Aronofsky"
+                data-main-actors="Sean Gullette, Mark Margolis, Ben Shenkman, Pamela Hart"
+                data-genre="Drama, Sci-Fi, Thriller" data-title="Pi"><IMG src="demo_files/Pi.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.5" data-director="Robert Rodriguez"
+                data-main-actors="Rose McGowan, Freddy RodrÃ&shy;guez, Josh Brolin, Marley Shelton"
+                data-genre="Action, Horror, Sci-Fi" data-title="Planet Terror"><IMG src="demo_files/PlanetTerror.jpg"></LI>
+            <LI data-imdb-rating-range="5 - 6" data-rating="5.6" data-director="Tim Burton"
+                data-main-actors="Mark Wahlberg, Helena Bonham Carter, Tim Roth, Michael Clarke Duncan"
+                data-genre="Action, Adventure, Sci-Fi, Thriller" data-title="Planet of the Apes"><IMG
+                    src="demo_files/PlanetoftheApes.jpg"></LI>
+            <LI data-rating="N/A" data-director="Ridley Scott" data-main-actors="Noomi Rapace, Charlize Theron, Patrick Wilson, Idris Elba"
+                data-genre="Action, Horror, Sci-Fi" data-title="Prometheus"><IMG src="demo_files/Prometheus.jpg"></LI>
+            <LI data-imdb-rating-range="4 - 5" data-rating="4.6" data-director="Gus Van Sant"
+                data-main-actors="Vince Vaughn, Anne Heche, Julianne Moore, Viggo Mortensen"
+                data-genre="Horror, Mystery, Thriller" data-title="Psycho"><IMG src="demo_files/Psycho.jpg"></LI>
+            <LI data-imdb-rating-range="9 - 10" data-rating="9.0" data-director="Quentin Tarantino"
+                data-main-actors="John Travolta, Uma Thurman, Samuel L. Jackson, Bruce Willis"
+                data-genre="Crime, Thriller" data-title="Pulp Fiction"><IMG src="demo_files/PulpFiction.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Paul Thomas Anderson"
+                data-main-actors="Adam Sandler, Emily Watson, Philip Seymour Hoffman, Jason Andrews"
+                data-genre="Comedy, Drama, Romance" data-title="Punch-Drunk Love"><IMG src="demo_files/PunchDrunkLove.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.5" data-director="Darren Aronofsky"
+                data-main-actors="Ellen Burstyn, Jared Leto, Jennifer Connelly, Marlon Wayans"
+                data-genre="Drama" data-title="Requiem for a Dream"><IMG src="demo_files/RequiemforaDream.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.4" data-director="Quentin Tarantino"
+                data-main-actors="Harvey Keitel, Tim Roth, Michael Madsen, Chris Penn"
+                data-genre="Crime, Mystery, Thriller" data-title="Reservoir Dogs"><IMG src="demo_files/ReservoirDogs.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.5" data-director="Sam Mendes"
+                data-main-actors="Leonardo DiCaprio, Kate Winslet, Christopher Fitzgerald, Jonathan Roumie"
+                data-genre="Drama, Romance" data-title="Revolutionary Road"><IMG src="demo_files/RevolutionaryRoad.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.3" data-director="Guy Ritchie"
+                data-main-actors="Jason Statham, Ray Liotta, Vincent Pastore, AndrÃ© Benjamin"
+                data-genre="Crime, Drama, Mystery, Thriller" data-title="Revolver"><IMG src="demo_files/Revolver.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Sam Mendes"
+                data-main-actors="Tom Hanks, Tyler Hoechlin, Rob Maxey, Paul Newman"
+                data-genre="Crime, Drama, Thriller" data-title="Road to Perdition"><IMG src="demo_files/RoadtoPerdition.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.8" data-director="Ridley Scott"
+                data-main-actors="Russell Crowe, Cate Blanchett, Matthew Macfadyen, Max von Sydow"
+                data-genre="Action, Adventure, Drama" data-title="Robin Hood"><IMG src="demo_files/RobinHood.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.3" data-director="Guy Ritchie"
+                data-main-actors="Gerard Butler, Tom Wilkinson, Idris Elba, Thandie Newton"
+                data-genre="Action, Crime, Thriller" data-title="RocknRolla"><IMG src="demo_files/RocknRolla.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.9" data-director="Steven Spielberg"
+                data-main-actors="Liam Neeson, Ralph Fiennes, Ben Kingsley, Caroline Goodall"
+                data-genre="Biography, Drama, History, War" data-title="Schindler's List"><IMG
+                    src="demo_files/SchindlersList.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.7" data-director="David Fincher"
+                data-main-actors="Morgan Freeman, Brad Pitt, Kevin Spacey, Gwyneth Paltrow"
+                data-genre="Crime, Drama, Thriller" data-title="Se7en"><IMG src="demo_files/Seven.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Danny Boyle"
+                data-main-actors="Kerry Fox, Christopher Eccleston, Ewan McGregor, Ken Stott"
+                data-genre="Crime, Thriller" data-title="Shallow Grave"><IMG src="demo_files/ShallowGrave.jpg"></LI>
+            <LI data-imdb-rating-range="5 - 6" data-rating="5.3" data-director="Spike Lee"
+                data-main-actors="Anthony Mackie, Kerry Washington, Ellen Barkin, Monica Bellucci"
+                data-genre="Comedy, Drama" data-title="She Hate Me"><IMG src="demo_files/SheHateMe.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.5" data-director="Guy Ritchie"
+                data-main-actors="Robert Downey Jr., Jude Law, Rachel McAdams, Mark Strong"
+                data-genre="Action, Adventure, Crime, Mystery, Thriller" data-title="Sherlock Holmes"><IMG
+                    src="demo_files/SherlockHolmes.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Guy Ritchie"
+                data-main-actors="Robert Downey Jr., Jude Law, Jared Harris, Rachel McAdams"
+                data-genre="Action, Adventure, Crime, Mystery, Thriller" data-title="Sherlock Holmes: A Game of shadows"><IMG
+                    src="demo_files/SherlockHolmesAGameofShadows.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="Martin Scorsese"
+                data-main-actors="Leonardo DiCaprio, Emily Mortimer, Mark Ruffalo, Ben Kingsley"
+                data-genre="Drama, Mystery, Thriller" data-title="Shutter Island"><IMG src="demo_files/ShutterIsland.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="Frank Miller, Robert Rodriguez"
+                data-main-actors="Mickey Rourke, Clive Owen, Bruce Willis, Jessica Alba"
+                data-genre="Crime, Drama, Thriller" data-title="Sin City"><IMG src="demo_files/SinCity.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.5" data-director="Tim Burton"
+                data-main-actors="Johnny Depp, Christina Ricci, Miranda Richardson, Michael Gambon"
+                data-genre="Horror, Mystery" data-title="Sleepy Hollow"><IMG src="demo_files/SleepyHollow.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.2" data-director="Danny Boyle, Loveleen Tandan"
+                data-main-actors="Dev Patel, Freida Pinto, Saurabh Shukla, Anil Kapoor"
+                data-genre="Crime, Drama, Romance, Thriller"
+                data-title="Slumdog Millionaire"><IMG
+                    src="demo_files/SlumdogMillionaire.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="Guy Ritchie"
+                data-main-actors="Jason Statham, Brad Pitt, Benicio Del Toro, Dennis Farina"
+                data-genre="Crime, Thriller" data-title="Snatch."><IMG src="demo_files/Snatch.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.2" data-director="Steven Soderbergh"
+                data-main-actors="George Clooney, Natascha McElhone, Ulrich Tukur, Viola Davis"
+                data-genre="Drama, Mystery, Romance, Sci-Fi" data-title="Solaris"><IMG src="demo_files/Solaris.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.3" data-director="Clint Eastwood"
+                data-main-actors="Clint Eastwood, Tommy Lee Jones, Donald Sutherland, James Garner"
+                data-genre="Action, Adventure, Thriller" data-title="Space Cowboys"><IMG src="demo_files/SpaceCowboys.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Matthew Vaughn"
+                data-main-actors="Charlie Cox, Claire Danes, Sienna Miller, Ian McKellen"
+                data-genre="Adventure, Comedy, Family, Fantasy, Romance"
+                data-title="Stardust"><IMG src="demo_files/Stardust.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.2" data-director="Zack Snyder"
+                data-main-actors="Emily Browning, Vanessa Hudgens, Abbie Cornish, Jena Malone"
+                data-genre="Action, Adventure, Fantasy, Thriller"
+                data-title="Sucker Punch"><IMG src="demo_files/SuckerPunch.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.3" data-director="Danny Boyle"
+                data-main-actors="Cillian Murphy, Rose Byrne, Chris Evans, Michelle Yeoh"
+                data-genre="Adventure, Sci-Fi, Thriller" data-title="Sunshine"><IMG src="demo_files/Sunshine.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.6" data-director="James Cameron"
+                data-main-actors="Arnold Schwarzenegger, Linda Hamilton, Edward Furlong, Robert Patrick"
+                data-genre="Action, Sci-Fi, Thriller"
+                data-title="Terminator 2: Judgment Day"><IMG src="demo_files/Terminator2JudgmentDay.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Steven Spielberg"
+                data-main-actors="Jamie Bell, Andy Serkis, Daniel Craig, Simon Pegg"
+                data-genre="Animation, Action, Adventure, Family, Mystery" data-title="The Adventures of Tintin"><IMG
+                    src="demo_files/TheAdventuresofTintin.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.5" data-director="Martin Scorsese"
+                data-main-actors="Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale, John C. Reilly"
+                data-genre="Biography, Drama" data-title="The Aviator"><IMG src="demo_files/TheAviator.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.4" data-director="Danny Boyle"
+                data-main-actors="Leonardo DiCaprio, Daniel York, Patcharawan Patarakijjanon, Virginie Ledoyen"
+                data-genre="Adventure, Drama, Romance, Thriller" data-title="The Beach"><IMG
+                    src="demo_files/TheBeach.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.2" data-director="Joel Coen"
+                data-main-actors="Jeff Bridges, John Goodman, Julianne Moore, Steve Buscemi"
+                data-genre="Comedy, Crime" data-title="The Big Lebowski"><IMG src="demo_files/TheBigLebowski.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Doug Liman"
+                data-main-actors="Franka Potente, Matt Damon, Chris Cooper, Clive Owen"
+                data-genre="Action, Crime, Mystery, Thriller"
+                data-title="The Bourne Identity"><IMG
+                    src="demo_files/TheBourneIdentity.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.6" data-director="Paul Greengrass"
+                data-main-actors="Matt Damon, Franka Potente, Joan Allen, Brian Cox"
+                data-genre="Action, Crime, Thriller" data-title="The Bourne Supremacy"><IMG
+                    src="demo_files/TheBourneSupremacy.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.1" data-director="Paul Greengrass"
+                data-main-actors="Matt Damon, Ã‰dgar RamÃ&shy;rez, Joan Allen, Julia Stiles"
+                data-genre="Action, Crime, Thriller" data-title="The Bourne Ultimatum"><IMG
+                    src="demo_files/TheBourneUltimatum.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.3" data-director="Clint Eastwood"
+                data-main-actors="Clint Eastwood, Meryl Streep, Annie Corley, Victor Slezak"
+                data-genre="Drama, Romance" data-title="The Bridges of Madison County"><IMG
+                    src="demo_files/TheBridgesofMadisonCounty.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.9" data-director="David Fincher"
+                data-main-actors="Brad Pitt, Cate Blanchett, Tilda Swinton, Julia Ormond"
+                data-genre="Drama, Fantasy, Mystery, Romance" data-title="The Curious Case of Benjamin Button"><IMG
+                    src="demo_files/TheCuriousCaseofBenjaminButton.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.4" data-director="Ron Howard"
+                data-main-actors="Tom Hanks, Audrey Tautou, Jean Reno, Ian McKellen"
+                data-genre="Mystery, Thriller" data-title="The Da Vinci Code"><IMG src="demo_files/TheDaVinciCode.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.9" data-director="Christopher Nolan"
+                data-main-actors="Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine"
+                data-genre="Action, Crime, Drama, Thriller" data-title="The Dark Knight"><IMG
+                    src="demo_files/TheDarkKnight.jpg"></LI>
+            <LI data-rating="N/A" data-director="Christopher Nolan" data-main-actors="Christian Bale, Joseph Gordon-Levitt, Gary Oldman, Michael Caine"
+                data-genre="Action, Crime, Drama, Thriller"
+                data-title="The Dark Knight Rises"><IMG src="demo_files/TheDarkKnightRises.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.5" data-director="Martin Scorsese"
+                data-main-actors="Leonardo DiCaprio, Matt Damon, Jack Nicholson, Mark Wahlberg"
+                data-genre="Crime, Drama, Mystery, Thriller" data-title="The Departed"><IMG
+                    src="demo_files/TheDeparted.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="David Lynch"
+                data-main-actors="Anthony Hopkins, John Hurt, Anne Bancroft, John Gielgud"
+                data-genre="Biography, Drama, History" data-title="The Elephant Man"><IMG src="demo_files/TheElephantMan.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.5" data-director="David Cronenberg"
+                data-main-actors="Jeff Goldblum, Geena Davis, John Getz, Joy Boushel"
+                data-genre="Drama, Horror, Romance, Sci-Fi" data-title="The Fly"><IMG src="demo_files/TheFly.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Darren Aronofsky"
+                data-main-actors="Hugh Jackman, Rachel Weisz, Sean Patrick Thomas, Ellen Burstyn"
+                data-genre="Drama, Romance, Sci-Fi" data-title="The Fountain"><IMG src="demo_files/TheFountain.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Roman Polanski"
+                data-main-actors="Ewan McGregor, Pierce Brosnan, Olivia Williams, Jon Bernthal"
+                data-genre="Mystery, Thriller" data-title="The Ghost Writer"><IMG src="demo_files/TheGhostWriter.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.2" data-director="David Fincher"
+                data-main-actors="Daniel Craig, Rooney Mara, Christopher Plummer, Stellan SkarsgÃ¥rd"
+                data-genre="Crime, Drama, Mystery, Thriller" data-title="The Girl with the Dragon Tattoo"><IMG
+                    src="demo_files/TheGirlwiththeDragonTattoo.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.1" data-director="Steven Soderbergh"
+                data-main-actors="George Clooney, Cate Blanchett, Jack Thompson, John Roeder"
+                data-genre="Drama, Mystery, Thriller" data-title="The Good German"><IMG src="demo_files/TheGoodGerman.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.4" data-director="Frank Darabont"
+                data-main-actors="Tom Hanks, Michael Clarke Duncan, David Morse, Bonnie Hunt"
+                data-genre="Crime, Drama, Fantasy, Mystery" data-title="The Green Mile"><IMG
+                    src="demo_files/TheGreenMile.jpg"></LI>
+            <LI data-rating="N/A" data-director="Peter Jackson" data-main-actors="Martin Freeman, Ian McKellen, Richard Armitage, Andy Serkis"
+                data-genre="Adventure, Fantasy"
+                data-title="The Hobbit: An Unexpected Journey"><IMG src="demo_files/TheHobbitAnUnexpectedJourney.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.6" data-director="Steven Soderbergh"
+                data-main-actors="Matt Damon, Tony Hale, Patton Oswalt, Lucas McHugh Carroll"
+                data-genre="Comedy, Drama, Thriller" data-title="The Informant!"><IMG src="demo_files/TheInformant.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.2" data-director="Ethan Coen, Joel Coen"
+                data-main-actors="Tom Hanks, Marlon Wayans, Irma P. Hall, J.K. Simmons"
+                data-genre="Comedy, Crime, Thriller" data-title="The Ladykillers"><IMG src="demo_files/TheLadykillers.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.8" data-director="Peter Jackson"
+                data-main-actors="Elijah Wood, Ian McKellen, Orlando Bloom, Sean Bean"
+                data-genre="Action, Adventure, Fantasy" data-title="The Lord of the Rings: The Fellowship of the Ring"><IMG
+                    src="demo_files/TheLordoftheRingsTheFellowshipoftheRing.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.8" data-director="Peter Jackson"
+                data-main-actors="Elijah Wood, Viggo Mortensen, Ian McKellen, Orlando Bloom"
+                data-genre="Action, Adventure, Drama, Fantasy" data-title="The Lord of the Rings: The Return of the King"><IMG
+                    src="demo_files/TheLordoftheRingsTheReturnoftheKing.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.7" data-director="Peter Jackson"
+                data-main-actors="Elijah Wood, Ian McKellen, Viggo Mortensen, Orlando Bloom"
+                data-genre="Action, Adventure, Fantasy" data-title="The Lord of the Rings: The Two Towers"><IMG
+                    src="demo_files/TheLordoftheRingsTheTwoTowers.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.1" data-director="Steven Spielberg"
+                data-main-actors="Jeff Goldblum, Julianne Moore, Pete Postlethwaite, Vince Vaughn"
+                data-genre="Action, Adventure, Sci-Fi, Thriller" data-title="The Lost World: Jurassic Park"><IMG
+                    src="demo_files/TheLostWorldJurassicPark.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.6" data-director="Peter Jackson"
+                data-main-actors="Rachel Weisz, Mark Wahlberg, Saoirse Ronan, Susan Sarandon"
+                data-genre="Drama, Fantasy, Thriller" data-title="The Lovely Bones"><IMG src="demo_files/TheLovelyBones.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.8" data-director="Frank Darabont"
+                data-main-actors="Jim Carrey, Martin Landau, Bob Balaban, Jeffrey DeMunn"
+                data-genre="Drama, Romance" data-title="The Majestic"><IMG src="demo_files/TheMajestic.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Joel Coen"
+                data-main-actors="Billy Bob Thornton, Frances McDormand, Michael Badalucco, James Gandolfini"
+                data-genre="Crime, Drama" data-title="The Man Who Wasn't There"><IMG src="demo_files/TheManWhoWasntThere.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.4" data-director="Ron Howard"
+                data-main-actors="Tommy Lee Jones, Cate Blanchett, Evan Rachel Wood, Jenna Boyd"
+                data-genre="Adventure, Thriller, Western" data-title="The Missing"><IMG src="demo_files/TheMissing.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.3" data-director="Frank Darabont"
+                data-main-actors="Thomas Jane, Marcia Gay Harden, Laurie Holden, Andre Braugher"
+                data-genre="Horror, Sci-Fi, Thriller" data-title="The Mist"><IMG src="demo_files/TheMist.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.5" data-director="Roman Polanski"
+                data-main-actors="Adrien Brody, Thomas Kretschmann, Frank Finlay, Emilia Fox"
+                data-genre="Biography, Drama, History, War" data-title="The Pianist"><IMG src="demo_files/ThePianist.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.4" data-director="Christopher Nolan"
+                data-main-actors="Christian Bale, Hugh Jackman, Scarlett Johansson, Michael Caine"
+                data-genre="Drama, Mystery, Thriller" data-title="The Prestige"><IMG src="demo_files/ThePrestige.jpg"></LI>
+            <LI data-imdb-rating-range="9 - 10" data-rating="9.2" data-director="Frank Darabont"
+                data-main-actors="Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler"
+                data-genre="Crime, Drama" data-title="The Shawshank Redemption"><IMG src="demo_files/TheShawshankRedemption.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.0" data-director="David Fincher"
+                data-main-actors="Jesse Eisenberg, Andrew Garfield, Justin Timberlake, Rooney Mara"
+                data-genre="Biography, Drama" data-title="The Social Network"><IMG src="demo_files/TheSocialNetwork.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.2" data-director="Steven Spielberg"
+                data-main-actors="Tom Hanks, Catherine Zeta-Jones, Chi McBride, Stanley Tucci"
+                data-genre="Comedy, Drama, Romance" data-title="The Terminal"><IMG src="demo_files/TheTerminal.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.1" data-director="James Cameron"
+                data-main-actors="Arnold Schwarzenegger, Linda Hamilton, Michael Biehn, Paul Winfield"
+                data-genre="Action, Sci-Fi" data-title="The Terminator"><IMG src="demo_files/TheTerminator.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.1" data-director="Darren Aronofsky"
+                data-main-actors="Mickey Rourke, Marisa Tomei, Evan Rachel Wood, Mark Margolis"
+                data-genre="Drama, Romance, Sport" data-title="The Wrestler"><IMG src="demo_files/TheWrestler.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.2" data-director="Paul Thomas Anderson"
+                data-main-actors="Daniel Day-Lewis, Paul Dano, CiarÃ¡n Hinds, Martin Stringer"
+                data-genre="Drama" data-title="There Will Be Blood"><IMG src="demo_files/ThereWillBeBlood.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.5" data-director="James Cameron"
+                data-main-actors="Leonardo DiCaprio, Kate Winslet, Billy Zane, Kathy Bates"
+                data-genre="Adventure, Drama, History, Romance" data-title="Titanic"><IMG src="demo_files/Titanic.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Steven Soderbergh"
+                data-main-actors="Michael Douglas, Benicio Del Toro, Catherine Zeta-Jones, Jacob Vargas"
+                data-genre="Crime, Drama, Thriller" data-title="Traffic"><IMG src="demo_files/Traffic.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.2" data-director="Danny Boyle"
+                data-main-actors="Ewan McGregor, Ewen Bremner, Jonny Lee Miller, Kevin McKidd"
+                data-genre="Crime, Drama" data-title="Trainspotting"><IMG src="demo_files/Trainspotting.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Ethan Coen, Joel Coen"
+                data-main-actors="Jeff Bridges, Matt Damon, Hailee Steinfeld, Josh Brolin"
+                data-genre="Adventure, Drama, Western" data-title="True Grit"><IMG src="demo_files/TrueGrit.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.2" data-director="James Cameron"
+                data-main-actors="Arnold Schwarzenegger, Jamie Lee Curtis, Tom Arnold, Bill Paxton"
+                data-genre="Action, Thriller" data-title="True Lies"><IMG src="demo_files/TrueLies.jpg"></LI>
+            <LI data-imdb-rating-range="8 - 9" data-rating="8.3" data-director="Clint Eastwood"
+                data-main-actors="Clint Eastwood, Gene Hackman, Morgan Freeman, Richard Harris"
+                data-genre="Drama, Western" data-title="Unforgiven"><IMG src="demo_files/Unforgiven.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="Paul Greengrass"
+                data-main-actors="David Alan Basche, Olivia Thirlby, Liza ColÃ³n-Zayas, J.J. Johnson"
+                data-genre="Crime, Drama, History" data-title="United 93"><IMG src="demo_files/United93.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.4" data-director="Steven Spielberg"
+                data-main-actors="Jeremy Irvine, Emily Watson, David Thewlis, Benedict Cumberbatch"
+                data-genre="Drama, History, War" data-title="War Horse"><IMG src="demo_files/WarHorse.jpg"></LI>
+            <LI data-imdb-rating-range="6 - 7" data-rating="6.5" data-director="Steven Spielberg"
+                data-main-actors="Tom Cruise, Dakota Fanning, Tim Robbins, Miranda Otto"
+                data-genre="Action, Adventure, Drama, Sci-Fi, Thriller" data-title="War of the Worlds"><IMG
+                    src="demo_files/WaroftheWorlds.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.7" data-director="Zack Snyder"
+                data-main-actors="Jackie Earle Haley, Patrick Wilson, Carla Gugino, Malin Akerman"
+                data-genre="Action, Mystery, Sci-Fi, Thriller" data-title="Watchmen"><IMG src="demo_files/Watchmen.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.9" data-director="Matthew Vaughn"
+                data-main-actors="James McAvoy, Michael Fassbender, Jennifer Lawrence, Kevin Bacon"
+                data-genre="Action, Adventure, Sci-Fi, Thriller" data-title="X-Men: First Class"><IMG
+                    src="demo_files/XMenFirstClass.jpg"></LI>
+            <LI data-imdb-rating-range="7 - 8" data-rating="7.8" data-director="David Fincher"
+                data-main-actors="Jake Gyllenhaal, Robert Downey Jr., Mark Ruffalo, Anthony Edwards"
+                data-genre="Crime, Drama, History, Mystery, Thriller" data-title="Zodiac"><IMG
+                    src="demo_files/Zodiac.jpg"></LI></UL></DIV></DIV><A id="fork" href="http://github.com/luis-almeida"><IMG
+        alt="Fork me on GitHub" src=""></A>
+
+<SCRIPT>
+    var _gaq=[['_setAccount','UA-30247115-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+</SCRIPT>
+</BODY>
+</HTML>

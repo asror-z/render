@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css">-->
+    <style>
+        .custom-control.image-checkbox {
+            position: relative;
+            padding-left: 0;
+        }
+
+        .custom-control.image-checkbox .custom-control-input:checked ~ .custom-control-label:after, .custom-control.image-checkbox .custom-control-input:checked ~ .custom-control-label:before {
+            opacity: 1;
+        }
+
+        .custom-control.image-checkbox label {
+            cursor: pointer;
+        }
+
+        .custom-control.image-checkbox label:before {
+            border-color: #007bff;
+            background-color: #007bff;
+        }
+
+        .custom-control.image-checkbox label:after, .custom-control.image-checkbox label:before {
+            transition: opacity .3s ease;
+            opacity: 0;
+            left: .25rem;
+        }
+
+        .custom-control.image-checkbox label:focus, .custom-control.image-checkbox label:hover {
+            opacity: .8;
+        }
+
+        .custom-control.image-checkbox label img {
+            border-radius: 2.5px;
+        }
+
+        .form-group-image-checkbox.is-invalid label {
+            color: #dc3545;
+        }
+
+        .form-group-image-checkbox.is-invalid .invalid-feedback {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="custom-control custom-radio image-checkbox">
+                <input type="radio" class="custom-control-input" id="ck2a" name="ck2">
+                <label class="custom-control-label" for="ck2a">
+                    <img src="img/annie-spratt.jpg" alt="#" class="img-fluid">
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="custom-control custom-radio image-checkbox">
+                <input type="radio" class="custom-control-input" id="ck2b" name="ck2">
+                <label class="custom-control-label" for="ck2b">
+                    <img src="img/luca-bravo.jpg" alt="#" class="img-fluid">
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="custom-control custom-radio image-checkbox">
+                <input type="radio" class="custom-control-input" id="ck2c" name="ck2">
+                <label class="custom-control-label" for="ck2c">
+                    <img src="img/muneeb-syed.jpg" alt="#" class="img-fluid">
+                </label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="custom-control custom-radio image-checkbox">
+                <input type="radio" class="custom-control-input" id="ck2d" name="ck2">
+                <label class="custom-control-label" for="ck2d">
+                    <img src="img/vladimir-kudinov.jpg" alt="#" class="img-fluid">
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let els = document.querySelectorAll('.source-code')
+
+    for(let el of els){
+        let text = el.innerHTML
+
+        // let fix the source code
+        let lines = text.split("\n");
+        let rows  = [];
+        let tabSize = 1000;
+
+        for(let i=0; i<lines.length; i++){
+            let line = lines[i];
+
+
+            // - remove empty first and last line.
+            if(!i || i == (lines.length - 1)){
+                if(!line.trim())
+                    continue;
+            }
+
+            // - find the correct tab size
+            line = line.replace(/ +$/, '');
+            if(line){
+                let prefSpace = line.length - ( line.trim() ).length;
+                if(prefSpace < tabSize)
+                    tabSize = prefSpace;
+            }
+
+            rows.push(line);
+        }
+
+        // - trim all rows by the shortest tab size
+        for(let i=0; i<rows.length; i++)
+            rows[i] = rows[i].substr(tabSize)
+
+        text = rows.join("\n");
+
+        let parent = el.parentNode;
+        let pre = document.createElement('pre');
+        let code = document.createElement('code');
+        code.classList.add('language-' + el.dataset.hl);
+        pre.appendChild(code);
+        parent.appendChild(pre);
+
+        text = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        code.innerHTML = text;
+
+        Prism.highlightElement(code);
+    }
+</script>
+</body>
+</html>

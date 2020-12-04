@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@16.0.0/dist/lazyload.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.7.0/intersection-observer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@16.0.0/dist/lazyload.min.js"></script>
+</head>
+<body>
+
+    <img alt="A lazy image" data-src="https://klike.net/uploads/posts/2019-03/1551772531_1.jpg"/>
+    <img alt="A lazy image" src="lazy-lowQuality.jpg" data-src="lazy.jpg"/>
+    <img
+            alt="A lazy image"
+            class="lazy"
+            data-src="lazy.jpg"
+            data-srcset="lazy_400.jpg 400w, lazy_800.jpg 800w"
+            data-sizes="100w"
+    />
+    <picture>
+        <source media="(min-width: 1200px)" data-srcset="https://klike.net/uploads/posts/2019-03/1551772531_1.jpg" />
+        <source media="(min-width: 800px)" data-srcset="lazy_800.jpg 1x, lazy_1600.jpg 2x" />
+        <img alt="A lazy image" class="lazy" data-src="https://klike.net/uploads/posts/2019-03/1551772531_1.jpg" />
+    </picture>
+    <picture>
+        <source
+                type="image/webp"
+                data-srcset="lazy_400.webp 400w, lazy_800.webp 800w"
+                data-sizes="100w"
+        />
+        <img
+                alt="A lazy image"
+                class="lazy"
+                data-src="lazy.jpg"
+                data-srcset="lazy_400.jpg 400w, lazy_800.jpg 800w"
+                data-sizes="100w"
+        />
+    </picture>
+    <div class="lazy" data-bg="lazy.jpg"></div>
+   <script>
+       var lazyLoadInstance = new LazyLoad({
+           elements_selector: ".lazy"
+           // ... more custom settings?
+       });
+   </script>
+</body>
+</html>

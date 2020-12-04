@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--
+    http://eyuf.zetsoft.uz/render/former/ZDatatableWidget/demo/ajax/example/GeneratedContentForAColumn.html
+
+In some tables you might wish to have some content generated automatically. This can be done in a number of ways:
+
+            columns.render for content that is dynamic (i.e. based upon the row's data)
+        columns.defaultContent for static content (i.e. simple strings)
+        This examples shows the use of columns.defaultContent to create a button element in the last column of the table. A simple jQuery click event listener is used to watch for clicks on the row, and when activated uses the row().data() method to get the data for the row and show a bit of information about it in an alert box. This is a simple use case, but it can be built up to be arbitrarily complex.
+
+            Note also that the columns.data option for the column has been set to null to indicate that the column has no information contained in the data source object.
+
+    !-->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+    <script>
+             $(document).ready(function() {
+            var table = $('#example').DataTable( {
+                "ajax": "../data/GeneratedContentForAColumn",
+                "columnDefs": [ {
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<button>Click!</button>"
+                } ]
+            } );
+
+            $('#example tbody').on( 'click', 'button', function () {
+                var data = table.row( $(this).parents('tr') ).data();
+                alert( data[0] +"'s salary is: "+ data[ 5 ] );
+            } );
+        } );
+    </script>
+</head>
+<body>
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

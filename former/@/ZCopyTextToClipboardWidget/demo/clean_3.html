@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script  src="/publish/yarner/jquery/dist/jquery.min.js"></script >
+    <style>
+        #copyText{
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <td class="copyText"  id = "copyText"> Salom </td>
+        <input type="text">
+    </table>
+
+    <script>
+
+        $(document).ready(function(){
+
+            $("td").on('click', function() {
+                $(this).on('click', function() { console.log('td'); });
+                var $temp = $("td").text();
+                $("body").append($temp);
+                document.execCommand("copy");
+                $temp.remove();
+            });
+
+          });
+
+      
+    </script>
+
+    <!-- <script>
+
+        document.getElementById("copyText").addEventListener("click", myFunction);
+        function myFunction() {
+          const copySuccess = document.getElementById("copyText").value;
+          console.log(copySuccess)
+          
+        }
+        </script> -->
+
+
+       
+</body>
+</html>

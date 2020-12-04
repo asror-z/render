@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet"
+    href="/publish/yarner/leaflet-google-places-autocomplete/src/css/leaflet-gplaces-autocomplete.css" />
+  <link rel="stylesheet" href="/publish/yarner/leaflet/dist/leaflet.css" />
+
+  <script src="/publish/yarner/leaflet/dist/leaflet.js"></script>
+  <script src="/publish/yarner/leaflet-google-places-autocomplete/src/js/leaflet-gplaces-autocomplete.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkxS5l87lclaC6MIWSGejdCXL13wSShRo&libraries=places"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    #map {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <div id="map"></div>
+
+  <script>
+
+
+    var map = L.map("map").setView([54.762, 37.375], 8); // Карта внутри блока #map
+
+    L.tileLayer(
+      "http://vec{s}.maps.yandex.net/tiles?l=map&v=4.55.2&z={z}&x={x}&y={y}&scale=2&lang=ru_RU",
+      {
+        subdomains: ["01", "02", "03", "04"],
+        attribution: '<a http="yandex.ru" target="_blank">Яндекс</a>',
+        reuseTiles: true,
+        updateWhenIdle: false
+      }
+    ).addTo(map);
+
+    new L.Control.GPlaceAutocomplete({
+      callback: function (place) {
+        var loc = place.geometry.location;
+        map.panTo([loc.lat(), loc.lng()]);
+        map.setZoom(18);
+      }
+    }).addTo(map);
+    L.control.layers(baseMaps).addTo(map);
+  </script>
+</body>
+
+</html>

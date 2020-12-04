@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaflet Reachability</title>
+    <link rel="stylesheet" href="/publish/leaflet/publish/leaflet.reachability-master/leaflet.reachability.css"/>
+    <link rel="stylesheet" href="/publish/leaflet/publish/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="/publish/yarner/font-awesome/css/font-awesome.css">
+    <script src="/publish/leaflet/publish/leaflet/dist/leaflet.js"></script>
+    <script src="/publish/leaflet/publish/jquery/dist/jquery.min.js"></script>
+
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+
+        .mapFullScreen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Make the icons larger in the user interface */
+        .reachability-control-settings-button {
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+<div id="map" class="mapFullScreen"></div>
+<script src="/publish/leaflet/publish/leaflet.reachability-master/leaflet.reachability.js"></script>
+
+<script>
+    // Function to return a colour based on the 'Range' value of the reachability polygons
+    function getColourByRange(value) {
+        switch (value) {
+            case 5:
+                return '#ff0000';
+            case 10:
+                return '#00ff00';
+            case 15:
+                return '#0000ff';
+            case 20:
+                return '#ffff00';
+            case 25:
+                return '#ff00ff';
+            default:
+                return '#00ffff'
+        }
+    }
+
+    // Create the Leaflet map object
+    var map = L.map('map', {center: [53.4189, -2.33], zoom: 12, minZoom: 10, zoomDelta: 0.25, zoomSnap: 0});
+    /*    L.control.reachability({
+            // add settings/options here
+            apiKey: '5b3ce3597851110001cf6248595343ca0e8a4100a768e5e52ce9d6b5',
+            travelModeButton1Content: '',
+            travelModeButton1StyleClass: 'fa fa-bicycle',
+            travelModeButton1Tooltip: 'Road bike',
+            travelModeProfile1: 'cycling-road',
+            travelModeButton2Content: '',
+            travelModeButton2StyleClass: 'fa fa-bicycle',
+            travelModeButton2Tooltip: 'Mountain bike',
+            travelModeProfile2: 'cycling-mountain',
+            travelModeProfile3: null,   // we don't want the third...
+            travelModeProfile4: null    // ...or fourth travel mode buttons
+        }).addTo(map);*/
+    // Add the reachability plugin
+    L.control.reachability({
+        // add settings here
+        apiKey: '5b3ce3597851110001cf6248595343ca0e8a4100a768e5e52ce9d6b5', // PLEASE REGISTER WITH OPENROUTESERVICE FOR YOUR OWN KEY!
+        styleFn: styleIsolines,
+        mouseOverFn: highlightIsolines,
+        mouseOutFn: resetIsolines,
+        clickFn: clickIsolines,
+        markerFn: isolinesOrigin,
+        expandButtonContent: '',
+        expandButtonStyleClass: 'reachability-control-expand-button fa fa-bullseye',
+        collapseButtonContent: '',
+        collapseButtonStyleClass: 'reachability-control-collapse-button fa fa-caret-up',
+        drawButtonContent: '',
+        drawButtonStyleClass: 'fa fa-pencil',
+        deleteButtonContent: '',
+        deleteButtonStyleClass: 'fa fa-trash',
+        distanceButtonContent: '',
+        distanceButtonStyleClass: 'fa fa-road',
+        timeButtonContent: '',
+        timeButtonStyleClass: 'fa fa-clock-o',
+        travelModeButton1Content: '',
+        travelModeButton1StyleClass: 'fa fa-car',
+        travelModeButton2Content: '',
+        travelModeButton2StyleClass: 'fa fa-bicycle',
+        travelModeButton3Content: '',
+        travelModeButton3StyleClass: 'fa fa-male',
+        travelModeButton4Content: '',
+        travelModeButton4StyleClass: 'fa fa-wheelchair-alt'
+    }).addTo(map);
+    // Create a Leaflet tile layer object
+    var baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        minZoom: 3,
+        maxZoom: 19
+    }).addTo(map);
+
+    // Function to style the reachability polygons
+    function styleIsolines(feature) {
+        // Get the value of the range property of the feature
+        var rangeVal = feature.properties['Range'];
+        // If the range is based on distance, multiply the value by 10 to match the time range values
+        if (feature.properties['Measure'] == 'distance') rangeVal = rangeVal * 10;
+
+        return {
+            color: getColourByRange(rangeVal),
+            opacity: 0.5,
+            fillOpacity: 0.2
+        };
+    }
+
+
+    // Example function to style the isoline polygons when the user hovers over them
+    function highlightIsolines(e) {
+        // NOTE: as shown in the examples on the Leaflet website, e.target = the layer the user is interacting with
+        var layer = e.target;
+
+        layer.setStyle({
+            fillColor: '#ffea00',
+            dashArray: '1,13',
+            weight: 4,
+            fillOpacity: '0.5',
+            opacity: '1'
+        });
+    }
+
+    // Example function to reset the style of the isoline polygons when the user stops hovering over them
+    function resetIsolines(e) {
+        // NOTE: as shown in the examples on the Leaflet website, e.target = the layer the user is interacting with
+        var layer = e.target;
+
+        reachabilityControl.isolinesGroup.resetStyle(layer);
+    }
+
+    // Example function to display information about an isoline in a popup when the user clicks on it
+    function clickIsolines(e) {
+        // NOTE: as shown in the examples on the Leaflet website, e.target = the layer the user is interacting with
+        var layer = e.target;
+        var props = layer.feature.properties;
+        var popupContent = 'Mode of travel: ' + props['Travel mode'] + '<br />Range: 0 - ' + props['Range'] + ' ' + props['Range units'] + '<br />Area: ' + props['Area'] + ' ' + props['Area units'] + '<br />Population: ' + props['Population'];
+        if (props.hasOwnProperty('Reach factor')) popupContent += '<br />Reach factor: ' + props['Reach factor'];
+        layer.bindPopup(popupContent).openPopup();
+    }
+
+    // Example function to create a custom marker at the origin of the isoline groups
+    function isolinesOrigin(latLng, travelMode, rangeType) {
+        return L.circleMarker(latLng, {radius: 4, weight: 2, color: '#0073d4', fillColor: '#fff', fillOpacity: 1});
+    }
+
+
+    // Listen for the event fired when reachability areas are created on the map
+    map.on('reachability:displayed', function (e) {
+        var properties,
+            content;
+
+        // Iterate through the reachability polygons just created, binding a popup to each one
+        reachabilityControl.latestIsolines.eachLayer(function (layer) {
+            // Ensure we only bind popups to the polygons and not the origin marker.
+            // Marker layers don't have the 'feature' property
+            if (layer.hasOwnProperty('feature')) {
+                properties = layer.feature.properties;
+                content = 'Reachability 0 - ' + properties['Range'] + ' ' + properties['Range units'] + '<br />based on ' + properties['Travel mode'] + ' profile';
+                layer.bindPopup(content);
+            }
+        });
+    });
+
+    // Setup error handlers in case there is a problem when calling the API
+    map.on('reachability:error', function () {
+
+    });
+
+    map.on('reachability:no_data', function () {
+
+
+    });
+
+</script>
+<script>
+    $(document).ready(() => ({
+        options: {
+            // Leaflet positioning options
+            position: 'topleft',                                                        // Leaflet control pane position
+            pane: 'overlayPane',                                                        // Leaflet pane to add the isolines GeoJSON to
+            zIndexMouseMarker: 9000,                                                    // Needs to be greater than any other layer in the map - this is an invisible marker tied to the mouse pointer when the control is activated to prevent clicks interacting with other map objects
+
+            // Main control settings and styling
+            collapsed: true,                                                            // Operates in a similar way to the Leaflet layer control - can be collapsed into a standard single control which expands on-click (true) or is displayed fully expanded (false)
+            controlContainerStyleClass: '',                                             // The container for the plugin control will usually be styled with the standard Leaflet control styling, however this option allows for customisation
+            drawActiveMouseClass: 'leaflet-crosshair',                                  // CSS class applied to the mouse pointer when the plugin is in draw mode
+
+            // The containing div to hold the actual user interface controls
+            settingsContainerStyleClass: 'reachability-control-settings-container',     // The container holding the user interface controls which is displayed if collapsed is false, or when the user expands the control by clicking on the expand button
+            settingsButtonStyleClass: 'reachability-control-settings-button',           // Generic class to style the setting buttons uniformly - further customisation per button is available with specific options below
+            activeStyleClass: 'reachability-control-active',                            // Indicate to the user which button is active in the settings and the collapsed state of the control if settings are active
+            errorStyleClass: 'reachability-control-error',                              // Gives feedback to the user via the buttons in the user interface that something went wrong
+
+            // If collapsed == true a button is displayed to expand the control onclick/touch
+            expandButtonContent: '&#x2609;',                                            // HTML to display within the control if it is collapsed. If you want an icon from services like Fontawesome pass '' for this value and set the StyleClass option
+            expandButtonStyleClass: 'reachability-control-expand-button',               // Allow options for styling - if you want to use an icon from services like fontawesome pass the declarations here, e.g. 'fa fa-home' etc.
+            expandButtonTooltip: 'Show reachability options',                           // Tooltip to appear on-hover
+
+            // Collapse button displayed within the settings container if collapsed == true
+            collapseButtonContent: '^',
+            collapseButtonStyleClass: 'reachability-control-collapse-button',
+            collapseButtonTooltip: 'Hide reachability options',
+
+            // Draw isochrones button
+            drawButtonContent: 'drw',
+            drawButtonStyleClass: '',
+            drawButtonTooltip: 'Draw reachability',
+
+            // Delete button to remove any current isoline groups drawn on the map
+            deleteButtonContent: 'del',
+            deleteButtonStyleClass: '',
+            deleteButtonTooltip: 'Delete reachability',
+
+            // Isoline calculation mode - either distance or time
+            distanceButtonContent: 'dst',
+            distanceButtonStyleClass: '',
+            distanceButtonTooltip: 'Reachability based on distance',
+
+            timeButtonContent: 'tme',
+            timeButtonStyleClass: '',
+            timeButtonTooltip: 'Reachability based on time',
+
+            // Travel modes
+            travelModeButton1Content: 'car',
+            travelModeButton1StyleClass: '',
+            travelModeButton1Tooltip: 'Travel mode: car',
+
+            travelModeButton2Content: 'cyc',
+            travelModeButton2StyleClass: '',
+            travelModeButton2Tooltip: 'Travel mode: cycling',
+
+            travelModeButton3Content: 'wlk',
+            travelModeButton3StyleClass: '',
+            travelModeButton3Tooltip: 'Travel mode: walking',
+
+            travelModeButton4Content: 'wch',
+            travelModeButton4StyleClass: '',
+            travelModeButton4Tooltip: 'Travel mode: wheelchair',
+
+            // Control for the range parameter
+            rangeControlDistanceTitle: 'Dist.',
+            rangeControlDistance: null,                     // Custom range specified as an array which supersedes rangeControlDistanceMax and rangeControlDistanceInterval if not null
+            rangeControlDistanceMax: 3,
+            rangeControlDistanceInterval: 0.5,
+            rangeControlDistanceUnits: 'km',                // Can be either 'm', 'km' or 'mi'
+
+            rangeControlTimeTitle: 'Time',
+            rangeControlTime: null,                         // \  Custom range specified as an array which supersedes rangeControlTimeMax and rangeControlTimeInterval if not null
+            rangeControlTimeMax: 30,                        //  > All these values will be multiplied by 60 to convert to seconds - no other unit of time is allowed
+            rangeControlTimeInterval: 5,                    // /
+
+            rangeTypeDefault: 'time',                       // Range can be either distance or time - any value other than 'distance' passed to the API is assumed to be 'time'
+            rangeIntervalsLabel: 'intervals',               // The 'show intervals?' checkbox label
+
+            // API settings
+            apiKey: '',                                     // openrouteservice API key - the service which returns the isoline polygons based on the various options/parameters
+            travelModeProfile1: 'driving-car',              // \
+            travelModeProfile2: 'cycling-regular',          //   API choices are: 'driving-car', 'driving-hgv', 'cycling-regular', 'cycling-road', 'cycling-mountain', 'cycling-electric', 'foot-walking', 'foot-hiking' and 'wheelchair'
+            travelModeProfile3: 'foot-walking',             //   Setting any of these to null results in the button not being displayed
+            travelModeProfile4: 'wheelchair',               // /
+            travelModeDefault: null,                        // Set travel mode default - if this is not equal to one of the 4 profiles above it is set to the value of travelModeProfile1 in the onAdd function
+            smoothing: 0,                                   // Determines the level of generalisation applied to the isochrone polygons. Closer to 100 results in a more generalised shape
+            attributes: '"area","reachfactor","total_pop"', // Optional data returned from the API: area of the isoline(s), ratio of the area of an isochrone to the theoretical area based on ecludian distance, estimated population living within the area of an isoline
+
+            // Isoline styling and interaction
+            styleFn: null,                                  // External function to call which styles the isolines returned from API call
+            mouseOverFn: null,                              // External function to call when a mouseover event occurs on an isoline
+            mouseOutFn: null,                               // External function to call when a mouseout event occurs on an isoline
+            clickFn: null,                                  // External function to call when a click event occurs on an isoline
+
+            // Isoline origin marker styling and interaction
+            showOriginMarker: true,                         // If we want a marker to indicate the origin of the isoline
+            markerFn: null,                                 // External function to call to create a custom marker at the origin of the isoline if showOriginMarker is true - null creates a default circleMarker
+            markerOverFn: null,                             // External function to call when a mouseover event occurs on an origin marker
+            markerOutFn: null,                              // External function to call when a mouseout event occurs on an origin marker
+            markerClickFn: null                             // External function to call when a click event occurs on an origin marker
+        }
+    }))
+</script>
+</body>
+</html>

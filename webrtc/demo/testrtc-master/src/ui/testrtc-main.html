@@ -1,0 +1,244 @@
+<!--
+ *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree.
+-->
+<link rel="import" href="../../components/polymer/polymer.html"></script>
+<link rel="import" href="../../components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../components/paper-progress/paper-progress.html">
+<link rel="import" href="../../components/paper-button/paper-button.html">
+<link rel="import" href="../../components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="testrtc-suite.html">
+<link rel="import" href="testrtc-test.html">
+<link rel="import" href="gum-dialog.html">
+<link rel="import" href="report-dialog.html">
+<dom-module id="testrtc-main">
+  <style>
+    .titlebar {
+      --paper-toolbar-background: #4F7DC9;
+      --paper-toolbar-color: #FFF;
+      font-size: 18px;
+      font-weight: 500;
+      transition: height .2s;
+      font-family: 'Roboto', sans-serif;
+      max-width: 40em;
+      margin: 1em auto 1em auto;
+    }
+
+    #startButton {
+      line-height: 3em;
+      background-color: #9E9;
+      color: #000;
+    }
+
+    .section {
+      max-width: 40em;
+      margin-top: 3em;
+    }
+
+    .link {
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+      white-space: nowrap;
+    }
+  </style>
+  <template>
+    <gum-dialog heading="Welcome to WebRTC Troubleshooter" pending="{{pending}}"></gum-dialog>
+
+    <!-- Title toolbar -->
+    <paper-toolbar class="titlebar">
+      <span class="title">WebRTC Troubleshooter</span>
+      <paper-icon-button icon="menu" on-tap="openSettingsDialog"></paper-icon-button>
+      <paper-icon-button icon="bug-report" on-tap="openBugReport"></paper-icon-button>
+      <paper-button id="startButton" on-tap="run" raised disabled>Start</paper-button>
+    </paper-toolbar>
+
+    <!-- Settings dialog -->
+    <paper-dialog id="settings">
+      <h2>Settings</h2>
+
+      <div class="section">
+        <h3>Media</h3>
+        <div class="select"><label>Audio source: <select id="audioSource"></select></label></div>
+        <div class="select"><label>Video source: <select id="videoSource"></select></label></div>
+      </div>
+
+      <div class="section">
+        <h3>TURN</h3>
+        <paper-input label="URI" always-float-label placeholder="E.g.: turn:myserver.com:3478" value="{{settings.turnURI}}"></paper-input>
+        <paper-input label="Username" always-float-label value="{{settings.turnUsername}}"></paper-input>
+        <paper-input label="Credential" always-float-label value="{{settings.turnCredential}}"></paper-input>
+      </div>
+
+      <div class="section">
+        <h3>STUN</h3>
+        <paper-input label="URI" always-float-label placeholder="E.g.: stun:myserver.com:3478" value="{{settings.stunURI}}"></paper-input>
+      </div>
+
+      <div class="section">
+        <p>For convenience here is a link with these settings:</p>
+        <div class="link"><a href="[[_link]]">[[_link]]</a></div>
+      </div>
+
+      <div class="buttons">
+        <paper-button dialog-confirm>Continue</paper-button>
+      </div>
+    </paper-dialog>
+
+    <!-- Bug report dialog -->
+    <report-dialog id="bugreport"></report-dialog>
+  </template>
+  <script>
+    // Parse URL parameters and configure test filters.
+    function parseUrlParameters() {
+      var output = {};
+      if (window.location.search !== '') {
+        // python SimpleHTTPServer always adds a / on the end of the request.
+        // Remove it so developers can easily run testrtc on their machines.
+        // Note that an actual / is still sent in most cases as %2F.
+        var args = window.location.search.replace(/\//g, '').substr(1).split('&');
+        for (var i = 0; i !== args.length; ++i) {
+          var split = args[i].split('=');
+          output[decodeURIComponent(split[0])] = decodeURIComponent(split[1]);
+        }
+      }
+      return output;
+    }
+
+    Polymer({
+      is: 'testrtc-main',
+      properties: {
+        settings: {
+          type: Object,
+          value: function() { return parseUrlParameters(); }
+        },
+      },
+      _updateLink: function() {
+        var location = window.location;
+        var queryParams = [];
+        for (var key in this.settings) {
+          if (this.settings[key] !== '') {
+            queryParams.push(encodeURIComponent(key) + '=' + encodeURIComponent(this.settings[key]));
+          }
+        }
+        var queryString = (queryParams.length != 0) ? '?' + queryParams.join('&') : '';
+        this._link = location.protocol + '//' + location.host + location.pathname + queryString;
+      },
+      observers: [
+        '_pendingChanged(pending)',
+        '_updateLink(settings.*)'
+      ],
+      listeners: {
+        'bug-report': 'openBugReport',
+      },
+      _pendingChanged: function (pending) {
+        this.traceEnumDevice = report.traceEventAsync('enumerateDevices');
+        adapter.disableLog(true);
+        if (pending === false) {
+          // Populate the device selection drop down menu after the gUM dialog closes.
+          navigator.mediaDevices.enumerateDevices()
+              .then(this.gotSources.bind(this))
+              .catch(function(err) {
+                console.log('JS Device selection not supported', err);
+          });
+
+          window.doGetUserMedia = this.doGetUserMedia.bind(this);
+          this.$.startButton.removeAttribute('disabled');
+        }
+      },
+      gotSources: function(sourceInfos) {
+        for (var i = 0; i !== sourceInfos.length; ++i) {
+          var sourceInfo = sourceInfos[i];
+          var option = document.createElement('option');
+          option.value = sourceInfo.deviceId;
+          this.appendOption(sourceInfo, option);
+        }
+      },
+      appendOption: function (sourceInfo, option) {
+        if (sourceInfo.kind === 'audioinput') {
+          option.text = sourceInfo.label || 'microphone ' + (this.$.audioSource.length + 1);
+          this.$.audioSource.appendChild(option);
+        } else if (sourceInfo.kind === 'videoinput') {
+          option.text = sourceInfo.label || 'camera ' + (this.$.videoSource.length + 1);
+          this.$.videoSource.appendChild(option);
+        } else {
+          this.traceEnumDevice('Some other kind of source: ' + sourceInfo.kind);
+        }
+      },
+
+      doGetUserMedia: function(constraints, onSuccess, onFail) {
+        var self = this;
+        var traceGumEvent = report.traceEventAsync('getusermedia');
+
+        try {
+          // Append the constraints with the getSource constraints.
+          this.appendSourceId(this.$.audioSource.value, 'audio', constraints);
+          this.appendSourceId(this.$.videoSource.value, 'video', constraints);
+
+          traceGumEvent({'status': 'pending', 'constraints': constraints});
+          // Call into getUserMedia via the polyfill (adapter.js).
+          navigator.mediaDevices.getUserMedia(constraints)
+              .then(function(stream) {
+                var cam = self.getDeviceName_(stream.getVideoTracks());
+                var mic = self.getDeviceName_(stream.getAudioTracks());
+                traceGumEvent({'status': 'success', 'camera': cam,
+                    'microphone': mic});
+                onSuccess.apply(this, arguments);
+              })
+              .catch(function(error) {
+                traceGumEvent({'status': 'fail', 'error': error});
+                if (onFail) {
+                  onFail.apply(this, arguments);
+                } else {
+                  reportFatal('Failed to get access to local media due to ' +
+                      'error: ' + error);
+                }
+              });
+        } catch (e) {
+          console.log(e);
+          traceGumEvent({'status': 'exception', 'error': e.message});
+          return reportFatal('getUserMedia failed with exception: ' +
+              e.message);
+        }
+      },
+
+      appendSourceId: function(id, type, constraints) {
+        if (constraints[type] === true) {
+          constraints[type] = {optional: [{sourceId: id}]};
+        } else if (typeof constraints[type] === 'object') {
+          if (typeof constraints[type].optional === 'undefined') {
+            constraints[type].optional = [];
+          }
+          constraints[type].optional.push({sourceId: id});
+        }
+      },
+
+      // Return the first device label on the track.
+      getDeviceName_: function(tracks) {
+        if (tracks.length === 0) {
+          return null;
+        }
+        return tracks[0].label;
+      },
+
+      run: function() {
+        var self = this;
+        this.$.startButton.setAttribute('disabled', null);
+        runAllSequentially(enumeratedTestSuites, function() {
+          self.$.startButton.removeAttribute('disabled');
+        });
+      },
+
+      openBugReport: function() {
+        // Hack: it appears that having two modal dialogs open at same time leads to issues,
+        // so we close the gum dialog before opening the report one.
+        this.pending = false;
+        this.$.bugreport.open();
+      },
+      openSettingsDialog: function() { this.$.settings.open(); }
+    });
+  </script>
+</dom-module>

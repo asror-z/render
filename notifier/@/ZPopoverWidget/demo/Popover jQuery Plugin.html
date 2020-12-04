@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://foundops.github.io/popover/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+    <title>Popover jQuery Plugin</title>
+
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="./Popover jQuery Plugin_files/bootstrap.css" rel="stylesheet">
+    <link href="./Popover jQuery Plugin_files/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./Popover jQuery Plugin_files/prettify.css" type="text/css" rel="stylesheet">
+    <link href="./Popover jQuery Plugin_files/jquery.jscrollpane.css" type="text/css" rel="stylesheet">
+    <link href="./Popover jQuery Plugin_files/main.css" rel="stylesheet" type="text/css">
+    <link href="./Popover jQuery Plugin_files/popover.less" rel="stylesheet/less" type="text/css">
+    <script src="./Popover jQuery Plugin_files/jquery.min.js.download"></script>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://foundops.github.io/popover/Icon-96x96.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://foundops.github.io/popover/Icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" href="http://foundops.github.io/popover/Icon-36x36.png">
+    <link rel="shortcut icon" href="http://foundops.github.io/popover/Icon-36x36.png">
+    <meta http-equiv="cleartype" content="on">
+    <link href="./Popover jQuery Plugin_files/css" rel="stylesheet" type="text/css">
+<style type="text/css" media="screen" id="less:popover-styles-popover">/*  Colors */
+html {
+  font-size: 100%;
+}
+.borderBox {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#popoverWrapper {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  position: fixed;
+  height: 100%;
+  width: 305px;
+  padding-top: 14px;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 10;
+  pointer-events: none;
+  -webkit-transform: translatez(0);
+}
+#popover {
+  position: relative;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  color: #333335;
+  visibility: visible !important;
+  z-index: 10;
+  -webkit-transform: translatez(0);
+}
+#popover a {
+  color: #333335;
+}
+#popoverHeader {
+  position: absolute;
+  z-index: 1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  line-height: 45px;
+  font-size: 0.8888888888888888em;
+  background: #ffffff;
+  border-bottom: 1px solid #cccccc;
+  visibility: visible;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  height: 49px;
+  pointer-events: auto;
+  border-top: 1px solid #cccccc;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-top-left-radius: 5px;
+  -ms-border-top-left-radius: 5px;
+  -o-border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-top-right-radius: 5px;
+  -ms-border-top-right-radius: 5px;
+  -o-border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+#popoverArrow {
+  position: absolute;
+  float: left;
+  margin-top: -15px;
+  margin-left: -11px;
+  /* Half width */
+
+  visibility: visible;
+  left: 50%;
+  z-index: 2;
+  line-height: 20px;
+  height: 18px;
+  width: 18px;
+  font-size: 18px;
+  color: #fff;
+  -webkit-transform: scale(2, 1);
+  text-shadow: 0 -1px #cccccc;
+}
+.flipArrow {
+  text-shadow: 0 1px #ccc !important;
+}
+#popoverClose,
+#popoverBack {
+  position: absolute;
+  cursor: pointer;
+  height: 49px;
+  line-height: 49px;
+}
+#popoverCloseIcon,
+#popoverBackIcon {
+  display: inline-block;
+  color: #555;
+  margin: -2px 10px;
+  font-size: 22px;
+  font-weight: 800;
+}
+#popoverClose {
+  top: 0;
+  right: 0;
+}
+#popoverBackIcon {
+  -webkit-transform: scale(0.75, 1);
+}
+#popoverBackIcon:hover,
+#popoverCloseIcon:hover {
+  color: #333335;
+}
+#popoverTitle {
+  white-space: nowrap;
+  text-align: center;
+  max-width: 225px;
+  overflow: hidden;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#popoverContentWrapper {
+  position: relative;
+  overflow: visible !important;
+  padding-top: 0px;
+  height: 100%;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.roundedCornersTop {
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-top-left-radius: 5px;
+  -ms-border-top-left-radius: 5px;
+  -o-border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-top-right-radius: 5px;
+  -ms-border-top-right-radius: 5px;
+  -o-border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.roundedCornersBot {
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-bottom-left-radius: 5px;
+  -ms-border-bottom-left-radius: 5px;
+  -o-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-bottom-right-radius: 5px;
+  -ms-border-bottom-right-radius: 5px;
+  -o-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#popoverContent {
+  border-top: 1px solid #cccccc;
+  visibility: visible;
+  position: relative;
+  overflow: auto;
+  min-height: 43px;
+  max-height: 100%;
+  width: 100%;
+  text-align: left;
+  font-size: 1em;
+  background: #ffffff;
+  box-shadow: 0px 12px 15px -6px #888888;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-bottom-left-radius: 5px;
+  -ms-border-bottom-left-radius: 5px;
+  -o-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-bottom-right-radius: 5px;
+  -ms-border-bottom-right-radius: 5px;
+  -o-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-top-left-radius: 5px;
+  -ms-border-top-left-radius: 5px;
+  -o-border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-top-right-radius: 5px;
+  -ms-border-top-right-radius: 5px;
+  -o-border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#popoverContent .last {
+  border-bottom: none;
+  padding-bottom: 13px;
+}
+.popoverContentRow {
+  display: block;
+  cursor: pointer;
+  padding: 12px 23px;
+  border-bottom: 1px solid #f1f2f2;
+}
+.popoverContentRow:hover {
+  background: #e6e6e6;
+}
+@media only screen and (max-width: 390px) {
+  
+}
+#popoverContentWrapper .jspPane {
+  width: 100% !important;
+  -webkit-box-shadow: 0 0 10px #777779;
+  box-shadow: 0 0 10px #777779;
+}
+#popoverContentWrapper .jspDrag {
+  background: #777779;
+}
+#popoverContentWrapper .jspCapTop {
+  display: block;
+  height: 49px;
+}
+#popoverContentWrapper .jspCapBottom {
+  display: block;
+  height: 2px;
+}
+#popoverWrapper,
+#popover,
+#popoverContentWrapper .jspContainer {
+  pointer-events: none;
+}
+#popoverWrapper .jspPane,
+#popoverWrapper .jspVerticalBar,
+#popoverHeader,
+#popoverContent {
+  pointer-events: auto;
+}
+</style></head>
+<body onload="prettyPrint()">
+<div id="gitButtons">
+    <div class="btn-top">
+        <iframe src="./Popover jQuery Plugin_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="81px" height="20px"></iframe>
+    </div>
+    <div class="btn-top">
+        <iframe src="./Popover jQuery Plugin_files/github-btn(1).html" allowtransparency="true" frameborder="0" scrolling="0" width="73px" height="20px"></iframe>
+    </div>
+    <div class="btn-top">
+        <iframe src="./Popover jQuery Plugin_files/github-btn(2).html" allowtransparency="true" frameborder="0" scrolling="0" width="132px" height="20px"></iframe>
+    </div>
+</div>
+<div class="container-fluid">
+<div class="row-fluid">
+<div id="content" class="span12">
+<!-- Template Start -->
+<h2 id="components-popover">
+    Popover
+    <small>popover.js</small>
+
+    <p style="float: right;"><a href="https://raw.github.com/FoundOPS/popover/master/popover.js" class="btn">Download</a></p>
+</h2>
+<div class="row-fluid">
+                    <span class="span3 columns">
+                        <p>To use the Popover, first include the required javascript and css files.</p>
+                        <p>Next, create the popover with either a jQuery plugin call,
+                            or by creating a classic javascript object:</p>
+                    </span>
+
+                    <span class="span9 columns">
+                        <h4>The jQuery plugin</h4>
+                        <p></p><pre class="prettyprint"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> menu1 </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        id</span><span class="pun">:</span><span class="pln"> </span><span class="str">"menu1"</span><span class="pun">,</span><span class="pln"> title</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Hello World"</span><span class="pun">,</span><span class="pln">
+        contents</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Item 1"</span><span class="pun">},</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Item 2"</span><span class="pun">},</span><span class="pln">
+            </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Item 3"</span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">};</span><span class="pln">
+    $</span><span class="pun">(</span><span class="str">"#menu1"</span><span class="pun">).</span><span class="pln">optionsPopover</span><span class="pun">(</span><span class="pln">menu1</span><span class="pun">);</span></pre><p></p>
+
+                        <h4>Creating a javascript object</h4>
+                        <p></p><pre class="prettyprint"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> p </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">OptionsPopover</span><span class="pun">(</span><span class="str">"#menu1"</span><span class="pun">);</span><span class="pln">
+    p</span><span class="pun">.</span><span class="pln">addMenu</span><span class="pun">(</span><span class="pln">menu1</span><span class="pun">);</span></pre><p></p>
+                    </span>
+</div>
+<p>
+    <span class="label label-info">Note:</span> The id <code>#menu1</code> is also the name linked to the first menu for
+    that button. To access the starting menus from other buttons, just set the menu item's id to the starting menu's id.
+</p>
+
+<h3>Example</h3>
+<p><a id="button1" class="btn popoverListener2" style="cursor: pointer;">Show Popover!</a>
+    <a id="button2" class="btn popoverListener3" style="cursor: pointer;">Show Another Popover!</a></p>
+<script>
+    $(document).ready(function(){
+        $("#button1").optionsPopover({
+            id: "button1",
+            title: "Hello World!",
+            contents: [
+                {"name": "About", url: "./index.html"},
+                {"name": "Components", url: "./components.html"},
+                {"name": "Link to second button's menu...", id: "button2"}
+            ]
+        });
+        $("#button2").optionsPopover({
+                    id:"button2",
+                    title: "Hello Again, World!",
+                    contents: [
+                        {"name": "Facebook", url: "http://www.facebook.com"},
+                        {"name": "Google", url: "http://www.google.com"},
+                        {"name": "Link to first button's menu...", id: "button1"}
+                    ]
+                }
+        );
+
+        $(document).on("popover.created", function () {
+            $("#popoverContentWrapper").jScrollPane({
+                horizontalGutter: 0,
+                verticalGutter: 0,
+                'showArrows': false
+            });
+        });
+
+        $(document).on('popover.setContent popover.updatePositions popover.visible popover.resize', function (e) {
+            $("#popoverContentWrapper").data('jsp').reinitialise();
+        });
+    });
+</script>
+<h4>Html</h4>
+                    <pre class="prettyprint lang-html"><span class="pln">    </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"menu1"</span><span class="tag">&gt;</span><span class="pln">Show Popover!</span><span class="tag">&lt;/button&gt;</span><span class="pln">
+    </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"menu2"</span><span class="tag">&gt;</span><span class="pln">Show Another Popover!</span><span class="tag">&lt;/button&gt;</span></pre>
+<h4>Javascript</h4>
+                    <pre class="prettyprint lang-js"><span class="pln">    $</span><span class="pun">(</span><span class="str">"#menu1"</span><span class="pun">).</span><span class="pln">optionsPopover</span><span class="pun">({</span><span class="pln">
+        id</span><span class="pun">:</span><span class="pln"> </span><span class="str">"menu1"</span><span class="pun">,</span><span class="pln">
+        title</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Hello World!"</span><span class="pun">,</span><span class="pln">
+        contents</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+            </span><span class="pun">{</span><span class="str">"name"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Menu Item 1"</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">"m1"</span><span class="pun">},</span><span class="pln">
+            </span><span class="pun">{</span><span class="str">"name"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Menu Item 2"</span><span class="pun">,</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="str">"m2"</span><span class="pun">},</span><span class="pln">
+            </span><span class="pun">{</span><span class="str">"name"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Link to second button's menu..."</span><span class="pun">,</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="str">"menu2"</span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">]</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+    $</span><span class="pun">(</span><span class="str">"#menu2"</span><span class="pun">).</span><span class="pln">optionsPopover</span><span class="pun">({</span><span class="pln">
+        id</span><span class="pun">:</span><span class="str">"menu2"</span><span class="pun">,</span><span class="pln">
+        title</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Hello Again, World!"</span><span class="pun">,</span><span class="pln">
+        contents</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+                </span><span class="pun">{</span><span class="str">"name"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Another Menu Item 1"</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">"am1"</span><span class="pun">},</span><span class="pln">
+                </span><span class="pun">{</span><span class="str">"name"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Another Menu Item 2"</span><span class="pun">,</span><span class="pln"> url</span><span class="pun">:</span><span class="pln"> </span><span class="str">"am2"</span><span class="pun">},</span><span class="pln">
+                </span><span class="pun">{</span><span class="str">"name"</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Link to first button's menu..."</span><span class="pun">,</span><span class="pln"> id</span><span class="pun">:</span><span class="pln"> </span><span class="str">"menu1"</span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">]</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">);</span></pre>
+<h3>Events</h3>
+<p>The following are jQuery custom events fired at different times within the popover:</p>
+<p></p><table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th style="width: 150px;">Event</th>
+        <th>Description</th>
+        <th>Objects Passed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>popover.created</td>
+        <td>This event is fired at the end of the createPopover function.</td>
+        <td class="muted">None</td>
+    </tr>
+    <tr>
+        <td>popover.resize</td>
+        <td>This event is fired when the window is resized (redundant event, will be removed in future release).</td>
+        <td class="muted">None</td>
+    </tr>
+    <tr>
+        <td>popover.setContent</td>
+        <td>This event is fired at the end of the setContent function, showing the contents have been modified.</td>
+        <td class="muted">None</td>
+    </tr>
+    <tr>
+        <td>popover.visible</td>
+        <td>This event is fired at the end of the toggleVisible function and fires when the popover is visible to the user. (Currently does not wait css transitions to complete).</td>
+        <td class="muted">None</td>
+    </tr>
+    <tr>
+        <td>popover.menuClicked</td>
+        <td>This event is fired when a menu item in the popover has been clicked.</td>
+        <td class="muted">None</td>
+    </tr>
+    </tbody>
+</table><p></p>
+
+<h3>Popover w/ jScrollPane Plugin</h3>
+<p>
+    The popover can be easily integrated with the jScrollPane jQuery plugin. This adds mobile functionality
+    to scrolling divs and adds more customizability to the look and feel of the popover.
+</p>
+<p>
+</p><h4>Javascript</h4>
+                    <pre class="prettyprint lang-js"><span class="pln">    </span><span class="com">//To initialise, use the code below:</span><span class="pln">
+    $</span><span class="pun">(</span><span class="pln">document</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">"popover.created"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        $</span><span class="pun">(</span><span class="str">"#popoverContentWrapper"</span><span class="pun">).</span><span class="pln">jScrollPane</span><span class="pun">({</span><span class="pln">
+            horizontalGutter</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln">
+            verticalGutter</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln">
+            </span><span class="str">'showArrows'</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+
+    $</span><span class="pun">(</span><span class="pln">document</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">'popover.setContent popover.visible popover.resize'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        $</span><span class="pun">(</span><span class="str">"#popoverContentWrapper"</span><span class="pun">).</span><span class="pln">data</span><span class="pun">(</span><span class="str">'jsp'</span><span class="pun">).</span><span class="pln">reinitialise</span><span class="pun">();</span><span class="pln">
+    </span><span class="pun">});</span></pre>
+<p></p>
+<!--form class="form-vertical">
+    <fieldset>
+        <legend>Create Menu</legend>
+        <div class="control-group">
+            <label class="control-label" for="input01">Title</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="input01">
+                <p class="help-block">Title will appear at the top of the popover.</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input02">ID</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="input02">
+                <p class="help-block">Insert id here.</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input03">Menu Entry</label>
+            <div class="controls">
+                <textarea class="input-xlarge" id="input03" rows="4"></textarea>
+                <p class="help-block">Write the menu block in json.</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">Create Menu</button>
+            </div>
+        </div>
+    </fieldset>
+</form-->
+
+<!-- Template End -->
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="./Popover jQuery Plugin_files/less.min.js.download"></script>
+<script src="./Popover jQuery Plugin_files/jquery.jScrollPane.js.download"></script>
+<script src="./Popover jQuery Plugin_files/jquery.mousewheel.js.download"></script>
+<script src="./Popover jQuery Plugin_files/bootstrap.min.js.download"></script>
+<script type="text/javascript" src="./Popover jQuery Plugin_files/prettify.js.download"></script>
+<script type="text/javascript" src="./Popover jQuery Plugin_files/popover.js.download"></script>
+
+
+</body></html>

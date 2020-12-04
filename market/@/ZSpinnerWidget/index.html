@@ -1,0 +1,399 @@
+<! DOCTYPE html >
+< html  lang = " en " >
+<!--< голова >-->
+< meta  charset = " UTF-8 " >
+< title > bootstrap-input-spinner </ title >
+< link  rel = " stylesheet " href = " ./node_modules/bootstrap/dist/css/bootstrap.min.css " />
+< link  rel = " таблица стилей " href = " ./node_modules/prismjs/themes/prism-t Saturday.css " />
+< meta  name = " viewport " content = " width = device-width, initial-scale = 1 " />
+< style  type = " text / css " >
+h2 {
+маржинальная вершина : 2 бэр ;
+}
+
+h3 {
+маржинальная вершина : 1 бэр ;
+}
+
+/ * noinspection CssUnusedSymbol * /
+, вход-группа ,  вход . вход тестового значения {
+максимальная ширина : 250 пикселей ;
+}
+
+, код {
+цвет фона : # f1f2f3 ;
+семейство шрифтов : Courier , monospace;
+}
+</ style >
+</ head >
+< тело >
+< section  class = " container pt-3 " >
+< h1 > bootstrap-input-spinner </ h1 >
+< p >
+Плагин Bootstrap 4 / jQuery для создания входных элементов счетчика для ввода чисел
+< HREF = " https://shaack.com/en " > shaack.com </ > машиностроение.
+</ p >
+< p >
+Лицензия: < HREF = " https://github.com/shaack/bootstrap-input-spinner/blob/master/LICENSE " > MIT </ >
+</ p >
+< h2 > Особенности </ h2 >
+< p > Bootstrap 4 InputSpinner - это </ p >
+< ul >
+< li >
+< b > для мобильных устройств </ b > и < b > отзывчивый </ b > ,
+</ li >
+< li >
+автоматически изменяет значение при < b > удерживании кнопки </ b > , ускоряет изменение значения при длительном удерживании кнопки,
+</ li >
+< li >
+имеет < b > интернационализированное </ b > форматирование чисел,
+</ li >
+< li >
+позволяет установить < b > префикс </ b > или < b > суффикс </ b > текста во входных данных,
+</ li >
+< li >
+обрабатывает < b > < span  class = " code " > val () </ span > </ b > как собственный элемент,
+</ li >
+< li >
+< b > динамически обрабатывает </ b > изменение < b > значений атрибутов </ b >, например, < span  class = " code " > disabled </ span > oder
+< span  class = " code " > class </ span > ,
+</ li >
+< li >
+отправляет < span  class = " code " > change </ span > и < span  class = " code " > input </ span >  < b > события по значению
+изменить </ b >
+как родной элемент.
+</ li >
+</ ul >
+< h2 > Использование </ h2 >
+< p >
+Этот сценарий включает InputSpinner для всех входов с < span  class = " code " > type = 'number' </ span > на этой странице.
+< b > Никаких дополнительных CSS не требуется </ b > , просто Bootstrap 4.
+</ p >
+< pre > < code  class = " language-html " > & lt; script src = "./ src / bootstrap-input-spinner.js" > & lt; / script >
+& lt; script >
+$ ( "Вход [тип = 'число']"). InputSpinner ()
+& lt; / script > </ code > </ pre >
+< h2 > Репозиторий, документация и пакет npm </ h2 >
+< p > Найдите исходный код, дополнительную документацию и пакет npm на </ p >
+< ul >
+< Литий > < HREF = " https://github.com/shaack/bootstrap-input-spinner " > GitHub хранилище и документация </ > </ литий >
+< Литий > < HREF = " https://www.npmjs.com/package/bootstrap-input-spinner " > NPM пакет </ > </ литий >
+</ ul >
+< h2 > Примеры </ h2 >
+< p > Ниже приведены примеры основных функций InputSpinner </ p >
+
+< h3 > Простое целое число </ h3 >
+< p >
+< input  type = " number " value = " 500 " min = " 0 " max = " 1000 " step = " 10 " />
+</ p >
+< pre > < code
+class = " language-html " > & lt; input type = "number" value = "500" min = "0" max = "1000" step = "10" / > </ code > </ pre >
+< h3 > Плавающая точка </ h3 >
+< p >
+< input  type = " number " value = " 4.5 " data-decimals = " 2 " min = " 0 " max = " 9 " step = " 0.1 " />
+</ p >
+< pre > < code
+class = " language-html " > & lt; input type = "number" value = "4.5" data-decimals = "2" min = "0" max = "9" step = "0.1" / > </ code > < / pre >
+
+< h3 > Обрабатывать < span  class = " code " > change </ span > и < span  class = " code " > input </ span > события и
+читать значение из JavaScript
+с < span  class = " code " > val () </ span > </ h3 >
+< p >
+Введите число, чтобы увидеть разницу между < span  class = " code " > change </ span > и < span
+class = " code " > input </ span > события.
+< input  type = " number " id = " updatedInput " value = " 2500 " min = " 0 " max = " 5000000 " data-decimals = " 2 " />
+</ p >
+< p >
+Значение на входе: < диапазон  ID = " valueOnInput " > </ промежуток > < бр />
+Значение при изменении: < span  id = " valueOnChange " > </ span >
+</ p >
+< pre > < code  class = " language-javascript " > var $ updatedInput = $ ("# updatedInput")
+var $ valueOnInput = $ ("# valueOnInput")
+var $ valueOnChange = $ ("# valueOnChange")
+$ changeInput.on ("input", function (event) {
+$ ValueOnInput.html ($ changedInput.val ())
+})
+$ changeInput.on ("change", function (event) {
+$ ValueOnChange.html ($ changedInput.val ())
+}) </ code > </ pre >
+< h3 > Программное изменение значения с помощью < span  class = " code " > val () </ span > </ h3 >
+< p >
+Сеть
+< input  type = " number " id = " inputNet " value = " 100 " min = " 0 " max = " 10000 " step = " 0.01 " data-decimals = " 2 " />
+</ p >
+< p >
+Валовая (+ 19%)
+< input  type = " number " id = " inputGross " value = " 100 " min = " 0 " max = " 11900 " step = " 0.01 " data-decimals = " 2 " />
+</ p >
+< pre > < code  class = " language-javascript " > $ inputNet.on ("change", function (event) {
+$ inputGross.val ($ inputNet.val () * 1.19)
+})
+$ inputGross.on ("change", function (event) {
+$ inputNet.val ($ inputGross.val () / 1.19)
+}) </ code > </ pre >
+< h3 > Атрибуты < span  class = " code " > местозаполнитель </ span > и < span  class = " code " > обязательны </ span > </ h3 >
+< форма >
+< p >
+< input  placeholder = " Введите число " обязательно  type = " number " value = "" min = " -100 " max = " 100 " />
+</ p >
+< pre > < code
+class = " language-html " > & lt; input < strong > placeholder </ strong > = "Введите число" < strong > обязательно </ strong > type = "number" value = "" min = "- 100" max = "100" / > </ code > </ pre >
+< input  type = " submit " id = " submitButton " class = " btn btn-primary mb-4 " value = " Отправить для проверки пустого ввода " />
+</ form >
+
+< h3 > Атрибут < span  class = " code " > отключен </ span > , динамически изменяется </ h3 >
+< p > Атрибуты обрабатываются динамически. </ p >
+< форма >
+< p >
+< input  id = " inputDisabled " отключено  type = " number " value = " 50 " />
+</ p >
+< div  class = " проверка формы " >
+< Входной  тип = " флажок " проверено  класс =" форма-регистрация вход " ID =" disabledSwitch " >
+< label  class = " form-check-label " for = " disabledSwitch " > Отключено </ label >
+</ div >
+< pre > < code  class = " language-html " > & lt; input id = "inputDisabled" disabled type = "number" value = "50" / >
+& lt; div class = "form-check" >
+& lt; input type = "checkbox" check class = "form-check-input" id = "disabledSwitch" />
+& lt; label class = "form-check-label" for = "disabledSwitch" > Disabled & lt; / label >
+& lt; / div >
+& lt; script >
+var $ inputDisabled = $ ("# inputDisabled")
+var $ disabledSwitch = $ ("# disabledSwitch")
+$ disabledSwitch.on ("изменить", функция () {
+$ inputDisabled.prop («отключено», $ (this) .prop («проверено»))
+})
+& lt; / script > </ code > </ pre >
+</ form >
+
+< H3 > Динамически обработки из < поверочного  класса = " код " > класса </ промежуток > атрибут </ h3 >
+< p >
+< input  id = " inputChangeClass " class = " is-valid " type = " number " value = " 50 " />
+</ p >
+< p >
+< label  for = " classInput " > CSS Class </ label >
+< input  id = " classInput " type = " text " class = " form-control test-value-input " value = " is-valid " />
+Попробуйте изменить класс на «is-invalid» или «text-info».
+</ p >
+
+< pre > < code  class = " language-html " > & lt; input id = "inputChangeClass" class = "is-valid" type = "number" value = "50" / >
+& lt; label for = "classInput" > Класс CSS & lt; / label >
+& lt; input id = "classInput" type = "text" class = "form-control" value = "is-valid" />
+& lt; script >
+var $ inputChangeClass = $ ("# inputChangeClass")
+var $ classInput = $ ("# classInput")
+$ classInput.on ("input", function () {
+$ inputChangeClass.prop ("class", this.value);
+})
+& lt; / script > </ code > </ pre >
+
+< h3 > Размеры </ h3 >
+< p > Размеры работают из коробки. Просто установите исходный входной класс в < span  class = " code " > form-control-sm </ span > или
+< span  class = " code " > form-control-lg </ span > и
+результирующая группа получает класс < span  class = " code " > input-group-sm </ span > или < span
+class = " code " > input-group-lg </ span > . </ p >
+< p >
+Маленький
+< input  class = " form-control-sm " type = " number " value = " 0.0 " data-decimals = " 4 " min = " -1 " max = " 1 " step = " 0.0001 " />
+</ p >
+< pre > < code  class = " language-html " > & lt; input class = "form-control-sm" type = "number" value = "0.0" data-decimals = "4" min = "- 1" max = "1" step = "0.0001" / > </ code > </ pre >
+< p >
+большой
+< input  class = " form-control-lg " type = " number " value = " 1000000 " data-decimals = " 0 " min = " 0 " max = " 2000000 " step = " 1 " />
+</ p >
+< pre > < code  class = " language-html " > & lt; input class = "form-control-lg" type = "number" value = "1000000" data-decimals = "0" min = "0" max = " 2000000 "step =" 1 "/ > </ code > </ pre >
+
+
+< h3 > Динамическая обработка < span  class = " code " > min </ span > , < span  class = " code " > max </ span > , < span
+class = " code " > step </ span > и < span  class = " code " > десятичные данные </ span > </ h3 >
+< div  class = " row " >
+< div  class = " col-lg-3 " >
+< p >
+< label  for = " minInput " > min </ label >
+< input  id = " minInput " type = " text " class = " form-control test-value-input " value = " 0 " />
+</ p >
+</ div >
+< div  class = " col-lg-3 " >
+< p >
+< label  for = " maxInput " > max </ label >
+< input  id = " maxInput " type = " text " class = " form-control test-value-input " value = " 100 " />
+</ p >
+</ div >
+< div  class = " col-lg-3 " >
+< p >
+< label  for = " stepInput " > step </ label >
+< input  id = " stepInput " type = " text " class = " form-control test-value-input " value = " 0,05 " />
+</ p >
+</ div >
+< div  class = " col-lg-3 " >
+< p >
+< label  for = " dataDecimalsInput " > десятичные данные </ label >
+< input  id = " dataDecimalsInput " type = " text " class = " control-value-input-control-формы " value = " 2 " />
+</ p >
+</ div >
+</ div >
+< p >
+< label  for = " minMaxTester " > Попробуйте здесь </ label >
+< input  id = " minMaxTester " type = " number " value = " 50 " min = " 0 " max = " 100 " step = " 0,05 " data-decimals = " 2 " />
+</ p >
+< pre > < code  class = " language-javascript " > var $ minInput = $ ("# minInput")
+var $ maxInput = $ ("# maxInput")
+var $ stepInput = $ ("# stepInput")
+var $ dataDecimalsInput = $ ("# dataDecimalsInput")
+var $ minMaxTester = $ ("# minMaxTester")
+$ minInput.on ("изменить", функция (событие) {
+$ minMaxTester.attr ("min", $ minInput.val ())
+})
+$ maxInput.on ("изменить", функция (событие) {
+$ minMaxTester.attr ("max", $ maxInput.val ())
+})
+$ stepInput.on ("change", function (event) {
+$ minMaxTester.attr ("step", $ stepInput.val ())
+})
+$ dataDecimalsInput.on ("change", function (event) {
+$ minMaxTester.attr ("data-decimals", $ dataDecimalsInput.val ())
+})
+</ code > </ pre >
+
+
+< h3 > Префикс и суффикс </ h3 >
+< p >
+Приставка
+< input  data-prefix = " $ " value = " 100.0 " data-decimals = " 2 " min = " 0 " max = " 1000 " step = " 0.1 " type = " number " />
+</ p >
+< pre > < code  class = " language-html " > & lt; input data-prefix = "$" value = "100.0" data-decimals = "2" min = "0" max = "1000" step = "0.1" type = "number" / > </ code > </ pre >
+< p >
+Суффикс
+< input  data-суффикс = " ° C " значение = " 50 " min = " 0 " max = " 100 " type = " number " />
+</ p >
+< pre > < code
+class = " language-html " > & lt; input data-суффикс = "° C" значение = "50" min = "0" max = "100" type = "number" / > </ code > </ pre >
+
+
+< h3 > Атрибут < span  class = " code " > data-step-max </ span > и зацикливание значения </ h3 >
+< p > Этот ввод начинается с 0 при достижении 360. </ p >
+< p >
+< input  type = " number " id = " inputLoop " value = " 0 " data-decimals = " 0 " min = " -10 " max = " 360 " step = " 1 "
+data-step-max = " 10 " />
+</ p >
+< p > Используйте атрибут < span  class = " code " > data-step-max </ span >, чтобы ограничить скорость шага. </ p >
+< pre > < code  class = " language-html " > & lt; input step = "1" data-step-max = "10" type = "number" id = "inputLoop" value = "0" data-decimals = " 0 "min =" - 10 "max =" 360 "/ & gt; </ code > </ pre >
+< p > "Зацикливание" значения между 0 и 360 с событием < span  class = " code " > change </ span > в JavaScript. </ p >
+< pre > < code  class = " language-javascript " > var $ inputLoop = $ ("# inputLoop")
+$ inputLoop.on ("change", function (event) {
+var value = $ inputLoop.val ()
+значение = (значение <  0 )  ?  360  +  parseInt (значение  10)  :  значение  %  360
+$ InputLoop.val (значение)
+})</ code > </ pre >
+< h3 > Измените min max и значение </ h3 >
+< Р > Это для тестирования < а  HREF = " https://github.com/shaack/bootstrap-input-spinner/issues/45 " > выпуск № 45 </ > </ р >
+< div  class = " mb-3 " >
+< input  type = " number " id = " minMaxValue " />
+</ div >
+< button  id = " buttonTest1 " class = " btn btn-primary " > test1 </ button >
+< button  id = " buttonTest2 " class = " btn btn-primary " > test2 </ button >
+< pre >
+< code  class = " language-javascript " > $ ("# buttonTest1"). click (function () {
+$ ("# minMaxValue"). attr ("min", 11)
+$ ("# minMaxValue"). attr ("max", 1000)
+$ ( "# MinMaxValue"). Вал (45)
+})
+$ ("# buttonTest2"). click (function () {
+$ ("# minMaxValue"). attr ("min", 1)
+$ ("# minMaxValue"). attr ("max", 10)
+$ ( "# MinMaxValue"). Вал (5)
+}) </ code > </ pre >
+< h2 > На данный момент это все </ h2 >
+< p > Если вам нравится этот плагин, вы также можете проверить наш < a
+href = " https://shaack.com/projekte/bootstrap-show-modal/ " > bootstrap-show-modal </ a > . </ p >
+< p > А если вы найдете ошибки или у вас есть предложения, вы можете написать
+< HREF = " https://github.com/shaack/bootstrap-input-spinner/issues " > Вопрос </ > . </ p >
+< Бр /> < бр />
+</ section >
+<! - для начальной загрузки требуется jQuery ->
+< script  src = " ./node_modules/jquery/dist/jquery.min.js " > </ script >
+< script  src = " ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js " > </ script >
+< script  src = " src / bootstrap-input-spinner.js " > </ script >
+< script  src = " ./node_modules/prismjs/prism.js " > </ script >
+< скрипт >
+$ ( "input [type = 'number']" ) . inputSpinner ( )
+</ script >
+< скрипт >
+var  $ inputChangeClass  =  $ ( "#inputChangeClass" )
+var  $ classInput  =  $ ( "#classInput" )
+$ classInput . on ( "input" ,  function  ( )  {
+$ inputChangeClass . prop ( "класс" ,  это . значение )
+} )
+</ script >
+< скрипт >
+var  $ inputDisabled  =  $ ( "#inputDisabled" )
+var  $ disabledSwitch  =  $ ( "#disabledSwitch" )
+$ disabledSwitch . вкл ( "изменить" ,  функция  ( )  {
+$ inputDisabled . prop ( «отключено» ,  $ ( this ) . prop ( «проверено» ) )
+} )
+</ script >
+<! - подавить JSUnusedLocalSymbols ->
+< скрипт >
+var  $ changeInput  =  $ ( "#changedInput" )
+var  $ valueOnInput  =  $ ( "#valueOnInput" )
+var  $ valueOnChange  =  $ ( "#valueOnChange" )
+$ changeInput . вкл ( «вход» ,  функция  ( событие )  {
+$ valueOnInput . html ( $ changeInput . val ( ) )
+} )
+$ changeInput . вкл ( «изменить» ,  функция  ( событие )  {
+$ valueOnChange . html ( $ changeInput . val ( ) )
+} )
+</ script >
+<! - подавить JSUnusedLocalSymbols ->
+< скрипт >
+var  $ minInput  =  $ ( "#minInput" )
+var  $ maxInput  =  $ ( "#maxInput" )
+var  $ stepInput  =  $ ( "#stepInput" )
+var  $ dataDecimalsInput  =  $ ( "#dataDecimalsInput" )
+var  $ minMaxTester  =  $ ( "#minMaxTester" )
+$ minInput . вкл ( «изменить» ,  функция  ( событие )  {
+$ minMaxTester . attr ( "min" ,  $ minInput . val ( ) )
+} )
+$ maxInput . вкл ( «изменить» ,  функция  ( событие )  {
+$ minMaxTester . attr ( "max" ,  $ maxInput . val ( ) )
+} )
+$ stepInput . вкл ( «изменить» ,  функция  ( событие )  {
+$ minMaxTester . attr ( "step" ,  $ stepInput . val ( ) )
+} )
+$ dataDecimalsInput . вкл ( «изменить» ,  функция  ( событие )  {
+$ minMaxTester . attr ( "десятичные данные" ,  $ dataDecimalsInput . val ( ) )
+} )
+</ script >
+<! - подавить JSUnusedLocalSymbols ->
+< скрипт >
+var  $ inputNet  =  $ ( "#inputNet" )
+var  $ inputGross  =  $ ( "#inputGross" )
+$ inputNet . вкл ( «изменить» ,  функция  ( событие )  {
+$ inputGross . val ( $ inputNet . val ( ) * 1.19 )
+} )
+$ inputGross . вкл ( «изменить» ,  функция  ( событие )  {
+$ inputNet . val ( $ inputGross . val ( ) / 1.19 )
+} )
+$ inputGross . val ( $ inputNet . val ( ) * 1.19 )
+</ script >
+< скрипт >
+var  $ inputLoop  =  $ ( "#inputLoop" )
+$ inputLoop . вкл ( «изменить» ,  функция  ( событие )  {
+вар  значение  =  $ inputLoop . val ( )
+значение  =  ( значение  <  0 ) ? 360  +  ParseInt ( значение ,  10 ) : значение % 360
+$ inputLoop . val ( значение )
+} )
+</ script >
+< скрипт >
+$ ( "# buttonTest1" ) . нажмите ( функция ( )  {
+$ ( "#minMaxValue" ) . attr ( "мин" ,  11 )
+$ ( "#minMaxValue" ) . attr ( "max" ,  1000 )
+$ ( "#minMaxValue" ) . val ( 45 )
+} )
+$ ( "# buttonTest2" ) . нажмите ( функция ( )  {
+$ ( "#minMaxValue" ) . attr ( "min" ,  1 )
+$ ( "#minMaxValue" ) . attr ( "max" ,  10 )
+$ ( "#minMaxValue" ) . val ( 5 )
+} )
+</ script >
+</ body >
+</ html >

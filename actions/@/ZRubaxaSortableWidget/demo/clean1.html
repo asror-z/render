@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+</head>
+<body>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+<script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+<!-- Latest Sortable -->
+<script src="/publish/yarner/sortablejs/Sortable.js"></script>
+
+<!-- Simple List -->
+<div id="simpleList" class="list-group">
+    <div class="list-group-item">This is <a href="http://rubaxa.github.io/Sortable/">Sortable</a></div>
+    <div class="list-group-item">It works with Bootstrap...</div>
+    <div class="list-group-item">...out of the box.</div>
+    <div class="list-group-item">It has support for touch devices.</div>
+    <div class="list-group-item">Just drag some elements around.</div>
+</div>
+
+
+<!-- List with handle -->
+<div id="listWithHandle" class="list-group">
+    <div class="list-group-item">
+        <span class="badge">14</span>
+        <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+        Drag me by the handle
+    </div>
+    <div class="list-group-item">
+        <span class="badge">2</span>
+        <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+        You can also select text
+    </div>
+    <div class="list-group-item">
+        <span class="badge">1</span>
+        <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+        Best of both worlds!
+    </div>
+</div>
+            <script>
+
+    // Simple list
+    Sortable.create(simpleList, { /* options */ });
+
+    // List with handle
+    Sortable.create(listWithHandle, {
+        handle: '.glyphicon-move',
+        animation: 150
+    });
+
+</script>
+<script !src="/publish/action/sortable/CSSJS/rubaxa sortable/Sortable.js"></script>
+
+</body>

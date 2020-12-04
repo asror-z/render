@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <p><h1>Try Js Sip Libary</h1></p>
+  <p><input id="txtId" type="text" autocomplete="off" name="txtReceiver"></p>
+  <p><button onclick="trySipCall()">Call Button</button></p>
+
+<script>
+    / Create our JsSIP instance and run it:
+
+    var socket = new JsSIP.WebSocketInterface('wss://10.10.3.30:8089/ws');
+    var configuration = {
+        sockets  : [ socket ],
+        uri      : '201@10.10.3.30:5160',
+        password : '201'
+    };
+
+    var ua = new JsSIP.UA(configuration);
+
+    ua.start();
+
+    // Register callbacks to desired call events
+    var eventHandlers = {
+        'progress': function(e) {
+            console.log('call is in progress');
+        },
+        'failed': function(e) {
+            console.log('call failed with cause: '+ e.data.cause);
+        },
+        'ended': function(e) {
+            console.log('call ended with cause: '+ e.data.cause);
+        },
+        'confirmed': function(e) {
+            console.log('call confirmed');
+        }
+    };
+
+    var options = {
+        'eventHandlers'    : eventHandlers,
+        'mediaConstraints' : { 'audio': true, 'video': true }
+    };
+
+    function trySipCall() {
+        var user_uri = document.getElementById("txtId").value;
+        var session = ua.call('sip:bob@example.com', options);
+    }
+
+</script>
+</body>
+</html>

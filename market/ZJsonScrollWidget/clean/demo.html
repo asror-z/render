@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://infiniteajaxscroll.com/examples/json/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>Infinite Scroll with JSON - Infinite Ajax Scroll Example</title><meta name="description" content="An example of infinite ajax scroll loading items from a JSON file"><link rel="stylesheet" href="./demo_files/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"><link rel="stylesheet" href="./demo_files/style.b12f062a.css"><script type="text/javascript" async="" src="./demo_files/analytics.js.Без названия"></script><script type="text/javascript" src="./demo_files/js"></script><script async="" src="./demo_files/hotjar-1472346.js.Без названия"></script><script async="" src="./demo_files/modules.c618ee7dde3b49023442.js.Без названия" charset="utf-8"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style></head><body><div class="metabar">
+        <div class="metabar-inner">
+            <div class="metabar__block metabar__block--left"><a href="https://infiniteajaxscroll.com/examples/" class="metabar__link">← More examples</a></div>
+            <div>
+                <a href="https://infiniteajaxscroll.com/" title="Infinite Ajax Scroll" class="logo"><img src="./demo_files/loader.cbed30a7.svg"></a>
+            </div>
+            <div class="metabar__block metabar__block--right"><a href="http://codesandbox.io/s/github/webcreate/infinite-ajax-scroll/tree/master/examples/json" class="btn" target="_blank">Edit on <span class="codesandbox" title="CodeSandbox">CodeSandbox</span></a></div>
+        </div>
+    </div>
+    <style>.metabar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #fff;
+  opacity: .95;
+  z-index: 1;
+}
+
+.metabar .metabar-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  height: 65px;
+
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.metabar .metabar-inner > * {
+  flex: 33%;
+}
+
+.metabar .logo {
+  display: inline-block;
+}
+
+.metabar .logo img {
+  height: 30px;
+}
+
+.metabar .metabar__link {
+  color: #999;
+  text-decoration: none;
+}
+
+.metabar .metabar__link:hover {
+  color: #f63840;
+}
+
+.metabar .metabar__block--left {
+  text-align: left;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+  color: #999;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.5em;
+}
+
+.metabar .metabar__block--right {
+  text-align: right;
+}
+
+.metabar .btn {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+
+  color: #FA612E;
+  display: inline-block;
+  vertical-align: middle;
+
+  height: 32px;
+  line-height: 30px;
+  padding: 0 16px;
+  border: 1px solid #FA612E;
+  border-radius: 4px;
+
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 580px) {
+  .codesandbox {
+    display: inline-block;
+    height: 21px;
+    width: 18px;
+    overflow: hidden;
+    text-indent: -999px;
+    margin-top: -1px;
+    background: transparent url("./code-sandbox-logo.png") no-repeat;
+    background-size: 18px 21px;
+    vertical-align: middle;
+  }
+}
+</style> <div class="surface-container"> <div class="container">  <div class="item">
+    <a href="https://www.imdb.com/title/tt0119094" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BYzFjNzIxMmEtMzY5NS00YTgzLTkwYWEtN2FjMmY0NmNkZWY3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Face/Off</h1>
+      <div class="item__year">1997</div>
+      <div class="item__rating" title="IMDB Rating">7.3</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0120347" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BMTM1MTk2ODQxNV5BMl5BanBnXkFtZTcwOTY5MDg0NA@@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Tomorrow Never Dies</h1>
+      <div class="item__year">1997</div>
+      <div class="item__rating" title="IMDB Rating">6.5</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0119738" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BMzRiMGE2MmMtM2RhMy00OWNiLTljYTktOThmMmE1YjY1NjYyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">My Best Friend's Wedding</h1>
+      <div class="item__year">1997</div>
+      <div class="item__rating" title="IMDB Rating">6.3</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0119217" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Good Will Hunting</h1>
+      <div class="item__year">1997</div>
+      <div class="item__rating" title="IMDB Rating">8.3</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0119822" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BNWMxZTgzMWEtMTU0Zi00NDc5LWFkZjctMzUxNDIyNzZiMmNjXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">As Good as It Gets</h1>
+      <div class="item__year">1997</div>
+      <div class="item__rating" title="IMDB Rating">7.7</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0118571" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BYTk5NWE2ZjAtZmRmOS00ZGYzLWI5ZmUtMDcwODI0YWY0MTRlL2ltYWdlXkEyXkFqcGdeQXVyNjQzNDI3NzY@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Air Force One</h1>
+      <div class="item__year">1997</div>
+      <div class="item__rating" title="IMDB Rating">6.5</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0119528" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BYjZlYmJjYWYtZDM0NS00YmZlLWIyMTAtMDY5ZTNjZTgwMDhjXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Liar Liar</h1>
+      <div class="item__year">1997</div>
+      <div class="item__rating" title="IMDB Rating">6.9</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0119567" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BMDFlMmM4Y2QtNDg1ZS00MWVlLTlmODgtZDdhYjY5YjdhN2M0XkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">The Lost World: Jurassic Park</h1>
+      <div class="item__year">1997</div>
+      <div class="item__rating" title="IMDB Rating">6.5</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0119654" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BOTlhYTVkMDktYzIyNC00NzlkLTlmN2ItOGEyMWQ4OTA2NDdmXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Men in Black</h1>
+      <div class="item__year">1997</div>
+      <div class="item__rating" title="IMDB Rating">7.3</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0120338" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Titanic</h1>
+      <div class="item__year">1997</div>
+      <div class="item__rating" title="IMDB Rating">7.8</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0129290" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BNzM4Y2FlNzYtZmY5Yy00NzU4LTk1ODItY2NjYWYzYzUyZGM3L2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Patch Adams</h1>
+      <div class="item__year">1998</div>
+      <div class="item__rating" title="IMDB Rating">6.7</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0120685" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BNjFlOTI2OGQtMzg0YS00ZGE4LTkwMjEtZDUzYThlOTU5YjQ5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Godzilla</h1>
+      <div class="item__year">1998</div>
+      <div class="item__rating" title="IMDB Rating">5.3</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0120647" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BYTUwMTY1YmMtN2U5NC00YjkzLTg0YWQtZmEwNTEzZjdkNzQ2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Deep Impact</h1>
+      <div class="item__year">1998</div>
+      <div class="item__rating" title="IMDB Rating">6.1</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0120812" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BYWM2NDZmYmYtNzlmZC00M2MyLWJmOGUtMjhiYmQ2OGU1YTE1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Rush Hour</h1>
+      <div class="item__year">1998</div>
+      <div class="item__rating" title="IMDB Rating">7.0</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0118998" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BNGVmYjI4ZjktMjVkNi00ZTRlLWJlYTMtNzMxYjQ0ZDIyZWNmXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">Doctor Dolittle</h1>
+      <div class="item__year">1998</div>
+      <div class="item__rating" title="IMDB Rating">5.4</div>
+    </a>
+  </div><div class="item">
+    <a href="https://www.imdb.com/title/tt0120484" class="item__link" target="_blank">
+      <div class="item__img"><img class="item__img__img" src="./demo_files/MV5BNzJmZDZlMGItZGJhOC00Y2NjLTljNzctMDg5YmQ1NzU3NzYzL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" onerror="this.src=&#39;https://placehold.co/185x278&#39;" width="185" height="278"></div>
+      <h1 class="item__title">The Waterboy</h1>
+      <div class="item__year">1998</div>
+      <div class="item__rating" title="IMDB Rating">6.1</div>
+    </a>
+  </div></div>
+</div> <script src="./demo_files/clone.a79cc5e0.js.Без названия"></script>
+<iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="./demo_files/box-469cf41adb11dc78be68c1ae7f9457a4.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe></body></html>

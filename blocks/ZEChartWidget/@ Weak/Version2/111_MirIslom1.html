@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/azul.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/bee-inspired.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/blue.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/caravan.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/carp.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/cool.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-blue.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-bold.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-digerati.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-fresh-cut.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-mushroom.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/eduardo.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/forest.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/fresh-cut.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/fruit.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/gray.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/green.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/helianthus.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/infographic.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/inspired.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/jazz.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/london.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/macarons.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/macarons2.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/mint.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/red.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/red-velvet.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/roma.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/royal.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/sakura.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/shine.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/tech-blue.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/vintage.js"
+        type="text/javascript"></script>
+
+<script
+        type="text/javascript">
+
+
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null
+    option = {
+        "title": {
+            "show": true, //false not to show title
+            "text": "ZCore ChartEx Widget v4", //string
+            "link": "", //string
+            "subtext": "", //string
+            "itemGap": 5,  //number - gap between main title and subtitle
+            "textStyle": {
+                "fontSize": "13", //number
+                "fontWeight": "bold", // 'normal' 'bold' 'bolder' 'lighter'
+                "align": "right" //'left' 'center'
+            },
+            "padding": [
+                10,
+                10,
+                10,
+                60
+            ]       //number(5, 10, 20, ...
+        },
+        "legend": {
+            "show": true, //boolean -'false'
+            "type": "scroll", // 'plain'-simple legend, 'scroll'-scrollable legend
+            "selectedMode": "multiple", //displaying by clicking is enabled by default, options: false-disable it, 'single'- for single selection, 'multiple'- for multiple selection
+            "orient": "horizontal", //'horizontal' 'vertical'
+            "align ": "right", /*'auto''left''right'*/
+            "left": "83%", /*'left', 'center', or 'right'.*/
+            "top": "10%", /*'top', 'middle', or 'bottom'.*/
+            "right": "auto", /*pixel or percentage*/
+            "bottom": "auto", /*pixel or percentage*/
+            "height": "85%", /*'auto' Adapted by default or percentage, pixel*/
+            "padding": 5, /*Default values are 5 for each position. */
+            "itemGap": 10, /*distance between each LEGEND!*/
+            "animation": true, /*boolean*/
+            "symbolKeepAspect": true, /*boolean- to keep aspect for icons*/
+            "textStyle": {
+                "fontSize": "12" /*number*/
+            },
+            "tooltip": {
+                "show": true
+            }      /**/
+        },
+        "dataZoom": [
+            {
+                "show": true, /*BOOL*/
+                "type": "inside", /*string*/
+                "startValue": null, /**/
+                "endValue": null,
+                "start": null,
+                "end": null
+            },
+            {
+                "show": true, /*BOOL*/
+                "type": "slider",/*string*/
+                "filterMode": "filter",  /*string*/
+                "handleSize": "100%",
+                "showDataShadow": true, /*to show data shadow of slider comp.*/
+                "handleStyle": {
+                    "color": "black", /*HEX and RGB can be used*/
+                    "shadowBlur": 3, /*number- works only if show is 'true'*/
+                    "shadowColor": "rgba(0, 0, 0, 0.6)",
+                    "shadowOffsetX": 4, /*number - works only if show is true*/
+                    "shadowOffsetY": 4 /*number - works only if show is true*/
+                },
+                "orient": "horizontal", /*orientation: horizontal, vertical*/
+                "zoomLock": false, /*size of Window: true-locked, false-not*/
+                "showDetail": true, /*to show detailed info when Draging*/
+                "textStyle": {
+                    "fontSize": "11", /*number*/
+                    "fontWeight": "normal"  /*'normal'
+'bold'
+'bolder'
+'lighter'*/
+                },
+                "startValue": null, /*number, string, Date*/
+                "endValue": null, /*number, string, Date*/
+                "start": null, /*if null or undefined=expanded*/
+                "end": null,  /*number= ending precentage of window out of the data extent*/
+            }
+        ],
+        "grid": {
+            "show": true, /*boolean-Whether to show the grid in rectangular coordinate.*/
+            "left": "2%",  /*number or 'left' 'center' 'right'*/
+            "right": "18%", /*number or 'left' 'center' 'right'*/
+            "top": "9%",  /*number, string*/
+            "bottom": "4%", /*number, string*/
+            "containLabel": true, /*BOOLEAN-Whether the grid region contains axis tick label of axis.*/
+            "tooltip": {
+                "show": true,  /*BOOLEAN-show the tooltip or not*/
+            }
+        },
+        "tooltip": {
+            "show": true, /*BOOLEAN-'false'*/
+            "trigger": "axis",  /*'item'-string*/
+            "alwaysShowContent": false, /*BOOLEAN-show content (always)*/
+            "showContent": true, /*BOOLEAN*/
+            "showDelay": 0, /*NUMBER*/
+            "hideDelay": 100, /*NUMBER*/
+            "enterable": false, /*BOOLEAN-to enteract with Tooltips*/
+            "confine": false, /*BOOLEAN- to limit tooltip content*/
+            "transitionDuration": 0.4, /*duration of transition-NUMBERS*/
+            "padding": 20, /*numbers*/
+            "position": function (point, params, dom, rect, size) {
+                var left = point[0] + 100;
+                var top = 0;
+
+                return {left: left, top: top};
+            },
+            "triggerOn": "mousemove",   /*'mousemove'
+
+Trigger when mouse moves.
+
+'click'
+
+Trigger when mouse clicks.
+
+'mousemove|click'
+
+Trigger when mouse clicks and moves.
+
+'none'
+
+Do not triggered by 'mousemove' and 'click'. Tooltip can be triggered and hidden manually by calling action.tooltip.showTip and action.tooltip.hideTip. It can also be triggered by axisPointer.handle in this case.*/
+            "textStyle": {
+                "fontStyle": "normal",  /*'normal'
+'italic'
+'oblique'*/
+                "fontSize": "11", /*number*/
+                "fontWeight": "normal"   /*'normal'
+'bold'
+'bolder'
+'lighter'
+100 | 200 | 300 | 400...*/
+            },
+            "axisPointer": {
+                "type": "cross",
+                "label": []
+            }
+        },
+        "axisPointer": {
+            "show": true,   /*BOOLEAN-axisPointer will not be displayed by default. */
+            "type": "line", /*STRING-'line' line indicator.
+
+'shadow' shadow crosshair indicator.
+
+'none' no indicator displayed.*/
+            "label": {
+                "show": true,  /*BOOLEAN-Whether show label. Label will not show by default. */
+                "precision": 2, /*The precision of value in label. It is auto determined by default. You can also set it as '2', which indicates that two decimal fractions are reserved.*/
+                "fontSize": "11" /*NUMBER*/
+            },
+            "handle": {
+                "show": true, /*BOOLEAN-Set to true to use handle.*/
+                "size": 25,   /*NUMBER*/
+                "throttle": 15 /*NUMBER-Throttle rate of trigger view update when dragging handle, in ms.*/
+            }
+        },
+        "toolbox": {
+            "show": true,  /*boolean-showing toolbox whether*/
+            "orient": "horizontal", /*STRING-vertical or horizontal*/
+            "itemSize": 18, /*size of an item*/
+            "itemGap": 10,  /*Gap between the items*/
+            "left": "auto", /*string number*/
+            "right": 0,
+            "top": 0,
+            "bottom": "auto",
+            "showTitle": true,
+            "feature": {
+                "saveAsImage": [], /*object-SAVE as IMAGE*/
+                "restore": [], /*OBject*/
+                "dataView": [], /*OBject*/
+                "dataZoom": {  /*OBject-*/
+                    "yAxisIndex": "none"  /*numberArrayboolean
+Defines which yAxis should be controlled. By default, it controls all y axes. If it is set to be false, then no y axis is controlled. */
+                },
+                "magicType": []   /*OBject*/
+            }
+        },
+        "textStyle": {
+            "fontStyle": "normal", /*STRING-'normal'
+'italic'
+'oblique'*/
+            "fontWeight": "bold",   /*'normal'
+'bold'
+'bolder'
+'lighter'
+100 | 200 | 300 | 400...*/
+            "fontFamily": "Verdana", /*string
+font family
+
+Can also be 'serif' , 'monospace', ...*/
+            "fontSize": "12",     /*NUMBER*/
+            "align": "center",    /*'center', 'right', 'left'*/
+            "verticalAlign": "middle" /*'right', 'left' - STRING*/
+        },
+        "animation": true, /*BOOLEAN-wheter enable animation*/
+        "useUTC": false,  /*true: When axis.type is 'time', ticks is determined according to UTC, and axisLabel and tooltip use UTC by default.
+false: When axis.type is 'time', ticks is determined according to local time, and axisLabel and tooltip use local time by default.*/
+        "xAxis": {
+            "type": "category",  /*STRING-'value' Numerical axis, suitable for continuous data.
+
+'category' Category axis, suitable for discrete category data. Data should only be set via data for this type.
+
+'time' Time axis, suitable for continuous time series data. As compared to value axis, it has a better formatting for time and a different tick calculation method. For example, it decides to use month, week, day or hour for tick based on the range of span.
+
+'log' Log axis, suitable for log data.*/
+            "position": "bottom", /*STRING-'top''bottom'*/
+            "offset": -21,    /*NUMBER-Offset of x axis relative to default position. Useful when multiple x axis has same position value.*/
+            "inverse": false,   /*BOOLEAN-Set this to true to invert the axis.*/
+            "boundaryGap": true, /*BOOLEAN,ARRAY-Default value is set to be true, in which case axisTick is served only as a separation line, and labels and data appear only in the center part of two axis ticks, which is called band.*/
+            "scale": true, /*BOOLEAN-It is available only in numerical axis, i.e., type: 'value'*/
+            "splitNumber": 10, /*NUMBER-Number of segments that the axis is split into. */
+            "axisLabel": {
+                "margin": 35, /*MArgin~NUMBER*/
+                "show": true,    /*BOOLEAN-set 'true' to show axislabel*/
+                "interval": "auto", /*NUMBER, FUNCTION - Interval of Axis label, which is available in category axis.*/
+                "color": "black", /*rgb,HEX*/
+                "fontWeight": "bold",  /*string - 'normal''bold''bolder''lighter'100 | 200 | 300 | 400... */
+                "inside": false, /*BOOLEAN-*/
+                "rotate": 0,   /*NUMBER-Rotation degree is from -90 to 90.
+
+*/
+                "fontSize": "11",   /*NUMBER */
+                "align": "center",   /*'left''center''right'*/
+                "verticalAlign": "middle"/*'top''middle''bottom'*/
+            },
+            "show": true, /*BOOLEAN-Set this to false to prevent the axis label from appearing.*/
+            "name": "",
+            "nameLocation": "center",
+            "nameTextStyle": {
+                "fontSize": "13"
+            },
+            "nameGap": 30,    /*gap between names*/
+            "nameRotate": null,   /*NUMBER-Rotation degree is from -90 to 90.*/
+            "splitLine": {
+                "show": true
+            },
+            "axisLine": {
+                "show": true,  /*BOOLEAN-TO SHOW*/
+                "symbol": "none",
+                "lineStyle": {
+                    "type": "solid" /*STRING-'solid'
+'dashed'
+'dotted'*/
+                }
+            },
+            "axisTick": {
+                "show": true
+            }
+        },
+        "yAxis": {
+            "position": "left",
+            "offset": 0,
+            "type": "value",
+            "inverse": false,
+            "boundaryGap": [
+                "0%",
+                "10%"
+            ],
+            "scale": true,
+            "splitNumber": 5,
+            "axisPointer": {
+                "show": true,
+                "triggerTooltip": false
+            },
+            "axisLabel": {
+                "margin": 25, /*number*/
+                "show": true,     /*boolean*/
+                "interval": "auto", /*numberFunction*/
+                "color": "black",  /*RGB, HEX*/
+                "fontWeight": "bold", /*'normal''bold''bolder''lighter'100 | 200 | 300 | 400...*/
+                "inside": false,   /*boolean*/
+                "rotate": 0,  /*Rotation degree is from -90 to 90.*/
+                "fontSize": "11", /*number font size*/
+                "align": "center", /*'left''center''right'*/
+                "verticalAlign": "middle"   /*'top''middle''bottom'*/
+            },
+            "show": true, /*boolean*/
+            "name": "",  /*STRING TXT*/
+            "nameLocation": "center", /* 'start''middle' or 'center''end'*/
+            "nameTextStyle": {
+                "fontSize": "13"  /*NUMBER*/
+            },
+            "nameGap": 30,        /*gap between axis name and axis line.*/
+            "nameRotate": null,    /*number.*/
+            "splitLine": {
+                "show": true /*boolean*/
+            },
+            "axisLine": {
+                "show": true,  /*BOOLEAN*/
+                "symbol": "none", /*STRING/array */
+                "lineStyle": {
+                    "type": "solid"   /*'solid'
+'dashed'
+'dotted'*/
+                }
+            },
+            "axisTick": {
+                "show": true   /*boolean.*/
+            }
+        },
+        "dataset": {
+            "source": [
+                [
+                    "Name",
+                    "In",
+                    "Out"
+                ],
+                [
+                    "Monday",
+                    43.3,
+                    853.8
+                ],
+                [
+                    "Tuesday",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "331",
+                    833.1,
+                    73.4
+                ],
+                [
+                    "Tue141sday",
+                    843.1,
+                    73.4
+                ],
+                [
+                    "Tue4sday",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "Tue4s4day",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "Tue44sday",
+                    83.1,
+                    73.4
+                ]
+            ]
+        },
+        "series": [
+            {
+                "seriesLayoutBy": "column", /*'column', 'row'*/
+                "label": {
+                    "show": true,    /*BOOLEAN-show label*/
+                    "fontSize": "11", /**/
+                    "align": "center",  /*'left''center''right'*/
+                    "verticalAlign": "middle", /*'top''middle''bottom'*/
+                    "emphasis": {
+                        "show": false, /*BOOLEAN-show emphasis or not*/
+                        "shadowBlur": 10, /*NUMBER-*/
+                        "shadowOffsetX": 0, /*NUMBER.*/
+                        "shadowColor": "rgba(0, 0, 0, 0.5)" /*RGB or HEX*/
+                    },
+                    "position": "inside",
+                    "offset": [
+                        -10,
+                        -10
+                    ],
+                    "padding": [
+                        0,
+                        0
+                    ],      /*NUMBER~ pading*/
+                    "color": "auto"
+                },
+                "type": "line",    /*STRING*/
+                "symbol": "circle", /*STRING-Symbol of single data.
+
+Icon types provided by ECharts includes 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'*/
+                "symbolSize": 6,   /*number-sybol size*/
+                "symbolKeepAspect": true,  /*BOOLEAN-Whether to keep aspect for symbols in the form of path://.*/
+                "showSymbol": true,     /*boolean
+Whether to show symbol. It would be shown during tooltip hover.*/
+                "showAllSymbol": false,  /**/
+                "smooth": true,
+                "sampling": "max",
+                "itemStyle": {
+                    "color": null
+                }
+            },
+            {
+                "seriesLayoutBy": "column",
+                "label": {
+                    "show": true,
+                    "fontSize": "11",
+                    "align": "center",
+                    "verticalAlign": "middle",
+                    "emphasis": {
+                        "show": false,
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(0, 0, 0, 0.5)"
+                    },
+                    "position": "inside",
+                    "offset": [
+                        -10,
+                        -10
+                    ],
+                    "padding": [
+                        0,
+                        0
+                    ],
+                    "color": "auto"
+                },
+                "type": "line",
+                "symbol": "circle",
+                "symbolSize": 6,
+                "symbolKeepAspect": true,
+                "showSymbol": true,
+                "showAllSymbol": false,
+                "smooth": true,
+                "sampling": "max",
+                "itemStyle": {
+                    "color": null
+                }
+            }
+        ]
+    };
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>
+

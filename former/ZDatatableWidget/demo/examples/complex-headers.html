@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"> </script>
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+    </script>
+</head>
+<body>
+
+<!--https://datatables.net/examples/basic_init/dom.html
+
+When using tables to display data, you will often wish to display column information in groups. DataTables fully supports colspan and rowspan in the table's header, assigning the required order listeners to the TH element suitable for that column.
+
+Each column must have one TH cell which is unique to it for the listeners to be added. By default DataTables will use the bottom unique cell for the column to attach the order listener, if more than one cell for a column if found. The orderCellsTop option can be used to tell DataTables to use the top cell if you prefer.
+
+The example shown below has two sets of grouped information, grouped by colspan in the header.
+-->
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th rowspan="2">Name</th>
+        <th colspan="2">HR Information</th>
+        <th colspan="3">Contact</th>
+    </tr>
+    <tr>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>E-mail</th>
+    </tr>
+    </thead>
+    <tbody>
+
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>$320,800</td>
+                <td>Edinburgh</td>
+                <td>5421</td>
+                <td>t.nixon@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>$170,750</td>
+                <td>Tokyo</td>
+                <td>8422</td>
+                <td>g.winters@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>$86,000</td>
+                <td>San Francisco</td>
+                <td>1562</td>
+                <td>a.cox@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Cedric Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>$433,060</td>
+                <td>Edinburgh</td>
+                <td>6224</td>
+                <td>c.kelly@datatables.net</td>
+            </tr>
+
+    </tbody>
+    <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>E-mail</th>
+            </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

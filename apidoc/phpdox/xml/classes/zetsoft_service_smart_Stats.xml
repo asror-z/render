@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="zetsoft\service\smart\Stats" namespace="zetsoft\service\smart" name="Stats" abstract="false" final="false" start="35" end="498">
+  <file path="D:/Develop/Projects/ALL/asrorz/zetsoft/service/smart" file="Stats.php" realpath="D:/Develop/Projects/ALL/asrorz/zetsoft/service/smart/Stats.php" size="16904" time="2020-10-03T10:53:57+05:00" unixtime="1601704437" sha1="4c4ac8efea881403fb048f7f9318b5bf6b87060d" relative="Stats.php"/>
+  <extends full="zetsoft\system\kernels\ZFrame" namespace="zetsoft\system\kernels" name="ZFrame" unresolved="true"/>
+  <member name="id" visibility="public" static="false" line="37"/>
+  <member name="stat" default="NULL" visibility="public" static="false" line="39">
+    <docblock>
+      <var description="$stat" type="object">
+        <type full="zetsoft\models\dyna\DynaStats" namespace="zetsoft\models\dyna" name="DynaStats"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="dependModels" default="" type="array" visibility="public" static="false" line="40"/>
+  <member name="class" default="NULL" visibility="public" static="false" line="41"/>
+  <member name="dependValues" default="" type="array" visibility="public" static="false" line="42"/>
+  <member name="chart" default="false" type="boolean" visibility="public" static="false" line="43"/>
+  <method name="clear" start="52" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Function  clear"/>
+      <todo value="Clear variables"/>
+      <author value="Dilshodjon Olimov"/>
+      <copyright value="01.08.2020"/>
+    </docblock>
+  </method>
+  <method name="run" start="68" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Function  run"/>
+      <todo value="To set values to variables"/>
+      <author value="Dilshodjon Olimov"/>
+      <copyright value="01.08.2020"/>
+    </docblock>
+  </method>
+  <method name="generateDataTest" start="104" end="107" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="generateData" start="117" end="156" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Function  generateData"/>
+      <todo value="Generate data to use Dyna on form mode and ChartForm"/>
+      <return type="array"/>
+      <author value="Dilshodjon Olimov"/>
+      <copyright value="01.08.2020"/>
+    </docblock>
+  </method>
+  <method name="checkData" start="169" end="202" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Function  checkData"/>
+      <param description="current ready data" variable="$data" type="array"/>
+      <param description="searching value" variable="$name" type="string"/>
+      <param description="current attribute" variable="$attr" type="string"/>
+      <return description="new ready data" type="array"/>
+      <author value="Dilshodjon Olimov"/>
+      <copyright value="01.01.2020"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="attr" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="$model-&gt;columns();" line="186"/>
+      <comment value="if (!property_exists($model, $attr))" line="190"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="vdd($model-&gt;attributes);" line="191"/>
+    </inline>
+  </method>
+  <method name="createModel" start="213" end="306" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Function  createModel generate DynamicModel from current stat record to use Dyna"/>
+      <return type="object">
+        <type full="\zetsoft\system\actives\ZDynamicModel" namespace="\zetsoft\system\actives" name="ZDynamicModel"/>
+      </return>
+      <author value="Dilshodjon Olimov"/>
+      <copyright value="31.07.2020"/>
+    </docblock>
+    <inline>
+      <comment value="vdd($dependModel-&gt;columns);" line="222"/>
+      <comment value="$column-&gt;showDyna = false;" line="235"/>
+    </inline>
+  </method>
+  <method name="getName" start="319" end="342" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Function  getName get value which need showed"/>
+      <param description="current value" variable="$value" type="mixed"/>
+      <param description="current attribute" variable="$attr" type="string"/>
+      <param description="current column" variable="$column" type="object">
+        <type full="zetsoft\dbitem\data\FormDb" namespace="zetsoft\dbitem\data" name="FormDb"/>
+      </param>
+      <return description="fixed value to show user" type="object">
+        <type full="zetsoft\service\smart\mixed|null" namespace="zetsoft\service\smart" name="mixed|null"/>
+      </return>
+      <author value="Dilshodjon Olimov"/>
+      <copyright value="01.08.2020"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="attr" byreference="false" type="{unknown}"/>
+    <parameter name="column" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getDb" start="354" end="367" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Function  getDb Get value from relation table"/>
+      <param description="searching id" variable="$value" type="int"/>
+      <param description="relation table" variable="$fkTable" type="string"/>
+      <return description="finded value" type="object">
+        <type full="zetsoft\service\smart\mixed|null" namespace="zetsoft\service\smart" name="mixed|null"/>
+      </return>
+      <author value="Dilshodjon Olimov"/>
+      <copyright value="01.08.2020"/>
+    </docblock>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+    <parameter name="fkTable" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="generateFilter" start="379" end="462" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Function  generateFilter Generate filter form from current stat record to change statistic params"/>
+      <param description="chart type if it used for chart form. Default null." variable="$chart_type" type="object">
+        <type full="zetsoft\service\smart\string|null" namespace="zetsoft\service\smart" name="string|null"/>
+      </param>
+      <param description="chart theme if it used for chart form. Default null." variable="$chart_theme" type="object">
+        <type full="zetsoft\service\smart\string|null" namespace="zetsoft\service\smart" name="string|null"/>
+      </param>
+      <return type="object">
+        <type full="\zetsoft\system\actives\ZDynamicModel" namespace="\zetsoft\system\actives" name="ZDynamicModel"/>
+      </return>
+      <author value="Dilshodjon Olimov"/>
+      <copyright value="02.08.2020"/>
+    </docblock>
+    <parameter name="chart_type" byreference="false" type="{unknown}" default="NULL"/>
+    <parameter name="chart_theme" byreference="false" type="{unknown}" default="NULL"/>
+    <inline>
+      <comment value="$app-&gt;columns['hidden_column'] = $column;" line="390"/>
+    </inline>
+  </method>
+  <method name="getFilterData" start="473" end="495" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Function  getFilterData To get a column of filter data"/>
+      <param description="current attribute" variable="$attr" type="string"/>
+      <return description="ready data" type="array"/>
+      <author value="Dilshodjon Olimov"/>
+      <copyright value="02.08.2020"/>
+    </docblock>
+    <parameter name="attr" byreference="false" type="{unknown}"/>
+  </method>
+</class>

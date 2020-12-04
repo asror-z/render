@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>demo fog</title>
+  
+  <meta name="description" content="3D &amp; WebGL Background Animations For Your Website">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+
+  <link rel="stylesheet" href="./demo-fog_files/reset.css">
+  <link rel="stylesheet" href="./demo-fog_files/stylesheet.css">
+  <link rel="stylesheet" href="./demo-fog_files/entypo.css">
+  <link href="./demo-fog_files/css" rel="stylesheet">
+
+  <link rel="shortcut icon" href="https://www.vantajs.com/favicon.ico" type="image/x-icon">
+
+  <script type="text/javascript" async="" src="./demo-fog_files/analytics.js.download"></script><script src="./demo-fog_files/jquery.js.download"></script>
+  <script src="./demo-fog_files/three.r92.min.js.download"></script>
+  <!-- <script src="./vendor/orbit-controls.js"></script> -->
+  <!-- <script src="./vendor/GlslCanvas.js"></script> -->
+  <!-- <script src="./vendor/ThreeCSG.js"></script> -->
+
+  <script src="./demo-fog_files/rison.js.download"></script>
+  <script src="./demo-fog_files/p5.min.js.download"></script>
+
+  <script src="./demo-fog_files/vanta.fog.min.js.download"></script>
+
+
+  <script src="./demo-fog_files/gallery.min.js.download"></script>
+  <link rel="stylesheet" href="./demo-fog_files/styles.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="./demo-fog_files/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-42988408-2');
+  </script>
+
+
+
+</head>
+<body>
+
+  <section class="wm">
+    <!-- <div class="logo">
+      <img class='logo-light' src="./dist/logo.png">
+      <img class='logo-dark' src="./dist/logo-dark.png">
+    </div> -->
+    <div class="top-left" style="z-index: 1;">
+      <a href="https://github.com/tengbao/vanta">
+        <i class="ent-github"> </i>
+        GitHub
+      </a>
+    </div>
+    <div class="top-right" style="z-index: 1;">
+      <a href="javascript:void(0)" class="customize">
+        <i class="ent-cog"> </i>
+        Customize &amp; Get Code
+      </a>
+    </div>
+    <div class="bottom-left" style="z-index: 1;">
+      <span id="fps">31.0 fps</span>
+    </div>
+    <div class="container inner">
+      <div class="eight columns">
+        <h1> Vanta.js </h1>
+        <h3> Animated website backgrounds in a few lines of code. </h3>
+        <!-- <br> <div class="btn customize">
+          <i class="ent-cog"> </i>
+          Customize & Get Code
+        </div> -->
+        <div class="btn restart" style="display: none;"> Randomize! </div>
+      </div>
+    </div>
+
+    <div class="usage-cont" style="">
+      <a class="close-btn" href="javascript: void(0);">
+        <i class="ent-cancel"></i>
+      </a>
+      <h4 class="strong"> 1. Customize </h4>
+      <div class="gui-cont"> <div class="dg main"><ul><li class="cr color"><div><span class="property-name">highlightColor</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(0, 0, 0); border: 0px; font-weight: bold; text-shadow: rgba(255, 255, 255, 0.7) 0px 1px 1px; background-color: rgb(222, 206, 153);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 24.0811px; margin-top: 5.94118px; background-color: rgb(222, 206, 153);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 195, 0) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 87.1981px;"></div></div></div></div></div></li><li class="cr color"><div><span class="property-name">midtoneColor</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(0, 0, 0); border: 0px; font-weight: bold; text-shadow: rgba(255, 255, 255, 0.7) 0px 1px 1px; background-color: rgb(175, 128, 122);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 23.2857px; margin-top: 24.3725px; background-color: rgb(175, 128, 122);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 28, 0) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 98.1132px;"></div></div></div></div></div></li><li class="cr color"><div><span class="property-name">lowlightColor</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(255, 255, 255); border: 0px; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 1px; background-color: rgb(45, 0, 255);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 93px; margin-top: -7px; background-color: rgb(45, 0, 255);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(45, 0, 255) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 30.3922px;"></div></div></div></div></div></li><li class="cr color"><div><span class="property-name">baseColor</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(255, 255, 255); border: 0px; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 1px; background-color: rgb(212, 84, 84);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 53.3774px; margin-top: 9.86275px; background-color: rgb(212, 84, 84);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 0, 0) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 100px;"></div></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">blurFactor</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 86.25%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">zoom</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 31.0345%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">speed</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 20%;"></div></div></div></div></li></ul><div class="close-button close-bottom">Close Controls</div></div></div>
+      <br>
+      <h4 class="strong"> 2. Grab the code </h4>
+      <ul class="features small">
+        <li>
+          Change <strong> #your-element-selector </strong> to your element and download files from <a href="https://github.com/tengbao/vanta/tree/master/dist"> GitHub</a>
+        </li>
+      </ul>
+
+      <div id="include-three" style="display:none">&lt;script src="<a target="_blank" href="https://github.com/tengbao/vanta/blob/master/vendor/three.r92.min.js">three.r92.min.js</a>"&gt;&lt;/script&gt;</div>
+      <div id="include-p5" style="display:none">&lt;script src="<a target="_blank" href="https://github.com/tengbao/vanta/blob/master/vendor/p5.min.js">p5.min.js</a>"&gt;&lt;/script&gt;</div>
+
+      <div disabled="true" class="usage" style="display: none;">[[INCLUDE]]
+&lt;script src="<a target="_blank" href="https://github.com/tengbao/vanta/blob/master/dist/vanta.[[EFFECTNAME]].min.js">vanta.[[EFFECTNAME]].min.js</a>"&gt;&lt;/script&gt;
+&lt;script&gt;
+[[CODE]]
+&lt;/script&gt;</div><div disabled="true" class="usage applied" style="">&lt;script src="<a target="_blank" href="https://github.com/tengbao/vanta/blob/master/vendor/three.r92.min.js">three.r92.min.js</a>"&gt;&lt;/script&gt;
+&lt;script src="<a target="_blank" href="https://github.com/tengbao/vanta/blob/master/dist/vanta.fog.min.js">vanta.fog.min.js</a>"&gt;&lt;/script&gt;
+&lt;script&gt;
+VANTA.FOG({
+  el: "<strong>#your-element-selector</strong>",
+  highlightColor: 0xdece99,
+  midtoneColor: 0xaf807a,
+  baseColor: 0xd45454,
+  blurFactor: 0.79
+})
+&lt;/script&gt;</div>
+    </div>
+
+  <canvas class="vanta-canvas" width="674" height="255" style="position: absolute; z-index: 0; top: 0px; left: 0px; width: 1349px; height: 511px;"></canvas></section>
+
+
+
+
+  <div class="preload-images">
+    <img src="./demo-fog_files/noise.png" style="height: 1px; opacity: 0;">
+  </div>
+
+
+
+</body></html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/publish/yarner/font-awesome/css/font-awesome.css">
+
+
+    <link rel="stylesheet" href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/publish/theme/mdbpro/css/mdb.min.css">
+    <link rel="stylesheet" href="/publish/yarner/mburger-css/dist/mburger.css">
+    <link rel="stylesheet" href="/publish/menus/mmenu/mmenuextension.css">
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/publish/yarner/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+
+    <link rel="stylesheet" href="/publish/asrorz/css/ALL.css">
+
+    <link href="/publish/theme/vendroid/CSS/theme.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/publish/theme/vendroid/CSS/theme-responsive.min.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="/publish/yarner/mobile-detect/mobile-detect.min.js"></script>
+
+    <script src="/publish/yarner/cookiejs/dist/cookie.min.js"></script>
+    <link rel="stylesheet" href="/publish/yarner/sumoselect/sumoselect.min.css">
+</head>
+<body>
+
+
+<div class="SumoSelect">
+    <select placeholder="Hello  im from placeholder" class="search_test SumoUnder">
+        <option class="hemant" selected="" value="saab">Saab</option>
+        <option class="hemant" value="opel">Opel</option>
+        <option disabled="disabled" value="mercedez">Mercedez</option>
+        <option value="aston-martin">Aston Martin</option>
+        <option value="hyundai">Hyundai</option>
+        <option value="mitsubishi">Mitsubishi</option>
+    </select>
+</div>
+<br>
+<br>
+
+<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+    <select multiple="multiple" placeholder="Hello  im from placeholder" class="search_test SumoUnder">
+        <option selected="" value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option disabled="disabled" value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+        <option value="bmw">BMW</option>
+        <option value="porsche">Porche</option>
+        <option value="ferrari">Ferrari</option>
+        <option value="mitsubishi">Mitsubishi</option>
+    </select>
+</div>
+<br>
+<br>
+<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+    <select multiple="multiple" placeholder="Hello  im from placeholder" class="search_test SumoUnder">
+        <option selected="" value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option disabled="disabled" value="mercedez">Mercedez</option>
+        <optgroup label="US Brands">
+            <option value="chrysler">Chrysler</option>
+            <option value="gm">General Motors</option>
+            <option value="ford">Ford</option>
+            <option disabled="disabled" value="plymouth">Plymouth</option>
+        </optgroup>
+        <optgroup label="French Brands">
+            <option value="citroen">Citroën</option>
+            <option value="peugeot">Peugeot</option>
+            <option selected="" value="renault">Renault</option>
+            <option value="nissan">Nissan</option>
+        </optgroup>
+        <optgroup label="Italian brands">
+            <option value="fiat">Fiat</option>
+            <option value="alpha-Romeo">Alpha Romeo</option>
+            <option value="lamborghini">Lamborghini</option>
+        </optgroup>
+        <optgroup disabled="disabled" label="German brands">
+            <option value="audi">Audi</option>
+            <option value="bMW">BMW</option>
+            <option value="volkswagen">Volkswagen</option>
+        </optgroup>
+        <option value="aston-martin">Aston Martin</option>
+        <option value="hyundai">Hyundai</option>
+        <option value="mitsubishi">Mitsubishi</option>
+    </select>
+</div>
+    
+
+
+<script src="/publish/yarner/jquery/dist/jquery.js"></script>
+<script src="/publish/yarner/sumoselect/jquery.sumoselect.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('.search_test').SumoSelect({search: true, searchText: 'Enter here.'});
+        $('.testselect').SumoSelect({
+            placeholder: 'Select Here',
+            csvDispCount: 3,
+            captionFormat: '{0} Selected',
+            captionFormatAllSelected: '{0} all selected!',
+            floatWidth: 400,
+            forceCustomRendering: false,
+            nativeOnDevice: [
+                'Android',
+                'BlackBerry',
+                'iPhone',
+                'iPad',
+                'iPod',
+                'Opera Mini',
+                'IEMobile',
+                'Silk'],
+            outputAsCSV: false,
+            csvSepChar: ',',
+            okCancelInMulti: false,
+            isClickAwayOk: false,
+            triggerChangeCombined: true,
+            selectAll: false,
+            search: false,
+            searchText: 'Search...',
+            noMatch: 'No matches for "{0}"',
+            prefix: '',
+            locale: ['OK', 'Cancel', 'Select All'],
+            up: false,
+            showTitle: true
+        });
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scrolltotop</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        button{
+            background-color: crimson;
+            width: 50px;
+            height: 40px;
+        }
+        .main {
+            width: 1000px;
+            height: 1500px;
+            margin: 0 auto;
+            background-color: lightblue;
+            text-align: center;
+            font-size: 22px;
+            line-height: 30px;
+            color: #000;
+        }
+
+        #go-top {
+            display: none;
+            font-size: 30px;
+            position: fixed;
+            bottom: 200px;
+            right: 50px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <p style="text-align: center">at the top</p>
+    <div class="main"></div>
+    <button onclick="topFunction()" id="scrolltop" title="Go to top">Top</button>
+</div>
+
+
+
+<script>
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+</body>
+</html>

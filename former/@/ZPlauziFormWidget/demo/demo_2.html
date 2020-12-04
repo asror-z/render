@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://paulzi.ru/paulzi-form/ -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>PaulZi Form</title>
+        <meta name="description" content="PaulZi Form : JavaScript form helpers">
+
+        <link rel="stylesheet" href="./demo_files/bootstrap.min.css">
+        <link rel="stylesheet" href="./demo_files/font-awesome.min.css">
+        <link rel="stylesheet" href="./demo_files/github.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./demo_files/main.css">
+
+       <!-- <script src="./demo_files/jquery.js.download"></script>
+        <script src="./demo_files/jquery-ui.min.js.download"></script>
+-->
+
+
+    <body>
+
+
+
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                <h1><a id="paulzi-form-module" class="anchor" href="#" aria-hidden="true"><span class="octicon octicon-link glyphicon glyphicon-link"></span></a>PaulZi Form</h1>
+                
+                
+                <h2><a id="extra-events" class="anchor" href="https://paulzi.ru/paulzi-form/#extra-events" aria-hidden="true"><span class="octicon octicon-link glyphicon glyphicon-link"></span></a>Form extra events</h2>
+                <div id="example-extra-events" class="example">
+                    <form id="form1" action="https://paulzi.ru/paulzi-form/action.php?delay=1" method="post" class="panel panel-default">
+                        <div class="panel-heading">Form 1</div>
+                        <div class="panel-body">
+                            <button type="submit">Submit</button>
+                        </div>
+                        <pre></pre>
+                    </form>
+                    
+                    <script>
+                    $(document).on('submitlast',   '#form1', function () { $(this).find('pre').append("submitlast\n"); });
+                    $(document).on('submitbefore', '#form1', function (e) { e.preventDefault(); $(this).find('pre').append("submitbefore\n"); });
+                    $(document).on('submitstart',  '#form1', function () { $(this).find('pre').append("submitstart\n"); });
+                    $(document).on('submitend',    '#form1', function () { $(this).find('pre').append("submitend\n"); });
+                    $(document).on('submit',       '#form1', function () { $(this).find('pre').append("submit\n"); });
+                    </script>
+                </div>
+                <p><a href="https://paulzi.ru/paulzi-form/#example-extra-events-source" data-toggle="collapse">Show source</a></p>
+                <pre id="example-extra-events-source" class="collapse source" data-source="#example-extra-events"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"form1"</span> <span class="hljs-attribute">action</span>=<span class="hljs-value">"action.php?delay=1"</span> <span class="hljs-attribute">method</span>=<span class="hljs-value">"post"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"panel panel-default"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"panel-heading"</span>&gt;</span>Form 1<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"panel-body"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"submit"</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">pre</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">pre</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitlast'</span>,   <span class="hljs-string">'#form1'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span class="hljs-string">'pre'</span>).append(<span class="hljs-string">"submitlast\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitbefore'</span>, <span class="hljs-string">'#form1'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{ e.preventDefault(); $(<span class="hljs-keyword">this</span>).find(<span class="hljs-string">'pre'</span>).append(<span class="hljs-string">"submitbefore\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitstart'</span>,  <span class="hljs-string">'#form1'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span class="hljs-string">'pre'</span>).append(<span class="hljs-string">"submitstart\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submitend'</span>,    <span class="hljs-string">'#form1'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span class="hljs-string">'pre'</span>).append(<span class="hljs-string">"submitend\n"</span>); });
+$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'submit'</span>,       <span class="hljs-string">'#form1'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ $(<span class="hljs-keyword">this</span>).find(<span class="hljs-string">'pre'</span>).append(<span class="hljs-string">"submit\n"</span>); });
+
+
+
+</body><div class="XTranslate"></div></html>

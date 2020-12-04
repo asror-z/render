@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/publish/yarner/lookforward/css/lookforward.css">
+
+</head>
+<body>
+<a href="./a.html" class="js-lookforward" data-transition-enter="slideup" data-transition-leave="slidedown">Open</a>
+
+<div class="js-lookforward-body">
+    <!-- contents here -->
+<!--    <script src="/path/to/local.js"></script>-->
+</div>
+<script src="/publish/yarner/lookforward/js/lookforward.js"></script>
+<script src="/publish/yarner/lookforward/js/jquery-lookforward.js"></script>
+<script>
+    new LookForward('.js-lookforward', {
+        scrapedArea: '.js-lookforward-body',
+        execInnerScript: true
+    });
+</script>
+
+<!--<script>
+    const lookforward = require('lookforward');
+
+    window.addEventListener('DOMContentLoaded',function(){
+        new LookForward(".js-lookforward");
+    });
+
+    $(function(){
+        $(".js-lookforward").lookforward();
+    });
+
+   /* {
+        classNames: {
+            LookForward: 'lookforward',
+                LookForwardBody: 'lookforward-body',
+                LookForwardInner: 'lookforward-inner',
+                LookForwardClose: 'lookforward-close',
+                LookForwardCloseBtn: 'lookforward-close-btn',
+                LookForwardHeader: 'lookforward-header',
+                LookForwardFooter: 'lookforward-footer'
+        },
+        scrapedArea: 'body', // Area to be scraped
+            useHistoryApi: true // Rewrite URL on page transitions using HistoryAPI
+    }
+
+    // when the modal is opened
+    lookforward.on('open',function(e){
+        console.log('open');
+    });
+
+    // when the modal is closed
+    lookforward.on('close',function(e){
+        console.log('close');
+    });
+
+    // when all modals are closed
+    lookforward.on('closeAll',function(e){
+        console.log('closeAll');
+    });*/
+</script>-->
+</body>
+</html>

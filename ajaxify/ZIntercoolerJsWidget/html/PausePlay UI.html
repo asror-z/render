@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/v4-shims.min.css">
+    <link rel="stylesheet" href="/publish/yarner/font-awesome/css/font-awesome.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intercooler@1.2.3/dist/intercooler.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-mockjax@2.5.0/dist/jquery.mockjax.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div ic-prepend-from="/poll" ic-poll="1s" ic-target="#content">
+    <div ic-target="this">
+        <div class="btn btn-default active" ic-post-to="/play"><i class="fa fa-play"></i></div>
+        <div class="btn btn-default" ic-post-to="/pause"><i class="fa fa-pause"></i></div>
+    </div>
+    <div id="content" ic-limit-children="5">
+    </div>
+</div>
+
+<style>
+    #content div {
+        transition: all 3s;
+    }
+    #content div.flash-red {
+        color: red;
+    }
+</style>
+
+<script>
+    (function () {
+        var pollCount = 1;
+        $.mockjax({
+            'url': '/poll',
+            'response': function () {
+                this.responseText = "<div class='flash-red' ic-remove-class='flash-red'>Poll request #" + pollCount++ + "</div>";
+            }
+        });
+        $.mockjax({
+            'url': '/pause',
+            "headers": {
+                "X-IC-CancelPolling": true
+            },
+            "responseText" : '<div class="btn btn-default" ic-post-to="/play"><i class="fa fa-play"></i></div>\
+                          <div class="btn btn-default active" ic-post-to="/pause" ><i class="fa fa-pause"></i></div>'
+        });
+        $.mockjax({
+            'url': '/play',
+            "headers": {
+                "X-IC-ResumePolling": true
+            },
+            "responseText" : '<div class="btn btn-default active" ic-post-to="/play"><i class="fa fa-play"></i></div>\
+                          <div class="btn btn-default" ic-post-to="/pause" ><i class="fa fa-pause"></i></div>'
+        });
+    })();
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null
+    option = {
+        title: {},
+        legend: {},
+        xAxis: {
+            show: true,
+            gridIndex: 0,
+            position: 'top',
+            offset: 1,
+            type: 'category',
+            name: 'time',
+            nameLocation: 'end',
+
+            nameTextStyle: {
+                color: '#f0f0e4',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: 'right',
+                verticalAlign: 'bottom',
+                lineHeight: 56,
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 5,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: 25,
+                height: 25,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 1,
+                textShadowOffsetY: 1,
+
+            }
+        },
+        yAxis: {},
+        grid: {},
+        dataset: {
+            source: [
+                ['product', '2015', '2016', '2017'],
+                ['Matcha Latte', 43.3, 85.8, 93.7],
+                ['Milk Tea', 83.1, 73.4, 55.1],
+                ['Cheese Cocoa', 86.4, 65.2, 82.5],
+                ['Walnut Brownie', 72.4, 53.9, 39.1]
+            ]
+        },
+        series: [
+            {type: 'bar'},
+            {type: 'bar'},
+            {type: 'line'}
+        ],
+        toolbox: {
+            show: true,
+            orient: 'horizontal',
+            itemSize: 15,
+            itemGap: 10,
+            showTitle: true,
+
+            feature: {
+                saveAsImage: {
+                    type: '/publish/image/layer2.png',
+                    name: 'aza',
+                    backgroundColor: 'auto',
+                    connectedBackgroundColor: '#f0f0e4',
+                    excludeComponents: ['toolbox'],
+                    show: true,
+                    title: 'save as image',
+                    icon: '/publish/image/logo-eyuf.jpg',
+                },
+                restore: {
+                    show: true,
+                    title: 'restore',
+                    icon: '/publish/image/layer6.png',
+                    iconStyle: {
+                        color: '#f0f0e4',
+                        borderColor: '#e8e831',
+                        borderWidth: 1,
+                        borderType: 'solid',
+                        shadowBlur: 10,
+                        shadowColor: '#8aabf2',
+                        shadowOffsetX: 1,
+                        shadowOffsetY: 1,
+                        opacity: 1,
+                    },
+                    emphasis: {
+                        iconStyle: {
+                            color: '#8aabf2',
+                            borderColor: "#366ad9",
+                            borderWidth: 999,
+                            borderType: 'solid',
+                            shadowBlur: 10,
+                            shadowColor: '#666',
+                            shadowOffsetX: 3,
+                            shadowOffsetY: 2,
+                            opacity: 0,
+                            textPosition: 'bottom',
+                            textFill: '#edbbd4',
+                            textAlign: 'center',
+                            textBackgroundColor: '#910f50',
+                            textBorderRadius: 50,
+                            textPadding: 12,
+                        },
+                    },
+                },
+                dataView: {
+                    show: true,
+                    title: 'data view',
+                    icon: '/publish/image/nature2.jpg',
+                    iconStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 1, color: '#38c25d' // color at 0% position
+                            }, {
+                                offset: 1, color: '#38c25d' // color at 100% position
+                            }],
+
+                            borderColor: '#c43d81',
+                            borderWidth: 1,
+                            borderType: 'solid',
+                            shadowBlur: 10,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            opacity: 1,
+                            emphasis:{
+                                iconStyle:{
+                                    color: '#bbc4bd' ,
+                                    borderColor: "#9fe3b1" ,
+                                    borderWidth: 10 ,
+                                    borderType: 'solid' ,
+                                    shadowBlur: 11 ,
+                                    shadowColor:'rgba(0, 0, 0,0.5)',
+                                    shadowOffsetX: 41,
+                                    shadowOffsetY: 42,
+                                    opacity:'1',
+                                    textPosition: 'bottom',
+                                    textFill: '#38c25d',
+                                    textAlign: 'center',
+                                    textBackgroundColor:'string',
+                                    textBorderRadius: 12,
+                                    textPadding: 40,
+                                },
+
+                                readOnly: false,
+                                lang: ['data view', 'turn off', 'refresh'] ,
+                                backgroundColor: '#c23531',
+                                textareaColor: '#c23531',
+                                textareaBorderColor: '#295936',
+                                textColor: '#666',
+                                buttonColor: '#c23531',
+                                buttonTextColor: '#c23531',
+                            },
+
+                        },
+                    },
+                },
+                zlevel: 1,
+                z: 2,
+                left: 'auto',
+                top: 'auto',
+                right: 'auto',
+                bottom: 'auto',
+                width: 'auto',
+                height: 'auto',
+                tooltips: {
+                    show: true // include tooltip component for the featur//
+                },
+            },
+        },
+
+
+        tooltip: {},
+        textStyle: {},
+        axisPointer: {},
+        visialMap: {},
+        dataZoom: {},
+        color: '#32a8df',
+        backgroundColor: '#fff',
+        animation: true,
+        animationThreshold: 2000,
+        animationDuration: 1000,
+        animationEasing: function (k) {
+            return --k * k * k + 1;
+        },
+        animationDelay: 0,
+        animationDurationUpdate: 300,
+        animationEasingUpdate: function (k) {
+            return --k * k * k + 1;
+        },
+        animationDelayUpdate: 0,
+        blendMode: 'source-over',
+        useUTC: false,
+    }
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>
+

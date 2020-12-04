@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>rCrumbs demo</title>
+    <link rel="stylesheet" href="css/fontello/fontello-ie7.css">
+    <link rel="stylesheet" href="./demo_files/fontello.css">
+    <link rel="stylesheet" type="text/css" href="./demo_files/jquery.rcrumbs.css">
+    <link rel="stylesheet" type="text/css" href="./demo_files/demo.css">
+    <script src="./demo_files/jquery-1.9.1.js.Без названия"></script>
+    <script src="./demo_files/jquery.rcrumbs.js.Без названия"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="description">
+            <h1>Automatic resize (with animation)</h1>
+            <div class="details"></div>
+        </div>
+        <div class="rcrumbs" id="breadcrumbs">
+            <ul>
+                <li class="show"><a href="javascript:">Home</a><span class="divider">&gt;</span></li>
+                <li class="show"><a href="javascript:">jQuery plugins</a><span class="divider">&gt;</span></li>
+                <li class="show"><a href="javascript:">Navigation</a><span class="divider">&gt;</span></li>
+                <li class="show"><a href="javascript:">Breadcrumbs</a><span class="divider">&gt;</span></li>
+                <li class="show"><a href="javascript:">rCrumbs</a><span class="divider">&gt;</span></li>
+                <li class="show"><a href="javascript:">Demo</a><span class="divider">&gt;</span></li>
+                <li class="show"><a href="javascript:">This is a demonstration to show how the rCrumbs jQuery plugin works</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $("#breadcrumbs").rcrumbs();
+        $("#breadcrumbs-fixed-width").rcrumbs({windowResize: false});
+        $("#breadcrumbs-without-anim").rcrumbs({animation: {activated: false}});
+
+        $('.description-toggler').on('click', function () {
+            $(this).next('.details').first().toggle();
+            var directionIcon = $(this).children('.direction');
+            if (directionIcon.hasClass('icon-down-open')) {
+                directionIcon.removeClass('icon-down-open');
+                directionIcon.addClass('icon-up-open');
+            } else {
+                directionIcon.removeClass('icon-up-open');
+                directionIcon.addClass('icon-down-open');
+            }
+        });
+    </script>
+</body>
+</html>

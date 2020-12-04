@@ -1,0 +1,55 @@
+<html lang="en" class="">
+<head>
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/css/datepicker.css">
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/css/iconfont.css">
+  <style>
+    .p20{padding:20px; }
+    .mt20{margin-top:20px; }
+    .mt40{margin-top:40px; }
+    .mt10{margin-top:10px; }
+    .hide{display: none; }
+    .c999{color:#999; font-size:12px; }
+    
+  </style>
+</head>
+<body>
+
+
+  <div class="mt40">
+    <div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Year, month and day range selection, no maximum and minimum value </font></font><span class="c999"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(YYYY-MM-DD range)</font></font></span></div>
+    <div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
+      <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+      <input placeholder="start date" name="" class="c-datepicker-data-input only-date" value="">
+      <span class="c-datepicker-range-separator"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-</font></font></span>
+      <input placeholder="End date" name="" class="c-datepicker-data-input only-date" value="">
+    </div>
+  </div>
+
+
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/plugins/jquery.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/plugins/moment.min.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/datepicker.all.min.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/datepicker.en.js"></script>
+  <script type="text/javascript">
+    
+         //Year Month Day Range
+         $('.J-datepicker-range-day').datePicker({
+          hasShortcut: true,
+          format: 'YYYY-MM-DD',
+          language: 'en',
+          isRange: true,
+          shortcutOptions:  [{
+            name: 'Last week',
+            day: '-7,0'
+          }, {
+            name: 'Last month',
+            day: '-30,0'
+          }, {
+            name: 'The last three months',
+            day: '-90, 0'
+          }],
+        });
+
+      </script>
+    </body>
+    </html>

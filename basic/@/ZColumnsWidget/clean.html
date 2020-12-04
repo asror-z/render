@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Columns</title>
+
+    <link rel="stylesheet" href="https://cdn.statically.io/gh/twbs/bootstrap/master/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/grapesjs/0.12.17/css/grapes.min.css">
+<style>
+    .col{
+        min-height: 75px;
+        border: 1px solid black;
+    }
+</style>
+</head>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <input type="number" class="form-control" id="col_input">
+        <button class="btn btn-primary input-group-append" id="col_submit">ok</button>
+    </div>
+</div>
+
+<div class="row rows">
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+
+<script>
+
+    window.onload=(e)=>{
+        let col_input=document.getElementById('col_input');
+        let col_build=document.getElementsByClassName('rows')[document.getElementsByClassName('rows').length-1];
+        let col_tmpl='<div class="col"></div>';
+        let cols='';
+        let col_amount=2;
+        let col_submit=document.getElementById('col_submit');
+        col_input.onchange=(e)=>{
+            col_amount=e.target.value;
+            for (let i=0;i>col_amount;i++){
+                cols+=col_tmpl;
+            }
+            console.log(cols)
+        };
+
+
+
+        col_submit.onclick=()=>{
+            col_build.innerHTML=cols;
+            console.log(cols,col_amount);
+        }
+    }
+
+</script>
+
+</body>
+</html>

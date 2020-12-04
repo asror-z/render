@@ -1,0 +1,58 @@
+.light.lilo-accordion {
+    border: 1px solid #DDD;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1rem 1rem -0.5rem rgba(0,0,0,.2)
+}
+
+.light .lilo-accordion-control:first-child {
+    border-top: none;
+}
+
+.light .lilo-accordion-control {
+    color: #777;
+    background: #FFF;
+    font-family: Arial, Helveirca, sans-serif;
+    font-size: 16px;
+    padding: 16px 32px 16px 16px;
+    font-weight: 600;
+    border-top: 1px solid #DDD;
+    position: relative;
+}
+
+.light .lilo-accordion-content {
+    background: #FFF;
+    padding: 16px;
+    color: #AAA;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.light .lilo-accordion-control::after {
+    content: "";
+    display: inline-block;
+    margin-right: 16px;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    position: absolute;
+    top: calc(50% - 5px);
+    right: 16px;
+    transform: rotate(45deg);
+    transition: .3s linear;
+    border-top: 2px solid #AAA;
+    border-right: 2px solid #AAA;
+}
+
+.light .lilo-accordion-control.active::after {
+    transform: rotate(135deg);
+}
+
+.light .lilo-accordion-content p:first-child {
+    margin-top: 0;
+}
+
+.light .lilo-accordion-content p:last-child {
+    margin-bottom: 0;
+}

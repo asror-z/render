@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://antirek.github.io/owo-phone.js/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Owo-phone.js</title>
+        <meta content="width=device-width, initial-scale=0.5" name="viewport">
+
+        <link rel="stylesheet" href="./demo_files/bootstrap.css" media="screen">
+
+        <script src="./demo_files/jquery.js.download"></script>
+        <script src="./demo_files/bootstrap.js.download"></script>
+
+        <script src="./demo_files/jstorage.js.download"></script>
+        <script src="./demo_files/sip.js.download"></script>
+
+        <script src="./demo_files/phone.js.download"></script>
+        <script src="./demo_files/project.js.download"></script>
+
+    </head>
+
+    <body>
+    <div class="container">
+        <div class="row" style="min-height:150px;">
+            <div class="col-md-4 col-md-offset-4">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                
+                <audio id="localAudio" style="display:none;"></audio>
+
+                <div class="well">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Owo-phone.js</h3>
+                            <span id="status"></span>
+                            <span id="registered"></span>
+                            <div id="display"></div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-inline" role="form">                                
+
+                                <input id="number" type="text" placeholder="Input phone number" class="search-query form-control">
+                                    
+                                <a id="call" class="btn btn-primary">
+                                    <i class="icon-plus-sign"></i>
+                                    Call
+                                </a>
+
+                                <a id="end" class="btn btn-danger" style="display:none;">
+                                    <i class="icon-plus-sign"></i>
+                                    End
+                                </a>
+
+                                <a href="http://antirek.github.io/owo-phone.js/" id="settings" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                                <span class="glyphicon glyphicon-cog"></span>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Settings</h4>
+          </div>
+          <div class="modal-body">
+            
+          <h3>Connect</h3>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="string" class="form-control" id="name" placeholder="Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="uri" class="col-sm-2 control-label">URI</label>
+                <div class="col-sm-10">
+                  <input type="string" class="form-control" id="uri" placeholder="john@lo.ru">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="authName" class="col-sm-2 control-label">Auth Name</label>
+                <div class="col-sm-10">
+                  <input type="string" class="form-control" id="authName" placeholder="authName">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="string" class="form-control" id="password" placeholder="SuperPassword">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="wsServer" class="col-sm-2 control-label">WS server</label>
+                <div class="col-sm-10">
+                  <input type="string" class="form-control" id="wsServer" placeholder="wss://sip.lo.ru:8080/ws">
+                </div>
+              </div>
+            </form>
+
+
+
+          </div>
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-primary" id="saveSettings">Save &amp; close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        
+
+    
+
+</body></html>

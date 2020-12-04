@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!-- saved from url=(0115)file:///D:/Develop/Projects/ALL/asrorz/zetsoft/render/market2/XeMart%20-%20Ecommerce%20Template2/html/08-login.html -->
+<html class="no-js" lang="zxx"><head>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Animate Css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.css">
+
+    <!-- Owl Slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+<!--        <link rel="stylesheet" href="./clean_files/style.css">-->
+        <link rel="stylesheet" href="./clean_files/responsive.css">
+    <style>
+        /* =======================================
+05. Logo Area 2
+======================================= */
+        .logo-area2 {
+            height: 125px;
+            padding-top: 25px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .logo-area2 .carts-area {
+            padding-top: 15px;
+            padding-left: 70px;
+        }
+        .logo-area2 .carts-area .wsh-box {
+            margin-right: 8px;
+            padding-top: 5px;
+            position: relative;
+        }
+        .logo-area2 .carts-area .wsh-box a {
+            position: relative;
+        }
+        .logo-area2 .carts-area .wsh-box a span {
+            font-size: 12px;
+            color: #fff;
+            background: #5677fc;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            bottom: -12px;
+            right: -8px;
+            text-align: center;
+            font-weight: 600;
+            padding-top: 1px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .logo-area2 .carts-area .cart-box {
+            margin-right: 8px;
+            padding-top: 5px;
+            position: relative;
+        }
+        .logo-area2 .carts-area .cart-box a {
+            position: relative;
+        }
+        .logo-area2 .carts-area .cart-box a span {
+            font-size: 12px;
+            color: #fff;
+            background: #5677fc;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            bottom: -12px;
+            right: -8px;
+            text-align: center;
+            font-weight: 600;
+            padding-top: 1px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+        }
+        /* =======================================
+             Cart Body
+           ======================================= */
+        .cart-body {
+            background: #fff;
+            width: 350px;
+            position: fixed;
+            top: 0;
+            right: -350px;
+            z-index: 99999;
+            height: 100%;
+            padding: 25px;
+            -webkit-box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            -webkit-transition: 0.3s ease;
+            -moz-transition: 0.3s ease;
+            -ms-transition: 0.3s ease;
+            -o-transition: 0.3s ease;
+            transition: 0.3s ease;
+        }
+        .cart-body .close-btn {
+            margin-bottom: 25px;
+        }
+        .cart-body .close-btn button.close-cart {
+            color: #444444;
+            background: transparent;
+            border: none;
+            font-weight: 600;
+            padding: 0;
+        }
+        .cart-body .close-btn button.close-cart img {
+            max-width: 10px;
+            margin-right: 8px;
+            margin-top: -3px;
+        }
+        .cart-body .crt-bd-box {
+            padding: 20px;
+        }
+        .cart-body .crt-bd-box .cart-heading h5 {
+            color: #222222;
+            text-transform: uppercase;
+            margin-bottom: 70px;
+            font-weight: 600;
+        }
+        .cart-body .crt-bd-box .cart-content {
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 40px;
+        }
+        .cart-body .crt-bd-box .cart-content .content-item {
+            margin-bottom: 35px;
+        }
+        .cart-body .crt-bd-box .cart-content .content-item .cart-img a img {
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            border-radius: 3px;
+        }
+        .cart-body .crt-bd-box .cart-content .content-item .cart-disc p a {
+            font-size: 15px;
+        }
+        .cart-body .crt-bd-box .cart-content .content-item .cart-disc p a:hover {
+            color: #5677fc;
+        }
+        .cart-body .crt-bd-box .cart-content .content-item .cart-disc span {
+            font-size: 16px;
+            color: #222222;
+            font-weight: 600;
+        }
+        .cart-body .crt-bd-box .cart-content .content-item .delete-btn a i {
+            color: #969696;
+            margin-top: 15px;
+        }
+        .cart-body .crt-bd-box .cart-content .content-item .delete-btn a i:hover {
+            color: #444444;
+        }
+        .cart-body .crt-bd-box .cart-btm p {
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+        .cart-body .crt-bd-box .cart-btm p span {
+            font-size: 20px;
+            color: #222222;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .cart-body .crt-bd-box .cart-btm a {
+            font-size: 16px;
+            color: #fff;
+            background: #5677fc;
+            display: block;
+            text-align: center;
+            padding: 8px;
+            text-transform: uppercase;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            border-radius: 30px;
+        }
+        .cart-body .crt-bd-box .cart-btm a:hover {
+            background: #e45151;
+        }
+        .cart-body.open {
+            right: 0;
+        }
+        .cart-overlay {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            display: block;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 99990;
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transition: 0.3s ease;
+            -moz-transition: 0.3s ease;
+            -ms-transition: 0.3s ease;
+            -o-transition: 0.3s ease;
+            transition: 0.3s ease;
+        }
+        .cart-overlay.visible {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    </head>
+    <body>
+        <!-- Logo Area 2 -->
+        <section class="logo-area2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-2">
+                        <div class="carts-area d-flex">
+                            <div class="wsh-box ml-auto">
+                                <a href="file:///D:/Develop/Projects/ALL/asrorz/zetsoft/render/market2/XeMart%20-%20Ecommerce%20Template2/html/08-login.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Wishlist">
+                                    <img src="" alt="">heart
+                                    <span>0</span>
+                                </a>
+                            </div>
+                            <div class="cart-box ml-4">
+                                <a href="file:///D:/Develop/Projects/ALL/asrorz/zetsoft/render/market2/XeMart%20-%20Ecommerce%20Template2/html/08-login.html" data-toggle="tooltip" data-placement="top" title="" class="cart-btn" data-original-title="Shopping Cart">
+                                    <img src="" alt="">cart
+                                    <span>2</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Logo Area 2 -->
+
+        <!-- Cart Body -->
+        <div class="cart-body">
+            <div class="close-btn">
+                <button class="close-cart"><img src="" alt="">Close</button>
+            </div>
+            <div class="crt-bd-box">
+                <div class="cart-heading text-center">
+                    <h5>Shopping Cart</h5>
+                </div>
+                <div class="cart-content">
+                    <div class="content-item d-flex justify-content-between">
+                        <div class="cart-img">
+                            <a href="file:///D:/Develop/Projects/ALL/asrorz/zetsoft/render/market2/XeMart%20-%20Ecommerce%20Template2/html/08-login.html"><img src="" alt="">IMGplace</a>
+                        </div>
+                        <div class="cart-disc">
+                            <p><a href="file:///D:/Develop/Projects/ALL/asrorz/zetsoft/render/market2/XeMart%20-%20Ecommerce%20Template2/html/08-login.html">SMART LED TV</a></p>
+                            <span>1 x $199.00</span>
+                        </div>
+                        <div class="delete-btn">
+                            <a href="file:///D:/Develop/Projects/ALL/asrorz/zetsoft/render/market2/XeMart%20-%20Ecommerce%20Template2/html/08-login.html"><i class="fa fa-trash-o"></i></a>
+                        </div>
+                    </div>
+                    <div class="content-item d-flex justify-content-between">
+                        <div class="cart-img">
+                            <a href="file:///D:/Develop/Projects/ALL/asrorz/zetsoft/render/market2/XeMart%20-%20Ecommerce%20Template2/html/08-login.html"><img src="" alt="">IMGplace</a>
+                        </div>
+                        <div class="cart-disc">
+                            <p><a href="file:///D:/Develop/Projects/ALL/asrorz/zetsoft/render/market2/XeMart%20-%20Ecommerce%20Template2/html/08-login.html">SMART LED TV</a></p>
+                            <span>1 x $199.00</span>
+                        </div>
+                        <div class="delete-btn">
+                            <a href="file:///D:/Develop/Projects/ALL/asrorz/zetsoft/render/market2/XeMart%20-%20Ecommerce%20Template2/html/08-login.html"><i class="fa fa-trash-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-btm">
+                    <p class="text-right">Sub Total: <span>$398.00</span></p>
+                    <a href="file:///D:/Develop/Projects/ALL/asrorz/zetsoft/render/market2/XeMart%20-%20Ecommerce%20Template2/html/08-login.html#">Checkout</a>
+                </div>
+            </div>
+        </div>
+        <div class="cart-overlay"></div>
+        <!-- End Cart Body -->
+
+        <!-- =========================================
+     JavaScript Files
+     ========================================== -->
+        <!-- jQuery JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Owl Slider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
+
+        <!-- Wow Animation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+
+        <!-- Custom JS -->
+        <script src="/ZWishCardWidget/assets/js/plugins.js.Без%20названия"></script>
+<!--        <script src="./clean_files/custom.js.Без названия"></script>-->
+        <script>
+            /***** Shopping Cart *****/
+            $('.cart-btn').on('click', function(e){
+                e.preventDefault();
+                $('.cart-overlay').addClass('visible');
+                $('.cart-body').addClass('open');
+            });
+            $('.close-cart, .cart-overlay').on('click', function(e){
+                e.preventDefault();
+                $('.cart-overlay').removeClass('visible');
+                $('.cart-body').removeClass('open');
+            });
+        </script>
+    
+
+</body></html>

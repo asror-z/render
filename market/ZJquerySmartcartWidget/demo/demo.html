@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Dipu Raj">
+
+  <title>jQuery Smart Cart Demo - Tech Laboratory - Smart and free open-source jQuery plugins</title>
+  <meta property="og:title" content="Tech Laboratory - Smart and free open-source jQuery plugins" />
+
+  <meta name="description" content="Smart and free open-source jQuery plugins" />
+  <meta property="og:description" content="Smart and free open-source jQuery plugins"/>
+  <meta property="og:image" content="../../../../assets/images/TechLaboratory_logo.png" />
+  <link rel="image_src" href="../../../../assets/images/TechLaboratory_logo.png" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://techlaboratory.net/" />
+  <meta property="og:site_name" content="TechLaboratory.net" />
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- define site's owner twitter id -->
+  <meta name="twitter:site" content="tlaboratory">
+  <!--<meta property="fb:admins" content="673048839" />-->
+  <meta property="fb:app_id" content="673048839" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#0da4d3">
+  <!-- Windows Phone -->
+  <meta name="msapplication-TileColor" content="#0da4d3">
+  <meta name="msapplication-navbutton-color" content="#0da4d3">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-startup-image" href="assets/images/TechLaboratory_logo.png">
+
+  <meta name="KEYWORDS" content="jQuery, shoppingcart, cart, smartcart, smartwizard, smarttab, step wizard, wizard, jcart, jwizard, shopping, plugin" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="../../../../assets/images/fav/favicon-16x16.png" type="image/png">
+  <link rel="icon" href="../../../../assets/images/fav/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../../../../assets/images/fav/favicon.ico" type="image/x-icon">
+  <meta name="msapplication-TileImage" content="../../../../assets/images/fav/favicon-96x96.png">
+
+  <!-- Demo CSS -->
+  <link href="../../demo.css" rel="stylesheet" type="text/css" />
+
+
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- Include SmartCart CSS -->
+  <link href="css/smart_cart.min.css" rel="stylesheet" type="text/css" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-18629864-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-18629864-3');
+  </script>
+
+  <!-- Google Ads -->
+  <script data-ad-client="ca-pub-8226185437441708" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <header class="header-global">
+    <nav id="navbar-main">
+      <div class="container">
+        <a class="navbar-brand-" href="../../../../">
+          <img src="../../../../assets/images/TechLaboratory_40.png" alt="brand">
+        </a>
+        <div class="pull-right" >
+          <a href="../../../../smartcart" class="nav-link" role="button">
+            <span class="nav-link-inner--text">Back to Details</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+    <section class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Products
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <!-- BEGIN PRODUCTS -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="http://placehold.it/250x150/2aabd2/ffffff?text=Product+1" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">Product 1</h4>
+                                        <p data-name="product_desc">Product details</p>
+                                        <hr class="line">
+
+                                        <div>
+                                            <div class="form-group">
+                                                <label>Size: </label>
+                                                <select name="product_size" class="form-control input-sm">
+                                                    <option>S</option>
+                                                    <option>M</option>
+                                                    <option>L</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Color: </label><br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="red"> red
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="blue"> blue
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="green"> green
+                                                </label>
+                                            </div>
+                                            <div class="form-group2">
+                                                <input class="sc-cart-item-qty" name="product_quantity" min="1" value="1" type="number">
+                                            </div>
+                                            <strong class="price pull-left">$2,990.50</strong>
+
+                                            <input name="product_price" value="2990.50" type="hidden" />
+                                            <input name="product_id" value="12" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <span class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="http://placehold.it/250x150/2aabd2/ffffff?text=Product+2" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">Product 2 </h4>
+                                        <p data-name="product_desc">Product details</p>
+
+                                        <hr class="line">
+                                        <div>
+                                            <div class="form-group">
+                                                <label>Size: </label>
+                                                <select name="product_size" class="form-control input-sm">
+                                                    <option>S</option>
+                                                    <option>M</option>
+                                                    <option>L</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Color: </label><br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="red"> red
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="blue"> blue
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="green"> green
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="gift_wrap" value="1"> Gift wrap
+                                                </label>
+                                            </div>
+                                            <strong class="price pull-left">$5,435.50</strong>
+
+                                            <input name="product_price" value="5435.50" type="hidden" />
+                                            <input name="product_id" value="145" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="http://placehold.it/250x150/2aabd2/ffffff?text=Product+3" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">Product 3</h4>
+                                        <p data-name="product_desc">Product details</p>
+
+                                        <hr class="line">
+
+                                        <div>
+                                            <div class="form-group">
+                                                <label>Size: </label>
+                                                <select name="product_size" class="form-control input-sm">
+                                                    <option>S</option>
+                                                    <option>M</option>
+                                                    <option>L</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Color: </label><br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="red"> red
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="blue"> blue
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="green"> green
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="gift_wrap" value="1"> Gift wrap
+                                                </label>
+                                            </div>
+                                            <strong class="price pull-left">$5,435.50</strong>
+
+                                            <input name="product_price" value="5435.50" type="hidden" />
+                                            <input name="product_id" value="145" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <span class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="http://placehold.it/250x150/2aabd2/ffffff?text=Product+4" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">Product 4 </h4>
+                                        <p data-name="product_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+
+                                        <hr class="line">
+                                        <div>
+                                            <div class="form-group">
+                                                <label>Size: </label>
+                                                <select name="product_size" class="form-control input-sm">
+                                                    <option>S</option>
+                                                    <option>M</option>
+                                                    <option>L</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Color: </label><br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="red"> red
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="blue"> blue
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="green"> green
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="gift_wrap" value="1"> Gift wrap
+                                                </label>
+                                            </div>
+                                            <strong class="price pull-left">$435.50</strong>
+
+                                            <input name="product_price" value="435.50" type="hidden" />
+                                            <input name="product_id" value="154" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </span>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <span class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="http://placehold.it/250x150/2aabd2/ffffff?text=Product+5" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">Product 5 </h4>
+                                        <p data-name="product_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+
+                                        <hr class="line">
+                                        <div>
+                                            <div class="form-group">
+                                                <label>Size: </label>
+                                                <select name="product_size" class="form-control input-sm">
+                                                    <option>S</option>
+                                                    <option>M</option>
+                                                    <option>L</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Color: </label><br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="red"> red
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="blue"> blue
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="green"> green
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="gift_wrap" value="1"> Gift wrap
+                                                </label>
+                                            </div>
+                                            <strong class="price pull-left">$3,410.00</strong>
+
+                                            <input name="product_price" value="3410.00" type="hidden" />
+                                            <input name="product_id" value="155" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </span>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <span class="sc-product-item thumbnail">
+                                    <img data-name="product_image" src="http://placehold.it/250x150/2aabd2/ffffff?text=Product+6" alt="...">
+                                    <div class="caption">
+                                        <h4 data-name="product_name">Product 6 </h4>
+                                        <p data-name="product_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+
+                                        <hr class="line">
+                                        <div>
+                                            <div class="form-group">
+                                                <label>Size: </label>
+                                                <select name="product_size" class="form-control input-sm">
+                                                    <option>S</option>
+                                                    <option>M</option>
+                                                    <option>L</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Color: </label><br />
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="red"> red
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="blue"> blue
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="product_color" value="green"> green
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="gift_wrap" value="1"> Gift wrap
+                                                </label>
+                                            </div>
+                                            <strong class="price pull-left">$5,435.50</strong>
+
+                                            <input name="product_price" value="5435.50" type="hidden" />
+                                            <input name="product_id" value="145" type="hidden" />
+                                            <button class="sc-add-to-cart btn btn-success btn-sm pull-right">Add to cart</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </span>
+                            </div>
+                            <!-- END PRODUCTS -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <aside class="col-md-4">
+                <!-- Paypal Submit URL : https://www.paypal.com/cgi-bin/webscr -->
+                <!-- Paypal Sandbox Submit URL: https://www.sandbox.paypal.com/cgi-bin/webscr -->
+
+                <!-- Paypal Cart submit form -->
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="POST">
+                    <!-- SmartCart element -->
+                    <div id="smartcart"></div>
+
+                    <!-- Paypal required info, Please update based on your details -->
+                    <input name="business" value="dipumedayil@gmail.com" type="hidden">
+                    <input name="currency_code" value="USD" type="hidden">
+                    <input name="return" value="http://www.yourdomain.com/yoursuccessurl" type="hidden">
+                    <input name="cancel_return" value="http://www.yourdomain.com/yourcancelurl" type="hidden">
+
+                    <input name="cmd" value="_cart" type="hidden">
+                    <input name="upload" value="1" type="hidden">
+                </form>
+            </aside>
+
+        </div>
+    </section>
+
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript" ></script>
+    <!-- Include SmartCart -->
+    <script src="js/jquery.smartCart.min.js" type="text/javascript"></script>
+    <!-- Initialize -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // Initialize Smart Cart
+            $('#smartcart').smartCart({
+                                submitSettings: {
+                                    submitType: 'paypal' // form, paypal, ajax
+                                },
+                                toolbarSettings: {
+                                    checkoutButtonStyle: 'paypal' // default, paypal, image
+                                }
+                            });
+		});
+    </script>
+</body>
+</html>

@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title> &raquo; Compilation errors</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">                    <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">                            <li><a href="../namespaces/zetsoft.html">\zetsoft</a></li>                        </ul>
+                    </li>                    <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">163</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">6</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">                                    <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">    <section class="row-fluid">
+        <div class="span2 sidebar">
+
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">Navigation</li>                        <li><a href="#Adder.php"><i class="icon-file"></i>Adder.php</a></li>                        <li><a href="#Adder_U.php"><i class="icon-file"></i>Adder_U.php</a></li>                        <li><a href="#Cruds.php"><i class="icon-file"></i>Cruds.php</a></li>                        <li><a href="#Dyna.php"><i class="icon-file"></i>Dyna.php</a></li>                        <li><a href="#Fake.php"><i class="icon-file"></i>Fake.php</a></li>                        <li><a href="#Insert.php"><i class="icon-file"></i>Insert.php</a></li>                        <li><a href="#Migra.php"><i class="icon-file"></i>Migra.php</a></li>                        <li><a href="#Model.php"><i class="icon-file"></i>Model.php</a></li>                        <li><a href="#Name.php"><i class="icon-file"></i>Name.php</a></li>                        <li><a href="#Norms.php"><i class="icon-file"></i>Norms.php</a></li>                        <li><a href="#Order.php"><i class="icon-file"></i>Order.php</a></li>                        <li><a href="#Puters.php"><i class="icon-file"></i>Puters.php</a></li>                        <li><a href="#Service.php"><i class="icon-file"></i>Service.php</a></li>                        <li><a href="#Sorting.php"><i class="icon-file"></i>Sorting.php</a></li>                        <li><a href="#Stats.php"><i class="icon-file"></i>Stats.php</a></li>                        <li><a href="#Tester.php"><i class="icon-file"></i>Tester.php</a></li>                        <li><a href="#Visuals.php"><i class="icon-file"></i>Visuals.php</a></li>                        <li><a href="#VisualsApp.php"><i class="icon-file"></i>VisualsApp.php</a></li>                        <li><a href="#VisualsDb.php"><i class="icon-file"></i>VisualsDb.php</a></li>                        <li><a href="#Widget.php"><i class="icon-file"></i>Widget.php</a></li>                        <li><a href="#WidgetA.php"><i class="icon-file"></i>WidgetA.php</a></li>            </ul>
+        </div>
+
+        <div class="span10 offset2">
+            <ul class="breadcrumb">
+                <li><a href="../"><i class="icon-remove-sign"></i></a><span class="divider">\</span></li>
+                <li>Compilation Errors</li>
+            </ul>                <div class="package-contents">                        <a name="Adder.php" id="Adder.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Adder.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Adder_U.php" id="Adder_U.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Adder_U.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Cruds.php" id="Cruds.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Cruds.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Dyna.php" id="Dyna.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Dyna.php
+                            <small style="float: right;padding-right: 10px;">58</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>55</td>
+                                        <td>No summary for class \zetsoft\service\smart\Dyna</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>75</td>
+                                        <td>Argument $attributes is missing from the Docblock of mmenuItems</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>75</td>
+                                        <td>No summary for method mmenuItems()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>98</td>
+                                        <td>Argument $attribute is missing from the Docblock of colTitle</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>98</td>
+                                        <td>Argument $model is missing from the Docblock of colTitle</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>98</td>
+                                        <td>No summary for method colTitle()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>115</td>
+                                        <td>Argument $sortColumns is missing from the Docblock of getSortColumns</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>115</td>
+                                        <td>Argument $model is missing from the Docblock of getSortColumns</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>115</td>
+                                        <td>No summary for method getSortColumns()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>131</td>
+                                        <td>Argument $visible is missing from the Docblock of hiddenFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>131</td>
+                                        <td>Argument $model is missing from the Docblock of hiddenFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>131</td>
+                                        <td>No summary for method hiddenFix()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>Argument $array is missing from the Docblock of getFormDb</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>Argument $columns is missing from the Docblock of getFormDb</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>Argument $name is missing from the Docblock of getFormDb</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>No summary for method getFormDb()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>157</td>
+                                        <td>Argument $class is missing from the Docblock of slashReplace</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>157</td>
+                                        <td>Argument $slash is missing from the Docblock of slashReplace</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>157</td>
+                                        <td>No summary for method slashReplace()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>165</td>
+                                        <td>Argument $columns is missing from the Docblock of columnsFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>165</td>
+                                        <td>Argument $model is missing from the Docblock of columnsFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>165</td>
+                                        <td>Argument $hidden is missing from the Docblock of columnsFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>165</td>
+                                        <td>No summary for method columnsFix()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>195</td>
+                                        <td>Argument $columns is missing from the Docblock of columnsFix2</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>195</td>
+                                        <td>Argument $model is missing from the Docblock of columnsFix2</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>195</td>
+                                        <td>Argument $hidden is missing from the Docblock of columnsFix2</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>195</td>
+                                        <td>No summary for method columnsFix2()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>225</td>
+                                        <td>Argument $columns is missing from the Docblock of getModelColumns</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>225</td>
+                                        <td>No summary for method getModelColumns()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>241</td>
+                                        <td>Argument $columns is missing from the Docblock of fixSortMenu</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>241</td>
+                                        <td>Argument $model is missing from the Docblock of fixSortMenu</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>241</td>
+                                        <td>No summary for method fixSortMenu()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>263</td>
+                                        <td>Argument $columns is missing from the Docblock of dataValue</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>263</td>
+                                        <td>Argument $name is missing from the Docblock of dataValue</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>263</td>
+                                        <td>Argument $model is missing from the Docblock of dataValue</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>263</td>
+                                        <td>No summary for method dataValue()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>282</td>
+                                        <td>Argument $array is missing from the Docblock of columnMerge</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>282</td>
+                                        <td>Argument $columns is missing from the Docblock of columnMerge</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>282</td>
+                                        <td>No summary for method columnMerge()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>294</td>
+                                        <td>Argument $sort is missing from the Docblock of fixSort</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>294</td>
+                                        <td>Argument $model is missing from the Docblock of fixSort</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>294</td>
+                                        <td>No summary for method fixSort()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>306</td>
+                                        <td>Argument $model is missing from the Docblock of getVisibleColumns</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>306</td>
+                                        <td>No summary for method getVisibleColumns()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>323</td>
+                                        <td>Argument $sorting is missing from the Docblock of getVisibleColumnsFromTable</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>323</td>
+                                        <td>Argument $model is missing from the Docblock of getVisibleColumnsFromTable</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>323</td>
+                                        <td>No summary for method getVisibleColumnsFromTable()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>339</td>
+                                        <td>Argument $visible is missing from the Docblock of getHiddenColumns</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>339</td>
+                                        <td>Argument $model is missing from the Docblock of getHiddenColumns</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>339</td>
+                                        <td>No summary for method getHiddenColumns()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>356</td>
+                                        <td>Argument $configs is missing from the Docblock of getConfigDbItem</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>356</td>
+                                        <td>No summary for method getConfigDbItem()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>370</td>
+                                        <td>Argument $columns is missing from the Docblock of getColumnsDbItem</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>370</td>
+                                        <td>No summary for method getColumnsDbItem()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>384</td>
+                                        <td>Argument $columns is missing from the Docblock of getFormDbItem</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>384</td>
+                                        <td>No summary for method getFormDbItem()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>57</td>
+                                        <td>No summary for property $excludes</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>65</td>
+                                        <td>No summary for property $dynaColumns</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Fake.php" id="Fake.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Fake.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Insert.php" id="Insert.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Insert.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Migra.php" id="Migra.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Migra.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Model.php" id="Model.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Model.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Name.php" id="Name.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Name.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for class \zetsoft\service\smart\Name</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for method run()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>42</td>
+                                        <td>Argument $class is missing from the Docblock of model</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>42</td>
+                                        <td>No summary for method model()</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Norms.php" id="Norms.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Norms.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Order.php" id="Order.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Order.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>53</td>
+                                        <td>No summary for class \zetsoft\service\smart\Order</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>56</td>
+                                        <td>No summary for method getAllShopOrder()</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Puters.php" id="Puters.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Puters.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Service.php" id="Service.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Service.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Sorting.php" id="Sorting.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Sorting.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>48</td>
+                                        <td>No summary for class \zetsoft\service\smart\Sorting</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>54</td>
+                                        <td>No summary for method run()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>74</td>
+                                        <td>Argument $modelClass is missing from the Docblock of insertSort</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>74</td>
+                                        <td>No summary for method insertSort()</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Stats.php" id="Stats.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Stats.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Tester.php" id="Tester.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Tester.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Visuals.php" id="Visuals.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Visuals.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="VisualsApp.php" id="VisualsApp.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>VisualsApp.php
+                            <small style="float: right;padding-right: 10px;">12</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for class \zetsoft\service\smart\VisualsApp</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>Argument $attributes is missing from the Docblock of modelAttr</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>Argument $configs is missing from the Docblock of modelAttr</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>No summary for method modelAttr()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>52</td>
+                                        <td>Argument $formDbs is missing from the Docblock of columnsAttr</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>52</td>
+                                        <td>Argument $columns is missing from the Docblock of columnsAttr</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>52</td>
+                                        <td>Argument $class is missing from the Docblock of columnsAttr</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>52</td>
+                                        <td>No summary for method columnsAttr()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>68</td>
+                                        <td>No summary for method columnsModel()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>111</td>
+                                        <td>No summary for method columnsForm()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>153</td>
+                                        <td>No summary for method model()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>181</td>
+                                        <td>No summary for method form()</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="VisualsDb.php" id="VisualsDb.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>VisualsDb.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for class \zetsoft\service\smart\VisualsDb</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for method migraModel()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>71</td>
+                                        <td>No summary for method normsForm()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>110</td>
+                                        <td>Argument $column is missing from the Docblock of formDb</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>110</td>
+                                        <td>Argument $config is missing from the Docblock of formDb</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>110</td>
+                                        <td>Argument $core is missing from the Docblock of formDb</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>110</td>
+                                        <td>No summary for method formDb()</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="Widget.php" id="Widget.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>Widget.php
+                            <small style="float: right;padding-right: 10px;">55</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>63</td>
+                                        <td>No summary for class \zetsoft\service\smart\Widget</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>66</td>
+                                        <td>Argument $params is missing from the Docblock of getUrl</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>66</td>
+                                        <td>No summary for method getUrl()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>82</td>
+                                        <td>Argument $array is missing from the Docblock of fixArray</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>82</td>
+                                        <td>No summary for method fixArray()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>105</td>
+                                        <td>Argument $widget is missing from the Docblock of settings</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>105</td>
+                                        <td>Argument $options is missing from the Docblock of settings</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>105</td>
+                                        <td>No summary for method settings()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>140</td>
+                                        <td>Argument $widget is missing from the Docblock of filterOptions</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>140</td>
+                                        <td>Argument $options is missing from the Docblock of filterOptions</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>140</td>
+                                        <td>No summary for method filterOptions()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>163</td>
+                                        <td>Argument $items is missing from the Docblock of optionsFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>163</td>
+                                        <td>Argument $class is missing from the Docblock of optionsFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>163</td>
+                                        <td>Argument $app is missing from the Docblock of optionsFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>163</td>
+                                        <td>No summary for method optionsFix()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>340</td>
+                                        <td>Argument $widget is missing from the Docblock of allOptions</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>340</td>
+                                        <td>Argument $configs is missing from the Docblock of allOptions</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>340</td>
+                                        <td>No summary for method allOptions()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>378</td>
+                                        <td>Argument $widget is missing from the Docblock of modelFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>378</td>
+                                        <td>No summary for method modelFix()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>389</td>
+                                        <td>Argument $widget is missing from the Docblock of attributeFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>389</td>
+                                        <td>Argument $model is missing from the Docblock of attributeFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>389</td>
+                                        <td>No summary for method attributeFix()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>400</td>
+                                        <td>Argument $widget is missing from the Docblock of defaultConfig</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>400</td>
+                                        <td>No summary for method defaultConfig()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>415</td>
+                                        <td>Argument $options is missing from the Docblock of varsFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>415</td>
+                                        <td>Argument $widget is missing from the Docblock of varsFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>415</td>
+                                        <td>No summary for method varsFix()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>435</td>
+                                        <td>Argument $defaultConfigs is missing from the Docblock of getModel</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>435</td>
+                                        <td>No summary for method getModel()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>457</td>
+                                        <td>Argument $options is missing from the Docblock of formDbFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>457</td>
+                                        <td>Argument $widget is missing from the Docblock of formDbFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>457</td>
+                                        <td>No summary for method formDbFix()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>488</td>
+                                        <td>Argument $data is missing from the Docblock of dataFix</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>488</td>
+                                        <td>No summary for method dataFix()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>507</td>
+                                        <td>Argument $selected is missing from the Docblock of getDependColumns</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>507</td>
+                                        <td>Argument $dependModel is missing from the Docblock of getDependColumns</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>507</td>
+                                        <td>Argument $dependAttr is missing from the Docblock of getDependColumns</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>507</td>
+                                        <td>No summary for method getDependColumns()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>538</td>
+                                        <td>Argument $class is missing from the Docblock of getModelArray</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>538</td>
+                                        <td>No summary for method getModelArray()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>548</td>
+                                        <td>Argument $bool is missing from the Docblock of getModelAttributes</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>548</td>
+                                        <td>No summary for method getModelAttributes()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>562</td>
+                                        <td>Argument $bool is missing from the Docblock of getModelAttributesByFiles</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>562</td>
+                                        <td>No summary for method getModelAttributesByFiles()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>575</td>
+                                        <td>Argument $class is missing from the Docblock of getAttributesName</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>575</td>
+                                        <td>No summary for method getAttributesName()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>599</td>
+                                        <td>Argument $type is missing from the Docblock of getModelAttributesFromTable</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>599</td>
+                                        <td>No summary for method getModelAttributesFromTable()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>612</td>
+                                        <td>Argument $modelId is missing from the Docblock of getAttributesFromTable</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>612</td>
+                                        <td>Argument $type is missing from the Docblock of getAttributesFromTable</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>612</td>
+                                        <td>No summary for method getAttributesFromTable()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>641</td>
+                                        <td>Argument $model is missing from the Docblock of getTimeColumns</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>641</td>
+                                        <td>No summary for method getTimeColumns()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>659</td>
+                                        <td>No summary for method test()</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>                <div class="package-contents">                        <a name="WidgetA.php" id="WidgetA.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>WidgetA.php
+                            <small style="float: right;padding-right: 10px;">8</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for class \zetsoft\service\smart\WidgetA</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>Argument $class is missing from the Docblock of form</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>Argument $id is missing from the Docblock of form</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>Argument $modelClass is missing from the Docblock of form</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>No summary for method form()</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>134</td>
+                                        <td>Argument $class is missing from the Docblock of formDb</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>134</td>
+                                        <td>Argument $id is missing from the Docblock of formDb</td>
+                                    </tr>                                    <tr>
+                                        <td>error</td>
+                                        <td>134</td>
+                                        <td>No summary for method formDb()</td>
+                                    </tr>                            </tbody>
+                            </table>
+                        </div>                </div>        </div>
+    </section>
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">                            <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>                                        <li><a href="../namespaces/zetsoft.html">\zetsoft</a></li>                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">                            <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">                            <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    onOctober 5th, 2020 at 09:37.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/publish\yarner\animsition\dist\css\animsition.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+    
+</head>
+<body>
+    <div  class="animsition" data-animsition-in-class="fade-in-down" data-animsition-in-duration="1000"
+          data-animsition-out-class="fade-out-down" data-animsition-out-duration="800" >
+        <a href="./page1" class="animsition-link"  data-animsition-out-class="fade-out-right" data-animsition-out-duration="2000">
+            animsition link 1
+        </a>
+        <a  href="./page2"  class="animsition-link" data-animsition-out-class="rotate-out" data-animsition-out-duration="500">
+            animsition link 2
+        </a>
+    </div>
+    
+    <script type="text/javascript" src="/publish/yarner/mdbootstrap/js/jquery.min.js"></script>
+    <script src="/publish\yarner\animsition\dist\js\animsition.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $(".animsition").animsition({
+            inClass: 'fade-in-down',
+            outClass: 'fade-out-down',
+            inDuration: 1500,
+            outDuration: 800,
+            linkElement: '.animsition-link',
+            loading: true,
+            loadingParentElement: 'body', 
+            loadingClass: 'animsition-loading',
+            loadingInner: '', 
+            timeout: false,
+            timeoutCountdown: 5000,
+            onLoadEvent: true,
+            browser: [ 'animation-duration', '-webkit-animation-duration'],
+            overlay : false,
+            overlayClass : 'animsition-overlay-slide',
+            overlayParentElement : 'body',
+            transition: function(url){ window.location.href = url; }
+        });
+    }); 
+    </script>  
+</body>
+</html>

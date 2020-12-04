@@ -1,0 +1,141 @@
+{
+    assetManager: {
+        addButton: "Добавить изображение",
+        modalTitle: 'Выберите изображение',
+        uploadTitle: 'Нажмите здесь или перетащите файлы, чтобы загрузить'
+    },
+    deviceManager: {
+        device: 'Устройство',
+        devices: {
+            desktop: 'Компьютер',
+            tablet: 'Планшет',
+            mobileLandscape: 'Мобильный фон',
+            mobilePortrait: 'Мобильный фото'
+        }
+    },
+    panels: {
+        buttons: {
+            titles: {
+                preview: "Предварительный просмотр",
+                fullscreen: "Полный экран",
+                'sw-visibility': "Показать компоненты",
+                'export-template': 'Показать код',
+                'open-sm': 'Редактор открытого стиля',
+                'open-tm': 'Настройки',
+                'open-layers': 'Слои',
+                'open-blocks': 'Блоки'
+            }
+        }
+    },
+    selectorManager: {
+        selected: 'Выбранное',
+        emptyState: '- СТАТУС -',
+        label: 'Классы'
+    },
+    styleManager: {
+        empty: 'Выберите элемент, который вы хотите изменить стиль',
+        layer: 'Слой',
+        sectors: {
+            general: 'Общий',
+            layout: 'Расположение',
+            typography: 'Типография',
+            decorations: 'Декораций',
+            extra: 'Дополнительный',
+            flex: 'Гибкий',
+            dimension: 'Объем'
+        },
+        properties: {
+            float: 'Переложить',
+            display: 'Показать',
+            position: 'Позиция',
+            top: 'Верхний',
+            right: 'Правый',
+            left: 'Левый',
+            bottom: 'Нижний',
+            width: 'Ширина',
+            height: 'Высота',
+            'max-width': 'Максимальная ширина',
+            'max-height': 'максимальная высота',
+            margin: 'Отступ',
+            'margin-top': 'Верхний отступ',
+            'margin-right': 'Правый отступ',
+            'margin-left': 'Левый отступ',
+            'margin-bottom': 'Нижний отступ',
+            padding: 'Поля',
+            'padding-top': 'Верхний поля',
+            'padding-left': 'Левый поля',
+            'padding-right': 'Правый поля',
+            'padding-bottom': 'Нижний поля',
+            'font-family': 'Семейство шрифтов',
+            'font-size': 'Размер шрифта',
+            'font-weight': 'Начертание шрифта',
+            'letter-spacing': 'Межбуквенное расстояние',
+            color: 'Цвет',
+            'line-height': 'Высота линии',
+            'text-align': 'Ввыравнивания текста',
+            'text-shadow': 'Тень текста',
+            'text-shadow-h': 'Тень текста - горизонтальная',
+            'text-shadow-v': 'Тень текста - вертикальная',
+            'text-shadow-blur': 'Размытие тени текста',
+            'text-shadow-color': 'Цвет тени текста',
+            'border-top-left': 'Верхний левый угол',
+            'border-top-right': 'Верхний правый угол',
+            'border-bottom-left': 'Нижний левый угол',
+            'border-bottom-right': 'Правый нижний угол',
+            'border-radius-top-left': 'Радиус верхнего левого угла',
+            'border-radius-top-right': 'Радиус верхнего правого угла',
+            'border-radius-bottom-left': 'Радиус нижнего левого угла',
+            'border-radius-bottom-right': 'Радиус нижнего правого угла',
+            'border-radius': 'Угловой радиус',
+            border: 'Рамка',
+            'border-width': 'Ширина рамки',
+            'border-style': 'Стиль рамки',
+            'border-color': 'Цвет рамки',
+            'box-shadow': 'Тень бокса',
+            'box-shadow-h': 'Тень бокса - горизонтальный',
+            'box-shadow-v': 'Тень бокса - вертикальный',
+            'box-shadow-blur': 'Размытие тени бокса',
+            'box-shadow-spread': 'Распространение тени бокса',
+            'box-shadow-color': 'Цвет тени бокса',
+            'box-shadow-type': 'Тип тени бокса',
+            background: 'Фон',
+            'background-image': 'Фоновое изображение',
+            'background-repeat': 'Повторение фона',
+            'background-position': 'Позиция фона',
+            'background-attachment': 'Прикрепление фона',
+            'background-size': 'Размер фона',
+            transition: 'Переход',
+            'transition-property': 'свойство перехода',
+            'transition-duration': 'Продолжительность перехода',
+            'transition-timing-function': 'Функция времени перехода',
+            perspective: 'Перспектива',
+            transform: 'Трансформация',
+            'transform-rotate-x': 'Горизонтальное вращение(x)',
+            'transform-rotate-y': 'Вертикальное вращение(y)',
+            'transform-rotate-z': 'Объемное вращение(z)',
+            'transform-scale-x': 'Вертикальное соотношение(x)',
+            'transform-scale-y': 'Горизонтальное соотношение(y)',
+            'transform-scale-z': 'Объемное соотношение(z)',
+            'flex-direction': 'Flex-направление',
+            'flex-wrap': 'Flex-обертка',
+            'justify-content': 'Выравнивание контента',
+            'align-items': 'Выравнивание элементов',
+            'align-content': 'Расположение контента',
+            order: 'Порядок',
+            'flex-basis': 'Flex база',
+            'flex-grow': 'Flex рост',
+            'flex-shrink': 'Flex сокращения',
+            'align-self': 'Выравнивание',
+            'background-color': 'Цвет фона'
+        }
+    },
+    traitManager: {
+        empty: 'Пожалуйста, выберите элемент, чтобы изменить настройки для этого элемента',
+        label: 'Параметры компонента',
+        traits: {
+            labels: {},
+            attributes: {},
+            options: {}
+        }
+    }
+}

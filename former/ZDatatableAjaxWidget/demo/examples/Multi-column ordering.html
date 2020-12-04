@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+</head>
+<body>
+<!--
+
+https://datatables.net/examples/basic_init/multi_col_sort.html
+    Multi-column ordering
+DataTables a be activated in a number of different ways:
+
+User shllows ordering by multiple columns at the same time, which canift click on a column (added the clicked column as a secondary, tertiary etc ordering column).
+On a per-column basis (i.e. order by a specific column and then a secondary column if the data in the first column is identical), through the columns.orderData option.
+Using the columns.orderData option to specify a multiple column order by default (for example [ 0, 1 ]).
+Through the order() API method.
+Note that, the ability for the user to shift click to order multiple columns can be disabled through the orderMulti option.
+
+The example below shows the first column having a secondary order applied to the second column in the table, vice-versa for the second column being tied directly to the first and the salary column to the first name column.
+-->
+
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Tiger</td>
+        <td>Nixon</td>
+        <td>System Architect</td>
+        <td>Edinburgh</td>
+        <td>$320,800</td>
+    </tr>
+    <tr>
+        <td>Garrett</td>
+        <td>Winters</td>
+        <td>Accountant</td>
+        <td>Tokyo</td>
+        <td>$170,750</td>
+    </tr>
+    
+    </tbody>
+</table>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            columnDefs: [ {
+                targets: [ 0 ],
+                orderData: [ 0, 1 ]
+            }, {
+                targets: [ 1 ],
+                orderData: [ 1, 0 ]
+            }, {
+                targets: [ 4 ],
+                orderData: [ 4, 0 ]
+            } ]
+        } );
+    } );
+</script>
+</body>
+</html>

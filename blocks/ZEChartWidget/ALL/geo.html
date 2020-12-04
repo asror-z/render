@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+
+
+
+
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/azul.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/bee-inspired.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/blue.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/caravan.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/carp.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/cool.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-blue.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-bold.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-digerati.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-fresh-cut.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/dark-mushroom.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/eduardo.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/forest.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/fresh-cut.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/fruit.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/gray.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/green.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/helianthus.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/infographic.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/inspired.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/jazz.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/london.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/macarons.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/macarons2.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/mint.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/red.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/red-velvet.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/roma.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/royal.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/sakura.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/shine.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/tech-blue.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/theme/vintage.js"
+        type="text/javascript"></script>
+
+<script
+        type="text/javascript">
+
+
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null
+    option = {
+        "title": {
+            id: '',
+            "show": true,
+            "text": "ZCore ChartEx Widget v4",
+            "link": "",
+            target: 'self', //'blank',
+            "subtext": "",
+            "itemGap": 5,
+
+            textStyle: {
+                "align": "right",
+                color: '#333',
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+                fontFamily: 'sans-serif',
+                fontSize: 18,
+                lineHeight: 15,
+                width: 15,
+                height: 15,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+            },
+            rich: {
+                a: {
+                    color: '#999',
+                    lineHeight: 22,
+                    align: 'center'
+                },
+                // abg: {
+                //     backgroundColor: '#333',
+                //     width: '100%',
+                //     align: 'right',
+                //     height: 22,
+                //     borderRadius: [4, 4, 0, 0]
+                // },
+                hr: {
+                    borderColor: '#aaa',
+                    width: '100%',
+                    borderWidth: 0.5,
+                    height: 0.5,
+                },
+                b: {
+                    fontSize: 16,
+                    lineHeight: 33
+                },
+                per: {
+                    color: '#eee',
+                    backgroundColor: '#334455',
+                    padding: [2, 4],
+                    borderRadius: 2
+                }
+            },
+            "padding": [
+                10,
+                10,
+                10,
+                60
+            ]
+        },
+        "legend": {
+            "show": true,
+            "type": "scroll",
+            "selectedMode": "multiple",
+            "orient": "horizontal",
+            "align ": "right",
+            "left": "83%",
+            "top": "10%",
+            "right": "auto",
+            "bottom": "auto",
+            "height": "85%",
+            "padding": 5,
+            "itemGap": 10,
+            "animation": true,
+            "symbolKeepAspect": true,
+            "textStyle": {
+                "fontSize": "12"
+            },
+            "tooltip": {
+                "show": true
+            }
+        },
+        "dataZoom": [
+            {
+                "show": true,
+                "type": "inside",
+                "startValue": null,
+                "endValue": null,
+                "start": null,
+                "end": null
+            },
+            {
+
+                "show": true,
+                "type": "slider",
+                "filterMode": "filter",
+                "handleSize": "100%",
+                "showDataShadow": true,
+                "handleStyle": {
+                    "color": "black",
+                    "shadowBlur": 3,
+                    "shadowColor": "rgba(0, 0, 0, 0.6)",
+                    "shadowOffsetX": 4,
+                    "shadowOffsetY": 4
+                },
+                "orient": "horizontal",
+                "zoomLock": false,
+                "showDetail": true,
+                "textStyle": {
+                    "fontSize": "11",
+                    "fontWeight": "normal"
+                },
+                "startValue": null,
+                "endValue": null,
+                "start": null,
+                "end": null
+            }
+        ],
+        "grid": {
+            "show": true,
+            "left": "2%",
+            "right": "18%",
+            "top": "9%",
+            "bottom": "4%",
+            "containLabel": true,
+            "tooltip": {
+                "show": true
+            }
+        },
+        "tooltip": {
+            "show": true,
+            "trigger": "axis",
+            "alwaysShowContent": false,
+            "showContent": true,
+            "showDelay": 0,
+            "hideDelay": 100,
+            "enterable": false,
+            "confine": false,
+            "transitionDuration": 0.4,
+            "padding": 20,
+            "position": function (point, params, dom, rect, size) {
+                var left = point[0] + 100;
+                var top = 0;
+
+                return {left: left, top: top};
+            },
+            "triggerOn": "mousemove",
+            "textStyle": {
+                "fontStyle": "normal",
+                "fontSize": "11",
+                "fontWeight": "normal"
+            },
+            "axisPointer": {
+                "type": "cross",
+                "label": []
+            }
+        },
+        "axisPointer": {
+            "show": true,
+            "type": "line",
+            "label": {
+                "show": true,
+                "precision": 2,
+                "fontSize": "11"
+            },
+            "handle": {
+                "show": true,
+                "size": 25,
+                "throttle": 15
+            }
+        },
+        "toolbox": {
+            "show": true,
+            "orient": "horizontal",
+            "itemSize": 18,
+            "itemGap": 10,
+            "left": "auto",
+            "right": 0,
+            "top": 0,
+            "bottom": "auto",
+            "showTitle": true,
+            "feature": {
+                "saveAsImage": [],
+                "restore": [],
+                "dataView": [],
+                "dataZoom": {
+                    "yAxisIndex": "none"
+                },
+                "magicType": []
+            }
+        },
+        'geo': {
+            'id': 'geo',
+            'show': true, // false
+            'map': '', // for example: 'china'
+            'roam': false, // true
+            //  If either zooming or translating is wanted, it can be set to 'scale' or 'move'
+            'center': [115.97, 29.71],
+            'aspectScale': 0.75,
+            'boundingCoords': [
+                // [lng, lat] of left-top corner
+                [-180, 90],
+                // [lng, lat] of right-bottom corner
+                [180, -90]
+            ],
+            'zoom': 1,
+            'scaleLimit': {
+                min: 0,
+                max: 1,
+
+            },
+            'nameMap': {
+                'China' : '中国'
+            },
+            'selectedMode': false, // true, 'single', 'multiple'
+            'label': {
+                'show': false, // true,
+                'position': 'top', /* 'left', 'right', 'bottom',
+                 'inside', 'insideLeft', 'insideRight',
+                 'insideTop', 'insideBottom', 'insideTopLeft',
+                 'insideBottomLeft', 'insideTopRight', 'insideBottomRight'
+                 Absolute pixel values: position: [10, 10],
+                 Relative percentage: position: ['50%', '50%'] */
+                'distance': 5,
+                'rotate': 45, // Rotate label, from -90 degree to 90, positive value represents rotate anti-clockwise.
+                'offset': [30, 40], // 30 horizontally and move 40 vertically.
+                'formatter': '', // formatter: '{b}: {@score}'
+                'color': "#fff", // 'auto'
+                'fontStyle': 'normal', // 'italic', 'oblique'
+                'fontWeight': 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                'fontFamily': 'sans-serif', //  'serif' , 'monospace', ...
+                'fontSize': 12,
+                'align': 'left', // 'center', 'right'
+                'verticalAlign': 'top', // 'middle', 'bottom'
+                'lineHeight': 56,
+                'backgroundColor': 'transparent',
+                // '#123234', 'red', 'rgba(0,23,11,0.3)', 'auto'
+                'borderColor': 'transparent', // 'auto'
+                'borderWidth': 0,
+               'borderRadius': 0,
+                'padding': 0, // [3, 4, 5, 6] for [top, right, bottom, left]
+                'shadowColor': 'transparent',
+                'shadowBlur': 0,
+                'shadowOffsetX': 0,
+                'shadowOffsetY': 0,
+               ' width': 0, // '100%'
+                'height': 0, // '100%'
+                'textBorderColor': 'transparent',  // 'auto'
+                'textBorderWidth': 0,
+                'textShadowColor': 'transparent',
+                'textShadowOffsetX': 0,
+                'textShadowOffsetY': 0,
+                'rich': {
+                    style_name: {
+                        color: "#fff",
+                        fontStyle: 'normal', // 'italic', 'oblique'
+                        fontWeight: 'normal',
+                        fontFamily: 'sans-serif', //'serif' , 'monospace', ...
+                        fontSize: 12,
+                        align: 'left', // 'center', 'right'
+                        verticalAlign: 'top', // 'middle', 'bottom'
+                        lineHeight: 56,
+                        backgroundColor: 'transparent', // object
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        padding: 0, // array
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: '100%', // string
+                        height: '100%', // string
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+
+
+
+                    }
+                },
+                'emphasis': {
+                    show: false, // true
+                    position: 'top',
+                    /* Absolute pixel values: position: [10, 10],
+    Relative percentage: position: ['50%', '50%']
+    'left', 'right', 'bottom', 'inside', 'insideLeft', 'insideRight', 'insideTop', 'insideBottom', 'insideTopLeft', 'insideBottomLeft', 'insideTopRight', 'insideBottomRight'*/
+                    distance: 5,
+                    rotate: 0, //Rotate label, from -90 degree to 90, positive value represents rotate anti-clockwise.
+                    offset: [30, 40],
+                    formatter: '', // for example: formatter: '{b}: {@score}'
+                    color: "#fff",  // 'auto'
+                    fontStyle: 'normal', // 'italic', 'oblique'
+                    fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                    fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                    fontSize: 12,
+                    align: 'left', // 'center', 'right'
+                    verticalAlign: 'top', // 'middle', 'bottom'
+                    lineHeight: 56,
+                    backgroundColor: 'transparent', // object
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0, // array
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: '100%', // string
+                    height: '100%', // string
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        style_name: {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'italic', 'oblique'
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif', //'serif' , 'monospace', ...
+                            fontSize: 12,
+                            align: 'left', // 'center', 'right'
+                            verticalAlign: 'top', // 'middle', 'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent', // object
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            padding: 0, // array
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: '100%', // string
+                            height: '100%', // string
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+
+
+
+                        }
+                    },
+                },
+            },
+            'itemStyle': {
+                areaColor: '#eee',
+                emphasis: {
+                    areaColor: '#eee',
+                    color: '#eee', // 'rgb(128, 128, 128)', 'rgba(128, 128, 128, 0.5)','#ccc'
+                    borderColor: "#000",
+                    borderWidth: 0,
+                    borderType: 'solid',
+                    shadowBlur: 10,
+                    /*shadowBlur: {
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowBlur: 10
+                    }, */
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 0,   // 1
+                },
+
+            },
+            'zlevel': 0,
+            'z': 2,
+            'left': 'auto', // '20%' 20, 'left', 'center', 'right'
+            'top': 'auto', // 20, '20%', 'top', 'middle', or 'bottom'
+            'right': 'auto', // 20, '20%'
+            'bottom': 'auto', // 20, '20%'
+            'layoutCenter': ['30%', '30%'],
+            'layoutSize': 0, // string
+            'regions': [{
+                name: 'Guangdong', // 'Zhejiang'
+                selected: false, // true
+                itemStyle: {
+                    areaColor: "#eee",
+                    color: "#eee", // 'rgb(128, 128, 128)', 'rgba(128, 128, 128, 0.5)', '#ccc'
+                    borderColor: "#000",
+                    borderWidth: 0,
+                    borderType: 'solid', // 'dashed', or 'dotted'
+                    shadowBlur: 10,
+                    shadowColor: "#eee",
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 0,
+                    emphasis: {
+                        areaColor: '#eee',
+                        color: '#eee', // 'rgb(128, 128, 128)', 'rgba(128, 128, 128, 0.5)','#ccc'
+                        borderColor: "#000",
+                        borderWidth: 0,
+                        borderType: 'solid',
+                        shadowBlur: 10,
+                        /*shadowBlur: {
+                            shadowColor: 'rgba(0, 0, 0, 0.5)',
+                            shadowBlur: 10
+                        }, */
+                        shadowColor: 'rgba(0, 0, 0, 0.5)',
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 0,   // 1
+                    },
+                },
+                label: {
+                    show: false, // true,
+                    position: 'top', /* 'left', 'right', 'bottom',
+                 'inside', 'insideLeft', 'insideRight',
+                 'insideTop', 'insideBottom', 'insideTopLeft',
+                 'insideBottomLeft', 'insideTopRight', 'insideBottomRight'
+                 Absolute pixel values: position: [10, 10],
+                 Relative percentage: position: ['50%', '50%'] */
+                    distance: 5,
+                    rotate: 45, // Rotate label, from -90 degree to 90, positive value represents rotate anti-clockwise.
+                    offset: [30, 40], // 30 horizontally and move 40 vertically.
+                    formatter: '', // formatter: '{b}: {@score}'
+                    color: "#fff", // 'auto'
+                    fontStyle: 'normal', // 'italic', 'oblique'
+                    fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                    fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                    fontSize: 12,
+                    align: 'left', // 'center', 'right'
+                    verticalAlign: 'top', // 'middle', 'bottom'
+                    lineHeight: 56,
+                    backgroundColor: 'transparent',
+                    // '#123234', 'red', 'rgba(0,23,11,0.3)', 'auto'
+                    borderColor: 'transparent', // 'auto'
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0, // [3, 4, 5, 6] for [top, right, bottom, left]
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: 0, // '100%'
+                    height: 0, // '100%'
+                    textBorderColor: 'transparent',  // 'auto'
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    rich: {
+                        style_name: {
+                            color: "#fff",
+                            fontStyle: 'normal', // 'italic', 'oblique'
+                            fontWeight: 'normal',
+                            fontFamily: 'sans-serif', //'serif' , 'monospace', ...
+                            fontSize: 12,
+                            align: 'left', // 'center', 'right'
+                            verticalAlign: 'top', // 'middle', 'bottom'
+                            lineHeight: 56,
+                            backgroundColor: 'transparent', // object
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            padding: 0, // array
+                            shadowColor: 'transparent',
+                            shadowBlur: 0,
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            width: '100%', // string
+                            height: '100%', // string
+                            textBorderColor: 'transparent',
+                            textBorderWidth: 0,
+                            textShadowColor: 'transparent',
+                            textShadowBlur: 0,
+                            textShadowOffsetX: 0,
+                            textShadowOffsetY: 0,
+
+
+
+                        }
+                    },
+                    emphasis: {
+                        show: false, // true
+                        position: 'top',
+                        /* Absolute pixel values: position: [10, 10],
+        Relative percentage: position: ['50%', '50%']
+        'left', 'right', 'bottom', 'inside', 'insideLeft', 'insideRight', 'insideTop', 'insideBottom', 'insideTopLeft', 'insideBottomLeft', 'insideTopRight', 'insideBottomRight'*/
+                        distance: 5,
+                        rotate: 0, //Rotate label, from -90 degree to 90, positive value represents rotate anti-clockwise.
+                        offset: [30, 40],
+                        formatter: '', // for example: formatter: '{b}: {@score}'
+                        color: "#fff",  // 'auto'
+                        fontStyle: 'normal', // 'italic', 'oblique'
+                        fontWeight: 'normal', // 'bold', 'bolder', 'lighter', 100 | 200 | 300 | 400...
+                        fontFamily: 'sans-serif', //  'serif' , 'monospace', ...
+                        fontSize: 12,
+                        align: 'left', // 'center', 'right'
+                        verticalAlign: 'top', // 'middle', 'bottom'
+                        lineHeight: 56,
+                        backgroundColor: 'transparent', // object
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        padding: 0, // array
+                        shadowColor: 'transparent',
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        width: '100%', // string
+                        height: '100%', // string
+                        textBorderColor: 'transparent',
+                        textBorderWidth: 0,
+                        textShadowColor: 'transparent',
+                        textShadowBlur: 0,
+                        textShadowOffsetX: 0,
+                        textShadowOffsetY: 0,
+                        rich: {
+                            style_name: {
+                                color: "#fff",
+                                fontStyle: 'normal', // 'italic', 'oblique'
+                                fontWeight: 'normal',
+                                fontFamily: 'sans-serif', //'serif' , 'monospace', ...
+                                fontSize: 12,
+                                align: 'left', // 'center', 'right'
+                                verticalAlign: 'top', // 'middle', 'bottom'
+                                lineHeight: 56,
+                                backgroundColor: 'transparent', // object
+                                borderColor: 'transparent',
+                                borderWidth: 0,
+                                padding: 0, // array
+                                shadowColor: 'transparent',
+                                shadowBlur: 0,
+                                shadowOffsetX: 0,
+                                shadowOffsetY: 0,
+                                width: '100%', // string
+                                height: '100%', // string
+                                textBorderColor: 'transparent',
+                                textBorderWidth: 0,
+                                textShadowColor: 'transparent',
+                                textShadowBlur: 0,
+                                textShadowOffsetX: 0,
+                                textShadowOffsetY: 0,
+
+
+
+                            }
+                        },
+                    },
+                },
+            }],
+            'silent': false, // true
+        },
+        "textStyle": {
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "fontFamily": "Verdana",
+            "fontSize": "12",
+            "align": "center",
+            "verticalAlign": "middle"
+        },
+        "animation": true,
+        "useUTC": false,
+        "xAxis": {
+            "type": "category",
+            "position": "bottom",
+            "offset": -21,
+            "inverse": false,
+            "boundaryGap": true,
+            "scale": true,
+            "splitNumber": 10,
+            "axisLabel": {
+                "margin": 35,
+                "show": true,
+                "interval": "auto",
+                "color": "black",
+                "fontWeight": "bold",
+                "inside": false,
+                "rotate": 0,
+                "fontSize": "11",
+                "align": "center",
+                "verticalAlign": "middle"
+            },
+            "show": true,
+            "name": "",
+            "nameLocation": "center",
+            "nameTextStyle": {
+                "fontSize": "13"
+            },
+            "nameGap": 30,
+            "nameRotate": null,
+            "splitLine": {
+                "show": true
+            },
+            "axisLine": {
+                "show": true,
+                "symbol": "none",
+                "lineStyle": {
+                    "type": "solid"
+                }
+            },
+            "axisTick": {
+                "show": true
+            }
+        },
+        "yAxis": {
+            "position": "left",
+            "offset": 0,
+            "type": "value",
+            "inverse": false,
+            "boundaryGap": [
+                "0%",
+                "10%"
+            ],
+            "scale": true,
+            "splitNumber": 5,
+            "axisPointer": {
+                "show": true,
+                "triggerTooltip": false
+            },
+            "axisLabel": {
+                "margin": 25,
+                "show": true,
+                "interval": "auto",
+                "color": "black",
+                "fontWeight": "bold",
+                "inside": false,
+                "rotate": 0,
+                "fontSize": "11",
+                "align": "center",
+                "verticalAlign": "middle"
+            },
+            "show": true,
+            "name": "",
+            "nameLocation": "center",
+            "nameTextStyle": {
+                "fontSize": "13"
+            },
+            "nameGap": 30,
+            "nameRotate": null,
+            "splitLine": {
+                "show": true
+            },
+            "axisLine": {
+                "show": true,
+                "symbol": "none",
+                "lineStyle": {
+                    "type": "solid"
+                }
+            },
+            "axisTick": {
+                "show": true
+            }
+        },
+        "dataset": {
+            "source": [
+                [
+                    "Name",
+                    "In",
+                    "Out"
+                ],
+                [
+                    "Monday",
+                    43.3,
+                    853.8
+                ],
+                [
+                    "Tuesday",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "331",
+                    833.1,
+                    73.4
+                ],
+                [
+                    "Tue141sday",
+                    843.1,
+                    73.4
+                ],
+                [
+                    "Tue4sday",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "Tue4s4day",
+                    83.1,
+                    73.4
+                ],
+                [
+                    "Tue44sday",
+                    83.1,
+                    73.4
+                ]
+            ]
+        },
+        "series": [
+            {
+                "seriesLayoutBy": "column",
+                "label": {
+                    "show": true,
+                    "fontSize": "11",
+                    "align": "center",
+                    "verticalAlign": "middle",
+                    "emphasis": {
+                        "show": false,
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(0, 0, 0, 0.5)"
+                    },
+                    "position": "inside",
+                    "offset": [
+                        -10,
+                        -10
+                    ],
+                    "padding": [
+                        0,
+                        0
+                    ],
+                    "color": "auto"
+                },
+                "type": "line",
+                "symbol": "circle",
+                "symbolSize": 6,
+                "symbolKeepAspect": true,
+                "showSymbol": true,
+                "showAllSymbol": false,
+                "smooth": true,
+                "sampling": "max",
+                "itemStyle": {
+                    "color": null
+                }
+            },
+            {
+                "seriesLayoutBy": "column",
+                "label": {
+                    "show": true,
+                    "fontSize": "11",
+                    "align": "center",
+                    "verticalAlign": "middle",
+                    "emphasis": {
+                        "show": false,
+                        "shadowBlur": 10,
+                        "shadowOffsetX": 0,
+                        "shadowColor": "rgba(0, 0, 0, 0.5)"
+                    },
+                    "position": "inside",
+                    "offset": [
+                        -10,
+                        -10
+                    ],
+                    "padding": [
+                        0,
+                        0
+                    ],
+                    "color": "auto"
+                },
+                "type": "bar",
+                "symbol": "circle",
+                "symbolSize": 6,
+                "symbolKeepAspect": true,
+                "showSymbol": true,
+                "showAllSymbol": false,
+                "smooth": true,
+                "sampling": "max",
+                "itemStyle": {
+                    "color": null
+                }
+            }
+        ]
+    };
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>
+

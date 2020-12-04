@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        td.details-control {
+            background: url('https://raw.githubusercontent.com/DataTables/DataTables/master/examples/resources/details_open.png') no-repeat center center;
+            cursor: pointer;
+        }
+
+        tr.shown td.details-control {
+            background: url('https://raw.githubusercontent.com/DataTables/DataTables/master/examples/resources/details_close.png') no-repeat center center;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+
+<script>
+    /* Formatting function for row details - modify as you need */
+    function format(d) {
+        // `d` is the original data object for the row
+        return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+            '<tr>' +
+            '<td>Full name:</td>' +
+            '<td>' + d.name + '</td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td>Extension number:</td>' +
+            '<td>' + d.extn + '</td>' +
+            '</tr>' +
+            '<tr>' +
+            '<td>Extra info:</td>' +
+            '<td>And any further details here (images etc)...</td>' +
+            '</tr>' +
+            '</table>';
+    }
+
+    $(document).ready(function () {
+
+        var table = $('#example').DataTable({
+            "ajax": "../ajax/data/objects",
+            "columns": [
+                {
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": ''
+                },
+                {"data": "name"},
+                {"data": "position"},
+                {"data": "office"},
+                {"data": "salary"}
+            ],
+            "order": [[1, 'asc']],
+
+            //Features
+
+            "autoWidth": true,
+            "deferRender": true,
+            "info": true,
+            "lengthChange": true,
+            "ordering": true,
+            "paging": true,
+            "processing": false,
+            "scrollX": false,
+            //"scrollY": '',
+            "searching": true,
+            "serverSide": false,
+            //stateSave: true,
+
+            //AUTOFILL
+
+            autoFill: true,
+            /*autoFill: {
+                 columns: ':not(:first-child)'
+                 alwaysAsk: true
+                columns: [ 1, 2, 3, 4 ]
+                editor: editor
+                 enable: false
+                focus: 'click'
+                horizontal: false
+                 update: false
+                vertical: false
+                 info: 'Select a data fill type:'
+                 button: 'Go!'
+                 cancel: 'Close and perform no updates'
+                 fill: 'Fill all cells with the same value'
+                 fillHorizontal: 'Copy values horizontally'
+                increment: 'Change each cell by: <input type="number" value="1">
+                info: 'Select a data fill type:'
+            },*/
+
+            //BUTTONS
+
+            buttons: {
+                buttons: [ 'copy', 'csv', 'excel' ]
+            },
+            dom: 'B<"clear">lfrtip',
+
+            buttons: {
+                buttons: [
+                    'copy',
+                    {
+                        text: 'My button',
+                        action: function ( dt ) {
+                            console.log( 'My custom button!' );
+                        }
+                    }
+                ]
+            },
+
+            //COLREORDER
+
+            fixedColumns: {
+                leftColumns: 2
+            },
+
+            colReorder: {
+                enable: false,
+                fixedColumnsLeft: 1,
+                order: [ 5, 4, 3, 2, 1, 0 ]
+            },
+
+            //DATATABLE - OPTIONS ?
+
+            "deferLoading": null,
+            //"deferLoading": [ 57, 100 ],
+            "destroy": false,
+            "displayStart" : 0,
+            //"info": false
+            //"dom": 'lrtip'
+            "orderCellsTop": true,
+            "orderClasses":true,
+            /*"orderFixed": {
+                "pre": [ 0, 'asc' ],
+                "post": [ 1, 'asc' ]
+            }*/
+            "orderMulti": true,
+            "pageLength": 10,
+            renderer: "bootstrap",
+            /*renderer: {
+                "header": "jqueryui",
+                "pageButton": "bootstrap"
+            }*/
+
+            "retrieve": false
+
+            //"pagingType": "full_numbers"
+
+            //DATATABLE- Callbacks
+
+            /*"createdRow": function( row, data, dataIndex ) {
+                if ( data[4] == "A" ) {$(row).addClass( 'important' );
+                }
+            }*/
+
+            /*"footerCallback": function( tfoot, data, start, end, display ) {
+                $(tfoot).find('th').eq(0).html( "Starting index is "+start );
+            }*/
+            /* var api = this.api();
+             $( api.column( 5 ).footer() ).html(
+             api.column( 5 ).data().reduce( function ( a, b ) {
+                 return a + b;
+                 }, 0 )
+              );
+             */
+
+
+
+
+
+
+
+
+
+        });
+
+        $('#example tbody').on('click', 'td.details-control', function () {
+            var tr = $(this).closest('tr');
+            var row = table.row(tr);
+
+            if (row.child.isShown()) {
+                // This row is already open - close it
+                row.child.hide();
+                tr.removeClass('shown');
+            } else {
+                // Open this row
+                row.child(format(row.data())).show();
+                tr.addClass('shown');
+            }
+        });
+
+
+
+
+        // Add event listener for opening and closing details
+
+    });
+
+</script>
+
+
+</body>
+</html>

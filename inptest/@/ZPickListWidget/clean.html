@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PickList for jQuery</title>
+    <link href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/publish/yarner/font-awesome/css/font-awesome.min.css">
+
+    <style>
+        .pickListButtons {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .pickListButtons button {
+            margin-bottom: 5px;
+        }
+
+        .pickListSelect {
+            height: 200px !important;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<br>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">PickList</h3>
+        </div>
+        <div class="panel-body">
+
+            <div id="pickList"></div>
+
+            <br><br>
+            <button class="btn btn-primary" id="getSelected">Get Selected</button>
+        </div>
+    </div>
+</div>
+
+<script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+<script src="/publish/yarner/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+    (function ($) {
+
+        $.fn.pickList = function (options) {
+
+            var opts = $.extend({}, $.fn.pickList.defaults, options);
+
+            this.fill = function () {
+                var option = '';
+
+                $.each(opts.data, function (key, val) {
+                    option += '<option data-id=' + val.id + '>' + val.text + '</option>';
+                });
+                this.find('.pickData').append(option);
+            };
+            this.controll = function () {
+                var pickThis = this;
+
+                pickThis.find(".pAdd").on('click', function () {
+                    var p = pickThis.find(".pickData option:selected");
+                    p.clone().appendTo(pickThis.find(".pickListResult"));
+                    p.remove();
+                });
+
+                pickThis.find(".pAddAll").on('click', function () {
+                    var p = pickThis.find(".pickData option");
+                    p.clone().appendTo(pickThis.find(".pickListResult"));
+                    p.remove();
+                });
+
+                pickThis.find(".pRemove").on('click', function () {
+                    var p = pickThis.find(".pickListResult option:selected");
+                    p.clone().appendTo(pickThis.find(".pickData"));
+                    p.remove();
+                });
+
+                pickThis.find(".pRemoveAll").on('click', function () {
+                    var p = pickThis.find(".pickListResult option");
+                    p.clone().appendTo(pickThis.find(".pickData"));
+                    p.remove();
+                });
+            };
+
+            this.getValues = function () {
+                var objResult = [];
+                this.find(".pickListResult option").each(function () {
+                    objResult.push({
+                        id: $(this).data('id'),
+                        text: this.text
+                    });
+                });
+                return objResult;
+            };
+
+            this.init = function () {
+                var pickListHtml =
+                    "<div class='row'>" +
+                    "  <div class='col-sm-5'>" +
+                    "	 <select class='form-control pickListSelect pickData' multiple></select>" +
+                    " </div>" +
+                    " <div class='col-sm-2 pickListButtons'>" +
+                    "	<button  class='pAdd btn btn-primary btn-sm'>" + opts.add + "</button>" +
+                    "      <button  class='pAddAll btn btn-primary btn-sm'>" + opts.addAll + "</button>" +
+                    "	<button  class='pRemove btn btn-primary btn-sm'>" + opts.remove + "</button>" +
+                    "	<button  class='pRemoveAll btn btn-primary btn-sm'>" + opts.removeAll + "</button>" +
+                    " </div>" +
+                    " <div class='col-sm-5'>" +
+                    "    <select class='form-control pickListSelect pickListResult' multiple></select>" +
+                    " </div>" +
+                    "</div>";
+
+                this.append(pickListHtml);
+
+                this.fill();
+                this.controll();
+            };
+
+            this.init();
+            return this;
+        };
+
+        $.fn.pickList.defaults = {
+            add: 'Add',
+            addAll: 'Add All',
+            remove: 'Remove',
+            removeAll: 'Remove All'
+        };
+
+
+    }(jQuery));
+
+</script>
+<script>
+
+    var val = {
+        01: {id: 01, text: 'Isis'},
+        02: {id: 02, text: 'Sophia'},
+        03: {id: 03, text: 'Alice'},
+        04: {id: 04, text: 'Isabella'},
+        05: {id: 05, text: 'Manuela'},
+        06: {id: 06, text: 'Laura'},
+        07: {id: 07, text: 'Luiza'},
+        07: {id: 07, text: 'Luiza'},
+        08: {id: 07, text: 'Monica'},
+        09: {id: 07, text: 'Dana'},
+        10: {id: 07, text: 'Fiana'},
+        11: {id: 07, text: 'Leyla'}
+    };
+
+    var pick = $("#pickList").pickList({data: val});
+
+    $("#getSelected").click(function () {
+        console.log(pick.getValues());
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,482 @@
+
+* {
+    box-sizing: border-box;
+}
+body{
+
+    overflow: hidden;
+}
+html{
+
+    overflow-x: hidden;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+button:focus {
+    outline: 0;
+}
+.inactiveMixin {
+    content: "";
+    position: absolute;
+    display: block;
+}
+.beforeAnimation {
+    -moz-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+    -o-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+    -webkit-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+    transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+}
+.afterAnimation {
+    box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, 0.04), 0 4px 9px hsla(0, 0%, 0%, 0.13), 0 3px 3px hsla(0, 0%, 0%, 0.05);
+    -moz-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+    -o-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+    -webkit-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+    transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+}
+.toggleWrapper input.mobileToggle {
+    opacity: 0;
+    position: absolute;
+}
+.toggleWrapper input.mobileToggle + label {
+    position: relative;
+    display: inline-block;
+    user-select: none;
+    -moz-transition: 0.4s ease;
+    -o-transition: 0.4s ease;
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+    -webkit-tap-highlight-color: transparent;
+    height: 30px;
+    width: 50px;
+    border: 1px solid #e4e4e4;
+    border-radius: 60px;
+}
+.toggleWrapper input.mobileToggle + label:before {
+    content: "";
+    position: absolute;
+    display: block;
+    -moz-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+    -o-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+    -webkit-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+    transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+    height: 30px;
+    width: 51px;
+    top: 0;
+    left: 0;
+    border-radius: 30px;
+}
+.toggleWrapper input.mobileToggle + label:after {
+    content: "";
+    position: absolute;
+    display: block;
+    box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, 0.04), 0 4px 9px hsla(0, 0%, 0%, 0.13), 0 3px 3px hsla(0, 0%, 0%, 0.05);
+    -moz-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+    -o-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+    -webkit-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+    transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+    background: whitesmoke;
+    height: 28px;
+    width: 28px;
+    top: 1px;
+    left: 0px;
+    border-radius: 60px;
+}
+.toggleWrapper input.mobileToggle:checked + label:before {
+    background: #2ecc71;
+    -moz-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+    -o-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+    -webkit-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+    transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+}
+.toggleWrapper input.mobileToggle:checked + label:after {
+    left: 24px;
+}
+.app-wrapper {
+    background-image: url(https://static1.gamespot.com/uploads/original/1179/11799911/2718166-rsg_gtav_ng_screenshot_006.jpg);
+    height: 100%;
+    background-size: cover;
+    background-repeat: norepeat;
+}
+.app-wrapper .phone-wrapper {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: block;
+    margin: auto;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-style: outset;
+    background-color: black;
+    width: 235px;
+    height: 500px;
+    border-radius: 25px;
+    padding: 8px 1px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.app-wrapper .phone-wrapper.small {
+    zoom: 50%;
+}
+.app-wrapper .phone-wrapper.medium {
+    zoom: 60%;
+}
+.app-wrapper .phone-wrapper.large {
+    zoom: 120%;
+}
+.app-wrapper .phone-wrapper.extra-large {
+    zoom: 150%;
+}
+.app-wrapper .phone-wrapper .screen {
+    position: relative;
+    display: block;
+    background-image: url("https://i.pinimg.com/originals/f4/a1/41/f4a141d23c96d42709b2142123bac05f.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    -webkit-box-shadow: inset -84px -25px 22px -81px #ffffff;
+    -moz-box-shadow: inset -84px -25px 22px -81px #ffffff;
+    box-shadow: inset -84px -25px 22px -81px #ffffff;
+}
+.app-wrapper .phone-wrapper .screen:after {
+    content: "";
+    -webkit-box-shadow: inset 81px 19px 22px -81px #ffffff;
+    -moz-box-shadow: inset 81px 19px 22px -81px #ffffff;
+    box-shadow: inset 81px 19px 22px -81px #ffffff;
+    width: 30px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    position: absolute;
+    left: 0px;
+    pointer-events: none;
+}
+.app-wrapper .phone-wrapper .screen .phone-stats {
+    color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 8px;
+    right: 35px;
+    z-index: 10;
+}
+.app-wrapper .phone-wrapper .screen .phone-stats i {
+    font-size: 10px;
+}
+.app-wrapper .phone-wrapper .screen .toggleContainerMixin {
+    display: block;
+    bottom: -1000px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    background-color: #e0e0e0;
+    transition: all 1s ease-in-out;
+    border-radius: 100px;
+    opacity: 0.5;
+}
+.app-wrapper .phone-wrapper .screen .toggleContainerMixin h1 {
+    font-weight: 100;
+    padding-left: 10px;
+    margin-bottom: 0;
+    font-size: 24px;
+}
+.app-wrapper .phone-wrapper .screen .toggleContainerMixin h1 i {
+    display: block;
+    background: #e0e0e0;
+    width: 34px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: all 0.5s ease-in-out;
+}
+.app-wrapper .phone-wrapper .screen .toggleContainerMixin h1 i:hover {
+    cursor: pointer;
+    background-color: #bdbdbd;
+    color: #01579b;
+    transition: all 0.5s ease-in-out;
+}
+.app-wrapper .phone-wrapper .screen .toggleContainerMixin.open {
+    transition: all 1s ease-in-out;
+    bottom: 0;
+    border-radius: 0px;
+    opacity: 1;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper {
+    display: block;
+    bottom: -1000px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    background-color: #e0e0e0;
+    transition: all 1s ease-in-out;
+    border-radius: 100px;
+    opacity: 0.5;
+    background: white;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper h1 {
+    font-weight: 100;
+    padding-left: 10px;
+    margin-bottom: 0;
+    font-size: 24px;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper h1 i {
+    display: block;
+    background: #e0e0e0;
+    width: 34px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: all 0.5s ease-in-out;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper h1 i:hover {
+    cursor: pointer;
+    background-color: #bdbdbd;
+    color: #01579b;
+    transition: all 0.5s ease-in-out;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper.open {
+    transition: all 1s ease-in-out;
+    bottom: 0;
+    border-radius: 0px;
+    opacity: 1;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper h2 {
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    padding-left: 10px;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper .number-input {
+    border: 0;
+    width: 100%;
+    padding: 10px 10px 300px 10px;
+    margin-top: 25px;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper button {
+    padding: 15px;
+    background: #09af00;
+    border: 1px solid #09af00;
+    color: white;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper .call-btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    border: 1px solid #d3d3d3;
+    background-color: #d3d3d300;
+    transition: all linear 0.2s;
+    cursor: pointer;
+    padding: 0px;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper .call-btn:hover{
+    border: 1px solid rgba(215, 9, 57, 0.92);
+}
+
+.app-wrapper .phone-wrapper .screen .call-wrapper .call-btn .material-icons{
+    color: green;
+    padding: 15px;
+    font-size: 26px;
+    transition: all linear 0.2s;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper .call-btn .material-icons:hover{
+    transform:  rotateZ(-360deg) scaleY(1.4);
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper .dialer {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 65px;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper .dialer-btn {
+    float: left;
+    width: 33.3333% !important;
+    margin: 0px !important;
+    text-align: center;
+    padding: 20px !important;
+    background-color: lightgray !important;
+    border-color: white !important;
+    transition: all 0.5s ease-in-out;
+}
+
+.app-wrapper .phone-wrapper .screen .call-wrapper .dialer-btn:hover {
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    background-color: #09af00 !important;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper .clear:hover {
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    background-color: #af0037 !important;
+}
+.app-wrapper .phone-wrapper .screen .call-wrapper .number-input {
+    padding: 10px 10px 10px 10px;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper {
+    display: block;
+    bottom: -1000px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    background-color: #e0e0e0;
+    transition: all 1s ease-in-out;
+    border-radius: 100px;
+    opacity: 0.5;
+    background-color: #121212;
+    text-align: center;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper h1 {
+    font-weight: 100;
+    padding-left: 10px;
+    margin-bottom: 0;
+    font-size: 24px;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper h1 i {
+    display: block;
+    background: #e0e0e0;
+    width: 34px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: all 0.5s ease-in-out;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper h1 i:hover {
+    cursor: pointer;
+    background-color: #bdbdbd;
+    color: #01579b;
+    transition: all 0.5s ease-in-out;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper.open {
+    transition: all 1s ease-in-out;
+    bottom: 0;
+    border-radius: 0px;
+    opacity: 1;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper i {
+    padding: 140px 0 5px 0;
+    display: block;
+    color: white;
+    font-size: 70px;
+    -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper .back-from-call {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper p {
+    color: white;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper button {
+    background: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 8px 10px 7px 10px;
+    font-weight: bold;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper button:hover {
+    cursor: pointer;
+    background-color: #bdbdbd;
+    border-color: #bdbdbd;
+    color: black;
+    transition: all 0.5s ease-in-out;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper .answer-btn {
+    background-color: #03dac6;
+    border: 1px solid #03dac6;
+    transition: all 0.5s ease-in-out;
+}
+.app-wrapper .phone-wrapper .screen .phone-call-active-wrapper .hangup-btn {
+    background-color: #b00020;
+    border: 1px solid #b00020;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+.app-wrapper .phone-wrapper .screen .footer-bar {
+    position: absolute;
+    top: 213px;
+    left: 93.5px;
+    padding: 10px 8px;
+    user-select: auto;
+}
+.app-wrapper .phone-wrapper .screen .footer-bar .footer-btn {
+    border-radius: 12px;
+    padding: 5px 7px;
+    color: white;
+    cursor: pointer;
+    margin-right: 4px;
+}
+.app-wrapper .phone-wrapper .screen .footer-bar .footer-btn.phone {
+    background-color: #09af00;
+    border: 1px solid #09af00;
+}
+.app-wrapper .phone-wrapper .screen .footer-bar .footer-btn:last-child {
+    margin-right: 0px;
+}
+.app-wrapper .phone-wrapper .screen .footer-bar .footer-btn:hover {
+    background-color: #1c313a;
+    border: 1px solid #1c313a;
+    transition: all 1s ease-in-out;
+}
+.app-wrapper .phone-wrapper .screen .footer-bar .footer-btn i {
+    position: relative;
+    top: 1.5px;
+    font-size: 20px;
+}
+@keyframes spinner-animation {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    25% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    70% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+@-webkit-keyframes greenPulse {
+    from {
+        color: #749a02;
+        text-shadow: 0 0 9px #333;
+    }
+    50% {
+        color: #91bd09;
+        text-shadow: 0 0 18px #91bd09;
+    }
+    to {
+        color: #749a02;
+        text-shadow: 0 0 9px #333;
+    }
+}
+.regsts{
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 22px;
+}

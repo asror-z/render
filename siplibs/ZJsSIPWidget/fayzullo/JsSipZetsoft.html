@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="input-group mb-6">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Login</span>
+        </div>
+        <input id="loginText" type="text" class="form-control">
+
+        <div class="input-group-prepend">
+            <span class="input-group-text">Password</span>
+        </div>
+        <input id="passwordText" type="password" class="form-control">
+
+        <button id="loginButton" type="button" class="btn btn-primary" onclick="login()">Login</button>
+        <button id="logOutButton" type="button" class="btn btn-primary d-none" onclick="logout()">LogOut</button>
+
+    </div>
+
+    <div class="input-group mb-6 d-none" id="callPanel">
+        <input id="callNumberText" type="text" class="form-control" placeholder="Call number">
+        <button id="callNumberButton" type="button" class="btn btn-success" onclick="call()">Call</button>
+        <button id="hangUpButton" type="button" class="btn btn-danger d-none" onclick="hangUp()">Hang Up</button>
+    </div>
+
+    <audio id="localAudio" autoPlay muted></audio>
+    <audio id="remoteAudio" autoPlay></audio>
+    <audio id="sounds" autoPlay></audio>
+    <script>
+        socket = new JsSIP.WebSocketInterface("wss://zoft.uz:8089/ws");
+        _ua = new JsSIP.UA(
+            {
+                uri: "sip:" + this.loginText.val() + "@94.158.52.244:7777",
+                password: this.passwordText.val(),
+                display_name: this.loginText.val(),
+                sockets: [socket]
+            });
+
+        his._ua.on('registered', () => {
+            console.log("UA registered");
+
+            this.loginButton.addClass('d-none');
+            this.logOutButton.removeClass('d-none');
+            this.loginText.prop('disabled', true);
+            this.passwordText.prop('disabled', true);
+
+            $("#callPanel").removeClass('d-none');
+        });
+
+        this._ua.on('registrationFailed', (data) => {
+            console.error("UA registrationFailed", data.cause);
+        });
+    </script>
+
+</div>
+</body>
+</html>

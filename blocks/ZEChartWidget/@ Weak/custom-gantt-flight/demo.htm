@@ -1,0 +1,188 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0072)https://echarts.apache.org/examples/en/editor.html -->
+<!DOCTYPE html PUBLIC "" ""><HTML><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+
+<META charset="utf-8">
+<META http-equiv="X-UA-Compatible" content="IE=edge">
+<META name="viewport" content="width=device-width, initial-scale=1"><LINK href="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/bootstrap.css"
+rel="stylesheet" type="text/css"><LINK href="https://echarts.apache.org/examples/images/favicon.png" 
+rel="shortcut icon"><!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries--><!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]--><LINK
+        href="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/main.css" rel="stylesheet" type="text/css"><TITLE>Examples -
+Apache ECharts (incubating)</TITLE>
+<SCRIPT type="text/javascript">window.EC_DEMO_LANG = 'en';
+</SCRIPT>
+
+<META name="GENERATOR" content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<DIV id="apache-banner">
+<DIV class="txt">
+<P>Apache ECharts is an effort undergoing incubation at The Apache Software 
+Foundation (ASF), sponsored by the Apache Incubator.</P>
+<P>We are working on redirecting this Website to <A href="https://echarts.apache.org/" 
+target="_blank">https://echarts.apache.org/</A>. You may visit our new official 
+Website now for the latest information.</P></DIV><A class="btn" onclick="logApache()" 
+href="https://echarts.apache.org/" target="_blank">
+<DIV>Visit Official Website</DIV></A><A class="close-btn" onclick="closeApacheBanner(true)" 
+href="javascript:;">x</A></DIV><NAV class="navbar navbar-default navbar-fixed-top">
+<DIV class="container-fluid">
+<DIV class="navbar-header"><BUTTON class="navbar-toggle collapsed" 
+aria-expanded="false" type="button" data-toggle="collapse" data-target="#navbar-collapse"><SPAN 
+class="sr-only">Toggle navigation</SPAN><SPAN class="icon-bar"></SPAN><SPAN 
+class="icon-bar"></SPAN><SPAN class="icon-bar"></SPAN></BUTTON><A class="navbar-brand" 
+href="https://echarts.apache.org/en/index.html"><IMG class="navbar-logo" alt="echarts logo" 
+src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/logo.png"></A></DIV>
+<DIV class="collapse navbar-collapse" id="navbar-collapse">
+<UL class="nav navbar-nav navbar-left">
+  <LI id="nav-index"><A 
+  href="https://echarts.apache.org/en/index.html">Home</A></LI>
+  <LI class="dropdown" id="nav-doc"><A class="dropdown-toggle" href="https://echarts.apache.org/examples/en/editor.html?c=custom-gantt-flight#" 
+  data-toggle="dropdown">Documents<B class="caret"></B></A>
+  <UL class="dropdown-menu">
+    <LI><A href="https://echarts.apache.org/en/feature.html">Features</A></LI>
+    <LI><A href="https://echarts.apache.org/en/tutorial.html">Tutorials</A></LI>
+    <LI><A href="https://echarts.apache.org/en/api.html">API</A></LI>
+    <LI><A href="https://echarts.apache.org/en/cheat-sheet.html">Cheat 
+    Sheet<SPAN class="new">NEW</SPAN></A></LI>
+    <LI><A href="https://echarts.apache.org/en/option.html">Chart 
+    Configuration</A></LI>
+    <LI><A href="https://echarts.apache.org/en/option-gl.html">GL Configuration 
+    (Chinese)</A></LI>
+    <LI><A 
+  href="https://echarts.apache.org/en/changelog.html">Changelog</A></LI></UL></LI>
+  <LI class="dropdown" id="nav-download"><A class="dropdown-toggle" href="https://echarts.apache.org/examples/en/editor.html?c=custom-gantt-flight#" 
+  data-toggle="dropdown">Download<B class="caret"></B></A>
+  <UL class="dropdown-menu">
+    <LI><A href="https://echarts.apache.org/en/download.html">Download</A></LI>
+    <LI><A href="https://echarts.apache.org/en/download-theme.html">Download 
+    Themes</A></LI>
+    <LI><A href="https://echarts.apache.org/en/download-extension.html">Download 
+    Extensions</A></LI></UL></LI>
+  <LI id="nav-examples"><A class="dropdown-toggle" href="https://echarts.apache.org/examples/en/editor.html?c=custom-gantt-flight#" 
+  data-toggle="dropdown">Examples<B class="caret"></B></A>
+  <UL class="dropdown-menu">
+    <LI><A href="https://echarts.apache.org/examples/en/index.html">ECharts 
+    Examples</A></LI>
+    <LI><A href="https://echarts.apache.org/examples/en/index.html#chart-type-globe">GL 
+    Examples</A></LI></UL></LI>
+  <LI id="nav-contribute"><A class="dropdown-toggle" href="https://echarts.apache.org/examples/en/editor.html?c=custom-gantt-flight#" 
+  data-toggle="dropdown">Contribute<B class="caret"></B></A>
+  <UL class="dropdown-menu">
+    <LI><A href="https://github.com/apache/incubator-echarts" 
+    target="_blank">Source Code (GitHub)</A></LI>
+    <LI><A href="https://github.com/apache/incubator-echarts/issues" target="_blank">Issue 
+    Tracking</A></LI>
+    <LI><A href="https://echarts.apache.org/en/coding-standard.html">Code 
+    Standard</A></LI></UL></LI>
+  <LI id="nav-about"><A class="dropdown-toggle" href="https://echarts.apache.org/examples/en/editor.html?c=custom-gantt-flight#" 
+  data-toggle="dropdown">About<B class="caret"></B></A>
+  <UL class="dropdown-menu">
+    <LI><A 
+    href="https://echarts.apache.org/en/committers.html">Committers</A></LI>
+    <LI><A href="https://www.apache.org/licenses/">License</A></LI>
+    <LI><A href="https://echarts.apache.org/en/maillist.html">Mailing 
+    List</A></LI>
+    <LI><A 
+    href="https://echarts.apache.org/en/dependencies.html">Dependencies</A></LI>
+    <LI><A href="https://echarts.apache.org/en/faq.html">FAQ</A></LI></UL></LI></UL>
+<UL class="nav navbar-nav navbar-right">
+  <LI id="nav-github"><A href="https://github.com/ecomfe/echarts" target="_blank"><IMG 
+  width="18" src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/github.png"></A></LI>
+  <LI id="nav-homeen"><A onclick="changeLang('zh')" 
+  href="javascript:;">中文</A></LI></UL></DIV></DIV></NAV>
+<SCRIPT type="text/javascript">var selector = window.EC_DEMO_LANG === 'en' ? 'nav-start' : 'nav-examples';
+var menu = document.getElementById(selector);
+if (menu) {
+    menu.className = 'active';
+}
+</SCRIPT>
+
+<DIV id="main-container">
+<DIV id="code-container">
+<DIV id="control-panel">
+<DIV id="code-info"></DIV>
+<DIV class="control-btn-panel"><A class="btn btn-default btn-sm" onclick="disposeAndRun()" 
+href="javascript:;">RUN</A></DIV></DIV>
+<DIV id="code-panel"></DIV></DIV>
+<DIV class="handler" id="h-handler"></DIV>
+<DIV class="right-container">
+<DIV class="right-panel" id="chart-panel"></DIV>
+<DIV id="tool-panel">
+<DIV id="theme"><A title="default" class="default"><SPAN></SPAN></A><A title="light" 
+class="light"><SPAN></SPAN></A><A title="dark" 
+class="dark"><SPAN></SPAN></A></DIV><BUTTON class="btn btn-sm" 
+id="download">Download</BUTTON></DIV></DIV></DIV>
+<SCRIPT>if (window !== top) {
+    var nav = document.getElementsByClassName('navbar')[0];
+    nav.parentNode.removeChild(nav);
+    document.getElementById('main-container').style.top = 0;
+}</SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/jquery.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/bootstrap.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/lodash.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/common.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT type="text/javascript">function changeLang(lang) {
+    if (lang === 'en') {
+        if (location.hostname !== 'echarts.apache.org') {
+            var re = new RegExp('/zh/', 'g');
+            var pathname = location.pathname.replace(re, '/en/');
+
+            var url = 'https://echarts.apache.org' + pathname
+                + location.search + location.hash;
+            location.href = url;
+            return;
+        }
+    }
+    location.href = location.href.replace(
+        new RegExp('/(zh|en)/', 'g'), '/' + lang + '/'
+    );
+}
+
+window.ROOT_PATH = 'https://echarts.apache.org/examples/';
+</SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/dat.gui.min.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/echarts.min.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/ecStat.min.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/china.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/world.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/dataTool.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/ace.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/ext-language_tools.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/editor.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/api.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/bmap.js" type="text/javascript"></SCRIPT>
+
+<SCRIPT type="text/javascript">document.getElementById('nav-examples').className = 'active';</SCRIPT>
+<!-- Baidu Tongji-->
+<SCRIPT type="text/javascript">var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "https://hm.baidu.com/hm.js?54b918eee37cb8a7045f0fd0f0b24395";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</SCRIPT>
+<!-- Google Analytics-->
+<SCRIPT src="render/blocks/ZEChartWidget/@ Weak/custom-gantt-flight/demo_files/js.js" type="text/javascript" async=""></SCRIPT>
+
+<SCRIPT type="text/javascript">window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-141228404-1');</SCRIPT>
+</BODY></HTML>

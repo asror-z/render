@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery file upload</title>
+    <link href="/publish/yarner/jquery-file-upload/css/uploadfile.css" rel="stylesheet">
+    <link href="/publish/yarner/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+    <script src="/publish/yarner/jquery-file-upload/js/jquery.uploadfile.min.js"></script>
+<!--    <script src="/publish/yarner/jquery-file-upload/js/jquery.uploadfile.js"></script>-->
+</head>
+<body>
+<div id="fileuploader"></div>
+<div class="btn btn-primary" id="extrabutton">Submit</div>
+<div class="btn btn-warning" id="delbutton">Cancel All</div>
+<div class="fileInputs"></div>
+<script>
+    $(document).ready(function () {
+        count = 0;
+        var extraObj = $("#fileuploader").uploadFile({
+            url: "myUrl",
+            method: "POST",
+            enctype: "multipart/form-data",
+            returnType: null,
+            allowDuplicates: true,
+            duplicateStrict: false,
+            allowedTypes: "*",
+            //For list of acceptFiles
+            // http://stackoverflow.com/questions/11832930/html-input-file-accept-attribute-file-type-csv
+            acceptFiles: "*",
+            fileName: "file",
+            formData: false,
+            dynamicFormData: false,
+            maxFileSize: -1,
+            maxFileCount: -1,
+            multiple: true,
+            dragDrop: true,
+            autoSubmit: false,
+            showCancel: true,
+            showAbort: true,
+            showDone: true,
+            showDelete: true,
+            showError: true,
+            showStatusAfterSuccess: true,
+            showStatusAfterError: true,
+            showFileCounter: false,
+            fileCounterStyle: "). ",
+            showFileSize: true,
+            showProgress: true,
+            nestedForms: true,
+            showDownload: true,
+            onLoad: function (obj) {
+                console.log('ZInputBluimpFileUpload | Loaded');
+                console.log(obj)
+            },
+            onSelect: function (files) {
+                console.log('ZInputBluimpFileUpload | Files Selected');
+                console.log(files);
+                for (let i = 0; i < files.length; i++) {
+                    let Name = files[i].name;
+                    let inputs = "<input type='text' class='" + Name + "' value='"+ Name +"'>";
+                    $('.fileInputs').append(inputs);
+                }
+                return true;
+            },
+            onSubmit: function (files, xhr) {
+                console.log('ZInputBluimpFileUpload | Submitted');
+
+                console.log(files, xhr);
+            },
+            onSuccess: function (files, response, xhr, pd) {
+                console.log('ZInputBluimpFileUpload | Success');
+                console.log(files, response, xhr, pd);
+            },
+            onError: function (files, status, message, pd) {
+                console.log('ZInputBluimpFileUpload | Error');
+                console.log(files, status, message, pd);
+            },
+            onCancel: function (files, pd) {
+                console.log('ZInputBluimpFileUpload | Files Canceled');
+                console.log(files);
+                $('input[class="'+ files +'"]').remove();
+            },
+            onAbort: function (files, pd) {
+                console.log('ZInputBluimpFileUpload | Files Canceled');
+                console.log(files, pd);
+            },
+            downloadCallback: true,
+            deleteCallback: false,
+            afterUploadAll: false,
+            serialize: true,
+            sequential: false,
+            sequentialCount: 2,
+            customProgressBar: false,
+            abortButtonClass: "ajax-file-upload-abort",
+            cancelButtonClass: "ajax-file-upload-cancel",
+            dragDropContainerClass: "ajax-upload-dragdrop",
+            dragDropHoverClass: "state-hover",
+            errorClass: "ajax-file-upload-error",
+            uploadButtonClass: "ajax-file-upload",
+            dragDropStr: "<span><b>Drag &amp; Drop something new files</b></span>",
+            uploadStr: "Upload",
+            abortStr: "Abort",
+            cancelStr: "Cancel",
+            deleteStr: "Delete",
+            doneStr: "Done",
+            multiDragErrorStr: "Multiple File Drag &amp; Drop is not allowed.",
+            extErrorStr: "is not allowed. Allowed extensions: ",
+            duplicateErrorStr: "is not allowed. File already exists.",
+            sizeErrorStr: "is not allowed. Allowed Max size: ",
+            uploadErrorStr: "Upload is not allowed",
+            maxFileCountErrorStr: " is not allowed. Maximum allowed files are:",
+            downloadStr: "Download",
+            customErrorKeyStr: "jquery-upload-file-error",
+            showQueueDiv: false,
+            statusBarWidth: 600,
+            dragdropWidth: 600,
+            showPreview: true,
+            previewHeight: "auto",
+            previewWidth: "100%",
+            extraHTML: false,
+            uploadQueueOrder: 'top'
+        });
+        $("#extrabutton").click(function () {
+            extraObj.startUpload();
+        });
+        $("#delbutton").click(function () {
+            extraObj.cancelAll();
+            $('input[type = text]').remove();
+        });
+
+    });
+</script>
+</body>
+</html>

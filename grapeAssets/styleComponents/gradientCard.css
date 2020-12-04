@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.gr-container {
+    width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 15px;
+    margin: 0 auto;
+}
+.gr-container .gr-card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, .5);
+}
+.gr-container .gr-card .gr-face {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gr-container .gr-card .gr-face.gr-face1 {
+
+}
+.gr-container .gr-card .gr-face.gr-face1 h2 {
+    margin: 0;
+    padding: 0;
+}
+.gr-container .gr-card:hover .gr-face.gr-face2 {
+    height: 65px;
+}
+.gr-container .gr-card .gr-face.gr-face2 {
+    background: #111;
+    transition: .5s;
+}
+.gr-container .gr-card:nth-child(1) .gr-face.gr-face2 {
+    background: linear-gradient(45deg, #3503ad, #f7308c);
+}
+.gr-container .gr-card:nth-child(2) .gr-face.gr-face2 {
+    background: linear-gradient(45deg, #ccff00, #09afff);
+}
+.gr-container .gr-card:nth-child(3) .gr-face.gr-face2 {
+    background: linear-gradient(45deg, #e91e63, #ffeb3b);
+}
+.gr-container .gr-card .gr-face.gr-face2:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(250, 250, 250, .1);
+}
+.gr-container .gr-card .gr-face.gr-face2 h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 10em;
+    color: #fff;
+    transition:.5s ;
+    text-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+.gr-container .gr-card:hover .gr-face.gr-face2 h2 {
+    font-size: 2em;
+}
+.gr-content {
+    padding: 20px 18px 100px;
+}

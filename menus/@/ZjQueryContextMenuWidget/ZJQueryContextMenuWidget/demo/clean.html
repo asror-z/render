@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Context Menu</title>
+
+    <script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="/publish/yarner/jquery-contextmenu/dist/jquery.contextMenu.min.css">
+    <script src="/publish/yarner/jquery-contextmenu/dist/jquery.contextMenu.min.js"></script>
+    <script src="/publish/yarner/jquery-contextmenu/dist/jquery.ui.position.min.js"></script>
+    <style>
+        .labels>span>ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: block;
+            float: none;
+        }
+
+        .labels>span>ul>li {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #CCC;
+            overflow: hidden;
+            text-indent: -2000px;
+        }
+
+        .labels>span>ul>li.selected,
+        .labels>span>ul>li:hover {
+            border: 1px solid #000;
+        }
+
+        .labels>span>ul>li+li {
+            margin-left: 5px;
+        }
+
+        .labels>span>ul>li.label1 {
+            background: red;
+        }
+
+        .labels>span>ul>li.label2 {
+            background: green;
+        }
+
+        .labels>span>ul>li.label3 {
+            background: blue;
+        }
+
+        .labels>span>ul>li.label4 {
+            background: yellow;
+        }
+
+
+    
+        /* menu header via data attribute */
+        .data-title:before {
+            content: attr(data-menutitle);
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: #DDD;
+            padding: 2px;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+    <span class="context-menu-one btn btn-neutral">right click me</span>
+    <script>
+
+        var $ = jQuery;
+        $(document).ready(function () {
+            'use strict';
+            var errorItems = { "errorItem": { name: "Items Load error" }, };
+            var loadItems = function () {
+                var dfd = jQuery.Deferred();
+                setTimeout(function () {
+                    dfd.resolve(subItems);
+                }, 2000);
+                // setTimeout(function () {
+                //    dfd.reject(errorItems);
+                // }, 1000);
+                return dfd.promise();
+            };
+            var errorLoad = function () {
+                var dfd = jQuery.Deferred()
+                setTimeout(function () {
+                    dfd.resolve(errorItems)
+                }, 2000)
+                return dfd.promise();
+            }
+
+            var subItems = {
+                "sub1": { name: "Submenu1", icon: "edit" },
+                "sub2": { name: "Submenu2", icon: "cut" },
+            };
+            $.contextMenu.types.label = function (item, opt, root) {
+                // this === item.$node
+
+                $('<span>Label<ul>'
+                    + '<li class="label1" title="label 1">label 1'
+                    + '<li class="label2" title="label 2">label 2'
+                    + '<li class="label3" title="label 3">label 3'
+                    + '<li class="label4" title="label 4">label 4')
+                    .appendTo(this)
+                    .on('click', 'li', function () {
+                        // do some funky stuff
+                        console.log('Clicked on ' + $(this).text());
+                        // hide the menu
+                        root.$menu.trigger('contextmenu:hide');
+                    });
+
+                this.addClass('labels').on('contextmenu:focus', function (e) {
+                    // setup some awesome stuff
+                }).on('contextmenu:blur', function (e) {
+                    // tear down whatever you did
+                }).on('keydown', function (e) {
+                    // some funky key handling, maybe?
+                });
+            };
+            $.contextMenu({
+                selector: '.context-menu-one',
+                className: 'data-title',
+                // trigger: 'hover',
+                // delay: 500,
+                build: function ($trigger, e) {
+                    return {
+                        callback: function (key, options) {
+                            var m = "clicked: " + key;
+                            console.log(m);
+                        },
+                        items: {
+                            "edit": {
+                                name: "Edit",
+                                icon: "edit",
+                                disabled: () => false,
+                                callback: () => true
+                            },
+                            "cut": {
+                                name: "Cut",
+                                icon: "cut",
+                                disabled: () => false,
+                                callback: () => true
+                            },
+                            "put something in console": {
+                                name: "Certificate",
+                                icon: "fa-certificate",
+                                disabled: () => false,
+                                callback: () => true
+                            },
+                            "status": {
+                                name: "Status",
+                                icon: "delete",
+                                items: loadItems(),
+                                callback: () => true
+                            },
+                            "normalSub": {
+                                name: "Normal Sub",
+                                items: {
+                                    "normalsub1": {
+                                        name: "normal Sub 1",
+                                        disabled: () => false
+                                    },
+                                    "normalsub2": {
+                                        name: "normal Sub 2",
+                                        disabled: () => false
+                                    },
+                                    "normalsub3": {
+                                        name: "normal Sub 3",
+                                        disabled: () => false
+                                    },
+                                }
+                            },
+                            "errorItems": {
+                                name: "Welcome Errors",
+                                items: errorLoad(),
+                                disabled: () => false
+                            },
+                            label: { type: "label", customName: "Label" },
+                            "do not try to cut": {
+                                name: "Disabled",
+                                icon: "cut",
+                                disabled: function (key, opt) {
+                                    // this references the trigger element
+                                    return !this.data('Disabled');
+                                }
+                            },
+                            "toggle": {
+                                name: "Toggle",
+                                callback: function () {
+                                    // this references the trigger element
+                                    this.data('Disabled', !this.data('Disabled'));
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            //normal promise usage example
+            var completedPromise = function (status) {
+                console.log("completed promise:", status);
+            };
+
+            var failPromise = function (status) {
+                console.log("fail promise:", status);
+            };
+
+            var notifyPromise = function (status) {
+                console.log("notify promise:", status);
+            };
+
+            $.loadItemsAsync = function () {
+                console.log("loadItemsAsync");
+                var promise = loadItems();
+                $.when(promise).then(completedPromise, failPromise, notifyPromise);
+            };
+            $('.data-title').attr('data-menutitle',"This is place for every your menu");
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

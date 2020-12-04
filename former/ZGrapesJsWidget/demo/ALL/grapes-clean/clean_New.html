@@ -1,0 +1,2251 @@
+
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://grapesjs.com/demo.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./GrapesJS Demo - Free Open Source Website Page Builder_files/font-awesome.min.css" rel="stylesheet">
+
+<body>
+<title>GrapesJS Demo - Free Open Source Website Page Builder</title>
+<meta content="Best Free Open Source Responsive Websites Builder" name="description">
+<link rel="stylesheet" href="./GrapesJS Demo - Free Open Source Website Page Builder_files/toastr.min.css">
+<link rel="stylesheet" href="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapes.min.css">
+<link rel="stylesheet" href="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-preset-webpage.min.css">
+<link rel="stylesheet" href="./GrapesJS Demo - Free Open Source Website Page Builder_files/tooltip.css">
+<link rel="stylesheet" href="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-plugin-filestack.css">
+<link rel="stylesheet" href="./GrapesJS Demo - Free Open Source Website Page Builder_files/demos.css">
+
+<!-- <script src="//static.filestackapi.com/v3/filestack.js"></script> -->
+<!-- <script src="js/aviary.js"></script> old //feather.aviary.com/imaging/v3/editor.js -->
+<script async="" src="./GrapesJS Demo - Free Open Source Website Page Builder_files/analytics.js.download"></script><script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/jquery.min.js.download"></script>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/toastr.min.js.download"></script>
+
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapes.min.js.download"></script>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-preset-webpage.min.js.download"></script>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-lory-slider.min.js.download"></script>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-tabs.min.js.download"></script>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-custom-code.min.js.download"></script>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-touch.min.js.download"></script>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-parser-postcss.min.js.download"></script>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-tooltip.min.js.download"></script>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-tui-image-editor.min.js.download"></script>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-typed.min.js.download"></script>
+
+<style type="text/css">
+    .icon-add-comp::before, .icon-comp100::before,.icon-comp50::before,.icon-comp30::before,.icon-rm::before{ content: '';}
+    .icon-add-comp {
+        background: url("./img/icon-sq-a.png") no-repeat center;
+    }
+    .icon-comp100 {
+        background: url("./img/icon-sq-1.png") no-repeat center;
+    }
+    .icon-comp50 {
+        background: url("./img/icon-sq-2.png") no-repeat center;
+    }
+    .icon-comp30 {
+        background: url("./img/icon-sq-3.png") no-repeat center;
+    }
+    .icon-rm {
+        background: url("./img/icon-sq-r.png") no-repeat center;
+    }
+
+    .icons-flex {
+        background-size: 70% 65% !important;
+        height: 15px;
+        width: 17px;
+        opacity: 0.9;
+    }
+    .icon-dir-row {
+        background: url("./img/flex-dir-row.png") no-repeat center;
+    }
+    .icon-dir-row-rev {
+        background: url("./img/flex-dir-row-rev.png") no-repeat center;
+    }
+    .icon-dir-col {
+        background: url("./img/flex-dir-col.png") no-repeat center;
+    }
+    .icon-dir-col-rev {
+        background: url("./img/flex-dir-col-rev.png") no-repeat center;
+    }
+    .icon-just-start{
+        background: url("./img/flex-just-start.png") no-repeat center;
+    }
+    .icon-just-end{
+        background: url("./img/flex-just-end.png") no-repeat center;
+    }
+    .icon-just-sp-bet{
+        background: url("./img/flex-just-sp-bet.png") no-repeat center;
+    }
+    .icon-just-sp-ar{
+        background: url("./img/flex-just-sp-ar.png") no-repeat center;
+    }
+    .icon-just-sp-cent{
+        background: url("./img/flex-just-sp-cent.png") no-repeat center;
+    }
+    .icon-al-start{
+        background: url("./img/flex-al-start.png") no-repeat center;
+    }
+    .icon-al-end{
+        background: url("./img/flex-al-end.png") no-repeat center;
+    }
+    .icon-al-str{
+        background: url("./img/flex-al-str.png") no-repeat center;
+    }
+    .icon-al-center{
+        background: url("./img/flex-al-center.png") no-repeat center;
+    }
+
+    [data-tooltip]::after {
+        background: rgba(51, 51, 51, 0.9);
+    }
+
+    .gjs-pn-commands {
+        min-height: 40px;
+    }
+
+    #gjs-sm-float,
+    .gjs-pn-views .fa-cog {
+        display: none;
+    }
+
+    .gjs-am-preview-cont {
+        height: 100px;
+        width: 100%;
+    }
+
+    .gjs-logo-version {
+        background-color: #756467;
+    }
+
+    .gjs-pn-panel.gjs-pn-views {
+        padding: 0;
+        border-bottom: none;
+    }
+
+    .gjs-pn-btn.gjs-pn-active {
+        box-shadow: none;
+    }
+
+    .gjs-pn-views .gjs-pn-btn {
+        margin: 0;
+        height: 40px;
+        padding: 10px;
+        width: 33.3333%;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    }
+
+    .CodeMirror {
+        min-height: 450px;
+        margin-bottom: 8px;
+    }
+</style>
+<script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/monetization.js.download"></script><style type="text/css">html { -ms-touch-action: none; }</style><link href="./GrapesJS Demo - Free Open Source Website Page Builder_files/tui-color-picker.min.css" rel="stylesheet"><link href="./GrapesJS Demo - Free Open Source Website Page Builder_files/tui-image-editor.min.css" rel="stylesheet"><script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/fabric.min.js.download"></script><script id="_bsa_srv-CK7I62QJ_0" type="text/javascript" src="./GrapesJS Demo - Free Open Source Website Page Builder_files/CK7I62QJ.json"></script><script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/tui-code-snippet.min.js.download"></script><script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/tui-color-picker.min.js.download"></script><script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/tui-image-editor.min.js.download"></script><script id="_carbonads_projs" type="text/javascript" src="./GrapesJS Demo - Free Open Source Website Page Builder_files/CKYI5KJU.json"></script></head>
+<div style="display: none">
+
+</div>
+
+
+<div id="gjs" style="height: 100%; overflow: hidden; width: 100%;" class="gjs-editor-cont"><div class="gjs-editor gjs-one-bg gjs-two-color"><div class="gjs-cv-canvas">
+    <div class="gjs-cv-canvas__frames" data-frames=""><iframe allowfullscreen="allowfullscreen" class="gjs-frame" src="./GrapesJS Demo - Free Open Source Website Page Builder_files/saved_resource.html"></iframe></div>
+    <div id="gjs-cv-tools" class="gjs-cv-canvas__tools" data-tools="">
+        <div id="gjs-tools" style="pointer-events:none">
+            <div class="gjs-highlighter" style="display: block; left: 56.6563px; top: 35px; height: 415px; width: 1019.69px;"></div>
+            <div class="gjs-badge" style="display: block; top: 16px; left: 56.6563px;">
+                <div class="gjs-badge__name">Box</div></div>
+            <div class="gjs-placeholder">
+                <div class="gjs-placeholder-int"></div>
+            </div>
+            <div class="gjs-ghost"></div>
+            <div class="gjs-toolbar" style="pointer-events: all; display: none; opacity: 0;"></div>
+            <div class="gjs-resizer"></div>
+            <div class="gjs-offset-v" style="display: block;"><div class="gjs-marginName"><div class="gjs-margin-v-el gjs-margin-v-top" style="height: 0px; width: 1019.69px; top: 35px; left: 56.6563px;"></div><div class="gjs-margin-v-el gjs-margin-v-bottom" style="height: 0px; width: 1019.69px; top: 450px; left: 56.6563px;"></div><div class="gjs-margin-v-el gjs-margin-v-left" style="height: 415px; width: 56.6563px; top: 35px; left: -5e-05px;"></div><div class="gjs-margin-v-el gjs-margin-v-right" style="height: 415px; width: 56.6563px; top: 35px; left: 1076.34px;"></div></div><div class="gjs-paddingName"><div class="gjs-padding-v-el gjs-padding-v-top" style="height: 0px; width: 1019.69px; top: 35px; left: 56.6563px;"></div><div class="gjs-padding-v-el gjs-padding-v-bottom" style="height: 0px; width: 1019.69px; top: 450px; left: 56.6563px;"></div><div class="gjs-padding-v-el gjs-padding-v-left" style="height: 415px; width: 0px; top: 35px; left: 56.6563px;"></div><div class="gjs-padding-v-el gjs-padding-v-right" style="height: 415px; width: 0px; top: 35px; left: 1076.34px;"></div></div></div>
+            <div class="gjs-offset-fixed-v"></div>
+            <div class="gjs-rte-toolbar gjs-one-bg" style="pointer-events: all; top: -1000px; left: -1000px; display: none;"><div class="gjs-rte-actionbar"><span class="gjs-rte-action" title="" data-tooltip="Bold"><b>B</b></span><span class="gjs-rte-action" title="" data-tooltip="Italic"><i>I</i></span><span class="gjs-rte-action" title="" data-tooltip="Underline"><u>U</u></span><span class="gjs-rte-action" title="" data-tooltip="Strike-through"><strike>S</strike></span><span class="gjs-rte-action" style="font-size:1.4rem;padding:0 4px 2px;" title="" data-tooltip="Link"><span style="transform:rotate(45deg)">⫘</span></span></div></div></div>
+    </div>
+</div><div class="gjs-pn-panels"><div class="gjs-pn-panel gjs-pn-commands gjs-one-bg gjs-two-color"><div class="gjs-pn-buttons"><span class="gjs-pn-btn"></span></div><div class="gjs-logo-cont">
+    <a href="https://grapesjs.com/"><img class="gjs-logo" src="./GrapesJS Demo - Free Open Source Website Page Builder_files/grapesjs-logo-cl.png"></a>
+    <div class="gjs-logo-version">v0.15.9</div>
+</div></div><div class="gjs-pn-panel gjs-pn-options gjs-one-bg gjs-two-color"><div class="gjs-pn-buttons"><span title="View components" class="gjs-pn-btn fa fa-square-o gjs-pn-active gjs-four-color" data-tooltip-pos="bottom" data-tooltip="View components"></span><span title="" class="gjs-pn-btn fa fa-eye" data-tooltip-pos="bottom" data-tooltip="Preview"></span><span title="" class="gjs-pn-btn fa fa-arrows-alt" data-tooltip-pos="bottom" data-tooltip="Fullscreen"></span><span title="" class="gjs-pn-btn fa fa-code" data-tooltip-pos="bottom" data-tooltip="View code"></span><span class="gjs-pn-btn fa fa-undo" title="" data-tooltip-pos="bottom" data-tooltip="Undo"></span><span class="gjs-pn-btn fa fa-repeat" title="" data-tooltip-pos="bottom" data-tooltip="Redo"></span><span class="gjs-pn-btn fa fa-download" title="" data-tooltip-pos="bottom" data-tooltip="Import"></span><span class="gjs-pn-btn fa fa-trash" title="" data-tooltip-pos="bottom" data-tooltip="Clear canvas"></span><span title="" data-tooltip-pos="bottom" class="gjs-pn-btn fa fa-question-circle" data-tooltip="About"></span></div></div><div class="gjs-pn-panel gjs-pn-views gjs-one-bg gjs-two-color"><div class="gjs-pn-buttons"><span title="Open Style Manager" class="gjs-pn-btn fa fa-paint-brush" data-tooltip-pos="bottom" data-tooltip="Open Style Manager"></span><span title="Settings" class="gjs-pn-btn fa fa-cog" data-tooltip="Settings"></span><span title="" class="gjs-pn-btn fa fa-bars" data-tooltip-pos="bottom" data-tooltip="Open Layer Manager"></span><span title="Open Blocks" class="gjs-pn-btn fa fa-th-large gjs-pn-active gjs-four-color" data-tooltip-pos="bottom" data-tooltip="Open Blocks"></span></div></div><div class="gjs-pn-panel gjs-pn-devices-c gjs-one-bg gjs-two-color"><div class="gjs-pn-buttons"><span class="gjs-pn-btn fa fa-desktop"></span><span class="gjs-pn-btn fa fa-tablet"></span><span class="gjs-pn-btn fa fa-mobile"></span></div></div><div class="gjs-pn-panel gjs-pn-views-container gjs-one-bg gjs-two-color"><div><div style="display: none;"><div class="gjs-clm-tags gjs-one-bg gjs-two-color">
+    <div id="gjs-clm-up">
+        <div id="gjs-clm-label">Classes</div>
+        <div id="gjs-clm-status-c">
+      <span id="gjs-clm-input-c">
+        <div class="gjs-field gjs-select">
+          <span id="gjs-input-holder">
+            <select id="gjs-clm-states">
+              <option value="">- State -</option>
+            <option value="hover">Hover</option><option value="active">Click</option><option value="nth-of-type(2n)">Even/Odd</option></select>
+          </span>
+          <div class="gjs-sel-arrow">
+            <div class="gjs-d-s-arrow"></div>
+          </div>
+        </div>
+      </span>
+        </div>
+    </div>
+    <div id="gjs-clm-tags-field" class="gjs-field">
+        <div id="gjs-clm-tags-c"></div>
+        <input id="gjs-clm-new">
+        <span id="gjs-clm-add-tag" class="fa fa-plus"></span>
+    </div>
+    <div id="gjs-clm-sel-help">
+        <div id="gjs-clm-label">Selected</div>
+        <div id="gjs-clm-sel"></div>
+        <div style="clear:both"></div>
+    </div></div><div class="gjs-sm-sector no-select"><div class="gjs-sm-title"><span class="icon-settings fa fa-cog"></span> Settings</div><div class="gjs-sm-properties" style="display: none;"><div class="gjs-trt-traits gjs-one-bg gjs-two-color"></div></div></div><div class="gjs-sm-sectors gjs-one-bg gjs-two-color"><div id="gjs-sm-general" class="gjs-sm-sector gjs-sm-sector__general no-select gjs-sm-open">
+    <div class="gjs-sm-title" data-sector-title="">
+        <i id="gjs-sm-caret" class="fa fa-caret-down"></i>
+        General
+    </div><div class="gjs-sm-properties"><div id="gjs-sm-float" class="gjs-sm-property gjs-sm-radio gjs-sm-property__float gjs-sm-property--full">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Alignment
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-radio"><div class="gjs-radio-items">
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="float-none" name="float" value="none">
+                <label class="fa fa-times gjs-sm-icon gjs-radio-item-label" for="float-none"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="float-left" name="float" value="left">
+                <label class="fa fa-align-left gjs-sm-icon gjs-radio-item-label" for="float-left"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="float-right" name="float" value="right">
+                <label class="fa fa-align-right gjs-sm-icon gjs-radio-item-label" for="float-right"></label>
+            </div>
+        </div></div>
+
+    </div>
+</div><div id="gjs-sm-display" class="gjs-sm-property gjs-sm-select gjs-sm-property__display">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Display
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-select">
+            <span id="gjs-sm-input-holder"><select><option value="block">block</option><option value="inline">inline</option><option value="inline-block">inline-block</option><option value="flex">flex</option><option value="none">none</option></select></span>
+            <div class="gjs-sel-arrow">
+                <div class="gjs-d-s-arrow"></div>
+            </div>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-position" class="gjs-sm-property gjs-sm-select gjs-sm-property__position">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        position
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-select">
+            <span id="gjs-sm-input-holder"><select><option value="static">static</option><option value="relative">relative</option><option value="absolute">absolute</option><option value="fixed">fixed</option></select></span>
+            <div class="gjs-sel-arrow">
+                <div class="gjs-d-s-arrow"></div>
+            </div>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-top" class="gjs-sm-property gjs-sm-integer gjs-sm-property__top">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Top
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="auto"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>%</option><option>vh</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-right" class="gjs-sm-property gjs-sm-integer gjs-sm-property__right">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Right
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="auto"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>%</option><option>vw</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-left" class="gjs-sm-property gjs-sm-integer gjs-sm-property__left">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Left
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="auto"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>%</option><option>vw</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-bottom" class="gjs-sm-property gjs-sm-integer gjs-sm-property__bottom">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Bottom
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="auto"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>%</option><option>vh</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div></div></div><div id="gjs-sm-dimension" class="gjs-sm-sector gjs-sm-sector__dimension no-select">
+    <div class="gjs-sm-title" data-sector-title="">
+        <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+        Dimension
+    </div><div class="gjs-sm-properties" style="display: none;"><div id="gjs-sm-width" class="gjs-sm-property gjs-sm-integer gjs-sm-property__width">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Width
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="auto"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>%</option><option>vw</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-flex-basis" class="gjs-sm-property gjs-sm-integer gjs-sm-property__flex-basis">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Width
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-height" class="gjs-sm-property gjs-sm-integer gjs-sm-property__height">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Height
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="auto"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>%</option><option>vh</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-max-width" class="gjs-sm-property gjs-sm-integer gjs-sm-property__max-width">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Max width
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="auto"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>%</option><option>vw</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-min-height" class="gjs-sm-property gjs-sm-integer gjs-sm-property__min-height">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Min height
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="auto"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>%</option><option>vh</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-margin" class="gjs-sm-property gjs-sm-composite gjs-sm-property__margin">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Margin
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-margin-top" class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-top">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Top
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-margin-right" class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-right">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Right
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-margin-bottom" class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-bottom">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Bottom
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-margin-left" class="gjs-sm-property gjs-sm-integer gjs-sm-property__margin-left">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Left
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-padding" class="gjs-sm-property gjs-sm-composite gjs-sm-property__padding">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Padding
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-padding-top" class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-top">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Top
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-padding-right" class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-right">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Right
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-padding-bottom" class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-bottom">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Bottom
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vh</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-padding-left" class="gjs-sm-property gjs-sm-integer gjs-sm-property__padding-left">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Left
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option>vw</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+        </div>
+
+    </div>
+</div></div></div><div id="gjs-sm-typography" class="gjs-sm-sector gjs-sm-sector__typography no-select">
+    <div class="gjs-sm-title" data-sector-title="">
+        <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+        Typography
+    </div><div class="gjs-sm-properties" style="display: none;"><div id="gjs-sm-font-family" class="gjs-sm-property gjs-sm-select gjs-sm-property__font-family">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-select">
+            <span id="gjs-sm-input-holder"><select><option value="Arial, Helvetica, sans-serif">Arial</option><option value="Arial Black, Gadget, sans-serif">Arial Black</option><option value="Brush Script MT, sans-serif">Brush Script MT</option><option value="Comic Sans MS, cursive, sans-serif">Comic Sans MS</option><option value="Courier New, Courier, monospace">Courier New</option><option value="Georgia, serif">Georgia</option><option value="Helvetica, serif">Helvetica</option><option value="Impact, Charcoal, sans-serif">Impact</option><option value="Lucida Sans Unicode, Lucida Grande, sans-serif">Lucida Sans Unicode</option><option value="Tahoma, Geneva, sans-serif">Tahoma</option><option value="Times New Roman, Times, serif">Times New Roman</option><option value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS</option><option value="Verdana, Geneva, sans-serif">Verdana</option></select></span>
+            <div class="gjs-sel-arrow">
+                <div class="gjs-d-s-arrow"></div>
+            </div>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-font-size" class="gjs-sm-property gjs-sm-integer gjs-sm-property__font-size">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font size
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="medium"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>em</option><option>rem</option><option>%</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-font-weight" class="gjs-sm-property gjs-sm-select gjs-sm-property__font-weight">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Weight
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-select">
+            <span id="gjs-sm-input-holder"><select><option value="100">Thin</option><option value="200">Extra-Light</option><option value="300">Light</option><option value="400">Normal</option><option value="500">Medium</option><option value="600">Semi-Bold</option><option value="700">Bold</option><option value="800">Extra-Bold</option><option value="900">Ultra-Bold</option></select></span>
+            <div class="gjs-sel-arrow">
+                <div class="gjs-d-s-arrow"></div>
+            </div>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-letter-spacing" class="gjs-sm-property gjs-sm-integer gjs-sm-property__letter-spacing">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Letter spacing
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="normal"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>em</option><option>rem</option><option>%</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-color" class="gjs-sm-property gjs-sm-color gjs-sm-property__color">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Font color
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-color">
+            <div class="gjs-input-holder"><input type="text" placeholder="black"></div>
+            <div class="gjs-field-colorp">
+                <div class="gjs-field-colorp-c" data-colorp-c="">
+                    <div class="gjs-checker-bg"></div>
+                    <div class="gjs-field-color-picker" style="background-color: black;"></div></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-line-height" class="gjs-sm-property gjs-sm-integer gjs-sm-property__line-height">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Line height
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="normal"></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option>px</option><option>em</option><option>rem</option><option>%</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-text-align" class="gjs-sm-property gjs-sm-radio gjs-sm-property__text-align gjs-sm-property--full">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Text align
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-radio"><div class="gjs-radio-items">
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="text-align-left" name="text-align" value="left">
+                <label class="fa fa-align-left gjs-sm-icon gjs-radio-item-label" for="text-align-left"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="text-align-center" name="text-align" value="center">
+                <label class="fa fa-align-center gjs-sm-icon gjs-radio-item-label" for="text-align-center"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="text-align-right" name="text-align" value="right">
+                <label class="fa fa-align-right gjs-sm-icon gjs-radio-item-label" for="text-align-right"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="text-align-justify" name="text-align" value="justify">
+                <label class="fa fa-align-justify gjs-sm-icon gjs-radio-item-label" for="text-align-justify"></label>
+            </div>
+        </div></div>
+
+    </div>
+</div><div id="gjs-sm-text-decoration" class="gjs-sm-property gjs-sm-radio gjs-sm-property__text-decoration gjs-sm-property--full">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Text decoration
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-radio"><div class="gjs-radio-items">
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="text-decoration-none" name="text-decoration" value="none">
+                <label class="fa fa-times gjs-sm-icon gjs-radio-item-label" for="text-decoration-none"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="text-decoration-underline" name="text-decoration" value="underline">
+                <label class="fa fa-underline gjs-sm-icon gjs-radio-item-label" for="text-decoration-underline"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="text-decoration-line-through" name="text-decoration" value="line-through">
+                <label class="fa fa-strikethrough gjs-sm-icon gjs-radio-item-label" for="text-decoration-line-through"></label>
+            </div>
+        </div></div>
+
+    </div>
+</div><div id="gjs-sm-text-shadow" class="gjs-sm-property gjs-sm-stack gjs-sm-property__text-shadow">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Text shadow
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-sm-field gjs-sm-stack">
+            <button type="button" id="gjs-sm-add" data-add-layer="">+</button>
+            <div data-layers-wrapper=""><div class="gjs-sm-layers gjs-field"></div></div>
+        </div>
+
+    </div>
+</div></div></div><div id="gjs-sm-decorations" class="gjs-sm-sector gjs-sm-sector__decorations no-select">
+    <div class="gjs-sm-title" data-sector-title="">
+        <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+        Decorations
+    </div><div class="gjs-sm-properties" style="display: none;"><div id="gjs-sm-opacity" class="gjs-sm-property gjs-sm-slider gjs-sm-property__opacity">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Opacity
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-range">
+            <input type="range" min="0" max="1" step="0.01">
+        </div>
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder="1"></span>
+            <span class="gjs-field-units"></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-background-color" class="gjs-sm-property gjs-sm-color gjs-sm-property__background-color">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Background color
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-color">
+            <div class="gjs-input-holder"><input type="text" placeholder="none"></div>
+            <div class="gjs-field-colorp">
+                <div class="gjs-field-colorp-c" data-colorp-c="">
+                    <div class="gjs-checker-bg"></div>
+                    <div class="gjs-field-color-picker"></div></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-border-radius" class="gjs-sm-property gjs-sm-composite gjs-sm-property__border-radius">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border radius
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-border-top-left-radius" class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-top-left-radius">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Top
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-top-right-radius" class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-top-right-radius">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Right
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-bottom-right-radius" class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-bottom-right-radius">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Left
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-bottom-left-radius" class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-bottom-left-radius">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Bottom
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="0px"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-border" class="gjs-sm-property gjs-sm-composite gjs-sm-property__border">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-border-width" class="gjs-sm-property gjs-sm-integer gjs-sm-property__border-width">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border width
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="medium"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>em</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-border-style" class="gjs-sm-property gjs-sm-select gjs-sm-property__border-style">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border style
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-select">
+        <span id="gjs-sm-input-holder"><select><option value="none">none</option><option value="solid">solid</option><option value="dotted">dotted</option><option value="dashed">dashed</option><option value="double">double</option><option value="groove">groove</option><option value="ridge">ridge</option><option value="inset">inset</option><option value="outset">outset</option></select></span>
+        <div class="gjs-sel-arrow">
+          <div class="gjs-d-s-arrow"></div>
+        </div>
+      </div>
+
+      </div>
+    </div><div id="gjs-sm-border-color" class="gjs-sm-property gjs-sm-color gjs-sm-property__border-color">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Border color
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-color">
+      <div class="gjs-input-holder"><input type="text" placeholder="black"></div>
+      <div class="gjs-field-colorp">
+        <div class="gjs-field-colorp-c" data-colorp-c="">
+          <div class="gjs-checker-bg"></div>
+        <div class="gjs-field-color-picker" style="background-color: black;"></div></div>
+      </div>
+    </div></div>
+    </div></div></span>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-box-shadow" class="gjs-sm-property gjs-sm-stack gjs-sm-property__box-shadow">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Box shadow
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-sm-field gjs-sm-stack">
+            <button type="button" id="gjs-sm-add" data-add-layer="">+</button>
+            <div data-layers-wrapper=""><div class="gjs-sm-layers gjs-field"></div></div>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-background" class="gjs-sm-property gjs-sm-stack gjs-sm-property__background">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Background
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-sm-field gjs-sm-stack">
+            <button type="button" id="gjs-sm-add" data-add-layer="">+</button>
+            <div data-layers-wrapper=""><div class="gjs-sm-layers gjs-field"></div></div>
+        </div>
+
+    </div>
+</div></div></div><div id="gjs-sm-extra" class="gjs-sm-sector gjs-sm-sector__extra no-select">
+    <div class="gjs-sm-title" data-sector-title="">
+        <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+        Extra
+    </div><div class="gjs-sm-properties" style="display: none;"><div id="gjs-sm-transition" class="gjs-sm-property gjs-sm-stack gjs-sm-property__transition">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Transition
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-sm-field gjs-sm-stack">
+            <button type="button" id="gjs-sm-add" data-add-layer="">+</button>
+            <div data-layers-wrapper=""><div class="gjs-sm-layers gjs-field"></div></div>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-perspective" class="gjs-sm-property gjs-sm-integer gjs-sm-property__perspective">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Perspective
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+            <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option></select></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-transform" class="gjs-sm-property gjs-sm-composite gjs-sm-property__transform">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Transform
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-transform-rotate-x" class="gjs-sm-property gjs-sm-integer gjs-sm-property__transform-rotate-x">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Rotate X
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">deg</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-transform-rotate-y" class="gjs-sm-property gjs-sm-integer gjs-sm-property__transform-rotate-y">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Rotate Y
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">deg</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-transform-rotate-z" class="gjs-sm-property gjs-sm-integer gjs-sm-property__transform-rotate-z">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Rotate Z
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">deg</option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-transform-scale-x" class="gjs-sm-property gjs-sm-integer gjs-sm-property__transform-scale-x">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Scale X
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="1"></span>
+      <span class="gjs-field-units"></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-transform-scale-y" class="gjs-sm-property gjs-sm-integer gjs-sm-property__transform-scale-y">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Scale Y
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="1"></span>
+      <span class="gjs-field-units"></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-transform-scale-z" class="gjs-sm-property gjs-sm-integer gjs-sm-property__transform-scale-z">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Scale Z
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="1"></span>
+      <span class="gjs-field-units"></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+        </div>
+
+    </div>
+</div></div></div><div id="gjs-sm-flex" class="gjs-sm-sector gjs-sm-sector__flex no-select">
+    <div class="gjs-sm-title" data-sector-title="">
+        <i id="gjs-sm-caret" class="fa fa-caret-right"></i>
+        Flex
+    </div><div class="gjs-sm-properties" style="display: none;"><div id="gjs-sm-display" class="gjs-sm-property gjs-sm-select gjs-sm-property__display">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Flex Container
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-select">
+            <span id="gjs-sm-input-holder"><select><option value="block">Disable</option><option value="flex">Enable</option></select></span>
+            <div class="gjs-sel-arrow">
+                <div class="gjs-d-s-arrow"></div>
+            </div>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-label-parent-flex" class="gjs-sm-property gjs-sm-integer gjs-sm-property__label-parent-flex">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Flex Parent
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+            <span class="gjs-field-units"></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-flex-direction" class="gjs-sm-property gjs-sm-radio gjs-sm-property__flex-direction gjs-sm-property--full">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Direction
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-radio"><div class="gjs-radio-items">
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="flex-direction-row" name="flex-direction" value="row">
+                <label class="icons-flex icon-dir-row gjs-sm-icon gjs-radio-item-label" title="Row" for="flex-direction-row"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="flex-direction-row-reverse" name="flex-direction" value="row-reverse">
+                <label class="icons-flex icon-dir-row-rev gjs-sm-icon gjs-radio-item-label" title="Row reverse" for="flex-direction-row-reverse"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="flex-direction-column" name="flex-direction" value="column">
+                <label class="icons-flex icon-dir-col gjs-sm-icon gjs-radio-item-label" title="Column" for="flex-direction-column"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="flex-direction-column-reverse" name="flex-direction" value="column-reverse">
+                <label class="icons-flex icon-dir-col-rev gjs-sm-icon gjs-radio-item-label" title="Column reverse" for="flex-direction-column-reverse"></label>
+            </div>
+        </div></div>
+
+    </div>
+</div><div id="gjs-sm-justify-content" class="gjs-sm-property gjs-sm-radio gjs-sm-property__justify-content gjs-sm-property--full">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Justify
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-radio"><div class="gjs-radio-items">
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="justify-content-flex-start" name="justify-content" value="flex-start">
+                <label class="icons-flex icon-just-start gjs-sm-icon gjs-radio-item-label" title="Start" for="justify-content-flex-start"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="justify-content-flex-end" name="justify-content" value="flex-end">
+                <label class="icons-flex icon-just-end gjs-sm-icon gjs-radio-item-label" title="End" for="justify-content-flex-end"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="justify-content-space-between" name="justify-content" value="space-between">
+                <label class="icons-flex icon-just-sp-bet gjs-sm-icon gjs-radio-item-label" title="Space between" for="justify-content-space-between"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="justify-content-space-around" name="justify-content" value="space-around">
+                <label class="icons-flex icon-just-sp-ar gjs-sm-icon gjs-radio-item-label" title="Space around" for="justify-content-space-around"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="justify-content-center" name="justify-content" value="center">
+                <label class="icons-flex icon-just-sp-cent gjs-sm-icon gjs-radio-item-label" title="Center" for="justify-content-center"></label>
+            </div>
+        </div></div>
+
+    </div>
+</div><div id="gjs-sm-align-items" class="gjs-sm-property gjs-sm-radio gjs-sm-property__align-items gjs-sm-property--full">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Align
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-radio"><div class="gjs-radio-items">
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="align-items-flex-start" name="align-items" value="flex-start">
+                <label class="icons-flex icon-al-start gjs-sm-icon gjs-radio-item-label" title="Start" for="align-items-flex-start"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="align-items-flex-end" name="align-items" value="flex-end">
+                <label class="icons-flex icon-al-end gjs-sm-icon gjs-radio-item-label" title="End" for="align-items-flex-end"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="align-items-stretch" name="align-items" value="stretch">
+                <label class="icons-flex icon-al-str gjs-sm-icon gjs-radio-item-label" title="Stretch" for="align-items-stretch"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="align-items-center" name="align-items" value="center">
+                <label class="icons-flex icon-al-center gjs-sm-icon gjs-radio-item-label" title="Center" for="align-items-center"></label>
+            </div>
+        </div></div>
+
+    </div>
+</div><div id="gjs-sm-label-parent-flex" class="gjs-sm-property gjs-sm-integer gjs-sm-property__label-parent-flex">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Flex Children
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+            <span class="gjs-field-units"></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-order" class="gjs-sm-property gjs-sm-integer gjs-sm-property__order">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Order
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-integer">
+            <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+            <span class="gjs-field-units"></span>
+            <div class="gjs-field-arrows" data-arrows="">
+                <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+                <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+            </div>
+        </div></div>
+</div><div id="gjs-sm-flex" class="gjs-sm-property gjs-sm-composite gjs-sm-property__flex">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Flex
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-sm-field gjs-sm-composite">
+        <span id="gjs-sm-input-holder"><div class="gjs-sm-properties"><div id="gjs-sm-flex-grow" class="gjs-sm-property gjs-sm-integer gjs-sm-property__flex-grow">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Grow
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-flex-shrink" class="gjs-sm-property gjs-sm-integer gjs-sm-property__flex-shrink">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Shrink
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder=""></span>
+      <span class="gjs-field-units"></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div><div id="gjs-sm-flex-basis" class="gjs-sm-property gjs-sm-integer gjs-sm-property__flex-basis">
+      <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Basis
+      </span>
+
+
+      </div>
+      <div class="gjs-fields">
+
+      <div class="gjs-field gjs-field-integer">
+      <span class="gjs-input-holder"><input type="text" placeholder="auto"></span>
+      <span class="gjs-field-units"><select class="gjs-input-unit"><option selected="">px</option><option>%</option><option></option></select></span>
+      <div class="gjs-field-arrows" data-arrows="">
+        <div class="gjs-field-arrow-u" data-arrow-up=""></div>
+        <div class="gjs-field-arrow-d" data-arrow-down=""></div>
+      </div>
+    </div></div>
+    </div></div></span>
+        </div>
+
+    </div>
+</div><div id="gjs-sm-align-self" class="gjs-sm-property gjs-sm-radio gjs-sm-property__align-self gjs-sm-property--full">
+    <div class="gjs-sm-label">
+
+      <span class="gjs-sm-icon " title="">
+        Align
+      </span>
+        <b class="gjs-sm-clear" data-clear-style="" style="display: none;">⨯</b>
+
+    </div>
+    <div class="gjs-fields">
+
+        <div class="gjs-field gjs-field-radio"><div class="gjs-radio-items">
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="align-self-auto" name="align-self" value="auto">
+                <label class="gjs-radio-item-label" for="align-self-auto">Auto</label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="align-self-flex-start" name="align-self" value="flex-start">
+                <label class="icons-flex icon-al-start gjs-sm-icon gjs-radio-item-label" title="Start" for="align-self-flex-start"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="align-self-flex-end" name="align-self" value="flex-end">
+                <label class="icons-flex icon-al-end gjs-sm-icon gjs-radio-item-label" title="End" for="align-self-flex-end"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="align-self-stretch" name="align-self" value="stretch">
+                <label class="icons-flex icon-al-str gjs-sm-icon gjs-radio-item-label" title="Stretch" for="align-self-stretch"></label>
+            </div>
+
+            <div class="gjs-radio-item">
+                <input type="radio" class="gjs-sm-radio" id="align-self-center" name="align-self" value="center">
+                <label class="icons-flex icon-al-center gjs-sm-icon gjs-radio-item-label" title="Center" for="align-self-center"></label>
+            </div>
+        </div></div>
+
+    </div>
+</div></div></div></div></div><div class="gjs-sm-header" style="display: none;">Select an element before using Style Manager</div></div><div style="display: block;"><div class="gjs-blocks-cs gjs-one-bg gjs-two-color">
+    <div class="gjs-block-categories"><div class="gjs-block-category gjs-open">
+        <div class="gjs-title">
+            <i class="gjs-caret-icon fa fa-caret-down"></i>
+            Basic
+        </div>
+        <div class="gjs-blocks-c"><div class="gjs-fonts gjs-f-b1 gjs-block gjs-one-bg gjs-four-color-h" title="1 Column" draggable="true">
+
+            <div class="gjs-block-label">1 Column</div>
+        </div><div class="gjs-fonts gjs-f-b2 gjs-block gjs-one-bg gjs-four-color-h" title="2 Columns" draggable="true">
+
+            <div class="gjs-block-label">2 Columns</div>
+        </div><div class="gjs-fonts gjs-f-b3 gjs-block gjs-one-bg gjs-four-color-h" title="3 Columns" draggable="true">
+
+            <div class="gjs-block-label">3 Columns</div>
+        </div><div class="gjs-fonts gjs-f-b37 gjs-block gjs-one-bg gjs-four-color-h" title="2 Columns 3/7" draggable="true">
+
+            <div class="gjs-block-label">2 Columns 3/7</div>
+        </div><div class="gjs-fonts gjs-f-text gjs-block gjs-one-bg gjs-four-color-h" title="Text" draggable="true">
+
+            <div class="gjs-block-label">Text</div>
+        </div><div class="fa fa-link gjs-block gjs-one-bg gjs-four-color-h" title="Link" draggable="true">
+
+            <div class="gjs-block-label">Link</div>
+        </div><div class="gjs-fonts gjs-f-image gjs-block gjs-one-bg gjs-four-color-h" title="Image" draggable="true">
+
+            <div class="gjs-block-label">Image</div>
+        </div><div class="fa fa-youtube-play gjs-block gjs-one-bg gjs-four-color-h" title="Video" draggable="true">
+
+            <div class="gjs-block-label">Video</div>
+        </div><div class="fa fa-map-o gjs-block gjs-one-bg gjs-four-color-h" title="Map" draggable="true">
+
+            <div class="gjs-block-label">Map</div>
+        </div><div class="fa fa-link gjs-block gjs-one-bg gjs-four-color-h" title="Link Block" draggable="true">
+
+            <div class="gjs-block-label">Link Block</div>
+        </div><div class="fa fa-quote-right gjs-block gjs-one-bg gjs-four-color-h" title="Quote" draggable="true">
+
+            <div class="gjs-block-label">Quote</div>
+        </div><div class="gjs-fonts gjs-f-h1p gjs-block gjs-one-bg gjs-four-color-h" title="Text section" draggable="true">
+
+            <div class="gjs-block-label">Text section</div>
+        </div></div>
+    </div><div class="gjs-block-category gjs-open">
+        <div class="gjs-title">
+            <i class="gjs-caret-icon fa fa-caret-down"></i>
+            Extra
+        </div>
+        <div class="gjs-blocks-c"><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Navbar" draggable="true">
+
+            <div class="gjs-block-label">
+                <svg class="gjs-block-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path class="gjs-block-svg-path" d="M22,9 C22,8.4 21.5,8 20.75,8 L3.25,8 C2.5,8 2,8.4 2,9 L2,15 C2,15.6 2.5,16 3.25,16 L20.75,16 C21.5,16 22,15.6 22,15 L22,9 Z M21,15 L3,15 L3,9 L21,9 L21,15 Z" fill-rule="nonzero"></path>
+                    <rect class="gjs-block-svg-path" x="15" y="10" width="5" height="1"></rect>
+                    <rect class="gjs-block-svg-path" x="15" y="13" width="5" height="1"></rect>
+                    <rect class="gjs-block-svg-path" x="15" y="11.5" width="5" height="1"></rect>
+                </svg>
+                <div class="gjs-block-label">Navbar</div></div>
+        </div><div class="fa fa-clock-o gjs-block gjs-one-bg gjs-four-color-h" title="Countdown" draggable="true">
+
+            <div class="gjs-block-label">Countdown</div>
+        </div><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Slider" draggable="true">
+
+            <div class="gjs-block-label">
+                <svg class="gjs-block-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 7.6c0-1-.5-1.6-1.3-1.6H3.4C2.5 6 2 6.7 2 7.6v9.8c0 1 .5 1.6 1.3 1.6h17.4c.8 0 1.3-.6 1.3-1.6V7.6zM21 18H3V7h18v11z" fill-rule="nonzero"></path><path d="M4 12.5L6 14v-3zM20 12.5L18 14v-3z"></path>
+                </svg>
+                <div class="gjs-block-label">Slider</div>
+            </div>
+        </div><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Tabs" draggable="true">
+
+            <div class="gjs-block-label">
+                <svg class="gjs-block-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <g fill-rule="evenodd">
+                        <path d="M22 9.3c0-.8-.5-1.3-1.3-1.3H3.4C2.5 8 2 8.5 2 9.3v7.4c0 .8.5 1.3 1.3 1.3h17.4c.8 0 1.3-.5 1.3-1.3V9.3zM21 17H3V9h18v8z" fill-rule="nonzero"></path><rect x="3" y="5" width="4" height="2" rx=".5"></rect><rect x="8" y="5" width="4" height="2" rx=".5"></rect><rect x="13" y="5" width="4" height="2" rx=".5"></rect>
+                    </g>
+                </svg>
+                <div class="gjs-block-label">Tabs</div>
+            </div>
+        </div><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Custom Code" draggable="true">
+
+            <div class="gjs-block-label"><svg viewBox="0 0 24 24">
+                <path d="M14.6 16.6l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4m-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4z"></path>
+            </svg>
+                <div>Custom Code</div></div>
+        </div><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Tooltip" draggable="true">
+
+            <div class="gjs-block-label"><svg viewBox="0 0 24 24">
+                <path d="M4 2h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2h-4l-4 4-4-4H4c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2m0 2v12h4.83L12 19.17 15.17 16H20V4H4z"></path>
+            </svg>
+                <div>Tooltip</div></div>
+        </div><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Typed" draggable="true">
+            <div class="gjs-block__media"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><path d="M212.3 44l2.3 49.6h-6A60 60 0 00204 75c-3.2-6-7.5-10.5-12.9-13.3a44.9 44.9 0 00-21.1-4.3h-29.8V219c0 13 1.4 21 4.2 24.3 4 4.4 10 6.6 18.2 6.6h7.4v5.7H80.2V250h7.5c9 0 15.3-2.7 19-8.2 2.4-3.3 3.5-10.9 3.5-22.7V57.3H84.8a71 71 0 00-21.1 2.2 29 29 0 00-13.9 11.3 46.1 46.1 0 00-6.9 22.8H37L39.5 44h172.8zM245 22h18v256h-18z"></path></svg></div>
+            <div class="gjs-block-label">Typed</div>
+        </div></div>
+    </div><div class="gjs-block-category gjs-open">
+        <div class="gjs-title">
+            <i class="gjs-caret-icon fa fa-caret-down"></i>
+            Forms
+        </div>
+        <div class="gjs-blocks-c"><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Form" draggable="true">
+
+            <div class="gjs-block-label">
+                <svg class="gjs-block-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path class="gjs-block-svg-path" d="M22,5.5 C22,5.2 21.5,5 20.75,5 L3.25,5 C2.5,5 2,5.2 2,5.5 L2,8.5 C2,8.8 2.5,9 3.25,9 L20.75,9 C21.5,9 22,8.8 22,8.5 L22,5.5 Z M21,8 L3,8 L3,6 L21,6 L21,8 Z" fill-rule="nonzero"></path>
+                    <path class="gjs-block-svg-path" d="M22,10.5 C22,10.2 21.5,10 20.75,10 L3.25,10 C2.5,10 2,10.2 2,10.5 L2,13.5 C2,13.8 2.5,14 3.25,14 L20.75,14 C21.5,14 22,13.8 22,13.5 L22,10.5 Z M21,13 L3,13 L3,11 L21,11 L21,13 Z" fill-rule="nonzero"></path>
+                    <rect class="gjs-block-svg-path" x="2" y="15" width="10" height="3" rx="0.5"></rect>
+                </svg>
+                <div class="gjs-block-label">Form</div></div>
+        </div><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Input" draggable="true">
+
+            <div class="gjs-block-label">
+                <svg class="gjs-block-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path class="gjs-block-svg-path" d="M22,9 C22,8.4 21.5,8 20.75,8 L3.25,8 C2.5,8 2,8.4 2,9 L2,15 C2,15.6 2.5,16 3.25,16 L20.75,16 C21.5,16 22,15.6 22,15 L22,9 Z M21,15 L3,15 L3,9 L21,9 L21,15 Z"></path>
+                    <polygon class="gjs-block-svg-path" points="4 10 5 10 5 14 4 14"></polygon>
+                </svg>
+                <div class="gjs-block-label">Input</div></div>
+        </div><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Textarea" draggable="true">
+
+            <div class="gjs-block-label">
+                <svg class="gjs-block-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path class="gjs-block-svg-path" d="M22,7.5 C22,6.6 21.5,6 20.75,6 L3.25,6 C2.5,6 2,6.6 2,7.5 L2,16.5 C2,17.4 2.5,18 3.25,18 L20.75,18 C21.5,18 22,17.4 22,16.5 L22,7.5 Z M21,17 L3,17 L3,7 L21,7 L21,17 Z"></path>
+                    <polygon class="gjs-block-svg-path" points="4 8 5 8 5 12 4 12"></polygon>
+                    <polygon class="gjs-block-svg-path" points="19 7 20 7 20 17 19 17"></polygon>
+                    <polygon class="gjs-block-svg-path" points="20 8 21 8 21 9 20 9"></polygon>
+                    <polygon class="gjs-block-svg-path" points="20 15 21 15 21 16 20 16"></polygon>
+                </svg>
+                <div class="gjs-block-label">Textarea</div></div>
+        </div><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Select" draggable="true">
+
+            <div class="gjs-block-label">
+                <svg class="gjs-block-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path class="gjs-block-svg-path" d="M22,9 C22,8.4 21.5,8 20.75,8 L3.25,8 C2.5,8 2,8.4 2,9 L2,15 C2,15.6 2.5,16 3.25,16 L20.75,16 C21.5,16 22,15.6 22,15 L22,9 Z M21,15 L3,15 L3,9 L21,9 L21,15 Z" fill-rule="nonzero"></path>
+                    <polygon class="gjs-block-svg-path" transform="translate(18.500000, 12.000000) scale(1, -1) translate(-18.500000, -12.000000) " points="18.5 11 20 13 17 13"></polygon>
+                    <rect class="gjs-block-svg-path" x="4" y="11.5" width="11" height="1"></rect>
+                </svg>
+                <div class="gjs-block-label">Select</div></div>
+        </div><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Button" draggable="true">
+
+            <div class="gjs-block-label">
+                <svg class="gjs-block-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path class="gjs-block-svg-path" d="M22,9 C22,8.4 21.5,8 20.75,8 L3.25,8 C2.5,8 2,8.4 2,9 L2,15 C2,15.6 2.5,16 3.25,16 L20.75,16 C21.5,16 22,15.6 22,15 L22,9 Z M21,15 L3,15 L3,9 L21,9 L21,15 Z" fill-rule="nonzero"></path>
+                    <rect class="gjs-block-svg-path" x="4" y="11.5" width="16" height="1"></rect>
+                </svg>
+                <div class="gjs-block-label">Button</div></div>
+        </div><div class=" gjs-block gjs-one-bg gjs-four-color-h" title="Label" draggable="true">
+
+            <div class="gjs-block-label">
+                <svg class="gjs-block-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path class="gjs-block-svg-path" d="M22,11.875 C22,11.35 21.5,11 20.75,11 L3.25,11 C2.5,11 2,11.35 2,11.875 L2,17.125 C2,17.65 2.5,18 3.25,18 L20.75,18 C21.5,18 22,17.65 22,17.125 L22,11.875 Z M21,17 L3,17 L3,12 L21,12 L21,17 Z" fill-rule="nonzero"></path>
+                    <rect class="gjs-block-svg-path" x="2" y="5" width="14" height="5" rx="0.5"></rect>
+                    <polygon class="gjs-block-svg-path" fill-rule="nonzero" points="4 13 5 13 5 16 4 16"></polygon>
+                </svg>
+                <div class="gjs-block-label">Label</div></div>
+        </div><div class="fa fa-check-square gjs-block gjs-one-bg gjs-four-color-h" title="Checkbox" draggable="true">
+
+            <div class="gjs-block-label">Checkbox</div>
+        </div><div class="fa fa-dot-circle-o gjs-block gjs-one-bg gjs-four-color-h" title="Radio" draggable="true">
+
+            <div class="gjs-block-label">Radio</div>
+        </div></div>
+    </div></div>
+    <div class="gjs-blocks-no-cat">
+        <div class="gjs-blocks-c"></div>
+    </div>
+</div></div><div><div style="display: none;"><div class="gjs-traits-label">Component settings</div></div><div style="display: none;"><div class="gjs-trt-header">Select an element before using Trait Manager</div></div></div></div></div></div><div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color"><div class="sp-palette-container"><div class="sp-palette sp-thumb sp-cf"><div class="sp-cf sp-palette-row sp-palette-row-0"></div><div class="sp-cf sp-palette-row sp-palette-row-selection"></div></div><div class="sp-palette-button-container sp-cf"><button type="button" class="sp-palette-toggle">less</button></div></div><div class="sp-picker-container"><div class="sp-top sp-cf"><div class="sp-fill"></div><div class="sp-top-inner"><div class="sp-color" style="background-color: rgb(255, 0, 0);"><div class="sp-sat"><div class="sp-val"><div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div></div></div></div><div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div><div class="sp-hue"><div class="sp-slider" style="display: block; top: 0px;"></div></div></div><div class="sp-alpha"><div class="sp-alpha-inner" style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));"><div class="sp-alpha-handle" style="display: block; left: 0px;"></div></div></div></div><div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div><div class="sp-initial sp-thumb sp-cf"></div><div class="sp-button-container sp-cf"><a class="sp-cancel" href="https://grapesjs.com/demo.html#">⨯</a><button type="button" class="sp-choose">Ok</button></div></div></div><div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color"><div class="sp-palette-container"><div class="sp-palette sp-thumb sp-cf"><div class="sp-cf sp-palette-row sp-palette-row-0"></div><div class="sp-cf sp-palette-row sp-palette-row-selection"></div></div><div class="sp-palette-button-container sp-cf"><button type="button" class="sp-palette-toggle">less</button></div></div><div class="sp-picker-container"><div class="sp-top sp-cf"><div class="sp-fill"></div><div class="sp-top-inner"><div class="sp-color" style="background-color: rgb(255, 0, 0);"><div class="sp-sat"><div class="sp-val"><div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div></div></div></div><div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div><div class="sp-hue"><div class="sp-slider" style="display: block; top: 0px;"></div></div></div><div class="sp-alpha"><div class="sp-alpha-inner" style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));"><div class="sp-alpha-handle" style="display: block; left: 0px;"></div></div></div></div><div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div><div class="sp-initial sp-thumb sp-cf"></div><div class="sp-button-container sp-cf"><a class="sp-cancel" href="https://grapesjs.com/demo.html#">⨯</a><button type="button" class="sp-choose">Ok</button></div></div></div><div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color"><div class="sp-palette-container"><div class="sp-palette sp-thumb sp-cf"><div class="sp-cf sp-palette-row sp-palette-row-0"></div><div class="sp-cf sp-palette-row sp-palette-row-selection"></div></div><div class="sp-palette-button-container sp-cf"><button type="button" class="sp-palette-toggle">less</button></div></div><div class="sp-picker-container"><div class="sp-top sp-cf"><div class="sp-fill"></div><div class="sp-top-inner"><div class="sp-color" style="background-color: rgb(255, 0, 0);"><div class="sp-sat"><div class="sp-val"><div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div></div></div></div><div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div><div class="sp-hue"><div class="sp-slider" style="display: block; top: 0px;"></div></div></div><div class="sp-alpha"><div class="sp-alpha-inner" style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));"><div class="sp-alpha-handle" style="display: block; left: 0px;"></div></div></div></div><div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div><div class="sp-initial sp-thumb sp-cf"></div><div class="sp-button-container sp-cf"><a class="sp-cancel" href="https://grapesjs.com/demo.html#">⨯</a><button type="button" class="sp-choose">Ok</button></div></div></div><div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color"><div class="sp-palette-container"><div class="sp-palette sp-thumb sp-cf"><div class="sp-cf sp-palette-row sp-palette-row-0"></div><div class="sp-cf sp-palette-row sp-palette-row-selection"></div></div><div class="sp-palette-button-container sp-cf"><button type="button" class="sp-palette-toggle">less</button></div></div><div class="sp-picker-container"><div class="sp-top sp-cf"><div class="sp-fill"></div><div class="sp-top-inner"><div class="sp-color" style="background-color: rgb(255, 0, 0);"><div class="sp-sat"><div class="sp-val"><div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div></div></div></div><div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div><div class="sp-hue"><div class="sp-slider" style="display: block; top: 0px;"></div></div></div><div class="sp-alpha"><div class="sp-alpha-inner" style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));"><div class="sp-alpha-handle" style="display: block; left: 0px;"></div></div></div></div><div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div><div class="sp-initial sp-thumb sp-cf"></div><div class="sp-button-container sp-cf"><a class="sp-cancel" href="https://grapesjs.com/demo.html#">⨯</a><button type="button" class="sp-choose">Ok</button></div></div></div><div class="sp-container sp-hidden sp-light sp-input-disabled sp-alpha-enabled sp-palette-buttons-disabled sp-initial-disabled gjs-one-bg gjs-two-color"><div class="sp-palette-container"><div class="sp-palette sp-thumb sp-cf"><div class="sp-cf sp-palette-row sp-palette-row-0"></div><div class="sp-cf sp-palette-row sp-palette-row-selection"></div></div><div class="sp-palette-button-container sp-cf"><button type="button" class="sp-palette-toggle">less</button></div></div><div class="sp-picker-container"><div class="sp-top sp-cf"><div class="sp-fill"></div><div class="sp-top-inner"><div class="sp-color" style="background-color: rgb(255, 0, 0);"><div class="sp-sat"><div class="sp-val"><div class="sp-dragger" style="display: block; top: 0px; left: 0px;"></div></div></div></div><div class="sp-clear sp-clear-display" title="Clear Color Selection" style="display: none;"></div><div class="sp-hue"><div class="sp-slider" style="display: block; top: 0px;"></div></div></div><div class="sp-alpha"><div class="sp-alpha-inner" style="background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));"><div class="sp-alpha-handle" style="display: block; left: 0px;"></div></div></div></div><div class="sp-input-container sp-cf"><input class="sp-input" type="text" spellcheck="false"></div><div class="sp-initial sp-thumb sp-cf"></div><div class="sp-button-container sp-cf"><a class="sp-cancel" href="https://grapesjs.com/demo.html#">⨯</a><button type="button" class="sp-choose">Ok</button></div></div></div><div class="gjs-mdl-container" style="display: none;"><div class="gjs-mdl-dialog gjs-one-bg gjs-two-color">
+    <div class="gjs-mdl-header">
+        <div class="gjs-mdl-title"></div>
+        <div class="gjs-mdl-btn-close" data-close-modal="">⨯</div>
+    </div>
+    <div class="gjs-mdl-content">
+        <div id="gjs-mdl-c"></div>
+        <div style="clear:both"></div>
+    </div>
+</div>
+    <div class="gjs-mdl-collector" style="display: none"></div></div><div class="ad-cont">
+    <!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=grapesjscom" id="_carbonads_js"></script> -->
+    <div id="native-carbon"><script src="./GrapesJS Demo - Free Open Source Website Page Builder_files/carbon.js.download" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42QUCASDTKQICE7LYKQMCASIL27UCAYI6Z3JCWSI55Q7FTBIK2JKC6BI527MF6BIKK3EHJNCLSIZ?segment=placement:grapesjscom;" class="carbon-img" target="_blank" rel="noopener sponsored"><img src="./GrapesJS Demo - Free Open Source Website Page Builder_files/1564610946-Atlas_Carbon_Ad_3.png" alt="ads via Carbon" border="0" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42QUCASDTKQICE7LYKQMCASIL27UCAYI6Z3JCWSI55Q7FTBIK2JKC6BI527MF6BIKK3EHJNCLSIZ?segment=placement:grapesjscom;" class="carbon-text" target="_blank" rel="noopener sponsored">MongoDB Atlas is the most reliable cloud database service available. Try now!</a></span><a href="http://carbonads.net/?utm_source=grapesjscom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a></span></div></div>
+    <script async="" type="text/javascript" src="./GrapesJS Demo - Free Open Source Website Page Builder_files/carbon.js(1).download"></script>
+</div></div>
+
+<div id="info-panel" style="display:none">
+    <br>
+    <svg class="info-panel-logo" xmlns="//www.w3.org/2000/svg" version="1"><g id="gjs-logo">
+        <path d="M40 5l-12.9 7.4 -12.9 7.4c-1.4 0.8-2.7 2.3-3.7 3.9 -0.9 1.6-1.5 3.5-1.5 5.1v14.9 14.9c0 1.7 0.6 3.5 1.5 5.1 0.9 1.6 2.2 3.1 3.7 3.9l12.9 7.4 12.9 7.4c1.4 0.8 3.3 1.2 5.2 1.2 1.9 0 3.8-0.4 5.2-1.2l12.9-7.4 12.9-7.4c1.4-0.8 2.7-2.2 3.7-3.9 0.9-1.6 1.5-3.5 1.5-5.1v-14.9 -12.7c0-4.6-3.8-6-6.8-4.2l-28 16.2" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:10;stroke:#fff"></path>
+    </g></svg>
+    <br>
+    <div class="info-panel-label">
+        <b>GrapesJS Webpage Builder</b> is a simple showcase of what is possible to achieve with the
+        <a class="info-panel-link gjs-four-color" target="_blank" href="https://github.com/artf/grapesjs">GrapesJS</a>
+        core library
+        <br><br>
+        For any hint about the demo check the
+        <a class="info-panel-link gjs-four-color" target="_blank" href="https://github.com/artf/grapesjs-preset-webpage">Webpage Preset repository</a>
+        and open an issue. For problems with the builder itself, open an issue on the main
+        <a class="info-panel-link gjs-four-color" target="_blank" href="https://github.com/artf/grapesjs">GrapesJS repository</a>
+        <br><br>
+        Being a free and open source project contributors and supporters are extremely welcome.
+        If you like the project support it with a donation of your choice or become a backer/sponsor via
+        <a class="info-panel-link gjs-four-color" target="_blank" href="https://opencollective.com/grapesjs">Open Collective</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var lp = './img/';
+    var plp = '//placehold.it/350x250/';
+    var images = [
+        lp+'team1.jpg', lp+'team2.jpg', lp+'team3.jpg', plp+'78c5d6/fff/image1.jpg', plp+'459ba8/fff/image2.jpg', plp+'79c267/fff/image3.jpg',
+        plp+'c5d647/fff/image4.jpg', plp+'f28c33/fff/image5.jpg', plp+'e868a2/fff/image6.jpg', plp+'cc4360/fff/image7.jpg',
+        lp+'work-desk.jpg', lp+'phone-app.png', lp+'bg-gr-v.png'
+    ];
+
+    var editor  = grapesjs.init({
+        avoidInlineStyle: 1,
+        height: '100%',
+        container : '#gjs',
+        fromElement: 1,
+        showOffsets: 1,
+        assetManager: {
+            embedAsBase64: 1,
+            assets: images
+        },
+        styleManager: { clearProperties: 1 },
+        plugins: [
+            'gjs-preset-webpage',
+            'grapesjs-lory-slider',
+            'grapesjs-tabs',
+            'grapesjs-custom-code',
+            'grapesjs-touch',
+            'grapesjs-parser-postcss',
+            'grapesjs-tooltip',
+            'grapesjs-tui-image-editor',
+            'grapesjs-typed',
+        ],
+        pluginsOpts: {
+            'grapesjs-lory-slider': {
+                sliderBlock: {
+                    category: 'Extra'
+                }
+            },
+            'grapesjs-tabs': {
+                tabsBlock: {
+                    category: 'Extra'
+                }
+            },
+            'grapesjs-typed': {
+                block: {
+                    category: 'Extra',
+                    content: {
+                        type: 'typed',
+                        'type-speed': 40,
+                        strings: [
+                            'Text row one',
+                            'Text row two',
+                            'Text row three',
+                        ],
+                    }
+                }
+            },
+            'gjs-preset-webpage': {
+                modalImportTitle: 'Import Template',
+                modalImportLabel: '<div style="margin-bottom: 10px; font-size: 13px;">Paste here your HTML/CSS and click Import</div>',
+                modalImportContent: function(editor) {
+                    return editor.getHtml() + '<style>'+editor.getCss()+'</style>'
+                },
+                filestackOpts: null, //{ key: 'AYmqZc2e8RLGLE7TGkX3Hz' },
+                aviaryOpts: false,
+                blocksBasicOpts: { flexGrid: 1 },
+                customStyleManager: [{
+                    name: 'General',
+                    buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom'],
+                    properties:[{
+                        name: 'Alignment',
+                        property: 'float',
+                        type: 'radio',
+                        defaults: 'none',
+                        list: [
+                            { value: 'none', className: 'fa fa-times'},
+                            { value: 'left', className: 'fa fa-align-left'},
+                            { value: 'right', className: 'fa fa-align-right'}
+                        ],
+                    },
+                        { property: 'position', type: 'select'}
+                    ],
+                },{
+                    name: 'Dimension',
+                    open: false,
+                    buildProps: ['width', 'flex-width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
+                    properties: [{
+                        id: 'flex-width',
+                        type: 'integer',
+                        name: 'Width',
+                        units: ['px', '%'],
+                        property: 'flex-basis',
+                        toRequire: 1,
+                    },{
+                        property: 'margin',
+                        properties:[
+                            { name: 'Top', property: 'margin-top'},
+                            { name: 'Right', property: 'margin-right'},
+                            { name: 'Bottom', property: 'margin-bottom'},
+                            { name: 'Left', property: 'margin-left'}
+                        ],
+                    },{
+                        property  : 'padding',
+                        properties:[
+                            { name: 'Top', property: 'padding-top'},
+                            { name: 'Right', property: 'padding-right'},
+                            { name: 'Bottom', property: 'padding-bottom'},
+                            { name: 'Left', property: 'padding-left'}
+                        ],
+                    }],
+                },{
+                    name: 'Typography',
+                    open: false,
+                    buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-align', 'text-decoration', 'text-shadow'],
+                    properties:[
+                        { name: 'Font', property: 'font-family'},
+                        { name: 'Weight', property: 'font-weight'},
+                        { name:  'Font color', property: 'color'},
+                        {
+                            property: 'text-align',
+                            type: 'radio',
+                            defaults: 'left',
+                            list: [
+                                { value : 'left',  name : 'Left',    className: 'fa fa-align-left'},
+                                { value : 'center',  name : 'Center',  className: 'fa fa-align-center' },
+                                { value : 'right',   name : 'Right',   className: 'fa fa-align-right'},
+                                { value : 'justify', name : 'Justify',   className: 'fa fa-align-justify'}
+                            ],
+                        },{
+                            property: 'text-decoration',
+                            type: 'radio',
+                            defaults: 'none',
+                            list: [
+                                { value: 'none', name: 'None', className: 'fa fa-times'},
+                                { value: 'underline', name: 'underline', className: 'fa fa-underline' },
+                                { value: 'line-through', name: 'Line-through', className: 'fa fa-strikethrough'}
+                            ],
+                        },{
+                            property: 'text-shadow',
+                            properties: [
+                                { name: 'X position', property: 'text-shadow-h'},
+                                { name: 'Y position', property: 'text-shadow-v'},
+                                { name: 'Blur', property: 'text-shadow-blur'},
+                                { name: 'Color', property: 'text-shadow-color'}
+                            ],
+                        }],
+                },{
+                    name: 'Decorations',
+                    open: false,
+                    buildProps: ['opacity', 'background-color', 'border-radius', 'border', 'box-shadow', 'background'],
+                    properties: [{
+                        type: 'slider',
+                        property: 'opacity',
+                        defaults: 1,
+                        step: 0.01,
+                        max: 1,
+                        min:0,
+                    },{
+                        property: 'border-radius',
+                        properties  : [
+                            { name: 'Top', property: 'border-top-left-radius'},
+                            { name: 'Right', property: 'border-top-right-radius'},
+                            { name: 'Bottom', property: 'border-bottom-left-radius'},
+                            { name: 'Left', property: 'border-bottom-right-radius'}
+                        ],
+                    },{
+                        property: 'box-shadow',
+                        properties: [
+                            { name: 'X position', property: 'box-shadow-h'},
+                            { name: 'Y position', property: 'box-shadow-v'},
+                            { name: 'Blur', property: 'box-shadow-blur'},
+                            { name: 'Spread', property: 'box-shadow-spread'},
+                            { name: 'Color', property: 'box-shadow-color'},
+                            { name: 'Shadow type', property: 'box-shadow-type'}
+                        ],
+                    },{
+                        property: 'background',
+                        properties: [
+                            { name: 'Image', property: 'background-image'},
+                            { name: 'Repeat', property:   'background-repeat'},
+                            { name: 'Position', property: 'background-position'},
+                            { name: 'Attachment', property: 'background-attachment'},
+                            { name: 'Size', property: 'background-size'}
+                        ],
+                    },],
+                },{
+                    name: 'Extra',
+                    open: false,
+                    buildProps: ['transition', 'perspective', 'transform'],
+                    properties: [{
+                        property: 'transition',
+                        properties:[
+                            { name: 'Property', property: 'transition-property'},
+                            { name: 'Duration', property: 'transition-duration'},
+                            { name: 'Easing', property: 'transition-timing-function'}
+                        ],
+                    },{
+                        property: 'transform',
+                        properties:[
+                            { name: 'Rotate X', property: 'transform-rotate-x'},
+                            { name: 'Rotate Y', property: 'transform-rotate-y'},
+                            { name: 'Rotate Z', property: 'transform-rotate-z'},
+                            { name: 'Scale X', property: 'transform-scale-x'},
+                            { name: 'Scale Y', property: 'transform-scale-y'},
+                            { name: 'Scale Z', property: 'transform-scale-z'}
+                        ],
+                    }]
+                },{
+                    name: 'Flex',
+                    open: false,
+                    properties: [{
+                        name: 'Flex Container',
+                        property: 'display',
+                        type: 'select',
+                        defaults: 'block',
+                        list: [
+                            { value: 'block', name: 'Disable'},
+                            { value: 'flex', name: 'Enable'}
+                        ],
+                    },{
+                        name: 'Flex Parent',
+                        property: 'label-parent-flex',
+                        type: 'integer',
+                    },{
+                        name      : 'Direction',
+                        property  : 'flex-direction',
+                        type    : 'radio',
+                        defaults  : 'row',
+                        list    : [{
+                            value   : 'row',
+                            name    : 'Row',
+                            className : 'icons-flex icon-dir-row',
+                            title   : 'Row',
+                        },{
+                            value   : 'row-reverse',
+                            name    : 'Row reverse',
+                            className : 'icons-flex icon-dir-row-rev',
+                            title   : 'Row reverse',
+                        },{
+                            value   : 'column',
+                            name    : 'Column',
+                            title   : 'Column',
+                            className : 'icons-flex icon-dir-col',
+                        },{
+                            value   : 'column-reverse',
+                            name    : 'Column reverse',
+                            title   : 'Column reverse',
+                            className : 'icons-flex icon-dir-col-rev',
+                        }],
+                    },{
+                        name      : 'Justify',
+                        property  : 'justify-content',
+                        type    : 'radio',
+                        defaults  : 'flex-start',
+                        list    : [{
+                            value   : 'flex-start',
+                            className : 'icons-flex icon-just-start',
+                            title   : 'Start',
+                        },{
+                            value   : 'flex-end',
+                            title    : 'End',
+                            className : 'icons-flex icon-just-end',
+                        },{
+                            value   : 'space-between',
+                            title    : 'Space between',
+                            className : 'icons-flex icon-just-sp-bet',
+                        },{
+                            value   : 'space-around',
+                            title    : 'Space around',
+                            className : 'icons-flex icon-just-sp-ar',
+                        },{
+                            value   : 'center',
+                            title    : 'Center',
+                            className : 'icons-flex icon-just-sp-cent',
+                        }],
+                    },{
+                        name      : 'Align',
+                        property  : 'align-items',
+                        type    : 'radio',
+                        defaults  : 'center',
+                        list    : [{
+                            value   : 'flex-start',
+                            title    : 'Start',
+                            className : 'icons-flex icon-al-start',
+                        },{
+                            value   : 'flex-end',
+                            title    : 'End',
+                            className : 'icons-flex icon-al-end',
+                        },{
+                            value   : 'stretch',
+                            title    : 'Stretch',
+                            className : 'icons-flex icon-al-str',
+                        },{
+                            value   : 'center',
+                            title    : 'Center',
+                            className : 'icons-flex icon-al-center',
+                        }],
+                    },{
+                        name: 'Flex Children',
+                        property: 'label-parent-flex',
+                        type: 'integer',
+                    },{
+                        name:     'Order',
+                        property:   'order',
+                        type:     'integer',
+                        defaults :  0,
+                        min: 0
+                    },{
+                        name    : 'Flex',
+                        property  : 'flex',
+                        type    : 'composite',
+                        properties  : [{
+                            name:     'Grow',
+                            property:   'flex-grow',
+                            type:     'integer',
+                            defaults :  0,
+                            min: 0
+                        },{
+                            name:     'Shrink',
+                            property:   'flex-shrink',
+                            type:     'integer',
+                            defaults :  0,
+                            min: 0
+                        },{
+                            name:     'Basis',
+                            property:   'flex-basis',
+                            type:     'integer',
+                            units:    ['px','%',''],
+                            unit: '',
+                            defaults :  'auto',
+                        }],
+                    },{
+                        name      : 'Align',
+                        property  : 'align-self',
+                        type      : 'radio',
+                        defaults  : 'auto',
+                        list    : [{
+                            value   : 'auto',
+                            name    : 'Auto',
+                        },{
+                            value   : 'flex-start',
+                            title    : 'Start',
+                            className : 'icons-flex icon-al-start',
+                        },{
+                            value   : 'flex-end',
+                            title    : 'End',
+                            className : 'icons-flex icon-al-end',
+                        },{
+                            value   : 'stretch',
+                            title    : 'Stretch',
+                            className : 'icons-flex icon-al-str',
+                        },{
+                            value   : 'center',
+                            title    : 'Center',
+                            className : 'icons-flex icon-al-center',
+                        }],
+                    }]
+                }
+                ],
+            },
+        },
+
+    });
+
+
+    var pn = editor.Panels;
+    var modal = editor.Modal;
+    var cmdm = editor.Commands;
+    cmdm.add('canvas-clear', function() {
+        if(confirm('Areeee you sure to clean the canvas?')) {
+            var comps = editor.DomComponents.clear();
+            setTimeout(function(){ localStorage.clear()}, 0)
+        }
+    });
+    cmdm.add('set-device-desktop', {
+        run: function(ed) { ed.setDevice('Desktop') },
+        stop: function() {},
+    });
+    cmdm.add('set-device-tablet', {
+        run: function(ed) { ed.setDevice('Tablet') },
+        stop: function() {},
+    });
+    cmdm.add('set-device-mobile', {
+        run: function(ed) { ed.setDevice('Mobile portrait') },
+        stop: function() {},
+    });
+
+
+
+    // Add info command
+    var mdlClass = 'gjs-mdl-dialog-sm';
+    var infoContainer = document.getElementById('info-panel');
+    cmdm.add('open-info', function() {
+        var mdlDialog = document.querySelector('.gjs-mdl-dialog');
+        mdlDialog.className += ' ' + mdlClass;
+        infoContainer.style.display = 'block';
+        modal.setTitle('About this demo');
+        modal.setContent(infoContainer);
+        modal.open();
+        modal.getModel().once('change:open', function() {
+            mdlDialog.className = mdlDialog.className.replace(mdlClass, '');
+        })
+    });
+    pn.addButton('options', {
+        id: 'open-info',
+        className: 'fa fa-question-circle',
+        command: function() { editor.runCommand('open-info') },
+        attributes: {
+            'title': 'About',
+            'data-tooltip-pos': 'bottom',
+        },
+    });
+
+
+    // Simple warn notifier
+    var origWarn = console.warn;
+    toastr.options = {
+        closeButton: true,
+        preventDuplicates: true,
+        showDuration: 250,
+        hideDuration: 150
+    };
+    console.warn = function (msg) {
+        if (msg.indexOf('[undefined]') == -1) {
+            toastr.warning(msg);
+        }
+        origWarn(msg);
+    };
+
+
+    // Add and beautify tooltips
+    [['sw-visibility', 'Show Borders'], ['preview', 'Preview'], ['fullscreen', 'Fullscreen'],
+        ['export-template', 'Export'], ['undo', 'Undo'], ['redo', 'Redo'],
+        ['gjs-open-import-webpage', 'Import'], ['canvas-clear', 'Clear canvas']]
+        .forEach(function(item) {
+            pn.getButton('options', item[0]).set('attributes', {title: item[1], 'data-tooltip-pos': 'bottom'});
+        });
+    [['open-sm', 'Style Manager'], ['open-layers', 'Layers'], ['open-blocks', 'Blocks']]
+        .forEach(function(item) {
+            pn.getButton('views', item[0]).set('attributes', {title: item[1], 'data-tooltip-pos': 'bottom'});
+        });
+    var titles = document.querySelectorAll('*[title]');
+
+    for (var i = 0; i < titles.length; i++) {
+        var el = titles[i];
+        var title = el.getAttribute('title');
+        title = title ? title.trim(): '';
+        if(!title)
+            break;
+        el.setAttribute('data-tooltip', title);
+        el.setAttribute('title', '');
+    }
+
+    // Show borders by default
+    pn.getButton('options', 'sw-visibility').set('active', 1);
+
+
+    // Store and load events
+    editor.on('storage:load', function(e) { console.log('Loaded ', e) });
+    editor.on('storage:store', function(e) { console.log('Stored ', e) });
+
+
+    // Do stuff on load
+    editor.on('load', function() {
+        var $ = grapesjs.$;
+
+        // Show logo with the version
+        var logoCont = document.querySelector('.gjs-logo-cont');
+        document.querySelector('.gjs-logo-version').innerHTML = 'v' + grapesjs.version;
+        var logoPanel = document.querySelector('.gjs-pn-commands');
+        logoPanel.appendChild(logoCont);
+
+
+        // Load and show settings and style manager
+        var openTmBtn = pn.getButton('views', 'open-tm');
+        openTmBtn && openTmBtn.set('active', 1);
+        var openSm = pn.getButton('views', 'open-sm');
+        openSm && openSm.set('active', 1);
+
+        // Add Settings Sector
+        var traitsSector = $('<div class="gjs-sm-sector no-select">'+
+            '<div class="gjs-sm-title"><span class="icon-settings fa fa-cog"></span> Settings</div>' +
+            '<div class="gjs-sm-properties" style="display: none;"></div></div>');
+        var traitsProps = traitsSector.find('.gjs-sm-properties');
+        traitsProps.append($('.gjs-trt-traits'));
+        $('.gjs-sm-sectors').before(traitsSector);
+        traitsSector.find('.gjs-sm-title').on('click', function(){
+            var traitStyle = traitsProps.get(0).style;
+            var hidden = traitStyle.display == 'none';
+            if (hidden) {
+                traitStyle.display = 'block';
+            } else {
+                traitStyle.display = 'none';
+            }
+        });
+
+        // Open block manager
+        var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
+        openBlocksBtn && openBlocksBtn.set('active', 1);
+
+        // Move Ad
+        $('#gjs').append($('.ad-cont'));
+    });
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74284223-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+</body></html>

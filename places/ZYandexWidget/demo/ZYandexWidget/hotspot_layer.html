@@ -1,0 +1,52 @@
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=en_RU&amp;apikey=5fb7da25-bc18-4612-b304-83ea2266c510" type="text/javascript"></script>
+
+    <style>
+       #map {
+            width: 100%; height: 100%; padding: 0; margin: 0;
+        }
+    </style>
+    <script>
+        ymaps.ready(init);
+
+        function init() {
+
+            var myMap = new ymaps.Map('map', {
+                center: [55.709243, 37.500737],
+                zoom: 9,
+                controls: ['zoomControl']
+            }, {
+                /**
+                 * In our example, hotspot data is available only for zooms 9 and 10.
+                 * For this reason, we will restrict the map's zoom range.
+                 */
+                minZoom: 9,
+                maxZoom: 10
+            });
+
+
+            var tileUrlTemplate = 'https://sandbox.api.maps.yandex.net/examples/en/2.1/hotspot_layer/hotspot_data/%z/tile_x=%x&y=%y',
+
+                keyTemplate = 'testCallback_tile_%c',
+
+
+                imgUrlTemplate = 'https://sandbox.api.maps.yandex.net/examples/en/2.1/hotspot_layer/images/%z/tile_x=%x&y=%y.png',
+
+                // Creating the data source for the hotpsot layer.
+                objSource = new ymaps.hotspot.ObjectSource(tileUrlTemplate, keyTemplate),
+
+                // Creating the images layer and the hotspot layer.
+                imgLayer = new ymaps.Layer(imgUrlTemplate, {tileTransparent: true}),
+                hotspotLayer = new ymaps.hotspot.Layer(objSource, {cursor: 'help'});
+
+            // Adding layers to the map.
+            myMap.layers.add(hotspotLayer);
+            myMap.layers.add(imgLayer);
+        }
+    </script>
+
+<body>
+<div id="map"></div>
+</body>
+
+

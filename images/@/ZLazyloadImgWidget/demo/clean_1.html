@@ -1,0 +1,78 @@
+    <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+
+    <title>
+        AMD Polyfill - Lazyload
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        ul,
+        li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a,
+        img {
+            display: block;
+        }
+
+        img {
+            border: 0;
+            width: 220px;
+            height: 280px;
+        }
+
+        img:not([src]) {
+            visibility: hidden;
+        }
+
+        /* Fixes Firefox anomaly during image load */
+        @-moz-document url-prefix() {
+            img:-moz-loading {
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+<script>
+
+window.lazyFunctions = {
+foo: function (element) {
+element.style.color = "red";
+console.log("foo");
+},
+bar: function (element) {
+element.remove(element);
+console.log("bar");
+},
+buzz: function (element) {
+var span = document.createElement("span");
+span.innerText = " - buzz!";
+element.appendChild(span);
+console.log("buzz");
+},
+booya: function (element) {
+element.classList.add("boo");
+console.log("booya");
+}
+};
+
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js"></script>
+<script>
+
+
+</script>
+</body>
+</html>

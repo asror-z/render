@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/testing/Former/Icheck/css/ablmolodoy.css"/>
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/all.min.css">
+    <style>
+        .abl_molodoyacc{
+           background-color: #4c8bf5;
+           color: #ffffff;
+           border-top-left-radius: 3px;
+           border-top-right-radius: 3px;
+           padding: 10px;
+        }
+        .abl_molodoyacc:hover{
+            background-color: #53B2F5;
+        }
+        .abl_molodoyacc:after{
+        color: #ffffff;
+        }
+        .fa-1x {
+            margin-right: 10px;
+        }
+        
+    </style>
+
+</head>
+<body>
+<button class="abl_molodoyacc"><i class="fa-1x fa fa-chart-pie"></i>Section 1</button>
+<div class="abl_molodoypanel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="abl_molodoyacc"><i class="fa-1x fa fa-chart-pie"></i>Section 1</button>
+<div class="abl_molodoypanel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+
+<script >
+var acc = document.getElementsByClassName("abl_molodoyacc");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+}</script>
+</body>
+</html>

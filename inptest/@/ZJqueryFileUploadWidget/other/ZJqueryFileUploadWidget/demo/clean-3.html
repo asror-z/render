@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+
+<script type="text/javascript">
+function remove() {
+var aObj=document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+var i=aObj.length; 
+while(i--) { 
+    if(aObj[i].getElementsByTagName('input')[0].checked) {
+        aObj[i].parentNode.removeChild(aObj[i]);
+        }
+	}
+}
+</script>
+
+<style type="text/css">
+td {text-align:right;}
+</style>
+
+</head>
+<body>
+<form action="#" name="form1">
+<table>
+<tbody>
+    <tr><td><label>doe<input type="checkbox"></label></td></tr>
+    <tr><td><label>ray<input type="checkbox"></label></td></tr>
+    <tr><td><label>me<input type="checkbox"></label></td></tr>
+    <tr><td><label>far<input type="checkbox"></label></td></tr>
+    <tr><td><label>so<input type="checkbox"></label></td></tr>
+    <tr><td><label>la<input type="checkbox"></label></td></tr>
+</tbody>
+<tfoot>
+	<tr><td><button type="button" onclick="remove();">remove</button></td></tr>
+</tfoot>
+</table>
+</form>
+</body>
+</html>

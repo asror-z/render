@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- SmartMenus core CSS (required) -->
+<link href="../css/sm-core-css.css" rel="stylesheet" type="text/css" />
+
+<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+<link href="../css/sm-blue/sm-blue.css" rel="stylesheet" type="text/css" />
+
+<!-- #main-menu config - instance specific stuff not covered in the theme -->
+<style type="text/css">
+
+    #main-menu {
+        position:relative;
+        top:0;
+        left:0;
+        z-index:9999;
+        width:auto;
+    }
+    #main-menu ul {
+        width:12em; /* fixed width only please - you can use the "subMenusMinWidth"/"subMenusMaxWidth" script options to override this if you like */
+    }
+
+</style>
+<body>
+<ul id="main-menu" class="sm sm-blue">
+<li>List
+
+
+
+
+
+<!-- jQuery -->
+<script type="text/javascript" src="../libs/jquery-loader.js"></script>
+
+<!-- SmartMenus jQuery plugin -->
+<script type="text/javascript" src="../jquery.smartmenus.js"></script>
+
+<!-- SmartMenus jQuery init -->
+<script type="text/javascript">
+    $(function() {
+        $('#main-menu').smartmenus({
+            subMenusSubOffsetX: 1,
+            subMenusSubOffsetY: -8
+        });
+    });
+</script>
+</body>
+</html>

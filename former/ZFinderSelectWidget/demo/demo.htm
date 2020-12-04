@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://evulse.github.io/finderSelect/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>finderSelect</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="./demo_files/bootstrap.min.css">
+    <link href="./demo_files/font-awesome.css" rel="stylesheet">
+    <link href="./demo_files/prettify.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f8f8;
+        }
+        tr.selected {
+            background-color: #3875d7;
+            color: #FFF;
+        }
+
+        tr.selected td {
+            background-color: #3875d7;
+            color: #FFF;
+        }
+        .safezone {
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+        .icon-none {
+            opacity: 0;
+        }
+    </style>
+
+    <script async="" src="./demo_files/analytics.js.download"></script><script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-42913623-1', 'evulse.github.io');
+        ga('send', 'pageview');
+
+    </script>
+
+</head>
+
+<body style="">
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>finderSelect <small> jQuery &amp; Zepto Plugin. Only 6kb minified.</small></h1>
+        <p class="lead">Provides the ability to add file manager (Finder) type highlighting to all elements based on the standard single click, command+click/ctrl+click, command+drag/ctrl+drag, command+A/ctrl+A and shift+click methods. This plugin will by default add a `selected` class to all clicked elements.</p>
+        <p><a class="btn btn-large btn-success" href="http://github.com/evulse/finderSelect">View on Github</a></p>
+        <iframe src="./demo_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="130" height="30"></iframe>
+        <iframe src="./demo_files/github-btn(1).html" allowtransparency="true" frameborder="0" scrolling="0" width="130" height="30"></iframe>
+        <iframe src="./demo_files/github-btn(2).html" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+        <h2>Now hosted via CDN thanks to the team at cdnjs.com</h2>
+        <pre class="prettyprint prettyprinted" style=""><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"//cdnjs.cloudflare.com/ajax/libs/jquery.finderselect/0.6.0/jquery.finderselect.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></pre>
+         <h2>Also available on Open Source Software CDN by MaxCDN</h2>
+        <pre class="prettyprint prettyprinted" style=""><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"//oss.maxcdn.com/libs/jquery.finderselect/0.6.0/jquery.finderselect.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></pre>
+                <h3>Tested on IE6+, Firefox, Safari &amp; Chrome. <small>Single click only on touch devices.</small></h3>
+    </div>
+
+    <div class="col-lg-12">
+        <h2>Complex Usage - Folder Structure</h2>
+        <p>This complex demo shows how finderSelect can be used to create a nested file structure.</p>
+        <table class="table table-condensed" id="demo11">
+            <tbody><tr data-path="/Images" class="folder expanded">
+                <td colspan="3" style="padding-left: 0px;">
+                    <i class="icon-angle-right icon-fixed-width"></i>
+                    <i class="icon-folder-close icon-fixed-width"></i>
+                    Images
+                </td>
+            </tr>
+            <tr data-path="/Images/Icons" class="folder hidden">
+                <td colspan="3">
+                    <i class="icon-angle-right icon-fixed-width"></i>
+                    <i class="icon-folder-close icon-fixed-width"></i>
+                    Icons
+                </td>
+            </tr>
+            
+            <tr data-path="/Images/Icons/hello.png" class="file hidden" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">
+                <td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-path="/Images/Icons/hello.png" class="file hidden" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">
+                <td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-path="/Images/hello.png" class="file hidden" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">
+                <td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-path="/Images/hello.png" class="file hidden" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">
+                <td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-path="/Images/hello.png" class="file hidden" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">
+                <td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-path="/hello.png" class="file expanded" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">
+                <td style="padding-left: 0px;"><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-path="/hello.png" class="file expanded" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">
+                <td style="padding-left: 0px;"><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-path="/hello.png" class="file expanded" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">
+                <td style="padding-left: 0px;"><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+
+        </tbody></table>
+
+            <pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> demo11 </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'#demo11'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">({</span><span class="pln">children</span><span class="pun">:</span><span class="str">"tr.expanded"</span><span class="pun">});</span><span class="pln">
+        </span><span class="kwd">var</span><span class="pln"> activeSegments </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">""</span><span class="pun">];</span><span class="pln">
+        </span><span class="kwd">function</span><span class="pln"> expandActive</span><span class="pun">(</span><span class="pln">els</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            els</span><span class="pun">.</span><span class="pln">each</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">var</span><span class="pln"> el </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln">
+                </span><span class="kwd">var</span><span class="pln"> segments </span><span class="pun">=</span><span class="pln"> el</span><span class="pun">.</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-path'</span><span class="pun">).</span><span class="pln">split</span><span class="pun">(</span><span class="str">"/"</span><span class="pun">);</span><span class="pln">
+                segments</span><span class="pun">.</span><span class="pln">pop</span><span class="pun">();</span><span class="pln">
+                </span><span class="kwd">var</span><span class="pln"> padding </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">segments</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">$</span><span class="pun">.</span><span class="pln">inArray</span><span class="pun">(</span><span class="pln">segments</span><span class="pun">.</span><span class="pln">join</span><span class="pun">(</span><span class="str">"/"</span><span class="pun">),</span><span class="pln"> activeSegments</span><span class="pun">)</span><span class="pln">  </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    el</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">'td'</span><span class="pun">).</span><span class="pln">first</span><span class="pun">().</span><span class="pln">css</span><span class="pun">(</span><span class="str">'padding-left'</span><span class="pun">,</span><span class="pln">padding</span><span class="pun">);</span><span class="pln">
+                    el</span><span class="pun">.</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'hidden'</span><span class="pun">)</span><span class="pln">
+                    el</span><span class="pun">.</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'expanded'</span><span class="pun">);</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    el</span><span class="pun">.</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'hidden'</span><span class="pun">);</span><span class="pln">
+                    el</span><span class="pun">.</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'expanded'</span><span class="pun">);</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">});</span><span class="pln">
+
+        </span><span class="pun">}</span><span class="pln">
+
+        expandActive</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo11'</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'tr'</span><span class="pun">));</span><span class="pln">
+
+        $</span><span class="pun">(</span><span class="pln"> </span><span class="str">"#demo11"</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">"tr.folder"</span><span class="pun">).</span><span class="pln">dblclick</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">$</span><span class="pun">.</span><span class="pln">inArray</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-path'</span><span class="pun">),</span><span class="pln"> activeSegments</span><span class="pun">)</span><span class="pln">  </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> activeSegments</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">--)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">startsWith</span><span class="pun">(</span><span class="pln">activeSegments</span><span class="pun">[</span><span class="pln">i</span><span class="pun">],</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-path'</span><span class="pun">)))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                        activeSegments</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+                    </span><span class="pun">}</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+                $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'.icon-folder-open'</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'icon-folder-open'</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'icon-folder-close'</span><span class="pun">);</span><span class="pln">
+                $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'.icon-angle-down'</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'icon-angle-down'</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'icon-angle-right'</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                activeSegments</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-path'</span><span class="pun">));</span><span class="pln">
+                $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'.icon-folder-close'</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'icon-folder-close'</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'icon-folder-open'</span><span class="pun">);</span><span class="pln">
+                $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'.icon-angle-right'</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'icon-angle-right'</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'icon-angle-down'</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            expandActive</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo11'</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'tr'</span><span class="pun">));</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+</span><span class="pun">});</span></pre>
+    </div>
+    <div class="col-lg-12">
+        <h2>Complex Usage - AJAX Folder Structure of Jquery Github Repo</h2>
+        <p>This complex demo shows how finderSelect can be used to create a file browser powered by an external service such as the Github API in the below example.</p>
+        <table class="table table-condensed" id="demo10">
+
+        <tbody><tr data-path="/.editorconfig" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .editorconfig</td><td>b5bd7f60ec9a9b14792a0dd90d50af582c4056dc</td><td>279</td></tr><tr data-path="/.eslintignore" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .eslintignore</td><td>6bc5c48b6f0f8e4d87d5c4637e301f13f439fcbf</td><td>330</td></tr><tr data-path="/.eslintrc-browser.json" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .eslintrc-browser.json</td><td>97b5abe85251d0fdbb38b24fee74e571e4f47fbf</td><td>542</td></tr><tr data-path="/.eslintrc-node.json" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .eslintrc-node.json</td><td>8cb69807b3406452dbf049ee059067cb7888146a</td><td>223</td></tr><tr data-path="/.eslintrc.json" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .eslintrc.json</td><td>d2c977ca851d8ba124539a86f9a140e55318f87a</td><td>56</td></tr><tr data-path="/.gitattributes" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .gitattributes</td><td>b7ca95b5b77a91a2e1b6eaf80c2a4a52a99ec378</td><td>127</td></tr><tr data-path="/.github" class="folder"><td colspan="3"> <i class="icon-angle-right icon-fixed-width"></i> <i class="icon-folder-close icon-fixed-width"></i>.github</td></tr><tr data-path="/.gitignore" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .gitignore</td><td>836cb81c451e2850c93328a81c42492a1dd4ffc9</td><td>317</td></tr><tr data-path="/.mailmap" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .mailmap</td><td>365dafcc39e2da69ec800726335eb101ce818869</td><td>5757</td></tr><tr data-path="/.npmignore" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .npmignore</td><td>4dde6c8cd01e3f78e90c6f20db44e665107f1efd</td><td>119</td></tr><tr data-path="/.npmrc" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .npmrc</td><td>cffe8cdef132f31903a4971117f33f60cd9a56e6</td><td>16</td></tr><tr data-path="/.travis.yml" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> .travis.yml</td><td>82f14ab7626e2617bcb514be8aeb4e0d24386c08</td><td>1383</td></tr><tr data-path="/AUTHORS.txt" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> AUTHORS.txt</td><td>06df1a533cb37d8aab8a19011dcc72e870034445</td><td>13369</td></tr><tr data-path="/CODE_OF_CONDUCT.md" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> CODE_OF_CONDUCT.md</td><td>1dc3de996bd138bd34152dc26460da1ed53d3913</td><td>160</td></tr><tr data-path="/CONTRIBUTING.md" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> CONTRIBUTING.md</td><td>2deb7d1803a0edd96e617c8ff1765775988e3ff5</td><td>7944</td></tr><tr data-path="/Gruntfile.js" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> Gruntfile.js</td><td>43507c24bf16aa51dc255c786492246ac942ea28</td><td>8195</td></tr><tr data-path="/LICENSE.txt" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> LICENSE.txt</td><td>f642c3f7a77a5833bc3dfee643ad8ca6387b23e7</td><td>1097</td></tr><tr data-path="/README.md" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> README.md</td><td>c3e5361a03626a768a57548636271a3fc696c23a</td><td>12644</td></tr><tr data-path="/SECURITY.md" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> SECURITY.md</td><td>11d9cafde0d47cb9b367b843e3e60fd40571bfb1</td><td>427</td></tr><tr data-path="/build" class="folder"><td colspan="3"> <i class="icon-angle-right icon-fixed-width"></i> <i class="icon-folder-close icon-fixed-width"></i>build</td></tr><tr data-path="/dist" class="folder"><td colspan="3"> <i class="icon-angle-right icon-fixed-width"></i> <i class="icon-folder-close icon-fixed-width"></i>dist</td></tr><tr data-path="/package.json" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"><td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> package.json</td><td>ae4ed13ef211aa51086ca1ed5a0661e1b5f87680</td><td>3289</td></tr><tr data-path="/src" class="folder"><td colspan="3"> <i class="icon-angle-right icon-fixed-width"></i> <i class="icon-folder-close icon-fixed-width"></i>src</td></tr><tr data-path="/test" class="folder"><td colspan="3"> <i class="icon-angle-right icon-fixed-width"></i> <i class="icon-folder-close icon-fixed-width"></i>test</td></tr></tbody></table>
+
+        <span><span class="demo1-count">1</span> File(s) Selected &nbsp;</span><br><br>
+        <button class="btn btn-primary btn-mini demo1-trash">Send Selected to Trash</button><br><br>
+            <pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">var</span><span class="pln"> demo10 </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'#demo10'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">({</span><span class="pln">children</span><span class="pun">:</span><span class="str">"tr.expanded"</span><span class="pun">});</span><span class="pln">
+
+        </span><span class="kwd">var</span><span class="pln"> demo10BaseUrl </span><span class="pun">=</span><span class="pln"> </span><span class="str">'https://api.github.com/repos/jquery/jquery/contents/'</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">var</span><span class="pln"> baseDir </span><span class="pun">=</span><span class="pln"> </span><span class="str">"/"</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">var</span><span class="pln"> gitHubLoaded </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">""</span><span class="pun">];</span><span class="pln">
+
+        </span><span class="kwd">function</span><span class="pln"> reloadGithub</span><span class="pun">(</span><span class="pln">els</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            els</span><span class="pun">.</span><span class="pln">each</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">var</span><span class="pln"> el </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln">
+                </span><span class="kwd">var</span><span class="pln"> segments </span><span class="pun">=</span><span class="pln"> el</span><span class="pun">.</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-path'</span><span class="pun">).</span><span class="pln">split</span><span class="pun">(</span><span class="str">"/"</span><span class="pun">);</span><span class="pln">
+                segments</span><span class="pun">.</span><span class="pln">pop</span><span class="pun">();</span><span class="pln">
+                </span><span class="kwd">var</span><span class="pln"> padding </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">segments</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">$</span><span class="pun">.</span><span class="pln">inArray</span><span class="pun">(</span><span class="pln">segments</span><span class="pun">.</span><span class="pln">join</span><span class="pun">(</span><span class="str">"/"</span><span class="pun">),</span><span class="pln"> gitHubLoaded</span><span class="pun">)</span><span class="pln">  </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    el</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">'td'</span><span class="pun">).</span><span class="pln">first</span><span class="pun">().</span><span class="pln">css</span><span class="pun">(</span><span class="str">'padding-left'</span><span class="pun">,</span><span class="pln">padding</span><span class="pun">);</span><span class="pln">
+                    el</span><span class="pun">.</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'hidden'</span><span class="pun">)</span><span class="pln">
+                    el</span><span class="pun">.</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'expanded'</span><span class="pun">);</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    el</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">();</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">});</span><span class="pln">
+
+        </span><span class="pun">}</span><span class="pln">
+
+        $</span><span class="pun">.</span><span class="pln">getJSON</span><span class="pun">(</span><span class="pln">demo10BaseUrl </span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">result</span><span class="pun">){</span><span class="pln">
+
+            $</span><span class="pun">.</span><span class="pln">each</span><span class="pun">(</span><span class="pln">result</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> field</span><span class="pun">){</span><span class="pln">
+
+                </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">field</span><span class="pun">.</span><span class="pln">type </span><span class="pun">==</span><span class="pln"> </span><span class="str">'dir'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    $</span><span class="pun">(</span><span class="str">'#demo10'</span><span class="pun">).</span><span class="pln">append</span><span class="pun">(</span><span class="str">'&lt;tr data-path="'</span><span class="pun">+</span><span class="pln">baseDir </span><span class="pun">+</span><span class="pln"> field</span><span class="pun">.</span><span class="pln">path</span><span class="pun">+</span><span class="str">'" class="folder"&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                            </span><span class="str">'&lt;td colspan="3"&gt;'</span><span class="pun">+</span><span class="pln">
+                            </span><span class="str">' &lt;i class="icon-angle-right icon-fixed-width"&gt;&lt;/i&gt; '</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                            </span><span class="str">'&lt;i class="icon-folder-close icon-fixed-width"&gt;&lt;/i&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                            field</span><span class="pun">.</span><span class="pln">name </span><span class="pun">+</span><span class="pln">
+                            </span><span class="str">'&lt;/td&gt;&lt;/tr&gt;'</span><span class="pun">);</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    $</span><span class="pun">(</span><span class="str">'#demo10'</span><span class="pun">).</span><span class="pln">append</span><span class="pun">(</span><span class="str">'&lt;tr data-path="'</span><span class="pun">+</span><span class="pln">baseDir </span><span class="pun">+</span><span class="pln"> field</span><span class="pun">.</span><span class="pln">path</span><span class="pun">+</span><span class="str">'" class="file" data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png"&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                            </span><span class="str">'&lt;td&gt;&lt;i class="icon-fixed-width icon-none"&gt;&lt;/i&gt; &lt;i class="icon-file icon-fixed-width"&gt;&lt;/i&gt; '</span><span class="pun">+</span><span class="pln">field</span><span class="pun">.</span><span class="pln">name</span><span class="pun">+</span><span class="str">'&lt;/td&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                            </span><span class="str">'&lt;td&gt;'</span><span class="pun">+</span><span class="pln"> field</span><span class="pun">.</span><span class="pln">sha </span><span class="pun">+</span><span class="str">'&lt;/td&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                            </span><span class="str">'&lt;td&gt;'</span><span class="pun">+</span><span class="pln"> field</span><span class="pun">.</span><span class="pln">size </span><span class="pun">+</span><span class="pln"> </span><span class="str">'&lt;/td&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                            </span><span class="str">'&lt;/tr&gt;'</span><span class="pun">);</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">});</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+
+        reloadGithub</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo10'</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'tr'</span><span class="pun">));</span><span class="pln">
+
+        $</span><span class="pun">(</span><span class="pln"> </span><span class="str">"#demo10"</span><span class="pln"> </span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="pln"> </span><span class="str">"dblclick"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"tr.folder"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> clicked </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">$</span><span class="pun">.</span><span class="pln">inArray</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-path'</span><span class="pun">),</span><span class="pln"> gitHubLoaded</span><span class="pun">)</span><span class="pln">  </span><span class="pun">&gt;</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> gitHubLoaded</span><span class="pun">.</span><span class="pln">length </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">--)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">startsWith</span><span class="pun">(</span><span class="pln">gitHubLoaded</span><span class="pun">[</span><span class="pln">i</span><span class="pun">],</span><span class="pln"> $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-path'</span><span class="pun">)))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                        gitHubLoaded</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+                    </span><span class="pun">}</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+                $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'.icon-folder-open'</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'icon-folder-open'</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'icon-folder-close'</span><span class="pun">);</span><span class="pln">
+                $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'.icon-angle-down'</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'icon-angle-down'</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'icon-angle-right'</span><span class="pun">);</span><span class="pln">
+                reloadGithub</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo10'</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'tr'</span><span class="pun">));</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+                $</span><span class="pun">.</span><span class="pln">getJSON</span><span class="pun">(</span><span class="pln">demo10BaseUrl</span><span class="pun">+</span><span class="pln">$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-path'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">result</span><span class="pun">){</span><span class="pln">
+
+                    $</span><span class="pun">.</span><span class="pln">each</span><span class="pun">(</span><span class="pln">result</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> field</span><span class="pun">){</span><span class="pln">
+
+                        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">field</span><span class="pun">.</span><span class="pln">type </span><span class="pun">==</span><span class="pln"> </span><span class="str">'dir'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                            clicked</span><span class="pun">.</span><span class="pln">after</span><span class="pun">(</span><span class="str">'&lt;tr data-path="'</span><span class="pun">+</span><span class="pln">baseDir </span><span class="pun">+</span><span class="pln"> field</span><span class="pun">.</span><span class="pln">path</span><span class="pun">+</span><span class="str">'" class="folder"&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                                    </span><span class="str">'&lt;td colspan="3"&gt;'</span><span class="pun">+</span><span class="pln">
+                                    </span><span class="str">' &lt;i class="icon-angle-right icon-fixed-width"&gt;&lt;/i&gt; '</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                                    </span><span class="str">'&lt;i class="icon-folder-close icon-fixed-width"&gt;&lt;/i&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                                    field</span><span class="pun">.</span><span class="pln">name </span><span class="pun">+</span><span class="pln">
+                                    </span><span class="str">'&lt;/td&gt;&lt;/tr&gt;'</span><span class="pun">);</span><span class="pln">
+                        </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                            clicked</span><span class="pun">.</span><span class="pln">after</span><span class="pun">(</span><span class="str">'&lt;tr data-path="'</span><span class="pun">+</span><span class="pln">baseDir </span><span class="pun">+</span><span class="pln"> field</span><span class="pun">.</span><span class="pln">path</span><span class="pun">+</span><span class="str">'" class="file" data-url="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png"&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                                    </span><span class="str">'&lt;td&gt;&lt;i class="icon-fixed-width icon-none"&gt;&lt;/i&gt; &lt;i class="icon-file icon-fixed-width"&gt;&lt;/i&gt; '</span><span class="pun">+</span><span class="pln">field</span><span class="pun">.</span><span class="pln">name</span><span class="pun">+</span><span class="str">'&lt;/td&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                                    </span><span class="str">'&lt;td&gt;'</span><span class="pun">+</span><span class="pln"> field</span><span class="pun">.</span><span class="pln">sha </span><span class="pun">+</span><span class="str">'&lt;/td&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                                    </span><span class="str">'&lt;td&gt;'</span><span class="pun">+</span><span class="pln"> field</span><span class="pun">.</span><span class="pln">size </span><span class="pun">+</span><span class="pln"> </span><span class="str">'&lt;/td&gt;'</span><span class="pln"> </span><span class="pun">+</span><span class="pln">
+                                    </span><span class="str">'&lt;/tr&gt;'</span><span class="pun">);</span><span class="pln">
+                        </span><span class="pun">}</span><span class="pln">
+
+                    </span><span class="pun">});</span><span class="pln">
+                </span><span class="pun">}).</span><span class="pln">success</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    reloadGithub</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo10'</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'tr'</span><span class="pun">));</span><span class="pln">
+                </span><span class="pun">});</span><span class="pln">
+                gitHubLoaded</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-path'</span><span class="pun">));</span><span class="pln">
+                $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'.icon-folder-close'</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'icon-folder-close'</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'icon-folder-open'</span><span class="pun">);</span><span class="pln">
+                $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'.icon-angle-right'</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">'icon-angle-right'</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">'icon-angle-down'</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+
+        </span><span class="pun">});</span><span class="pln">
+
+</span><span class="pun">});</span></pre>
+    </div>
+    <div class="col-lg-12">
+        <h2>Advanced Usage</h2>
+        <p>This advanced demo shows how finderSelect can be used as a component to create a file explorer. Make sure to try Ctrl/Cmd+Click, Ctrl+A/Cmd+A &amp; Ctrl+Alt+A/Cmd+Opt+A (Activates only when cursor is over table), Shift+Click, Ctrl/Cmd+Click&amp;Drag and Right Click on the table after you have made a selection.</p>
+        <table class="table table-condensed" id="demo1">
+            <tbody><tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="selected selected-last" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+            <tr data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" class="un-selected" style="cursor: pointer;">
+                <td><i class="icon-file"></i></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+            </tr>
+        </tbody></table>
+
+        <span><span class="demo1-count">1</span> File(s) Selected &nbsp;</span><br><br>
+        <button class="btn btn-primary btn-mini demo1-trash">Send Selected to Trash</button><br><br>
+            <pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">var</span><span class="pln"> demo1 </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'#demo1'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">({</span><span class="pln">children</span><span class="pun">:</span><span class="str">"tr"</span><span class="pun">,</span><span class="pln">totalSelector</span><span class="pun">:</span><span class="str">".demo1-count"</span><span class="pun">,</span><span class="pln">menuSelector</span><span class="pun">:</span><span class="str">"#demo1-menu"</span><span class="pun">});</span><span class="pln">
+
+        $</span><span class="pun">(</span><span class="str">".demo1-trash"</span><span class="pun">).</span><span class="pln">click</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+            demo1</span><span class="pun">.</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">"selected"</span><span class="pun">).</span><span class="pln">remove</span><span class="pun">();</span><span class="pln">
+            demo1</span><span class="pun">.</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">"update"</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+
+        </span><span class="com">// Opens Preview in Window. Opens with browser only. (There is a 90% chance a popup blocker will stop multiple windows. Working on a better solution)</span><span class="pln">
+        $</span><span class="pun">(</span><span class="str">".demo1-preview"</span><span class="pun">).</span><span class="pln">click</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+            demo1</span><span class="pun">.</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">"selected"</span><span class="pun">).</span><span class="pln">each</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">index</span><span class="pun">){</span><span class="pln">
+                </span><span class="typ">OpenInNewTab</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-url'</span><span class="pun">));</span><span class="pln">
+            </span><span class="pun">});</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+
+        </span><span class="com">// Opens Edit in Window. Opens using Web Based Pixlr editor. (There is a 90% chance a popup blocker will stop multiple windows. Working on a better solution)</span><span class="pln">
+        $</span><span class="pun">(</span><span class="str">".demo1-edit"</span><span class="pun">).</span><span class="pln">click</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+            demo1</span><span class="pun">.</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">"selected"</span><span class="pun">).</span><span class="pln">each</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+                </span><span class="typ">OpenInNewTab</span><span class="pun">(</span><span class="str">'http://pixlr.com/editor/?image='</span><span class="pun">+</span><span class="pln">$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'data-url'</span><span class="pun">));</span><span class="pln">
+            </span><span class="pun">});</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+</span><span class="pun">});</span></pre>
+    </div>
+    <div class="col-lg-12">
+        <h2>Extending</h2>
+        <p>finderSelect was design to be easily extended. See the example below to see how the highlighting functions can be overridden to provide new functionality.</p>
+        
+        <table class="table table-condensed" id="demo5">
+            <thead>
+               <tr>
+                <td><input type="checkbox"></td>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Last Accessed</td>
+            </tr>
+            </thead>
+            <tbody>
+               <tr class="un-selected" style="cursor: pointer;">
+                <td><input type="checkbox"></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+                <td>Unsafe Zone. <a href="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td><input type="checkbox"></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+                <td>Unsafe Zone. <a href="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+            </tr>
+            <tr class="un-selected selected-current" style="cursor: pointer;">
+                <td><input type="checkbox"></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+                <td class="safezone">Click Safe Zone. <a href="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td><input type="checkbox"></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+                <td class="safezone">Click Safe Zone. <a href="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td><input type="checkbox"></td>
+                <td>hello.png</td>
+                <td>Portable Networks Graphic image</td>
+                <td>Friday, 24 July 2013 4:59PM</td>
+                <td class="safezone">Click Safe Zone. <a href="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td><input type="checkbox"></td>
+                <td class="safezone">hello.png</td>
+                <td class="safezone">Portable Networks Graphic image</td>
+                <td class="safezone">Friday, 24 July 2013 4:59PM</td>
+                <td class="safezone">Click Safe Zone. <a href="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td><input type="checkbox"></td>
+                <td class="safezone">hello.png</td>
+                <td class="safezone">Portable Networks Graphic image</td>
+                <td class="safezone">Friday, 24 July 2013 4:59PM</td>
+                <td class="safezone">Click Safe Zone. <a href="http://upload.wikimedia.org/wikipedia/en/d/d0/Hello.png" target="_blank"><i class="icon-edit"></i></a></td>
+            </tr>         
+            </tbody>
+
+        </table>
+
+            <pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                
+        </span><span class="com">// Initialise the Demo with the Ctrl Click Functionality as the Default</span><span class="pln">
+        </span><span class="kwd">var</span><span class="pln"> demo5 </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'#demo5 tbody'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">({</span><span class="pln">enableDesktopCtrlDefault</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">});</span><span class="pln">
+
+        </span><span class="com">// Add a hook to the highlight function so that checkboxes in the selection are also checked.</span><span class="pln">
+        demo5</span><span class="pun">.</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'addHook'</span><span class="pun">,</span><span class="str">'highlight:before'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">el</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            el</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">'input'</span><span class="pun">).</span><span class="pln">prop</span><span class="pun">(</span><span class="str">'checked'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+
+        </span><span class="com">// Add a hook to the unHighlight function so that checkboxes in the selection are also unchecked.</span><span class="pln">
+        demo5</span><span class="pun">.</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'addHook'</span><span class="pun">,</span><span class="str">'unHighlight:before'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">el</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            el</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">'input'</span><span class="pun">).</span><span class="pln">prop</span><span class="pun">(</span><span class="str">'checked'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+
+        </span><span class="com">// Enable Double Click Event.</span><span class="pln">
+        demo5</span><span class="pun">.</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">"children"</span><span class="pun">).</span><span class="pln">dblclick</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            alert</span><span class="pun">(</span><span class="pln"> </span><span class="str">"Double Click detected. Useful for linking to detail page."</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+
+        </span><span class="com">// Prevent Checkboxes from being triggered twice when click on directly.</span><span class="pln">
+        demo5</span><span class="pun">.</span><span class="pln">on</span><span class="pun">(</span><span class="str">"click"</span><span class="pun">,</span><span class="pln"> </span><span class="str">":checkbox"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span><span class="pln">
+            e</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+
+        </span><span class="com">// Add Select All functionality to the checkbox in the table header row.</span><span class="pln">
+        $</span><span class="pun">(</span><span class="str">'#demo5'</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">"thead input[type='checkbox']"</span><span class="pun">).</span><span class="pln">change</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">is</span><span class="pun">(</span><span class="str">':checked'</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                demo5</span><span class="pun">.</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'highlightAll'</span><span class="pun">);</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                demo5</span><span class="pun">.</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'unHighlightAll'</span><span class="pun">);</span><span class="pln">
+
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+                
+        </span><span class="com">// Add a Safe Zone to show not all child elements have to be active.</span><span class="pln">
+        $</span><span class="pun">(</span><span class="str">".safezone"</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">"mousedown"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">e</span><span class="pun">){</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+
+</span><span class="pun">});</span></pre>
+    </div>
+    <div class="col-lg-12">
+        <h2>TBODY Only</h2>
+        <p>To enable selecting on only tbody rows simply call</p>
+        <table class="table" id="demo2">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td>1</td>
+                <td>Test</td>
+                <td>Data</td>
+                <td>Set</td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td>2</td>
+                <td>Test</td>
+                <td>Data</td>
+                <td>Set</td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td>3</td>
+                <td>Test</td>
+                <td>Data</td>
+                <td>Set</td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td>4</td>
+                <td>Test</td>
+                <td>Data</td>
+                <td>Set</td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td>5</td>
+                <td>Test</td>
+                <td>Data</td>
+                <td>Set</td>
+            </tr>
+            </tbody>
+        </table>
+            <pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    $</span><span class="pun">(</span><span class="str">'#demo2'</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'tbody'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">});</span></pre>
+    </div>
+    <div class="col-lg-12">
+        <h2>Custom Class</h2>
+        <p>If you want to use a custom class for highlighting such as using Twitter Bootstrap</p>
+        <table class="table" id="demo3">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td>1</td>
+                <td>Test</td>
+                <td>Data</td>
+                <td>Set</td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td>2</td>
+                <td>Test</td>
+                <td>Data</td>
+                <td>Set</td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td>3</td>
+                <td>Test</td>
+                <td>Data</td>
+                <td>Set</td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td>4</td>
+                <td>Test</td>
+                <td>Data</td>
+                <td>Set</td>
+            </tr>
+            <tr class="un-selected" style="cursor: pointer;">
+                <td>5</td>
+                <td>Test</td>
+                <td>Data</td>
+                <td>Set</td>
+            </tr>
+            </tbody>
+        </table>
+            <pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    $</span><span class="pun">(</span><span class="str">'#demo3'</span><span class="pun">).</span><span class="pln">find</span><span class="pun">(</span><span class="str">'tbody'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">({</span><span class="pln">selectClass</span><span class="pun">:</span><span class="str">'danger'</span><span class="pun">});</span><span class="pln">
+</span><span class="pun">});</span></pre>
+    </div>
+    <div class="col-lg-12">
+        <h2>Other Elements</h2>
+        <p>This plugin works on all nested elements. The example below shows span tags within a parent div.</p>
+    <div id="demo4">
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+        <span class="label un-selected" style="cursor: pointer;">Label</span>
+    </div>
+        <p></p>
+            <pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+     $</span><span class="pun">(</span><span class="str">'#demo4'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">({</span><span class="pln">selectClass</span><span class="pun">:</span><span class="str">'label-success'</span><span class="pun">});</span><span class="pln">
+</span><span class="pun">});</span></pre>
+    </div>
+    
+    <div class="col-lg-12">
+        <h2>Configuration Options</h2>
+        <p>The following configuration options are available.</p>
+        <div class="panel">
+  <div class="panel-body">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>selectClass</td>
+            <td>string</td>
+            <td>The Class applied to selected elements.</td>
+            <td>"selected"</td>
+        </tr>
+        <tr>
+            <td>unSelectClass</td>
+            <td>string</td>
+            <td>The Class applied to un-selected elements.</td>
+            <td>"un-selected"</td>
+        </tr>
+        <tr>
+            <td>currentClass</td>
+            <td>string</td>
+            <td>The Class applied to the current selected element.</td>
+            <td>"selected-current"</td>
+        </tr>
+        <tr>
+            <td>lastClass</td>
+            <td>string</td>
+            <td>The Class applied to the last selected element.</td>
+            <td>"selected-last"</td>
+        </tr>
+        <tr>
+            <td>shiftClass</td>
+            <td>string</td>
+            <td>The Class applied to the last shift selected element.</td>
+            <td>"selected-shift"</td>
+        </tr>
+        <tr>
+            <td>ctrlClass</td>
+            <td>string</td>
+            <td>The Class applied to the last ctrl selected element.</td>
+            <td>"selected-ctrl"</td>
+        </tr>
+        <tr>
+            <td>triggerUpdate</td>
+            <td>string</td>
+            <td>The Event omitted whenever finderSelect is updated.</td>
+            <td>"finderSelectUpdate"</td>
+        </tr>
+        <tr>
+            <td>children</td>
+            <td>selector string</td>
+            <td>Manually set the child element selector. Eg "li" for list elements</td>
+            <td>"selected"</td>
+        </tr>
+        <tr>
+            <td>event</td>
+            <td>event string</td>
+            <td>The Event which triggers a selection.</td>
+            <td>"mousedown"</td>
+        </tr>
+        <tr>
+            <td>cursor</td>
+            <td>css string</td>
+            <td>The cursor applied to the finderSelect element</td>
+            <td>"pointer"</td>
+        </tr>
+        <tr>
+            <td>dragEvent</td>
+            <td>string</td>
+            <td>The Event which triggers a drag selection.</td>
+            <td>"mouseenter"</td>
+        </tr>
+        <tr>
+            <td>enableClickDrag</td>
+            <td>boolean</td>
+            <td>Enable/Disable Ctrl + Click + Drag.</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>enableShiftClick</td>
+            <td>boolean</td>
+            <td>Enable/Disable Shift + Click bulk selection.</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>enableCtrlClick</td>
+            <td>boolean</td>
+            <td>Enable/Disable Ctrl + Click Toggle Click.</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>enableSingleClick</td>
+            <td>boolean</td>
+            <td>Enable/Disable The standard Single Click.</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>enableSelectAll</td>
+            <td>boolean</td>
+            <td>Enable/Disable Select All Keyboard Shortcuts.</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>enableDisableSelection</td>
+             <td>boolean</td>
+            <td>Enable/Disable Disabling Text Selection when needed.</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>enableTouchCtrlDefault</td>
+              <td>boolean</td>
+            <td>Enable/Disable Ctrl + Click as the default on touch devices.</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>enableDesktopCtrlDefault</td>
+            <td>boolean</td>
+            <td>Enable/Disable Ctrl + Click as the default.</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>totalSelector</td>
+            <td>selector string</td>
+            <td>The Selector used to update row counts.  eg ".demo-count"</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>menuSelector</td>
+            <td>string</td>
+            <td>The Selector used to show the menu elemenet. eg "#demo-menu"</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>menuXOffset</td>
+            <td>integer</td>
+            <td>The X Offset for the menu element</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>menuYOffset</td>
+            <td>integer</td>
+            <td>The Y Offset for the menu element</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+
+</table>
+  </div>
+</div>
+
+    </div>
+    
+     <div class="col-lg-12">
+        <h2>Methods</h2>
+        <p>The following methods are available.</p>
+        <div class="panel">
+  <div class="panel-body">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Parameters</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>highlight</td>
+            <td>element</td>
+            <td>Highlights elements</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'highlight'</span><span class="pun">,</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'ul'</span><span class="pun">));</span></pre></td>
+        </tr>
+        <tr>
+            <td>unHighlight</td>
+            <td>-</td>
+            <td>UnHighlights elements</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'unHighlight'</span><span class="pun">,</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'ul'</span><span class="pun">));</span></pre></td>
+        </tr>
+        <tr>
+            <td>highlightAll</td>
+            <td>-</td>
+            <td>Highlights all child elements.</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'highlightAll'</span><span class="pun">);</span></pre></td>
+        </tr>
+        <tr>
+            <td>unHighlightAll</td>
+            <td>-</td>
+            <td>UnHighlights all child elements</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'unHighlightAll'</span><span class="pun">);</span></pre></td>
+        </tr>
+        <tr>
+            <td>selected</td>
+            <td>-</td>
+            <td>Returns all the selected elements.</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'selected'</span><span class="pun">);</span></pre></td>
+        </tr>
+        <tr>
+            <td>children</td>
+            <td>-</td>
+            <td>Returns all the child elements</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'children'</span><span class="pun">);</span></pre></td>
+        </tr>
+        <tr>
+            <td>update</td>
+            <td>-</td>
+            <td>Forces an update on element. Useful for when dom changes occur outside finderSelect.</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'update'</span><span class="pun">);</span></pre></td>
+        </tr>
+        <tr>
+            <td>addHook</td>
+            <td>hook, function</td>
+            <td>Adds a hook to the finderSelect instance. Allows multiple assignment.</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'addHook'</span><span class="pun">,</span><span class="str">'unHighlight:before'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">/* do something */</span><span class="pln"> </span><span class="pun">});</span></pre></td>
+        </tr>
+    </tbody>
+
+</table>
+  </div>
+</div>
+    </div>
+    
+       <div class="col-lg-12">
+        <h2>Hooks</h2>
+        <p>The following hooks are available.</p>
+        <div class="panel">
+  <div class="panel-body">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Parameters</th>
+            <th>Description</th>
+            <th>Usage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>highlight:before</td>
+            <td>element, options</td>
+            <td>Called before the Highlight event</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'addHook'</span><span class="pun">,</span><span class="str">'highlight:before'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">element</span><span class="pun">,</span><span class="pln"> options</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">/* do something */</span><span class="pln"> </span><span class="pun">});</span></pre></td>
+        </tr>
+        <tr>
+            <td>highlight:after</td>
+            <td>element, options</td>
+            <td>Called after the Highlight event</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'addHook'</span><span class="pun">,</span><span class="str">'highlight:after'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">element</span><span class="pun">,</span><span class="pln"> options</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">/* do something */</span><span class="pln"> </span><span class="pun">});</span></pre></td>
+        </tr>
+        <tr>
+            <td>unHighlight:before</td>
+            <td>element, options</td>
+            <td>Called before the unHighlight event</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'addHook'</span><span class="pun">,</span><span class="str">'unHighlight:before'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">element</span><span class="pun">,</span><span class="pln"> options</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">/* do something */</span><span class="pln"> </span><span class="pun">});</span></pre></td>
+        </tr>
+        <tr>
+            <td>unHighlight:after</td>
+            <td>element, options</td>
+            <td>Called after the unHighlight event</td>
+            <td><pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">'#demo'</span><span class="pun">).</span><span class="pln">finderSelect</span><span class="pun">(</span><span class="str">'addHook'</span><span class="pun">,</span><span class="str">'unHighlight:after'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">element</span><span class="pun">,</span><span class="pln"> options</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="com">/* do something */</span><span class="pln"> </span><span class="pun">});</span></pre></td>
+        </tr>
+    </tbody>
+
+</table>
+  </div>
+</div>
+    </div>
+
+    <div class="col-lg-12">
+        <p></p>
+
+    </div>
+    <div class="col-lg-12">
+        <p></p>
+
+    </div>
+    <div class="col-lg-12">
+        <p>© Michael Angell 2013</p>
+
+    </div>
+
+</div> <!-- /container -->
+<ul class="dropdown-menu" id="demo1-menu" style="display: none;">
+    <li><a class="demo1-preview">Preview <span class="demo1-count">1</span> File(s)</a></li>
+    <li><a class="demo1-edit">Edit <span class="demo1-count">1</span> File(s)</a></li>
+    <li><a class="demo1-trash">Trash <span class="demo1-count">1</span> File(s)</a></li>
+</ul>
+<div id="Modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src="./demo_files/GitHub-Logo.png">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="./demo_files/jquery.js.download"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>-->
+<script src="./demo_files/prettify.js.download"></script>
+<script src="./demo_files/jquery.colorbox-min.js.download"></script>
+<script src="./demo_files/jquery.finderSelect.js.download"></script>
+<script>
+    $(function() {
+        var demo1 = $('#demo1').finderSelect({children:"tr",totalSelector:".demo1-count",menuSelector:"#demo1-menu"});
+
+        $(".demo1-trash").click(function(){
+            demo1.finderSelect("selected").remove();
+            demo1.finderSelect("update");
+        });
+
+        $(".demo1-preview").click(function(){
+            demo1.finderSelect("selected").each(function(index){
+                OpenInNewTab($(this).attr('data-url')+"?rand="+index);
+            });
+        });
+
+        $(".demo1-edit").click(function(){
+            demo1.finderSelect("selected").each(function(){
+                OpenInNewTab('http://pixlr.com/editor/?image='+$(this).attr('data-url'));
+            });
+        });
+
+        // DEMO 11 - Advanced Usage - Folder Structure
+
+        function startsWith(haystack, needle) {
+            return haystack.slice(0, needle.length) == needle;
+        }
+
+        var demo11 = $('#demo11').finderSelect({children:"tr.expanded"});
+        var activeSegments = [""];
+        function expandActive(els) {
+            els.each(function() {
+                var el = $(this);
+                var segments = el.attr('data-path').split("/");
+                segments.pop();
+                var padding = (segments.length - 1) * 20;
+                if($.inArray(segments.join("/"), activeSegments)  > -1) {
+                    el.find('td').first().css('padding-left',padding);
+                    el.removeClass('hidden')
+                    el.addClass('expanded');
+                } else {
+                    el.addClass('hidden');
+                    el.removeClass('expanded');
+                }
+            });
+
+        }
+
+        expandActive($('#demo11').find('tr'));
+
+        $( "#demo11").find("tr.folder").dblclick(function() {
+            if($.inArray($(this).attr('data-path'), activeSegments)  > -1) {
+                for(var i = activeSegments.length - 1; i >= 0; i--) {
+                    if(startsWith(activeSegments[i], $(this).attr('data-path'))) {
+                        activeSegments.splice(i, 1);
+                    }
+                }
+                $(this).find('.icon-folder-open').removeClass('icon-folder-open').addClass('icon-folder-close');
+                $(this).find('.icon-angle-down').removeClass('icon-angle-down').addClass('icon-angle-right');
+            } else {
+                activeSegments.push($(this).attr('data-path'));
+                $(this).find('.icon-folder-close').removeClass('icon-folder-close').addClass('icon-folder-open');
+                $(this).find('.icon-angle-right').removeClass('icon-angle-right').addClass('icon-angle-down');
+            }
+
+            expandActive($('#demo11').find('tr'));
+        });
+
+        // DEMO 10 - Advanced Usage - Folder Structure
+
+        var demo10 = $('#demo10').finderSelect({children:"tr.expanded"});
+
+        var demo10BaseUrl = 'https://api.github.com/repos/jquery/jquery/contents/';
+        var baseDir = "/";
+        var gitHubLoaded = [""];
+
+        function reloadGithub(els) {
+            els.each(function() {
+                var el = $(this);
+                var segments = el.attr('data-path').split("/");
+                segments.pop();
+                var padding = (segments.length - 1) * 20;
+                if($.inArray(segments.join("/"), gitHubLoaded)  > -1) {
+                    el.find('td').first().css('padding-left',padding);
+                    el.removeClass('hidden')
+                    el.addClass('expanded');
+                } else {
+                    el.remove();
+                }
+            });
+
+        }
+
+        $.getJSON(demo10BaseUrl ,function(result){
+
+            $.each(result, function(i, field){
+
+                if(field.type == 'dir') {
+                    $('#demo10').append('<tr data-path="'+baseDir + field.path+'" class="folder">' +
+                            '<td colspan="3">'+
+                            ' <i class="icon-angle-right icon-fixed-width"></i> ' +
+                            '<i class="icon-folder-close icon-fixed-width"></i>' +
+                            field.name +
+                            '</td></tr>');
+                } else {
+                    $('#demo10').append('<tr data-path="'+baseDir + field.path+'" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">' +
+                            '<td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> '+field.name+'</td>' +
+                            '<td>'+ field.sha +'</td>' +
+                            '<td>'+ field.size + '</td>' +
+                            '</tr>');
+                }
+            });
+        });
+
+        reloadGithub($('#demo10').find('tr'));
+
+        $( "#demo10" ).on( "dblclick", "tr.folder", function() {
+            var clicked = $(this);
+            if($.inArray($(this).attr('data-path'), gitHubLoaded)  > -1) {
+                for(var i = gitHubLoaded.length - 1; i >= 0; i--) {
+                    if(startsWith(gitHubLoaded[i], $(this).attr('data-path'))) {
+                        gitHubLoaded.splice(i, 1);
+                    }
+                }
+                $(this).find('.icon-folder-open').removeClass('icon-folder-open').addClass('icon-folder-close');
+                $(this).find('.icon-angle-down').removeClass('icon-angle-down').addClass('icon-angle-right');
+                reloadGithub($('#demo10').find('tr'));
+            } else {
+
+                $.getJSON(demo10BaseUrl+$(this).attr('data-path') ,function(result){
+
+                    $.each(result, function(i, field){
+
+                        if(field.type == 'dir') {
+                            clicked.after('<tr data-path="'+baseDir + field.path+'" class="folder">' +
+                                    '<td colspan="3">'+
+                                    ' <i class="icon-angle-right icon-fixed-width"></i> ' +
+                                    '<i class="icon-folder-close icon-fixed-width"></i>' +
+                                    field.name +
+                                    '</td></tr>');
+                        } else {
+                            clicked.after('<tr data-path="'+baseDir + field.path+'" class="file" data-url="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png">' +
+                                    '<td><i class="icon-fixed-width icon-none"></i> <i class="icon-file icon-fixed-width"></i> '+field.name+'</td>' +
+                                    '<td>'+ field.sha +'</td>' +
+                                    '<td>'+ field.size + '</td>' +
+                                    '</tr>');
+                        }
+
+                    });
+                }).success(function() {
+                    reloadGithub($('#demo10').find('tr'));
+                });
+                gitHubLoaded.push($(this).attr('data-path'));
+                $(this).find('.icon-folder-close').removeClass('icon-folder-close').addClass('icon-folder-open');
+                $(this).find('.icon-angle-right').removeClass('icon-angle-right').addClass('icon-angle-down');
+            }
+
+
+        });
+
+        // DEMO 2
+
+        $('#demo2').find('tbody').finderSelect();
+        $('#demo3').find('tbody').finderSelect({selectClass:"danger"});
+        $('#demo4').finderSelect({selectClass:'label-success'});
+        
+        // Initialise the Demo with the Ctrl Click Functionality as the Default
+        var demo5 = $('#demo5 tbody').finderSelect({enableDesktopCtrlDefault:true});
+
+        // Add a hook to the highlight function so that checkboxes in the selection are also checked.
+        demo5.finderSelect('addHook','highlight:before', function(el) {
+            el.find('input').prop('checked', true);
+        });
+
+
+        // Add a hook to the unHighlight function so that checkboxes in the selection are also unchecked.
+        demo5.finderSelect('addHook','unHighlight:before', function(el) {
+            el.find('input').prop('checked', false);
+        });
+
+        // Enable Double Click Event.
+        demo5.finderSelect("children").dblclick(function() {
+            alert( "Double Click detected. Useful for linking to detail page." );
+        });
+
+        // Add a Safe Zone to show not all child elements have to be active.
+        $(".safezone").on("mousedown", function(e){
+            return false;
+        });
+
+        // Prevent Checkboxes from being triggered twice when click on directly.
+        demo5.on("click", "input[type='checkbox']", function(e){
+            e.preventDefault();
+        });
+
+        // Add Select All functionality to the checkbox in the table header row.
+        $('#demo5').find("thead input[type='checkbox']").change(function () {
+            if ($(this).is(':checked')) {
+                demo5.finderSelect('highlightAll');          
+            } else {
+                demo5.finderSelect('unHighlightAll');
+            }
+        });
+
+
+        prettyPrint();
+
+
+    });
+
+    function OpenInNewTab(url )
+    {
+        var win=window.open(url, '_blank');
+        win.focus();
+    }
+
+</script>
+
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button id="cboxPrevious"></button><button id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div><button id="cboxClose"></button></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div><iframe class="searchbar7756378123563965" src="./demo_files/saved_resource.html" scrolling="no" style="border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; display: none; position: fixed; z-index: 2147483646; top: 0px; bottom: auto; left: auto; right: 0px; height: 40px; width: 100%;"></iframe><bdi class="searchbar7756378123563965" style="border: 1px solid rgb(176, 176, 176); margin: 0px; padding: 2px; outline: 0px; vertical-align: baseline; display: none; position: fixed; height: auto; width: auto; z-index: 2147483647; background: none rgb(255, 255, 255); max-height: none; max-width: none; min-height: 0px;"><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi></bdi><iframe class="searchbar7756378123563965" src="./demo_files/saved_resource(1).html" scrolling="no" style="border: 0px; margin: -186px 0px 0px -202px; padding: 0px; outline: 0px; vertical-align: baseline; display: none; position: fixed; top: 50%; left: 50%; z-index: 2147483645; border-radius: 5px;"></iframe></body><style>@media print{.searchbar7756378123563965{display:none!important;}}</style></html>

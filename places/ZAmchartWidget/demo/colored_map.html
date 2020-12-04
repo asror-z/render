@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        #chartdiv {
+            width: 100%;
+            height: 98vh;
+        }
+
+    </style>
+    <div id="chartdiv"></div>
+    <script>
+        var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+        // Set map definition
+        chart.geodata = am4geodata_worldLow;
+
+        // Set projection
+        chart.projection = new am4maps.projections.Miller();
+
+        // Create map polygon series
+        var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+        // Make map load polygon (like country names) data from GeoJSON
+        polygonSeries.useGeodata = true;
+
+        // Configure series
+        var polygonTemplate = polygonSeries.mapPolygons.template;
+        polygonTemplate.tooltipText = "{name}";
+        polygonTemplate.fill = am4core.color("#74B266");
+
+        // Create hover state and set alternative fill color
+        var hs = polygonTemplate.states.create("hover");
+        hs.properties.fill = am4core.color("#367B25");
+
+        // Remove Antarctica
+        polygonSeries.exclude = ["AQ"];
+
+        // Add some data
+        polygonSeries.data = [{
+            "id": "AF",
+            "name":"Afghanistan",
+            "value": 100,
+            "fill": am4core.color("#994405")
+        },
+            {
+                "id": "AX",
+                "name":"Aland",
+                "value": 100,
+                "fill": am4core.color("#A56A38")
+            },
+            {
+                "id": "AL",
+                "name":"Albania",
+                "value": 100,
+                "fill": am4core.color("#EF1BFE")
+            },
+            {
+                "id": "DZ",
+                "name":"Algeria",
+                "value": 100,
+                "fill": am4core.color("#146D35")
+            },
+            {
+                "id": "AS",
+                "name":"American_Samoa",
+                "value": 100,
+                "fill": am4core.color("#FFB10B")
+            },
+            {
+                "id": "AD",
+                "name":"Andorra",
+                "value": 100,
+                "fill": am4core.color("#6F6D1C")
+            },
+            {
+                "id": "AO",
+                "name":"Angola",
+                "value": 100,
+                "fill": am4core.color("#5C75AC")
+            },
+            {
+                "id": "AI",
+                "name":"Anguilla",
+                "value": 100,
+                "fill": am4core.color("#96343C")
+            },
+            {
+                "id": "AQ",
+                "name":"Antarctica",
+                "value": 100,
+                "fill": am4core.color("#13D2CF")
+            },
+            {
+                "id": "AG",
+                "name":"Antigua_and_Barbuda",
+                "value": 100,
+                "fill": am4core.color("#FA8E89")
+            },
+            {
+                "id": "AR",
+                "name":"Argentina",
+                "value": 100,
+                "fill": am4core.color("#88180D")
+            },
+            {
+                "id": "AM",
+                "name":"Armenia",
+                "value": 100,
+                "fill": am4core.color("#D9E347")
+            },
+            {
+                "id": "AW",
+                "name":"Aruba",
+                "value": 100,
+                "fill": am4core.color("#C201F4")
+            },
+            {
+                "id": "AC",
+                "name":"Ascension_Island",
+                "value": 100,
+                "fill": am4core.color("#7847B7")
+            },
+            {
+                "id": "AU",
+                "name":"Australia",
+                "value": 100,
+                "fill": am4core.color("#C5F256")
+            },
+            {
+                "id": "AT",
+                "name":"Austria",
+                "value": 100,
+                "fill": am4core.color("#B2B411")
+            },
+            {
+                "id": "AZ",
+                "name":"Azerbaijan",
+                "value": 100,
+                "fill": am4core.color("#EF0062")
+            },
+            {
+                "id": "BS",
+                "name":"Bahamas",
+                "value": 100,
+                "fill": am4core.color("#914602")
+            },
+            {
+                "id": "BH",
+                "name":"Bahrain",
+                "value": 100,
+                "fill": am4core.color("#B557F2")
+            },
+            {
+                "id": "BD",
+                "name":"Bangladesh",
+                "value": 100,
+                "fill": am4core.color("#4BD7A8")
+            },
+            {
+                "id": "BB",
+                "name":"Barbados",
+                "value": 100,
+                "fill": am4core.color("#BFA515")
+            },
+            {
+                "id": "EU",
+                "name":"Basque_Country",
+                "value": 100,
+                "fill": am4core.color("#FF8D2C")
+            },
+            {
+                "id": "BY",
+                "name":"Belarus",
+                "value": 100,
+                "fill": am4core.color("#21DCBE")
+            },
+            {
+                "id": "BE",
+                "name":"Belgium",
+                "value": 100,
+                "fill": am4core.color("#10E150")
+            },
+            {
+                "id": "BZ",
+                "name":"Belize",
+                "value": 100,
+                "fill": am4core.color("#AC177E")
+            },
+            {
+                "id": "BJ",
+                "name":"Benin",
+                "value": 100,
+                "fill": am4core.color("#A241E9")
+            },
+            {
+                "id": "BM",
+                "name":"Bermuda",
+                "value": 100,
+                "fill": am4core.color("#352D7D")
+            },
+            {
+                "id": "BT",
+                "name":"Bhutan",
+                "value": 100,
+                "fill": am4core.color("#A3C9AF")
+            },
+            {
+                "id": "BO",
+                "name":"Bolivia",
+                "value": 100,
+                "fill": am4core.color("#84A40F")
+            },
+            {
+                "id": "BQ",
+                "name":"Bonaire",
+                "value": 100,
+                "fill": am4core.color("#FBED73")
+            },
+            {
+                "id": "BA",
+                "name":"Bosnia_and_Herzegovina",
+                "value": 100,
+                "fill": am4core.color("#205874")
+            },
+            {
+                "id": "BW",
+                "name":"Botswana",
+                "value": 100,
+                "fill": am4core.color("#F78B40")
+            },
+            {
+                "id": "BV",
+                "name":"Bouvet_Island",
+                "value": 100,
+                "fill": am4core.color("#291DB0")
+            },
+            {
+                "id": "BR",
+                "name":"Brazil",
+                "value": 100,
+                "fill": am4core.color("#633F56")
+            },
+            {
+                "id": "IO",
+                "name":"British_Indian_Ocean_Territory",
+                "value": 100,
+                "fill": am4core.color("#A6A12E")
+            },
+            {
+                "id": "VG",
+                "name":"British_Virgin_Islands",
+                "value": 100,
+                "fill": am4core.color("#167643")
+            },
+            {
+                "id": "BN",
+                "name":"Brunei",
+                "value": 100,
+                "fill": am4core.color("#C1568E")
+            },
+            {
+                "id": "BG",
+                "name":"Bulgaria",
+                "value": 100,
+                "fill": am4core.color("#B31803")
+            },
+            {
+                "id": "BF",
+                "name":"Burkina_Faso",
+                "value": 100,
+                "fill": am4core.color("#70AF47")
+            },
+            {
+                "id": "MM",
+                "name":"Burma",
+                "value": 100,
+                "fill": am4core.color("#8D300A")
+            },
+            {
+                "id": "BI",
+                "name":"Burundi",
+                "value": 100,
+                "fill": am4core.color("#F569D9")
+            },
+            {
+                "id": "KH",
+                "name":"Cambodia",
+                "value": 100,
+                "fill": am4core.color("#FBCE7F")
+            },
+            {
+                "id": "CM",
+                "name":"Cameroon",
+                "value": 100,
+                "fill": am4core.color("#B80CD2")
+            },
+            {
+                "id": "CA",
+                "name":"Canada",
+                "value": 100,
+                "fill": am4core.color("#DD9FEC")
+            },
+            {
+                "id": "CV",
+                "name":"Cape_Verde",
+                "value": 100,
+                "fill": am4core.color("#44C234")
+            },
+            {
+                "id": "CA",
+                "name":"Catalonia",
+                "value": 100,
+                "fill": am4core.color("#7DBBD4")
+            },
+            {
+                "id": "KY",
+                "name":"Cayman_Islands",
+                "value": 100,
+                "fill": am4core.color("#CFE7E4")
+            },
+            {
+                "id": "CF",
+                "name":"Central_African_Republic",
+                "value": 100,
+                "fill": am4core.color("#EAA0B3")
+            },
+            {
+                "id": "TD",
+                "name":"Chad",
+                "value": 100,
+                "fill": am4core.color("#CF0287")
+            },
+            {
+                "id": "CL",
+                "name":"Chile",
+                "value": 100,
+                "fill": am4core.color("#91AD8C")
+            },
+            {
+                "id": "CN",
+                "name":"China",
+                "value": 100,
+                "fill": am4core.color("#2A8309")
+            },
+            {
+                "id": "CX",
+                "name":"Christmas_Island",
+                "value": 100,
+                "fill": am4core.color("#FDD290")
+            },
+            {
+                "id": "CC",
+                "name":"Cocos_Islands",
+                "value": 100,
+                "fill": am4core.color("#AC2ECE")
+            },
+            {
+                "id": "CO",
+                "name":"Colombia",
+                "value": 100,
+                "fill": am4core.color("#41973B")
+            },
+            {
+                "id": "KM",
+                "name":"Comoros",
+                "value": 100,
+                "fill": am4core.color("#CE57FC")
+            },
+            {
+                "id": "CD",
+                "name":"Congo",
+                "value": 100,
+                "fill": am4core.color("#649AA3")
+            },
+            {
+                "id": "CG",
+                "name":"Congo",
+                "value": 100,
+                "fill": am4core.color("#654F79")
+            },
+            {
+                "id": "CK",
+                "name":"Cook_Islands",
+                "value": 100,
+                "fill": am4core.color("#7D9CB4")
+            },
+            {
+                "id": "CR",
+                "name":"Costa_Rica",
+                "value": 100,
+                "fill": am4core.color("#AA3E92")
+            },
+            {
+                "id": "CI",
+                "name":"Ivory_Coast",
+                "value": 100,
+                "fill": am4core.color("#CFEE86")
+            },
+            {
+                "id": "HR",
+                "name":"Croatia",
+                "value": 100,
+                "fill": am4core.color("#A8C2FC")
+            },
+            {
+                "id": "CU",
+                "name":"Cuba",
+                "value": 100,
+                "fill": am4core.color("#763940")
+            },
+            {
+                "id": "CW",
+                "name":"Curacao",
+                "value": 100,
+                "fill": am4core.color("#2C172E")
+            },
+            {
+                "id": "CY",
+                "name":"Cyprus",
+                "value": 100,
+                "fill": am4core.color("#13BCF1")
+            },
+            {
+                "id": "CZ",
+                "name":"Czechia",
+                "value": 100,
+                "fill": am4core.color("#68574E")
+            },
+            {
+                "id": "DK",
+                "name":"Denmark",
+                "value": 100,
+                "fill": am4core.color("#B53A3D")
+            },
+            {
+                "id": "DJ",
+                "name":"Djibouti",
+                "value": 100,
+                "fill": am4core.color("#D8541B")
+            },
+            {
+                "id": "DM",
+                "name":"Dominica",
+                "value": 100,
+                "fill": am4core.color("#7962F5")
+            },
+            {
+                "id": "DO",
+                "name":"Dominican_Republic",
+                "value": 100,
+                "fill": am4core.color("#D9C47C")
+            },
+            {
+                "id": "TL",
+                "name":"East_Timor",
+                "value": 100,
+                "fill": am4core.color("#13714A")
+            },
+            {
+                "id": "EC",
+                "name":"Ecuador",
+                "value": 100,
+                "fill": am4core.color("#966D28")
+            },
+            {
+                "id": "EG",
+                "name":"Egypt",
+                "value": 100,
+                "fill": am4core.color("#3DA6D4")
+            },
+            {
+                "id": "SV",
+                "name":"El_Salvador",
+                "value": 100,
+                "fill": am4core.color("#8541C5")
+            },
+            {
+                "id": "GQ",
+                "name":"Equatorial_Guinea",
+                "value": 100,
+                "fill": am4core.color("#90343E")
+            },
+            {
+                "id": "ER",
+                "name":"Eritrea",
+                "value": 100,
+                "fill": am4core.color("#622C45")
+            },
+            {
+                "id": "EE",
+                "name":"Estonia",
+                "value": 100,
+                "fill": am4core.color("#112E15")
+            },
+            {
+                "id": "ET",
+                "name":"Ethiopia",
+                "value": 100,
+                "fill": am4core.color("#0B4BEE")
+            },
+            {
+                "id": "NI",
+                "name":"European",
+                "value": 100,
+                "fill": am4core.color("#7FEE41")
+            },
+            {
+                "id": "AL",
+                "name":".eu",
+                "value": 100,
+                "fill": am4core.color("#BC70B9")
+            },
+            {
+                "id": "FK",
+                "name":"Islands",
+                "value": 100,
+                "fill": am4core.color("#FA1672")
+            },
+            {
+                "id": "FO",
+                "name":"Faeroe_Islands",
+                "value": 100,
+                "fill": am4core.color("#6C649E")
+            },
+            {
+                "id": "FM",
+                "name":"Federated_States_of_Micronesia",
+                "value": 100,
+                "fill": am4core.color("#464BEF")
+            },
+            {
+                "id": "FJ",
+                "name":"Fiji",
+                "value": 100,
+                "fill": am4core.color("#18BCDE")
+            },
+            {
+                "id": "FI",
+                "name":"Finland",
+                "value": 100,
+                "fill": am4core.color("#F0CF0C")
+            },
+            {
+                "id": "FR",
+                "name":"France",
+                "value": 100,
+                "fill": am4core.color("#DF8FF1")
+            },
+            {
+                "id": "GF",
+                "name":"French_Guiana",
+                "value": 100,
+                "fill": am4core.color("#B04FAA")
+            },
+            {
+                "id": "PF",
+                "name":"French_Polynesia",
+                "value": 100,
+                "fill": am4core.color("#5E6771")
+            },
+            {
+                "id": "TF",
+                "name":"French_Southern_and_Antarctic_Lands",
+                "value": 100,
+                "fill": am4core.color("#80CC14")
+            },
+            {
+                "id": "GA",
+                "name":"Gabon",
+                "value": 100,
+                "fill": am4core.color("#CCD766")
+            },
+            {
+                "id": "GA",
+                "name":"Galicia",
+                "value": 100,
+                "fill": am4core.color("#EC2E67")
+            },
+            {
+                "id": "GM",
+                "name":"Gambia",
+                "value": 100,
+                "fill": am4core.color("#995C74")
+            },
+            {
+                "id": "PS",
+                "name":"Gaza_Strip",
+                "value": 100,
+                "fill": am4core.color("#4CF601")
+            },
+            {
+                "id": "GE",
+                "name":"Georgia",
+                "value": 100,
+                "fill": am4core.color("#F3B763")
+            },
+            {
+                "id": "DE",
+                "name":"Germany",
+                "value": 100,
+                "fill": am4core.color("#0E426D")
+            },
+            {
+                "id": "GH",
+                "name":"Ghana",
+                "value": 100,
+                "fill": am4core.color("#197A0E")
+            },
+            {
+                "id": "GI",
+                "name":"Gibraltar",
+                "value": 100,
+                "fill": am4core.color("#1757CF")
+            },
+            {
+                "id": "GR",
+                "name":"Greece",
+                "value": 100,
+                "fill": am4core.color("#55D1DE")
+            },
+            {
+                "id": "GL",
+                "name":"Greenland",
+                "value": 100,
+                "fill": am4core.color("#AB6BFC")
+            },
+            {
+                "id": "GD",
+                "name":"Grenada",
+                "value": 100,
+                "fill": am4core.color("#7313C7")
+            },
+            {
+                "id": "GP",
+                "name":"Guadeloupe",
+                "value": 100,
+                "fill": am4core.color("#1B514B")
+            },
+            {
+                "id": "GU",
+                "name":"Guam",
+                "value": 100,
+                "fill": am4core.color("#2709D4")
+            },
+            {
+                "id": "GT",
+                "name":"Guatemala",
+                "value": 100,
+                "fill": am4core.color("#9088D2")
+            },
+            {
+                "id": "GG",
+                "name":"Guernsey",
+                "value": 100,
+                "fill": am4core.color("#AECF4F")
+            },
+            {
+                "id": "GN",
+                "name":"Guinea",
+                "value": 100,
+                "fill": am4core.color("#C586CA")
+            },
+            {
+                "id": "GW",
+                "name":"Guinea_Bissau",
+                "value": 100,
+                "fill": am4core.color("#C389B4")
+            },
+            {
+                "id": "GY",
+                "name":"Guyana",
+                "value": 100,
+                "fill": am4core.color("#CAD1D5")
+            },
+            {
+                "id": "HT",
+                "name":"Haiti",
+                "value": 100,
+                "fill": am4core.color("#964787")
+            },
+            {
+                "id": "HM",
+                "name":"Heard_Island_and_McDonald_Islands",
+                "value": 100,
+                "fill": am4core.color("#C6BFE2")
+            },
+            {
+                "id": "HN",
+                "name":"Honduras",
+                "value": 100,
+                "fill": am4core.color("#F9AD02")
+            },
+            {
+                "id": "HK",
+                "name":"Hong_Kong",
+                "value": 100,
+                "fill": am4core.color("#9CCF1E")
+            },
+            {
+                "id": "HU",
+                "name":"Hungary",
+                "value": 100,
+                "fill": am4core.color("#AB9DB4")
+            },
+            {
+                "id": "IS",
+                "name":"Iceland",
+                "value": 100,
+                "fill": am4core.color("#E2F75E")
+            },
+            {
+                "id": "IN",
+                "name":"India",
+                "value": 100,
+                "fill": am4core.color("#B816A7")
+            },
+            {
+                "id": "ID",
+                "name":"Indonesia",
+                "value": 100,
+                "fill": am4core.color("#7E1F0A")
+            },
+            {
+                "id": "IR",
+                "name":"Iran",
+                "value": 100,
+                "fill": am4core.color("#710151")
+            },
+            {
+                "id": "IQ",
+                "name":"Iraq",
+                "value": 100,
+                "fill": am4core.color("#53AF1C")
+            },
+            {
+                "id": "IE",
+                "name":"Ireland",
+                "value": 100,
+                "fill": am4core.color("#38B99E")
+            },
+            {
+                "id": "IM",
+                "name":"Isle_of_Man",
+                "value": 100,
+                "fill": am4core.color("#3BB55A")
+            },
+            {
+                "id": "IL",
+                "name":"Israel",
+                "value": 100,
+                "fill": am4core.color("#EF0B1B")
+            },
+            {
+                "id": "IT",
+                "name":"Italy",
+                "value": 100,
+                "fill": am4core.color("#856A80")
+            },
+            {
+                "id": "JM",
+                "name":"Jamaica",
+                "value": 100,
+                "fill": am4core.color("#E2CF46")
+            },
+            {
+                "id": "JP",
+                "name":"Japan",
+                "value": 100,
+                "fill": am4core.color("#D0D5E2")
+            },
+            {
+                "id": "JE",
+                "name":"Jersey",
+                "value": 100,
+                "fill": am4core.color("#E286F5")
+            },
+            {
+                "id": "JO",
+                "name":"Jordan",
+                "value": 100,
+                "fill": am4core.color("#19F010")
+            },
+            {
+                "id": "KZ",
+                "name":"Kazakhstan",
+                "value": 100,
+                "fill": am4core.color("#848544")
+            },
+            {
+                "id": "KE",
+                "name":"Kenya",
+                "value": 100,
+                "fill": am4core.color("#A20ADB")
+            },
+            {
+                "id": "KI",
+                "name":"Kiribati",
+                "value": 100,
+                "fill": am4core.color("#FA5124")
+            },
+            {
+                "id": "KW",
+                "name":"Kuwait",
+                "value": 100,
+                "fill": am4core.color("#E47DA8")
+            },
+            {
+                "id": "KG",
+                "name":"Kyrgyzstan",
+                "value": 100,
+                "fill": am4core.color("#00AB60")
+            },
+            {
+                "id": "LA",
+                "name":"Laos",
+                "value": 100,
+                "fill": am4core.color("#26D293")
+            },
+            {
+                "id": "LV",
+                "name":"Latvia",
+                "value": 100,
+                "fill": am4core.color("#99EE12")
+            },
+            {
+                "id": "LB",
+                "name":"Lebanon",
+                "value": 100,
+                "fill": am4core.color("#2E3116")
+            },
+            {
+                "id": "LS",
+                "name":"Lesotho",
+                "value": 100,
+                "fill": am4core.color("#9B27B6")
+            },
+            {
+                "id": "LR",
+                "name":"Liberia",
+                "value": 100,
+                "fill": am4core.color("#295EB9")
+            },
+            {
+                "id": "LY",
+                "name":"Libya",
+                "value": 100,
+                "fill": am4core.color("#A9B58D")
+            },
+            {
+                "id": "LI",
+                "name":"Liechtenstein",
+                "value": 100,
+                "fill": am4core.color("#26E0CD")
+            },
+            {
+                "id": "LT",
+                "name":"Lithuania",
+                "value": 100,
+                "fill": am4core.color("#B01195")
+            },
+            {
+                "id": "LU",
+                "name":"Luxembourg",
+                "value": 100,
+                "fill": am4core.color("#98B434")
+            },
+            {
+                "id": "MO",
+                "name":"Macau",
+                "value": 100,
+                "fill": am4core.color("#257067")
+            },
+            {
+                "id": "MK",
+                "name":"Macedonia",
+                "value": 100,
+                "fill": am4core.color("#BB3244")
+            },
+            {
+                "id": "MG",
+                "name":"Madagascar",
+                "value": 100,
+                "fill": am4core.color("#2DD791")
+            },
+            {
+                "id": "MW",
+                "name":"Malawi",
+                "value": 100,
+                "fill": am4core.color("#C66E3C")
+            },
+            {
+                "id": "MY",
+                "name":"Malaysia",
+                "value": 100,
+                "fill": am4core.color("#8C4EE5")
+            },
+            {
+                "id": "MV",
+                "name":"Maldives",
+                "value": 100,
+                "fill": am4core.color("#935235")
+            },
+            {
+                "id": "ML",
+                "name":"Mali",
+                "value": 100,
+                "fill": am4core.color("#B31892")
+            },
+            {
+                "id": "MT",
+                "name":"Malta",
+                "value": 100,
+                "fill": am4core.color("#4B1A0D")
+            },
+            {
+                "id": "MH",
+                "name":"Marshall_Islands",
+                "value": 100,
+                "fill": am4core.color("#546282")
+            },
+            {
+                "id": "MQ",
+                "name":"Martinique",
+                "value": 100,
+                "fill": am4core.color("#F680B1")
+            },
+            {
+                "id": "MR",
+                "name":"Mauritania",
+                "value": 100,
+                "fill": am4core.color("#C8CBA5")
+            },
+            {
+                "id": "MU",
+                "name":"Mauritius",
+                "value": 100,
+                "fill": am4core.color("#C2DA69")
+            },
+            {
+                "id": "YT",
+                "name":"Mayotte",
+                "value": 100,
+                "fill": am4core.color("#5343FC")
+            },
+            {
+                "id": "MX",
+                "name":"Mexico",
+                "value": 100,
+                "fill": am4core.color("#517119")
+            },
+            {
+                "id": "MD",
+                "name":"Moldova",
+                "value": 100,
+                "fill": am4core.color("#B6F828")
+            },
+            {
+                "id": "MC",
+                "name":"Monaco",
+                "value": 100,
+                "fill": am4core.color("#68C335")
+            },
+            {
+                "id": "MN",
+                "name":"Mongolia",
+                "value": 100,
+                "fill": am4core.color("#C6CC34")
+            },
+            {
+                "id": "ME",
+                "name":"Montenegro",
+                "value": 100,
+                "fill": am4core.color("#26FCC4")
+            },
+            {
+                "id": "MS",
+                "name":"Montserrat",
+                "value": 100,
+                "fill": am4core.color("#4B1B90")
+            },
+            {
+                "id": "MA",
+                "name":"Morocco",
+                "value": 100,
+                "fill": am4core.color("#6261A9")
+            },
+            {
+                "id": "MZ",
+                "name":"Mozambique",
+                "value": 100,
+                "fill": am4core.color("#DCDC70")
+            },
+            {
+                "id": "MM",
+                "name":"Myanmar",
+                "value": 100,
+                "fill": am4core.color("#880D9E")
+            },
+            {
+                "id": "NA",
+                "name":"Namibia",
+                "value": 100,
+                "fill": am4core.color("#69D6D5")
+            },
+            {
+                "id": "NR",
+                "name":"Nauru",
+                "value": 100,
+                "fill": am4core.color("#457FF2")
+            },
+            {
+                "id": "NP",
+                "name":"Nepal",
+                "value": 100,
+                "fill": am4core.color("#29D52A")
+            },
+            {
+                "id": "NL",
+                "name":"Netherlands",
+                "value": 100,
+                "fill": am4core.color("#721485")
+            },
+            {
+                "id": "NC",
+                "name":"New_Caledonia",
+                "value": 100,
+                "fill": am4core.color("#461D02")
+            },
+            {
+                "id": "NZ",
+                "name":"New_Zealand",
+                "value": 100,
+                "fill": am4core.color("#CEC1F1")
+            },
+            {
+                "id": "NI",
+                "name":"Nicaragua",
+                "value": 100,
+                "fill": am4core.color("#963F01")
+            },
+            {
+                "id": "NE",
+                "name":"Niger",
+                "value": 100,
+                "fill": am4core.color("#6FA5EC")
+            },
+            {
+                "id": "NG",
+                "name":"Nigeria",
+                "value": 100,
+                "fill": am4core.color("#6BFA68")
+            },
+            {
+                "id": "NU",
+                "name":"Niue",
+                "value": 100,
+                "fill": am4core.color("#EABD7C")
+            },
+            {
+                "id": "NF",
+                "name":"Norfolk_Island",
+                "value": 100,
+                "fill": am4core.color("#3DC405")
+            },
+            {
+                "id": "KP",
+                "name":"North_Korea",
+                "value": 100,
+                "fill": am4core.color("#F0A739")
+            },
+            {
+                "id": "MK",
+                "name":"North_Macedonia",
+                "value": 100,
+                "fill": am4core.color("#77D9AA")
+            },
+            {
+                "id": "MP",
+                "name":"Northern_Mariana_Islands",
+                "value": 100,
+                "fill": am4core.color("#0CABAA")
+            },
+            {
+                "id": "NO",
+                "name":"Norway",
+                "value": 100,
+                "fill": am4core.color("#50935D")
+            },
+            {
+                "id": "OM",
+                "name":"Oman",
+                "value": 100,
+                "fill": am4core.color("#2C1739")
+            },
+            {
+                "id": "PK",
+                "name":"Pakistan",
+                "value": 100,
+                "fill": am4core.color("#7B7B90")
+            },
+            {
+                "id": "PW",
+                "name":"Palau",
+                "value": 100,
+                "fill": am4core.color("#AC5AE9")
+            },
+            {
+                "id": "PS",
+                "name":"Palestine",
+                "value": 100,
+                "fill": am4core.color("#91D072")
+            },
+            {
+                "id": "PA",
+                "name":"Panama",
+                "value": 100,
+                "fill": am4core.color("#F954FA")
+            },
+            {
+                "id": "PG",
+                "name":"Papua_New_Guinea",
+                "value": 100,
+                "fill": am4core.color("#9D9536")
+            },
+            {
+                "id": "PY",
+                "name":"Paraguay",
+                "value": 100,
+                "fill": am4core.color("#75BDD9")
+            },
+            {
+                "id": "PE",
+                "name":"Peru",
+                "value": 100,
+                "fill": am4core.color("#C91013")
+            },
+            {
+                "id": "PH",
+                "name":"Philippines",
+                "value": 100,
+                "fill": am4core.color("#F603BE")
+            },
+            {
+                "id": "PN",
+                "name":"Pitcairn_Islands",
+                "value": 100,
+                "fill": am4core.color("#4880FC")
+            },
+            {
+                "id": "PL",
+                "name":"Poland",
+                "value": 100,
+                "fill": am4core.color("#94F860")
+            },
+            {
+                "id": "PT",
+                "name":"Portugal",
+                "value": 100,
+                "fill": am4core.color("#041F31")
+            },
+            {
+                "id": "PR",
+                "name":"Puerto_Rico",
+                "value": 100,
+                "fill": am4core.color("#A3DA0C")
+            },
+            {
+                "id": "QA",
+                "name":"Qatar",
+                "value": 100,
+                "fill": am4core.color("#388956")
+            },
+            {
+                "id": "RO",
+                "name":"Romania",
+                "value": 100,
+                "fill": am4core.color("#3E95B7")
+            },
+            {
+                "id": "RU",
+                "name":"Russia",
+                "value": 100,
+                "fill": am4core.color("#91ECF3")
+            },
+            {
+                "id": "RW",
+                "name":"Rwanda",
+                "value": 100,
+                "fill": am4core.color("#F50790")
+            },
+            {
+                "id": "RE",
+                "name":"Reunion_Island",
+                "value": 100,
+                "fill": am4core.color("#71504C")
+            },
+            {
+                "id": "BL",
+                "name":"Saint_Barthelemy",
+                "value": 100,
+                "fill": am4core.color("#E9433A")
+            },
+            {
+                "id": "SH",
+                "name":"Saint_Helena",
+                "value": 100,
+                "fill": am4core.color("#24D9E1")
+            },
+            {
+                "id": "KN",
+                "name":"Saint_Kitts_and_Nevis",
+                "value": 100,
+                "fill": am4core.color("#15E988")
+            },
+            {
+                "id": "LC",
+                "name":"Saint_Lucia",
+                "value": 100,
+                "fill": am4core.color("#27DBC9")
+            },
+            {
+                "id": "MF",
+                "name":"Saint_Martin",
+                "value": 100,
+                "fill": am4core.color("#7FF389")
+            },
+            {
+                "id": "VC",
+                "name":"Saint_Vincent_and_the_Grenadines",
+                "value": 100,
+                "fill": am4core.color("#855EBB")
+            },
+            {
+                "id": "WS",
+                "name":"Samoa",
+                "value": 100,
+                "fill": am4core.color("#70F307")
+            },
+            {
+                "id": "SM",
+                "name":"San_Marino",
+                "value": 100,
+                "fill": am4core.color("#C4233D")
+            },
+            {
+                "id": "ST",
+                "name":"Sao_Tome_and_Principe",
+                "value": 100,
+                "fill": am4core.color("#D0FC8B")
+            },
+            {
+                "id": "SA",
+                "name":"Saudi_Arabia",
+                "value": 100,
+                "fill": am4core.color("#B02541")
+            },
+            {
+                "id": "SN",
+                "name":"Senegal",
+                "value": 100,
+                "fill": am4core.color("#961EB4")
+            },
+            {
+                "id": "RS",
+                "name":"Serbia",
+                "value": 100,
+                "fill": am4core.color("#07B32D")
+            },
+            {
+                "id": "SC",
+                "name":"Seychelles",
+                "value": 100,
+                "fill": am4core.color("#6FA768")
+            },
+            {
+                "id": "SL",
+                "name":"Sierra_Leone",
+                "value": 100,
+                "fill": am4core.color("#266DEA")
+            },
+            {
+                "id": "SG",
+                "name":"Singapore",
+                "value": 100,
+                "fill": am4core.color("#8D5649")
+            },
+            {
+                "id": "BQ",
+                "name":"Sint_Eustatius",
+                "value": 100,
+                "fill": am4core.color("#E21E70")
+            },
+            {
+                "id": "SX",
+                "name":"Sint_Maarten",
+                "value": 100,
+                "fill": am4core.color("#92C18C")
+            },
+            {
+                "id": "SK",
+                "name":"Slovakia",
+                "value": 100,
+                "fill": am4core.color("#595900")
+            },
+            {
+                "id": "SI",
+                "name":"Slovenia",
+                "value": 100,
+                "fill": am4core.color("#5D2AB7")
+            },
+            {
+                "id": "SB",
+                "name":"Solomon_Islands",
+                "value": 100,
+                "fill": am4core.color("#8A4832")
+            },
+            {
+                "id": "SO",
+                "name":"Somalia",
+                "value": 100,
+                "fill": am4core.color("#343E8A")
+            },
+            {
+                "id": "ZA",
+                "name":"South_Africa",
+                "value": 100,
+                "fill": am4core.color("#327150")
+            },
+            {
+                "id": "GS",
+                "name":"South_Georgia_and_the_South_Sandwich_Islands",
+                "value": 100,
+                "fill": am4core.color("#63FF6F")
+            },
+            {
+                "id": "KR",
+                "name":"South_Korea",
+                "value": 100,
+                "fill": am4core.color("#7869B3")
+            },
+            {
+                "id": "SS",
+                "name":"South_Sudan",
+                "value": 100,
+                "fill": am4core.color("#454264")
+            },
+            {
+                "id": "ES",
+                "name":"Spain",
+                "value": 100,
+                "fill": am4core.color("#CC8EDD")
+            },
+            {
+                "id": "LK",
+                "name":"Sri_Lanka",
+                "value": 100,
+                "fill": am4core.color("#61CBD8")
+            },
+            {
+                "id": "SD",
+                "name":"Sudan",
+                "value": 100,
+                "fill": am4core.color("#6CD096")
+            },
+            {
+                "id": "SR",
+                "name":"Suriname",
+                "value": 100,
+                "fill": am4core.color("#176825")
+            },
+            {
+                "id": "SJ",
+                "name":"Svalbard_and_Jan_Mayen_Islands",
+                "value": 100,
+                "fill": am4core.color("#6790BB")
+            },
+            {
+                "id": "SZ",
+                "name":"Swaziland",
+                "value": 100,
+                "fill": am4core.color("#4A8CBE")
+            },
+            {
+                "id": "SE",
+                "name":"Sweden",
+                "value": 100,
+                "fill": am4core.color("#373BA5")
+            },
+            {
+                "id": "CH",
+                "name":"Switzerland",
+                "value": 100,
+                "fill": am4core.color("#204D49")
+            },
+            {
+                "id": "SY",
+                "name":"Syria",
+                "value": 100,
+                "fill": am4core.color("#A8E956")
+            },
+            {
+                "id": "TW",
+                "name":"Taiwan",
+                "value": 100,
+                "fill": am4core.color("#19901F")
+            },
+            {
+                "id": "TJ",
+                "name":"Tajikistan",
+                "value": 100,
+                "fill": am4core.color("#3E72FA")
+            },
+            {
+                "id": "TZ",
+                "name":"Tanzania",
+                "value": 100,
+                "fill": am4core.color("#3DE462")
+            },
+            {
+                "id": "TH",
+                "name":"Thailand",
+                "value": 100,
+                "fill": am4core.color("#57F19B")
+            },
+            {
+                "id": "TG",
+                "name":"Togo",
+                "value": 100,
+                "fill": am4core.color("#49AC4E")
+            },
+            {
+                "id": "TK",
+                "name":"Tokelau",
+                "value": 100,
+                "fill": am4core.color("#DCBCF5")
+            },
+            {
+                "id": "TO",
+                "name":"Tonga",
+                "value": 100,
+                "fill": am4core.color("#5B6163")
+            },
+            {
+                "id": "TT",
+                "name":"Trinidad_Tobago",
+                "value": 100,
+                "fill": am4core.color("#AEA25C")
+            },
+            {
+                "id": "TN",
+                "name":"Tunisia",
+                "value": 100,
+                "fill": am4core.color("#8C68C2")
+            },
+            {
+                "id": "TR",
+                "name":"Turkey",
+                "value": 100,
+                "fill": am4core.color("#CE661A")
+            },
+            {
+                "id": "TM",
+                "name":"Turkmenistan",
+                "value": 100,
+                "fill": am4core.color("#DD5076")
+            },
+            {
+                "id": "TC",
+                "name":"Turks_and_Caicos_Islands",
+                "value": 100,
+                "fill": am4core.color("#DEDBBE")
+            },
+            {
+                "id": "TV",
+                "name":"Tuvalu",
+                "value": 100,
+                "fill": am4core.color("#B60066")
+            },
+            {
+                "id": "UG",
+                "name":"Uganda",
+                "value": 100,
+                "fill": am4core.color("#071152")
+            },
+            {
+                "id": "UA",
+                "name":"Ukraine",
+                "value": 100,
+                "fill": am4core.color("#1C6E08")
+            },
+            {
+                "id": "AE",
+                "name":"United_Arab_Emirates",
+                "value": 100,
+                "fill": am4core.color("#8BFF5C")
+            },
+            {
+                "id": "UK",
+                "name":"United_Kingdom",
+                "value": 100,
+                "fill": am4core.color("#F1D318")
+            },
+            {
+                "id": "US",
+                "name":"United_States_of_America",
+                "value": 100,
+                "fill": am4core.color("#BCC2A8")
+            },
+            {
+                "id": "VI",
+                "name":"United_States_Virgin_Islands",
+                "value": 100,
+                "fill": am4core.color("#007D9A")
+            },
+            {
+                "id": "UY",
+                "name":"Uruguay",
+                "value": 100,
+                "fill": am4core.color("#8C66D4")
+            },
+            {
+                "id": "UZ",
+                "name":"Uzbekistan",
+                "value": 100,
+                "fill": am4core.color("#A9653C")
+            },
+            {
+                "id": "VU",
+                "name":"Vanuatu",
+                "value": 100,
+                "fill": am4core.color("#67926C")
+            },
+            {
+                "id": "VA",
+                "name":"Vatican_City",
+                "value": 100,
+                "fill": am4core.color("#9AD330")
+            },
+            {
+                "id": "VE",
+                "name":"Venezuela",
+                "value": 100,
+                "fill": am4core.color("#FE0936")
+            },
+            {
+                "id": "VN",
+                "name":"Vietnam",
+                "value": 100,
+                "fill": am4core.color("#8F9E39")
+            },
+            {
+                "id": "WF",
+                "name":"Wallis_and_Futuna",
+                "value": 100,
+                "fill": am4core.color("#B6EE41")
+            },
+            {
+                "id": "MA",
+                "name":"Western_Sahara",
+                "value": 100,
+                "fill": am4core.color("#1BF9E4")
+            },
+            {
+                "id": "YE",
+                "name":"Yemen",
+                "value": 100,
+                "fill": am4core.color("#11C89A")
+            },
+            {
+                "id": "ZM",
+                "name":"Zambia",
+                "value": 100,
+                "fill": am4core.color("#687AE8")
+            },
+            {
+                "id": "ZW",
+                "name":"Zimbabwe",
+                "value": 100,
+                "fill": am4core.color("#BB57F0")
+            }]
+        ;
+
+        // Bind "fill" property to "fill" key in data
+        polygonTemplate.propertyFields.fill = "fill";
+    </script>
+</head>
+<body>
+
+</body>
+</html>

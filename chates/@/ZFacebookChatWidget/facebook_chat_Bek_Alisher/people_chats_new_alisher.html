@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./emoji/emojionearea.min.css">
+
+    <title>Hello, world!</title>
+    <style>
+        body {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            font-family: inherit;
+            font-size: 32px;
+            margin-top: 8px;
+            font-weight: 700;
+        }
+
+        .messeng {
+            transition: 300ms;
+        }
+
+
+
+        .messeng .chat_nastroyka .chat_image .bosh_div {
+            width: 40px;
+            height: 40px;
+            background: #d8dee4;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+
+        .facebookNav {
+            margin: 0 !important;
+            background-color: white;
+            box-shadow: white !important;
+            min-height: 10vh;
+
+        }
+
+
+        .chat_icon_nav .div {
+            width: 30px !important;
+            height: 30px !important;
+            background: #d8dee4;
+            margin-left: 12px;
+            border-radius: 50%;
+            margin-top: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat_icon_nav .div a {
+            font-size: 18px;
+            color: black;
+        }
+
+        .col-lg-9 {
+            padding: 0;
+        }
+
+        .messeng input {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            width: 100%;
+            border: none;
+            background: #d8dee4;
+            height: 36px;
+            border-radius: 50px;
+            padding-left: 20px;
+        }
+
+        .messeng .chats_people .people .img_box {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgb(238, 229, 229);
+        }
+
+        .messeng .chats_people .people .who_is {
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+
+        .messeng .chats_people .people .who_is p {
+            margin: 0;
+        }
+
+        .messeng .chats_people .people .who_is p.regul {
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
+        .messeng .chats_people .people .who_is .time p.timer {
+            font-size: 14px;
+        }
+
+        .chats_people .people {
+            padding-left: 10px;
+            height: 64px;
+            border-radius: 15px;
+        }
+        div.people:hover{
+            background-color: #f3f9ff;
+        }
+
+        .active {
+            background: #d8dee4;
+        }
+        .active:hover {
+                         background: #d8dee4 !important;
+                     }
+
+        .border-let {
+            border-right: 1px solid rgba(0, 0, 0, .10);
+        }
+
+        .heig_box {
+            height: 100vh;
+            padding-top: 12px;
+        }
+
+        .scrollbar {
+            float: left;
+            height: 470px;
+            width: 104%;
+            overflow-y: scroll;
+            padding-left: -15px !important;
+            padding-right: -15px !important;
+        }
+
+        #style-6::-webkit-scrollbar-thumb {
+            background-color: white;
+            transition: 300ms;
+            background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+        }
+
+        #style-6::-webkit-scrollbar {
+            width: 10px;
+
+        }
+
+        .messeng:hover #style-6::-webkit-scrollbar-thumb {
+            background-color: #d8dee4;
+            border-radius: 5px;
+        }
+
+        .fa-cog:before {
+            content: "\f013";
+        }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
+          input[type=search]{
+            outline: none;
+          }
+         button.btni {
+            border: none;
+            width: 30px !important;
+            height: 30px !important;
+            background: #d8dee4;
+            margin-left: 12px!important;
+            border-radius: 50%;
+            margin-top: 15px!important;
+            outline: none;
+        }
+
+        
+
+        .chats .container-fluid .row .col-lg-9 nav.navbar {
+            box-shadow: 0 0 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .10)
+        }
+        .fas.fa-paper-plane{
+            color: #d8dee4;
+            font-size: 25px;
+        }
+
+        .img-boxx {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #d8dee4;
+            margin-right: 12px;
+        }
+
+        .who_is_ p:nth-child(1) {
+            padding: 0;
+            margin: 0;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .who_is_ p:nth-child(2) {
+            padding: 0;
+            margin: 0;
+            color: rgba(0, 0, 0, .40);
+            font-size: 12px;
+            font-weight: normal;
+            margin-top: 2px;
+            vertical-align: middle;
+        }
+
+
+
+        .botto input {
+            margin-top: 3px;
+            border: none;
+            outline: none;
+            width: 80%;
+        }
+
+        .botto {
+            width: 100%;
+            height: 90vh;
+            padding: 0 !important;
+            display: flex;
+            align-items: flex-end;
+        }
+
+
+
+        /*col-lg-4*/
+        .col-lg-4 input {
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+
+
+        .col-lg-4 h1 {
+            font-size: 20px;
+            color: black;
+            margin-top: 30px;
+        }
+
+
+        /* Accordion styles */
+        .col-lg-4 .tabs {
+            width: 100%;
+            border-bottom: 1px solid rgba(0, 0, 0, .05);
+        }
+
+        .col-lg-4 .tab {
+            width: 100%;
+            color: #000000;
+            overflow: hidden;
+        }
+
+        .col-lg-4 .tab-label {
+            font-size: 13px;
+            width: 100%;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            padding: 1em;
+            background: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            border-top: 1px solid rgba(0, 0, 0, .05);
+            /* Icon */
+        }
+
+
+        .col-lg-4 .tab-label::after {
+            content: "\276F";
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            -webkit-transition: all .35s;
+            transition: all .35s;
+        }
+
+        .col-lg-4 .tab-content {
+            max-height: 0;
+            padding: 0 1em;
+            color: #2c3e50;
+            background: white;
+            -webkit-transition: all .35s;
+            transition: all .35s;
+        }
+
+        .col-lg-4 .tab-close {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: end;
+            justify-content: flex-end;
+            padding: 1em;
+            font-size: 0.75em;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .col-lg-4 .tab-close:hover {
+            color: #feffef;
+            background: #ffffff;
+        }
+
+        .col-lg-4 input:checked + .tab-label {
+            color: rgba(0, 0, 0, .34);
+          
+        }
+
+        .col-lg-4 input:checked + .tab-label::after {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        .col-lg-4 input:checked ~ .tab-content {
+            max-height: 100vh;
+            padding: 1em;
+
+        }
+
+        .col-lg-4 .img-box-user {
+            width: 100px;
+            height: 100px;
+            background-color: #d8dee4;
+            border-radius: 50%;
+        }
+
+
+        .col-lg-4 .img-box-user h1:hover {
+            text-decoration: underline;
+        }
+
+        .col-lg-4 .activen {
+            margin: 0;
+            margin-bottom: 16px;
+            color: rgba(0, 0, 0, .40);
+            font-size: 12px;
+        }
+
+        .col-lg-4 .tab-content ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .fa-phone-volume{
+            transform: rotate(340deg);
+        }
+        .borderr{
+            border-left:1px solid rgba(0, 0, 0, .10);
+        }
+         .col-lg-4 .tabs .tab-content ul li a p{
+         color: black;
+         }
+        .col-lg-4 .tabs .tab-content ul li a i{
+            color: black;
+        }
+        .chats .container-fluid{
+        height: 100vh !important;
+        overflow: hidden;
+        }
+        .chats .container-fluid  {
+            height: 100% !important;
+        }
+        button.sent{
+            border: none;
+            background: none;
+            outline: none;
+        }
+        /**/#sidebar1{
+            width: 100vw;
+            height: 100vh;
+            background: rgba(131,131,131, 0.5);
+            position: absolute;
+            top: 0;
+            z-index: 10;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+        .border1{
+            border-bottom: 1px solid #d7d7d7 !important;
+        }
+
+        a:hover{
+            text-decoration: none;
+        }
+        .over-hide{
+            margin: 0!important;
+
+        }
+        button#myBtn{
+            outline: none;
+            box-shadow: none!important;
+            margin: 8px 0 0 0!important;
+            padding: 5px 8px;
+            background: #dbdadf;
+            border-radius: 50%;
+        }
+        button#myBtn:hover{
+            background: #c0bfc3
+        }
+        button#myBtn:focus{
+            background-color: #ebeaef;
+
+        }
+        div#myDropMenu {
+            left: -140px!important;
+        }
+        .height2{
+            height: 80px;
+        }
+        @media screen and (max-width: 991px){
+            div#myDropMenu{
+                left: -50px!important;
+            }
+        } /**/
+    </style>
+</head>
+
+<body>
+<div class="chats">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 border-let heig_box">
+                <div class="messeng">
+                <div class="pr-4">
+                    <div class="chat_nastroyka d-flex justify-content-between align-items-center">
+                        <div class="chat_image d-flex align-items-center">
+                            <div class="bosh_div"></div>
+                            <h1>Chats</h1>
+                        </div>
+                        <div class="chat_icon_nav d-flex align-items-center">
+                            <!-- Basic dropdown -->
+                            <button class="btni  dropdown-toggle" type="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"
+                                    id="myBtn"><i class="fas fa-cog"
+                            ></i></button>
+
+                            <div class="dropdown-menu"
+                                 id="myDropMenu">
+                                <a class="dropdown-item" href="#">Active contacts</a>
+                                <a class="dropdown-item" href="#">Message requests</a>
+                                <a class="dropdown-item" href="#">Hidden chats</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Help</a>
+                                <a class="dropdown-item" href="#">Report a Problem</a>
+                            </div>
+
+
+                            <!-- Basic dropdown -->
+                            <div class="div"><a href="#!"><i class="fa fa-pencil-square-o"
+                                                             aria-hidden="true"></i></a></div>
+                        </div>
+                    </div>
+                    <input type="search" placeholder="Search Messanger">
+                </div>
+
+                    <div id="wrapper">
+                        <div class="scrollbar" id="style-6">
+                            <div class="force-overflow">
+
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Hasan Obidov</p>
+                                            <div class="time d-flex ">
+                                                <p class="regul">yahshimisiz birodar </p>
+                                                <p class="timer"> 9:16</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Abdurahmon Alimov</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center active">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chats_people">
+                                    <div class="people d-flex align-items-center ">
+                                        <div class="img_box">
+                                            <img src="#!" alt="">
+                                        </div>
+                                        <div class="who_is">
+                                            <p class="bolt">Xusan Alimovich</p>
+                                            <p class="regul">You: qalesan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <!--Navbar -->
+                <nav class="facebookNav mb-1 navbar navbar-expand-lg     ">
+
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent-4"
+                            aria-controls="navbarSupportedContent-4" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                        <div class="row align-items-center">
+                            <div class="img-boxx">
+                                <!--<img src="">-->
+                            </div>
+                            <div class="who_is_">
+                                <p>
+                                    Xusan Alimovich
+                                </p>
+                                <p>
+                                    active 3 hours ago
+                                </p>
+                            </div>
+                        </div>
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"
+                                   onclick="myFunction()">
+                                    <i class="fas fa-phone-volume"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-video"
+                                       onclick="myFunction()"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--/.Navbar -->
+                <div class="row m-0">
+                    <div class="col-lg-8 botto">
+                        <div class=" d-flex align-items-center justify-content-around " style="width:100%; margin-bottom: 3%" >
+                            <div id="example1"></div>
+                            <button  class="sent" type="submit">
+                                <i class="fas fa-paper-plane" ></i>
+                            </button>
+
+
+                        </div>
+                        <!-- Footer -->
+
+                        <!-- Footer -->
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column borderr align-items-center p-0 pt-4">
+                        <div class="img-box-user">
+
+                            <!-- <img src="" alt=""> -->
+
+                        </div>
+                        <h1> Xusan Alimovich</h1>
+                        <p class="activen">active 3 hours ago</p>
+                        <div class="tabs">
+                            <div class="tab">
+                                <input type="checkbox" id="chck1">
+                                <label class="tab-label" for="chck1"> OPTIONS</label>
+                                <div class="tab-content">
+                                    <ul>
+                                        <li><a href="#!" class="d-flex justify-content-between"><p>Change Emoji </p><i
+                                                class="fas fa-thumbs-up"></i></a></li>
+                                        <li><a href="#!" class="d-flex justify-content-between"><p>Search in
+                                            Conversation </p><i class="fas fa-search"></i></a></li>
+                                        <li><a href="#!" class="d-flex justify-content-between"><p>Edit Nicknames</p><i
+                                                class="fas fa-pen"></i></a></li>
+                                        <li><a href="#!" class="d-flex justify-content-between"><p>Change Theme </p><i class="fas fa-dot-circle"></i></a></li>
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <div class="tab">
+                                <input type="checkbox" id="chck2">
+                                <label class="tab-label" for="chck2">PRIVACY & SUPPORT</label>
+                                <div class="tab-content">
+                                    <ul>
+                                        <li><a href="#!" class="d-flex justify-content-between"><p>Notification </p><i class="fas fa-bell"></i></a></li>
+                                        <li><a href="#!" class="d-flex justify-content-between"><p>Ignore messages</p><i
+                                                class="fas fa-pen"></i></a></li>
+                                        <li><a href="#!" class="d-flex justify-content-between"><p>Block messages </p><i class="fas fa-ban"></i></a></li>
+                                        <li><a href="#!" class="d-flex justify-content-between"><p>Something is wrong    </p><i class="far fa-times-circle"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<div class="bcop" id="sidebar1">
+    <div style="width: 500px; min-height: 90vh; background-color: white">
+        <div class="row text-center align-items-center py-2 height border1 m-0 p-0" >
+            <div class="col-md-3 bcblue"><a href="">Cancel</a></div>
+            <div class="col-md-6">Call group members</div>
+            <div class="col-md-3 bcblue">Call</div>
+        </div>
+        <div class="row  py-1 height2 border1 over-hide">
+            <div class="col-md-3">
+                <img src="./img/download.png" style="width: 70px; height:70px;border-radius: 50%" >
+            </div>
+            <div class="col-md-9">
+                <h1 class="my-3">Friends</h1>
+            </div>
+        </div>
+        <div class="row py-2 height border1 m-0 p-0">
+            <div class="col-md-9 text-left" style="color: #d7d7d7">
+                Ring:
+            </div>
+        </div>
+        <div class="row text-center py-2 height border1 over-hide hover123">
+            <div class="col-md-2"><img src="./img/download.png" style="border-radius: 50%;background-color: cornflowerblue;width: 40px;height: 40px;margin: 15px 0"></div>
+            <div class="col-md-10 text-left" style="margin: 0;padding: 10px 0">
+                <h5 class="m-0 p-0">dony</h5>
+                <p class="m-0 p-0 min">@dony.facebook.com</p>
+            </div>
+        </div>
+    </div>
+</div> /**/
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="./emoji/emojionearea.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#example1").emojioneArea({
+            standalone: false,
+            emojiPlaceholder: ":smile_cat:"
+
+        });
+    });
+    /**/
+    function myFunction() {
+        document.getElementById("sidebar1").style.display = "flex";
+    }
+    /**/
+</script>
+
+</body>
+
+</html>

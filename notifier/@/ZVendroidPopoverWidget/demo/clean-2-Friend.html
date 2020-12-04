@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Frind Request</title>
+    <link href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/publish/yarner/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/publish/theme/vendroid/css/theme.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/publish/asrorz/css/ALL.css">
+</head>
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="vd_mega-menu-wrapper col-4">
+        <div class="vd_mega-menu">
+            <ul class="mega-ul">
+                <li id="top-menu-1" class="one-icon mega-li">
+                    <a href="" class="mega-link" data-action="click-trigger">
+                        <span class="mega-icon"><i class="fa fa-users"></i></span>
+                        <span class="badge vd_bg-red">1</span>
+                    </a>
+                    <div class="vd_mega-menu-content width-md-4"
+                         data-action="click-target" style="display: none;">
+                        <div class="child-menu">
+                            <div class="title">
+                                Friend Requests
+                                <div class="vd_panel-menu">
+                                <span class="menu">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                                    <span class="menu">
+                                    <i class="fas fa-cog"></i>
+                                </span>
+                                </div>
+                            </div>
+                            <div class="content-grid column-xs-2 height-xs-4">
+                                <div class="mCSB_container mCS_no_scrollbar">
+                                    <ul id="scroll" class="list-wrapper">
+                                        <li>
+                                            <a href="">
+                                                <div class="menu-icon">
+                                                    <img alt="example image" src="./demo_files/avatar.jpg">
+                                                </div>
+                                            </a>
+                                            <div class="menu-text"> Gabriella Montagna
+                                                <div class="menu-info">
+                                                    <span class="menu-date">San Diego</span>
+                                                    <div class="menu-action">
+                                                            <span class="menu-action-icon vd_green vd_bd-green">
+                                                                <i class="fa fa-check"></i>
+                                                            </span>
+                                                        <span class="menu-action-icon vd_red vd_bd-red">
+                                                                <i class="fa fa-times"></i>
+                                                            </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                <div class="closing text-center" style="">
+                                    <a href="">See All Requests<i class="fa fa-angle-double-right"> </i></a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+<script src="/publish/yarner/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script>
+
+    $('[data-action^="click-trigger"]').click(function (e) {
+        e.preventDefault();
+        if ($(this).parent().hasClass("hover-trigger") && $(this).siblings().hasClass("hover-target")) {
+            return (0);
+        }
+        // check if not children of click-target then slideup
+        if ($(this).parent().parent().parent().data("action") != "click-target" && $(this).parent().parent().parent().parent().parent().data("action") != "click-target") {
+            $('[data-action^="click-target"]').slideUp('fast', function () { //calculateContentHeight();
+            });
+        } else {
+            // check if children of click-target then slideup all the parent kids
+            $(this).parent().siblings().children('[data-action^="click-trigger"]').removeClass('open');
+            $(this).parent().siblings().children('[data-action^="click-target"]').slideUp('fast', function () {//calculateContentHeight();
+
+            });
+
+        }
+        // if this is close
+        if (!$(this).hasClass('open')) {
+
+
+            if ($(this).parent().parent().parent().data("action") != "click-target") {
+                $('[data-action^="click-trigger"]').removeClass('open');
+            }
+            ;
+            $(this).addClass('open');
+            $(this).parent().children('[data-action^="click-target"]').slideDown('fast', function () {
+                if ($('.navbar-menu').outerHeight() < $('.navbar-menu .vd_menu').outerHeight() + $('.navbar-spacing ').outerHeight()) {
+                    calculateContentHeight()
+                }
+                ;
+
+            });
+
+
+            // if this is open
+        } else {
+            $(this).removeClass('open');
+            // check if children of click-target then slideup
+            //if ($(this).parent().parent().parent().data("action") == "click-target"){
+            $(this).parent().children('[data-action^="click-target"]').slideUp('fast', function () {
+
+            });
+            //}
+        }
+        $('body').removeClass('expand-all');
+
+    });
+
+    // Click outside click-target
+    $(document).click(function (event) {
+        if (($(event.target).closest('[data-action^="click-trigger"]').get(0) == null) && ($(event.target).closest('[data-action^="click-target"]').get(0) == null) && ($(event.target).closest('[data-action^="expand-all"]').get(0) == null)) {
+            $('[data-action^="click-target"]').hide();
+            $('[data-action^="click-trigger"]').removeClass('open');
+            $('body').removeClass('expand-all');
+        }
+    });
+
+    $('#scroll').slimscroll({
+        width: '',
+        railVisible: true,
+        allowPageScroll: true,
+        touchScrollStep: 1000,
+        height: '400px',
+    });
+
+
+</script>

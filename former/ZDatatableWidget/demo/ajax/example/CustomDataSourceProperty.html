@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--
+http://eyuf.zetsoft.uz/render/former/ZDatatableWidget/demo/ajax/example/CustomDataSourceProperty.html
+
+When loading data from an Ajax source, by default, DataTables will look for the data to use in the data parameter of a returned object (e.g. { "data": [...] }). This can easily be changed by using the dataSrc option of the ajax initiation option.
+
+The ajax.dataSrc has a number of ways in which it can be used:
+
+As a string (e.g. dataSrc: 'myData') - obtain data from a different property in the source object.
+As an empty string (e.g. dataSrc: '') - the data source is not an object but an array.
+As a function (e.g. dataSrc: function(json) {}) - a function can be used to transform the data from one source format to another (for example you could convert from XML to a Javascript object). The value returned from the function is used as the data for the table.
+The example below shows ajax.dataSrc being used as a string to get the data from a different source property, in this case demo, but it could be any value, including a nested property using standard dotted Javascript object notation.
+
+For more details on loading a DataTable with Ajax data, please refer to the Ajax section of the manual.
+    !-->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "ajax": {
+                    "url": "../data/CustomDataSourceProperty",
+                    "dataSrc": "demo"
+                }
+            } );
+        } );
+    </script>
+</head>
+<body>
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

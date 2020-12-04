@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="text-center">
+    <p class="lead text-white">Already have a sip account?</p>
+    <a href="#mdlDemo" class="btn btn-lg btn-primary" id="btnDemo" data-toggle="modal"><i class="fa fa-fw fa-phone-square"></i> Launch Phone</a>
+</div>
+<form class="modal fade" id="mdlDemo" tabindex="-1" role="dialog" aria-labelledby="btnDemo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Enter SIP Credenitals</h4>
+            </div>
+            <div class="modal-body">
+                <p>To use our service you will need your SIP credentials from your account. All fields are required.</p>
+                <div class="form-group">
+                    <label>Display Name:</label>
+                    <input type="text" name="Display" class="form-control" placeholder="i.e. Ben Franklin" required="">
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Sip User:</label>
+                            <input type="text" name="User" class="form-control" placeholder="i.e. sipuser" required="">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>WS URL:</label>
+                            <input type="text" name="WSServer" class="form-control" placeholder="i.e. wss://sip.example.com:5060/" required="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Sip Pass:</label>
+                            <input type="password" name="Pass" class="form-control" placeholder="i.e. supaSekret!" required="">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Sip Realm:</label>
+                            <input type="text" name="Realm" class="form-control" placeholder="i.e. sip.example.com" required="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btnConfig">Launch Phone</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+
+        // When the demo modal is launched, load the values from localStorage
+        $('#mdlDemo').on('show.bs.modal', function() {
+
+            var user = JSON.parse(localStorage.getItem('SIPCreds'));
+
+            if (user) {
+                $.each(user, function(k, v) {
+                    $('input[name="'+k+'"]').val(v);
+                });
+            }
+        });
+
+        // Save form to localStorage and validate
+        $('#btnConfig').click(function(event) {
+
+            var user  = {},
+                valid = true;
+
+            event.preventDefault();
+
+            // validate the form
+            $('#mdlDemo input').each(function(i) {
+                if ($(this).val() === '') {
+                    $(this).closest('.form-group').addClass('has-error');
+                    valid = false;
+                } else {
+                    $(this).closest('.form-group').removeClass('has-error');
+                }
+                user[$(this).attr('name')] = $(this).val();
+            });
+
+            // launch the phone window.
+            if (valid) {
+                localStorage.setItem('SIPCreds', JSON.stringify(user));
+
+                var url      =  'clean11.html',
+                    features = 'menubar=no,location=no,resizable=no,scrollbars=no,status=no,addressbar=no,width=320,height=480';
+
+                if (!localStorage.getItem('ctxPhone')) {
+                    window.open(url, 'ctxPhone', features);
+                    $('#mdlDemo').modal('hide');
+                    return false;
+                } else {
+                    window.alert('Phone already open.');
+                }
+            }
+
+        });
+    });
+
+</script>
+
+
+</body>
+</html>

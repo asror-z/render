@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" src="/publish/yarner/sweetalert2/dist/sweetalert2.css">
+
+
+    <script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="/publish/yarner/sweetalert2/dist/sweetalert2.all.js"></script>
+
+
+    <style>
+        #chartdiv{
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+<div id="chartdiv"></div>
+
+
+
+
+<script>
+    jQuery(function ($) {
+        am4core.ready(function() {
+
+// theme begin
+            am4core.useTheme(am4themes_animated);
+// theme end
+
+// Create map instance
+            var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+// Set map definition
+            chart.geodata = am4geodata_worldLow;
+
+// Set projection
+            chart.projection = new am4maps.projections.Miller();
+            chart.panBehavior = "rotateLongLat";
+
+            var grid = chart.series.push(new am4maps.GraticuleSeries());
+            grid.toBack();
+
+// Create map polygon series
+            var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+
+// Make map load polygon (like country names) data from GeoJSON
+
+            polygonSeries.useGeodata = true;
+            polygonSeries.mapPolygons.template.nonScalingStroke = true;
+            polygonSeries.mapPolygons.template.strokeOpacity = 0.5;
+            polygonSeries.data = [{
+            "id": "US",
+            "value": 100,
+            "fill": am4core.color("#F05C5C")
+            }, 
+            {
+            "id": "FR",
+            "value": 50,
+            "fill": am4core.color("#5C5CFF")
+            }, 
+            {
+            "id": "RU",
+            "value": 200,
+            "fill": am4core.color("red")
+            },];
+
+
+
+// Configure series
+            var polygonTemplate = polygonSeries.mapPolygons.template;
+            polygonTemplate.tooltipText = "{name}";
+            polygonTemplate.tooltipText = "{name} : \r\n {value}";
+            polygonTemplate.propertyFields.fill = "fill";
+           
+            polygonTemplate.events.on("hit", function(ev){
+                var nameCountry = ev.target.dataItem.dataContext.name;
+                var idCountry = ev.target.dataItem.dataContext.id;
+               
+                Swal.fire({
+                    icon: 'info',
+                    title: nameCountry,
+                    text: "count of people"+" "+count,
+                })
+            })
+// Create hover state and set alternative fill color
+
+
+            
+
+            let linkContainer = chart.createChild(am4core.Container);
+            linkContainer.isMeasured = false;
+            linkContainer.layout = "horizontal";
+            linkContainer.x = am4core.percent(50);
+            linkContainer.y = am4core.percent(90);
+            linkContainer.horizontalCenter = "middle";
+
+            let equirectangular= linkContainer.createChild(am4core.TextLink);
+            equirectangular.margin(10,10,10,10);
+            equirectangular.text = "Equirectangular";
+            equirectangular.events.on("hit", function(){
+                chart.projection = new am4maps.projections.Projection();
+            })
+
+            let mercator = linkContainer.createChild(am4core.TextLink);
+            mercator.text = "Mercator";
+            mercator.margin(10,10,10,10);
+            mercator.events.on("hit", function(){
+                chart.projection = new am4maps.projections.Mercator();
+            })
+
+            let miller = linkContainer.createChild(am4core.TextLink);
+            miller.margin(10,10,10,10);
+            miller.text = "Miller";
+            miller.events.on("hit", function(){
+                chart.projection = new am4maps.projections.Miller();
+            })
+
+            let eckert = linkContainer.createChild(am4core.TextLink);
+            eckert.margin(10,10,10,10);
+            eckert.text = "Eckert 6";
+            eckert.events.on("hit", function(){
+                chart.projection = new am4maps.projections.Eckert6();
+            })
+
+            let orthographic = linkContainer.createChild(am4core.TextLink);
+            orthographic.margin(10,10,10,10);
+            orthographic.text = "Orthographic";
+            orthographic.events.on("hit", function(){
+                chart.projection = new am4maps.projections.Orthographic();
+            })
+            var mapcolor = [
+            {
+                "id": "UZ",
+                "name":"Uzbekistan",
+                "value":'100',
+                "fill": am4core.color("#994405")
+            },
+            {
+                "id": "RU",
+                "name":"Russia",
+                "value":'90',
+                "fill": am4core.color("#A56A38")
+            },
+            {
+                "id": "US",
+                "name":"United States America",
+                "value":'80',                
+                "fill": am4core.color("#EF1BFE")
+            },
+            
+            ]
+        });
+    });
+</script>
+</body>
+</html>

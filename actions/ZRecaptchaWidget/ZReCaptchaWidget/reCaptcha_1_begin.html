@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReCpatcha</title>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script> 
+
+    <script>
+    var onSubmit = function(token) {
+        console.log('success!');
+    };
+
+    var onloadCallback = function() {
+        grecaptcha.render('submit', {
+            'sitekey' : '6LeXmc4UAAAAAHqkPc9A9IZ-gJklHCmcN_-guA12',
+            'callback' : onSubmit
+        });
+    };
+</script>
+    <script>
+        function onSubmit(token) {
+            alert('thanks ' + document.getElementById('field').value);
+        }
+
+        function validate(event) {
+            event.preventDefault();
+            if (!document.getElementById('field').value) {
+                alert("You must add text to the required field");
+            } else {
+                grecaptcha.execute();
+            }
+        }
+
+        function onload() {
+            var element = document.getElementById('submit');
+            element.onclick = validate;
+        }
+    </script>
+
+
+
+
+</head>
+<body>
+<form  id='demo-form' action="/testing/Inputs/reCaptcha/form.php" method="POST">
+    <fieldset>
+
+     
+
+        <!-- Default behaviour looks for the g-recaptcha class with a data-sitekey attribute -->
+        <div class="g-recaptcha form-field" data-sitekey="6LeXmc4UAAAAAHqkPc9A9IZ-gJklHCmcN_-guA12">
+        <div id='recaptcha' class="g-recaptcha"
+             data-sitekey="6LeXmc4UAAAAAHqkPc9A9IZ-gJklHCmcN_-guA12"
+             data-callback="onSubmit"
+             data-size="invisible"></div>
+        <iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfW6wATAAAAAHLqO2pb8bDBahxlMxNdo9g947u9&amp;co=aHR0cHM6Ly9yZWNhcHRjaGEtZGVtby5hcHBzcG90LmNvbTo0NDM.&amp;hl=en&amp;v=eQmzkx3d5dtuXlLOA4pEID3I&amp;size=normal&amp;cb=aksy8xqn64ib" role="presentation" name="a-o2y78px6ets" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" width="304" height="78" frameborder="0">
+        </iframe>
+        <textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">
+        </textarea>
+        </div>
+        </div>
+    </fieldset>
+
+
+
+</form>
+
+<script>onload();</script>
+
+</body>
+</html>

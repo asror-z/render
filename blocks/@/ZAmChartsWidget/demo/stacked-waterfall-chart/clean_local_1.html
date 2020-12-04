@@ -1,0 +1,130 @@
+<!-- Styles -->
+<style>
+    #chartdiv {
+      width: 100%;
+      height: 500px;
+    }
+    </style>
+    
+    <!-- Resources -->
+    <script src="\publish\Maps\animated\core.js"></script>
+    <script src="\publish\Maps\animated\charts.js"></script>
+    <script src="\publish\Maps\animated\animated.js"></script>
+    
+    <!-- Chart code -->
+    <script>
+    am4core.ready(function() {
+    
+    // theme begin
+    am4core.useTheme(am4themes_animated);
+    // theme end
+    
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4charts.XYChart);
+    
+    // Add data
+    chart.data = [{
+      "category": "Stage #1",
+      "open1": 0,
+      "close1": 83,
+      "open2": 83,
+      "close2": 128
+    }, {
+      "category": "Stage #2",
+      "open1": 121,
+      "close1": 128,
+      "open2": 128,
+      "close2": 128
+    }, {
+      "category": "Stage #3",
+      "open1": 111,
+      "close1": 114,
+      "open2": 114,
+      "close2": 121
+    }, {
+      "category": "Stage #4",
+      "open1": 98,
+      "close1": 108,
+      "open2": 108,
+      "close2": 111
+    }, {
+      "category": "Stage #5",
+      "open1": 85,
+      "close1": 96,
+      "open2": 96,
+      "close2": 98
+    }, {
+      "category": "Stage #6",
+      "open1": 55,
+      "close1": 70,
+      "open2": 70,
+      "close2": 85
+    }, {
+      "category": "Stage #7",
+      "open1": 3,
+      "close1": 36,
+      "open2": 36,
+      "close2": 55
+    }, {
+      "category": "Stage #8",
+      "open1": 0,
+      "close1": 2,
+      "open2": 2,
+      "close2": 3
+    }];
+    
+    // Create axes
+    var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "category";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 30;
+    categoryAxis.renderer.ticks.template.disabled = false;
+    categoryAxis.renderer.ticks.template.strokeOpacity = 0.5;
+    //categoryAxis.renderer.labels.template.rotation = -25;
+    //categoryAxis.renderer.labels.template.horizontalCenter = "right";
+    
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.calculateTotals = true;
+    
+    // Create series
+    function createSeries(open, close, names, showSum) {
+      var series = chart.series.push(new am4charts.ColumnSeries());
+      series.dataFields.valueY = close;
+      series.dataFields.openValueY = open;
+      series.name = name;
+      series.dataFields.categoryX = "category";
+      series.clustered = false;
+      series.strokeWidth = 0;
+      series.columns.template.width = am4core.percent(90);
+      
+      var labelBullet = series.bullets.push(new am4charts.LabelBullet());
+      labelBullet.label.hideOversized = true;
+      labelBullet.label.fill = am4core.color("#fff");
+      labelBullet.label.text = "{valueY}";
+      labelBullet.label.adapter.add("text", function(text, target) {
+        var val = Math.abs(target.dataItem.valueY - target.dataItem.openValueY);
+        return val;
+      });
+      labelBullet.locationY = 0.5;
+      
+      if (showSum) {
+        var sumBullet = series.bullets.push(new am4charts.LabelBullet());
+        sumBullet.label.text = "{valueY.close}";
+        sumBullet.verticalCenter = "bottom";
+        sumBullet.dy = -8;
+        sumBullet.label.adapter.add("text", function(text, target) {
+          var val = Math.abs(target.dataItem.dataContext.close2 - target.dataItem.dataContext.open1);
+          return val;
+        });
+      }
+    }
+    
+    createSeries("open1", "close1", "High", false);
+    createSeries("open2", "close2", "Medium", true);
+    
+    }); // end am4core.ready()
+    </script>
+    
+    <!-- HTML -->
+    <div id="chartdiv"></div>
+    amCharts

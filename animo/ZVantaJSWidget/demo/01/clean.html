@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://www.vantajs.com/ -->
+<html>
+<head>
+
+
+    <script src="./demo_files/jquery.js.download"></script>
+    <script src="./demo_globe_files/three.r92.min.js.download"></script>
+
+    <script src="./demo_globe_files/dat.gui.min.js.download"></script>
+
+    <script src="./demo_globe_files/vanta.birds.min.js.download"></script>
+
+    <script src="./demo_globe_files/gallery.min.js.download"></script>
+    <link rel="stylesheet" href="./demo_globe_files/styles.css">
+
+
+</head>
+<body>
+
+<section class="wm">
+    <!-- <div class="logo">
+      <img class='logo-light' src="./dist/logo.png">
+      <img class='logo-dark' src="./dist/logo-dark.png">
+    </div> -->
+    <div class="top-left" style="z-index: 1;">
+        <a href="https://github.com/tengbao/vanta">
+            <i class="ent-github"> </i>
+            GitHub
+        </a>
+    </div>
+    <div class="top-right" style="z-index: 1;">
+        <a href="javascript:void(0)" class="customize">
+            <i class="ent-cog"> </i>
+            Customize &amp; Get Code
+        </a>
+    </div>
+    <div class="bottom-left" style="z-index: 1;">
+        <span id="fps">32.3 fps</span>
+    </div>
+    <div class="container inner">
+        <div class="eight columns">
+            <h1> Vanta.js </h1>
+            <h3> Animated website backgrounds in a few lines of code. </h3>
+            <!-- <br> <div class="btn customize">
+              <i class="ent-cog"> </i>
+              Customize & Get Code
+            </div> -->
+            <div class="btn restart" style="display: none;"> Randomize!</div>
+        </div>
+    </div>
+
+    <div class="usage-cont" style="display: none;">
+        <a class="close-btn" href="javascript: void(0);">
+            <i class="ent-cancel"></i>
+        </a>
+        <h4 class="strong"> 1. Customize </h4>
+        <div class="gui-cont">
+            <div class="dg main">
+                <ul>
+                    <li class="cr color">
+                        <div><span class="property-name">backgroundColor</span>
+                            <div class="c"><input type="text"
+                                                  style="outline: none; text-align: center; color: rgb(255, 255, 255); border: 0px; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 1px; background-color: rgb(7, 25, 47);">
+                                <div class="selector"
+                                     style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;">
+                                    <div class="field-knob"
+                                         style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 78.1064px; margin-top: 74.5686px; background-color: rgb(7, 25, 47);"></div>
+                                    <div class="saturation-field"
+                                         style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(0, 114, 255) 100%);">
+                                        <div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div>
+                                    </div>
+                                    <div class="hue-field"
+                                         style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);">
+                                        <div class="hue-knob"
+                                             style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 40.8333px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr number has-slider">
+                        <div><span class="property-name">backgroundAlpha</span>
+                            <div class="c">
+                                <div><input type="text"></div>
+                                <div class="slider">
+                                    <div class="slider-fg" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr color">
+                        <div><span class="property-name">color1</span>
+                            <div class="c"><input type="text"
+                                                  style="outline: none; text-align: center; color: rgb(255, 255, 255); border: 0px; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 1px; background-color: rgb(255, 0, 0);">
+                                <div class="selector"
+                                     style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;">
+                                    <div class="field-knob"
+                                         style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 93px; margin-top: -7px; background-color: rgb(255, 0, 0);"></div>
+                                    <div class="saturation-field"
+                                         style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 0, 0) 100%);">
+                                        <div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div>
+                                    </div>
+                                    <div class="hue-field"
+                                         style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);">
+                                        <div class="hue-knob"
+                                             style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 100px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr color">
+                        <div><span class="property-name">color2</span>
+                            <div class="c"><input type="text"
+                                                  style="outline: none; text-align: center; color: rgb(255, 255, 255); border: 0px; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 1px; background-color: rgb(0, 209, 255);">
+                                <div class="selector"
+                                     style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;">
+                                    <div class="field-knob"
+                                         style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 93px; margin-top: -7px; background-color: rgb(0, 209, 255);"></div>
+                                    <div class="saturation-field"
+                                         style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(0, 209, 255) 100%);">
+                                        <div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div>
+                                    </div>
+                                    <div class="hue-field"
+                                         style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);">
+                                        <div class="hue-knob"
+                                             style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 46.9935px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr string">
+                        <div><span class="property-name">colorMode</span>
+                            <div class="c"><select>
+                                <option value="lerp">lerp</option>
+                                <option value="variance">variance</option>
+                                <option value="lerpGradient">lerpGradient</option>
+                                <option value="varianceGradient">varianceGradient</option>
+                            </select></div>
+                        </div>
+                    </li>
+                    <li class="cr number has-slider">
+                        <div><span class="property-name">quantity</span>
+                            <div class="c">
+                                <div><input type="text"></div>
+                                <div class="slider">
+                                    <div class="slider-fg" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr number has-slider">
+                        <div><span class="property-name">birdSize</span>
+                            <div class="c">
+                                <div><input type="text"></div>
+                                <div class="slider">
+                                    <div class="slider-fg" style="width: 14.2857%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr number has-slider">
+                        <div><span class="property-name">wingSpan</span>
+                            <div class="c">
+                                <div><input type="text"></div>
+                                <div class="slider">
+                                    <div class="slider-fg" style="width: 66.6667%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr number has-slider">
+                        <div><span class="property-name">speedLimit</span>
+                            <div class="c">
+                                <div><input type="text"></div>
+                                <div class="slider">
+                                    <div class="slider-fg" style="width: 44.4444%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr number has-slider">
+                        <div><span class="property-name">separation</span>
+                            <div class="c">
+                                <div><input type="text"></div>
+                                <div class="slider">
+                                    <div class="slider-fg" style="width: 19.1919%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr number has-slider">
+                        <div><span class="property-name">alignment</span>
+                            <div class="c">
+                                <div><input type="text"></div>
+                                <div class="slider">
+                                    <div class="slider-fg" style="width: 19.1919%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cr number has-slider">
+                        <div><span class="property-name">cohesion</span>
+                            <div class="c">
+                                <div><input type="text"></div>
+                                <div class="slider">
+                                    <div class="slider-fg" style="width: 19.1919%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="close-button close-bottom">Close Controls</div>
+            </div>
+        </div>
+        <br>
+        <h4 class="strong"> 2. Grab the code </h4>
+        <ul class="features small">
+            <li>
+                Change <strong> #your-element-selector </strong> to your element and download files from <a
+                    href="https://github.com/tengbao/vanta/tree/master/dist"> GitHub</a>
+            </li>
+        </ul>
+
+        <div id="include-three" style="display:none">&lt;script src="<a target="_blank"
+                                                                        href="https://github.com/tengbao/vanta/blob/master/vendor/three.r92.min.js">three.r92.min.js</a>"&gt;&lt;/script&gt;
+        </div>
+        <div id="include-p5" style="display:none">&lt;script src="<a target="_blank"
+                                                                     href="https://github.com/tengbao/vanta/blob/master/vendor/p5.min.js">p5.min.js</a>"&gt;&lt;/script&gt;
+        </div>
+
+        <div disabled="true" class="usage" style="display: none;">[[INCLUDE]]
+            &lt;script src="<a target="_blank"
+                               href="https://github.com/tengbao/vanta/blob/master/dist/vanta.[[EFFECTNAME]].min.js">vanta.[[EFFECTNAME]].min.js</a>"&gt;&lt;/script&gt;
+            &lt;script&gt;
+            [[CODE]]
+            &lt;/script&gt;
+        </div>
+        <div disabled="true" class="usage applied" style="">&lt;script src="<a target="_blank"
+                                                                               href="https://github.com/tengbao/vanta/blob/master/vendor/three.r92.min.js">three.r92.min.js</a>"&gt;&lt;/script&gt;
+            &lt;script src="<a target="_blank"
+                               href="https://github.com/tengbao/vanta/blob/master/dist/vanta.birds.min.js">vanta.birds.min.js</a>"&gt;&lt;/script&gt;
+            &lt;script&gt;
+            VANTA.BIRDS({
+            el: "<strong>#your-element-selector</strong>"
+            })
+            &lt;/script&gt;
+        </div>
+    </div>
+    <!-- <div class="arrow">
+      <span class="ent-down-open-big"> </span>
+    </div> -->
+    <canvas class="vanta-canvas" width="1349" height="506"
+            style="position: absolute; z-index: 0; top: 0px; left: 0px; width: 1349px; height: 506px;"></canvas>
+</section>
+
+
+</body>
+</html>

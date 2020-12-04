@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clockpicker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/clockpicker@0.0.7/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/clockpicker@0.0.7/dist/bootstrap-clockpicker.min.css">
+    
+
+
+
+    <!--git clone https://github.com/weareoutman/clockpicker.git-->
+    <!--http://eyuf.zettest.uz/testing/Inputs/Time/CSSJS/Weareoutman%20Clockpicker/demo.html-->
+</head>
+<body>
+<br>
+<br><br><br><br><br><br><br><br><br><br>
+
+<div class="input-group clockpicker" style="width: 50%;margin: 0px auto;">
+    <input type="text" class="form-control" value="09:30" id="">
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+    </span>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/clockpicker@0.0.7/assets/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clockpicker@0.0.7/assets/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clockpicker@0.0.7/dist/jquery-clockpicker.js"></script>
+
+
+<script>
+    $('.clockpicker').clockpicker({
+        placement: 'top',
+        align: 'top',
+        donetext: 'done',
+        autoclose: false,
+        twelvehour: false,
+        vibrate: true,
+        fromnow: 0,
+    });
+
+    var input = $('.clockpicker').clockpicker({
+        donetext: 'Done',
+        init: function() {
+            console.log("colorpicker initiated");
+        },
+        beforeShow: function() {
+            console.log("before show");
+        },
+        afterShow: function() {
+            console.log("after show");
+        },
+        beforeHide: function() {
+            console.log("before hide");
+        },
+        afterHide: function() {
+            console.log("after hide");
+        },
+        beforeHourSelect: function() {
+            console.log("before hour selected");
+        },
+        afterHourSelect: function() {
+            console.log("after hour selected");
+        },
+        beforeDone: function() {
+            console.log("before done");
+        },
+        afterDone: function() {
+            console.log("after done");
+        }
+    });
+
+   
+    /*$('#clockpicker').click(function(e){
+        // Have to stop propagation here
+        e.stopPropagation();
+        input.clockpicker('show')
+            .clockpicker('toggleView', 'minutes');
+    });*/
+</script>
+
+</html>

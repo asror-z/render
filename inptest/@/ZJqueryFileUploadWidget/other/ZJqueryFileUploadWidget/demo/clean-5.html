@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bluimp - 5</title>
+  <link rel="stylesheet" href="/publish/yarner/mdbootstrap/css/mdb.min.css" />
+  <!-- Doka Image Editor styles -->
+  <link rel="stylesheet" href="/publish/dokaJS/doka.min.css" />
+  <!-- Generic page styles -->
+  <link rel="stylesheet" href="/publish/yarner/blueimp-file-upload/css/jquery.fileupload.css" />
+  <link rel="stylesheet" href="/publish/yarner/blueimp-file-upload/css/jquery.fileupload-ui.css" />
+</head>
+
+<body>
+  <form id="fileupload" method="POST" enctype="multipart/form-data" class="">
+    <div class="row fileupload-buttonbar">
+      <div class="col-lg-12">
+        <!-- The fileinput-button span is used to style the file input field as button -->
+        <span class="btn btn-success fileinput-button">
+            <i class="fas fa-trash-alt"></i>
+          <span>Add files...</span>
+          <input type="file" name="files" multiple="" />
+        </span>
+        <button type="submit" class="btn btn-primary start">
+          <span>Start upload</span>
+        </button>
+        <button type="reset" class="btn btn-warning cancel">
+          <span>Cancel upload</span>
+        </button>
+        <button type="button" class="btn btn-danger delete">
+          <span>Delete selected</span>
+        </button>
+        <input type="checkbox" class="toggle" />
+        <!-- The global file processing state -->
+        <span class="fileupload-process"></span>
+      </div>
+      <!-- The global progress state -->
+      <div class="col-lg-5 fileupload-progress fade">
+        <!-- The global progress bar -->
+        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+        </div>
+        <!-- The extended global progress state -->
+        <div class="progress-extended">&nbsp;</div>
+      </div>
+    </div>
+    <!-- The table listing the files available for upload/download -->
+    <table role="presentation" class="table table-striped">
+      <tbody class="files"></tbody>
+    </table>
+  </form>
+  <!-- <div class="fileInputs"></div> -->
+
+  <!-- The template to display files available for upload -->
+  <script id="template-upload" type="text/x-tmpl">
+      {% for (var i=0, file; file=o.files[i]; i++) { %}
+          <tr class="template-upload fade">
+              <td>
+                  <span class="preview"></span>
+              </td>
+              <td>
+                  {% if (window.innerWidth > 480 || !o.options.loadImageFileTypes.test(file.type)) { %}
+                      <p class="name">{%=file.name%}</p>
+                  {% } %}
+                  <strong class="error text-danger"></strong>
+              </td>
+              <td>
+                  <p class="size">Processing...</p>
+                  <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
+              </td>
+              <td>
+                  {% if (!o.options.autoUpload && o.options.edit && o.options.loadImageFileTypes.test(file.type)) { %}
+                    <button class="btn btn-success edit" data-index="{%=i%}" disabled>
+                        <i class="glyphicon glyphicon-edit"></i>
+                        <span>Edit</span>
+                    </button>
+                  {% } %}
+                  {% if (!i && !o.options.autoUpload) { %}
+                      <button class="btn btn-primary start" disabled>
+                          <i class="glyphicon glyphicon-upload"></i>
+                          <span>Start</span>
+                      </button>
+                  {% } %}
+                  {% if (!i) { %}
+                      <button class="btn btn-warning cancel" id="cancel">
+                          <i class="glyphicon glyphicon-ban-circle"></i>
+                          <span>Cancel</span>
+                      </button>
+                  {% } %}
+                  {% if (!i) { %}
+                      <input type="checkbox" class="toggle">
+                      <input type="text" value='{%=file.name%}'>
+                  {% } %}
+              </td>
+          </tr>
+      {% } %}
+    </script>
+  <!-- The template to display files available for download -->
+  <script id="template-download" type="text/x-tmpl">
+      {% for (var i=0, file; file=o.files[i]; i++) { %}
+          <tr class="template-download fade">
+              <td>
+                  <span class="preview">
+                      {% if (file.thumbnailUrl) { %}
+                          <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+                      {% } %}
+                  </span>
+              </td>
+              <td>
+                  {% if (window.innerWidth > 480 || !file.thumbnailUrl) { %}
+                      <p class="name">
+                          {% if (file.url) { %}
+                              <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+                          {% } else { %}
+                              <span>{%=file.name%}</span>
+                          {% } %}
+                      </p>
+                  {% } %}
+                  {% if (file.error) { %}
+                      <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+                  {% } %}
+              </td>
+              <td>
+                  <span class="size">{%=o.formatFileSize(file.size)%}</span>
+              </td>
+              <td>
+                  {% if (file.deleteUrl) { %}
+                      <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+                          <i class="glyphicon glyphicon-trash"></i>
+                          <span>Delete</span>
+                      </button>
+                      <input type="checkbox" name="delete" value="1" class="toggle">
+                  {% } else { %}
+                      <button class="btn btn-warning cancel">
+                          <i class="glyphicon glyphicon-ban-circle"></i>
+                          <span>Cancel</span>
+                      </button>
+                  {% } %}
+              </td>
+          </tr>
+      {% } %}
+    </script>
+
+  <script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+
+  <script src="/publish/yarner/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="/publish/yarner/blueimp-tmpl/js/tmpl.min.js"></script>
+
+  <script src="/publish/yarner/blueimp-load-image/js/load-image.all.min.js"></script>
+
+  <script src="/publish/yarner/mdbootstrap/js/mdb.min.js"></script>
+  <!-- Doka Image Editor polyfills -->
+  <script src="/publish/dokaJS/doka.min.js"></script>
+  <!-- blueimp Gallery script -->
+  <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+  <script src="/publish/yarner/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+  <!-- The basic File Upload plugin -->
+  <script src="/publish/yarner/blueimp-file-upload/js/jquery.fileupload.js"></script>
+  <!-- The File Upload processing plugin -->
+  <script src="/publish/yarner/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+  <!-- The File Upload image preview & resize plugin -->
+  <script src="/publish/yarner/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+  <!-- The File Upload audio preview plugin -->
+  <script src="/publish/yarner/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>
+  <!-- The File Upload video preview plugin -->
+  <script src="/publish/yarner/blueimp-file-upload/js/jquery.fileupload-video.js"></script>
+  <!-- The File Upload validation plugin -->
+  <script src="/publish/yarner/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
+  <!-- The File Upload user interface plugin -->
+  <script src="/publish/yarner/blueimp-file-upload/js/jquery.fileupload-ui.js "></script>
+  <!-- The main application script -->
+
+  <script>
+    //removes all hidden iputs
+    $(".cancel").click(function () {
+      $('input[type="text"]').remove();
+    });
+
+    // if () {
+      
+    // }
+    
+
+    // $('tbody tr td .cancel').click(function () {
+    //   // $("input[class='" + name + "']").remove();
+    //   $("input[class='" + name + "']").remove();
+    // })
+
+
+    $("#fileupload")
+      .bind("fileuploadadd", function (e, data) {
+        $(".delete").click(function () {
+          let checkedOBj = document
+            .getElementsByTagName("tbody")[0]
+            .getElementsByTagName("tr");
+          let i = checkedOBj.length;
+          while (i--) {
+            if (checkedOBj[i].getElementsByTagName("input")[0].checked) {
+              checkedOBj[i].parentNode.removeChild(checkedOBj[i]);
+            }
+          }
+        });
+      })
+      .bind("fileuploadsubmit", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadsend", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploaddone", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadfail", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadalways", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadprogress", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadprogressall", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadstart", function (e) {
+        /* ... */
+      })
+      .bind("fileuploadstop", function (e) {
+        /* ... */
+      })
+      .bind("fileuploadchange", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadpaste", function (e, data) { })
+      .bind("fileuploaddrop", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploaddragover", function (e) {
+        /* ... */
+      })
+      .bind("fileuploadchunkbeforesend", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadchunksend", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadchunkdone", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadchunkfail", function (e, data) {
+        /* ... */
+      })
+      .bind("fileuploadchunkalways", function (e, data) {
+        /* ... */
+      });
+
+    $(function () {
+      "use strict";
+      $("#fileupload").fileupload({
+        // Setup Doka Image Editor:
+        doka: Doka.create(),
+        edit:
+          Doka.supported() &&
+          function (file) {
+            return this.doka.edit(file).then(function (output) {
+              return output && output.file;
+            });
+          },
+        url: "server/php/",
+        maxFileSize: 1024 * 100000,
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 0,
+        uniqueFilenames: undefined,
+        messages: {
+          uploadedBytes: "Uploaded bytes exceed file size"
+        },
+        dropZone: $(document),
+        pasteZone: undefined,
+        fileInput: undefined,
+        replaceFileInput: true,
+        paramName: undefined,
+        singleFileUploads: true,
+        limitMultiFileUploads: undefined,
+        limitMultiFileUploadSize: undefined,
+        limitMultiFileUploadSizeOverhead: 512,
+        sequentialUploads: false,
+        limitConcurrentUploads: undefined,
+        forceIframeTransport: false,
+        redirect: undefined,
+        redirectParamName: undefined,
+        postMessage: undefined,
+        multipart: true,
+        maxChunkSize: undefined,
+        uploadedBytes: undefined,
+        progressInterval: 100,
+        bitrateInterval: 500,
+        autoUpload: false
+      });
+    });
+  </script>
+</body>
+
+</html>

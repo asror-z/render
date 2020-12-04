@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://codyhouse.co/ds/components/app/expandable-search -->
+<html lang="en" class=" js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--<base href="https://codyhouse.co/">--><base href=".">
+<title>CSS Expandable Search | CodyHouse</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" itemprop="description" content="A search button that expands to reveal a search input element.">
+<meta name="keywords" itemprop="keywords" content="HTML, CSS, JS, component, design, system, snippet, javascript, jquery">
+<link rel="canonical" href="https://codyhouse.co/ds/components/app/expandable-search">
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://codyhouse.co/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://codyhouse.co/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://codyhouse.co/assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="https://codyhouse.co/assets/favicon/site.webmanifest">
+<link rel="mask-icon" href="https://codyhouse.co/assets/favicon/safari-pinned-tab.svg" color="#fc4348">
+<meta name="msapplication-TileColor" content="#161f28">
+<meta name="theme-color" content="#ffffff">
+
+
+<meta property="og:url" content="https://codyhouse.co/ds/components/app/expandable-search">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CSS Expandable Search | CodyHouse">
+<meta property="og:description" content="A search button that expands to reveal a search input element.">
+<meta property="og:image" content="https://codyhouse.co/assets/img/open-graph.png">
+<meta property="og:site_name" content="CodyHouse">
+
+<script async="" src="./demo_files/analytics.js.download"></script><script>document.getElementsByTagName("html")[0].className += " js";</script>
+<link rel="stylesheet" href="./demo_files/jzi7aih.css">
+<script>
+    if('CSS' in window && CSS.supports('color', 'var(--color-var)')) {
+      document.write('<link rel="stylesheet" href="assets/css/style.css?v=55">'); // ver=x
+    } else {
+      document.write('<link rel="stylesheet" href="assets/css/style-fallback.css">');
+    }
+  </script><link rel="stylesheet" href="./demo_files/style.css">
+<noscript>
+    <link rel="stylesheet" href="assets/css/style-fallback.css">
+  </noscript>
+
+</head>
+<body class="user--not-logged-in" data-theme="default">
+<main class="app ">
+<div class="app-header">
+<div class="app-header__group">
+<div>
+<button class="app-btn app-btn--subtle app-header__menu-btn js-app-header-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="app-header-menu-popup"><span></span></button>
+</div>
+<div class="display@sm">
+<nav class="breadcrumbs" aria-label="Breadcrumbs">
+<ol class="breadcrumbs__list">
+<li class="breadcrumbs__item--max-width app-header__project-name">
+<a href="https://codyhouse.co/ds/components" class="js-project-breadcrumb" data-display="loggedIn">
+</a>
+<a href="https://codyhouse.co/ds/components" class="js-project-breadcrumb" data-display="notLoggedIn">
+UI Framework
+</a>
+<span class="breadcrumbs__separator" aria-hidden="true">
+<svg class="icon" viewBox="0 0 16 16"><g stroke-width="1" stroke="currentColor"><polyline fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="6.5,3.5 11,8 6.5,12.5 "></polyline></g></svg>
+</span>
+</li>
+<li class="app-header__category-name">
+<a href="https://codyhouse.co/ds/components">Components</a>
+<span class="breadcrumbs__separator" aria-hidden="true">
+<svg class="icon" viewBox="0 0 16 16"><g stroke-width="1" stroke="currentColor"><polyline fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="6.5,3.5 11,8 6.5,12.5 "></polyline></g></svg>
+</span>
+</li>
+<li aria-current="page">Expandable Search</li>
+<li class="breadcrumbs__bookmark js-bookmark">
+<button data-comp="76" class="js-bookmark__btn ">
+<svg class="icon" viewBox="0 0 12 12"><title>Save Component</title><g><path d="M2.5,0A1.5,1.5,0,0,0,1,1.5V12L6,9l5,3V1.5A1.5,1.5,0,0,0,9.5,0Z"></path></g></svg>
+</button>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="app-header__group js-code-action-wrapper" data-html="&lt;form class=&quot;expandable-search  js-expandable-search&quot;&gt;
+  &lt;label class=&quot;sr-only&quot; for=&quot;searchInputX&quot;&gt;Search&lt;/label&gt;
+  &lt;input class=&quot;reset expandable-search__input js-expandable-search__input&quot; type=&quot;search&quot; name=&quot;searchInputX&quot; id=&quot;searchInputX&quot; placeholder=&quot;Search...&quot;&gt;
+  &lt;button class=&quot;reset expandable-search__btn&quot;&gt;
+    &lt;svg class=&quot;icon&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;title&gt;Search&lt;/title&gt;&lt;g stroke-linecap=&quot;square&quot; stroke-linejoin=&quot;miter&quot; stroke-width=&quot;2&quot; stroke=&quot;currentColor&quot; fill=&quot;none&quot; stroke-miterlimit=&quot;10&quot;&gt;&lt;line x1=&quot;22&quot; y1=&quot;22&quot; x2=&quot;15.656&quot; y2=&quot;15.656&quot;&gt;&lt;/line&gt;&lt;circle cx=&quot;10&quot; cy=&quot;10&quot; r=&quot;8&quot;&gt;&lt;/circle&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/button&gt;
+&lt;/form&gt;" data-js="// File#: _1_expandable-search
+// Usage: codyhouse.co/license
+(function() {
+	var expandableSearch = document.getElementsByClassName(&#39;js-expandable-search&#39;);
+	if(expandableSearch.length &gt; 0) {
+		for( var i = 0; i &lt; expandableSearch.length; i++) {
+			(function(i){ // if user types in search input, keep the input expanded when focus is lost
+				expandableSearch[i].getElementsByClassName(&#39;js-expandable-search__input&#39;)[0].addEventListener(&#39;input&#39;, function(event){
+					Util.toggleClass(event.target, &#39;expandable-search__input--has-content&#39;, event.target.value.length &gt; 0);
+				});
+			})(i);
+		}
+	}
+}());" data-scss="/* -------------------------------- 
+
+File#: _1_expandable-search
+Title: Expandable Search
+Descr: A search button that expands to reveal a search input element
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --expandable-search-size-compact: 2.2em; // height and width - compact version
+  --expandable-search-size-expanded: 10em; // width - expanded version
+  --expandable-search-icon-size: 1.2em; // lens icon size
+}
+
+.expandable-search {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+
+.expandable-search__input {
+  width: var(--expandable-search-size-compact);
+  height: var(--expandable-search-size-compact);
+  padding: 0;
+  color: transparent;
+  overflow: hidden;
+  border-radius: 50em;
+  transition: width .3s var(--ease-out), box-shadow .3s, background-color .3s;
+
+  &amp;::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  &amp;::-moz-placeholder {
+    opacity: 0;
+    color: transparent;
+  }
+
+  &amp;:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  &amp;:-moz-placeholder {
+    color: transparent;
+  }
+
+  &amp;:hover {
+    background-color: var(--color-contrast-lower);
+    cursor: pointer;
+  }
+
+  &amp;:focus, &amp;.expandable-search__input--has-content {
+    background-color: var(--color-bg);
+    width: var(--expandable-search-size-expanded);
+    padding-top: 0;
+    padding-right: calc(4px + var(--expandable-search-size-compact));
+    padding-bottom: 0;
+    padding-left: var(--space-sm);
+    outline: none;
+    box-shadow: var(--shadow-md), 0 0 0 2px var(--color-primary);
+    color: var(--color-contrast-higher);
+    cursor: auto;
+    user-select: auto;
+
+    &amp;::-webkit-input-placeholder {
+      color: var(--color-contrast-medium);
+    }
+  
+    &amp;::-moz-placeholder {
+      opacity: 1;
+      color: var(--color-contrast-medium);
+    }
+  
+    &amp;:-ms-input-placeholder {
+      color: var(--color-contrast-medium);
+    }
+  
+    &amp;:-moz-placeholder {
+      color: var(--color-contrast-medium);
+    }
+  }
+
+  &amp;:focus + .expandable-search__btn {
+    pointer-events: auto;
+  }
+
+  &amp;::-webkit-search-decoration,
+  &amp;::-webkit-search-cancel-button,
+  &amp;::-webkit-search-results-button,
+  &amp;::-webkit-search-results-decoration { 
+    display: none; 
+  }
+}
+
+.expandable-search__btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: calc(var(--expandable-search-size-compact) - 4px);
+  height: calc(var(--expandable-search-size-compact) - 4px);
+  border-radius: 50em;
+  z-index: 1;
+  pointer-events: none;
+  transition: background-color .3s;
+
+  .icon {
+    font-size: var(--expandable-search-icon-size); // icon size
+  }
+
+  &amp;:hover {
+    background-color: var(--color-contrast-lower);
+  }
+
+  &amp;:focus {
+    outline: none;
+    background-color: alpha(var(--color-primary), 0.15);
+  }
+}" data-demo="expandable-search" data-type="" data-variation="">
+<div>
+<a href="https://codyhouse.co/ds/components/info/expandable-search">Info page</a>
+</div>
+<div class="display@md">
+<div class="app-header__copy-cta">
+<span class="app-header__copy-label">Copy:</span>
+<button class="app-btn app-btn--subtle js-copy-code" data-type="html">
+<span class="btn__content-a">HTML</span>
+<span class="btn__content-b">Copied!</span>
+</button>
+<button class="app-btn app-btn--subtle js-copy-code " data-type="scss">
+<span class="btn__content-a">SCSS</span>
+<span class="btn__content-b">Copied!</span>
+</button>
+<button class="app-btn app-btn--subtle js-copy-code " data-type="js">
+<span class="btn__content-a">JS</span>
+<span class="btn__content-b">Copied!</span>
+</button>
+</div>
+</div>
+<div class="display@md">
+<button class="app-btn app-btn--primary js-view-code  " data-modal="modal-code">
+<svg aria-hidden="true" class="icon margin-right-xxxs" viewBox="0 0 16 16"><g><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M12 9v5H2V4h5"></path><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M14 2L7 9"></path><path d="M10 1h5v5l-5-5z"></path></g></svg>
+<span>View code</span>
+</button>
+</div>
+</div>
+</div><div class="app-canvas js-app-canvas ">
+<iframe src="./demo_files/demo-expandable-search.html" frameborder="0" class="app-canvas__iframe js-app-iframe app-canvas__iframe--content-is-loaded" __idm_frm__="20"></iframe>
+
+</div>
+<div class="app-info-banner js-app-more-info app-info-banner--is-visible" data-info="cd-component-app-info">
+<h3 class="margin-bottom-xxs font-primary">👋 First time here?</h3>
+<p class="margin-bottom-xxs">This component is part of a library of accessible, production-ready assets built upon the CodyHouse Framework.</p>
+<p class="margin-bottom-md">Explore → <a href="https://codyhouse.co/ds/get-started">Get started</a> | <a href="https://codyhouse.co/ds/components">Components</a> | <a href="https://codyhouse.co/ds/globals">Global Editors</a></p>
+<button class="app-btn app-btn--primary js-app-info-banner__close">OK, got it!</button>
+</div><div class="flash-message js-flash-message flash-message--error js-flash-message--project-update" role="status" data-message-trigger="" data-duration="3000">
+<p><strong>Error:</strong> please try again or <a href="https://codyhouse.co/contact">contact us</a></p>
+</div></main>
+<div style="top: 40px; left: 8px;" class="menu-popup js-menu-popup js-app-header-menu" id="app-header-menu-popup">
+<menu class="menu-popup__list">
+<li class="menu-popup__item" data-modal="modalDsSearch">
+<span class="menu-popup__item-content">
+<svg aria-hidden="true" class="icon margin-right-xxs" viewBox="0 0 16 16"><g><path d="M15.707,13.293L13,10.586c0.63-1.05,1-2.275,1-3.586c0-3.86-3.141-7-7-7S0,3.14,0,7s3.141,7,7,7 c1.312,0,2.536-0.369,3.586-1l2.707,2.707C13.488,15.902,13.744,16,14,16s0.512-0.098,0.707-0.293l1-1 C16.098,14.316,16.098,13.684,15.707,13.293z M7,12c-2.761,0-5-2.239-5-5s2.239-5,5-5s5,2.239,5,5S9.761,12,7,12z"></path></g></svg>
+<span>Search</span>
+<span class="margin-left-auto color-contrast-medium">Ctrl E</span>
+</span>
+</li>
+<li class="menu-popup__item js-app-dark-mode">
+<span class="menu-popup__item-content">
+<svg aria-hidden="true" class="icon margin-right-xxs" viewBox="0 0 16 16"><path d="M6,0C2.5,0.9,0,4.1,0,7.9C0,12.4,3.6,16,8.1,16c3.8,0,6.9-2.5,7.9-6C9.9,11.7,4.3,6.1,6,0z"></path></svg>
+<span><b class="menu-popup__state-a">Enable</b><b class="menu-popup__state-b">Disable</b> Dark Mode</span>
+</span>
+</li>
+<li class="menu-popup__divider" aria-hidden="true"></li>
+<li class="menu-popup__item">
+<a href="https://codyhouse.co/ds/get-started" class="menu-popup__item-content">
+<svg aria-hidden="true" class="icon margin-right-xxs" viewBox="0 0 16 16"><path d="M14,0H2C1.4,0,1,0.4,1,1v14c0,0.6,0.4,1,1,1h12c0.6,0,1-0.4,1-1V1C15,0.4,14.6,0,14,0z M13,14H3V2h10V14z"></path><rect x="4" y="3" width="4" height="4"></rect><rect x="9" y="4" width="3" height="1"></rect><rect x="9" y="6" width="3" height="1"></rect><rect x="4" y="8" width="8" height="1"></rect><rect x="4" y="10" width="8" height="1"></rect><rect x="4" y="12" width="5" height="1"></rect></svg>
+<span>Documentation</span>
+</a>
+</li>
+<li class="menu-popup__item">
+<a href="https://codyhouse.co/ds/components" class="menu-popup__item-content">
+<svg aria-hidden="true" class="icon margin-right-xxs" viewBox="0 0 16 16"><path d="M6,0H1A1,1,0,0,0,0,1V6A1,1,0,0,0,1,7H6A1,1,0,0,0,7,6V1A1,1,0,0,0,6,0ZM5,5H2V2H5Z"></path><path d="M15,9H10a1,1,0,0,0-1,1v5a1,1,0,0,0,1,1h5a1,1,0,0,0,1-1V10A1,1,0,0,0,15,9Zm-1,5H11V11h3Z"></path><path d="M6,9H1a1,1,0,0,0-1,1v5a1,1,0,0,0,1,1H6a1,1,0,0,0,1-1V10A1,1,0,0,0,6,9ZM5,14H2V11H5Z"></path><path d="M12.5,7a1,1,0,0,1-.707-.293l-2.5-2.5a1,1,0,0,1,0-1.414l2.5-2.5a1,1,0,0,1,1.414,0l2.5,2.5a1,1,0,0,1,0,1.414l-2.5,2.5A1,1,0,0,1,12.5,7Z"></path></svg>
+<span>Components</span>
+</a>
+</li>
+<li class="menu-popup__item">
+<a href="https://codyhouse.co/ds/globals" class="menu-popup__item-content">
+<svg aria-hidden="true" class="icon margin-right-xxs" viewBox="0 0 16 16"><path data-color="color-2" d="M12.586,15l-3.793-3.793L7,14L5,6l8,2l-2.793,1.793L14,13.586L12.586,15z"></path> <path d="M4,10H1c-0.553,0-1-0.448-1-1V1c0-0.552,0.447-1,1-1h14c0.553,0,1,0.448,1,1v7h-2V2H2v6h2V10z"></path></svg>
+<span>Globals</span>
+</a>
+</li>
+</menu>
+</div>
+<div class="modal js-modal js-modal--ds-search" data-modal-trigger="modalDsSearch">
+<div class="ds-search ds-search--results-visible">
+<form class="ds-search__form" action="https://codyhouse.co/ds/components">
+<div class="ds-search__input-wrapper">
+<input type="search" placeholder="Search..." name="s" class="reset ds-search__input js-ds-search__input" autocomplete="off">
+<span class="ds-search__loader ds-search__loader--is-hidden js-ds-search__loader" aria-hidden="true">
+<svg class="icon icon--sm color-primary icon--is-spinning" viewBox="0 0 32 32"><path d="M16,32A16,16,0,1,1,32,16,16.019,16.019,0,0,1,16,32ZM16,4A12,12,0,1,0,28,16,12.013,12.013,0,0,0,16,4Z" fill="currentColor" opacity="0.4"></path><path d="M32,16H28A12.013,12.013,0,0,0,16,4V0A16.019,16.019,0,0,1,32,16Z" fill="currentColor"></path></svg>
+</span>
+</div>
+</form>
+<div class="ds-search__results display@md js-ds-search is-hidden">
+<ul class="ds-search__list js-ds-search__list">
+</ul>
+</div>
+</div>
+<button class="modal__close-btn js-modal__close">
+<svg class="icon" viewBox="0 0 16 16"><title>Close modal window</title><g stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="13.5" y1="2.5" x2="2.5" y2="13.5" data-cap="butt"></line><line x1="2.5" y1="2.5" x2="13.5" y2="13.5" data-cap="butt"></line></g></svg>
+</button>
+</div><div class="modal modal--full-screen js-modal js-highlight js-modal-code" data-modal-trigger="modal-code">
+<div class="modal__content" role="alertdialog" tabindex="-1" aria-label="modalTitle">
+<header class="modal__header">
+<div class="modal__view-switch js-modal__view-switch">
+<button class="is-selected" data-type="html">HTML</button>
+<button data-type="css">SCSS</button>
+<button data-type="js">JS</button>
+</div>
+<button class="modal__header-close-btn js-modal__close">
+<svg class="icon" viewBox="0 0 16 16"><title>Close modal window</title><g stroke-width="1.5" stroke="currentColor"><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="13.5" y1="2.5" x2="2.5" y2="13.5" data-cap="butt"></line> <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="2.5" y1="2.5" x2="13.5" y2="13.5" data-cap="butt"></line> </g></svg>
+</button>
+</header>
+<div class="modal__body">
+<div class="modal__code">
+
+<pre><code class="html js-modal__code"></code></pre>
+</div>
+</div>
+<button class="btn btn--subtle btn--floating js-modal__copy">
+<em class="btn__content-a icon-text">
+<svg aria-hidden="true" class="icon" viewBox="0 0 16 16"><g><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M2 5h9v10H2z"></path><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M6 2V1h9v10h-1"></path></g></svg>
+<span class="js-modal__copy-text">Copy HTML</span>
+</em>
+<em class="btn__content-b icon-text">
+<svg aria-hidden="true" class="icon" viewBox="0 0 16 16"><g><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M2 5h9v10H2z"></path><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M6 2V1h9v10h-1"></path></g></svg>
+<span>Copied!</span>
+</em>
+</button>
+<div class="modal-code__loader">
+<svg aria-hidden="true" class="icon icon--is-spinning" viewBox="0 0 64 64"><title>loader</title><g stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" fill="#296df3" stroke="#296df3"><circle cx="32" cy="32" r="30" fill="none" stroke="#455568" stroke-miterlimit="10" opacity="0.4"></circle> <path d="M32,2A30,30,0,0,1,62,32" fill="none" stroke-miterlimit="10" data-cap="butt" data-color="color-2" stroke-linecap="butt"></path></g></svg>
+</div>
+</div>
+<div class="app-info-banner js-app-info-banner app-info-banner--sm" data-info="">
+<h3 class="margin-bottom-xxs font-primary">⚠️ Dependencies</h3>
+<p class="margin-bottom-xxs">If you're using this component, you should include the SCSS/JS of the following components:</p>
+<ul class="margin-bottom-md js-app-info-banner__list">
+<li>📦 <a href="https://codyhouse.co/#0">Component name</a></li>
+</ul>
+<button class="app-btn app-btn--primary js-app-info-banner__close">OK, got it!</button>
+</div>
+</div><div class="modal js-modal " data-modal-trigger="modalRegistrationRequired">
+<div class="modal__content max-width-xs js-modal-content" role="alertdialog" tabindex="-1" aria-labelledby="modalTitleRegistration1" aria-describedby="modalDescriptionRegistration1">
+<header class="modal__header">
+<h3 class="modal__title text-truncate" id="modalTitleRegistration1">🔐 Login Required</h3>
+<button class="modal__header-close-btn js-modal__close">
+<svg class="icon" viewBox="0 0 16 16"><title>Close modal window</title><g stroke-width="1.5" stroke="currentColor"><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="13.5" y1="2.5" x2="2.5" y2="13.5" data-cap="butt"></line> <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="2.5" y1="2.5" x2="13.5" y2="13.5" data-cap="butt"></line> </g></svg>
+</button>
+</header>
+<div class="modal__body">
+<div class="text-component">
+<p id="modalDescriptionRegistration1">Create a free CodyHouse account to unlock members-only features and join our community of web designers!</p>
+</div>
+<div class="margin-top-md">
+<div class="flex flex-wrap justify-end flex-gap-sm">
+<button class="btn btn--subtle js-login-trigger">
+<svg class="icon margin-right-xxxs" viewBox="0 0 16 16"><g stroke="none"><circle cx="8" cy="5" r="3"></circle><path d="M8 9a5 5 0 0 0-5 5h10a5 5 0 0 0-5-5z"></path></g></svg>
+<span>Login</span>
+</button>
+<a href="https://codyhouse.co/sign-up" class="btn btn--primary">Create Free Account</a>
+</div>
+</div>
+</div>
+</div>
+<div class="modal__content max-width-xs modal__content--is-hidden js-modal-content" role="alertdialog" tabindex="-1" aria-labelledby="modalTitleRegistration2">
+<header class="modal__header">
+<h3 class="modal__title text-truncate" id="modalTitleRegistration2">🔐 Login</h3>
+<button class="modal__header-close-btn js-modal__close">
+<svg class="icon" viewBox="0 0 16 16"><title>Close modal window</title><g stroke-width="1.5" stroke="currentColor"><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="13.5" y1="2.5" x2="2.5" y2="13.5" data-cap="butt"></line> <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="2.5" y1="2.5" x2="13.5" y2="13.5" data-cap="butt"></line> </g></svg>
+</button>
+</header>
+<div class="modal__body">
+<div class="alert margin-bottom-sm alert--error js-alert--error" role="alert">
+<div class="alert__content">
+<div class="text-component">
+<p><strong>Error:</strong> email or password not valid. Need help? <a href="https://codyhouse.co/contact">Contact us</a>.</p>
+</div>
+</div>
+</div>
+<p class="margin-bottom-md">or <a class="color-secondary" href="https://codyhouse.co/sign-up">create an account</a></p>
+<form method="post" class="js-login-form">
+<div class="margin-bottom-md">
+<div class="grid grid-gap-xs">
+<div class="col-6@sm js-signup-form__input-wrapper">
+<label class="form-label" for="loginEmail">Email <span class="form-label__error">- Required</span></label>
+<input class="form-control width-100%" type="email" name="loginEmail" id="loginEmail" required="">
+</div>
+<div class="col-6@sm js-signup-form__input-wrapper">
+<label class="form-label" for="loginPassword">Password <span class="form-label__error">- Required</span></label>
+<div class="password js-password">
+<input class="form-control width-100% password__input js-password__input" type="password" name="loginPassword" id="loginPassword" required="">
+<button class="password__btn flex flex-center js-password__btn" aria-hidden="true">
+<span class="password__btn-label" title="Show Password">Show</span>
+<span class="password__btn-label" title="Hide Password">Hide</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between flex-wrap flex-gap-xs items-center">
+<a class="color-secondary" href="https://codyhouse.co/lost-password">Lost your password?</a>
+<button class="btn btn--primary btn--md btn--preserve-width js-login-form__submit">
+<span class="btn__content-a">
+Login </span>
+<span class="btn__content-b">
+<svg class="icon icon--md icon--is-spinning" viewBox="0 0 32 32"><path d="M16,32A16,16,0,1,1,32,16,16.019,16.019,0,0,1,16,32ZM16,4A12,12,0,1,0,28,16,12.013,12.013,0,0,0,16,4Z" fill="currentColor" opacity="0.4"></path><path d="M32,16H28A12.013,12.013,0,0,0,16,4V0A16.019,16.019,0,0,1,32,16Z" fill="currentColor"></path></svg>
+</span>
+</button> </div>
+</form>
+</div>
+</div>
+<button class="modal__close-btn js-modal__close">
+<svg class="icon" viewBox="0 0 16 16"><title>Close modal window</title><g stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="13.5" y1="2.5" x2="2.5" y2="13.5" data-cap="butt"></line><line x1="2.5" y1="2.5" x2="13.5" y2="13.5" data-cap="butt"></line></g></svg>
+</button>
+</div><div class="modal js-modal " data-modal-trigger="modalProRequired">
+<div class="modal__content max-width-xs js-modal-content" role="alertdialog" tabindex="-1" aria-labelledby="modalTitlePro1" aria-describedby="modalDescriptionPro1">
+<header class="modal__header">
+<h3 class="modal__title text-truncate" id="modalTitlePro1">🚀 Upgrade to CodyHouse Pro</h3>
+<button class="modal__header-close-btn js-modal__close">
+<svg class="icon" viewBox="0 0 16 16"><title>Close modal window</title><g stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="13.5" y1="2.5" x2="2.5" y2="13.5"></line><line x1="2.5" y1="2.5" x2="13.5" y2="13.5"></line></g></svg>
+</button>
+</header>
+<div class="modal__body">
+<div class="text-component">
+<ul>
+<li>✅ Unlimited CodyHouse projects</li>
+<li>✅ Unlock 66 pro components and counting</li>
+<li>✅ One-click project export</li>
+</ul>
+</div>
+<footer class="margin-top-md">
+<div class="flex flex-column flex-gap-sm flex-row@sm items-center@sm justify-end@sm">
+<a href="https://codyhouse.co/log-in" class="color-inherit margin-right-auto" data-display="notLoggedIn">Log in</a>
+<a href="https://codyhouse.co/codyhouse-pro" class="btn btn--subtle">Learn more</a>
+<a href="https://codyhouse.co/sign-up?become-pro" class="btn btn--primary">Go Pro - $89/year</a>
+</div>
+</footer>
+</div>
+</div>
+<button class="modal__close-btn js-modal__close">
+<svg class="icon" viewBox="0 0 16 16"><title>Close modal window</title><g stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="13.5" y1="2.5" x2="2.5" y2="13.5" data-cap="butt"></line><line x1="2.5" y1="2.5" x2="13.5" y2="13.5" data-cap="butt"></line></g></svg>
+</button>
+</div><div class="modal js-modal  js-modal--dependencies" data-modal-trigger="">
+<div class="modal__content max-width-sm js-modal-content" role="alertdialog" tabindex="-1" aria-labelledby="modalTitleCopyCode1" aria-describedby="modalDescriptionCopyCode1">
+<header class="modal__header">
+<h3 class="modal__title text-truncate" id="modalTitleCopyCode1">⚠️ Dependencies</h3>
+<button class="modal__header-close-btn js-modal__close">
+<svg class="icon" viewBox="0 0 16 16"><title>Close modal window</title><g stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="13.5" y1="2.5" x2="2.5" y2="13.5"></line><line x1="2.5" y1="2.5" x2="13.5" y2="13.5"></line></g></svg>
+</button>
+</header>
+<div class="modal__body">
+<div class="text-component">
+<p id="modalDescriptionCopyCode1">If you're using this component, you should include the SCSS/JS of the following components:</p>
+</div>
+<ul class="dependencies js-dependencies margin-top-sm">
+<li class="dependencies__item js-dependencies__item">
+<div class="dependencies__title js-dependencies__title">📦 Expandable Search <br><span class="dependencies__current-label">Current component</span></div>
+<div class="dependencies__cta js-code-action-wrapper" data-js="// File#: _1_expandable-search
+// Usage: codyhouse.co/license
+(function() {
+	var expandableSearch = document.getElementsByClassName(&#39;js-expandable-search&#39;);
+	if(expandableSearch.length &gt; 0) {
+		for( var i = 0; i &lt; expandableSearch.length; i++) {
+			(function(i){ // if user types in search input, keep the input expanded when focus is lost
+				expandableSearch[i].getElementsByClassName(&#39;js-expandable-search__input&#39;)[0].addEventListener(&#39;input&#39;, function(event){
+					Util.toggleClass(event.target, &#39;expandable-search__input--has-content&#39;, event.target.value.length &gt; 0);
+				});
+			})(i);
+		}
+	}
+}());" data-scss="/* -------------------------------- 
+
+File#: _1_expandable-search
+Title: Expandable Search
+Descr: A search button that expands to reveal a search input element
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --expandable-search-size-compact: 2.2em; // height and width - compact version
+  --expandable-search-size-expanded: 10em; // width - expanded version
+  --expandable-search-icon-size: 1.2em; // lens icon size
+}
+
+.expandable-search {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+
+.expandable-search__input {
+  width: var(--expandable-search-size-compact);
+  height: var(--expandable-search-size-compact);
+  padding: 0;
+  color: transparent;
+  overflow: hidden;
+  border-radius: 50em;
+  transition: width .3s var(--ease-out), box-shadow .3s, background-color .3s;
+
+  &amp;::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  &amp;::-moz-placeholder {
+    opacity: 0;
+    color: transparent;
+  }
+
+  &amp;:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  &amp;:-moz-placeholder {
+    color: transparent;
+  }
+
+  &amp;:hover {
+    background-color: var(--color-contrast-lower);
+    cursor: pointer;
+  }
+
+  &amp;:focus, &amp;.expandable-search__input--has-content {
+    background-color: var(--color-bg);
+    width: var(--expandable-search-size-expanded);
+    padding-top: 0;
+    padding-right: calc(4px + var(--expandable-search-size-compact));
+    padding-bottom: 0;
+    padding-left: var(--space-sm);
+    outline: none;
+    box-shadow: var(--shadow-md), 0 0 0 2px var(--color-primary);
+    color: var(--color-contrast-higher);
+    cursor: auto;
+    user-select: auto;
+
+    &amp;::-webkit-input-placeholder {
+      color: var(--color-contrast-medium);
+    }
+  
+    &amp;::-moz-placeholder {
+      opacity: 1;
+      color: var(--color-contrast-medium);
+    }
+  
+    &amp;:-ms-input-placeholder {
+      color: var(--color-contrast-medium);
+    }
+  
+    &amp;:-moz-placeholder {
+      color: var(--color-contrast-medium);
+    }
+  }
+
+  &amp;:focus + .expandable-search__btn {
+    pointer-events: auto;
+  }
+
+  &amp;::-webkit-search-decoration,
+  &amp;::-webkit-search-cancel-button,
+  &amp;::-webkit-search-results-button,
+  &amp;::-webkit-search-results-decoration { 
+    display: none; 
+  }
+}
+
+.expandable-search__btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: calc(var(--expandable-search-size-compact) - 4px);
+  height: calc(var(--expandable-search-size-compact) - 4px);
+  border-radius: 50em;
+  z-index: 1;
+  pointer-events: none;
+  transition: background-color .3s;
+
+  .icon {
+    font-size: var(--expandable-search-icon-size); // icon size
+  }
+
+  &amp;:hover {
+    background-color: var(--color-contrast-lower);
+  }
+
+  &amp;:focus {
+    outline: none;
+    background-color: alpha(var(--color-primary), 0.15);
+  }
+}">
+<span class="color-contrast-medium">Copy:</span>
+<button class="btn btn--subtle js-copy-code" data-type="scss">
+<span class="btn__content-a">SCSS</span>
+<span class="btn__content-b">Copied!</span>
+</button>
+<button class="btn btn--subtle js-copy-code" data-type="js">
+<span class="btn__content-a">JS</span>
+<span class="btn__content-b">Copied!</span>
+</button>
+</div>
+</li>
+</ul> </div>
+</div>
+<button class="modal__close-btn js-modal__close">
+<svg class="icon" viewBox="0 0 16 16"><title>Close modal window</title><g stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="13.5" y1="2.5" x2="2.5" y2="13.5" data-cap="butt"></line><line x1="2.5" y1="2.5" x2="13.5" y2="13.5" data-cap="butt"></line></g></svg>
+</button>
+</div><script>
+  var ROUTE    = 'ds_components_app_expandable-search';
+  var AJAX_URL = 'post/';
+  const IS_LOGGED = '0';
+  const IS_FREE = '1';
+  var PROJECT = false;
+  const STRIPE_PB = 'pk_live_p56FkgnQWNOGpuAU1C0oS458';
+  var COMPNUM = '199';
+</script>
+<script src="./demo_files/saved_resource"></script>
+<script src="./demo_files/main.min.js.download"></script> 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48014931-1', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script><script src="./demo_files/app-main.min.js.download"></script> 
+
+<iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeMetricsController0" allowpaymentrequest="true" src="./demo_files/outer.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body></html>

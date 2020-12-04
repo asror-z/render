@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>MoOx</title>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.js"></script>
+
+    <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/copy-to-clipboard@3.3.1/example/index.js"></script>-->
+
+    <script type="text/javascript" src="https://cdn.statically.io/gh/MoOx/pjax/480334b1/index.js"></script>
+
+</head>
+
+<body>
+<header class="the-header">
+    <button data-manual-trigger>
+        <a class="js-Pjax">MoOx</a>
+    </button>
+    <br /><br />
+    
+</header>
+
+<script>
+
+
+    /* global Pjax */
+    var pjax;
+    var initButtons = function() {
+        var buttons = document.querySelectorAll("button[data-manual-trigger]");
+
+        if (!buttons) {
+            return;
+        }
+
+        // jshint -W083
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e) {
+                var el = e.currentTarget;
+
+                if (el.getAttribute("data-manual-trigger-override") === "true") {
+                    // Manually load URL with overridden Pjax instance options
+                    pjax.loadUrl("content1.html");
+                } else {
+                    // Manually load URL with current Pjax instance options
+                    pjax.loadUrl("content1.html");
+                }
+            });
+        }
+        // jshint +W083
+    };
+
+    console.log("Document initialized:", window.location.href);
+
+    document.addEventListener("pjax:send", function() {
+        console.log("Event: pjax:send", ".the-header");
+    });
+
+    document.addEventListener("pjax:complete", function() {
+        console.log("Event: pjax:complete", arguments);
+    });
+
+    document.addEventListener("pjax:error", function() {
+        console.log("Event: pjax:error", arguments);
+    });
+
+    document.addEventListener("pjax:success", function() {
+        console.log("Event: pjax:success", arguments );
+
+        // Init page content
+        initButtons();
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Init Pjax instance
+        pjax = new Pjax({
+            elements: [".js-Pjax"],
+            selectors: [".the-header", ".js-pjax"],
+            cacheBust: true,
+            scrollTo: 0,
+            scrollRestoration: true,
+            debug: false,
+            currentUrlFullReload: false,
+            timeout: 0
+        });
+        console.log("Pjax initialized.", pjax);
+        // Init page content
+        initButtons();
+    });
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+

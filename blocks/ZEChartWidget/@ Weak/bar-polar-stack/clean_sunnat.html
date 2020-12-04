@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- including ECharts file -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.js"></script>
+</head>
+<body>
+    <!-- prepare a DOM container with width and height -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // based on prepared DOM, initialize echarts instance
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // specify chart configuration item and data
+        option = {
+    angleAxis: {
+    },
+    radiusAxis: {
+        type: 'category',
+        data: ['周一', '周二', '周三', '周四'],
+        z: 10
+    },
+    polar: {
+    },
+    series: [{
+        type: 'bar',
+        data: [1, 2, 3, 4],
+        coordinateSystem: 'polar',
+        name: 'A',
+        stack: 'a'
+    }, {
+        type: 'bar',
+        data: [2, 4, 6, 8],
+        coordinateSystem: 'polar',
+        name: 'B',
+        stack: 'a'
+    }, {
+        type: 'bar',
+        data: [1, 2, 3, 4],
+        coordinateSystem: 'polar',
+        name: 'C',
+        stack: 'a'
+    }],
+    legend: {
+        show: true,
+        data: ['A', 'B', 'C']
+    }
+};
+
+
+        // use configuration item and data specified to show chart
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

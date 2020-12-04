@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- saved from url=(0103)https://www.jqueryscript.net/demo/jQuery-Plugin-For-Custom-Tags-Input-Select-Box-selectize-js/examples/ -->
+<html class="no-js"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery Selectize Demo</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="demo_files/_normalize.css">
+<link rel="stylesheet" href="demo_files/_stylesheet.css">
+<link rel="stylesheet" href="demo_files/selectize.css">
+<link href="./demo_files/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="./demo_files/f(4).txt"></script><script src="./demo_files/osd.js.download"></script><script src="./demo_files/f(5).txt" id="google_shimpl"></script><script src="./demo_files/f(6).txt"></script><script src="./demo_files/jquery.min.js.download"></script>
+<script src="demo_files/selectize.js.download"></script>
+<script src="./demo_files/_demos.js.download"></script>
+<link rel="preload" href="demo_files/f(7).txt" as="script"><script type="text/javascript" src="demo_files/f(7).txt"></script><link rel="preload" href="demo_files/f(8).txt" as="script"><script type="text/javascript" src="demo_files/f(8).txt"></script></head>
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/form/jQuery-Plugin-For-Custom-Tags-Input-Select-Box-selectize-js.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="demo_files/f(9).txt">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;" data-ad-slot="2780937993"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:728px;height:90px;" src="demo_files/saved_resource.html"></iframe></ins></ins></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<div id="wrapper">
+<h1>Selectize Demos</h1>
+<div class="demo">
+<h2>&lt;input type="text"&gt;</h2>
+<div class="control-group">
+<label for="input-tags">Tags:</label>
+<input type="text" id="input-tags" class="demo-default selectized" value="jQueryScript,.net" style="display: none;"><div class="value">Current Value: <span>"jQueryScript,.net"</span></div><div class="default selectize-control multi" style="display: inline-block;"><div class="selectize-input items has-options has-items not-full"><div data-value="jQueryScript" class="item">jQueryScript</div><div data-value=".net" class="item">.net</div><input type="text" style="width: 4px;"></div><div class="selectize-dropdown" style="display: none;"></div></div>
+</div>
+<script>
+				$('#input-tags').selectize({
+					delimiter: ',',
+					persist: false,
+					create: function(input) {
+						return {
+							value: input,
+							text: input
+						}
+					}
+				});
+				</script><pre class="js">$('#input-tags').selectize({
+    delimiter: ',',
+    persist: false,
+    create: function(input) {
+        return {
+            value: input,
+            text: input
+        }
+    }
+});</pre> 
+</div>
+<div class="demo">
+<h2>&lt;select&gt;</h2>
+<div class="control-group">
+<label for="select-beast">Beast:</label>
+<select id="select-beast" class="demo-default selectized" placeholder="Select a person..." style="display: none;"><option value="" selected="selected"></option></select><div class="value">Current Value: <span>""</span></div><div class="default selectize-control single" style="display: inline-block;"><div class="selectize-input items has-options not-full"><input type="text" placeholder="Select a person..." style="width: 113px;"></div><div class="selectize-dropdown" style="display: none; width: 1089px; top: 42px; left: 0px;"></div></div>
+</div>
+<script>
+				$('#select-beast').selectize({
+					create: true,
+					sortField: 'text'
+				});
+				</script><pre class="js">$('#select-beast').selectize({
+    create: true,
+    sortField: 'text'
+});</pre> 
+</div>
+<div class="demo">
+<h2>&lt;select multiple&gt;</h2>
+<div class="control-group">
+<label for="select-state">States:</label>
+<select id="select-state" name="state[]" multiple="multiple" class="demo-default selectized" style="width: 50%; display: none;" placeholder="Select a state..."><option value="CA" selected="selected"></option><option value="WY" selected="selected"></option></select><div class="value">Current Value: <span>["CA","WY"]</span></div><div class="default selectize-control multi" style="width: 50%; display: inline-block;"><div class="selectize-input items has-options has-items not-full"><div data-value="CA" class="item">California</div><div data-value="WY" class="item">Wyoming</div><input type="text" style="width: 4px;"></div><div class="selectize-dropdown" style="display: none; width: 545px; top: 42px; left: 0px;"></div></div>
+</div>
+<script>
+				$('#select-state').selectize({
+					maxItems: 3
+				});
+				</script><pre class="js">$('#select-state').selectize({
+    maxItems: 3
+});</pre> 
+</div>
+<div class="demo">
+<div class="control-group">
+<label for="select-country">Country:</label>
+<select id="select-country" class="demo-default selectized" placeholder="Select a country..." style="display: none;"><option value="" selected="selected"></option></select><div class="value">Current Value: <span>""</span></div><div class="default selectize-control single" style="display: inline-block;"><div class="selectize-input items has-options not-full"><input type="text" placeholder="Select a country..." style="width: 115px;"></div><div class="selectize-dropdown" style="display: none; width: 1089px; top: 42px; left: 0px;"></div></div>
+</div>
+<script>
+				$('#select-country').selectize();
+				</script><pre class="js">$('#select-country').selectize();</pre> 
+</div>
+</div>
+
+<iframe id="google_osd_static_frame_6765467363770" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./demo_files/saved_resource(1).html"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" src="./demo_files/saved_resource(2).html"></iframe></ins></ins></ins></body><iframe id="google_esf" name="google_esf" src="./demo_files/zrt_lookup.html" data-ad-client="ca-pub-2783044520727903" style="display: none;"></iframe></html>

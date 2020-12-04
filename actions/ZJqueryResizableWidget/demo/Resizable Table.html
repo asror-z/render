@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resizable Table</title>
+
+    <style>
+
+        .page-container {
+            margin: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 800px;
+        }
+        td,th {
+            padding: 8px;
+            border: 1px solid silver;
+        }
+        th {
+            color: white;
+            background: #535353;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+
+    <table>
+        <thead>
+        <th>
+            col 1
+        </th>
+        <th>
+            col 2
+        </th>
+        <th>
+            col 3
+        </th>
+        <th>
+            col 4
+        </th>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>
+                Column 1
+            </td>
+            <td>
+
+                Column 2
+            </td>
+            <td>
+
+                Column 3
+            </td>
+            <td>
+                Column 4
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Column 1
+            </td>
+            <td>
+                Column 2
+            </td>
+            <td>
+                Column 3
+            </td>
+            <td>
+                Column 4
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+</div>
+
+<style>
+    .resizer {
+        position: absolute;
+        top: 0;
+        right: -8px;
+        bottom: 0;
+        left: auto;
+        width: 16px;
+        cursor: col-resize;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.statically.io/gh/RickStrahl/jquery-resizable/master/src/jquery-resizable.js"></script>
+<script src="https://cdn.statically.io/gh/RickStrahl/jquery-resizable/master/src/jquery-resizableTableColumns.js"></script>
+<script>
+    $("td,th").resizableTableColumns();
+    $("td:first-child,td:nth-child(2),td:nth-child(3)").resizableTableColumns();
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .expandable-search {
+        position: relative;
+        display: inline-block;
+        user-select: none;
+    }
+
+    .expandable-search__input {
+        width: 2.2em;
+        height: 2.2em;
+        padding: 0;
+        color: transparent;
+        overflow: hidden;
+        border-radius: 50em;
+        transition: width .3s ease-out, box-shadow .3s, background-color .3s;
+
+
+    }
+    .expandable-search__input::-webkit-input-placeholder {
+         color: transparent;
+     }
+
+    .expandable-search__input::-moz-placeholder {
+         opacity: 0;
+         color: transparent;
+     }
+
+    .expandable-search__input:-ms-input-placeholder {
+         color: transparent;
+     }
+
+    .expandable-search__input:-moz-placeholder {
+         color: transparent;
+     }
+
+    .expandable-search__input:hover {
+         background-color: hsl(0, 0%, 95%);
+         cursor: pointer;
+     }
+
+    .expandable-search__input:focus, .expandable-search__input.expandable-search__input--has-content {
+                  background-color: hsl(0, 0%, 100%);
+                  width: 10em;
+                  padding-top: 0;
+                  padding-right: calc(4px + 2.2em);
+                  padding-bottom: 0;
+                  padding-left: calc(0.75 * 1em);
+                  outline: none;
+                  box-shadow: 0 1px 8px rgba(0, 0, 0, .085), 0 8px 24px rgba(0, 0, 0, .1), 0 0 0 2px hsl(220, 90%, 56%);
+                  color: hsl(240, 8%, 12%);
+                  cursor: auto;
+                  user-select: auto;
+
+    .expandable-search__input::-webkit-input-placeholder {
+         color: hsl(240, 1%, 48%);
+     }
+
+    .expandable-search__input::-moz-placeholder {
+         opacity: 1;
+         color: hsl(240, 1%, 48%);
+     }
+
+    .expandable-search__input:-ms-input-placeholder {
+         color: hsl(240, 1%, 48%);
+     }
+
+    .expandable-search__input:-moz-placeholder {
+         color: hsl(240, 1%, 48%);
+     }
+    }
+
+    .expandable-search__input:focus + .expandable-search__btn {
+         pointer-events: auto;
+     }
+
+    .expandable-search__input::-webkit-search-decoration,
+    .expandable-search__input::-webkit-search-cancel-button,
+    .expandable-search__input::-webkit-search-results-button,
+    .expandable-search__input::-webkit-search-results-decoration {
+         display: none;
+     }
+
+    .expandable-search__btn {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: calc(2.2em - 4px);
+        height: calc(2.2em - 4px);
+        border-radius: 50em;
+        z-index: 1;
+        pointer-events: none;
+        transition: background-color .3s;
+
+        }
+    .icon {
+        font-size: 1.2em;
+    }
+
+    .expandable-search__btn:hover {
+        background-color: hsl(0, 0%, 95%);
+    }
+
+    .expandable-search__btn:focus {
+        outline: none;
+        background-color: alpha(hsl(220, 90%, 56%), 0.15);
+    }
+
+</style>
+<script>
+    !function(){var e=document.getElementsByClassName("js-expandable-search");if(0<e.length)for(var t=0;t<e.length;t++)e[t].getElementsByClassName("js-expandable-search__input")[0].addEventListener("input",function(e){Util.toggleClass(e.target,"tlj",0<e.target.value.length)})}();
+</script>
+<body>
+<form class="expandable-search  js-expandable-search">
+    <label class="sr-only" for="searchInputX">Search</label>
+    <input class="reset expandable-search__input js-expandable-search__input" type="search" name="searchInputX" id="searchInputX" placeholder="Search...">
+    <button class="reset expandable-search__btn">
+        <svg class="icon" viewBox="0 0 24 24"><title>Search</title><g stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" stroke="currentColor" fill="none" stroke-miterlimit="10"><line x1="22" y1="22" x2="15.656" y2="15.656"></line><circle cx="10" cy="10" r="8"></circle></g></svg>
+    </button>
+    
+
+</form>
+</body>
+</html>

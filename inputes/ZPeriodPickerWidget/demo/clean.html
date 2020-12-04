@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="js files/jquery.periodpicker.min.css">
+    <script src="js files/jquery.min.js"></script>
+    <script src="js files/jquery.periodpicker.full.min.js"></script>
+</head>
+<body>
+
+    <input id="periodpickerstart" type="text" />
+    <input id="periodpickerend" type="text" />
+    
+
+
+
+    <script>
+        jQuery('#periodpickerstart').periodpicker({
+            end: '#periodpickerend',
+            norange: false, // use only one value
+            cells: [1, 3], // show only one month
+
+            resizeButton: false, // deny resize picker
+            fullsizeButton: false,
+            fullsizeOnDblClick: true,
+            onOkButtonClick: function () {
+                alert(this.startinput.val()) // this is PeriodPicker instance
+                },
+            onTodayButtonClick: function () {
+                this.month = 1;
+                this.year = 2027;
+                this.regenerate();
+                return false;
+            },
+            onChange: function () {
+                $('form').submit()
+            },
+            onChangePeriod: function () {
+                $('form').submit()
+            },
+            onFromSelected: function () {
+                $('form').submit()
+            },
+            onFromChanged: function () {
+                $('form').submit()
+            },
+            onToSelected: function () {
+                $('form').submit()
+            },
+            onToChanged: function () {
+                $('form').submit()
+            },
+            onClearButtonClick: function () {
+                $('form').submit()
+            },
+            timepicker: true, // use timepicker
+            timepickerOptions: {
+                hours: true,
+                minutes: true,
+                seconds: false,
+                ampm: true,
+                saveOnChange: true
+            }
+        });
+
+            var config;
+            config = [{
+                'title' : 'ZCore Interactive Calendar v4',
+                'buttonTitle' : 'Получить данные',
+                'suffix' : self > 'Suffix_One',
+                'popType' : '',
+                'layout' : [],
+                'isPop' : false,
+                'popIcon' : 'FA >CALENDAR',
+                'popPlace' : 'PopoverX >_ALIGN_AUTO_RIGHT',
+                'popClass' : 'fa-2x',
+                'popWidth' : '60%',
+                'valueStart' : '',
+                'valueEnd' : '',
+                'format' : 'unixtime',
+                'formatDateTime' : 'YYYY-MM-DD HH:mm:ss',
+                'formDate' : 'YYYY-MM-DD',
+                'defaultEndTime' : '23:59:59',
+                'defaultTime' : '00:00:00',
+        }];
+
+            /**
+             *
+             *
+             *  Private Data
+             */
+            var  option;
+        {
+            option = [{
+
+                'end' : "#{$this->_id_End}",
+                'title' : true,
+                'yearsLine' : true,
+                'clearButtonInButton' : true,
+                'clearButton' : true,
+                'resizeButton' : true,
+                'fullsizeButton' : true,
+                'fullsizeOnDblClick' : true,
+                'formatDateTime' : '$this>_config[formatDateTime]',
+                'formatDate' : '$this>_config[formDate]',
+                'navigate' : true,
+                'defaultEndTime' : '$this>_config[defaultEndTime]',
+                'draggable' : true,
+                'mousewheel' : true,
+                'format' : '$this>config[format]',
+                'reverseMouseWheel' : true,
+                'mousewheelYearsLine' : true,
+                'lang' : 'Az>$app>language',
+                'timepicker' : true,
+                'animation' : true,
+                'tabIndex' : true,
+                'okButton' : true,
+                'timepickerOptions' : [{
+                    'dragAndDrop': true,
+                    'mouseWheel': true,
+                    'clickAndSelect' : true,
+                    'inverseMouseWheel' : true,
+                    'saveOnChange' : true,
+                    'twelveHoursFormat' : false,
+                    'hours' : true,
+                    'minutes' : true,
+                    'seconds' : false,
+                    'ampm' : false,
+                    'defaultTime' : '$this >_config[defaultTime]'
+            }]
+
+        }];
+        }
+
+        console.log(config);
+    console.log(option);
+    </script>
+</body>
+</html>

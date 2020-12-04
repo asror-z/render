@@ -1,0 +1,38 @@
+runtime: python27
+threadsafe: true
+api_version: 1
+
+handlers:
+- url: /node_modules
+  static_dir: node_modules
+  secure: always
+
+- url: /js
+  static_dir: src/js
+  secure: always
+
+- url: /ui
+  static_dir: src/ui
+  secure: always
+
+- url: /favicon\.ico
+  static_files: src/images/favicon.ico
+  upload: src/images/favicon\.ico
+
+- url: /css
+  static_dir: src/css
+  secure: always
+
+- url: /main.js
+  static_files: src/main.js
+  upload: src/main.js
+  secure: always
+
+- url: /
+  static_files: src/index.html
+  upload: src/index.html
+  secure: always
+
+- url: /.*
+  script: testrtc.app
+  secure: always

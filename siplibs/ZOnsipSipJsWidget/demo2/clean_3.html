@@ -1,0 +1,115 @@
+<html>
+<head>
+    <title>OnSipJs</title>
+
+    <link rel="stylesheet" href="https://cdn.statically.io/gh/onsip/sipjs-examples/master/demo-phone/css/style.css" />
+</head>
+
+<body>
+
+<!-- Configuration Prompt -->
+<form id="config-form" action="">
+        <label>Your Name     <input type="text" name="displayName" placeholder="John Doe" disabled /></label>
+        <label>SIP URI       <input type="text" name="uri" placeholder="john@example.com" disabled/></label>
+        <label>Auth Username <input type="text" name="authorizationUser" placeholder="example_john" disabled/></label>
+        <label>Password      <input type="password" name="password" disabled /></label>
+        <label>WS Server     <input type="text" name="wsServers" placeholder="wss://edge.sip.onsip.com" disabled/></label>
+    <input type="submit" name="configSubmit"  value="Submit"   />
+</form>
+
+<!-- UA Control Form -->
+<div id="ua">
+    <div id="ua-status">Connected</div>
+    <button id="ua-register ">Register</button>
+    <form id="new-session-form" action="">
+        <label>Enable Video <input type="checkbox" id="ua-video" checked/></label>
+        <label>SIP URI      <input type="text" id="ua-uri" placeholder="will@example.com"/></label>
+        <input type="submit" id="ua-invite-submit" value="Invite" />
+        <input type="submit" id="ua-message-submit" value="Begin Chat" />
+    </form>
+</div>
+
+<ul id="session-list"></ul>
+
+
+<!-- Templates to clone Sessions and Messages -->
+<ul id="templates">
+    <li id="session-template" class="template session">
+        <h2><strong class="display-name"></strong> <span class="uri"></span></h2>
+        <button class="green">Green</button>
+        <button class="red">Red</button>
+        <form class="dtmf" action="">
+            <label>DTMF <input type="text" maxlength="1" /></label>
+            <input type="submit" value="Send" />
+        </form>
+        <video autoplay>Video Disabled or Unavailable</video>
+        <ul class="messages"></ul>
+        <form class="message-form" action="">
+            <input type="text" placeholder="Type to send a message"/><input type="submit" value="Send" />
+        </form>
+    </li>
+</ul>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
+<script src="https://cdn.statically.io/gh/onsip/sipjs-examples/master/demo-phone/js/sip-0.5.0.js"></script>
+<script src="https://cdn.statically.io/gh/onsip/sipjs-examples/master/demo-phone/js/ua.js"></script>
+
+
+<script>
+
+
+    $("#ua-register").click(function(){
+
+        var user = [{
+            //  Name
+            "displayName" : "300",
+            // SIP URI
+            "uri":"300@10.10.3.30:5160",
+            //  User Name
+            "authorizationUser" : "300",
+            //  Password
+            "password" : "300",
+            //  Auth Realm
+            "wsServers"   : "wss://10.10.3.30:8089/ws",
+
+        },
+            {
+                //  Name
+                "displayName": "200",
+                // SIP URI
+                "uri": "200@10.10.3.30:5160",
+                //  User Name
+                "authorizationUser": "200",
+                //  Password
+                "password": "200",
+                //  Auth Realm
+                "wsServers": "wss://10.10.3.30:8089/ws",
+
+
+            }]
+    })
+
+        $(document).ready (function(){
+                $("#ua-register").click (function(){
+                    // var user = [{
+                    //     //  Name
+                    //     "displayName" : "300",
+                    //     // SIP URI
+                    //     "uri":"300@10.10.3.30:5160",
+                    //     //  User Name
+                    //     "authorizationUser" : "300",
+                    //     //  Password
+                    //     "password" : "300",
+                    //     //  Auth Realm
+                    //     "wsServers"   : "wss://10.10.3.30:8089/ws",}]
+                });
+        });
+
+
+
+
+</script>
+
+
+</body>
+</html>

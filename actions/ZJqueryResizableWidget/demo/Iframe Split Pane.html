@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .panel-container {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid silver;
+            overflow: hidden;
+        }
+
+        .panel-left {
+            flex: 0 0 auto; /* only manually resize */
+            padding: 10px;
+            width: 300px;
+            min-height: 200px;
+            min-width: 150px;
+            white-space: nowrap;
+
+            background: #838383;
+            color: white;
+        }
+
+        .splitter  {
+            flex: 0 0 auto;
+            width: 18px;
+            background: url(https://cdn.statically.io/gh/RickStrahl/jquery-resizable/7f6d6aa0/assets/vsizegrip.png) center center no-repeat #535353;
+            min-height: 200px;
+            cursor: col-resize;
+        }
+
+        .panel-right  {
+            flex: 1 1 auto; /* resizable */
+            padding: 10px;
+            width: 100%;
+            min-height: 200px;
+            min-width: 200px !important; /* NOTE: This won't be respected! Explicit size of left forces the size to be fixed */
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="panel-container">
+
+    <div class="panel-left">
+        left panel
+    </div>
+
+    <div class="splitter">
+    </div>
+
+
+    <div class="panel-right" style="padding: 0;">
+        <iframe src="http://eyuf.zettest.uz"
+                style="width: 100%; height: 100%; border: none"></iframe>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.statically.io/gh/RickStrahl/jquery-resizable/master/src/jquery-resizable.js"></script>
+<script>
+    $(".panel-left").resizable({
+        handleSelector: ".splitter",
+        resizeHeight: false
+    });
+    </script>
+
+</body>
+</html>

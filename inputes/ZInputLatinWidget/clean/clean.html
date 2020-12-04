@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <input type="text" class="kiril">
+    <input type="text" class="lotin">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(".kiril").keypress(function(e) {
+        var verified = String.fromCharCode(e.which).match(/[^а-яё]/ig,'');
+        if (verified) {
+            e.preventDefault();
+        }
+    });
+    $(".lotin").keypress(function(e) {
+        var verified = String.fromCharCode(e.which).match(/[^a-z]/ig,'');
+        if (verified) {
+            e.preventDefault();
+        }
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+
+
+    <style>
+        .save {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .save .save-num {
+            font-size: 25px;
+            font-weight: 700;
+            color: #27b82f;
+        }
+
+        .save .save-day {
+            margin-left: 22px;
+            margin-top: -12px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-category {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #d2d2d2;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .product-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-titel{            
+            font-weight: 500;
+            width: 70%;
+        }
+        .product-content .star .fa{
+            font-size: 23px;
+            color: #ffd600;
+        }
+        .product-content .star-5 .fa{
+            color: #ababab;
+        }
+        .page-link{
+            color: black;
+
+        }
+
+
+        .product-price{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .shopping-cancel{
+            text-align: end;
+            margin-top: -10px;
+        }
+        .close{
+          text-align: end;
+            color: #ce5856;
+            margin-top: -10px;
+        }
+        .price-num{
+            font-size: 25px;
+            font-weight: 700;
+            color: #53b929;
+        }
+        .shopping-price{
+            display: flex;
+            align-items: flex-end;
+        }
+        .btn:hover {
+            background-color: #53b929;
+        }
+
+        .btn {
+            padding: 5px;
+            border: 1px solid #53b929;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 d-flex">
+                <div class="product-category">
+                    <div class="product-image">
+                        <div class="save">
+                            <span class="save-num"><img src="./images/Перечень-заказов_1011_03.png" alt="png">12+</span>
+                            <span class="save-day">дней</span>
+                        </div>
+                        <img src="./images/Перечень-заказов_10_03.png" class="product-img" alt="png">
+                    </div>
+
+                    <div class="product-content pl-4">
+                        <p class="product-titel mb-1">Колбаски Останкино Шашлычные полукопченные 400г</p>
+                        <p class="reviews-rating mb-1">
+                            <a href="#" class="star-1 star"><i class="fa fa-star" aria-hidden="true"></i></a>
+                            <a href="#" class="star-2 star"><i class="fa fa-star" aria-hidden="true"></i></a>
+                            <a href="#" class="star-3 star"><i class="fa fa-star" aria-hidden="true"></i></a>
+                            <a href="#" class="star-4 star"><i class="fa fa-star" aria-hidden="true"></i></a>
+                            <a href="#" class="star-5 star"><i class="fa fa-star" aria-hidden="true"></i></a>
+                        </p>
+                        <nav aria-label="Page navigation example">
+
+                            <div class="col-md-4 btn-group">
+                                <button type="button" onclick="remove()"  class="btn btn-outline-transparent btn-sm page-link" >-</button>
+                                <input type="text" class="btn-outline-transparent btn-sm page-link" id="count" style="width: 50px; text-align: center;">
+                                <button type="button"  onclick="add()" class="btn btn-outline-transparent btn-sm page-link">+</button>
+                            </div>
+                          </nav>
+                    </div>
+                    <div class="product-price">
+                        <button type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                      
+                        <p class="shopping-price"><span class="price-num pr-2">22,000 </span> UZS</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+<script>
+
+    let val=document.getElementById('count');
+    val.innerText='0'
+    console.log(val,'hhjjh')
+    function add() {
+        let newVal=val.value++;
+        val.innerHTML=newVal;
+        console.log(val.value,'sadsa')
+    }
+    function remove() {
+        let newVal=val.value--;
+        if (newVal<=0){
+            val.value=0;
+        } else {
+            val.innerHTML = newVal;
+        }
+
+    }
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

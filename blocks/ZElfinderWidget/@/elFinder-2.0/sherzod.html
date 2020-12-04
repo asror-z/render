@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>elFinder 2.0</title>
+
+		<!-- jQuery and jQuery UI (REQUIRED) -->
+		<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+		<!-- elFinder CSS (REQUIRED) -->
+		<link rel="stylesheet" type="text/css" href="css/elfinder.min.css">
+		<link rel="stylesheet" type="text/css" href="css/theme.css">
+
+		<!-- elFinder JS (REQUIRED) -->
+		<script src="js/elfinder.min.js"></script>
+
+		<!-- elFinder translation (OPTIONAL) -->
+		<script src="js/i18n/elfinder.ru.js"></script>
+
+		<!-- elFinder initialization (REQUIRED) -->
+		<script type="text/javascript" charset="utf-8">
+			// Documentation for client options:
+			// https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
+			$(document).ready(function() {
+				var myCommands = Object.keys(elFinder.prototype.commands);
+				var disabled = ['extract', 'archive'];
+				$.each(disabled, function(i, cmd) {
+					(idx = $.inArray(cmd, myCommands)) !== -1 && myCommands.splice(idx,1);
+				});
+				var options = {
+					sortDirect: 'asc', // 'desc'
+					width: 'auto', // Can be the string 'auto' or any number measurement (in pixels)
+					height: 400, // any number
+					clientFormatDate: true, // false
+					UTCDate: false, // true
+					dateFormat : 'M d, Y h:i A', //
+					fancyDateFormat: '$1 H:m:i', //
+					commands : myCommands,
+					commandsOptions: {
+						// configure value for "getFileCallback" used for editor integration
+						getfile : {
+							// send only URL or URL+path if false
+							onlyURL  : false,
+
+							// allow to return multiple files info
+							multiple : false,
+
+							// allow to return folders info
+							folders  : false,
+
+							// action after callback (close/destroy)
+							oncomplete : ''
+						},
+
+						// "upload" command options.
+						upload : {
+							ui : 'uploadbutton'
+						},
+
+						// "quicklook" command options. For additional extensions
+						quicklook : {
+							autoplay : true,
+							jplayer  : 'extensions/jplayer'
+						},
+
+						// configure custom editor for file editing command
+						edit : {
+							// list of allowed mimetypes to edit
+							// if empty - any text files can be edited
+							mimes : [],
+
+							// edit files in wysisyg's
+							editors : [
+								// {
+								// 	/**
+								// 	 * files mimetypes allowed to edit in current wysisyg
+								// 	 * @type  Array
+								// 	 */
+								// 	mimes : ['text/html'],
+								// 	/**
+								// 	 * Called when "edit" dialog loaded.
+								// 	 * Place to init wysisyg.
+								// 	 * Can return wysisyg instance
+								// 	 *
+								// 	 * @param  DOMElement  textarea node
+								// 	 * @return Object
+								// 	 */
+								// 	load : function(textarea) { },
+								// 	/**
+								// 	 * Called before "edit" dialog closed.
+								// 	 * Place to destroy wysisyg instance.
+								// 	 *
+								// 	 * @param  DOMElement  textarea node
+								// 	 * @param  Object      wysisyg instance (if was returned by "load" callback)
+								// 	 * @return void
+								// 	 */
+								// 	close : function(textarea, instance) { },
+								// 	/**
+								// 	 * Called before file content send to backend.
+								// 	 * Place to update textarea content if needed.
+								// 	 *
+								// 	 * @param  DOMElement  textarea node
+								// 	 * @param  Object      wysisyg instance (if was returned by "load" callback)
+								// 	 * @return void
+								// 	 */
+								// 	save : function(textarea, editor) {}
+								//
+								// }
+							]
+						},
+
+						// help dialog tabs
+						help : { view : ['about', 'shortcuts', 'help'] }
+					},
+					getFileCallback: null,
+					handlers : {
+						// extract archive files on upload
+						upload : function(event, instance) {
+							var uploadedFiles = event.data.added;
+							var archives = ['application/zip', 'application/x-gzip', 'application/x-tar', 'application/x-bzip2'];
+							for (i in uploadedFiles) {
+								var file = uploadedFiles[i];
+								if (jQuery.inArray(file.mime, archives) >= 0) {
+									instance.exec('extract', file.hash);
+								}
+							}
+						},
+						open   : function(event) { console.log(event.data); }
+					},
+					ui: ['toolbar', 'tree', 'path', 'stat'], // ['toolbar', 'places', 'tree', 'path', 'stat']
+					uiOptions : {
+						// toolbar configuration
+						toolbar : [
+							['back', 'forward'],
+							// ['reload'],
+							// ['home', 'up'],
+							['mkdir', 'mkfile', 'upload'],
+							['open', 'download', 'getfile'],
+							['info'],
+							['quicklook'],
+							['copy', 'cut', 'paste'],
+							['rm'],
+							['duplicate', 'rename', 'edit', 'resize'],
+							['extract', 'archive'],
+							['search'],
+							['view'],
+							['help']
+						],
+
+						// directories tree options
+						tree : {
+							// expand current root on init
+							openRootOnLoad : true,
+							// auto load current dir parents
+							syncTree : true
+						},
+
+						// navbar options
+						navbar : {
+							minWidth : 150,
+							maxWidth : 500
+						},
+
+						// current working directory options
+						cwd : {
+							// display parent directory in listing as ".."
+							oldSchool : false
+						}
+					}
+
+				}
+				$('#elfinder').elfinder(options);
+			});
+		</script>
+	</head>
+	<body>
+
+		<!-- Element where elFinder will be created (REQUIRED) -->
+		<div id="elfinder"></div>
+
+	</body>
+</html>

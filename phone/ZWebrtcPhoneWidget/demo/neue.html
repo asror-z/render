@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://codepen.io/Joepeers/pen/WOdBgW.css">
+    <!-- Our Custom CSS -->
+    <!--<link rel="stylesheet" href="css/style2.css">-->
+    <!-- Scrollbar Custom CSS -->
+    <!--<link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">-->
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+
+</head>
+
+<body>
+<!--
+<input type="text" class="form-control" id="kategori"/>
+<button type="button" id="button1" data-value="1">1</button>
+<button type="button" id="button2" data-value="2">2</button>
+<button type="button" id="button3" data-value="3">3</button>
+<button type="button" id="button4" data-value="4">4</button>
+<button type="button" id="button5" data-value="5">5</button>
+<button type="button" id="button6" data-value="6">6</button>
+<button type="button" id="button7" data-value="7">7</button>
+-->
+
+
+<input type="text" id="input" />
+<button type="button" class="b1" value="1">1
+</button>
+<button type="button" class="b1" value="2">2
+</button>
+<button type="button" class="b1" value="3">3
+</button>
+<button type="button" class="b1" value="4">4
+</button>
+<button type="button" class="b1" value="">5
+</button>
+
+
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<div class="overlay"></div>
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+&lt;!&ndash; Popper.JS &ndash;&gt;
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+&lt;!&ndash; Bootstrap JS &ndash;&gt;
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>-->
+<!-- jQuery Custom Scroller CDN -->
+<script src="js/index.js"></script>
+
+<script type="text/javascript">
+
+/*
+
+    $('button:button').on('click', function() {
+        var $target = $('#kategori'),
+            text = $('#kategori').val(),
+            buttonVal = $(this).data('value');
+        $target.val(`${text}${buttonVal}`);
+    });
+*/
+
+    $('.b1').click(
+        function(){
+            $('#input').val($('#input').val()+$(this).val());
+        }
+
+
+    );
+/*    $(document).ready(function () {
+        $(window).resize(function () {
+            if ($(window).width() < 950) {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').removeClass('active');
+                });
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').addClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            } else {
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').removeClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=false]').attr('aria-expanded', 'true');
+                });
+            }
+        });
+
+    });*/
+</script>
+</body>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="editor">
+
+</div>
+<script src="/publish/yarner/ckeditor4-dev/ckeditor.js"></script>
+<!--<script src="/publish/yarner/ckeditor4/ckeditor.js"></script>-->
+<script>
+
+    CKEDITOR.replace( 'editor',{
+        toolbar : [
+            { name: 'document', items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
+            { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+            { name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+            { name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+            '/',
+            { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+            { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+            { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+            { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
+            '/',
+            { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+            { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+            { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+            { name: 'about', items: [ 'About' ] }
+        ],
+        allowedContent: null,
+        autoEmbed_widget : 'embed,embedSemantic',
+        autoGrow_bottomSpace : 0,
+        autoGrow_maxHeight : 0,
+        autoGrow_minHeight : 0,
+        autoGrow_onStartup : false,
+        autoUpdateElement : true,
+        autocomplete_commitKeystrokes : [ 9, 13 ],
+        autolink_commitKeystrokes : [ 13, 32 ],
+        baseFloatZIndex : 10000,
+        baseHref : '',
+        basicEntities : true,
+        blockedKeystrokes : [
+            CKEDITOR.CTRL + 66, // Ctrl+B
+            CKEDITOR.CTRL + 73, // Ctrl+I
+            CKEDITOR.CTRL + 85 // Ctrl+U
+        ],
+        bodyClass : 'article-editor',
+        bodyId : '',
+        browserContextMenuOnCtrl : true,
+        clipboard_defaultContentType : 'html',
+        clipboard_notificationDuration : 10000,
+        cloudServices_tokenUrl: '',
+        cloudServices_uploadUrl: '',
+        codeSnippetGeshi_url : '',
+        codeSnippet_codeClass : 'hljs',
+        codeSnippet_languages : null,
+        codeSnippet_theme : 'default',
+        colorButton_backStyle : {
+            element: 'span',
+            styles: { 'background-color': '#(color)' }
+        },
+        colorButton_colors :
+        '000,800000,8B4513,2F4F4F,008080,000080,4B0082,696969,' +
+        'B22222,A52A2A,DAA520,006400,40E0D0,0000CD,800080,808080,' +
+        'F00,FF8C00,FFD700,008000,0FF,00F,EE82EE,A9A9A9,' +
+        'FFA07A,FFA500,FFFF00,00FF00,AFEEEE,ADD8E6,DDA0DD,D3D3D3,' +
+        'FFF0F5,FAEBD7,FFFFE0,F0FFF0,F0FFFF,F0F8FF,E6E6FA,FFF',
+        colorButton_colorsPerRow : 6,
+        colorButton_enableAutomatic : true,
+        colorButton_enableMore : true,
+        colorButton_foreStyle : {
+            element: 'span',
+            styles: { color: '#(color)' }
+        },
+        colorButton_normalizeBackground : true,
+        /**
+        *The writing direction of the language which is used to create editor content
+        */
+        contentsLangDirection : '',
+
+        /**
+         * Language code of the writing language which is used to author the editor content. This option accepts one single entry value in the format defined in the Tags for Identifying Languages (BCP47) IETF document and is used in the lang attribute.
+         */
+
+        contentsLanguage : '',
+
+
+        /**
+        * The CSS file(s) to be used to apply the style to the context menu content.
+        */
+        contextmenu_contentsCss : '',
+
+        /**
+        * Defines rules for the elements from which the styles should be fetched. If set to true, it will disable filtering.
+        */
+        copyFormatting_allowRules : 'b; s; u; strong; span; p; div; table; thead; tbody; ' + 'tr; td; th; ol; ul; li; (*)[*]{*}',
+
+        /**
+        * Defines which contexts should be enabled in the Copy Formatting plugin. Available contexts are:
+
+See source
+'text' – Plain text context.
+'list' – List context.
+'table' – Table context.
+        */
+        copyFormatting_allowedContexts : true,
+
+
+        title : 'title',
+        
+
+        copyFormatting_disallowRules : '*[data-cke-widget*,data-widget*,data-cke-realelement](cke_widget*)',
+        
+
+        /**
+        *The CSS file(s) to be used to apply style to editor content. It should reflect the CSS used in the target pages where the content is to be displayed.
+        */
+        contentsCss : '',
+
+
+        defaultLanguage : 'en',
+        toolbarCanCollapse : false,
+        useComputedState : true,
+
+        /**
+        * When enabled, causes the Arrow keys navigation to cycle within the current toolbar group. Otherwise the Arrow keys will move through all items available in the toolbar. The Tab key will still be used to quickly jump among the toolbar groups.
+        */
+
+        toolbarGroupCycling : true,
+        toolbarLocation : 'top',
+        uiColor : '',
+        stylesSet: [
+            /* Inline Styles */
+            { name: 'Marker',			element: 'span', attributes: { 'class': 'marker' } },
+            { name: 'Cited Work',		element: 'cite' },
+            { name: 'Inline Quotation',	element: 'q' },
+            /* Object Styles */
+            {
+                name: 'Special Container',
+                element: 'div',
+                styles: {
+                    padding: '5px 10px',
+                    background: '#eee',
+                    border: '1px solid #ccc'
+                }
+            },
+            {
+                name: 'Compact table',
+                element: 'table',
+                attributes: {
+                    cellpadding: '5',
+                    cellspacing: '0',
+                    border: '1',
+                    bordercolor: '#ccc'
+                },
+                styles: {
+                    'border-collapse': 'collapse'
+                }
+            },
+            { name: 'Borderless Table',		element: 'table',	styles: { 'border-style': 'hidden', 'background-color': '#E6E6FA' } },
+            { name: 'Square Bulleted List',	element: 'ul',		styles: { 'list-style-type': 'square' } },
+            /* Widget Styles */
+            // We use this one to style the brownie picture.
+            { name: 'Illustration', type: 'widget', widget: 'image', attributes: { 'class': 'image-illustration' } },
+            // Media embed
+            { name: '240p', type: 'widget', widget: 'embedSemantic', attributes: { 'class': 'embed-240p' } },
+            { name: '360p', type: 'widget', widget: 'embedSemantic', attributes: { 'class': 'embed-360p' } },
+            { name: '480p', type: 'widget', widget: 'embedSemantic', attributes: { 'class': 'embed-480p' } },
+            { name: '720p', type: 'widget', widget: 'embedSemantic', attributes: { 'class': 'embed-720p' } },
+            { name: '1080p', type: 'widget', widget: 'embedSemantic', attributes: { 'class': 'embed-1080p' } }
+        ],
+        removePlugins : 'image', // String | String[]
+
+        extraPlugins: 'autoembed,embedsemantic,image2,uploadimage,uploadfile'
+        
+
+
+    });
+
+
+    /*CKEDITOR.ajax.post( 'url/post.php', 'foo=bar', null, function( data ) {
+        console.log( data );
+    } );
+
+    CKEDITOR.ajax.post( 'url/post.php', JSON.stringify( { foo: 'bar' } ), 'application/json', function( data ) {
+        console.log( data );
+    } );*/
+
+</script>
+</body>
+</html>

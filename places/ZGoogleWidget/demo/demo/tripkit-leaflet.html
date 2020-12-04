@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tripkit Leaflet</title>
+    <link rel="stylesheet" href="/publish/leaflet/publish/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="/publish/leaflet/publish/tripkit-leaflet/css/TripgoRouting.css" />
+    <script src="/publish/leaflet/publish/leaflet/dist/leaflet.js"></script>
+    <script src="/publish/leaflet/publish/tripkit-leaflet/dist/TripgoRouting.js"></script>
+    <script src="/publish/leaflet/publish/tripkit-leaflet/lib/jquery-3.2.1.js"></script>
+    <script src="/publish/leaflet/publish/tripkit-leaflet/lib/Polyline.encoded.js"></script>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    let options ={
+        "mapId" : "map",
+        "googleTile": false,
+        "marCenter" : {
+            "lat": 51.511011,
+            "lng": -0.125448
+        },
+        "floatPanel": true,
+        "tripgoApiKey": "b0b8a78fcac1954fe5096b54d168e9e2"
+    }
+
+    L.tripgoRouting.mapLayer.initialize(options);
+</script>
+</body>
+</html>

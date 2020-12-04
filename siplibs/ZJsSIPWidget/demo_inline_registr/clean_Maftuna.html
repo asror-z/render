@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JsSip</title>
+    <link rel="stylesheet" href="demo_2_files/tryit-jssip.css">
+    <script src="https://cdn.statically.io/gh/versatica/JsSIP/master/dist/jssip.min.js  "></script>
+    <script src="demo_2_files/tryit-jssip.js"></script>
+
+    <script src="demo_2_files/callstats.min.js"></script>
+
+</head>
+<body>
+<div id="tryit-jssip-container">
+    <div data-component="App">
+        <div class="notifications-wrapper"></div>
+        <div data-component="Login" class="">
+            <div class="logo-container">
+                <div data-component="Logo" class="big"><h1><span class="colorized">TRYIT</span>J<span
+                        class="small">S</span>SIP</h1></div>
+            </div>
+            <form action="https://tryit.jssip.net/">
+                <div class="settings-icon-container">
+                    <svg class="icon" viewBox="0 0 24 24"
+                    ></svg>
+                </div>
+                <div class="form-container">
+                    <div>
+                        <label for="undefined-undefined-YourName-55324">
+                            Your Name
+                        </label>
+                        <input type="text" id="undefined-undefined-YourName-55324" value="">
+
+                        <div>
+                            <hr aria-hidden="true">
+                            <hr aria-hidden="true">
+                        </div>
+                    </div>
+                    <button tabindex="0" type="button">
+                        <div>
+                            <span>
+                                Reset
+                            </span>
+                        </div>
+                    </button>
+                </div>
+            </form>
+            <div class="submit-container">
+                <div class="submit-button disabled"></div>
+            </div>
+        </div>
+        <div >
+            <div width="3"
+            >
+                <div >
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tryit-jssip-media-query-detector">
+
+</div>
+<script>
+    var socket = new JsSIP.WebSocketInterface('wss://zoft.uz:8089/ws');
+    var configuration = {
+        sockets: [socket],
+        uri: 'sip:205@94.158.52.244:7777',
+        password: '205'
+    };
+
+    var ua = new JsSIP.UA(configuration);
+
+    ua.start();
+
+    // Register callbacks to desired call events
+    var eventHandlers = {
+        'progress': function (e) {
+            console.log('call is in progress');
+        },
+        'failed': function (e) {
+            console.log('call failed with cause: ' + e.data.cause);
+        },
+        'ended': function (e) {
+            console.log('call ended with cause: ' + e.data.cause);
+        },
+        'confirmed': function (e) {
+            console.log('call confirmed');
+        }
+    };
+
+    var options = {
+        'eventHandlers': eventHandlers,
+        'mediaConstraints': {'audio': true, 'video': true}
+    };
+
+    var session = ua.call('sip:205@94.158.52.244:7777', options);
+</script>
+<script>
+    var s, u = new i.default("settingsManager"), c = {
+        display_name: null,
+        uri: null,
+        password: null,
+        socket: {uri: "wss://zoft.uz:8089/ws", via_transport: "auto"},
+        registrar_server: null,
+        contact_uri: null,
+        authorization_user: null,
+        instance_id: null,
+        session_timers: !0,
+        use_preloaded_route: !1,
+        pcConfig: {rtcpMuxPolicy: "negotiate", iceServers: [{urls: ["stun:stun.l.google.com:19302"]}]},
+        callstats: {enabled: !1, AppID: null, AppSecret: null}
+    };
+</script>
+</body>
+</html>

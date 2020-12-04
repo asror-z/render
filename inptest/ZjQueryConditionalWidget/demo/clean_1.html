@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- saved from url=(0099)https://www.jqueryscript.net/demo/jQuery-Plugin-For-Handling-Conditional-Html-Elements-Conditional/ -->
+<!--Abdurakhmonov Umid-->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>jQuery Conditional</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap.min.js@3.3.5/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>jQuery Conditional Plugin Demo</h1>
+    <div class="form-group">
+        <label for="book" class="control-label">Choose a book</label>
+        <select name="book" id="book" class="form-control input-block" value="" data-conditional="book">
+            <option value=""></option>
+            <option value="Birds from &#39;Murica">Birds from 'Murica</option>
+            <option value="They see me rollin&#39;">They see me rollin'</option>
+        </select>
+    </div>
+    <div class="hide conditional-logic" data-condition="book" data-match="Birds from &#39;Murica">
+        <div class="form-group">
+            <label for="bird_favorite" class="control-label">Your favorite bird was<span class="text-danger">*</span></label>
+            <input type="text" name="bird_favorite" id="bird_favorite" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="bird_least" class="control-label">Your least-favorite bird was<span class="text-danger">*</span></label>
+            <input type="text" name="bird_least" id="bird_least" class="form-control">
+        </div>
+    </div>
+    <div class="hide conditional-logic" data-condition="book" data-match="They see me rollin&#39;">
+        <div class="form-group">
+            <label for="why_hate" class="control-label">Why do you think they're hatin'?<span class="text-danger">*</span></label>
+            <input type="text" name="why_hate" id="why_hate" class="form-control">
+        </div>
+    </div>
+    <h3>License</h3>
+    <p>Copyright © 2015 biohzrdmx</p>
+    <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.statically.io/gh/biohzrdmx/jQuery.Conditional/master/jquery.conditional.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        hljs.initHighlightingOnLoad();
+    });
+</script>
+
+
+</body></html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="colorlib.com">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="/publish/forms/wizard-13/css/material-design-iconic-font.css">
+    <link rel="stylesheet" href="/publish/forms/wizard-13/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/publish/forms/wizard-13/css/acc-wizard.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/publish/forms/wizard-13/css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="acc-wizard">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default active">
+                        <div class="panel-heading" id="headingOne">
+                            <h3>
+                                <a href="#collapseOne" data-toggle="collapse" data-parent="#accordion">Basic infomation</a>
+                            </h3>
+                        </div>
+
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <form method="POST">
+                                    <fieldset>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="first_name" class="form-label">First name</label>
+                                                <input type="text" name="first_name" id="first_name" placeholder="E.g Nguyen"/>
+                                            </div>
+    
+                                            <div class="form-group">
+                                                <label for="last_name" class="form-label">Last name</label>
+                                                <input type="text" name="last_name" id="last_name" placeholder="E.g. Kardashian"/>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-row">
+                                            <div class="form-group-flex">
+                                                <div class="form-radio">
+                                                    <label for="gender">Gender</label>
+                                                    <div class="form-flex">
+                                                        <input type="radio" name="gender" value="male" id="male" checked="checked" />
+                                                        <label for="male"><img src="images/icon-male.png" alt="Male"></label>
+                        
+                                                        <input type="radio" name="gender" value="female" id="female" />
+                                                        <label for="female"><img src="images/icon-female.png" alt="Female"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-date">
+                                                    <label for="birth_date" class="form-label">Date of birth</label>
+                                                <div class="form-date-group">
+                                                    <div class="form-date-item">
+                                                        <select id="birth_month" name="birth_month"></select>
+                                                    </div>
+                                                        <div class="form-date-item">
+                                                            <select id="birth_date" name="birth_date"></select>
+                                                        </div>
+                                                        <div class="form-date-item">
+                                                            <select id="birth_year" name="birth_year"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="form-select">
+                                                <label for="national" class="form-label">Nationality</label>
+                                                <div class="select-group">
+
+                                                    <select name="national" id="national">
+                                                        <option value="" data-url='images/icon-vietnam.png'><img src="images/icon-vietnam.png" alt=""> Viet Nam</option>
+                                                        <option value="Viet Nam" data-url='images/icon-vietnam.png'><img src="images/icon-vietnam.png" alt=""> Viet Nam</option>
+                                                        <option value="USA" data-url='images/icon-usa.png'><img src="images/icon-usa.png" alt="">USA</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingTwo">
+                            <h3>
+                                <a href="#collapseTwo" data-toggle="collapse" data-parent="#accordion">Additional infomation</a>
+                            </h3>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <form method="post">
+                                    <fieldset>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="email" class="form-label">Your Email</label>
+                                                <input type="email" name="email" id="email" placeholder="E.g. john123@gmail.com"/>
+                                            </div>
+                        
+                                            <div class="form-group">
+                                                <label for="phone" class="form-label">Phone Number</label>
+                                                <input type="number" name="phone" id="phone" placeholder="(+ 123 ) 456 789"/>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="city" class="form-label">City</label>
+                                                <input type="text" name="city" id="city" placeholder="Eg. Ha Noi"/>
+                                            </div>
+    
+                                            <div class="form-group">
+                                                <label for="pincode" class="form-label">Pincode</label>
+                                                <input type="number" name="pincode" id="pincode" />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingThree">
+                            <h3>
+                                <a href="#collapseThree" data-toggle="panel-collapse" data-parent="#accordion">Specialities</a>
+                            </h3>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <form method="post">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label for="specialities" class="form-label">Tell us your specialities</label>
+                                            <textarea name="specialities" id="specialities" placeholder="Eg. I’m very good at UI design ...."></textarea>
+                                        </div>
+                                    </fieldset>
+                                    <div class="form-submit">
+                                        <input type="submit" value="Submit" class="au-btn">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+    <script src="/publish/forms/wizard-13/js/bootstrap.min.js"></script>
+    <script src="/publish/forms/wizard-13/js/acc-wizard.min.js"></script>
+    <script src="/publish/forms/wizard-13/js/jquery.validate.js"></script>
+    <script src="/publish/forms/wizard-13/js/additional-methods.js"></script>
+    <script src="/publish/forms/wizard-13/js/jquery.steps.js"></script>
+    <script src="/publish/forms/wizard-13/js/dobpicker.js"></script>
+    <script src="/publish/forms/wizard-13/js/main.js"></script>
+</body>
+</html>

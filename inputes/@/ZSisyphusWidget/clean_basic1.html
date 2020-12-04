@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://sisyphus-js.herokuapp.com/#basic-sample -->
+<html class="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="./Sisyphus - Gmail-like client-side drafts and bit more_files/sdk.js.Без названия" async=""
+            crossorigin="anonymous"></script>
+    <script type="text/javascript"
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/shares.json"></script>
+    <script type="text/javascript"
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/widgets.js.Без названия"></script>
+    <script type="text/javascript" src="./Sisyphus - Gmail-like client-side drafts and bit more_files/1.txt"></script>
+    <script type="text/javascript"
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/1(1).txt"></script>
+    <script type="text/javascript"
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/moatframe.js.Без названия"></script>
+    <title>Sisyphus - Gmail-like client-side drafts and bit more</title>
+    <link href="./Sisyphus - Gmail-like client-side drafts and bit more_files/application-c5496f1741347016b154b0fa05d01229.css"
+          media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async=""
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/ga.js.Без названия"></script>
+    <script src="./Sisyphus - Gmail-like client-side drafts and bit more_files/jquery-08bbde0e2625ba65b3f4d03e5cf1c05d.js.Без названия"
+            type="text/javascript"></script>
+    <script src="./Sisyphus - Gmail-like client-side drafts and bit more_files/application-30bd48f3f78e8d51a049c1aec72920dd.js.Без названия"
+            type="text/javascript"></script>
+    <style>.cke {
+        visibility: hidden;
+    }</style>
+
+    <meta content="authenticity_token" name="csrf-param">
+    <meta content="o7LBezKgIHfOYEYRNPvtl2dmeGAeWFFmilff9tLbPUw=" name="csrf-token">
+
+
+    <script type="text/javascript"
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/config.js.Без названия"></script>
+    <style type="text/css"></style>
+    <link rel="stylesheet" type="text/css"
+          href="./Sisyphus - Gmail-like client-side drafts and bit more_files/editor.css">
+    <script type="text/javascript"
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/ru.js.Без названия"></script>
+    <script type="text/javascript"
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/styles.js.Без названия"></script>
+    <script type="text/javascript" charset="utf-8" async=""
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/counter.f21ad6246194095cb7d9.js.Без названия"></script>
+
+
+    <script charset="utf-8"
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/button.63c51c903061d0dbd843c41e8a00aa5a.js.Без названия"></script>
+
+
+
+    <script type="text/javascript" charset="utf-8" async=""
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/209.7d7330bbfa2be6215e38.js.Без названия"></script>
+    <script type="text/javascript" charset="utf-8" async=""
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/211.74cdf7c5aa233e149d75.js.Без названия"></script>
+    <script type="text/javascript" charset="utf-8" async=""
+            src="./Sisyphus - Gmail-like client-side drafts and bit more_files/menu.c9fe060fcef7c720d644.js.Без названия"></script>
+
+
+
+</head>
+<body data-spy="scroll" data-target=".navbar" class="">
+<div class="container">
+
+    <div class="l-content">
+        <div class="b-header clearfix">
+            <h1 class="b-title">Sisyphus.js</h1>
+        </div>
+
+
+        <div class="b-sample" id="basic-sample">
+            <h1>
+                Basic example
+                <span class="label label-success b-sample-form-status hide" style="display: none;">Data persisted</span>
+                <span class="label label-warning b-sample-form-status hide" style="display: none;">Data restored</span>
+                <span class="label label-error b-sample-form-status hide">Data released</span>
+            </h1>
+
+            <div class="b-sample-cell">
+                <form accept-charset="UTF-8" action="http://sisyphus-js.herokuapp.com/" class="span5 b-sample-form"
+                      id="basic_form" method="get" name="basic_form">
+                    <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+                    <div class="b-field">
+                        <label class="input-label" for="basic_form_country"> Select Dropdown:</label>
+                        <select class="span5" id="basic_form_country" name="basic_form_country">
+                            <option value="Russia">Russia</option>
+                            <option value="USA">USA</option>
+                            <option value="England">England</option>
+                        </select>
+                    </div>
+                    <div class="b-field">
+                        <label class="input-label" for="basic_form_name">Input Text
+                        </label><input class="span5" id="basic_form_name" name="basic_form_name" type="text" value="">
+                    </div>
+                    <div class="b-field clearfix">
+                        <label class="input-label left" for="basic_form_single">Checkbox:
+                            <input class="b-check-box" id="basic_form_single" name="basic_form_single" type="checkbox"
+                                   value="1" checked="checked">
+                        </label></div>
+                    <div class="b-form-actions">
+                        <button class="btn btn-primary" name="button" type="submit">submit</button>
+                        <button class="btn" name="button" type="reset">reset</button>
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="b-sample-cell">
+<pre class="l-code"><code class="b-code javascript"><span class="comment">// Here we'll persist the form's data into localStorage on</span>
+<span class="comment">// every keystroke</span>
+$( <span class="keyword">function</span>() {
+<span class="b-indent-2">$( <span class="string">"#basic_form"</span> ).sisyphus();</span>
+<span class="b-indent-2"><span class="comment">// or you can persist all forms data at one command</span></span>
+<span class="b-indent-2"><span class="comment">// $( "form" ).sisyphus();</span></span>
+} );</code></pre>
+            </div>
+        </div>
+
+
+        <div class="b-sample" id="interaction">
+
+
+
+            <div class="b-sample-cell">
+                <form accept-charset="UTF-8" action="http://sisyphus-js.herokuapp.com/"
+                      class="span5 b-sample-form ckeditor" id="ckeditor_form" method="post" name="ckeditor_form">
+
+
+
+
+
+
+
+
+                    <div class="b-field">
+
+                        <textarea  class="ckeditor" name="cke_text_area"
+                                  style="visibility: hidden; display: none;"></textarea>
+
+
+
+                    </div>
+
+
+                </form>
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

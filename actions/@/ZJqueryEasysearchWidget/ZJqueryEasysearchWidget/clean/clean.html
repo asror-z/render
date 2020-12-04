@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>111.</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.statically.io/gh/Archakov06/jQuery-easySearch/master/dist/jquery.easysearch.min.js"></script>
+    
+</head>
+<body>
+
+<script >
+    $('input').jSearch({
+        selector  : 'ul',
+        child : 'li div.header',
+        minValLength: 0,
+        Found : function(elem){
+            $(elem).parent().parent().show();
+        },
+        NotFound : function(elem){
+            $(elem).parent().parent().hide();
+        },
+        After : function(t){
+            if (!t.val().length) $('ul li').show();
+        }
+    });
+
+</script>
+
+
+
+
+</body>
+</html>

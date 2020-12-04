@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.0.8/dist/purify.min.js"></script>
+</head>
+<body>
+<!-- Our DIV to receive content -->
+<div id="sanitized"></div>
+
+<!-- Now let's sanitize that content -->
+<script>
+    /* jshint globalstrict:true */
+    /* global DOMPurify */
+    'use strict';
+
+    // Specify dirty HTML
+    var dirty = '<p xmlns="http://www.w3.org/1999/html">HELLO<iframe/\/src=JavScript:alert&lpar;1)></iframe><br>goodbye</p>';
+
+    // Clean HTML string and write into our DIV
+    var clean = DOMPurify.sanitize(dirty);
+    document.getElementById('sanitized').innerHTML = clean;
+</script>
+</body>
+</html>

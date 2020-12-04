@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="\publish\yarner\hideseek\demo\javascripts\vendor\jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="\publish\yarner\hideseek\jquery.hideseek.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#search').hideseek();
+    });
+    </script>
+    <script>
+        $('#search').hideseek({
+      list:           '.hideseek-data',
+      nodata:         '',
+      attribute:      'text',
+      matches:        false,
+      highlight:      false,
+      ignore:         '',
+      navigation:     false,
+      ignore_accents: false,
+      hidden_mode:    false,
+      min_chars:      1
+});
+    </script>
+    <script>
+        $('#search').hideseek({
+	list: '.hideseek-data',
+    Option: 'element class',
+});
+    </script>
+    <script>
+        $('#search').hideseek({
+	attribute: 'text'
+});
+    </script>
+    <script>
+        $('#search').hideseek({
+	matches: { '^ale$': 'male' }
+});
+    </script>
+    <script>
+        $('#search').hideseek({
+	highlight: false
+});
+    </script>
+    <script>
+        $('#search').hideseek({
+	ignore: '.ignore-me'
+});
+    </script>
+    <script>
+    $('#search').hideseek({
+	hidden_mode: true
+});
+    </script>
+    <script>
+        $('.search').on("_after_each", function() {
+  alert('after_each');
+});
+    </script>
+    <script>
+        $('.search').on("_after", function() {
+  alert('after');
+});
+    </script>
+    <script>
+        $('.search').on("_after_nodata", function() {
+  alert('after_nodata');
+});
+    </script>
+</head>
+<body>
+    <input id="search" name="search" placeholder="Start typing here" type="text" data-list=".list">
+<ul class="list">
+  <li>item 1</li>
+  <li>...</li>
+  <li><a href="#">item 2</a></li>
+</ul>
+<input id="search" name="search" placeholder="Start typing here" type="text" data-list=".list">
+<div class="list">
+  <span>item 1</span>
+  <span>...</span>
+  <span>item 2</span>
+</div>
+<input id="search" name="search" type="text" data-toggle="hideseek" data-list=".list">
+
+</body>
+</html>

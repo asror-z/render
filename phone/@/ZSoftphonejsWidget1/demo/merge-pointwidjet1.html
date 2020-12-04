@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>btn</title>
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../render/siplibs/All/css/style.css"/>
+    <link rel="stylesheet" href="css1/style.css">
+</head>
+<style>
+    html, body{
+       overflow: hidden;
+    }
+    .opacity{
+        background-size: cover;
+    }
+    .contact-menu{
+        padding: 20px 50px;
+    }
+    .contact-menu div{
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
+        font-size: 18px;
+    }
+    .contact-container{
+        background-color: #ecf0f9;
+        padding: 40px;
+        position: relative;
+        margin-right: 0px;
+
+    }
+    .reason__content{
+        background-color: #fff;
+    }
+    .conta-inf{
+        font-size: 24px !important;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500 !important;
+
+    }
+    .reason-row{
+        justify-content: space-between;
+        background-color: #ecf1f4;
+
+    }
+    .reason-row li a{
+        display: block;
+        box-sizing: border-box;
+        background-color: #ecf1f4;
+        padding: 15px 30px;
+    }
+    .reason-row li a.active{
+        background-color: #fff;
+        padding: 15px 110px;
+    }
+    .display_flex{
+        display: flex;
+        justify-content: space-between;
+    }
+    .contact-menu{
+        display: flex;
+        justify-content: space-between;
+        max-width: 1140px;
+        margin-left: auto;
+
+    }
+    .reason__tit{
+        background-color: #13242b;
+        width: 100%;
+        height: 90px;
+    }
+
+
+    .reason__title h3{
+        color: #505251;
+        border-bottom: dotted 1px #2b4850;
+        display: inline-block;
+        font-family: "Roboto", sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .display_flex h4{
+        color: #cecece;
+        font-weight: 300;
+        font-size: 20px;
+        font-family: monospace;
+    }
+    .display_flex h3{
+        font-size: 20px;
+        font-family: inherit;
+        font-weight: 600;
+    }
+    .reason__text{
+        padding: 20px;
+        border: 1px solid #e2e3e5;
+        border-top:none;
+    }
+
+
+    .reason__title h4{
+        color: #dde6ef;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .reason__title h3{
+        color: #545454;
+    }
+    .altern-number{
+        color: #727272;
+    }
+    .col-absolute{
+        max-width: 26%;
+        display: flex;
+        margin-right: auto;
+    }
+    .reason_position{
+        position: absolute !important;
+        top: 60px;
+        left: 100px;
+    }
+    /*.tab{*/
+    /*    background-color: #13242b;*/
+    /*    width: 100px;*/
+    /*}*/
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        color: #fff;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        /*background-color: #263137;*/
+
+    }
+    .tab button:focus{
+        outline: none;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+        /*background-color: #263137;*/
+        outline: none;
+    }
+    
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        /*border: 1px solid #ccc;*/
+        height: 100%;
+    }
+    
+    .tabcontent h3, p{
+        font-weight: bold;
+        margin: 20px 120px 20px 120px;
+
+    }
+    .container-fluid.no_pad{
+        padding: 0;
+        height: 100%;
+    }
+    .container-fluid.no_pad .row.no-gutters{
+        height: 100%;
+    }
+    .right_block {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .mb-lg-5{
+        margin: 10px !important;
+    }
+    .mobile_phone {
+        width: 400px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 20;
+        box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
+        transition: .3s all ease-in-out;
+    }
+    .mobil-ico{
+        display: none;
+        padding: 0px 10px;
+        margin-right: 5px;
+        color: red;
+        cursor: pointer;
+    }
+    .mobil-icon{
+        margin-left: auto;
+        cursor: pointer;
+    }
+    .icon-iks{
+        display: none;
+    }
+
+
+
+    @media (max-width: 1100px){
+        .tabcontent h3, p {
+            margin: 20px 60px 20px 60px;
+        }
+        .opacity {
+            margin: 0px 5px !important;
+        }
+        .tabcontent{
+            padding: 6px 0px;
+        }
+    }
+    @media (max-width: 1024px) {
+        .tab{
+            width: 150px;
+        }
+        .icon-iks{
+            display: inline-block;
+        }
+        .contact-container{
+            margin-right: auto ;
+        }
+        .contact-menu{
+            max-width: 850px;
+            margin-right: auto;
+        }
+        .col-absolute{
+            display: none;
+
+        }
+        .mobile_phone {
+            flex: 0 0 50%;
+            max-width: 50%;
+            height: 170%;
+            display: flex;
+            position: absolute;
+            background-color: dimgrey;
+            top: 0;
+            right: 0;
+            z-index: 20;
+            box-shadow: -10px 0 20px -10px rgba(0, 0, 0, 0.1);
+            transition: .3s all ease-in-out;
+        }
+        .mobil-ico{
+            display: inline-block;
+        }
+
+
+
+    }
+
+    @media (max-width: 992px) {
+        html,body{
+            overflow-y: scroll;
+        }
+        .contact-menu{
+            max-width: 800px;
+            margin-right: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .contact-menu{
+            max-width: 600px;
+            margin-right: auto;
+        }
+        .contact-container{
+            max-width: 650px;
+        }
+        .reason-row li a.active {
+            padding: 15px 60px;
+        }
+        .reason-row li a {
+            padding: 15px 5px;
+        }
+
+    }
+
+    
+    @media (max-width: 568px){
+
+        .contact-menu {
+            max-width: 500px;
+            }
+        .conta-inf {
+            font-size: 18px !important;
+        }
+        .contact-menu div{
+           font-size: 16px;
+        }
+        .mobile_phone {
+            flex: 0 0 65%;
+            max-width: 65%;
+        }
+        .reason-row {
+            flex-direction: column;
+            font-size: 16px;
+        }
+        .reason-row li a.active {
+            padding: 5px 0px 5px 50px;
+        }
+        .display_flex h3 {
+            font-size: 15px;
+            margin-bottom: 0px;
+        }
+        .contact-container {
+            padding: 8px;
+
+        }
+        
+        .reason_position {
+            top: 11px;
+        }
+        .reason__title h4 {
+            font-size: 15px;
+        }
+        .reason__title h3 {
+            font-size: 16px;
+        }
+        .display_flex{
+            font-size: 15px;
+        }
+
+        .display_flex h4 {
+            font-size: 15px;
+        }
+        .contact-menu {
+            padding: 5px 30px;
+        }
+        .btn-lg{
+            margin-bottom: 0;
+        }
+        .reason__tit {
+            height: 60px;
+        }
+        .reason__text {
+            padding: 5px;
+        }
+        .reason-row li a {
+            padding: 5px 30px;
+        }
+
+    }
+
+    @media (max-width: 380px) {
+        .contact-menu {
+            max-width: 360px;
+        }
+        .mobile_phone {
+            flex: 0 0 90%;
+            max-width: 90%;
+        }
+        .display_flex {
+            flex-direction: column-reverse;
+        }
+        .contact-menu {
+            padding: 5px 5px;
+        }
+        .mobil-ico{
+            margin-right: 10px;
+        }
+    }
+    @media (max-width: 320px) {
+        .contact-menu {
+            max-width: 300px;
+        }
+        .mobile_phone {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+
+
+
+
+</style>
+
+<body>
+
+<div class="container-fluid no_pad ">
+    <div class="row input justify-content-center no-gutters">
+        <div class="col ">
+
+            <div class="contact-menu">
+                <div class="mobil-ico"><a href="#"><i class="fa fa-phone"></i></a></div>
+            </div>
+            
+            <div class="block_item or2">
+                <div class="left-block">
+                    <h1>
+                        Left_Phone
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div  class="col-lg-4 col-6  col-absolute">
+          <div class="right_block">
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'phone')" id="defaultOpen"></button>
+<!--                <button class="tablinks" onclick="openCity(event, 'contact')"><i class="fa fa-user"></i></button>-->
+<!--                <button class="icon-iks"><i class="far fa-times-circle"></i></button>-->
+            </div>
+            <div id="phone" class="tabcontent">
+                <div class="opacity mr-lg-3 ml-lg-3">
+                    <div class="number text-center border w-10">
+                        <button class="icon-iks"><i class="far fa-times-circle"></i></button>
+                        <div class="">
+<!--                            <button class="icon-iks"><i class="far fa-times-circle"></i></button>-->
+
+                            <div class=" md-form input-with-post-icon ml-5 mr-5 mt-lg-5">
+                                <i class="fas white-ic fa-user input-prefix text-center "></i>
+                                <input type="text" id="phone_popup_number" class="form-control text-white" >
+                                <label for="phone_popup_number"></label>
+                            </div>
+                        </div>
+                        <div class=" buton-goup mb-lg-4 mb-3">
+                            <a type="button" class="btn-floating btn-lg btn-default" value="1" onclick="dis('1')">1</a>
+                            <a type="button" class="btn-floating btn-lg btn-default" value="2" onclick="dis('2')">2</a>
+                            <a type="button" class="btn-floating btn-lg btn-default" value="3" onclick="dis('3')">3</a>
+                            <br>
+                            <a type="button" class="btn-floating btn-lg btn-default" value="4" onclick="dis('4')">4</a>
+                            <a type="button" class="btn-floating btn-lg btn-default" value="5" onclick="dis('5')">5</a>
+                            <a type="button" class="btn-floating btn-lg btn-default" value="6" onclick="dis('6')">6</a>
+                            <br>
+                            <a type="button" class="btn-floating btn-lg btn-default" value="7" onclick="dis('7')">7</a>
+                            <a type="button" class="btn-floating btn-lg btn-default" value="8" onclick="dis('8')">8</a>
+                            <a type="button" class="btn-floating btn-lg btn-default" value="9" onclick="dis('9')">9</a>
+                            <br>
+                            <a type="button" class="btn-floating btn-lg btn-default" value="+" onclick="dis('+')">+</a>
+                            <a type="button" class="btn-floating btn-lg btn-default" value="0" onclick="dis('0')">0</a>
+                            <a type="button" class="btn-floating btn-lg btn-secondary" value="c" onclick="clr()">
+                                <i class="fas red-ic fa-backspace"></i></a>
+                            <div class="mb-lg-5 mb-4 mt-lg-4 mt-3">
+                                <button type="button" disabled class="btn btn-success btn-rounded btn-default" id="btnCall" value="Call" onclick="call();">
+                                    <i class="fas success-ic fa-phone"></i></button>
+                                <button type="button" disabled class="btn btn-success btn-rounded btn-default" value="HangUp" id="btnHangUp"  onclick="hangup(); clr();">
+                                    <i class="fas red-ic  fa-phone-slash"></i></button>
+                            </div>
+                            <p>
+                                <label id="txtCallStatus"></label>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              <div id="contact" class="tabcontent">
+                  <h3 class="mt-5">Contacts</h3>
+                  <p>user</p>
+              </div>
+          </div>
+        </div>
+
+    </div>
+
+    <div style="font-size:10pt;display: none">
+        <p>
+
+            <label id="txtRegStatus"></label>
+        </p>
+
+        <p>
+
+            <label id="txtState"></label>
+        </p>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+<audio id="audio_remote" autoplay="autoplay"></audio>
+<audio id="ringtone" loop src="sounds/ringtone.wav"></audio>
+<audio id="ringbacktone" loop src="sounds/ringbacktone.wav"></audio>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sipml@2.1.4/SIPml-api.js"></script>
+
+<script>
+    //function for displaying values
+    function dis(val) {
+        document.getElementById("phone_popup_number").value += val
+    }
+
+    //function for evaluation
+    /* function solve()
+     {
+         let x = document.getElementById("phone_popup_number").value
+         let y = eval(x)
+         document.getElementById("phone_popup_number").value = y
+     }*/
+    //function for clearing the display
+    function clr() {
+        document.getElementById("phone_popup_number").value = ""
+    }
+</script>
+<script>
+    var sipStack;
+    var registerSession;
+    var callSession = null;
+
+
+    var state = "null";//null, unregistered, registered, calling, incoming, incall
+
+    function createSipStack() {
+        console.log("createSipStack 1");
+        sipStack = new SIPml.Stack({
+                realm: '10.10.3.30',
+                impi: '210',
+                impu: 'sip:210@10.10.3.30',
+                password: '210',
+                websocket_proxy_url: 'wss://10.10.3.30:8089/ws',
+                ice_servers: "[{ url: 'stun:stun.l.google.com:19302'}]",
+                enable_rtcweb_breaker: false,
+                events_listener: {events: '*', listener: onSipEventStack}, // optional: '*' means all events
+                sip_headers: [ // optional
+                    {name: 'User-Agent', value: 'IM-client/OMA1.0 sipML5-v1.0.0.0'},
+                    {name: 'Organization', value: 'TODO'}
+                ]
+            }
+        );
+        console.log("createSipStack 2");
+    }
+
+    var readyCallback = function (e) {
+        createSipStack();
+        console.info('sipml5 is ready');
+    };
+    var errorCallback = function (e) {
+        console.error('Failed to initialize the engine: ' + e.message);
+    }
+
+
+    window.onload = function () {
+        register();
+    };
+
+    // sends SIP REGISTER request to login
+    function register() {
+        //from onload begin
+        //init finalState
+        state = "null";
+        txtState.innerHTML = state;
+        finalState("init");
+        //init SIPML5
+        SIPml.init(readyCallback, errorCallback);//createSipStack
+        //from onload end
+
+        console.log("register 1");
+        sipStack.start(); //event 'started', register
+        finalState("register");
+        console.log("register 2");
+    }
+
+    // sends SIP REGISTER (expires=0) to logout
+    function unregister() {
+        console.log("unregister 1");
+        if (sipStack) {
+            sipStack.stop(); // shutdown all sessions
+        }
+        finalState("unregister");
+        console.log("unregister 2");
+    }
+
+    function onSipEventStack(e) {
+        console.log("onSipEventStack 1, type = " + e.type);
+        switch (e.type) {
+            case 'started': { //register
+                registerSession = sipStack.newSession('register', {
+                    events_listener: {events: '*', listener: onSipEventSession} // optional: '*' means all events
+                });
+                registerSession.register();
+                break;
+            }
+            case 'i_new_call': // incoming audio/video call
+            {
+                if (callSession) {
+                    // do not accept the incoming call if we're already 'in call'
+                    e.newSession.hangup(); // comment this line for multi-line support
+                } else {
+                    callSession = e.newSession;
+                    // start listening for events
+                    callSession.setConfiguration({
+                        audio_remote: document.getElementById('audio_remote'),
+                        events_listener: {events: '*', listener: onSipEventSession} // optional: '*' means all events
+                    });
+
+                    var sRemoteNumber = (callSession.getRemoteFriendlyName() || 'unknown');
+                    txtCallStatus.innerHTML = txtCallStatus.value = "Incoming call from " + sRemoteNumber;
+                    console.log("call = " + txtCallStatus.value);
+
+                    finalState("incoming");
+                }
+                break;
+            }
+            case 'stopping':
+            case 'stopped':
+            case 'failed_to_start':
+            case 'failed_to_stop': {
+                var bFailure = (e.type == 'failed_to_start') || (e.type == 'failed_to_stop');
+                oSipStack = null;
+                oSipSessionRegister = null;
+                oSipSessionCall = null;
+
+                finalState("unregister");
+
+                txtCallStatus.innerHTML = txtCallStatus.value = "";
+                console.log("call = " + txtCallStatus.value);
+                txtRegStatus.innerHTML = txtRegStatus.value = bFailure ? "Disconnected: " + e.description + "" : "Disconnected";
+                console.log("reg = " + txtRegStatus.value);
+                break;
+            }
+            case 'starting':
+            default:
+                break;
+        }
+        console.log("onSipEventStack 2");
+    }
+
+    function onSipEventSession(e) {
+        console.log("onSipEventSession 1");
+        console.info('session event = ' + e.type);
+        switch (e.type) {
+            case 'connecting':
+            case 'connected': {
+                var bConnected = (e.type === 'connected');
+                if (e.session === registerSession) {
+                    txtRegStatus.innerHTML = txtRegStatus.value = e.description;
+                    console.log("reg = " + txtRegStatus.value);
+                } else if (e.session === callSession) {
+                    if (bConnected) {
+                        finalState("call_or_answer");
+                    }
+                    txtCallStatus.innerHTML = txtCallStatus.value = e.description;
+                    console.log("call = " + txtCallStatus.value);
+                }
+                break;
+            } // 'connecting' | 'connected'
+            case 'terminating':
+            case 'terminated': {
+                if (e.session == registerSession) {
+                    callSession = null;
+                    registerSession = null;
+
+                    txtRegStatus.innerHTML = txtRegStatus.value = e.description;
+                    console.log("reg = " + txtRegStatus.value);
+                } else if (e.session == callSession) {
+                    txtCallStatus.innerHTML = txtCallStatus.value = e.description;
+                    console.log("call = " + txtCallStatus.value);
+                    callSession = null;
+                }
+                if (e.type === 'terminated') {
+                    finalState("hangup");
+                    txtCallStatus.innerHTML = txtCallStatus.value = e.description;
+                    console.log("call = " + txtCallStatus.value);
+                }
+                break;
+            } // 'terminating' | 'terminated'
+            case 'i_ao_request': {
+                if (e.session == callSession) {
+                    var iSipResponseCode = e.getSipResponseCode();
+                    if (iSipResponseCode == 180 || iSipResponseCode == 183) {
+                        finalState('calling');
+                        txtCallStatus.innerHTML = txtCallStatus.value = 'Remote ringing...';
+                        console.log("call = " + txtCallStatus.value);
+                    }
+                }
+                break;
+            }
+        }
+        console.log("onSipEventSession 2");
+    }
+
+    function eventsListener(e) {
+        console.info('session event = ' + e.type);
+    }
+
+    function call() {
+        console.log("call 1" + " " + document.getElementById("phone_popup_number").value.toString());
+        if (callSession === null) {
+            console.log("new call");
+            if (document.getElementById("phone_popup_number").value.toString() === "") {
+                alert("введите номер");
+                return;
+            }
+            callSession = sipStack.newSession('call-audio', {
+                audio_remote: document.getElementById('audio_remote'),
+                events_listener: {events: '*', listener: onSipEventSession} // optional: '*' means all events
+            });
+            callSession.call(document.getElementById("phone_popup_number").value.toString());
+        } else {
+            txtCallStatus.innerHTML = txtCallStatus.value = 'Connecting...';
+            console.log("call = " + txtCallStatus.value);
+            callSession.accept();
+            finalState("incall");
+        }
+        console.log("call 2");
+    }
+
+    // terminates the call (SIP BYE or CANCEL)
+    function hangup() {
+        if (callSession) {
+            txtCallStatus.innerHTML = txtCallStatus.value = 'Terminating the call...';
+            console.log("call = " + txtCallStatus.value);
+            callSession.hangup({events_listener: {events: '*', listener: onSipEventSession}});
+        }
+    }
+
+
+    function finalState(action) {
+        switch (state) {
+            case "null": {
+                if (action === "init") {
+                    btnCall.value = 'Call';
+                    btnHangUp.value = 'HangUp';
+                    btnCall.disabled = true;
+                    btnHangUp.disabled = true;
+                    /* btnRegister.disabled = false;
+                     btnUnRegister.disabled = true;*/
+                    state = "unregistered";
+                }
+                break;
+            }
+            case "unregistered": {
+                if (action === "register") {
+                    btnCall.value = 'Call';
+                    btnHangUp.value = 'HangUp';
+                    btnCall.disabled = false;
+                    btnHangUp.disabled = true;
+                    state = "registered";
+                    /* btnRegister.disabled = true;
+                     btnUnRegister.disabled = false;*/
+                }
+                break;
+            }
+            case "registered": {
+                if (action === "calling") {
+                    btnCall.value = 'Call';
+                    btnHangUp.value = 'HangUp';
+                    btnCall.disabled = true;
+                    btnHangUp.disabled = false;
+                    state = "calling";
+                    startRingbackTone();
+                }
+                if (action === "incoming") {
+                    btnCall.value = 'Answer';
+                    btnHangUp.value = 'Reject';
+                    btnCall.disabled = false;
+                    btnHangUp.disabled = false;
+                    state = "incoming";
+                    startRingTone();
+                }
+                break;
+            }
+            case "calling": {
+                if (action === "call_or_answer") {
+                    btnCall.value = 'Call';
+                    btnHangUp.value = 'HangUp';
+                    btnCall.disabled = true;
+                    btnHangUp.disabled = false;
+                    state = "incall";
+                    stopRingbackTone();
+                } else if (action === "hangup") {
+                    btnCall.value = 'Call';
+                    btnHangUp.value = 'HangUp';
+                    btnCall.disabled = false;
+                    btnHangUp.disabled = true;
+                    state = "registered";
+                    stopRingbackTone();
+                }
+                break;
+            }
+            case "incoming": {
+                if (action === "call_or_answer") {
+                    btnCall.value = 'Call';
+                    btnHangUp.value = 'HangUp';
+                    btnCall.disabled = true;
+                    btnHangUp.disabled = false;
+                    state = "incall";
+                    stopRingTone();
+                } else if (action === "hangup") {
+                    btnCall.value = 'Call';
+                    btnHangUp.value = 'HangUp';
+                    btnCall.disabled = false;
+                    btnHangUp.disabled = true;
+                    state = "registered";
+                    stopRingTone();
+                }
+                break;
+            }
+            case "incall": {
+                if (action === "hangup") {
+                    btnCall.value = 'Call';
+                    btnHangUp.value = 'HangUp';
+                    btnCall.disabled = false;
+                    btnHangUp.disabled = true;
+                    state = "registered";
+                }
+                break;
+            }
+        }
+        if (action === "unregister") {
+            btnCall.value = 'Call';
+            btnHangUp.value = 'HangUp';
+            btnCall.disabled = true;
+            btnHangUp.disabled = true;
+            /* btnRegister.disabled = false;
+             btnUnRegister.disabled = true;*/
+            state = "unregistered";
+            stopRingTone();
+            stopRingbackTone();
+        }
+        txtState.innerHTML = state;
+        console.log("state = " + state);
+    }
+
+    function startRingTone() {
+        try {
+            ringtone.play();
+        } catch (e) {
+        }
+    }
+
+    function stopRingTone() {
+        try {
+            ringtone.pause();
+        } catch (e) {
+        }
+    }
+
+    function startRingbackTone() {
+        try {
+            ringbacktone.play();
+        } catch (e) {
+        }
+    }
+
+    function stopRingbackTone() {
+        try {
+            ringbacktone.pause();
+        } catch (e) {
+        }
+    }
+
+</script>
+<script>
+    $(document).ready(function () {
+
+        $('.main__clik_1').on('click', function (event) {
+            event.preventDefault();
+            $('.reason__wrap #three').css('display', 'none');
+            $('.reason__wrap  .active').css('display', 'block');
+            $('.main__clik_2').removeClass('active');
+            $('.reason_position').addClass('active');
+        });
+
+        $('.main__clik_2').on('click', function (event) {
+            event.preventDefault();
+            $('.reason__wrap #one').css('display', 'none');
+            $('.reason__wrap  .active').css('display', 'block');
+            $('.main__clik_3').removeClass('active');
+            $('.reason_position').addClass('active');
+        });
+
+        $('.main__clik_3').on('click', function (event) {
+            event.preventDefault();
+            $('.reason__wrap #two').css('display', 'none');
+            $('.reason__wrap  .active').css('display', 'block');
+            $('.main__clik_1').removeClass('active');
+            $('.reason_position').addClass('active');
+        });
+        $('.mobil-ico').on('click', function (event) {
+             $('.col-absolute').addClass('mobile_phone');
+             $('html body').addClass('.mobile_lite');_
+
+        });
+       $('.conta-inf').on('click',function (event) {
+           $('.col-absolute').removeClass('mobile_phone');
+        }) ;
+        $('.contact-container').on('click',function (event) {
+            $('.col-absolute').removeClass('mobile_phone');
+        }) ;
+        $('.mobile_lite').on('click',function (event) {
+            $('.col-absolute').removeClass('mobile_phone');
+        }) ;
+        $('.icon-iks').on('click', function (event) {
+            $('.col-absolute').removeClass('mobile_phone');
+        });
+        
+
+    });
+</script>
+<script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>

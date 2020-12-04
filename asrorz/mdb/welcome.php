@@ -1,0 +1,1 @@
+<HTML><HEAD><META HTTP-EQUIV="Refresh" CONTENT="0; URL=login.php"><TITLE>302 File moved</TITLE></HEAD></HTML>

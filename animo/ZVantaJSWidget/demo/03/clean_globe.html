@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://www.vantajs.com/?effect=globe -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Vanta.js - 3D &amp; WebGL Background Animations For Your Website</title>
+
+    <meta name="description" content="3D &amp; WebGL Background Animations For Your Website">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:url" content="https://www.vantajs.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vanta.js - 3D &amp; WebGL Background Animations For Your Website">
+    <meta property="og:description" content="Gallery of customizable plug &amp; play animated backgrounds using three.js">
+    <meta property="og:image" content="https://www.vantajs.com/gallery/fb-share-image.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@tengb11">
+    <meta name="twitter:title" content="Vanta.js - 3D &amp; WebGL Background Animations For Your Website">
+    <meta name="twitter:description" content="Gallery of customizable plug &amp; play animated backgrounds using three.js">
+    <meta name="twitter:image" content="https://www.vantajs.com/gallery/fb-share-image.jpg">
+
+    <link rel="stylesheet" href="./demo_globe_files/reset.css">
+    <link rel="stylesheet" href="./demo_globe_files/stylesheet.css">
+    <link rel="stylesheet" href="./demo_globe_files/entypo.css">
+    <link href="./demo_globe_files/css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="https://www.vantajs.com/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript" async="" src="./demo_globe_files/analytics.js.download"></script><script src="./demo_globe_files/jquery.js.download"></script>
+    <script src="./demo_globe_files/three.r92.min.js.download"></script>
+    <!-- <script src="./vendor/orbit-controls.js"></script> -->
+    <!-- <script src="./vendor/GlslCanvas.js"></script> -->
+    <!-- <script src="./vendor/ThreeCSG.js"></script> -->
+    <script src="./demo_globe_files/dat.gui.min.js.download"></script><style type="text/css">.dg ul{list-style:none;margin:0;padding:0;width:100%;clear:both}.dg.ac{position:fixed;top:0;left:0;right:0;height:0;z-index:0}.dg:not(.ac) .main{overflow:hidden}.dg.main{transition:opacity .1s linear}.dg.main.taller-than-window{overflow-y:auto}.dg.main.taller-than-window .close-button{opacity:1;margin-top:-1px;border-top:1px solid #2c2c2c}.dg.main ul.closed .close-button{opacity:1!important}.dg.main .close-button.drag,.dg.main:hover .close-button{opacity:1}.dg.main .close-button{transition:opacity .1s linear;border:0;line-height:19px;height:20px;cursor:pointer;text-align:center;background-color:#000}.dg.main .close-button.close-top{position:relative}.dg.main .close-button.close-bottom{position:absolute}.dg.main .close-button:hover{background-color:#111}.dg.a{float:right;margin-right:15px;overflow-y:visible}.dg.a.has-save>ul.close-top{margin-top:0}.dg.a.has-save>ul.close-bottom{margin-top:27px}.dg.a.has-save>ul.closed{margin-top:0}.dg.a .save-row{top:0;z-index:1002}.dg.a .save-row.close-top{position:relative}.dg.a .save-row.close-bottom{position:fixed}.dg li{transition:height .1s ease-out;transition:overflow .1s linear}.dg li:not(.folder){cursor:auto;height:27px;line-height:27px;padding:0 4px 0 5px}.dg li.folder{padding:0;border-left:4px solid transparent}.dg li.title{margin-left:-4px}.dg .closed li:not(.title),.dg .closed ul li,.dg .closed ul li>*{height:0;overflow:hidden;border:0}.dg .cr{clear:both;padding-left:3px;height:27px;overflow:hidden}.dg .property-name{cursor:default;float:left;clear:left;width:40%;overflow:hidden;text-overflow:ellipsis}.dg .c{float:left;width:60%;position:relative}.dg .c input[type=text]{border:0;margin-top:4px;padding:3px;width:100%;float:right}.dg .has-slider input[type=text]{width:30%;margin-left:0}.dg .slider{float:left;width:66%;margin-left:-5px;margin-right:0;height:19px;margin-top:4px}.dg .slider-fg{height:100%}.dg .c input[type=checkbox]{margin-top:7px}.dg .c select{margin-top:5px}.dg .cr.boolean,.dg .cr.boolean *,.dg .cr.function,.dg .cr.function *,.dg .cr.function .property-name{cursor:pointer}.dg .cr.color{overflow:visible}.dg .selector{display:none;position:absolute;margin-left:-9px;margin-top:23px;z-index:10}.dg .c:hover .selector,.dg .selector.drag{display:block}.dg li.save-row{padding:0}.dg li.save-row .button{display:inline-block;padding:0 6px}.dg.dialogue{background-color:#222;width:460px;padding:15px;font-size:13px;line-height:15px}#dg-new-constructor{padding:10px;color:#222;font-family:Monaco,monospace;font-size:10px;border:0;resize:none;box-shadow:inset 1px 1px 1px #888;word-wrap:break-word;margin:12px 0;display:block;width:440px;overflow-y:scroll;height:100px;position:relative}#dg-local-explain{display:none;font-size:11px;line-height:17px;border-radius:3px;background-color:#333;padding:8px;margin-top:10px}#dg-local-explain code{font-size:10px}#dat-gui-save-locally{display:none}.dg{color:#eee;font:11px Lucida Grande,sans-serif;text-shadow:0 -1px 0 #111}.dg.main::-webkit-scrollbar{width:5px;background:#1a1a1a}.dg.main::-webkit-scrollbar-corner{height:0;display:none}.dg.main::-webkit-scrollbar-thumb{border-radius:5px;background:#676767}.dg li:not(.folder){background:#1a1a1a;border-bottom:1px solid #2c2c2c}.dg li.save-row{line-height:25px;background:#dad5cb;border:0}.dg li.save-row select{margin-left:5px;width:108px}.dg li.save-row .button{margin-left:5px;margin-top:1px;border-radius:2px;font-size:9px;line-height:7px;padding:4px 4px 5px;background:#c5bdad;color:#fff;text-shadow:0 1px 0 #b0a58f;box-shadow:0 -1px 0 #b0a58f;cursor:pointer}.dg li.save-row .button.gears{background:#c5bdad url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAANCAYAAAB/9ZQ7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQJJREFUeNpiYKAU/P//PwGIC/ApCABiBSAW+I8AClAcgKxQ4T9hoMAEUrxx2QSGN6+egDX+/vWT4e7N82AMYoPAx/evwWoYoSYbACX2s7KxCxzcsezDh3evFoDEBYTEEqycggWAzA9AuUSQQgeYPa9fPv6/YWm/Acx5IPb7ty/fw+QZblw67vDs8R0YHyQhgObx+yAJkBqmG5dPPDh1aPOGR/eugW0G4vlIoTIfyFcA+QekhhHJhPdQxbiAIguMBTQZrPD7108M6roWYDFQiIAAv6Aow/1bFwXgis+f2LUAynwoIaNcz8XNx3Dl7MEJUDGQpx9gtQ8YCueB+D26OECAAQDadt7e46D42QAAAABJRU5ErkJggg==) 2px 1px no-repeat;height:7px;width:8px}.dg li.save-row .button:hover{background-color:#bab19e;box-shadow:0 -1px 0 #b0a58f}.dg li.folder{border-bottom:0}.dg li.title{padding-left:16px;background:#000 url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlI+hKgFxoCgAOw==) 6px 10px no-repeat;cursor:pointer;border-bottom:1px solid hsla(0,0%,100%,.2)}.dg .closed li.title{background-image:url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlGIWqMCbWAEAOw==)}.dg .cr.boolean{border-left:3px solid #806787}.dg .cr.color{border-left:3px solid}.dg .cr.function{border-left:3px solid #e61d5f}.dg .cr.number{border-left:3px solid #2fa1d6}.dg .cr.number input[type=text]{color:#2fa1d6}.dg .cr.string{border-left:3px solid #1ed36f}.dg .cr.string input[type=text]{color:#1ed36f}.dg .cr.boolean:hover,.dg .cr.function:hover{background:#111}.dg .c input[type=text]{background:#303030;outline:none}.dg .c input[type=text]:hover{background:#3c3c3c}.dg .c input[type=text]:focus{background:#494949;color:#fff}.dg .c .slider{background:#303030;cursor:ew-resize}.dg .c .slider-fg{background:#2fa1d6;max-width:100%}.dg .c .slider:hover{background:#3c3c3c}.dg .c .slider:hover .slider-fg{background:#44abda}</style>
+    <script src="./demo_globe_files/rison.js.download"></script>
+    <script src="./demo_globe_files/p5.min.js.download"></script>
+
+    <script src="./demo_globe_files/vanta.fog.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.waves.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.cells.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.clouds.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.clouds2.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.birds.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.net.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.globe.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.trunk.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.topology.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.dots.min.js.download"></script>
+    <script src="./demo_globe_files/vanta.rings.min.js.download"></script>
+    <!-- <script src="./dist/vanta.ripple.min.js"></script> -->
+    <!-- <script src="./dist/vanta.struct.min.js"></script> -->
+
+    <script src="./demo_globe_files/gallery.min.js.download"></script>
+    <link rel="stylesheet" href="./demo_globe_files/styles.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="./demo_globe_files/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-42988408-2');
+    </script>
+
+    <!-- <script src="../js/tween.js"></script> -->
+    <!-- <script src="../three/stats.js"></script> -->
+    <!-- <script src="../three/renderstats.js"></script> -->
+
+</head><body>
+<!-- <div class="hamburger">
+  <div class="hamburger-lines"></div>
+</div> -->
+<!-- <div id='red' style="background: red; width: 20px; height: 20px; position: absolute; z-index: 10000;"></div> -->
+<section class="wm">
+  
+    <div class="top-left" style="z-index: 1;">
+        <a href="https://github.com/tengbao/vanta">
+            <i class="ent-github"> </i>
+            GitHub
+        </a>
+    </div>
+    <div class="top-right" style="z-index: 1;">
+        <a href="javascript:void(0)" class="customize">
+            <i class="ent-cog"> </i>
+            Customize &amp; Get Code
+        </a>
+    </div>
+    <div class="bottom-left" style="z-index: 1;">
+        <span id="fps">32.2 fps</span>
+    </div>
+
+
+    <div class="usage-cont" style="">
+        <a class="close-btn" href="javascript: void(0);">
+            <i class="ent-cancel"></i>
+        </a>
+        <h4 class="strong"> 1. Customize </h4>
+        <div class="gui-cont"> <div class="dg main"><ul><li class="cr color"><div><span class="property-name">backgroundColor</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(255, 255, 255); border: 0px; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 1px; background-color: rgb(35, 21, 60);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 58px; margin-top: 69.4706px; background-color: rgb(35, 21, 60);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(91, 0, 255) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 27.3504px;"></div></div></div></div></div></li><li class="cr color"><div><span class="property-name">color</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(255, 255, 255); border: 0px; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 1px; background-color: rgb(255, 63, 129);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 68.2941px; margin-top: -7px; background-color: rgb(255, 63, 129);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 0, 87) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 5.72917px;"></div></div></div></div></div></li><li class="cr color"><div><span class="property-name">color2</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(0, 0, 0); border: 0px; font-weight: bold; text-shadow: rgba(255, 255, 255, 0.7) 0px 1px 1px; background-color: rgb(255, 255, 255);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: -7px; margin-top: -7px; background-color: rgb(255, 255, 255);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 0, 0) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; position: absolute; top: 3px; right: 3px; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 100px;"></div></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">size</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 33.3333%;"></div></div></div></div></li></ul><div class="close-button close-bottom">Close Controls</div></div></div>
+        <br>
+        <h4 class="strong"> 2. Grab the code </h4>
+        <ul class="features small">
+            <li>
+                Change <strong> #your-element-selector </strong> to your element and download files from <a href="https://github.com/tengbao/vanta/tree/master/dist"> GitHub</a>
+            </li>
+        </ul>
+
+        <div id="include-three" style="display:none">&lt;script src="<a target="_blank" href="https://github.com/tengbao/vanta/blob/master/vendor/three.r92.min.js">three.r92.min.js</a>"&gt;&lt;/script&gt;</div>
+        <div id="include-p5" style="display:none">&lt;script src="<a target="_blank" href="https://github.com/tengbao/vanta/blob/master/vendor/p5.min.js">p5.min.js</a>"&gt;&lt;/script&gt;</div>
+
+        <div disabled="true" class="usage" style="display: none;">[[INCLUDE]]
+            &lt;script src="<a target="_blank" href="https://github.com/tengbao/vanta/blob/master/dist/vanta.[[EFFECTNAME]].min.js">vanta.[[EFFECTNAME]].min.js</a>"&gt;&lt;/script&gt;
+            &lt;script&gt;
+            [[CODE]]
+            &lt;/script&gt;</div><div disabled="true" class="usage applied" style="">&lt;script src="<a target="_blank" href="https://github.com/tengbao/vanta/blob/master/vendor/three.r92.min.js">three.r92.min.js</a>"&gt;&lt;/script&gt;
+        &lt;script src="<a target="_blank" href="https://github.com/tengbao/vanta/blob/master/dist/vanta.globe.min.js">vanta.globe.min.js</a>"&gt;&lt;/script&gt;
+        &lt;script&gt;
+        VANTA.GLOBE({
+        el: "<strong>#your-element-selector</strong>"
+        })
+        &lt;/script&gt;</div>
+    </div>
+    <!-- <div class="arrow">
+      <span class="ent-down-open-big"> </span>
+    </div> -->
+    <canvas class="vanta-canvas" width="1349" height="524" style="position: absolute; z-index: 0; top: 0px; left: 0px; width: 1349px; height: 524px;"></canvas></section>
+
+
+
+
+
+</body></html>
+</body>
+</html>

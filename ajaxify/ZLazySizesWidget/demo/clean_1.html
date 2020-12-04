@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lazysizes</title>
+    <link rel="canonical" href="https://afarkas.github.io/lazysizes/index.html">
+
+    <link rel="stylesheet" href="./demo_files/carousel.css">
+    <script>
+        function loadJS(u) {
+            var r = document.getElementsByTagName("script")[0], s = document.createElement("script");
+            s.src = u;
+            r.parentNode.insertBefore(s, r);
+        }
+
+        if (!window.HTMLPictureElement || !('sizes' in document.createElement('img'))) {
+            document.createElement('picture');
+            loadJS("plugins/respimg/ls.respimg.min.js");
+        }
+    </script>
+
+    <link href="./demo_files/tidy.css" rel="stylesheet">
+    <style>
+        .nav {
+            margin-bottom: 30px;
+        }
+
+        .intrinsic {
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+        }
+
+        .intrinsic-2 {
+            padding-bottom: 56.25%;
+        }
+
+        .intrinsic-3 {
+            padding-bottom: 133.333%;
+        }
+
+        .intrinsic img,
+        .intrinsic iframe,
+        .intrinsic .lazyload {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border: none;
+            overflow: hidden;
+        }
+
+        .thumbnail-small {
+            width: 32%;
+            display: inline-block;
+            margin-bottom: 35px;
+        }
+
+        pre {
+            -moz-tab-size: 2;
+            tab-size: 2;
+        }
+
+        .scroll-view {
+            overflow: auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+            width: 100%;
+            padding: 2px 2px 10px;
+        }
+
+        .scroll-doc {
+            display: table;
+            position: relative;
+            text-align: left;
+        }
+
+        .scroll-item {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .scroll-item .thumbnail {
+            margin: 5px 10px;
+            width: 230px;
+        }
+
+        .scroll-item .thumbnail img {
+            width: 100%;
+            height: auto;
+        }
+
+        .no-src.lazyload,
+        .no-src.lazyloading {
+            opacity: 0;
+        }
+
+        .no-src.lazyloaded {
+            opacity: 1;
+            transition: opacity 300ms;
+        }
+
+        [data-expand].lazyload {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        [data-expand].lazyloaded {
+            opacity: 1;
+            transition: all 700ms;
+            transform: scale(1);
+        }
+
+        .effect-row-middle > [data-expand]:nth-child(2),
+        .effect-row-reverse > [data-expand]:nth-child(3),
+        .effect-row > [data-expand]:nth-child(1) {
+            transition-delay: 100ms;
+        }
+
+        .effect-row-middle > [data-expand]:nth-child(1),
+        .effect-row-middle > [data-expand]:nth-child(3),
+        .effect-row-reverse > [data-expand]:nth-child(2),
+        .effect-row > [data-expand]:nth-child(2) {
+            transition-delay: 400ms;
+        }
+
+        .effect-row-reverse > [data-expand]:nth-child(1),
+        .effect-row > [data-expand]:nth-child(3) {
+            transition-delay: 700ms;
+        }
+
+    </style>
+    <script src="./demo_files/ls.unveilhooks.min.js.Без названия" async=""></script>
+    <script src="./demo_files/lazysizes.min.js.Без названия" async=""></script>
+</head>
+<body>
+
+<div class="container">
+    <div id="examples">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="thumbnail">
+                    <div class="intrinsic">
+                        <img alt="" src="./demo_files/8248153196_7a7664e147_b.jpg"
+                             data-src="https://farm9.staticflickr.com/8200/8248153196_7a7664e147_b.jpg"
+                             class=" ls-is-cached lazyloaded">
+                    </div>
+
+                    <div class="caption">
+                        <h3>Image with LQIP technique</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="thumbnail">
+                    <div class="intrinsic">
+                        <img alt="Desert Road" data-src="https://i.picsum.photos/id/1071/1920/1440.jpg"
+                             class="no-src ls-is-cached lazyloaded" src="./demo_files/1071-1920x1440.jpg">
+                    </div>
+
+                    <div class="caption">
+                        <h3>Normal lazy image</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="thumbnail">
+                    <div class="intrinsic">
+                        <img sizes="(min-width: 1000px) 930px, 90vw" data-sizes="auto"
+                             data-src="https://farm5.staticflickr.com/4078/5441060528_31db7838ba_z.jpg" data-srcset="https://farm5.staticflickr.com/4078/5441060528_31db7838ba_m.jpg 240w,
+	https://farm5.staticflickr.com/4078/5441060528_31db7838ba_n.jpg 320w,
+	https://farm5.staticflickr.com/4078/5441060528_31db7838ba.jpg 500w,
+	https://farm5.staticflickr.com/4078/5441060528_31db7838ba_z.jpg 640w,
+	https://farm5.staticflickr.com/4078/5441060528_31db7838ba_b.jpg 1024w" class="lazyload no-src">
+                    </div>
+                    <div class="caption">
+                        <h3>responsive image with srcset and sizes attribute</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="thumbnail">
+                    <div class="intrinsic">
+                        <picture>
+                            <!--[if IE 9]>
+                            <audio><![endif]-->
+                            <source data-srcset="https://i.picsum.photos/id/1048/1200/900.jpg"
+                                    media="(max-width: 990px)">
+                            <source data-srcset="https://i.picsum.photos/id/1055/1440/1080.jpg"
+                                    media="(max-width: 1024px)">
+
+                            <source data-srcset="https://i.picsum.photos/id/103/1440/1080.jpg">
+                            <!--[if IE 9]></audio><![endif]-->
+                            <img class="lazyload" data-src="https://i.picsum.photos/id/1055/1440/1080.jpg"
+                                 alt="image with artdirection">
+                        </picture>
+                    </div>
+
+                    <div class="caption">
+                        <h3>responsive image with the <code>picture</code> element</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="autosizes-example">
+            <div class="col-sm-12">
+                <div class="thumbnail">
+                    <div class="intrinsic">
+                        <img alt="" data-sizes="auto" src="./demo_files/8248153196_7a7664e147_m.jpg"
+                             data-src="https://farm9.staticflickr.com/8200/8248153196_7a7664e147.jpg" data-srcset="https://farm9.staticflickr.com/8200/8248153196_7a7664e147_m.jpg 240w,
+https://farm9.staticflickr.com/8200/8248153196_7a7664e147_n.jpg 320w,
+https://farm9.staticflickr.com/8200/8248153196_7a7664e147.jpg 500w,
+https://farm9.staticflickr.com/8200/8248153196_7a7664e147_c.jpg 800w,
+https://farm9.staticflickr.com/8200/8248153196_7a7664e147_b.jpg 1024w" class="lazyload">
+                    </div>
+
+                    <div class="caption">
+                        <h3>responsive image with srcset and <strong>automatic sizes</strong> attribute</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+    <script src="\publish\yarner\selectable.js\selectable.js"></script>
+
+
+
+
+        <script>
+        const selectable = new Selectable();
+
+    /*   const selectable = new Selectable({
+         filter: ".my-classname"
+        });
+    */
+
+// or
+
+        const selectable = new Selectable({
+        filter: document.querySelectorAll(".my-classname")
+        });
+
+
+
+        const list1 = document.getElementById("items1");
+        const list2 = document.getElementById("items2");
+
+        const selectable1 = new Selectable({
+        filter: list1.children,
+        appendTo: list1
+});
+
+        const selectable2 = new Selectable({
+        filter: list2.children,
+        appendTo: list2
+});
+
+
+/*Optios*/
+   const selectable = new Selectable({
+   filter: ".selectable-item",
+   multiple: false,
+});
+
+new Selectable({
+    filter: "li"
+});
+
+// or
+
+new Selectable({
+    filter: document.querySelectorAll("li")
+});
+
+    </script>
+
+<script>
+        new Selectable({
+filter: ".item",
+ignore: ".form-control" // or ["label", "button", "select"]
+});
+
+
+new Selectable({
+    lasso: {
+        border: "2px dashed rgba(219, 10, 91, 1)",
+        borderRadius: "10px",
+        backgroundColor: "rgba(219, 10, 91, 0.4)"
+    }
+});
+
+        </script>
+</head>
+<body>
+       <ul id="items1">
+                <li class="item">1</li>
+                <li class="item">2</li>
+                <li class="item">3</li>
+                <li class="item">4</li>
+            </ul>
+            <ul id="items2">
+                <li class="item">1</li>
+                <li class="item">2</li>
+                <li class="item">3</li>
+                <li class="item">4</li>
+            </ul>
+        
+
+            <ul>
+                    <li class="item">
+                        <p>All elements below will NOT trigger selection. I will, though.</p>
+                        <input class="form-control form-control-sm" placeholder="Start typing..." type="text">
+                        <input class="form-control form-control-sm" type="range">
+                        <label class="form-control form-control-sm" for="check-1"><input id="check-1" type="checkbox"> Check me</label>
+                        <select class="form-control form-control-sm">
+                            <option value="">Select me</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <button type="button" class="btn btn-light btn-sm form-control form-control-sm">Click me</button>
+                    </li>
+                </ul>
+
+
+</body>
+</html>

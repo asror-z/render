@@ -1,0 +1,129 @@
+<?php
+include("../../config.php");
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Asterisk RealTime Interface">
+    <meta name="author" content="info@asterisk-pbx.ru">
+    <link rel="icon" href="../../img/favicon.ico">
+    <title>Calls</title>
+    <link href="../../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="nav-template" type="text/x-handlebars-template">
+        <?php include "../../nav.html"; ?>
+    </div>
+    <div id="channels-template" type="text/x-handlebars-template">
+        <h3>Calls</h3>
+        <div class="table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>CallerIDNum</th>
+                        <th>ConnectedLineNum</th>
+                        <th>ApplicationData</th>
+                        <th>Duration</th>
+                        <th>ChannelStateDesc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each Calls}} {{#ifDial Application compare='Dial'}}
+                    <tr>
+                        <td>{{CallerIDNum}}</td>
+                        <td>{{ConnectedLineNum}}</td>
+                        <td>{{ApplicationData}}</td>
+                        <td>{{Duration}}</td>
+                        <td>{{ChannelStateDesc}}</td>
+                    </tr>
+                    {{/ifDial}} {{#ifAppDial Application compare='AppDial'}}
+                    <tr>
+                        <td>{{CallerIDNum}}</td>
+                        <td>{{ConnectedLineNum}}</td>
+                        <td>{{ApplicationData}}</td>
+                        <td>{{Duration}}</td>
+                        <td>{{ChannelStateDesc}}</td>
+                    </tr>
+                    {{/ifAppDial}} {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="nav-placeholder">null</div>
+    <div class="col-lg-8 col-lg-offset-2 main">
+        <br/>
+        <div class="channels-placeholder">null</div>
+    </div>
+    <script src="../../jquery/dist/jquery.min.js"></script>
+    <script src="../../bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../js/handlebars.js"></script>
+    <script src="../../js/func.js"></script>
+    <script src="../../js/locale.js"></script>
+    <script src="../../js/helpers.js"></script>
+    <script>
+        $(function() {
+            var theTemplateScript = $("#nav-template").html();
+            var theTemplate = Handlebars.compile(theTemplateScript);
+            var theCompiledHtml = theTemplate(window.locale);
+            $('.nav-placeholder').html(theCompiledHtml);
+        });
+
+        $(function getCalls() {
+            $(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'ajam.php',
+                    data: 'Action=CoreShowChannels',
+                    success: function(data) {
+                        var chan = JSON.parse(data);
+                        //$('#channels').html(data);
+                        var theTemplateScript = $("#channels-template").html();
+                        var theTemplate = Handlebars.compile(theTemplateScript);
+                        var context = {
+                            Calls: chan
+                        };
+                        var theCompiledHtml = theTemplate(context);
+                        $('.channels-placeholder').html(theCompiledHtml);
+                    }
+                });
+            });
+            setTimeout(getCalls, 1000);
+        });
+
+
+        Handlebars.registerHelper("ifDial", function(conditional, options) {
+            if (conditional == options.hash.compare) {
+                return options.fn(this);
+            } else {
+                return options.inverse(this);
+            }
+        });
+
+        Handlebars.registerHelper("ifAppDial", function(conditional, options) {
+            if (conditional == options.hash.compare) {
+                return options.fn(this);
+            } else {
+                return options.inverse(this);
+            }
+        });
+
+        Handlebars.registerHelper("constat", function(status) {
+            var s = status;
+            if (s == '<unknown>')
+                var Stat = "RING";
+            else
+                var Stat = s;
+
+            return new Handlebars.SafeString(Stat);
+        });
+    </script>
+</body>
+
+</html>

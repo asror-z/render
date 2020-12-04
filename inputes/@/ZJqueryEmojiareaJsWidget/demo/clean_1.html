@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Links -->
+    <link href="https://cdn.jsdelivr.net/npm/jquery.emojiarea.js@0.1.8-beta/dist/reset.css" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.emojiarea.js@0.1.8-beta/dist/jquery.emojiarea.min.js"></script>
+    <title>Clean Unicode</title>
+</head>
+<body>
+
+<div class="example">
+    <h2>Unicode</h2>
+    <div data-global-picker="false" data-type="unicode" data-emojiarea="">
+        <div class="emoji-button">😄</div>
+        <textarea id="input1" rows="5">😄</textarea>
+    </div>
+
+
+    <h3>Value:</h3>
+    <div class="value">
+        <pre id="value1"></pre>
+    </div>
+
+
+    <script>
+        $('#input1').on('input', function() {
+                $('#value1').text($('#input1').val());
+        });
+        $('#value1').text($('#input1').val());
+    </script>
+</div>
+
+
+<style>
+    * {
+        margin: 0px; padding: 0px;
+    }
+
+    body {
+         font-family: sans-serif; font-size: 13px; font-weight: 300; -webkit-font-smoothing: antialiased;}
+    textarea {
+        padding: 15px; border-radius: 3px; border: 1px solid rgb(208, 208, 208);  width: 100%; height: 100px;  font-size: 13px;box-shadow: inset 0px 1px 1px rgba(0,0,0,0.1); -webkit-font-smoothing: antialiased; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1); -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1); -webkit-box-sizing: border-box; -moz-box-sizing: border-box;
+    }
+   
+    .value {
+        background: rgb(248, 248, 248); padding: 15px; border-radius: 3px; box-shadow: inset 0px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .emoji-button {
+        margin: 5px; cursor: pointer; display: inline-block;
+    }
+    .emoji-picker {
+        border: 1px solid rgb(204, 204, 204); border-image: none; width: 210px; position: absolute; background-color: rgb(255, 255, 255);
+    }
+    .emoji-picker a {
+         padding: 3px; font-size: 20px; display: inline-block; cursor: pointer;
+     }
+    .emoji-selector {
+        border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid; display: flex;
+    }
+    
+    .emoji-selector li {
+        margin: 5px;
+    }
+    
+    .emoji-group {
+        padding: 3px; height: 200px; -ms-overflow-y: scroll; grid-template-columns: repeat(6, 16.66667%);  overflow: scroll;
+    }
+
+
+</style>
+</body>
+</html>

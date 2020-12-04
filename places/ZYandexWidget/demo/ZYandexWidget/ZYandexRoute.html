@@ -1,0 +1,36 @@
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=5fb7da25-bc18-4612-b304-83ea2266c510" type="text/javascript"></script>
+    <script type="text/javascript">
+        function init() {
+            var myMap = new ymaps.Map('map', {
+                center: [55.74, 37.58],
+                zoom: 13,
+                controls: []
+            });
+
+            // Создадим экземпляр элемента управления «поиск по карте»
+            // с установленной опцией провайдера данных для поиска по организациям.
+            var searchControl = new ymaps.control.SearchControl({
+                options: {
+                    provider: 'yandex#search'
+                }
+            });
+
+            myMap.controls.add(searchControl);
+
+            // Программно выполним поиск определённых кафе в текущей
+            // прямоугольной области карты.
+            searchControl.search('Шоколадница');
+        }
+
+        ymaps.ready(init);
+
+    </script>
+    <style>
+      #map {
+            width: 100%; height: 100%; padding: 0; margin: 0;
+        }
+    </style>
+
+<body>
+<div id="map"></div>
+</body>

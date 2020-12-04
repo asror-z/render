@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+   
+    <link rel="stylesheet" href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+    <script src="/publish/yarner/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h3>Popover Example</h3>
+    <a href="#" title="Dismissible popover" data-toggle="popover" data-content="<button>fneovren<button>">Click me</a>
+    <div class="hide" id="content">
+    ewfonicweho
+                 <button class="btn btn-info">button</button>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#content').hide();
+        $('[data-toggle="popover"]').popover({
+        html: true,
+
+        container: 'body',
+        placement: 'bottom',
+        trigger : 'click'
+
+
+        });
+
+
+    });
+</script>
+
+</body>
+</html>

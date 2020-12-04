@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>karzina</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		.blok{border: 1px solid rgba(0, 0, 0, .3); border-radius: 7px; position: relative;  box-shadow: 0 0 6px rgba(0,0,0,0.2); width: 100%}
+		.cloz{position: absolute; margin-left: 95%; margin-top: -1%;color: #a71d2a;}
+		.ptop{padding-top: 10%}
+		.borbottom{border-bottom: ridge}
+		.inps{font-size: 25px}
+		.barg{
+			position: absolute;
+			margin-top: -1%;
+			margin-left: 0%;
+			z-index: 1;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div>
+		<h1>Ваша карзина</h1>
+		<h3 class="text-success">Карзина №1</h3>
+		<div class="row">
+
+			<!--left blok-->
+			<div class="col-md-9 p-3">
+
+				<!--tavar-->
+				<div class="p-3 mb-3 d-flex bg-white blok">
+					<i class="fa fa-times cloz text-lg-left"></i>
+					<div class="barg d-block">
+						<i class="text-success fa fa-leaf" style="font-size: 25px">12+</i><br>
+						<b>дней</b>
+					</div>
+					<!--tavar-->
+					<div class="col-md-3">
+
+						<img src="https://avatars.mds.yandex.net/get-mpic/1680954/img_id3353040028881571257.jpeg/9hq" width="120" height="120" alt="">
+					</div>
+
+					<div class="col-md-6 d-block">
+
+						<!--tavar nomi-->
+						<h5>Колбаски Останкино Шашлычные полукопченые 400г</h5>
+						<div class="m-2">
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star"></span>
+						</div>
+
+						<!--miqdori-->
+						<div class="btn-group btn-sm" role="group">
+							<button type="button" onclick="minus('in')" class="btn btn-success">-</button>
+							<input type="input" id="in" class="small text-center inps" value="1" style="width: 60px">
+							<button type="button" onclick="plus('in')" class="btn btn-success">+</button>
+						</div>
+					</div>
+
+					<!--narxi-->
+					<div class="col-md-3 text-right ptop">
+						<h4 class="text-black-50"><b class="text-success">22,000</b> uzs</h4>
+					</div>
+				</div>
+
+
+				<!--tavar-->
+				<div class="p-3 mb-3 d-flex bg-white blok">
+					<i class="fa fa-times cloz"></i>
+					<div class="barg d-block">
+						<i class="text-success fa fa-leaf" style="font-size: 25px">12+</i><br>
+						<b>дней</b>
+					</div>
+					<!--tavar-->
+					<div class="col-md-3">
+						<img src="https://avatars.mds.yandex.net/get-mpic/1680954/img_id3353040028881571257.jpeg/9hq" width="120" height="120" alt="">
+					</div>
+
+					<div class="col-md-6 d-block">
+
+						<!--tavar nomi-->
+						<h5>Колбаски Останкино Шашлычные полукопченые 400г</h5>
+						<div class="m-2">
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star"></span>
+						</div>
+
+						<!--miqdori-->
+						<div class="btn-group btn-sm" role="group">
+							<button type="button" onclick="minus('inpt')" class="btn btn-success">-</button>
+							<input type="input" id="inpt"  class="small text-center inps" value="1" style="width: 60px">
+							<button type="button" onclick="plus('inpt')" class="btn btn-success">+</button>
+						</div>
+					</div>
+
+					<!--narxi-->
+					<div class="col-md-3 text-right ptop">
+						<h4 class="text-black-50"><b class="text-success">22,000</b> uzs</h4>
+					</div>
+				</div>
+
+				<h3	class="text-success">Карзина №2</h3>
+
+				<!--tavar-->
+				<div class="p-3 mb-3 d-flex bg-white blok">
+					<i class="fa fa-times cloz"></i>
+					<div class="barg d-block">
+						<i class="text-success fa fa-leaf" style="font-size: 25px">12+</i><br>
+						<b>дней</b>
+					</div>
+					<!--tavar-->
+					<div class="col-md-3">
+						<img src="https://avatars.mds.yandex.net/get-mpic/1680954/img_id3353040028881571257.jpeg/9hq" width="120" height="120" alt="">
+					</div>
+
+					<div class="col-md-6 d-block">
+
+						<!--tavar nomi-->
+						<h5>Колбаски Останкино Шашлычные полукопченые 400г</h5>
+						<div class="m-2">
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star text-warning"></span>
+							<span class="fa fa-star"></span>
+						</div>
+
+						<!--miqdori-->
+						<div class="btn-group btn-sm" role="group">
+							<button type="button" onclick="minus('inp')" class="btn btn-success">-</button>
+							<input type="input" id="inp" class="small text-center inps" value="1" style="width: 60px">
+							<button type="button" onclick="plus('inp')" class="btn btn-success">+</button>
+						</div>
+					</div>
+
+					<!--narxi-->
+					<div class="col-md-3 text-right ptop">
+						<h4 class="text-black-50"><b class="text-success">22,000</b> uzs</h4>
+					</div>
+				</div>
+
+				<h4	class="text-black-50">Комментарий к заказу</h4>
+
+				<textarea class="blok" name="" id="" rows="4"></textarea>
+
+
+			</div>
+
+
+			<!--right blok-->
+			<div class="col-md-3 d-block p-3">
+				<div class="bg-success d-flex" style="border-radius: 7px">
+					<i class="fa fa-cart-arrow-down text-white m-2 ml-3" style="font-size: 34px"></i>
+					<h3 class="p-2 text-center text-white">321 000 uzs</h3>
+				</div>
+				<div class="p-3 mt-4" style="border: 1px solid rgba(0, 0, 0, .3); border-radius: 7px">
+
+					<h5 class="text-success">Карзина №1</h5>
+
+					<div class="mb-2 pt-2 borbottom">
+						Ваш заказ<b class="float-right text-success">3 тавара</b>
+					</div>
+					<div class="mb-2 pt-2 borbottom">
+						Доставка<b class="float-right text-success">16 000 uzs</b>
+					</div>
+					<div class="mb-2 pt-2 borbottom">
+						Итово<b class="float-right text-success">121 000 uzs</b>
+					</div>
+
+				</div>
+				<div class="p-3 mt-4" style="border: 1px solid rgba(0, 0, 0, .3); border-radius: 7px">
+
+					<h5 class="text-success">Карзина №2</h5>
+
+					<div class="mb-2 pt-2 borbottom">
+						Ваш заказ<b class="float-right text-success">1 тавара</b>
+					</div>
+					<div class="mb-2 pt-2 borbottom">
+						Доставка<b class="float-right text-success">10 000 uzs</b>
+					</div>
+					<div class="mb-2 pt-2 borbottom">
+						Итово<b class="float-right text-success">41 000 uzs</b>
+					</div>
+
+				</div>
+				<button class="btn btn-success mt-3 btn-block text-lg-center font-weight-bold btn-lg">Далее</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script>
+	function plus(id) {
+		var val = document.getElementById(id);
+		val.value++;
+		document.getElementById('in').innerHTML = val;
+	}
+	function minus(id) {
+		var val = document.getElementById(id);
+		if(val.value>1){val.value--;
+			document.getElementById('in').innerHTML = val;}
+	}
+</script>
+
+</body>
+</html>

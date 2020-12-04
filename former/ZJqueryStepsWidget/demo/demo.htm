@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://www.jquery-steps.com/Examples#vertical -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Examples - jQuery Steps</title>
+        
+<meta name="robots" content="index, follow">
+<meta name="author" content="Rafael Staib">
+<meta name="description" content="A powerful jQuery wizard plugin that supports accessibility and HTML5.">
+<meta name="keywords" content="jQuery, jQuery Plugin, jQuery UI Component, jQuery Wizard, jQuery Tabs, 
+    jQuery Steps, HTML5, JavaScript, Accessibility, jQuery Form Wizard, jQuery Form Validation, jQuery Step by Step">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="YjJt-mRDxR14C4j_fwdLLztW-4LUSAw7iZ5z1xBBHn4">
+<meta name="google-site-verification" content="pOf4qeAKWi4KNjWST1Zlqo8hGbUlpV8PwqYZkA52fww">
+
+<!-- Required for Open Graph -->
+<meta property="og:title" content="jQuery Steps">
+<meta property="og:description" content="A powerful jQuery wizard plugin that supports accessibility and HTML5.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://www.jquery-steps.com">
+<meta property="og:image" content="http://www.jquery-steps.com/Content/images/social.png">
+
+<!-- Required for Twitter -->
+<meta property="twitter:card" content="summary">
+<meta name="twitter:creator" content="@RafaelStaib">
+<meta property="twitter:title" content="jQuery Steps">
+<meta name="twitter:description" content="A powerful jQuery wizard plugin that supports accessibility and HTML5.">
+<meta name="twitter:image" content="http://www.jquery-steps.com/Content/images/social.png">
+
+<meta name="application-name" content="jQuery Steps">
+<meta name="msapplication-tooltip" content="jQuery Steps">
+
+<link rel="shortcut icon" href="http://www.jquery-steps.com/icon.png">
+<!--link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"-->
+        
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="/Scripts/html5shiv?v=RE_gJ9EUPkTBKS71UlDP_lykWxpC3LqjM3UwakH-oGQ1"></script>
+
+<![endif]-->
+        
+<style>
+    @-webkit-viewport { width: device-width; }
+    @-moz-viewport { width: device-width; }
+    @-ms-viewport { width: device-width; }
+    @-o-viewport { width: device-width; }
+    @viewport { width: device-width; }
+</style>
+<link href="./demo_files/css" rel="stylesheet" type="text/css">
+<link href="./demo_files/Examples" rel="stylesheet">
+
+        
+    <link rel="prev" title="Getting Started with jQuery Steps" href="http://www.jquery-steps.com/GettingStarted">
+    <link rel="next" title="Documentation for jQuery Steps" href="http://www.jquery-steps.com/Documentation">
+
+    <script charset="utf-8" src="./demo_files/button.a9e51eea566eab199c00950f37200d0b.js.download"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
+    <body data-spy="scroll" data-target="#lefthand" data-offset="60" style="">
+        <a name="top"></a>
+
+        <div id="topbar" class="navbar navbar-fixed-top">
+            <div class="navbar-inner container">
+                <h1>
+                    <a href="http://www.jquery-steps.com/">jQuery Steps</a>
+                </h1>
+                
+                <nav role="navigation">
+                    <ul>
+                        <li class=""><a href="http://www.jquery-steps.com/GettingStarted">Getting Started</a></li>
+                        <li class="active"><a href="http://www.jquery-steps.com/Examples">Examples</a></li>
+                        <li><a href="https://github.com/rstaib/jquery-steps/wiki">Documentation</a></li>
+                        <li><a href="http://www.jquery-bootgrid.com/">Bootgrid <span class="badge badge-important">New</span></a></li>
+                        <li><a href="https://chillicream.com/blog/2013/09/12/jquery-steps-form-wizard">Blog</a></li>
+                        <li><a href="https://github.com/rstaib/jquery-steps">GitHub</a></li>
+                        <li class=""><a href="http://www.jquery-steps.com/About">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="sitewrapper container">
+            
+    <header id="banner" role="banner">
+        <h1>Examples</h1>
+        <p>See how beautiful jQuery Steps is and what you can do with it!</p>
+        <div id="carbonads-container">
+	<script src="./demo_files/all.js.download" async="" crossorigin="anonymous"></script><script src="./demo_files/cb=gapi.loaded_1" async=""></script><script src="./demo_files/cb=gapi(1).loaded_0" async=""></script><script async="" src="./demo_files/analytics.js.download"></script><script type="text/javascript" async="" src="./demo_files/plusone.js.download" gapi_processed="true"></script><script id="facebook-jssdk" src="./demo_files/all.js(1).download"></script><script id="twitter-wjs" src="./demo_files/widgets.js.download"></script><script async="" type="text/javascript" src="./demo_files/carbon.js.download" id="_carbonads_js"></script>
+</div>
+    </header>
+
+            <div class="socialbar clearfix">
+    <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 71px; height: 20px;" title="Twitter Tweet Button" src="./demo_files/tweet_button.2a008290075125adde2d7b849b06a0bb.en.html" data-url="http://www.jquery-steps.com"></iframe>
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+    <div class="fb-like fb_iframe_widget" data-href="http://www.jquery-steps.com" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false" data-font="arial" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=110&amp;font=arial&amp;href=http%3A%2F%2Fwww.jquery-steps.com%2F&amp;layout=button_count&amp;locale=en_GB&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=110"><span style="vertical-align: bottom; width: 96px; height: 20px;"><iframe name="f367a029d2f8d6" width="110px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./demo_files/like.html" style="border: none; visibility: visible; width: 96px; height: 20px;" class=""></iframe></span></div>
+    <script>(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+    <div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I0_1590555965897" name="I0_1590555965897" src="./demo_files/fastbutton.html" data-gapiattached="true"></iframe></div><div class="g-plusone" data-size="medium" data-href="http://www.jquery-steps.com" data-gapiscan="true" data-onload="true" data-gapistub="true"></div>
+    <script>(function () { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();</script>
+    <iframe src="./demo_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+    <iframe src="./demo_files/github-btn(1).html" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+</div>
+            
+
+
+
+<div class="content">
+    <div class="row-fluid">
+        <nav id="lefthand" class="span3" role="navigation">
+            <ul id="lefthand-nav" class="nav nav-list affix">
+                <li class=""><a href="http://www.jquery-steps.com/Examples#basic">Basic Example</a></li>
+                <li class=""><a href="http://www.jquery-steps.com/Examples#basic-form">Basic Form Example</a></li>
+                <li class=""><a href="http://www.jquery-steps.com/Examples#advanced-form">Advanced Form Example</a></li>
+                <li class=""><a href="http://www.jquery-steps.com/Examples#manipulation">Dynamic Manipulation Example</a></li>
+                <li class=""><a href="http://www.jquery-steps.com/Examples#tabs">Tabs Example</a></li>
+                <li class=""><a href="http://www.jquery-steps.com/Examples#vertical">Vertical Steps Example</a></li>
+                <li class="active"><a href="http://www.jquery-steps.com/Examples#async">Async Content Loading Example</a></li>
+                <li class=""><a href="http://www.jquery-steps.com/Examples#embed">Embedded Content Example</a></li>
+            </ul>
+        </nav>
+        <div class="span9 main" role="main">
+            <section id="basic">
+                <h2 class="page-header">Basic Example</h2>
+                <p><button id="init-basic" type="button" class="btn btn-large btn-primary">Start Example</button></p>
+                <div id="example-basic" style="display: none;">
+                    <h3>Keyboard</h3>
+                    <section>
+                        <p>Try the keyboard navigation by clicking arrow left or right!</p>
+                    </section>
+
+                    <h3>Effects</h3>
+                    <section>
+                        <p>Wonderful transition effects.</p>
+                    </section>
+
+                    <h3>Pager</h3>
+                    <section>
+                        <p>The next and previous buttons help you to navigate through your content.</p>
+                    </section>
+                </div>
+                <details open="">
+                    <summary role="button" aria-expanded="true"><span class="fa fa-caret-down"></span> Code</summary>
+                    <div class="code tabcontrol clearfix" role="application" id="steps-uid-0"><div class="steps clearfix"><ul role="tablist"><li role="tab" aria-disabled="false" class="first current" aria-selected="true"><a id="steps-uid-0-t-0" href="http://www.jquery-steps.com/Examples#steps-uid-0-h-0" aria-controls="steps-uid-0-p-0"><span class="current-info audible">current step: </span>HTML</a></li><li role="tab" aria-disabled="false" class="last"><a id="steps-uid-0-t-1" href="http://www.jquery-steps.com/Examples#steps-uid-0-h-1" aria-controls="steps-uid-0-p-1">JavaScript</a></li></ul></div><div class="content clearfix">
+                        <h3 id="steps-uid-0-h-0" tabindex="-1" class="title current">HTML</h3>
+                        <section id="steps-uid-0-p-0" role="tabpanel" aria-labelledby="steps-uid-0-h-0" class="body current" aria-hidden="false">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"example-basic"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Keyboard</span><span class="tag">&lt;/h3&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Try the keyboard navigation by clicking arrow left or right!</span><span class="tag">&lt;/p&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Effects</span><span class="tag">&lt;/h3&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L7"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Wonderful transition effects.</span><span class="tag">&lt;/p&gt;</span></li><li class="L8"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Pager</span><span class="tag">&lt;/h3&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L1"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">The next and previous buttons help you to navigate through your content.</span><span class="tag">&lt;/p&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L3"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+                        </section>
+
+                        <h3 id="steps-uid-0-h-1" tabindex="-1" class="title">JavaScript</h3>
+                        <section id="steps-uid-0-p-1" role="tabpanel" aria-labelledby="steps-uid-0-h-1" class="body" aria-hidden="true" style="display: none;">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">"#example-basic"</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">({</span></li><li class="L1"><span class="pln">    headerTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"h3"</span><span class="pun">,</span></li><li class="L2"><span class="pln">    bodyTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"section"</span><span class="pun">,</span></li><li class="L3"><span class="pln">    transitionEffect</span><span class="pun">:</span><span class="pln"> </span><span class="str">"slideLeft"</span><span class="pun">,</span></li><li class="L4"><span class="pln">    autoFocus</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span></li><li class="L5"><span class="pun">});</span></li></ol></pre>
+                        </section>
+                    </div></div>
+                </details>
+            </section>
+            <section id="basic-form">
+                <h2 class="page-header">Basic Form Example</h2>
+                <p><button id="init-form" type="button" class="btn btn-large btn-primary">Start Example</button></p>
+                <form id="example-form" action="http://www.jquery-steps.com/Examples#" style="display: none;">
+                    <div>
+                        <h3>Account</h3>
+                        <section>
+                            <label for="userName">User name *</label>
+                            <input id="userName" name="userName" type="text" class="required">
+                            <label for="password">Password *</label>
+                            <input id="password" name="password" type="text" class="required">
+                            <label for="confirm">Confirm Password *</label>
+                            <input id="confirm" name="confirm" type="text" class="required">
+                            <p>(*) Mandatory</p>
+                        </section>
+
+                        <h3>Profile</h3>
+                        <section>
+                            <label for="name">First name *</label>
+                            <input id="name" name="name" type="text" class="required">
+                            <label for="surname">Last name *</label>
+                            <input id="surname" name="surname" type="text" class="required">
+                            <label for="email">Email *</label>
+                            <input id="email" name="email" type="text" class="required email">
+                            <label for="address">Address</label>
+                            <input id="address" name="address" type="text">
+                            <p>(*) Mandatory</p>
+                        </section>
+
+                        <h3>Hints</h3>
+                        <section>
+                            <ul>
+                                <li>Foo</li>
+                                <li>Bar</li>
+                                <li>Foobar</li>
+                            </ul>
+                        </section>
+
+                        <h3>Finish</h3>
+                        <section>
+                            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
+                        </section>
+                    </div>
+                </form>
+                <details>
+                    <summary role="button" aria-expanded="false"><span class="fa fa-caret-right"></span> Code</summary>
+                    <div class="code tabcontrol clearfix" role="application" id="steps-uid-1"><div class="steps clearfix"><ul role="tablist"><li role="tab" aria-disabled="false" class="first current" aria-selected="true"><a id="steps-uid-1-t-0" href="http://www.jquery-steps.com/Examples#steps-uid-1-h-0" aria-controls="steps-uid-1-p-0"><span class="current-info audible">current step: </span>HTML</a></li><li role="tab" aria-disabled="false" class="last"><a id="steps-uid-1-t-1" href="http://www.jquery-steps.com/Examples#steps-uid-1-h-1" aria-controls="steps-uid-1-p-1">JavaScript</a></li></ul></div><div class="content clearfix">
+                        <h3 id="steps-uid-1-h-0" tabindex="-1" class="title current">HTML</h3>
+                        <section id="steps-uid-1-p-0" role="tabpanel" aria-labelledby="steps-uid-1-h-0" class="body current" aria-hidden="false">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"example-form"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"#"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;div&gt;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;h3&gt;</span><span class="pln">Account</span><span class="tag">&lt;/h3&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;section&gt;</span></li><li class="L4"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"userName"</span><span class="tag">&gt;</span><span class="pln">User name *</span><span class="tag">&lt;/label&gt;</span></li><li class="L5"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"userName"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"userName"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"password"</span><span class="tag">&gt;</span><span class="pln">Password *</span><span class="tag">&lt;/label&gt;</span></li><li class="L7"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"password"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"password"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"confirm"</span><span class="tag">&gt;</span><span class="pln">Confirm Password *</span><span class="tag">&lt;/label&gt;</span></li><li class="L9"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"confirm"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"confirm"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span></li><li class="L0"><span class="pln">            </span><span class="tag">&lt;p&gt;</span><span class="pln">(*) Mandatory</span><span class="tag">&lt;/p&gt;</span></li><li class="L1"><span class="pln">        </span><span class="tag">&lt;/section&gt;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;h3&gt;</span><span class="pln">Profile</span><span class="tag">&lt;/h3&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;section&gt;</span></li><li class="L4"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">&gt;</span><span class="pln">First name *</span><span class="tag">&lt;/label&gt;</span></li><li class="L5"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"name"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"surname"</span><span class="tag">&gt;</span><span class="pln">Last name *</span><span class="tag">&lt;/label&gt;</span></li><li class="L7"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"surname"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"surname"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"email"</span><span class="tag">&gt;</span><span class="pln">Email *</span><span class="tag">&lt;/label&gt;</span></li><li class="L9"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required email"</span><span class="tag">&gt;</span></li><li class="L0"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address"</span><span class="tag">&gt;</span><span class="pln">Address</span><span class="tag">&lt;/label&gt;</span></li><li class="L1"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"address"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">            </span><span class="tag">&lt;p&gt;</span><span class="pln">(*) Mandatory</span><span class="tag">&lt;/p&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;/section&gt;</span></li><li class="L4"><span class="pln">        </span><span class="tag">&lt;h3&gt;</span><span class="pln">Hints</span><span class="tag">&lt;/h3&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;section&gt;</span></li><li class="L6"><span class="pln">            </span><span class="tag">&lt;ul&gt;</span></li><li class="L7"><span class="pln">                </span><span class="tag">&lt;li&gt;</span><span class="pln">Foo</span><span class="tag">&lt;/li&gt;</span></li><li class="L8"><span class="pln">                </span><span class="tag">&lt;li&gt;</span><span class="pln">Bar</span><span class="tag">&lt;/li&gt;</span></li><li class="L9"><span class="pln">                </span><span class="tag">&lt;li&gt;</span><span class="pln">Foobar</span><span class="tag">&lt;/li&gt;</span></li><li class="L0"><span class="pln">            </span><span class="tag">&lt;/ul&gt;</span></li><li class="L1"><span class="pln">        </span><span class="tag">&lt;/section&gt;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;h3&gt;</span><span class="pln">Finish</span><span class="tag">&lt;/h3&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;section&gt;</span></li><li class="L4"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"acceptTerms"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"acceptTerms"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"acceptTerms"</span><span class="tag">&gt;</span><span class="pln">I agree with the Terms and Conditions.</span><span class="tag">&lt;/label&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;/section&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                        </section>
+
+                        <h3 id="steps-uid-1-h-1" tabindex="-1" class="title">JavaScript</h3>
+                        <section id="steps-uid-1-p-1" role="tabpanel" aria-labelledby="steps-uid-1-h-1" class="body" aria-hidden="true" style="display: none;">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="kwd">var</span><span class="pln"> form </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">"#example-form"</span><span class="pun">);</span></li><li class="L1"><span class="pln">form</span><span class="pun">.</span><span class="pln">validate</span><span class="pun">({</span></li><li class="L2"><span class="pln">    errorPlacement</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> errorPlacement</span><span class="pun">(</span><span class="pln">error</span><span class="pun">,</span><span class="pln"> element</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> element</span><span class="pun">.</span><span class="pln">before</span><span class="pun">(</span><span class="pln">error</span><span class="pun">);</span><span class="pln"> </span><span class="pun">},</span></li><li class="L3"><span class="pln">    rules</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">        confirm</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">            equalTo</span><span class="pun">:</span><span class="pln"> </span><span class="str">"#password"</span></li><li class="L6"><span class="pln">        </span><span class="pun">}</span></li><li class="L7"><span class="pln">    </span><span class="pun">}</span></li><li class="L8"><span class="pun">});</span></li><li class="L9"><span class="pln">form</span><span class="pun">.</span><span class="pln">children</span><span class="pun">(</span><span class="str">"div"</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">({</span></li><li class="L0"><span class="pln">    headerTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"h3"</span><span class="pun">,</span></li><li class="L1"><span class="pln">    bodyTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"section"</span><span class="pun">,</span></li><li class="L2"><span class="pln">    transitionEffect</span><span class="pun">:</span><span class="pln"> </span><span class="str">"slideLeft"</span><span class="pun">,</span></li><li class="L3"><span class="pln">    onStepChanging</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> currentIndex</span><span class="pun">,</span><span class="pln"> newIndex</span><span class="pun">)</span></li><li class="L4"><span class="pln">    </span><span class="pun">{</span></li><li class="L5"><span class="pln">        form</span><span class="pun">.</span><span class="pln">validate</span><span class="pun">().</span><span class="pln">settings</span><span class="pun">.</span><span class="pln">ignore </span><span class="pun">=</span><span class="pln"> </span><span class="str">":disabled,:hidden"</span><span class="pun">;</span></li><li class="L6"><span class="pln">        </span><span class="kwd">return</span><span class="pln"> form</span><span class="pun">.</span><span class="pln">valid</span><span class="pun">();</span></li><li class="L7"><span class="pln">    </span><span class="pun">},</span></li><li class="L8"><span class="pln">    onFinishing</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> currentIndex</span><span class="pun">)</span></li><li class="L9"><span class="pln">    </span><span class="pun">{</span></li><li class="L0"><span class="pln">        form</span><span class="pun">.</span><span class="pln">validate</span><span class="pun">().</span><span class="pln">settings</span><span class="pun">.</span><span class="pln">ignore </span><span class="pun">=</span><span class="pln"> </span><span class="str">":disabled"</span><span class="pun">;</span></li><li class="L1"><span class="pln">        </span><span class="kwd">return</span><span class="pln"> form</span><span class="pun">.</span><span class="pln">valid</span><span class="pun">();</span></li><li class="L2"><span class="pln">    </span><span class="pun">},</span></li><li class="L3"><span class="pln">    onFinished</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> currentIndex</span><span class="pun">)</span></li><li class="L4"><span class="pln">    </span><span class="pun">{</span></li><li class="L5"><span class="pln">        alert</span><span class="pun">(</span><span class="str">"Submitted!"</span><span class="pun">);</span></li><li class="L6"><span class="pln">    </span><span class="pun">}</span></li><li class="L7"><span class="pun">});</span></li></ol></pre>
+                        </section>
+                    </div></div>
+                </details>
+            </section>
+            <section id="advanced-form">
+                <h2 class="page-header">Advanced Form Example</h2>
+                <p><button id="init-advanced-form" type="button" class="btn btn-large btn-primary">Start Example</button></p>
+                <form id="example-advanced-form" action="http://www.jquery-steps.com/Examples#" style="display: none;">
+                    <h3>Account</h3>
+                    <fieldset>
+                        <legend>Account Information</legend>
+
+                        <label for="userName-2">User name *</label>
+                        <input id="userName-2" name="userName" type="text" class="required">
+                        <label for="password-2">Password *</label>
+                        <input id="password-2" name="password" type="text" class="required">
+                        <label for="confirm-2">Confirm Password *</label>
+                        <input id="confirm-2" name="confirm" type="text" class="required">
+                        <p>(*) Mandatory</p>
+                    </fieldset>
+
+                    <h3>Profile</h3>
+                    <fieldset>
+                        <legend>Profile Information</legend>
+
+                        <label for="name-2">First name *</label>
+                        <input id="name-2" name="name" type="text" class="required">
+                        <label for="surname-2">Last name *</label>
+                        <input id="surname-2" name="surname" type="text" class="required">
+                        <label for="email-2">Email *</label>
+                        <input id="email-2" name="email" type="text" class="required email">
+                        <label for="address-2">Address</label>
+                        <input id="address-2" name="address" type="text">
+                        <label for="age-2">Age (The warning step will show up if age is less than 18) *</label>
+                        <input id="age-2" name="age" type="text" class="required number">
+                        <p>(*) Mandatory</p>
+                    </fieldset>
+
+                    <h3>Warning</h3>
+                    <fieldset>
+                        <legend>You are to young</legend>
+
+                        <p>Please go away ;-)</p>
+                    </fieldset>
+
+                    <h3>Finish</h3>
+                    <fieldset>
+                        <legend>Terms and Conditions</legend>
+
+                        <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
+                    </fieldset>
+                </form>
+                <details>
+                    <summary role="button" aria-expanded="false"><span class="fa fa-caret-right"></span> Code</summary>
+                    <div class="code tabcontrol clearfix" role="application" id="steps-uid-2"><div class="steps clearfix"><ul role="tablist"><li role="tab" aria-disabled="false" class="first current" aria-selected="true"><a id="steps-uid-2-t-0" href="http://www.jquery-steps.com/Examples#steps-uid-2-h-0" aria-controls="steps-uid-2-p-0"><span class="current-info audible">current step: </span>HTML</a></li><li role="tab" aria-disabled="false" class="last"><a id="steps-uid-2-t-1" href="http://www.jquery-steps.com/Examples#steps-uid-2-h-1" aria-controls="steps-uid-2-p-1">JavaScript</a></li></ul></div><div class="content clearfix">
+                        <h3 id="steps-uid-2-h-0" tabindex="-1" class="title current">HTML</h3>
+                        <section id="steps-uid-2-p-0" role="tabpanel" aria-labelledby="steps-uid-2-h-0" class="body current" aria-hidden="false">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;form</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"example-advanced-form"</span><span class="pln"> </span><span class="atn">action</span><span class="pun">=</span><span class="atv">"#"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Account</span><span class="tag">&lt;/h3&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;fieldset&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;legend&gt;</span><span class="pln">Account Information</span><span class="tag">&lt;/legend&gt;</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"userName-2"</span><span class="tag">&gt;</span><span class="pln">User name *</span><span class="tag">&lt;/label&gt;</span></li><li class="L6"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"userName-2"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"userName"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span></li><li class="L7"><span class="pln">        </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"password-2"</span><span class="tag">&gt;</span><span class="pln">Password *</span><span class="tag">&lt;/label&gt;</span></li><li class="L8"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"password-2"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"password"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">        </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"confirm-2"</span><span class="tag">&gt;</span><span class="pln">Confirm Password *</span><span class="tag">&lt;/label&gt;</span></li><li class="L0"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"confirm-2"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"confirm"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">(*) Mandatory</span><span class="tag">&lt;/p&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/fieldset&gt;</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Profile</span><span class="tag">&lt;/h3&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;fieldset&gt;</span></li><li class="L6"><span class="pln">        </span><span class="tag">&lt;legend&gt;</span><span class="pln">Profile Information</span><span class="tag">&lt;/legend&gt;</span></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="pln">        </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"name-2"</span><span class="tag">&gt;</span><span class="pln">First name *</span><span class="tag">&lt;/label&gt;</span></li><li class="L9"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"name-2"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span></li><li class="L0"><span class="pln">        </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"surname-2"</span><span class="tag">&gt;</span><span class="pln">Last name *</span><span class="tag">&lt;/label&gt;</span></li><li class="L1"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"surname-2"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"surname"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"email-2"</span><span class="tag">&gt;</span><span class="pln">Email *</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"email-2"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"email"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required email"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">        </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"address-2"</span><span class="tag">&gt;</span><span class="pln">Address</span><span class="tag">&lt;/label&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"address-2"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"address"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;</span></li><li class="L6"><span class="pln">        </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"age-2"</span><span class="tag">&gt;</span><span class="pln">Age (The warning step will show up if age is less than 18) *</span><span class="tag">&lt;/label&gt;</span></li><li class="L7"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"age-2"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"age"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required number"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">(*) Mandatory</span><span class="tag">&lt;/p&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/fieldset&gt;</span></li><li class="L0"><span class="pln">&nbsp;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Warning</span><span class="tag">&lt;/h3&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;fieldset&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;legend&gt;</span><span class="pln">You are to young</span><span class="tag">&lt;/legend&gt;</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Please go away ;-)</span><span class="tag">&lt;/p&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/fieldset&gt;</span></li><li class="L7"><span class="pln">&nbsp;</span></li><li class="L8"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Finish</span><span class="tag">&lt;/h3&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;fieldset&gt;</span></li><li class="L0"><span class="pln">        </span><span class="tag">&lt;legend&gt;</span><span class="pln">Terms and Conditions</span><span class="tag">&lt;/legend&gt;</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"acceptTerms-2"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"acceptTerms"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"checkbox"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"required"</span><span class="tag">&gt;</span><span class="pln"> </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"acceptTerms-2"</span><span class="tag">&gt;</span><span class="pln">I agree with the Terms and Conditions.</span><span class="tag">&lt;/label&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;/fieldset&gt;</span></li><li class="L4"><span class="tag">&lt;/form&gt;</span></li></ol></pre>
+                        </section>
+
+                        <h3 id="steps-uid-2-h-1" tabindex="-1" class="title">JavaScript</h3>
+                        <section id="steps-uid-2-p-1" role="tabpanel" aria-labelledby="steps-uid-2-h-1" class="body" aria-hidden="true" style="display: none;">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="kwd">var</span><span class="pln"> form </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">"#example-advanced-form"</span><span class="pun">).</span><span class="pln">show</span><span class="pun">();</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">form</span><span class="pun">.</span><span class="pln">steps</span><span class="pun">({</span></li><li class="L3"><span class="pln">    headerTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"h3"</span><span class="pun">,</span></li><li class="L4"><span class="pln">    bodyTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"fieldset"</span><span class="pun">,</span></li><li class="L5"><span class="pln">    transitionEffect</span><span class="pun">:</span><span class="pln"> </span><span class="str">"slideLeft"</span><span class="pun">,</span></li><li class="L6"><span class="pln">    onStepChanging</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> currentIndex</span><span class="pun">,</span><span class="pln"> newIndex</span><span class="pun">)</span></li><li class="L7"><span class="pln">    </span><span class="pun">{</span></li><li class="L8"><span class="pln">        </span><span class="com">// Allways allow previous action even if the current form is not valid!</span></li><li class="L9"><span class="pln">        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">currentIndex </span><span class="pun">&gt;</span><span class="pln"> newIndex</span><span class="pun">)</span></li><li class="L0"><span class="pln">        </span><span class="pun">{</span></li><li class="L1"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li><li class="L2"><span class="pln">        </span><span class="pun">}</span></li><li class="L3"><span class="pln">        </span><span class="com">// Forbid next action on "Warning" step if the user is to young</span></li><li class="L4"><span class="pln">        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">newIndex </span><span class="pun">===</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">"#age-2"</span><span class="pun">).</span><span class="pln">val</span><span class="pun">())</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">18</span><span class="pun">)</span></li><li class="L5"><span class="pln">        </span><span class="pun">{</span></li><li class="L6"><span class="pln">            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li><li class="L7"><span class="pln">        </span><span class="pun">}</span></li><li class="L8"><span class="pln">        </span><span class="com">// Needed in some cases if the user went back (clean up)</span></li><li class="L9"><span class="pln">        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">currentIndex </span><span class="pun">&lt;</span><span class="pln"> newIndex</span><span class="pun">)</span></li><li class="L0"><span class="pln">        </span><span class="pun">{</span></li><li class="L1"><span class="pln">            </span><span class="com">// To remove error styles</span></li><li class="L2"><span class="pln">            form</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">".body:eq("</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> newIndex </span><span class="pun">+</span><span class="pln"> </span><span class="str">") label.error"</span><span class="pun">).</span><span class="pln">remove</span><span class="pun">();</span></li><li class="L3"><span class="pln">            form</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">".body:eq("</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> newIndex </span><span class="pun">+</span><span class="pln"> </span><span class="str">") .error"</span><span class="pun">).</span><span class="pln">removeClass</span><span class="pun">(</span><span class="str">"error"</span><span class="pun">);</span></li><li class="L4"><span class="pln">        </span><span class="pun">}</span></li><li class="L5"><span class="pln">        form</span><span class="pun">.</span><span class="pln">validate</span><span class="pun">().</span><span class="pln">settings</span><span class="pun">.</span><span class="pln">ignore </span><span class="pun">=</span><span class="pln"> </span><span class="str">":disabled,:hidden"</span><span class="pun">;</span></li><li class="L6"><span class="pln">        </span><span class="kwd">return</span><span class="pln"> form</span><span class="pun">.</span><span class="pln">valid</span><span class="pun">();</span></li><li class="L7"><span class="pln">    </span><span class="pun">},</span></li><li class="L8"><span class="pln">    onStepChanged</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> currentIndex</span><span class="pun">,</span><span class="pln"> priorIndex</span><span class="pun">)</span></li><li class="L9"><span class="pln">    </span><span class="pun">{</span></li><li class="L0"><span class="pln">        </span><span class="com">// Used to skip the "Warning" step if the user is old enough.</span></li><li class="L1"><span class="pln">        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">currentIndex </span><span class="pun">===</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">"#age-2"</span><span class="pun">).</span><span class="pln">val</span><span class="pun">())</span><span class="pln"> </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">18</span><span class="pun">)</span></li><li class="L2"><span class="pln">        </span><span class="pun">{</span></li><li class="L3"><span class="pln">            form</span><span class="pun">.</span><span class="pln">steps</span><span class="pun">(</span><span class="str">"next"</span><span class="pun">);</span></li><li class="L4"><span class="pln">        </span><span class="pun">}</span></li><li class="L5"><span class="pln">        </span><span class="com">// Used to skip the "Warning" step if the user is old enough and wants to the previous step.</span></li><li class="L6"><span class="pln">        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">currentIndex </span><span class="pun">===</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> priorIndex </span><span class="pun">===</span><span class="pln"> </span><span class="lit">3</span><span class="pun">)</span></li><li class="L7"><span class="pln">        </span><span class="pun">{</span></li><li class="L8"><span class="pln">            form</span><span class="pun">.</span><span class="pln">steps</span><span class="pun">(</span><span class="str">"previous"</span><span class="pun">);</span></li><li class="L9"><span class="pln">        </span><span class="pun">}</span></li><li class="L0"><span class="pln">    </span><span class="pun">},</span></li><li class="L1"><span class="pln">    onFinishing</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> currentIndex</span><span class="pun">)</span></li><li class="L2"><span class="pln">    </span><span class="pun">{</span></li><li class="L3"><span class="pln">        form</span><span class="pun">.</span><span class="pln">validate</span><span class="pun">().</span><span class="pln">settings</span><span class="pun">.</span><span class="pln">ignore </span><span class="pun">=</span><span class="pln"> </span><span class="str">":disabled"</span><span class="pun">;</span></li><li class="L4"><span class="pln">        </span><span class="kwd">return</span><span class="pln"> form</span><span class="pun">.</span><span class="pln">valid</span><span class="pun">();</span></li><li class="L5"><span class="pln">    </span><span class="pun">},</span></li><li class="L6"><span class="pln">    onFinished</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">event</span><span class="pun">,</span><span class="pln"> currentIndex</span><span class="pun">)</span></li><li class="L7"><span class="pln">    </span><span class="pun">{</span></li><li class="L8"><span class="pln">        alert</span><span class="pun">(</span><span class="str">"Submitted!"</span><span class="pun">);</span></li><li class="L9"><span class="pln">    </span><span class="pun">}</span></li><li class="L0"><span class="pun">}).</span><span class="pln">validate</span><span class="pun">({</span></li><li class="L1"><span class="pln">    errorPlacement</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> errorPlacement</span><span class="pun">(</span><span class="pln">error</span><span class="pun">,</span><span class="pln"> element</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> element</span><span class="pun">.</span><span class="pln">before</span><span class="pun">(</span><span class="pln">error</span><span class="pun">);</span><span class="pln"> </span><span class="pun">},</span></li><li class="L2"><span class="pln">    rules</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">        confirm</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">            equalTo</span><span class="pun">:</span><span class="pln"> </span><span class="str">"#password-2"</span></li><li class="L5"><span class="pln">        </span><span class="pun">}</span></li><li class="L6"><span class="pln">    </span><span class="pun">}</span></li><li class="L7"><span class="pun">});</span></li></ol></pre>
+                        </section>
+                    </div></div>
+                </details>
+            </section>
+            <section id="manipulation">
+                <h2 class="page-header">Dynamic Manipulation Example</h2>
+                <p><button id="init-manipulation" type="button" class="btn btn-large btn-primary">Start Example</button></p>
+                <div id="example-manipulation" style="display: none;">
+                    <h3>Add Step</h3>
+                    <section>
+                        <p>
+                            <label for="title-3">HTML Title *</label><br>
+                            <input id="title-3" type="text"><br>
+                            <label for="text-3">HTML Content *</label><br>
+                            <textarea id="text-3" rows="5"></textarea>
+                        </p>
+                        <p><a href="javascript:void(0);" onclick="$(&#39;#wizard-4&#39;).steps(&#39;add&#39;, { title: $(&#39;#title-3&#39;).val(), content: $(&#39;#text-3&#39;).val() });">Add</a></p>
+                        <p>(*) Mandatory</p>
+                    </section>
+
+                    <h3>Insert Step</h3>
+                    <section>
+                        <p>
+                            <label for="position-3">Position (zero-based) *</label><br>
+                            <input id="position-3" type="text"><br>
+                            <label for="title2-3">HTML Title *</label><br>
+                            <input id="title2-3" type="text"><br>
+                            <label for="text2-3">HTML Content *</label><br>
+                            <textarea id="text2-3" rows="5"></textarea>
+                        </p>
+                        <p><a href="javascript:void(0);" onclick="$(&#39;#wizard-4&#39;).steps(&#39;insert&#39;, Number($(&#39;#position-3&#39;).val()), { title: $(&#39;#title2-3&#39;).val(), content: $(&#39;#text2-3&#39;).val() });">Insert</a></p>
+                        <p>(*) Mandatory</p>
+                    </section>
+
+                    <h3>Remove Step</h3>
+                    <section>
+                        <p>
+                            <label for="position2-3">Position (zero-based) *</label><br>
+                            <input id="position2-3" type="text">
+                        </p>
+                        <p><a href="javascript:void(0);" onclick="$(&#39;#wizard-4&#39;).steps(&#39;remove&#39;, Number($(&#39;#position2-3&#39;).val()));">Remove</a></p>
+                        <p>(*) Mandatory</p>
+                    </section>
+                </div>
+                <details>
+                    <summary role="button" aria-expanded="false"><span class="fa fa-caret-right"></span> Code</summary>
+                    <div class="code tabcontrol clearfix" role="application" id="steps-uid-3"><div class="steps clearfix"><ul role="tablist"><li role="tab" aria-disabled="false" class="first current" aria-selected="true"><a id="steps-uid-3-t-0" href="http://www.jquery-steps.com/Examples#steps-uid-3-h-0" aria-controls="steps-uid-3-p-0"><span class="current-info audible">current step: </span>HTML</a></li><li role="tab" aria-disabled="false" class="last"><a id="steps-uid-3-t-1" href="http://www.jquery-steps.com/Examples#steps-uid-3-h-1" aria-controls="steps-uid-3-p-1">JavaScript</a></li></ul></div><div class="content clearfix">
+                        <h3 id="steps-uid-3-h-0" tabindex="-1" class="title current">HTML</h3>
+                        <section id="steps-uid-3-p-0" role="tabpanel" aria-labelledby="steps-uid-3-h-0" class="body current" aria-hidden="false">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"example-manipulation"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Add Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;p&gt;</span></li><li class="L4"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"title-3"</span><span class="tag">&gt;</span><span class="pln">HTML Title *</span><span class="tag">&lt;/label&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L5"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"title-3"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L6"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"text-3"</span><span class="tag">&gt;</span><span class="pln">HTML Content *</span><span class="tag">&lt;/label&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L7"><span class="pln">            </span><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"text-3"</span><span class="pln"> </span><span class="atn">rows</span><span class="pun">=</span><span class="atv">"5"</span><span class="tag">&gt;&lt;/textarea&gt;</span></li><li class="L8"><span class="pln">        </span><span class="tag">&lt;/p&gt;</span></li><li class="L9"><span class="pln">        </span><span class="tag">&lt;p&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"javascript:void(0);"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#wizard-4'</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">(</span><span class="str">'add'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> title</span><span class="pun">:</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'#title-3'</span><span class="pun">).</span><span class="pln">val</span><span class="pun">(),</span><span class="pln"> content</span><span class="pun">:</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'#text-3'</span><span class="pun">).</span><span class="pln">val</span><span class="pun">()</span><span class="pln"> </span><span class="pun">});</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Add</span><span class="tag">&lt;/a&gt;&lt;/p&gt;</span></li><li class="L0"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">(*) Mandatory</span><span class="tag">&lt;/p&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Insert Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L4"><span class="pln">        </span><span class="tag">&lt;p&gt;</span></li><li class="L5"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"position-3"</span><span class="tag">&gt;</span><span class="pln">Position (zero-based) *</span><span class="tag">&lt;/label&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L6"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"position-3"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L7"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"title2-3"</span><span class="tag">&gt;</span><span class="pln">HTML Title *</span><span class="tag">&lt;/label&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L8"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"title2-3"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L9"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"text2-3"</span><span class="tag">&gt;</span><span class="pln">HTML Content *</span><span class="tag">&lt;/label&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L0"><span class="pln">            </span><span class="tag">&lt;textarea</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"text2-3"</span><span class="pln"> </span><span class="atn">rows</span><span class="pun">=</span><span class="atv">"5"</span><span class="tag">&gt;&lt;/textarea&gt;</span></li><li class="L1"><span class="pln">        </span><span class="tag">&lt;/p&gt;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;p&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"javascript:void(0);"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#wizard-4'</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">(</span><span class="str">'insert'</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#position-3'</span><span class="pun">).</span><span class="pln">val</span><span class="pun">()),</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> title</span><span class="pun">:</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'#title2-3'</span><span class="pun">).</span><span class="pln">val</span><span class="pun">(),</span><span class="pln"> content</span><span class="pun">:</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'#text2-3'</span><span class="pun">).</span><span class="pln">val</span><span class="pun">()</span><span class="pln"> </span><span class="pun">});</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Insert</span><span class="tag">&lt;/a&gt;&lt;/p&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">(*) Mandatory</span><span class="tag">&lt;/p&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Remove Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L7"><span class="pln">        </span><span class="tag">&lt;p&gt;</span></li><li class="L8"><span class="pln">            </span><span class="tag">&lt;label</span><span class="pln"> </span><span class="atn">for</span><span class="pun">=</span><span class="atv">"position2-3"</span><span class="tag">&gt;</span><span class="pln">Position (zero-based) *</span><span class="tag">&lt;/label&gt;&lt;br</span><span class="pln"> </span><span class="tag">/&gt;</span></li><li class="L9"><span class="pln">            </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"position2-3"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;</span></li><li class="L0"><span class="pln">        </span><span class="tag">&lt;/p&gt;</span></li><li class="L1"><span class="pln">        </span><span class="tag">&lt;p&gt;&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"javascript:void(0);"</span><span class="pln"> </span><span class="atn">onclick</span><span class="pun">=</span><span class="atv">"</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#wizard-4'</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">(</span><span class="str">'remove'</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Number</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#position2-3'</span><span class="pun">).</span><span class="pln">val</span><span class="pun">()));</span><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">Remove</span><span class="tag">&lt;/a&gt;&lt;/p&gt;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">(*) Mandatory</span><span class="tag">&lt;/p&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L4"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+                        </section>
+
+                        <h3 id="steps-uid-3-h-1" tabindex="-1" class="title">JavaScript</h3>
+                        <section id="steps-uid-3-p-1" role="tabpanel" aria-labelledby="steps-uid-3-h-1" class="body" aria-hidden="true" style="display: none;">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">"#example-manipulation"</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">({</span></li><li class="L1"><span class="pln">    headerTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"h3"</span><span class="pun">,</span></li><li class="L2"><span class="pln">    bodyTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"section"</span><span class="pun">,</span></li><li class="L3"><span class="pln">    enableAllSteps</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li><li class="L4"><span class="pln">    enablePagination</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span></li><li class="L5"><span class="pun">});</span></li></ol></pre>
+                        </section>
+                    </div></div>
+                </details>
+            </section>
+            <section id="tabs">
+                <h2 class="page-header">Tabs Example</h2>
+                <p><button id="init-tabs" type="button" class="btn btn-large btn-primary">Start Example</button></p>
+                <div id="example-tabs" style="display: none;">
+                    <h3>Keyboard</h3>
+                    <section>
+                        <p>What is needed to transform it to a tabs component? Not much. Just override some properties and done.</p>
+                        <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">"#wizard"</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">({</span></li><li class="L1"><span class="pln">    </span><span class="com">// Disables the finish button (required if pagination is enabled)</span></li><li class="L2"><span class="pln">    enableFinishButton</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"> </span></li><li class="L3"><span class="pln">    </span><span class="com">// Disables the next and previous buttons (optional)</span></li><li class="L4"><span class="pln">    enablePagination</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span><span class="pln"> </span></li><li class="L5"><span class="pln">    </span><span class="com">// Enables all steps from the begining</span></li><li class="L6"><span class="pln">    enableAllSteps</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln"> </span></li><li class="L7"><span class="pln">    </span><span class="com">// Removes the number from the title</span></li><li class="L8"><span class="pln">    titleTemplate</span><span class="pun">:</span><span class="pln"> </span><span class="str">"#title#"</span><span class="pln"> </span></li><li class="L9"><span class="pun">});</span></li></ol></pre>
+                    </section>
+
+                    <h3>Other demos</h3>
+                    <section>
+                        <p>Scroll down or up to see the other demos.</p>
+                    </section>
+
+                    <h3>Documentation</h3>
+                    <section>
+                        <p>For more information <a href="https://github.com/rstaib/jquery-steps/wiki">check out the documentation</a>!</p>
+                    </section>
+
+                    <h3>Download</h3>
+                    <section>
+                        <p>See on getting started!</p>
+                    </section>
+                </div>
+                <details>
+                    <summary role="button" aria-expanded="false"><span class="fa fa-caret-right"></span> Code</summary>
+                    <div class="code tabcontrol clearfix" role="application" id="steps-uid-4"><div class="steps clearfix"><ul role="tablist"><li role="tab" aria-disabled="false" class="first current" aria-selected="true"><a id="steps-uid-4-t-0" href="http://www.jquery-steps.com/Examples#steps-uid-4-h-0" aria-controls="steps-uid-4-p-0"><span class="current-info audible">current step: </span>HTML</a></li><li role="tab" aria-disabled="false" class="last"><a id="steps-uid-4-t-1" href="http://www.jquery-steps.com/Examples#steps-uid-4-h-1" aria-controls="steps-uid-4-p-1">JavaScript</a></li></ul></div><div class="content clearfix">
+                        <h3 id="steps-uid-4-h-0" tabindex="-1" class="title current">HTML</h3>
+                        <section id="steps-uid-4-p-0" role="tabpanel" aria-labelledby="steps-uid-4-h-0" class="body current" aria-hidden="false">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"example-tabs"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Keyboard</span><span class="tag">&lt;/h3&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">What is needed to transform it to a tabs component? Not much. Just override some properties and done.</span><span class="tag">&lt;/p&gt;</span></li><li class="L4"><span class="pln">        </span><span class="tag">&lt;pre</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"prettyprint linenums"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">$("#wizard").steps({</span></li><li class="L6"><span class="pln">    // Disables the finish button (required if pagination is enabled)</span></li><li class="L7"><span class="pln">    enableFinishButton: false, </span></li><li class="L8"><span class="pln">    // Disables the next and previous buttons (optional)</span></li><li class="L9"><span class="pln">    enablePagination: false, </span></li><li class="L0"><span class="pln">    // Enables all steps from the begining</span></li><li class="L1"><span class="pln">    enableAllSteps: true, </span></li><li class="L2"><span class="pln">    // Removes the number from the title</span></li><li class="L3"><span class="pln">    titleTemplate: "#title#" </span></li><li class="L4"><span class="pln">});</span></li><li class="L5"><span class="tag">&lt;/pre&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Other demos</span><span class="tag">&lt;/h3&gt;</span></li><li class="L8"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L9"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Scroll down or up to see the other demos.</span><span class="tag">&lt;/p&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Documentation</span><span class="tag">&lt;/h3&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">For more information </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"https://github.com/rstaib/jquery-steps/wiki"</span><span class="tag">&gt;</span><span class="pln">check out the documentation</span><span class="tag">&lt;/a&gt;</span><span class="pln">!</span><span class="tag">&lt;/p&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Download</span><span class="tag">&lt;/h3&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L7"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">See on getting started!</span><span class="tag">&lt;/p&gt;</span></li><li class="L8"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L9"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+                        </section>
+
+                        <h3 id="steps-uid-4-h-1" tabindex="-1" class="title">JavaScript</h3>
+                        <section id="steps-uid-4-p-1" role="tabpanel" aria-labelledby="steps-uid-4-h-1" class="body" aria-hidden="true" style="display: none;">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">"#example-tabs"</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">({</span></li><li class="L1"><span class="pln">    headerTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"h3"</span><span class="pun">,</span></li><li class="L2"><span class="pln">    bodyTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"section"</span><span class="pun">,</span></li><li class="L3"><span class="pln">    transitionEffect</span><span class="pun">:</span><span class="pln"> </span><span class="str">"slideLeft"</span><span class="pun">,</span></li><li class="L4"><span class="pln">    enableFinishButton</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span></li><li class="L5"><span class="pln">    enablePagination</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">,</span></li><li class="L6"><span class="pln">    enableAllSteps</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li><li class="L7"><span class="pln">    titleTemplate</span><span class="pun">:</span><span class="pln"> </span><span class="str">"#title#"</span><span class="pun">,</span></li><li class="L8"><span class="pln">    cssClass</span><span class="pun">:</span><span class="pln"> </span><span class="str">"tabcontrol"</span></li><li class="L9"><span class="pun">});</span></li></ol></pre>
+                        </section>
+                    </div></div>
+                </details>
+            </section>
+            <section id="vertical">
+                <h2 class="page-header">Vertical Steps Example</h2>
+                <p></p>
+                <div id="example-vertical" style="" role="application" class="wizard clearfix vertical"><div class="steps clearfix"><ul role="tablist"><li role="tab" class="first current" aria-disabled="false" aria-selected="true"><a id="example-vertical-t-0" href="http://www.jquery-steps.com/Examples#example-vertical-h-0" aria-controls="example-vertical-p-0"><span class="current-info audible">current step: </span><span class="number">1.</span> Keyboard</a></li><li role="tab" class="disabled" aria-disabled="true"><a id="example-vertical-t-1" href="http://www.jquery-steps.com/Examples#example-vertical-h-1" aria-controls="example-vertical-p-1"><span class="number">2.</span> Effects</a></li><li role="tab" class="disabled last" aria-disabled="true"><a id="example-vertical-t-2" href="http://www.jquery-steps.com/Examples#example-vertical-h-2" aria-controls="example-vertical-p-2"><span class="number">3.</span> Pager</a></li></ul></div><div class="content clearfix">
+                    <h3 id="example-vertical-h-0" tabindex="-1" class="title current">Keyboard</h3>
+                    <section id="example-vertical-p-0" role="tabpanel" aria-labelledby="example-vertical-h-0" class="body current" aria-hidden="false">
+                        <p>Try the keyboard navigation by clicking arrow left or right!</p>
+                    </section>
+
+                    <h3 id="example-vertical-h-1" tabindex="-1" class="title">Effects</h3>
+                    <section id="example-vertical-p-1" role="tabpanel" aria-labelledby="example-vertical-h-1" class="body" aria-hidden="true" style="display: none;">
+                        <p>Wonderful transition effects.</p>
+                    </section>
+
+                    <h3 id="example-vertical-h-2" tabindex="-1" class="title">Pager</h3>
+                    <section id="example-vertical-p-2" role="tabpanel" aria-labelledby="example-vertical-h-2" class="body" aria-hidden="true" style="display: none;">
+                        <p>The next and previous buttons help you to navigate through your content.</p>
+                    </section>
+                </div><div class="actions clearfix"><ul role="menu" aria-label="Pagination"><li class="disabled" aria-disabled="true"><a href="http://www.jquery-steps.com/Examples#previous" role="menuitem">Previous</a></li><li aria-hidden="false" aria-disabled="false"><a href="http://www.jquery-steps.com/Examples#next" role="menuitem">Next</a></li><li aria-hidden="true" style="display: none;"><a href="http://www.jquery-steps.com/Examples#finish" role="menuitem">Finish</a></li></ul></div></div>
+                <details open="">
+                    <summary role="button" aria-expanded="true"><span class="fa fa-caret-down"></span> Code</summary>
+                    <div class="code tabcontrol clearfix" role="application" id="steps-uid-5"><div class="steps clearfix"><ul role="tablist"><li role="tab" aria-disabled="false" class="first current" aria-selected="true"><a id="steps-uid-5-t-0" href="http://www.jquery-steps.com/Examples#steps-uid-5-h-0" aria-controls="steps-uid-5-p-0"><span class="current-info audible">current step: </span>HTML</a></li><li role="tab" aria-disabled="false" class="last"><a id="steps-uid-5-t-1" href="http://www.jquery-steps.com/Examples#steps-uid-5-h-1" aria-controls="steps-uid-5-p-1">JavaScript</a></li></ul></div><div class="content clearfix">
+                        <h3 id="steps-uid-5-h-0" tabindex="-1" class="title current">HTML</h3>
+                        <section id="steps-uid-5-p-0" role="tabpanel" aria-labelledby="steps-uid-5-h-0" class="body current" aria-hidden="false">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"example-vertical"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Keyboard</span><span class="tag">&lt;/h3&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L3"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Try the keyboard navigation by clicking arrow left or right!</span><span class="tag">&lt;/p&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Effects</span><span class="tag">&lt;/h3&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L7"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Wonderful transition effects.</span><span class="tag">&lt;/p&gt;</span></li><li class="L8"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Pager</span><span class="tag">&lt;/h3&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L1"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">The next and previous buttons help you to navigate through your content.</span><span class="tag">&lt;/p&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L3"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+                        </section>
+
+                        <h3 id="steps-uid-5-h-1" tabindex="-1" class="title">JavaScript</h3>
+                        <section id="steps-uid-5-p-1" role="tabpanel" aria-labelledby="steps-uid-5-h-1" class="body" aria-hidden="true" style="display: none;">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">"#example-vertical"</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">({</span></li><li class="L1"><span class="pln">    headerTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"h3"</span><span class="pun">,</span></li><li class="L2"><span class="pln">    bodyTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"section"</span><span class="pun">,</span></li><li class="L3"><span class="pln">    transitionEffect</span><span class="pun">:</span><span class="pln"> </span><span class="str">"slideLeft"</span><span class="pun">,</span></li><li class="L4"><span class="pln">    stepsOrientation</span><span class="pun">:</span><span class="pln"> </span><span class="str">"vertical"</span></li><li class="L5"><span class="pun">});</span></li></ol></pre>
+                        </section>
+                    </div></div>
+                </details>
+            </section>
+            <section id="async">
+                <h2 class="page-header">Async Content Loading Example</h2>
+                <p><button id="init-async" type="button" class="btn btn-large btn-primary">Start Example</button></p>
+                <div id="example-async" style="display: none;">
+                    <h3>Async Step</h3>
+                    <section data-mode="async" data-url="/Examples/AsyncContent"></section>
+
+                    <h3>Second Step</h3>
+                    <section>
+                        <p>
+                            Donec mi sapien, hendrerit nec egestas a, rutrum vitae dolor. Nullam venenatis diam ac ligula elementum pellentesque.
+                            In lobortis sollicitudin felis non eleifend. Morbi tristique tellus est, sed tempor elit. Morbi varius, nulla quis condimentum
+                            dictum, nisi elit condimentum magna, nec venenatis urna quam in nisi. Integer hendrerit sapien a diam adipiscing consectetur.
+                            In euismod augue ullamcorper leo dignissim quis elementum arcu porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Vestibulum leo velit, blandit ac tempor nec, ultrices id diam. Donec metus lacus, rhoncus sagittis iaculis nec, malesuada a diam.
+                            Donec non pulvinar urna. Aliquam id velit lacus.
+                        </p>
+                    </section>
+
+                    <h3>Third Step</h3>
+                    <section>
+                        <p>
+                            Morbi ornare tellus at elit ultrices id dignissim lorem elementum. Sed eget nisl at justo condimentum dapibus. Fusce eros justo,
+                            pellentesque non euismod ac, rutrum sed quam. Ut non mi tortor. Vestibulum eleifend varius ullamcorper. Aliquam erat volutpat.
+                            Donec diam massa, porta vel dictum sit amet, iaculis ac massa. Sed elementum dui commodo lectus sollicitudin in auctor mauris
+                            venenatis.
+                        </p>
+                    </section>
+
+                    <h3>Fourth Step</h3>
+                    <section>
+                        <p>
+                            Quisque at sem turpis, id sagittis diam. Suspendisse malesuada eros posuere mauris vehicula vulputate. Aliquam sed sem tortor.
+                            Quisque sed felis ut mauris feugiat iaculis nec ac lectus. Sed consequat vestibulum purus, imperdiet varius est pellentesque vitae.
+                            Suspendisse consequat cursus eros, vitae tempus enim euismod non. Nullam ut commodo tortor.
+                        </p>
+                    </section>
+                </div>
+                <details>
+                    <summary role="button" aria-expanded="false"><span class="fa fa-caret-right"></span> Code</summary>
+                    <div class="code tabcontrol clearfix" role="application" id="steps-uid-6"><div class="steps clearfix"><ul role="tablist"><li role="tab" aria-disabled="false" class="first current" aria-selected="true"><a id="steps-uid-6-t-0" href="http://www.jquery-steps.com/Examples#steps-uid-6-h-0" aria-controls="steps-uid-6-p-0"><span class="current-info audible">current step: </span>HTML</a></li><li role="tab" aria-disabled="false" class="last"><a id="steps-uid-6-t-1" href="http://www.jquery-steps.com/Examples#steps-uid-6-h-1" aria-controls="steps-uid-6-p-1">JavaScript</a></li></ul></div><div class="content clearfix">
+                        <h3 id="steps-uid-6-h-0" tabindex="-1" class="title current">HTML</h3>
+                        <section id="steps-uid-6-p-0" role="tabpanel" aria-labelledby="steps-uid-6-h-0" class="body current" aria-hidden="false">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"example-async"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Async Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;section</span><span class="pln"> </span><span class="atn">data-mode</span><span class="pun">=</span><span class="atv">"async"</span><span class="pln"> </span><span class="atn">data-url</span><span class="pun">=</span><span class="atv">"/Examples/AsyncContent"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Second Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L6"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Donec mi sapien, hendrerit nec egestas a, rutrum vitae dolor. Nullam venenatis diam ac ligula elementum pellentesque. </span></li><li class="L7"><span class="pln">            In lobortis sollicitudin felis non eleifend. Morbi tristique tellus est, sed tempor elit. Morbi varius, nulla quis condimentum </span></li><li class="L8"><span class="pln">            dictum, nisi elit condimentum magna, nec venenatis urna quam in nisi. Integer hendrerit sapien a diam adipiscing consectetur. </span></li><li class="L9"><span class="pln">            In euismod augue ullamcorper leo dignissim quis elementum arcu porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span></li><li class="L0"><span class="pln">            Vestibulum leo velit, blandit ac tempor nec, ultrices id diam. Donec metus lacus, rhoncus sagittis iaculis nec, malesuada a diam. </span></li><li class="L1"><span class="pln">            Donec non pulvinar urna. Aliquam id velit lacus.</span><span class="tag">&lt;/p&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Third Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Morbi ornare tellus at elit ultrices id dignissim lorem elementum. Sed eget nisl at justo condimentum dapibus. Fusce eros justo, </span></li><li class="L6"><span class="pln">            pellentesque non euismod ac, rutrum sed quam. Ut non mi tortor. Vestibulum eleifend varius ullamcorper. Aliquam erat volutpat. </span></li><li class="L7"><span class="pln">            Donec diam massa, porta vel dictum sit amet, iaculis ac massa. Sed elementum dui commodo lectus sollicitudin in auctor mauris </span></li><li class="L8"><span class="pln">            venenatis.</span><span class="tag">&lt;/p&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Fourth Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Quisque at sem turpis, id sagittis diam. Suspendisse malesuada eros posuere mauris vehicula vulputate. Aliquam sed sem tortor. </span></li><li class="L3"><span class="pln">            Quisque sed felis ut mauris feugiat iaculis nec ac lectus. Sed consequat vestibulum purus, imperdiet varius est pellentesque vitae. </span></li><li class="L4"><span class="pln">            Suspendisse consequat cursus eros, vitae tempus enim euismod non. Nullam ut commodo tortor.</span><span class="tag">&lt;/p&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L6"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+                        </section>
+
+                        <h3 id="steps-uid-6-h-1" tabindex="-1" class="title">JavaScript</h3>
+                        <section id="steps-uid-6-p-1" role="tabpanel" aria-labelledby="steps-uid-6-h-1" class="body" aria-hidden="true" style="display: none;">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">"#example-async"</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">({</span></li><li class="L1"><span class="pln">    headerTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"h3"</span><span class="pun">,</span></li><li class="L2"><span class="pln">    bodyTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"section"</span><span class="pun">,</span></li><li class="L3"><span class="pln">    transitionEffect</span><span class="pun">:</span><span class="pln"> </span><span class="str">"slide"</span></li><li class="L4"><span class="pun">});</span></li></ol></pre>
+                        </section>
+                    </div></div>
+                </details>
+            </section>
+            <section id="embed">
+                <h2 class="page-header">Embedded Content Example</h2>
+                <p><button id="init-embed" type="button" class="btn btn-large btn-primary">Start Example</button></p>
+                <div id="example-embed" style="display: none;">
+                    <h3>Iframe Step</h3>
+                    <section data-mode="iframe" data-url="/Examples/EmbeddedContent"></section>
+
+                    <h3>Second Step</h3>
+                    <section>
+                        <p>
+                            Donec mi sapien, hendrerit nec egestas a, rutrum vitae dolor. Nullam venenatis diam ac ligula elementum pellentesque.
+                            In lobortis sollicitudin felis non eleifend. Morbi tristique tellus est, sed tempor elit. Morbi varius, nulla quis condimentum
+                            dictum, nisi elit condimentum magna, nec venenatis urna quam in nisi. Integer hendrerit sapien a diam adipiscing consectetur.
+                            In euismod augue ullamcorper leo dignissim quis elementum arcu porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Vestibulum leo velit, blandit ac tempor nec, ultrices id diam. Donec metus lacus, rhoncus sagittis iaculis nec, malesuada a diam.
+                            Donec non pulvinar urna. Aliquam id velit lacus.
+                        </p>
+                    </section>
+
+                    <h3>Third Step</h3>
+                    <section>
+                        <p>
+                            Morbi ornare tellus at elit ultrices id dignissim lorem elementum. Sed eget nisl at justo condimentum dapibus. Fusce eros justo,
+                            pellentesque non euismod ac, rutrum sed quam. Ut non mi tortor. Vestibulum eleifend varius ullamcorper. Aliquam erat volutpat.
+                            Donec diam massa, porta vel dictum sit amet, iaculis ac massa. Sed elementum dui commodo lectus sollicitudin in auctor mauris
+                            venenatis.
+                        </p>
+                    </section>
+
+                    <h3>Fourth Step</h3>
+                    <section>
+                        <p>
+                            Quisque at sem turpis, id sagittis diam. Suspendisse malesuada eros posuere mauris vehicula vulputate. Aliquam sed sem tortor.
+                            Quisque sed felis ut mauris feugiat iaculis nec ac lectus. Sed consequat vestibulum purus, imperdiet varius est pellentesque vitae.
+                            Suspendisse consequat cursus eros, vitae tempus enim euismod non. Nullam ut commodo tortor.
+                        </p>
+                    </section>
+                </div>
+                <details>
+                    <summary role="button" aria-expanded="false"><span class="fa fa-caret-right"></span> Code</summary>
+                    <div class="code tabcontrol clearfix" role="application" id="steps-uid-7"><div class="steps clearfix"><ul role="tablist"><li role="tab" aria-disabled="false" class="first current" aria-selected="true"><a id="steps-uid-7-t-0" href="http://www.jquery-steps.com/Examples#steps-uid-7-h-0" aria-controls="steps-uid-7-p-0"><span class="current-info audible">current step: </span>HTML</a></li><li role="tab" aria-disabled="false" class="last"><a id="steps-uid-7-t-1" href="http://www.jquery-steps.com/Examples#steps-uid-7-h-1" aria-controls="steps-uid-7-p-1">JavaScript</a></li></ul></div><div class="content clearfix">
+                        <h3 id="steps-uid-7-h-0" tabindex="-1" class="title current">HTML</h3>
+                        <section id="steps-uid-7-p-0" role="tabpanel" aria-labelledby="steps-uid-7-h-0" class="body current" aria-hidden="false">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"example-embed"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Iframe Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;section</span><span class="pln"> </span><span class="atn">data-mode</span><span class="pun">=</span><span class="atv">"iframe"</span><span class="pln"> </span><span class="atn">data-url</span><span class="pun">=</span><span class="atv">"/Examples/EmbeddedContent"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Second Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L6"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Donec mi sapien, hendrerit nec egestas a, rutrum vitae dolor. Nullam venenatis diam ac ligula elementum pellentesque. </span></li><li class="L7"><span class="pln">            In lobortis sollicitudin felis non eleifend. Morbi tristique tellus est, sed tempor elit. Morbi varius, nulla quis condimentum </span></li><li class="L8"><span class="pln">            dictum, nisi elit condimentum magna, nec venenatis urna quam in nisi. Integer hendrerit sapien a diam adipiscing consectetur. </span></li><li class="L9"><span class="pln">            In euismod augue ullamcorper leo dignissim quis elementum arcu porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span></li><li class="L0"><span class="pln">            Vestibulum leo velit, blandit ac tempor nec, ultrices id diam. Donec metus lacus, rhoncus sagittis iaculis nec, malesuada a diam. </span></li><li class="L1"><span class="pln">            Donec non pulvinar urna. Aliquam id velit lacus.</span><span class="tag">&lt;/p&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Third Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Morbi ornare tellus at elit ultrices id dignissim lorem elementum. Sed eget nisl at justo condimentum dapibus. Fusce eros justo, </span></li><li class="L6"><span class="pln">            pellentesque non euismod ac, rutrum sed quam. Ut non mi tortor. Vestibulum eleifend varius ullamcorper. Aliquam erat volutpat. </span></li><li class="L7"><span class="pln">            Donec diam massa, porta vel dictum sit amet, iaculis ac massa. Sed elementum dui commodo lectus sollicitudin in auctor mauris </span></li><li class="L8"><span class="pln">            venenatis.</span><span class="tag">&lt;/p&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;h3&gt;</span><span class="pln">Fourth Step</span><span class="tag">&lt;/h3&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;section&gt;</span></li><li class="L2"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Quisque at sem turpis, id sagittis diam. Suspendisse malesuada eros posuere mauris vehicula vulputate. Aliquam sed sem tortor. </span></li><li class="L3"><span class="pln">            Quisque sed felis ut mauris feugiat iaculis nec ac lectus. Sed consequat vestibulum purus, imperdiet varius est pellentesque vitae. </span></li><li class="L4"><span class="pln">            Suspendisse consequat cursus eros, vitae tempus enim euismod non. Nullam ut commodo tortor.</span><span class="tag">&lt;/p&gt;</span></li><li class="L5"><span class="pln">    </span><span class="tag">&lt;/section&gt;</span></li><li class="L6"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+                        </section>
+
+                        <h3 id="steps-uid-7-h-1" tabindex="-1" class="title">JavaScript</h3>
+                        <section id="steps-uid-7-p-1" role="tabpanel" aria-labelledby="steps-uid-7-h-1" class="body" aria-hidden="true" style="display: none;">
+                            <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">"#example-embed"</span><span class="pun">).</span><span class="pln">steps</span><span class="pun">({</span></li><li class="L1"><span class="pln">    headerTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"h3"</span><span class="pun">,</span></li><li class="L2"><span class="pln">    bodyTag</span><span class="pun">:</span><span class="pln"> </span><span class="str">"section"</span><span class="pun">,</span></li><li class="L3"><span class="pln">    transitionEffect</span><span class="pun">:</span><span class="pln"> </span><span class="str">"fade"</span></li><li class="L4"><span class="pun">});</span></li></ol></pre>
+                        </section>
+                    </div></div>
+                </details>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+        
+        <footer id="footer" role="contentinfo">
+    <p>© Copyright 2020, <a href="http://rafaelstaib.com/">Rafael Staib</a></p>
+    <ul class="links">
+        <li><a href="http://www.jquery-steps.com/Imprint">Impressum</a></li>
+        <li class="muted">·</li>
+        <li><a href="http://www.jquery-steps.com/Privacy">Datenschutz</a></li>
+        <li class="muted">·</li>
+        <li><a href="https://github.com/rstaib/jquery-steps/issues">Issues</a></li>
+        <li class="muted">·</li>
+        <li><a href="https://github.com/rstaib/jquery-steps/releases">Releases</a></li>
+    </ul>
+</footer>
+        
+<script>
+    if (navigator.userAgent.match(/IEMobile\/10\.0/))
+    {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(document.createTextNode("@-ms-viewport{width:auto!important}"));
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+    }
+
+    // Google Analytics
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-40997516-1', 'jquery-steps.com');
+    ga('send', 'pageview');
+</script>
+<script src="./demo_files/Examples(1)"></script>
+
+        
+    <script>
+        $(function ()
+        {
+            $("#lefthand-nav").affix({
+                offset: {
+                    top: function ()
+                    {
+                        return $("#topbar").outerHeight() + $("#banner").outerHeight();
+                    }
+                }
+            });
+
+            $("details").details().on({
+                "open.details": function ()
+                {
+                    $("> summary > .fa", this).removeClass("fa-caret-right").addClass("fa-caret-down");
+                },
+                "close.details": function ()
+                {
+                    $("> summary > .fa", this).removeClass("fa-caret-down").addClass("fa-caret-right");
+                }
+            });
+
+            $(".code").steps({
+                headerTag: "h3",
+                bodyTag: "section",
+                enableFinishButton: false,
+                enablePagination: false,
+                enableAllSteps: true,
+                titleTemplate: "#title#",
+                cssClass: "tabcontrol"
+            });
+
+            prettyPrint();
+
+            $("#init-basic").one("click", function(e)
+            {
+                e.stopPropagation();
+                $(this).remove();
+                $("#example-basic").show().steps({
+                    headerTag: "h3",
+                    bodyTag: "section",
+                    transitionEffect: "slideLeft",
+                    autoFocus: true
+                });
+            });
+
+            $("#init-form").one("click", function(e)
+            {
+                e.stopPropagation();
+                $(this).remove();
+
+                var form = $("#example-form").show();
+
+                form.validate({
+                    errorPlacement: function errorPlacement(error, element) { element.before(error); },
+                    rules: {
+                        confirm: {
+                            equalTo: "#password"
+                        }
+                    }
+                });
+
+                form.children("div").steps({
+                    headerTag: "h3",
+                    bodyTag: "section",
+                    transitionEffect: "slideLeft",
+                    onStepChanging: function (event, currentIndex, newIndex)
+                    {
+                        form.validate().settings.ignore = ":disabled,:hidden";
+                        return form.valid();
+                    },
+                    onFinishing: function (event, currentIndex)
+                    {
+                        form.validate().settings.ignore = ":disabled";
+                        return form.valid();
+                    },
+                    onFinished: function (event, currentIndex)
+                    {
+                        alert("Submitted!");
+                    }
+                });
+            });
+
+            $("#init-advanced-form").one("click", function(e)
+            {
+                e.stopPropagation();
+                $(this).remove();
+
+                var form = $("#example-advanced-form").show();
+
+                form.steps({
+                    headerTag: "h3",
+                    bodyTag: "fieldset",
+                    transitionEffect: "slideLeft",
+                    onStepChanging: function (event, currentIndex, newIndex)
+                    {
+                        // Allways allow previous action even if the current form is not valid!
+                        if (currentIndex > newIndex)
+                        {
+                            return true;
+                        }
+
+                        // Forbid next action on "Warning" step if the user is to young
+                        if (newIndex === 3 && Number($("#age-2").val()) < 18)
+                        {
+                            return false;
+                        }
+
+                        // Needed in some cases if the user went back (clean up)
+                        if (currentIndex < newIndex)
+                        {
+                            // To remove error styles
+                            form.find(".body:eq(" + newIndex + ") label.error").remove();
+                            form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+                        }
+
+                        form.validate().settings.ignore = ":disabled,:hidden";
+                        return form.valid();
+                    },
+                    onStepChanged: function (event, currentIndex, priorIndex)
+                    {
+                        // Used to skip the "Warning" step if the user is old enough.
+                        if (currentIndex === 2 && Number($("#age-2").val()) >= 18)
+                        {
+                            form.steps("next");
+                        }
+
+                        // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+                        if (currentIndex === 2 && priorIndex === 3)
+                        {
+                            form.steps("previous");
+                        }
+                    },
+                    onFinishing: function (event, currentIndex)
+                    {
+                        form.validate().settings.ignore = ":disabled";
+                        return form.valid();
+                    },
+                    onFinished: function (event, currentIndex)
+                    {
+                        alert("Submitted!");
+                    }
+                }).validate({
+                    errorPlacement: function errorPlacement(error, element) { element.before(error); },
+                    rules: {
+                        confirm: {
+                            equalTo: "#password-2"
+                        }
+                    }
+                });
+            });
+
+            $("#init-manipulation").one("click", function(e)
+            {
+                e.stopPropagation();
+                $(this).remove();
+
+                $("#example-manipulation").show().steps({
+                    headerTag: "h3",
+                    bodyTag: "section",
+                    enableAllSteps: true,
+                    enablePagination: false
+                });
+            });
+
+            $("#init-tabs").one("click", function(e)
+            {
+                e.stopPropagation();
+                $(this).remove();
+                
+                $("#example-tabs").show().steps({
+                    headerTag: "h3",
+                    bodyTag: "section",
+                    transitionEffect: "slideLeft",
+                    enableFinishButton: false,
+                    enablePagination: false,
+                    enableAllSteps: true,
+                    titleTemplate: "#title#",
+                    cssClass: "tabcontrol"
+                });
+            });
+
+            $("#init-vertical").one("click", function(e)
+            {
+                e.stopPropagation();
+                $(this).remove();
+                
+                $("#example-vertical").show().steps({
+                    headerTag: "h3",
+                    bodyTag: "section",
+                    transitionEffect: "slideLeft",
+                    stepsOrientation: "vertical"
+                });
+            });
+
+            $("#init-async").one("click", function(e)
+            {
+                e.stopPropagation();
+                $(this).remove();
+                
+                $("#example-async").show().steps({
+                    headerTag: "h3",
+                    bodyTag: "section",
+                    transitionEffect: "slide"
+                });
+            });
+
+            $("#init-embed").one("click", function(e)
+            {
+                e.stopPropagation();
+                $(this).remove();
+
+                $("#example-embed").show().steps({
+                    headerTag: "h3",
+                    bodyTag: "section",
+                    transitionEffect: "fade"
+                });
+            });
+        });
+    </script>
+
+    
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./demo_files/widget_iframe.2a008290075125adde2d7b849b06a0bb.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe name="oauth2relay559524519" id="oauth2relay559524519" src="./demo_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe class="searchbar24653231050219682" src="./demo_files/saved_resource.html" scrolling="no" style="border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; display: none; position: fixed; z-index: 2147483646; top: 0px; bottom: auto; left: auto; right: 0px; height: 40px; width: 100%;"></iframe><bdi class="searchbar24653231050219682" style="border: 1px solid rgb(176, 176, 176); margin: 0px; padding: 2px; outline: 0px; vertical-align: baseline; display: none; position: fixed; height: auto; width: auto; z-index: 2147483647; background: none rgb(255, 255, 255); max-height: none; max-width: none; min-height: 0px;"><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 0); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi><bdi style="display: block; border: 0px; margin: 0px; padding: 0px; outline: 0px; vertical-align: baseline; position: static; height: auto; width: auto; z-index: 2147483647; font: 20px sans-serif; text-align: left; color: rgb(0, 0, 255); background: none rgb(255, 255, 255); cursor: default; max-height: none; max-width: none; min-height: 0px; min-width: 0px; letter-spacing: normal; text-decoration: none; text-indent: 0px; text-transform: none; word-spacing: normal; overflow-wrap: normal; white-space: pre;"></bdi></bdi><iframe class="searchbar24653231050219682" src="./demo_files/saved_resource(1).html" scrolling="no" style="border: 0px; margin: -186px 0px 0px -202px; padding: 0px; outline: 0px; vertical-align: baseline; display: none; position: fixed; top: 50%; left: 50%; z-index: 2147483645; border-radius: 5px;"></iframe><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div></body><style>@media print{.searchbar24653231050219682{display:none!important;}}</style></html>

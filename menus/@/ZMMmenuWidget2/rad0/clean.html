@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>aaaaa</title>
+
+    <link type="text/css" rel="stylesheet" href="./publish/yarner/jquery.mmenu/dist/jquery.mmenu.css"/>
+    <link type="text/css" rel="stylesheet" href="./publish/yarner/mburger-css/dist/mburger.css"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <style>
+        :root {
+            --mm-sidebar-expanded-size: 300px;
+        }
+
+        .mm-menu {
+            --mm-listitem-size: 50px;
+            --mm-navbar-size: 50px;
+        }
+
+        @media (min-width: 992px) {
+            .header a {
+                display: none;
+            }
+        }
+
+        .mm-navbar_tabs span {
+            display: inline-block;
+            margin-left: 8px;
+        }
+
+        @media (max-width: 450px) {
+            .mm-navbar_tabs span {
+                display: none;
+            }
+        }
+    </style>
+
+
+    <!-- mmenu scripts -->
+    <script src="./publish/yarner/jquery/dist/jquery.js"></script>
+    <script src="./publish/yarner/jquery.mmenu/dist/jquery.mmenu.js"></script>
+    <script src="./publish/yarner/jquery.mmenu/dist/jquery.mmenu.all.js"></script>
+
+    <style>
+        .mburger {
+            width: 80px;
+            height: 80px;
+            --mb-bar-height: 2px;
+        }
+    </style>
+
+    <script>
+
+        $(function () {
+            new Mmenu("#menu", {
+                extensions: {
+                    all: ["theme-white", "pagedim-black"],
+                    "(max-width: 767px)": ["fx-menu-slide"]
+                },
+                counters: !0,
+                iconPanels: {
+                    add: !0,
+                    hideDivider: !0,
+                    hideNavbar: !0,
+                    visible: "first"
+                },
+                navbar: {
+                    title: "mmenu"
+                },
+                navbars: [{
+                    position: "top",
+                    content: ["searchfield"]
+                }, {
+                    position: "top"
+                }],
+                setSelected: {
+                    hover: !0,
+                    parent: !0
+                },
+                sidebar: {
+                    collapsed: {
+                        use: 768,
+                        hideNavbar: !0,
+                        hideDivider: !0
+                    },
+                    expanded: {
+                        use: 1440,
+                        initial: "remember"
+                    }
+                }
+            }, {
+                offCanvas: {
+                    page: {
+                        selector: "#page"
+                    }
+                },
+                searchfield: {
+                    clear: !0
+                }
+            });
+
+
+        });
+
+    </script>
+
+
+</head>
+<body>
+<nav id="menu">
+    <div id="panel-menu">
+        <ul>
+            <li><a href="#/">Home</a></li>
+            <li><span>About us</span>
+                <ul>
+                    <li><a href="#/">History</a></li>
+                    <li><span>The team</span>
+                        <ul>
+                            <li><a href="#/">Management</a></li>
+                            <li><a href="#/">Sales</a></li>
+                            <li><a href="#/">Development</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#/">Our address</a></li>
+                </ul>
+            </li>
+            <li><a href="#/">Contact</a></li>
+
+            <li class="Divider">Other demos</li>
+            <li><a href="default.html">Default demo</a></li>
+            <li><a href="onepage.html">One page demo</a></li>
+        </ul>
+    </div>
+
+    <div id="panel-account">
+        <ul>
+            <li><a href="#/">My profile</a></li>
+            <li><a href="#/">Privacy settings</a></li>
+            <li><a href="#/">Activity</a></li>
+            <li><a href="#/">Sign out</a></li>
+        </ul>
+    </div>
+
+    <div id="panel-cart">
+        <p style="text-align: center; padding-top: 30px;">Your shoppingcart is empty.<br/>
+            <a href="#/">Continue shopping.</a></p>
+    </div>
+</nav>
+
+<div id="page">
+    <div class="header">
+        <a class="mburger mburger--collapse" href="#menu">
+            <b></b>
+            <b></b>
+            <b></b>
+            <span>Menu</span>
+        </a>
+    </div>
+    <div class="content">
+        <p><strong>This is an advanced demo.</strong><br/>
+            Click the menu icon to open the menu.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

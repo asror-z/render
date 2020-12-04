@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/publish/leaflet/publish/leaflet/dist/leaflet.css" />
+    <style>
+        #mapleaflet{
+        height: 540px;
+        margin-top:50px ;
+        }
+    </style>
+</head>
+<body>
+<div id="mapleaflet"></div>
+<script src="/publish/leaflet/publish/leaflet/dist/leaflet.js" ></script>
+<script>
+    const defaults = {
+        /**
+         * Options  https://leafletjs.com/reference-1.6.0.html
+         */
+        preferCanvas: false,
+        /**
+         *
+         * Control options
+         */
+        attributionControl: true,
+        zoomControl: true,
+        /**
+         * Interaction Options
+         */
+        closePopupOnClick: true,
+        zoomSnap: 1,
+        zoomDelta: 1,
+        trackResize: true,
+        boxZoom: true,
+        doubleClickZoom: true,
+        dragging: true,
+        /**
+         * Map State Options
+         *
+         */
+        crs: L.CRS.EPSG3857,  //The Coordinate Reference System to use.
+        center: undefined,  // Latitude and logntitude
+        zoom: 11,
+        minZoom: 1,
+        maxZoom: Infinity,
+        maxBounds: null,  // bounds = L.latLngBounds(corner1, corner2);
+        renderer: null,   //padding, tolerance [0.1, 0]
+        /**
+         * Animation Options
+         *
+         */
+        zoomAnimation: true,
+        zoomAnimationThreshold: 4,
+        feadAnimation: true,
+        markerZoomAnimation: true,
+        transform3DLimit: 2^23,
+        /**
+         *Panning Inertia Options
+         *
+         */
+        inertia: false, //Boolean
+        inertiaDeceleration: 3000,
+        inertiaMaxSpeed: Infinity,
+        easeLinearity: 0.2,
+        worldCopyJump: false,
+        maxBoundsViscosity: 0.0,
+        /**
+         * Keyboard Navigation Options
+         *
+         */
+        keyboard: true ,
+        keyboardPanDelta: 80,
+        /**
+         * Mousewheel options
+         *
+         */
+        scrollWheelZoom: true, //boolean and string
+        wheelDebounceTimescrollWheelZoom: 40,
+        wheelPxPerZoomLevel: 60,
+        /**
+         *  Touch interaction options
+         */
+        tap: true,
+        tapTolerance: 15,
+        touchZoom: false,
+        bounceAtZoomLimits: true,
+        /**
+         * Locate options
+         *
+         */
+        watch: false,
+        setView: false,
+        timeout: 10000,
+        maximumAge: 0,
+        enableHighAccuracy: false,
+
+        /**
+         * Pan  options
+         *
+         */
+        animate: false,
+        duration: 0.25,
+        easeLinearity: 0.25,
+        noMoveStart: false,
+        /**
+         *FitBounds options
+         *
+         */
+        paddingTopLeft: [0, 0],
+        paddingBottomRight: [0, 0],
+        padding: [0, 0],
+        /**
+         * Marker options
+         *
+         */
+        keyboard: true,
+        title: 'Leaflet',
+        alt: 'Alt',
+        zIndexOffset: 0,
+        opacity: 1.0,
+        riseOnHover: false ,
+        riseOffset: 500,
+        pane: 'markerPane',
+        bubblingMouseEvents: false,
+        /**
+         * Draggable marker options
+         */
+        draggable: true ,
+        autoPan: false,
+        //autoPanPadding: Point(50, 50),     //Point is not defined
+        autoPanSpeed: 10,
+        /**
+         * Popup options
+         *
+         */
+        maxWidth: 500,
+        minWidth: 50,
+        maxHeight: null,
+        autoPan: true,
+        autoPanPaddingTopLeft: null ,
+        autoPanPaddingBottomRight: null ,
+        //autoPanPadding: Point(5, 5) ,    //Point is not defined
+        keepInView: false,
+        closeButton: true,
+        autoClose: true,
+        closeOnEscapeKey: true,
+        closeOnClick: true ,
+        className: '',
+        /**
+         * Tooltip options
+         */
+        pane: 'tooltipPane',
+        direction: 'auto',
+        permanentn: false,
+        sticky: false,
+        interactive: false,
+        opacity: 0.9,
+        /**
+         * TileLayer options
+         *
+         */
+        subdomains: 'abc',
+        errorTileUrl: '',
+        zoomOffset: 0,
+        tms: false,
+        zoomReverse: false,
+        detectRetina: false,
+        crossOrigin: false,
+        /**
+         * TileLayer.WMS options
+         *
+         */
+        layers: '',
+        styles: '',
+        format: 'image/jpeg', //image/png
+        transparent: false,
+        version: '1.1.1',
+        uppercase: false,
+        /**
+         * ImageOverlay options
+         *
+         */
+        opacity: 1.0,
+        alt: '',
+        interactive: false,
+        crossOrigin: false,
+        errorOverlayUrl: '',
+        zIndex: 1,
+        /**
+         * VideoOverlay options
+         *
+         */
+        autoplay: true,
+        loop: true,
+        keepAspectRatio: true,
+        /**
+         * SVGOverlay options
+         *
+         */
+
+        attribution: null,
+        /**
+         * Path options
+         *
+         */
+        stroke: true,
+        color: '#3388ff',
+        weight: 3,
+        opacity: 1.0,
+        lineCap: 'round',
+        lineJoin: 'round',
+        dashArray: null,
+        dashOffset: null,
+        fill: false,
+        fillColor: '',
+        fillOpacity: 0.2,
+        fillRule: 'evenodd',
+        bubblingMouseEvents: true,
+        /**
+         * Polyline options
+         *
+         */
+        smoothFactor: 1.0,
+        noClip: false,
+        /**
+         * Circle options
+         *
+         */
+        radius: 500,
+        /**
+         * GeoJSON options
+         *
+         */
+        pointToLayer: 'function',
+        style: 'function',
+        onEachFeature: 'function',
+        filter: 'function',
+        coordsToLatLng: 'function',
+        markersInheritOptions: false,
+        /**
+         * GridLayer options
+         *
+         */
+        tileSize: 256,
+        opacity: 1.0,
+        updateWhenIdle: false,
+        updateWhenZooming: true,
+        updateInterval: 200,
+        zIndex: 1,
+        bounds: undefined,
+        //maxNativeZoom: undefined,   //Number
+        //minNativeZoom: undefined,   //Number
+        noWrap: false,
+        pane: 'tilePane',
+        className: '',
+        keepBuffer: 2,
+        /**
+         * Icon options
+         *
+         */
+        iconUrl: null,
+        iconRetinaUrl: null,
+        iconSize: null,
+        iconAnchor: null,
+        popupAnchor: [0, 0],
+        tooltipAnchor: [0, 0],
+        shadowUrl: null,
+        shadowRetinaUrl: null,
+        shadowSize: null,
+        shadowAnchor: null,
+        imagePath: '',
+        /**
+         * DivIcon options
+         *
+         */
+        html: '',
+        bgPos: [0, 0],
+        /**
+         * Control options
+         *
+         */
+        position: 'topright',
+        /**
+         * Control.Zoom options
+         *
+         */
+        zoomInText: '+',
+        zoomInTitle: 'Zoom in',
+        zoomOutText: '&#x2212',
+        zoomOutTitle: 'Zoom out',
+        /**
+         * Control.Attribution options
+         */
+        prefix: 'Leaflet',
+        /**
+         * Control.Layers options
+         */
+        collapsed: true,
+        autoZIndex: true,
+        hideSingleBase: false ,
+        sortLayers: false ,
+        sortFunction: 'function()',
+        /**
+         * Control.Scale options
+         *
+         */
+        //maxWidth: 100,
+        metric: true,
+        imperial: true,
+        updateWhenIdle: false,
+        /**
+         * Interactive layer options
+         *
+         */
+        interactive: true,
+        bubblingMouseEvents: true,
+        /**
+         *
+         * Draggable options
+         */
+        clickTolerance: 3,
+        /**
+         *
+         * DivOverlay options
+         */
+        //offset: Point(0, 7),   //Point is not defined
+        className: '',
+        pane: 'popupPane',
+        /**
+         *
+         * Renderer options
+         */
+        padding: 0.1,
+        tolerance: 0,
+    };
+
+
+
+
+    const mymap = L.map('mapleaflet', defaults);
+     mymap.setView([41.325, 69.312], 11);
+    const attribution = '<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>"';
+    const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    const tiles = L.tileLayer(tileUrl, {attribution});
+    tiles.addTo(mymap);
+    let marker = L.marker([41.2995, 69.2401]).addTo(mymap);
+
+
+    
+
+    /**
+     *  Popup events
+     */
+    marker.bindPopup("<b>Hello!</b><br>This is Tashkent.").openPopup();
+
+    const popup = L.popup();
+
+    function onMapClick(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent( e.latlng.toString())
+            .openOn(mymap);
+        L.marker( e.latlng).addTo(mymap)
+    }
+
+    mymap.on('click', onMapClick);
+
+    /**
+     *   Events
+     *
+     */
+
+    mymap.on('layer:baselayerchange', function(e) {
+        console.log('ZLeaflet | layer:baselayerchange');
+        console.log(e);
+    })
+    mymap.on('layer:overlayadd', function(e) {
+        console.log('ZLeaflet | layer:overlayadd');
+        console.log(e);
+    })
+    mymap.on('layer:overlayremove', function(e) {
+        console.log('ZLeaflet | layer:overlayremove');
+        console.log(e);
+    })
+    mymap.on('layer:layeradd', function(e) {
+        console.log('ZLeaflet | layer:layeradd');
+        console.log(e);
+    })
+    mymap.on('change:zoomlevelschange', function(e) {
+        console.log('ZLeaflet | change:zoomlevelschange');
+        console.log(e);
+    })
+    mymap.on('change:resize', function(e) {
+        console.log('ZLeaflet | change:resize');
+        console.log(e);
+    })
+    mymap.on('change:unload', function(e) {
+        console.log('ZLeaflet | change:unload');
+        console.log(e);
+    })
+    mymap.on('change:viewreset', function(e) {
+        console.log('ZLeaflet | change:viewreset');
+        console.log(e);
+    })
+    mymap.on('change:load', function(e) {
+        console.log('ZLeaflet | change:load');
+        console.log(e);
+    })
+    mymap.on('change:zoomstart', function(e) {
+        console.log('ZLeaflet | change:zoomstart');
+        console.log(e);
+    })
+    mymap.on('change:movestart', function(e) {
+        console.log('ZLeaflet | change:movestart');
+        console.log(e);
+    })
+    mymap.on('change:zoom', function(e) {
+        console.log('ZLeaflet | change:zoom');
+        console.log(e);
+    })
+    mymap.on('change:zoomend', function(e) {
+        console.log('ZLeaflet | change:zoomend');
+        console.log(e);
+    })
+    mymap.on('change:moveend', function(e) {
+        console.log('ZLeaflet | change:moveend');
+        console.log(e);
+    })
+    mymap.on('popup:popupopen', function(e) {
+        console.log('ZLeaflet | popup:popupopen');
+        console.log(e);
+    })
+    mymap.on('popup:popupclose', function(e) {
+        console.log('ZLeaflet | popup:popupclose');
+        console.log(e);
+    })
+    mymap.on('popup:autopanstart', function(e) {
+        console.log('ZLeaflet | popup:autopanstart');
+        console.log(e);
+    })
+    mymap.on('tooltip:tooltipopen', function(e) {
+        console.log('ZLeaflet | tooltip:tooltipopen');
+        console.log(e);
+    })
+    mymap.on('tooltip:tooltipclose', function(e) {
+        console.log('ZLeaflet | tooltip:tooltipclose');
+        console.log(e);
+    })
+    mymap.on('location:locationerror', function(e) {
+        console.log('ZLeaflet | location:locationerror');
+        console.log(e);
+    })
+    mymap.on('location:locationfound', function(e) {
+        console.log('ZLeaflet | location:locationfound');
+        console.log(e);
+    })
+    mymap.on('interaction :click', function(e) {
+        console.log('ZLeaflet | interaction:click');
+        console.log(e);
+    })
+    mymap.on('interaction :dblclick', function(e) {
+        console.log('ZLeaflet | interaction:dblclick');
+        console.log(e);
+    })
+    mymap.on('interaction :mousedown', function(e) {
+        console.log('ZLeaflet | interaction:mousedown');
+        console.log(e);
+    })
+    mymap.on('interaction :mouseup', function(e) {
+        console.log('ZLeaflet | interaction:mouseup');
+        console.log(e);
+    })
+    mymap.on('interaction :mouseover', function(e) {
+        console.log('ZLeaflet | interaction:mouseover');
+        console.log(e);
+    })
+    mymap.on('interaction :mouseout', function(e) {
+        console.log('ZLeaflet | interaction:mouseout');
+        console.log(e);
+    })
+    mymap.on('interaction :mousemove', function(e) {
+        console.log('ZLeaflet | interaction:mousemove');
+        console.log(e);
+    })
+    mymap.on('interaction :contextmenu', function(e) {
+        console.log('ZLeaflet | interaction:contextmenu');
+        console.log(e);
+    })
+    mymap.on('interaction :keypress', function(e) {
+        console.log('ZLeaflet | interaction:keypress');
+        console.log(e);
+    })
+    mymap.on('interaction :keydown', function(e) {
+        console.log('ZLeaflet | interaction:keydown');
+        console.log(e);
+    })
+    mymap.on('interaction :keyup', function(e) {
+        console.log('ZLeaflet | interaction:keyup');
+        console.log(e);
+    })
+    mymap.on('interaction :preclick', function(e) {
+        console.log('ZLeaflet | interaction:preclick');
+        console.log(e);
+    })
+    mymap.on('interaction :keyup', function(e) {
+        console.log('ZLeaflet | interaction:keyup');
+        console.log(e);
+    })
+    mymap.on('interaction :zoomanim', function(e) {
+        console.log('ZLeaflet | interaction:zoomanim');
+        console.log(e);
+    })
+
+    
+</script>
+
+</body>
+</html>

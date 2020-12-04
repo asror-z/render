@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animated</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/metismenu/dist/metisMenu.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdn.jsdelivr.net/npm/metismenu@3.0.5/dist/metisMenu.min.js"></script>
+
+</head>
+<body>
+
+<div class="sidebar-nav" style="width: 200px">
+    <ul id="menu" class="animated bounce">
+        <li class="active">
+            <a href="#" class="has-arrow" aria-expanded="true">Menu 0</a>
+            <ul>
+                <li><a href="#">item 0.1</a></li>
+                <li><a href="#">item 0.2</a></li>
+                <li><a href="#">item 0.3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="has-arrow" aria-expanded="false">Menu 1</a>
+            <ul>
+                <li><a href="#">item 1.1</a></li>
+                <li><a href="#">item 1.2</a></li>
+                <li>
+                    <a href="#" class="has-arrow" aria-expanded="false">Menu 1.3</a>
+                    <ul>
+                        <li><a href="#">item 1.3.1</a></li>
+                        <li><a href="#">item 1.3.2</a></li>
+                        <li><a href="#">item 1.3.3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">item 1.4</a></li>
+                <li>
+                    <a href="#" class="has-arrow" aria-expanded="false">Menu 1.5</a>
+                    <ul>
+                        <li><a href="#">item 1.5.1</a></li>
+                        <li><a href="#">item 1.5.2</a></li>
+                        <li><a href="#">item 1.5.3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="has-arrow" aria-expanded="false">Menu 2</a>
+            <ul>
+                <li><a href="#">item 2.1</a></li>
+                <li><a href="#">item 2.2</a></li>
+                <li><a href="#">item 2.3</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<style>
+    .sidebar-nav {
+        background: #212529;
+    }
+
+    .sidebar-nav ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        background: #343a40;
+    }
+
+    .sidebar-nav .metismenu {
+        background: #212529;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .sidebar-nav .metismenu li + li {
+        margin-top: 5px;
+    }
+
+    .sidebar-nav .metismenu li:first-child {
+        margin-top: 5px;
+    }
+
+    .sidebar-nav .metismenu li:last-child {
+        margin-bottom: 5px;
+    }
+
+
+    .sidebar-nav .metismenu > li {
+        /*-webkit-box-flex: 1;
+        -ms-flex: 1 1 0%;
+        flex: 1 1 0%;*/
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .sidebar-nav .metismenu a {
+        position: relative;
+        display: block;
+        padding: 13px 15px;
+        color: #adb5bd;
+        outline-width: 0;
+        transition: all .3s ease-out;
+    }
+
+    .sidebar-nav .metismenu ul a {
+        padding: 10px 15px 10px 30px;
+    }
+
+    .sidebar-nav .metismenu ul ul a {
+        padding: 10px 15px 10px 45px;
+    }
+
+    .sidebar-nav .metismenu a:hover,
+    .sidebar-nav .metismenu a:focus,
+    .sidebar-nav .metismenu a:active,
+    .sidebar-nav .metismenu .mm-active > a {
+        color: #f8f9fa;
+        text-decoration: none;
+        background: #0b7285;
+    }
+</style>
+
+<script>
+    $(function () {
+        $('#menu').metisMenu()
+        .on('show.metisMenu', function (event) {
+
+            console.log('do something…')
+
+        }).on('shown.metisMenu', function (event) {
+
+            console.log('do something…')
+
+        }).on('hide.metisMenu', function (event) {
+
+            console.log('do something…')
+
+        }).on('hidden.metisMenu', function (event) {
+
+            console.log('do something…')
+
+        });
+    });
+</script>
+
+</body>
+</html>

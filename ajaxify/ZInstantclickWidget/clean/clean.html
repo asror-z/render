@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InstantClick</title>
+
+    <style>
+        table, tr, td {
+            border: 1px solid black;
+            padding: 10px;
+          
+        }
+
+        #link2 {
+            text-align: center;
+            display: block;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        a {
+      
+            text-decoration: none;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+<a href="/cores/news/index.aspx" style="width: 200px">news</a><br>
+<a href="clean1.html" style="width: 200px">clean1</a><br>
+<a href="clean2.html" style="width: 200px">clean2</a> <br>
+<a href="/render/actions/ZRkusaTouchDndWidget/demo/clean.html" style="width: 200px">Zrkusa touch</a>
+
+<!--<table id="click-test">
+    <tr>
+        <th>Normal link
+        <th>Big link
+    <tr>
+        <td><a id="link1" href="#" data-no-instant>Click me</a>
+        <td><a id="link2" class="btn btn-big" href="#" data-no-instant>Click me</a>
+    <tr class="results">
+        <td>
+            <p>Click − Hover = <strong id="link1-click-hover"></strong><br>
+                Click − Mousedown = <strong id="link1-click-mousedown"></strong>
+            <p>Click − Touchstart = <strong id="link1-click-touchstart"></strong>
+        <td>
+
+            <p>Click − Hover = <strong id="link2-click-hover"></strong><br>
+                Click − Mousedown = <strong id="link2-click-mousedown"></strong>
+            <p>Click − Touchstart = <strong id="link2-click-touchstart"></strong>
+</table>-->
+
+<!--
+
+<script>
+    function $(id) {
+        return document.getElementById(id)
+    }
+
+    var times = {
+        touchstart: 0,
+        hover: 0,
+        mousedown: 0,
+        click: 0
+    }
+
+    $('link1').addEventListener('mouseover', function () {
+        times.hover = +new Date
+    })
+    $('link2').addEventListener('mouseover', function () {
+        times.hover = +new Date
+    })
+    $('link1').addEventListener('mousedown', function () {
+        times.mousedown = +new Date
+    })
+    $('link2').addEventListener('mousedown', function () {
+        times.mousedown = +new Date
+    })
+    $('link1').addEventListener('touchstart', function () {
+        times.touchstart = +new Date
+    })
+    $('link2').addEventListener('touchstart', function () {
+        times.touchstart = +new Date
+    })
+
+    function delay(time) {
+        if (times[time] == 0)
+            return '∞'
+        return times.click - times[time] + ' ms'
+    }
+
+    $('link1').addEventListener('click', function (e) {
+        e.preventDefault()
+        times.click = +new Date
+        $('link1-click-hover').innerHTML = delay('hover')
+        $('link1-click-mousedown').innerHTML = delay('mousedown')
+        $('link1-click-touchstart').innerHTML = delay('touchstart')
+    })
+    $('link2').addEventListener('click', function (e) {
+        e.preventDefault()
+        e.target.blur()
+        times.click = +new Date
+        $('link2-click-hover').innerHTML = delay('hover')
+        $('link2-click-mousedown').innerHTML = delay('mousedown')
+        $('link2-click-touchstart').innerHTML = delay('touchstart')
+    })
+
+</script>
+-->
+
+
+
+<script src="https://cdn.statically.io/gh/dieulot/instantclick/v3.1.0/instantclick.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init('mousedown');</script>
+</body>
+
+</body>
+</html>

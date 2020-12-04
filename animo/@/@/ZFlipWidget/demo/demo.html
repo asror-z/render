@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://nnattawat.github.io/flip/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery - Flip</title>
+    <link href="./demo_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./demo_files/prettify.css" rel="stylesheet">
+    <link href="./demo_files/index.css" rel="stylesheet">
+  </head>
+  <body>
+    <script type="text/javascript" async="" src="./demo_files/dc.js.download"></script><script async="" src="./demo_files/gtm.js.download"></script><script async="" defer="" src="./demo_files/buttons.js.download"></script>
+    <script type="text/javascript">
+      dataLayer = [{
+        "event": "gtm.js",
+        "trackingId": "UA-50628297-1"
+      }];
+    </script>
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5BVPRB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5BVPRB');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <a href="https://github.com/nnattawat/flip"><img style="position: fixed; top: 0; right: 0; border: 0; z-index: 1000;" src="./demo_files/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <div class="jumbotron">
+      <img class="logo" src="./demo_files/jquery-flip.png">
+      <div class="container">
+        <h2>jQuery Flip <small>v1.1.1</small></h2>
+        <p>A jQuery plugin to flip content with 3D animation</p>
+      </div>
+    </div>
+    <div class="download">
+      <span>
+        <span></span>
+      </span>
+      <span>
+        <span></span>
+      </span>
+      <span>
+        <span></span>
+      </span>
+    </div>
+    <div class="container">
+      <h3><a id="Example"></a>Example</h3>
+      <div class="example">
+        <div id="card-1" class="card" style="perspective: 2280px; position: relative; transform-style: preserve-3d;"> 
+          <div class="front alert alert-info" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;"> 
+            <strong style="backface-visibility: hidden;">Front<br style="backface-visibility: hidden;"></strong>
+            Click to flip me!
+          </div> 
+          <div class="back well well-lg" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateX(-180deg); transition: all 0.5s ease-out 0s;">
+            <strong style="backface-visibility: hidden;">Back<br style="backface-visibility: hidden;"></strong>
+            Click to flip me back!
+          </div> 
+        </div>
+      </div>
+      <br>
+
+      <h3><a id="How-to-include"></a>How to include</h3>
+      <p>Simply include jquery.flip.js on your page. jQuery Flip has a dependency on <a href="https://jquery.com/">jQuery</a> so make sure to include that first.</p>
+      <h4>From CDN</h4>
+      <p>Use both jQuery and jQuery Flip directly from CDN. No need to download anything:</p>
+      <pre class="prettyprint prettyprinted" style=""><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://code.jquery.com/jquery-2.1.4.min.js"</span><span class="tag">&gt;</span><br><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"</span><span class="tag">&gt;</span></pre>
+      <h4>Download</h4>
+      <ul>
+        <li><a href="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.js">jquery.flip.js</a> (development version, commented ~9Kb)</li>
+        <li><a href="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">jquery.flip.min.js</a> (production version, minified ~4Kb, gzipped ~2Kb)</li>
+        <li><a href="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js.map">jquery.flip.min.js.map</a> (source map, ~5Kb)</li>
+      </ul>
+      <pre class="prettyprint prettyprinted" style=""><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"jquery-2.1.4.min.js"</span><span class="tag">&gt;</span><br><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"jquery.flip.js"</span><span class="tag">&gt;</span></pre>
+      <h4>Or install using bower</h4>
+      <pre class="prettyprint prettyprinted" style=""><span class="pln">bower install flip</span></pre>
+      <br>
+
+      <h3><a id="How-to-use"></a>How to use</h3>
+      <p>In your HTML file, create a <code>&lt;div&gt;</code> with two <code>&lt;div&gt;</code>s inside with class <code>.front</code> and <code>.back</code>:</p>
+      <pre class="prettyprint prettyprinted" style=""><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"card"</span><span class="tag">&gt;</span><span class="pln"> 
+  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"front"</span><span class="tag">&gt;</span><span class="pln"> 
+    Front content
+  </span><span class="tag">&lt;/div&gt;</span><span class="pln"> 
+  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"back"</span><span class="tag">&gt;</span><span class="pln">
+    Back content
+  </span><span class="tag">&lt;/div&gt;</span><span class="pln"> 
+</span><span class="tag">&lt;/div&gt;</span></pre>
+      <p>Then, call jQuery <code>flip()</code> on it:</p>
+      <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">();</span></pre>
+    <p>You can specify other selectors instead of <code>.front</code> and <code>.back</code> by setting 
+         the options <a href="https://nnattawat.github.io/flip/#front"><tt>front</tt></a> and <a href="https://nnattawat.github.io/flip/#back"><tt>back</tt></a>
+         when instantiating flip.</p>
+      <p>If your setup is <a href="https://nnattawat.github.io/flip/#front"><tt>simple enough</tt></a>, you can even forgo the selectors entirely without any extra effort:</p>
+      <pre class="prettyprint prettyprinted" style=""><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"card"</span><span class="tag">&gt;</span><span class="pln"> 
+  </span><span class="tag">&lt;div&gt;</span><span class="pln"> 
+    Front content
+  </span><span class="tag">&lt;/div&gt;</span><span class="pln"> 
+  </span><span class="tag">&lt;div&gt;</span><span class="pln">
+    Back content
+  </span><span class="tag">&lt;/div&gt;</span><span class="pln"> 
+</span><span class="tag">&lt;/div&gt;</span></pre>
+      <div class="panel panel-info">
+        <div class="panel-heading"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> CSS guide</div>
+        <div class="panel-body">
+          For the best layout, <code>margin</code> should be added to <code>.card</code> and padding should be added to <code>.front</code> and <code>.back</code>
+        </div>
+      </div>
+      <br>
+    <h3><a id="flip"></a>.flip()</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr><th>Attribute</th>
+          <th>Possible value</th>
+          <th>Description</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><a id="flipoptions"></a>[Options]</td>
+            <td><a href="https://nnattawat.github.io/flip/#Options"><code>Object</code>(see below)</a>,<code>true</code>, <code>false</code>, <code>'toggle'</code></td>
+            <td>If an object, the settings to apply to the flip element. Otherwise, a value representing <a href="https://nnattawat.github.io/flip/#Using-via-javascript">how</a> the object should be immediately flipped.</td>
+          </tr>
+          <tr>
+            <td><a id="callback"></a>[callback]</td>
+            <td>function</td>
+            <td>A function to be called upon the completion of this call to flip.</td>
+          </tr>
+        </tbody>
+      </table>
+    <h3><a id="Options"></a>Options</h3>
+    <div class="table-wrapper">
+      <table class="table table-bordered">
+        <thead>
+          <tr><th>Attribute</th>
+          <th>Possible value</th>
+          <th>Default</th>
+          <th>Availability</th>
+          <th>Description</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><a id="axis"></a>axis</td>
+            <td><code>'y'</code>, <code>'x'</code></td>
+            <td><code>'y'</code></td>
+            <td>Always</td>
+            <td>The axis that you want to rotate around</td>
+          </tr>
+          <tr>
+            <td><a id="trigger"></a>trigger</td>
+            <td><code>'click'</code>, <code>'hover'</code>, <code>'manual'</code></td>
+            <td><code>'click'</code></td>
+            <td>Init only</td>
+            <td>Event that activates the flip action. Using <code>manual</code> means that 
+                you have to activate it via javascript. When this is set to <code>click</code> 
+                and the <code>tap</code> event is available <small>(through e.g. 
+                <a href="https://jquerymobile.com/">jQuery Mobile</a> or 
+                <a href="https://github.com/benmajor/jQuery-Touch-Events">jQuery Touch Events</a>)</small>, 
+                flip will bind to that instead of to <code>click</code> as a regular click will also
+                instantaneously trigger a <code>tap</code> event, but not vice-versa. This gets rid
+                of the <a href="http://blog.ionic.io/hybrid-apps-and-the-curse-of-the-300ms-delay/">300ms 
+                click delay</a> on mobile browsers.</td>
+          </tr>
+          <tr>
+            <td><a id="reverse"></a>reverse</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td><code>false</code></td>
+            <td>Always</td>
+            <td>Set to <code>true</code> if you want to reverse the direction of the flip.</td>
+          </tr>
+          <tr>
+            <td><a id="speed"></a>speed</td>
+            <td>any integer</td>
+            <td><code>500</code></td>
+            <td>Init only</td>
+            <td>Duration of the flipping animation in miliseconds. Higher means slower.</td>
+          </tr>
+          <tr>
+            <td><a id="front"></a>front</td>
+            <td><code><i>[selector]</i></code>, jQuery object</td>
+            <td><code>'.front'</code></td>
+            <td>Init only</td>
+            <td>The selector that flip will use to find the front face of the flippable content.</td>
+          </tr>
+          <tr>
+            <td><a id="back"></a>back</td>
+            <td><code><i>[selector]</i></code>, jQuery object</td>
+            <td><code>'.back'</code></td>
+            <td>Init only</td>
+            <td>The selector that flip will use to find the back face of the flippable content.</td>
+          </tr>
+          <tr>
+            <td><a id="autoSize"></a>autoSize</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td><code>true</code></td>
+            <td>Init only</td>
+            <td>Whether the front and back panels should be automatically sized to fit the container. Will make flip add styles <code>width:100%</code> and <code>height:100%</code> to them. Works well in fluid containers.</td>
+          </tr>
+          <tr>
+            <td><a id="forceWidth"></a>forceWidth</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td><code>false</code></td>
+            <td>Init only</td>
+            <td>Whether the front and back panels should be forced to the width of the container. Will make flip add style <code>width:<i>xx</i>px</code> to them (where <i>xx</i> is the container's <i>outerWidth</i>). Does not work well with fluid containers.	<br><b>NOTE:</b> This option is provided for backward compatibility and should eventually be deprecated. If you are migrating from an older version of Flip and are having issues with the new dynamic sizing feature, you can set <code>forceWidth</code> and <code>forceHeight</code> to <code>true</code>, and <code>autoSize</code> to <code>false</code> to make Flip behave the same as it did before. If you find you need this option, please report it to us as it should not be needed.</td>
+          </tr>
+          <tr>
+            <td><a id="forceHeight"></a>forceHeight</td>
+            <td><code>true</code>, <code>false</code></td>
+            <td><code>false</code></td>
+            <td>Init only</td>
+            <td>Whether the front and back panels should be forced to the height of the container. Will make flip add style <code>height:<i>yy</i>px</code> to them (where <i>yy</i> is the container's <i>outerHeight</i>). Does not work well with fluid containers. <br><b>NOTE:</b> This option is provided for backward compatibility and should eventually be deprecated. If you are migrating from an older version of Flip and are having issues with the new dynamic sizing feature, you can set <code>forceWidth</code> and <code>forceHeight</code> to <code>true</code>, and <code>autoSize</code> to <code>false</code> to make Flip behave the same as it did before. If you find you need this option, please report it to us as it should not be needed.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      <h3><a id="events"></a>Events</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a id="flipdone"></a>flip:done</td>
+            <td>Triggered on the completion of a flip.</td>
+          </tr>
+          <tr>
+            <td><a id="flipchange"></a>flip:change</td>
+            <td>Triggered once flip is done updating the settings of an element.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="panel panel-info">
+        <div class="panel-heading"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Note</div>
+        <div class="panel-body">
+          <p>All jQuery events added by the plugin contain <code>.flip</code> namespace. You can unregister flip by:</p>
+          <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">off</span><span class="pun">(</span><span class="str">".flip"</span><span class="pun">);</span></pre>
+          <p>You can get API object to change interaction or see states by:</p>
+          <pre class="prettyprint prettyprinted" style=""><span class="kwd">var</span><span class="pln"> flip </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">data</span><span class="pun">(</span><span class="str">"flip-model"</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// e.g. to see currect flip state</span><span class="pln">
+flip</span><span class="pun">.</span><span class="pln">isFlipped</span><span class="pun">;</span></pre>
+        </div>
+      </div>
+      <br>
+
+      <h3><a id="Using-via-javascript"></a>Using via javascript</h3>
+      <p>You can flip to the back by calling</p>
+      <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span></pre>
+      <p>And flip it back to the front by calling</p>
+      <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span></pre>
+      <p>Toggle front and back by calling</p>
+      <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">(</span><span class="str">'toggle'</span><span class="pun">);</span></pre>
+      <p>Change the axis orientation on the fly:</p>
+      <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">axis</span><span class="pun">:</span><span class="pln"> </span><span class="str">'x'</span><span class="pun">});</span></pre>
+      <p>Similarly for reverse:</p>
+      <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">reverse</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">});</span></pre>
+      <br>
+
+      <h3><a id="Examples-with-corresponding-options"></a>Examples with corresponding options</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="card-2" class="card" style="perspective: 600px; position: relative; transform-style: preserve-3d;"> 
+            <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;"> 
+              <img src="./demo_files/ls-1.jpg" style="backface-visibility: hidden;">
+            </div> 
+            <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateX(-180deg); transition: all 0.5s ease-out 0s;">
+              Image from www.w8themes.com
+            </div> 
+          </div>
+        </div>
+        <div class="col-md-6">
+          <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">
+  axis</span><span class="pun">:</span><span class="pln"> </span><span class="str">'x'</span><span class="pun">,</span><span class="pln">
+  trigger</span><span class="pun">:</span><span class="pln"> </span><span class="str">'hover'</span><span class="pln">
+</span><span class="pun">});</span></pre>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="card-3" class="card" style="perspective: 600px; position: relative; transform-style: preserve-3d;"> 
+            <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s; transform: rotateX(0deg);"> 
+              <img src="./demo_files/ls-2.jpg" style="backface-visibility: hidden;">
+            </div> 
+            <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateX(180deg); transition: all 0.5s ease-out 0s;">
+              Image from www.autoimagesize.com
+            </div> 
+          </div>
+        </div>
+        <div class="col-md-6">
+          <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">
+  axis</span><span class="pun">:</span><span class="pln"> </span><span class="str">'x'</span><span class="pun">,</span><span class="pln">
+  trigger</span><span class="pun">:</span><span class="pln"> </span><span class="str">'hover'</span><span class="pun">,</span><span class="pln">
+  reverse</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+</span><span class="pun">});</span></pre>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="card-4" class="card" style="perspective: 1110px; position: relative; transform-style: preserve-3d;"> 
+            <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;"> 
+              <img src="./demo_files/ls-3.jpg" style="backface-visibility: hidden;">
+            </div> 
+            <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateX(-180deg); transition: all 0.5s ease-out 0s;">
+              Image from www.wallko.com
+            </div> 
+          </div>
+        </div>
+        <div class="col-md-6">
+          <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">
+  trigger</span><span class="pun">:</span><span class="pln"> </span><span class="str">'manual'</span><span class="pln">
+</span><span class="pun">});</span></pre>
+
+          <button class="btn btn-primary" id="flip-btn">Click to flip</button>
+          <div class="margin-top">
+            <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span></pre>
+          </div>
+          <button class="btn btn-primary" id="unflip-btn">Click to unflip</button>
+          <div class="margin-top">
+            <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span></pre>
+          </div>
+          <button class="btn btn-primary" id="toggle-btn">Click to toggle</button>
+          <div class="margin-top">
+            <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">(</span><span class="str">'toggle'</span><span class="pun">);</span></pre>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="card-5" class="card" style="perspective: 1110px; position: relative; transform-style: preserve-3d;"> 
+            <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;"> 
+              <img src="./demo_files/ls-4.jpg" style="backface-visibility: hidden;">
+            </div> 
+            <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateX(-180deg); transition: all 0.5s ease-out 0s;">
+              Image from flickr.com/photos/neilspicys/
+            </div> 
+          </div>
+        </div>
+        <div class="col-md-6">
+          <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">
+  axis</span><span class="pun">:</span><span class="pln"> </span><span class="str">'y'</span><span class="pun">,</span><span class="pln">
+  trigger</span><span class="pun">:</span><span class="pln"> </span><span class="str">'click'</span><span class="pln">
+</span><span class="pun">});</span></pre>
+          <button class="btn btn-primary" id="axis-x-btn">Click to set axis to 'x'</button>
+          <div class="margin-top">
+            <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">axis</span><span class="pun">:</span><span class="pln"> </span><span class="str">'x'</span><span class="pun">});</span></pre>
+          </div>
+          <button class="btn btn-primary" id="axis-y-btn">Click to set axis to 'y'</button>
+          <div class="margin-top">
+            <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">axis</span><span class="pun">:</span><span class="pln"> </span><span class="str">'y'</span><span class="pun">});</span></pre>
+          </div>
+          <button class="btn btn-primary" id="reverse-true-btn">Click to set reverse to true</button>
+          <div class="margin-top">
+            <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">reverse</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">});</span></pre>
+          </div>
+          <button class="btn btn-primary" id="reverse-false-btn">Click to set reverse to false</button>
+          <div class="margin-top">
+            <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">reverse</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">});</span></pre>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="card-6" class="card" style="perspective: 1110px; position: relative; transform-style: preserve-3d;"> 
+            <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;"> 
+              <img src="./demo_files/ls-6.jpg" style="backface-visibility: hidden;">
+            </div> 
+            <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateX(-180deg); transition: all 0.5s ease-out 0s;">
+              Image from pixabay.com/en/lake-macquarie-sunset-water-71208/
+            </div> 
+          </div>
+        </div>
+        <div class="col-md-6">
+          <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">
+  trigger</span><span class="pun">:</span><span class="pln"> </span><span class="str">'click'</span><span class="pln">
+</span><span class="pun">});</span></pre>
+          <button class="btn btn-primary" id="assign-done">Click to assign</button>
+          <div class="margin-top">
+            <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">'flip:done'</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+  $</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">).</span><span class="pln">doCoolFadingThings</span><span class="pun">();</span><span class="pln">
+  </span><span class="com">//Disclaimer: ^This function is fake :)</span><span class="pln">
+</span><span class="pun">});</span></pre>
+          </div>
+        </div>
+      </div>
+      <br>
+
+     <div class="row">
+        <div class="col-md-6">
+          <div id="card-7" class="card" style="perspective: 1110px; position: relative; transform-style: preserve-3d;"> 
+            <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s; transform: rotateX(0deg);"> 
+              <img src="./demo_files/ls-7.jpg" style="backface-visibility: hidden;">
+            </div> 
+            <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateX(-180deg); transition: all 0.5s ease-out 0s;">
+              Image from https://upload.wikimedia.org/wikipedia/commons/f/f6/Bangkok_skytrain_sunset.jpg
+            </div> 
+          </div>
+        </div>
+        <div class="col-md-6">
+          <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">
+  trigger</span><span class="pun">:</span><span class="pln"> </span><span class="str">'click'</span><span class="pln">
+</span><span class="pun">});</span></pre>
+          <button class="btn btn-primary" id="toggleaxis">Click to toggle axis</button>
+          <div class="margin-top">
+            <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">({</span><span class="pln">axis</span><span class="pun">:</span><span class="pln"> </span><span class="pun">...});</span><span class="pln">
+</span><span class="com">//We're just toggling between y and x</span></pre>
+          </div>
+          <button class="btn btn-primary" id="assign-change">Click to assign</button>
+          <div class="margin-top">
+            <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">'flip:change'</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">
+  $</span><span class="pun">(</span><span class="str">'#card'</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">(</span><span class="str">'toggle'</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">});</span></pre>
+          </div>
+        </div>
+      </div>
+      <br>
+      <h3><a id="Grid-style-example"></a>Grid style example</h3>
+      <div id="grid-containter">
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s; transform: rotateY(0deg);">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+        <div class="card-grid" style="perspective: 200px; position: relative; transform-style: preserve-3d;">
+          <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;">Front</div>
+          <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateY(-180deg); transition: all 0.5s ease-out 0s;">Back</div>
+        </div>
+      </div>
+      <br>
+
+      <h3><a id="Fluid-example"></a>Fluid example</h3>
+      <p>Try to resize your browser window. The card in this example will resize with it.</p>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="card-fluid" class="card" style="perspective: 1110px; position: relative; transform-style: preserve-3d;"> 
+            <div class="front" style="backface-visibility: hidden; transform-style: preserve-3d; position: absolute; z-index: 1; height: 100%; width: 100%; transition: all 0.5s ease-out 0s;"> 
+              <img src="./demo_files/ls-5.jpg" style="backface-visibility: hidden;">
+            </div> 
+            <div class="back" style="backface-visibility: hidden; transform-style: preserve-3d; position: relative; z-index: 0; height: 100%; width: 100%; transform: rotateX(-180deg); transition: all 0.5s ease-out 0s;">
+              Image from commons.wikimedia.org<br style="backface-visibility: hidden;">
+              user Nevit Dilmen
+            </div> 
+          </div>
+        </div>
+        <div class="col-md-6">
+          <pre class="prettyprint prettyprinted" style=""><span class="pln">$</span><span class="pun">(</span><span class="str">"#card"</span><span class="pun">).</span><span class="pln">flip</span><span class="pun">();</span></pre>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <footer>
+      <div class="container">
+      jQuery flip is being maintained by 
+    <a href="https://github.com/nnattawat">Nattawat Nonsung (author)</a>, 
+    <a href="http://jkjones.me/">Jemar Jones</a> and 
+    <a href="http://stijndewitt.com/">Stijn de Witt</a>.
+      </div>
+    </footer>
+    <script src="./demo_files/jquery-2.1.4.min.js.download"></script>
+    <script src="./demo_files/prettify.min.js.download"></script>
+    <script src="./demo_files/jquery.mobile-events.min.js.download"></script>
+    <script src="./demo_files/jquery.flip.min.js.download"></script>
+    <!-- <script src="asset/flip.js"></script>-->
+    <script type="text/javascript">
+
+
+      $(function(){
+        prettyPrint();
+        
+        $(".card-grid").flip({
+          trigger: 'hover'
+        });
+
+        $("#card-1").flip();
+
+        $("#card-2").flip({
+          axis: 'x',
+          trigger: 'hover'
+        });
+
+        $("#card-3").flip({
+          axis: 'x',
+          trigger: 'hover',
+          reverse: true
+        });
+
+        $("#card-4").flip({
+          trigger: 'manual'
+        });
+
+        $("#flip-btn").click(function(){
+          $("#card-4").flip(true);
+        });
+
+        $("#unflip-btn").click(function(){
+          $("#card-4").flip(false);
+        });
+
+        $("#toggle-btn").click(function(){
+          $("#card-4").flip('toggle');
+        });
+    
+        $("#card-5").flip({
+          axis: 'y',
+          trigger: 'click'
+        });
+        $("#axis-x-btn").click(function(){
+          $("#card-5").flip({axis: 'x'});
+        });
+        $("#axis-y-btn").click(function(){
+          $("#card-5").flip({axis: 'y'});
+        });
+        $("#reverse-true-btn").click(function(){
+          $("#card-5").flip({reverse: true});
+        });
+        $("#reverse-false-btn").click(function(){
+          $("#card-5").flip({reverse: false});
+        });
+        $("#card-6").flip({
+          trigger: 'click'
+        });
+        $('#assign-done').click(function(){
+          $("#card-6").on('flip:done',function(){
+            $(this).fadeOut(400,function(){
+              $(this).fadeIn();
+            });
+          });
+        });
+        $("#card-7").flip({
+          trigger: 'click'
+        });
+        $('#assign-change').click(function(){
+          $("#card-7").on('flip:change',function(){
+            $(this).flip('toggle');
+          });
+        });
+        var not = function(axis){
+            if (axis == 'x'){
+             return 'y';
+            }else{
+                return 'x';
+            }
+        }
+        var c7_nextAxis = 'y';
+        $('#toggleaxis').click(function(){
+          c7_nextAxis = not(c7_nextAxis);
+          $('.card').flip({axis: c7_nextAxis});
+        });
+        $("#card-fluid").flip({
+          axis: 'y',
+          trigger: 'click',
+      forceWidth: false,
+      forceHeight: false
+        }).find('.front, .back').css({
+      'width': '100%',
+      'height': '100%'
+    });
+      });
+    </script>
+  
+
+</body></html>

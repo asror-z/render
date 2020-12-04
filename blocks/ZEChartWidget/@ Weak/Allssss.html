@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null
+    option = {
+        title: {
+            id: '',
+            show: true,
+            text: 'text for you',
+            link: '',
+            target: 'blank',
+
+            textStyle: {
+                color: '#333',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 18,
+                lineHeight: 15,
+                width: 15,
+                height: 15,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+            },
+
+            rich: {
+                a: {
+                    color: '#999',
+                    lineHeight: 22,
+                    align: 'center'
+                },
+                // abg: {
+                //     backgroundColor: '#333',
+                //     width: '100%',
+                //     align: 'right',
+                //     height: 22,
+                //     borderRadius: [4, 4, 0, 0]
+                // },
+                hr: {
+                    borderColor: '#aaa',
+                    width: '100%',
+                    borderWidth: 0.5,
+                    height: 0.5,
+                },
+                b: {
+                    fontSize: 16,
+                    lineHeight: 33
+                },
+                per: {
+                    color: '#eee',
+                    backgroundColor: '#334455',
+                    padding: [2, 4],
+                    borderRadius: 2
+                }
+            },
+
+            subtext: 'subetext for you',
+            sublink: '',
+            subtarget: 'blank',
+
+            subtextStyle: {
+                color: '#aaa',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: 'center',
+                verticalAlign: '',
+                lineHeight: '',
+                width: "",
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+            },
+
+            textAlign: 'auto',
+            textVerticalAlign: 'auto',
+            triggerEvent: false,
+            padding: 5,
+            itemGap: 10,
+            zlevel: 0,
+            z: 2,
+            left: 'auto',
+            top: 'auto',
+            right: 'auto',
+            bottom: 'auto',
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            borderRadius: 0,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+        },
+        legend: {
+            type: '',
+            id: '',
+            show: true,
+            zlevel: 0,
+            z: 2,
+            left: 'auto',
+            top: 'auto',
+            right: 'auto',
+            bottom: 'auto',
+            width: 'auto',
+            height: 'auto',
+            orient: 'horizontal',
+            align: 'auto',
+            padding: 5,
+            itemGap: 10,
+            itemWidth: 25,
+            itemHeight: 14,
+            symbolKeepAspect: true,
+            formatter: '',
+            selectedMode: true,
+            inactiveColor: '#ccc',
+            selected: '',
+            textStyle: {
+                color: "#fff",
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: '',
+                verticalAlign: '',
+                lineHeight: '',
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: '',
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+            },
+
+            tooltip: '',
+            icon: '',
+
+            data: [{
+                name: '',
+                icon: '',
+                textStyle: '',
+            }],
+
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            borderRadius: 0,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+            scrollDataIndex: 0,
+            pageButtonItemGap: 5,
+            pageButtonGap: '',
+            pageButtonPosition: 'end',
+            pageFormatter: '{current}/{total}',
+
+            pageIcons: {
+                horizontal: '',
+                vertical: '',
+            },
+            pageIconColor: '#2f4554',
+            pageIconInactiveColor: '#aaa',
+            pageIconSize: 15,
+            pageTextStyle: {
+                color: ' #333',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                lineHeight: '',
+                width: '',
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+                selectorPosition: 'auto',
+                selectorItemGap: 7,
+                selectorButtonGap: 10,
+            },
+
+            animation: '',
+            animationDurationUpdate: 800,
+            selector: false,
+            selectorLabel: {
+                show: true,
+                distance: 5,
+                rotate: '',
+                offset: '',
+                color: "#fff",
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: '',
+                verticalAlign: '',
+                lineHeight: '',
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: '',
+                height: '',
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+            },
+
+            selectorPosition: 'auto',
+            selectorItemGap: 7,
+            selectorButtonGap: 10,
+        },
+        xAxis: {
+            show: true,
+            gridIndex: 0,
+            position: 'top',
+            offset: 0,
+            type: 'category',
+            name: 'time',
+            nameLocation: 'end',
+
+            nameTextStyle: {
+                color: '#000213',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: 'right',
+                verticalAlign: 'bottom',
+                lineHeight: 56,
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: 25,
+                height: 25,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+
+            }
+        },
+        yAxis: {
+            show: true,
+            gridIndex: 0,
+            position: 'top',
+            offset: 0,
+            type: 'value',
+            name: 'rate',
+            nameLocation: 'end',
+            nameTextStyle: {
+                color: '',
+                fontStyle: 'normal',
+                fontWeight: 'normal',
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                align: 'center',
+                verticalAlign: '',
+                lineHeight: '',
+                backgroundColor: 'transparent',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                borderRadius: 0,
+                padding: 0,
+                shadowColor: 'transparent',
+                shadowBlur: 0,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                width: 50,
+                height: 50,
+                textBorderColor: 'transparent',
+                textBorderWidth: 0,
+                textShadowColor: 'transparent',
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0,
+                rich: {
+                    color: "",
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontSize: 12,
+                    align: 'center',
+                    verticalAlign: 'top',
+                    lineHeight: 56,
+                    backgroundColor: 'transparent',
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    padding: 0,
+                    shadowColor: 'transparent',
+                    shadowBlur: 0,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    width: 50,
+                    height: 50,
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                },
+
+                nameGap: 15,
+                nameRotate: 15,
+                inverse: false,
+                boundaryGap: ['20%', '20%'],
+                min: function (value) {
+                    return value.min - 20;
+                },
+                max: function (value) {
+                    return value.max - 20;
+                },
+                scale: false,
+                splitNumber: 5,
+                minInterval: 0,
+                maxInterval: 3600 * 1000 * 24,
+                interval: '',
+                logBase: 10,
+                silent: false,
+                triggerEvent: false,
+            },
+            axisLine: {
+                show: true,
+                onZero: true,
+                onZeroAxisIndex: 0,
+                symbol: 'none',
+                symbolSize: [10, 15],
+                symbolOffset: [0, 0],
+
+                lineStyle: {
+                    color: '#333',
+                    width: 1,
+                    type: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                }
+            },
+            axisTick: {
+                show: true,
+                alignWithLabel: false,
+                interval: 'auto',
+                inside: false,
+                length: 5,
+                lineStyle: {
+                    color: '',
+                    width: 1,
+                    type: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                }
+            },
+
+            splitArea: {
+                interval: 'auto',
+                show: false,
+                reaStyle: {
+                    color: ['rgba(250,250,250,0.3)', 'rgba(200,200,200,0.3)'],
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                }
+            },
+
+            axisPointer: {
+                show: false,
+                type: 'line',
+                snap: true,
+                z: 1,
+                label: {
+                    show: false,
+                    precision: 'auto',
+                    formatter: '',
+                    margin: 3,
+                    color: '#fff',
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontFamily: 'sans-serif',
+                    fontSize: 12,
+                    lineHeight: '',
+                    width: '',
+                    height: '',
+                    textBorderColor: 'transparent',
+                    textBorderWidth: 0,
+                    textShadowColor: 'transparent',
+                    textShadowBlur: 0,
+                    textShadowOffsetX: 0,
+                    textShadowOffsetY: 0,
+                    padding: [5, 7, 5, 7],
+                    backgroundColor: 'auto',
+                    borderColor: '',
+                    borderWidth: 0,
+                    shadowBlur: 3,
+                    shadowColor: '#aaa',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                },
+                lineStyle: {
+
+                    color: '#555',
+                    width: 1,
+                    type: 'solid',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1,
+                },
+                shadowStyle: {
+
+                    color: 'rgba(150,150,150,0.3)' ,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 10,
+                    shadowOffsetX: 0 ,
+                    shadowOffsetY: 0 ,
+                    opacity :1 ,
+                },
+                triggerTooltip: true,
+                value: 1,
+                status: 'show',
+                handle: {
+
+                    show: false,
+                    icon: '',
+                    size: 45,
+                    margin: 50,
+                    color: '#333',
+                    throttle: 40,
+                    shadowBlur: 3,
+                    shadowColor: '#aaa',
+                    shadowOffsetX: 2,
+                    shadowOffsetY: 0,
+                },
+            },
+
+            zlevel: 0,
+            z: 0,
+        },
+        grid: {
+            id: '',
+            show: false,
+            zlevel: 0,
+            z: 2,
+            left: '10%',
+            top: 60,
+            right: '10%',
+            bottom: 60,
+            width: 'auto',
+            height: 'auto',
+            containLabel: false,
+            backgroundColor: 'transparent',
+            borderColor: '#ccc',
+            borderWidth: 1,
+            shadowBlur: '',
+            shadowColor: '',
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+        },
+        dataset: {
+            id: '',
+            source: [
+                ['product', '2015', '2016', '2017'],
+                ['Matcha Latte', 43.3, 85.8, 93.7],
+                ['Milk Tea', 83.1, 73.4, 55.1],
+                ['Cheese Cocoa', 86.4, 65.2, 82.5],
+                ['Walnut Brownie', 72.4, 53.9, 39.1]
+            ],
+            sourceHeader: true,
+            dimensions: ['date', '2015', '2016', '2017', 'lowest']
+        },
+        series: [
+            {type: 'bar'},
+            {type: 'bar'},
+            {type: 'bar'}
+        ],
+        toolbox: {
+            feature: {
+                dataZoom: {
+                    yAxisIndex: false
+                },
+                saveAsImage: {
+                    pixelRatio: 2
+                }
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        textStyle: {},
+        axisPointer: {
+            type:'shadow',
+            shadowStyle: {
+                color: 'rgba(150,150,150,0.3)',
+                shadowBlur: 10,
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                opacity: 10,
+                triggerTooltip: true,
+                value: 1,
+                status: 'show',//'hide'
+                handle: {
+                    show: false,
+                    icon: "image://http://echarts.baidu.com/images/favicon.png",
+                    size: 45,
+                    margin: 50,
+                    color: '#333',
+                    throttle: 40,
+                    shadowBlur: 3,
+                    shadowColor: '#aaa',
+                    shadowOffsetX: 2,
+                    shadowOffsetY: 0,
+                    link: [
+                        {
+                            // All axes with xAxisIndex 0, 3, 4 and yAxisName 'sameName' will be linked.
+                            xAxisIndex: [0, 3, 4],
+                            yAxisName: 'radius'
+                        },
+                        {
+                            // All axes with xAxisId 'aa', 'cc' and all angleAxis will be linked.
+                            xAxisId: ['aa', 'cc'],
+                            angleAxis: 'all'
+                        },
+                    ],
+                    triggerOn: 'mousemove|click',//'mousemove','click','none'
+                }
+            },
+        },
+        visualMap: {
+            type: 'continuous',
+            dimension: 1,
+            text: ['High', 'Low'],
+            inverse: true,
+            itemHeight: 200,
+            calculable: true,
+            min: 0,
+            max: 100,
+            top: 60,
+            left: 10,
+            inRange: {
+                colorLightness: [0.4, 0.8]
+            },
+            outOfRange: {
+                color: '#bbb'
+            },
+            controller: {
+                inRange: {
+                    color: '#2f4554'
+                }
+            }
+        },
+        dataZoom: [{
+            type: 'slider',
+            filterMode: 'weakFilter',
+            showDataShadow: true,
+            bottom: 20,
+            height: 10,
+            borderColor: 'transparent',
+            backgroundColor: '#e2e2e2',
+            handleIcon: 'M10.7,11.9H9.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z', // jshint ignore:line
+            handleSize: 20,
+            handleStyle: {
+                shadowBlur: 6,
+                shadowOffsetX: 1,
+                shadowOffsetY: 2,
+                shadowColor: '#aaa'
+            },
+            labelFormatter: ''
+        }, {
+            type: 'inside',
+            filterMode: 'weakFilter'
+        }],
+        color: ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622', '#bda29a', '#6e7074', '#546570', '#c4ccd3'],
+        backgroundColor: '#fff',
+        animation: true,
+        animationThreshold: 2000,
+        animationDuration: 1000,
+        animationEasing: function (k) {
+            return --k * k * k + 1;
+        },
+        animationDelay: 0,
+        animationDurationUpdate: 300,
+        animationEasingUpdate: function (k) {
+            return --k * k * k + 1;
+        },
+        animationDelayUpdate: 0,
+        blendMode: 'source-over',
+        useUTC: false,
+    }
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>
+

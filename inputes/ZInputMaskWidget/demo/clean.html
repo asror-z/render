@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+        <form>
+            <input class="inputmask">
+            <input class="inputmask2">
+            <input class="inputmask3">
+            <input class="inputmask4">
+            <input class="inputmask5">
+            <input class="inputmask6">
+            <input class="inputmask7">
+            <input class="inputmask8">
+
+        </form>
+
+
+
+        <script src="/publish/yarner/jquery/dist/jquery.js"></script>
+
+
+        <script src="/publish/yarner/inputmask/dist/jquery.inputmask.js"></script>
+      <script src="/publish/yarner/inputmask/dist/inputmask.js"></script>
+      <script>
+
+          $(document).ready(function(){
+              $('.inputmask').inputmask({
+                  mask : '99-999-99-99',
+                  placeholder : '99-999-99-99',
+                  greedy: false,
+                  //placeholder : '',
+                  optionalmarker :  { start: "[", end: "]" },
+                  quantifiermarker : { start: "{", end: "}" },
+                  groupmarker : { start: "(", end: ")" },
+                  alternatormarker : '|',
+                  //escapeChar : "\\"",
+                  oncomplete : function() {
+                      console.log('complate');
+                  },
+                  onincomplete : function() {
+                      console.log('onincomplate');
+                  },
+                  oncleared : function() {
+                      console.log('oncleared');
+                  },
+                  //repeat : '',
+                  autoUnmask : false,
+                  removeMaskOnSubmit : false,
+                  clearMaskOnLostFocus : true,
+                  insertMode : true,
+                  insertModeVisual : false,
+                  clearIncomplete : true,
+                  onKeyDown : function() {
+                      console.log('onkeydown');
+                  },
+                  //onBeforeMask : function() {},
+                  //onBeforePaste : function() {},
+                  //onBeforeWrite : function() {},
+                  showMaskOnFocus : true,
+                  showMaskOnFocus : true,
+                  //onKeyValidation : function() {},
+                  //numericInput : true,
+                  rightAlign : false,
+                  undoOnEscape : true,
+                  //radixPoint : '',
+                  //groupSeparator : '',
+                  keepStatic : null,
+                  positionCaretOnTab : true,
+                  tabThrough : false,
+                  //definitions : {},
+                  //isComplete : function() {},
+                  //postValidation :
+                  //preValidation:
+
+                  staticDefinitionSymbol : '*',
+                  nullable : true,
+                  noValuePatching : false,
+                  positionCaretOnClick : 'lvp',
+                  casing : false,
+                  inputmode : 'verbatim',
+                  importDataAttributes : true,
+                  shiftPositions : true,
+                  
+
+              });
+              $('.inputmask2').inputmask({
+                    /*mask: '31/99/9999',
+                      placeholder : 'dd/mm/yyyy',*/
+                      alias : 'datetime',
+                      inputFormat: 'dd/mm/yyyy'
+
+              });
+              $('.inputmask3').inputmask({
+                  mask : 'AA-9999999',
+                  placeholder : 'AA-9999999',
+                  
+
+              });
+              $('.inputmask4').inputmask("aa-9{4}");
+              $('.inputmask5').inputmask({
+                    mask: '999.999.999.999',
+                  placeholder : '999.999.999.999',
+              });
+              $('.inputmask6').inputmask({
+                  mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}].a{1,4}",
+                  greedy: false,
+                  onBeforePaste: function (pastedValue, opts) {
+                      pastedValue = pastedValue.toLowerCase();
+                      return pastedValue.replace("mailto:", "");
+                  },
+                  definitions: {
+                      '*': {
+                          validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~\-]",
+                          casing: "lower"
+                      }
+                  }
+              });
+              $('.inputmask8').inputmask({
+                  alias : 'email' ,
+                  inputFormat : '*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}].a{1,4}',
+                  //Inputmask: 'dd/mm'
+                   //integer /email, currency, decimal, integer, datetime, url, ip, mac, vin, ssn,
+              });
+
+          });
+          $(document).ready(function(){
+              
+              Inputmask().mask(document.querySelectorAll("input"));
+          });
+
+          $(document).ready(function(){
+
+              var car = {type:"Fiat", model:"500", color:"white"};
+              var tachki = {...car, ebfvjf: 'fckd', kvn: 'fbwe', chbedc : 'jewb'};
+              console.log(tachki);
+          });
+
+      </script>
+
+</body>
+</html>

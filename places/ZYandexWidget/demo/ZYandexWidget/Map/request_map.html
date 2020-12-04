@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Создание карты по требованию</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--
+        Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах.
+        Получить ключ можно в Кабинете разработчика: https://developer.tech.yandex.ru/keys/
+    -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<ваш API-ключ>" type="text/javascript"></script>
+    <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+    <script src="request_map.js" type="text/javascript"></script>
+</head>
+
+<body>
+<input type="button" value="Показать карту" id="toggle"/>
+<p>
+<div id="map" style="width: 450px; height: 320px"></div>
+</p>
+</body>
+<script>
+    // Как только будет загружен API и готов DOM, выполняем инициализацию
+    ymaps.ready(init);
+
+    // Инициализация и уничтожение карты при нажатии на кнопку.
+    function init () {
+        var myMap;
+
+        $('#toggle').bind({
+            click: function () {
+                if (!myMap) {
+                    myMap = new ymaps.Map('map', {
+                        center: [55.010251, 82.958437], // Новосибирск
+                        zoom: 9
+                    }, {
+                        searchControlProvider: 'yandex#search'
+                    });
+                    $("#toggle").attr('value', 'Скрыть карту');
+                }
+                else {
+                    myMap.destroy();// Деструктор карты
+                    myMap = null;
+                    $("#toggle").attr('value', 'Показать карту снова');
+                }
+            }
+        });
+    }
+</script>
+</html>

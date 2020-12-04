@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jsPanel</title>
+</head>
+<body>
+
+
+<input class="btn btn-lg btn-success m-5 openpanel" value="OPEN PANEL" type="button">
+
+<!-- Your HTML goes here -->
+
+<!-- loading jsPanel javascript -->
+<!-- jsPanel CSS -->
+<link href="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/jspanel.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<!-- jsPanel JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/jspanel.js"></script>
+
+<!-- optional jsPanel extensions -->
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/modal/jspanel.modal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/tooltip/jspanel.tooltip.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/hint/jspanel.hint.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/layout/jspanel.layout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/contextmenu/jspanel.contextmenu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspanel4@4.10.1/dist/extensions/dock/jspanel.dock.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+/*
+    METHODS
+
+    .addControl({
+            html: '<span class="fa fa-cog"></span>',
+            name: 'settings',
+            handler: function(panel, control){
+                panel.content.innerHTML = 'You clicked the "settings" control';
+            }
+        })
+
+        var tbar = '<span id="btn-bus"><i class="fa fa-bus"></i></span>'+
+    '<span id="btn-train"><i class="fa fa-train"></i></span>'+
+    '<span id="btn-car"><i class="fa fa-car"></i></span>';
+
+
+     .addToolbar('header', tbar, function (panel) {
+            var tb = this.headertoolbar;
+            tb.querySelector('#btn-bus').addEventListener('click', function () {
+                panel.content.innerHTML = 'you clicked the bus icon.';
+            }, false);
+            tb.querySelector('#btn-train').addEventListener('click', function () {
+                panel.content.innerHTML = 'you clicked the train icon.';
+            }, false);
+            tb.querySelector('#btn-car').addEventListener('click', function () {
+                panel.content.innerHTML = 'you clicked the car icon.';
+            }, false);
+            Array.prototype.slice.call(tb.querySelectorAll('span')).forEach(function (item) {
+                item.style.cursor = 'pointer';
+                item.style.margin = '3px 8px 1px 0';
+            });
+        });
+
+
+
+            panel.close();
+            panel.closeChildpanels();
+
+           panel.contentRemove(function () {
+            this.setTheme('darkgray');
+        });
+
+
+            panel.dragit('enable');
+
+          panel.front(function () {
+            this.setTheme('purple filledlight');
+          });
+
+
+         .maximize();
+         .minimize();
+        .normalize();
+
+        panel.overlaps("#testcontainer", "paddingbox", event);
+
+         panel.reposition('left-top 50 50');
+
+         panel
+            .resize({
+                width:  window.innerWidth/2,
+                height: 300
+            })
+
+        .resizeit();
+
+        .setBorder('dashed orange');
+
+        .setBorderRadius('0.5rem');
+
+        .setControlStatus('minimize', 'disable');
+
+        .setHeaderLogo('<i class="fa fa-spinner fa-spin"></i>'
+
+        .create().setHeaderTitle('a new title ...');
+
+        .setTheme({
+        bgPanel: 'linear-gradient(120deg,#155799,#159957)',
+        bgContent: 'transparent',
+        colorHeader: '#fff',
+        colorContent: '#fff',
+        border: '4px solid #157B75'
+    });
+
+        .smallify();
+        .unsmallify()
+    
+* */
+/*
+
+   options
+
+    addCloseControl: 1,
+
+    animateIn: 'jsPanelFadeIn',
+    animateOut: 'jsPanelFadeOut'
+
+    autoclose: 3000,
+     autoclose: {
+    time: '6s',
+    background: 'linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(0,255,17,1) 100%)'
+  }
+
+    border: "thick dashed orange",
+    borderRadius: '1rem',
+
+    boxShadow: 2,                 // type: integer range: 0 - 5
+
+    callback: function () {
+    this.content.innerHTML = '<p>Added via option.callback.</p>';
+  }
+
+    closeOnEscape: true,
+
+    config: hintConfig,     // type object
+
+    container: '#testcontainer',    // type: string (selector), node object, jQuery object
+
+    content: '<p>Appended with <i>Element.innerHTML</i></p>',        // type: string, element, function
+
+
+     contentAjax: {
+    url: '../docs/sample-content/sampleContent.html',   // url type: string, default: undefined
+    done: function (panel) {
+      panel.content.innerHTML = this.responseText;
+    },
+    evalscripttags: true
+  },                                            //  type: string, object
+
+
+    contentFetch: {
+    resource: '../docs/sample-content/delayedContent.php',
+    beforeSend: function() {
+      this.headerlogo.innerHTML = "<span class='fa fa-spinner fa-spin' style='margin-left:8px'></span>"
+    },
+    fetchInit: {
+      method: 'POST'
+    },
+    done: function (panel, response) {
+      this.content.innerHTML = response;
+      this.headerlogo.innerHTML = "<span class='fa fa-check' style='margin-left:8px'></span>";
+      this.resize('auto 300').reposition();
+    }
+  }                                              // type: string, object
+
+
+    contentOverflow: 'scroll',            // type: string
+
+    contentSize: '600 300',            // type: object, string
+    contentSize: {
+    width: function() {
+        return window.innerWidth/4
+    },
+    height: 'auto'
+  }
+
+     data: 'foobar',                // type: string, number, array, plain object
+
+     dragit: {
+        axis: 'x',
+        cursor: 'move'
+        //.....
+  }                                  // type: object or boolean false (turns off dragit completely)
+
+
+    footerToolbar: '<span style="flex:1 1 auto">Some text content</span>'      //type: string, array, node object or function
+
+    header: false,        // type: boolean or string     string 'auto-show-hide'
+
+
+    headerControls: {
+    add: {
+      html: '<span class="fal fa-undo"></span>',
+      name: 'reset',
+      handler: function(panel, control){
+        panel.content.innerHTML = 'You clicked the "reset" control';
+      }
+    },
+    minimize: 'remove',
+    reset: 'enable'
+  }                                   // type: object or string
+
+
+    headerRemove: true
+
+    headerTitle: 'just another title'           // type: string, function or element
+
+     headerToolbar: '<span id="bus"><i class="fad fa-bus fa-fw"></i></span>'         // type: string, array, node object or function
+
+
+     iconfont: 'material-icons',               // type: string or array
+
+     id: 'mypanel-1',                         // type: string, function
+
+     maximizedMargin: [61, 5, 5, 5]             // type: number, array
+
+     onbeforeclose: function (panel, status, closedByUser) {
+        console.log(panel, status, closedByUser);
+     return confirm('Close panel?');
+  }
+
+    panelSize: '600 300',                          // type: object or string
+
+
+    position: {
+    my: 'right-top',
+    at: 'right-top',
+    of: 'body .main-content',
+    offsetX: '-0.5rem',
+    offsetY: '5px',
+    autoposition 'down'
+}                                                   // type: object, string or boolean false
+
+
+    resizeit: {
+    handles: 'e, se'
+  }                                               // type: object or boolean false (turns off resizeit completely)
+
+
+    theme: 'primary',                           // type: string object
+
+    */
+
+
+$(".openpanel").click(function(){
+    var tbar = '<span id="btn-bus"><i class="fa fa-bus"></i></span>'+
+        '<span id="btn-train"><i class="fa fa-train"></i></span>'+
+        '<span id="btn-car"><i class="fa fa-car"></i></span>';
+    jsPanel.create({
+        contentSize: ({
+            width: function () {
+                return window.innerWidth / 2
+            },
+            height: 500,
+            position: 'left-top 50 50',
+        }),
+        headerTitle: 'just another title',
+        resizeit: {
+            aspectRatio: 'content'
+        },
+        content: '<div class="p-3">'+'<form>'+
+            '<div class="form-group co">'+
+            '<label for="exampleInputEmail1">Email address</label>'+
+            '<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">'+
+            '<small id="emailHelp" class="form-text text-muted">We\'ll never share your email with anyone else.</small>'+
+            '</div>'+
+            '<div class="form-group">'+
+            '<label for="exampleInputPassword1">Password</label>'+
+            '<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">'+
+            '</div>'+
+            '<button type="submit" class="btn btn-primary">Submit</button>'+
+            '</form>'+ '</div>',
+
+        footerToolbar: '<i class="fa fa-clock"></i><span class="clock">loading ...</span>',
+        callback: function (panel) {
+
+            // get all focusable elements within the panel content
+            var focusableElmts = this.content.querySelectorAll('input, button'),
+                first = focusableElmts[0],
+                last  = focusableElmts[focusableElmts.length - 1];
+            // focus first focusable element
+            first.focus();
+            // handler to lock focus within the panel
+            this.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    if ( e.shiftKey ) /* shift + tab */ {
+                        if (document.activeElement === first) {
+                            last.focus();
+                            e.preventDefault();
+                        }
+                    } else /* tab */ {
+                        if (document.activeElement === last) {
+                            first.focus();
+                            e.preventDefault();
+                        }
+                    }
+                }
+            });
+            function clock() {
+                var time = new Date(),
+                    hours = time.getHours(),
+                    minutes = time.getMinutes(),
+                    seconds = time.getSeconds();
+                panel.footer.querySelectorAll('.clock') [0].innerHTML = harold(hours) + ':' + harold(minutes) + ':' + harold(seconds);
+                function harold(standIn) {
+                    if (standIn < 3) {
+                        standIn = '0' + standIn
+                    }
+                    return standIn;
+                }
+            }
+            setInterval(clock, 1000);
+        }
+    })
+        .addControl({
+            html: '<span class="fa fa-cog"></span>',
+            name: 'settings',
+            handler: function(panel, control){
+                panel.content.innerHTML = 'You clicked the "settings" control';
+            }
+        })
+        .addControl({
+            html: '<span class="fa fa-bars"></span>',
+            name: 'menu',
+            handler: function(panel, control){
+                panel.content.innerHTML = 'You clicked the "menu" control';
+            },
+            position: 7,
+            afterInsert: function(control){
+                // do with the control whatever is needed ...
+            }
+        })
+        .setBorderRadius('0.7rem')
+        .setHeaderLogo('<i class="fa fa-spinner fa-spin"></i>', function() {
+            this.headerlogo.querySelector('.fa-spinner').style.marginLeft = '8px';
+        })
+        .setTheme({
+            bgPanel: 'linear-gradient(120deg,#1BE7FF,#8100BA)',
+            colorHeader: '#ffffff',
+            colorContent: 'black',
+            border: '4px solid #157B75'
+        })
+        .addToolbar('header', tbar, function (panel) {
+            var tb = this.headertoolbar;
+            tb.querySelector('#btn-bus').addEventListener('click', function () {
+                panel.content.innerHTML = 'you clicked the bus icon.';
+            }, false);
+            tb.querySelector('#btn-train').addEventListener('click', function () {
+                panel.content.innerHTML = 'you clicked the train icon.';
+            }, false);
+            tb.querySelector('#btn-car').addEventListener('click', function () {
+                panel.content.innerHTML = 'you clicked the car icon.';
+            }, false);
+            Array.prototype.slice.call(tb.querySelectorAll('span')).forEach(function (item) {
+                item.style.cursor = 'pointer';
+                item.style.margin = '3px 8px 1px 0';
+            });
+        })
+
+});
+ 
+
+
+
+
+
+</script>
+</body>
+</html>

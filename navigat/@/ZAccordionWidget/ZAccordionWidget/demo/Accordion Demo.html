@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://michu2k.pl/accordion/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Accordion created in pure javascript and CSS">
+    <meta name="keywords" content="javascript, accordion, simple list, html5, javascript plugin, responsive">
+    <title>Accordion Demo</title>   
+    <link rel="stylesheet" href="./Accordion Demo_files/normalize.min.css">
+    <link rel="stylesheet" href="./Accordion Demo_files/template.min.css">
+    <link rel="stylesheet" href="./Accordion Demo_files/accordion.css">
+</head>
+<body>
+
+<header class="header container">
+    <h1 class="header-heading">Accordion</h1>    
+    <span class="header-description">Demo v2.8.0</span>  
+    <div class="install-container">  
+        <a href="https://github.com/michu2k/Accordion/archive/master.zip" class="install-item item-github">
+            <img src="./Accordion Demo_files/github.png" class="item-github-img" alt="">Download from GitHub
+        </a>
+        <p class="item-title">or npm: </p>
+        <p class="install-item extra-item">npm install accordion-js</p>
+        <p class="item-title">or include files from CDN: </p>
+        <p class="install-item extra-item">https://unpkg.com/accordion-js@2.8.0/dist/accordion.min.css<br>https://unpkg.com/accordion-js@2.8.0/dist/accordion.min.js</p>
+    </div>    
+</header>
+
+<section class="section container">
+    <h2 class="heading">Info</h2>   
+    <p class="description">Simple javascript module created in pure javascript. You can create more than one accordion on single page and set different options to everyone. Go to <a href="https://github.com/michu2k/Accordion" class="section-link">Github page</a> to see the module API.</p>    
+</section>
+
+<section class="section container">
+    <h2 class="heading">Demo</h2>   
+    <div class="accordion-container" role="tablist">
+        <div class="ac js-enabled" id="ac-0">
+            <h2 class="ac-q" tabindex="0" role="tab" aria-expanded="false">What was the last funny video you saw?</h2>
+            <div class="ac-a" role="tabpanel" style="height: 0px; transition: all 600ms ease 0s;">
+                <p>Funny cats</p>
+            </div>
+        </div>
+
+        <div class="ac js-enabled" id="ac-1">
+            <h2 class="ac-q" tabindex="0" role="tab" aria-expanded="false">Do you like cookies ?</h2>
+            <div class="ac-a" role="tabpanel" style="height: 0px; transition: all 600ms ease 0s;">
+                <p>YES</p>
+            </div>
+        </div>
+
+        <div class="ac js-enabled" id="ac-2">
+            <h2 class="ac-q" tabindex="0" role="tab" aria-expanded="false">What’s your favorite way to waste time?</h2>
+            <div class="ac-a" role="tabpanel" style="height: 0px; transition: all 600ms ease 0s;">
+                <p>In my free time i like to play computer games.</p>
+            </div>
+        </div>
+
+        <div class="ac js-enabled" id="ac-3">
+            <h2 class="ac-q" tabindex="0" role="tab" aria-expanded="false">Ba dee bedebe?</h2>
+            <div class="ac-a" role="tabpanel" style="height: 0px; transition: all 600ms ease 0s;">
+                <p>mahna mahna</p>
+            </div>
+        </div>
+
+        <div class="ac js-enabled" id="ac-4">
+            <h2 class="ac-q" tabindex="0" role="tab" aria-expanded="false">Do you like classical music?</h2>
+            <div class="ac-a" role="tabpanel" style="height: 0px; transition: all 600ms ease 0s;">
+                <p>Not really</p>
+            </div>
+        </div>
+
+        <div class="ac js-enabled" id="ac-5">
+            <h2 class="ac-q" tabindex="0" role="tab" aria-expanded="false">What would be your perfect weekend?</h2>
+            <div class="ac-a" role="tabpanel" style="height: 0px; transition: all 600ms ease 0s;">
+                <p>Some combination of music, games and spending time with my friends.</p>
+            </div>
+        </div>
+    </div>    
+</section>
+
+<section class="section container">
+    <h2 class="heading">Further Reading</h2>   
+    <ul class="section-list">
+        <li><a href="https://github.com/michu2k/Accordion#install">Install</a></li>
+        <li><a href="https://github.com/michu2k/Accordion#api">API</a></li>
+        <li><a href="https://github.com/michu2k/Accordion/releases">Releases</a></li>
+    </ul>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p class="footer-description">© 2017 - <span id="curr-date">2020</span></p>
+    </div>
+</footer>
+        
+<script src="./Accordion Demo_files/accordion.min.js.download"></script>  
+<script>
+    new Accordion('.accordion-container', {
+        showItem: true,
+        itemNumber: 1
+    });
+
+    var c = document.querySelector('#curr-date');
+    var year = new Date().getFullYear();
+    c.innerHTML = year;
+</script>
+
+
+</body></html>

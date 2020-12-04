@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"> </script>
+
+
+
+    <script>
+        $(document).ready(function() {
+            var table = $('#example').DataTable();
+
+            $('#example tbody').on('click', 'tr', function () {
+                var data = table.row( this ).data();
+                alert( 'You clicked on '+data[0]+'\'s row' );
+            } );
+        } );
+    </script>
+</head>
+<body>
+
+<!--https://datatables.net/examples/advanced_init/events_live.html
+
+Events assigned to the table can be exceptionally useful for user interaction, however you must be aware that DataTables will add and remove rows from the DOM as they are needed (i.e. when paging only the visible elements are actually available in the DOM). As such, this can lead to the odd hiccup when working with events.
+
+One of the best ways of dealing with this is through the use of delegated events with jQuery's on method, as shown in this example. This example also uses the DataTables row().data() method to retrieve information about the selected row - the row's data so we can show it in the alert message in this case.
+-->
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th rowspan="2">Name</th>
+        <th colspan="2">HR Information</th>
+        <th colspan="3">Contact</th>
+    </tr>
+    <tr>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>E-mail</th>
+    </tr>
+    </thead>
+    <tbody>
+
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>$320,800</td>
+                <td>Edinburgh</td>
+                <td>5421</td>
+                <td>t.nixon@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>$170,750</td>
+                <td>Tokyo</td>
+                <td>8422</td>
+                <td>g.winters@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>$86,000</td>
+                <td>San Francisco</td>
+                <td>1562</td>
+                <td>a.cox@datatables.net</td>
+            </tr>
+            <tr>
+                <td>Cedric Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>$433,060</td>
+                <td>Edinburgh</td>
+                <td>6224</td>
+                <td>c.kelly@datatables.net</td>
+            </tr>
+
+    </tbody>
+    <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>E-mail</th>
+            </tr>
+    </tfoot>
+</table>
+
+</body>
+</html>

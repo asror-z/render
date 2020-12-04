@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2" name="viewport">
+    <title>elFinder 2.1.x source version with PHP connector</title>
+
+    <!-- Require JS (REQUIRED) -->
+    <!-- Rename "main.default.js" to "main.js" and edit it if you need configure elFInder options or any things -->
+    <script data-main="./main.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <script>
+        $().ready(function () {
+            bootCallback : function(fm, extraObj) {
+            var files= fm.selected();
+            var hash =files[0];
+            var encPath = hash.substr(hash.indexOf('_')+1);
+            // full path of selected file
+            // encFilePath
+            var path ='render'+'/'+atob(encPath.replace(/\-/g, '+').replace(/_/g, '/').replace(/\./g, '=')) ;
+            // search
+
+
+            var selectedFilesOf = fm.selectedFiles();
+            var	some = selectedFilesOf[0].hash;
+
+            $("#" + some).dblclick(function (event) {
+                event.stopPropagation();
+                window.open('http://eyuf.zettest.uz/tester/asror/main.aspx?path=' + path, '_blank');
+
+            });
+        })
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+<!-- Element where elFinder will be created (REQUIRED) -->
+<div id="elfinder"></div>
+
+</body>
+</html>

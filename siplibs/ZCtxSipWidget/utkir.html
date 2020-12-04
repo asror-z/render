@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>btn</title>
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+<body id="sipClient">
+
+<div id="phoneUI" class="container  ">
+    <div class="row input justify-content-center">
+        <div class="col-lg-4 col-6 mt-5">
+            <div class="opacity mr-lg-3 ml-lg-3">
+
+               <!-- <div class="clearfix sipStatus">
+
+                </div> -->
+                <div class="number text-center border w-10"  >
+                    <div id="txtCallStatus" class="pull-right">&nbsp;</div>
+                    <div id="txtRegStatus"></div>
+
+                    <div class="">
+                        <div class=" md-form input-with-post-icon ml-5 mr-5 mt-lg-5">
+                            <div class="input-group-btn-sm">
+                                <button class="btn btn-sm btn-primary dropdown-toggle" id="btnVol" data-toggle="dropdown" title="Volume">
+                                    <i class="fa fa-fw fa-volume-up"></i>
+                                </button>
+                                 <input type="range" min="0" max="100" value="100" step="1" id="sldVolume" />
+
+                            </div>
+
+                            <i class=" fas white-ic fa-user input-prefix text-center icon-per"></i>
+<!--                            <input type="text" id="edu" class="form-control text-white text-center">-->
+                            <input type="text" name="number" id="numDisplay" class="form-control text-white text-center input-sm numDisplay" value="" placeholder="Enter number..." autocomplete="off" />
+
+<!--                            <label for="numDisplay"></label>-->
+                        </div>
+                    </div>
+                    <div class=" button-goup mb-lg-4 mb-3">
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="1"  data-digit="1">1</a>
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="2"  data-digit="2">2</a>
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="3" data-digit="3">3</a>
+                        <br>
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="4"  data-digit="4">4</a>
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="5"  data-digit="5">5</a>
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="6"  data-digit="6">6</a>
+                        <br>
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="7"  data-digit="7">7</a>
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="8"  data-digit="8">8</a>
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="9"  data-digit="9">9</a>
+                        <br>
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="+"   data-digit="+">+</a>
+                        <a type="button" class="btn-floating btn-lg btn-default digit" value="0"   data-digit="0">0</a>
+                        <a type="button" class="btn-floating btn-lg btn-secondary clearfix"   value="c" onclick="clr()">
+                            <i class="fas red-ic fa-backspace"></i></a>
+                        <div data-sessionid="">
+<!--                            <button type="button" class="btn btn-success btn-rounded btn-default btnCall" value="c">-->
+<!--                                <i class="fas success-ic fa-phone"></i></button>-->
+                            <button class="btn btn-xs btn-success btnCall" title="Call"><i class="fa fa-phone"></i></button>
+                            <button class="btn btn-xs btn-danger btnHangUp" title="Hangup"><i class="fa fa-stop"></i></button>
+                            <button type="button" class="btn btn-success btn-rounded btn-default" value="c" onclick="clr()">
+                                <i class="fas success-ic fa-video"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <div class="well-sip">
+        <div id="sip-splash" class="text-muted text-center panel panel-default">
+            <div class="panel-body">
+                <h3 class="page-header">
+                <span class="fa-stack fa-2x">
+                    <i class="fa fa-circle fa-stack-2x text-success"></i>
+                    <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                </span><br>
+                    This is your phone.</h3>
+                <p class="lead">To make a call enter a number or SIP address in the box above.</p>
+                <small>Closing this window will cause calls to go to voicemail.</small>
+            </div>
+        </div>
+
+        <div id="sip-log" class="panel panel-default hide">
+            <div class="panel-heading">
+                <h4 class="text-muted panel-title">Recent Calls <span class="pull-right"><i class="fa fa-trash text-muted sipLogClear" title="Clear Log"></i></span></h4>
+            </div>
+            <div id="sip-logitems" class="list-group">
+                <p class="text-muted text-center">No recent calls from this browser.</p>
+            </div>
+        </div>
+    </div>
+
+
+<!--    <div class="modal fade" id="&lt;!&ndash;mdlError&ndash;&gt;" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">-->
+<!--        <div class="modal-dialog modal-sm">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h4 class="modal-title">Sip Error</h4>-->
+<!--                </div>-->
+<!--                <div class="modal-body text-center text-danger">-->
+<!--                    <h3><i class="fa fa-3x fa-ban"></i></h3>-->
+<!--                    <p class="lead">Sip registration failed. No calls can be handled.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+<audio id="ringtone" src="https://cdn.statically.io/gh/collecttix/ctxSip/6734ee8a/phone/sounds/incoming.mp3" loop></audio>
+<audio id="ringbacktone" src="https://cdn.statically.io/gh/collecttix/ctxSip/6734ee8a/phone/sounds/outgoing.mp3" loop></audio>
+<audio id="dtmfTone" src="https://cdn.statically.io/gh/collecttix/ctxSip/6734ee8a/phone/sounds/dtmf.mp3"></audio>
+<audio id="audioRemote"></audio>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+
+<script>
+    //function for displaying values
+    // function dis(val) {
+    //     document.getElementById("numDisplay").value += val
+    // }
+
+    //function for evaluation
+    /* function solve()
+     {
+         let x = document.getElementById("numDisplay").value
+         let y = eval(x)
+         document.getElementById("numDisplay").value = y
+     }*/
+    //function for clearing the display
+    function clr() {
+        document.getElementById("numDisplay").value = ""
+    }
+</script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.statically.io/gh/collecttix/ctxSip/master/phone/scripts/moment.js/moment.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.statically.io/gh/collecttix/ctxSip/master/phone/scripts/SIP.js/sip.min.js"></script>
+<script>
+    var user = {
+        var user = {
+            //  User Name
+            "User" : "301",
+            //  Password
+            "Pass" : "301",
+            //  Auth Realm
+            "Realm"   : "zoft.uz:5160",
+            // Display Name
+            "Display" : "utkir",
+            // WebSocket URL
+            "WSServer"  : "wss://zoft.uz:8089/ws"
+    };
+</script>
+<script type="text/javascript" src="app.js"></script>
+
+</body>
+</html>

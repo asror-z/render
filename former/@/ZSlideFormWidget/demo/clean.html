@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slideform</title>
+    <link rel="stylesheet" href="/publish/yarner/slideform/dist/css/slideform.css">
+
+    <style>
+        form {
+        opacity: 0;
+        transition: all .3s ease;
+    }
+
+    form.slideform-form {
+        opacity: 1;
+    }
+
+     html, body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    } 
+    body, h1, h2, h3, p, button, input, select, textarea {
+        font-family: 'Raleway', Arial, sans-serif;
+    }
+
+    input {
+        font-size: 16px;
+    }
+
+    label {
+        text-transform: uppercase;
+        display: block;
+        font-size: 14px;
+        margin-bottom: 10px;
+        letter-spacing: .5px;
+        font-weight: 600;
+        font-family: Raleway;
+    }
+
+    h1 {
+        letter-spacing: .5px;
+    }
+
+    h2, h3 {
+        margin-top: 0;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin: 0 0 15px;
+    }
+
+    h3 {
+        font-size: 20px;
+        line-height: 1.4em;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    h4 {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 20px 0 10px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6em;
+        margin-bottom: 15px;
+    }
+
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+
+    .gist .gist-file {
+        margin-top: 40px;
+    }
+
+    .gist .gist-meta {
+        display: none !important;
+    }
+    </style>
+</head>
+<body>
+    <form action="">
+
+        <div class="slideform-slide">
+            <div class="slideform-group">
+                <h1>Hello Slideforms</h1>
+
+                <p>This is a Jquery Plugin to create a Slideform like this. The first step is to
+                    include the <tt>jquery.slideform.js</tt> file in your stack, and then you are
+                    ready to go.
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="slideform-slide">
+            <div class="slideform-group">
+                <h2>You can create inputs</h2>
+
+                <p>Inputs are very easy to create and they work like any other form input</p>
+
+                <label for="input">Input Label</label>
+                <input type="text" name="input" placeholder="Write something here ...">
+
+            </div>
+        </div>
+
+        <div class="slideform-slide">
+            <div class="slideform-group">
+                <h2>Radios and Checkboxes</h2>
+
+                <p>Some fancy effects, taiolred for mobile experiences.</p>
+
+                <h3>Radio Buttons</h3>
+                <div class="options options-list">
+                    <label for=""><input type="radio" name="group1"><span>Angola</span></label>
+                    <label for=""><input type="radio" name="group1"><span>Madagascar</span></label>
+                    <label for=""><input type="radio" name="group1"><span>Kenya</span></label>
+                </div>
+
+                <h3>Checkboxes</h3>
+                <div class="options options-list">
+                    <label for=""><input type="checkbox" name="group2"><span>Russia</span></label>
+                    <label for=""><input type="checkbox" name="group2"><span>United Kingdom</span></label>
+                    <label for=""><input type="checkbox" name="group2"><span>France</span></label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="slideform-slide">
+            <div class="slideform-group">
+                <h2>Radios and Checkboxes as Buttons</h2>
+                <p>This is particularily useful for mobile enviroments</p>
+
+                <h3>Checkboxes Example</h3>
+                <div class="options options-buttons">
+                    <label for=""><input type="checkbox" name="group3"><span>USD</span></label>
+                    <label for=""><input type="checkbox" name="group3"><span>GBP</span></label>
+                    <label for=""><input type="checkbox" name="group3"><span>EUR</span></label>
+                </div>
+
+                <h3>Radios Example</h3>
+                <div class="options options-buttons">
+                    <label for=""><input type="radio" name="group4"><span>Yes</span></label>
+                    <label for=""><input type="radio" name="group4"><span>No</span></label>
+                    <label for=""><input type="radio" name="group4"><span>Maybe</span></label>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="slideform-slide">
+            <div class="slideform-group">
+                <h2>You can also set conditions with pretty simple data attributes</h2>
+
+                <h3>Show Condition?</h3>
+                <div class="options options-buttons">
+                    <label for=""><input type="radio" name="group5" value="yes"><span>Yes</span></label>
+                    <label for=""><input type="radio" name="group5" value="no"><span>No</span></label>
+                </div>
+
+                <div data-condition="input.group5 == 'yes'">
+                    <h3>This is another condition</h3>
+                    <div class="options options-buttons">
+                        <label for=""><input type="radio" name="group6" value="yes"><span>Yes</span></label>
+                        <label for=""><input type="radio" name="group6" value="no"><span>No</span></label>
+                    </div>
+                </div>
+
+                <div data-condition="input.group5 == 'yes' &&  input.group6 == 'yes'">
+                    <p>This message appears after all conditions have been marked as "yes".</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="slideform-slide">
+            <div class="slideform-group">
+                <h2>Ready for Jquery Validation Plugin</h2>
+
+                <p>You can attach the <tt>jquery.validate.js</tt> file and define your own validation rules.</p>
+                <div class="options options-buttons">
+                    <label for=""><input type="radio" name="group7" value="valid"><span>Valid</span></label>
+                    <label for=""><input type="radio" name="group7" value="invalid"><span>Invalid</span></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="slideform-slide">
+            <div class="slideform-group">
+                <h2>Learn More</h2>
+                <p>Learn more about Slideform reading our docs in Github.</p>
+
+                <p><a href="https://github.com/asmerkin/slideform/wiki">https://github.com/asmerkin/slideform/wiki</a></p>
+            </div>
+        </div>
+
+        <footer class="slideform-footer">
+            <div class="slideform-progress-bar">
+                <span></span>
+            </div>
+
+            <div class="buttons">
+                <button class="slideform-btn slideform-btn-next"><i class="icon-chevron-down"></i></button>
+                <button class="slideform-btn slideform-btn-prev"><i class="icon-chevron-up"></i></button>
+            </div>
+        </footer>
+
+    </form>
+
+<script src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+<script src="/publish/yarner/slideform/src/js/jquery.validate.min.js"></script>
+<script src="/publish/yarner/slideform/src/js/additional-methods.min.js"></script>
+<script src="/publish/yarner/slideform/dist/js/jquery.slideform.js"></script>
+<script>
+    
+    ( function ($) {
+            jQuery.validator.addMethod("equals", function(value, element, param) {
+              return this.optional(element) || value === param;
+            });
+
+            $(document).ready( function () {
+
+                var form = $('form');
+
+                form.slideform({
+                    validate: {
+                        rules: {
+                            group7: {
+                                required: true,
+                                equals: "valid"
+                            }
+                        },
+                        messages: {
+                            group7: {
+                                required: 'Please select an option',
+                                equals: 'You must select valid!'
+                            }
+                        }
+                    },
+                    submit: function (event, form) {
+                        form.trigger('goForward');
+                    }
+                });
+            });
+        }(jQuery))
+
+</script>
+
+</body>
+
+</html>

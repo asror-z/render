@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layout HTML</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/render/asrorz/mdb/css/mdb.min.css">
+
+    <link href="/render/asrorz/ven/css/theme.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/render/asrorz/ven/css/theme-responsive.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/render/asrorz/css/ALL.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+
+
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.4/mobile-detect.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/cookiejs@1.0.26/dist/cookie.min.js"></script>
+    <script type="text/javascript" src="/render/asrorz/ven/js/theme.js"></script>
+
+    <script type="text/javascript" src="/render/asrorz/js/ALL.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/copy-to-clipboard@3.3.1/example/index.js"></script>
+
+   
+    <link rel="icon" href="/render/asrorz/css/ALL.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.js"></script>
+
+    <script type="text/javascript" src="https://cdn.statically.io/gh/MoOx/pjax/480334b1/index.js"></script>
+
+
+
+</head>
+<body>
+
+<header class="bg-info">
+    <div class="pretty p-default">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Default</label>
+        </div>
+    </div>
+
+    <!-- add class p-fill -->
+    <div class="pretty p-default p-fill">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Fill</label>
+        </div>
+    </div>
+
+    <!-- add class p-thick -->
+    <div class="pretty p-default p-thick">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Thick</label>
+        </div>
+    </div>
+</header>
+
+<div class="d-flex the-header">
+    <div class="w-25 bg-primary" style="height: 80vh">
+        <br><br><br>
+        <button class="bt1 w-100 btn btn-danger" data-manual-trigger>
+            <a class="js-Pjax">show content1!</a>
+        </button>
+
+        <br><br><br>
+        <button class="bt2 w-100 btn btn-danger" data-manual-trigger>
+            <a class="js-Pjax">show content2!</a>
+        </button>
+
+
+    </div>
+                                                                    
+    <div class="w-75" id="content" class="the-header">
+       layout
+    <br><br>
+
+</div>
+
+</div>
+
+<footer class="bg-success">
+    <div class="pretty p-default">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Default</label>
+        </div>
+    </div>
+
+    <!-- add class p-fill -->
+    <div class="pretty p-default p-fill">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Fill</label>
+        </div>
+    </div>
+    <br><br>
+    <!-- add class p-thick -->
+    <div class="pretty p-default p-thick">
+        <input type="checkbox"/>
+        <div class="state">
+            <label>Thick</label>
+        </div>
+    </div>
+</footer>
+
+<script>
+    /* global Pjax */
+    var pjax;
+    var initButtons = function() {
+        var buttons = document.querySelectorAll("button[data-manual-trigger]");
+
+        if (!buttons) {
+            return;
+        }
+
+        // jshint -W083
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e) {
+                var el = e.currentTarget;
+
+                if (el.getAttribute("data-manual-trigger-override") === "true") {
+                    // Manually load URL with overridden Pjax instance options
+                    pjax.loadUrl("content1.html");
+                } else {
+                    // Manually load URL with current Pjax instance options
+                    pjax.loadUrl("content1.html");
+                }
+            });
+        }
+        // jshint +W083
+    };
+
+    console.log("Document initialized:", window.location.href);
+
+    document.addEventListener("pjax:send", function() {
+        console.log("Event: pjax:send", ".the-header");
+    });
+
+    document.addEventListener("pjax:complete", function() {
+        console.log("Event: pjax:complete", arguments);
+    });
+
+    document.addEventListener("pjax:error", function() {
+        console.log("Event: pjax:error", arguments);
+    });
+
+    document.addEventListener("pjax:success", function() {
+        console.log("Event: pjax:success", arguments );
+
+        // Init page content
+        initButtons();
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Init Pjax instance
+        pjax = new Pjax({
+            elements: [".js-Pjax"],
+            selectors: [".the-header", ".js-pjax"],
+            cacheBust: true,
+            scrollTo: 0,
+            scrollRestoration: true,
+            debug: false,
+            currentUrlFullReload: false,
+            timeout: 0
+        });
+        console.log("Pjax initialized.", pjax);
+        // Init page content
+        initButtons();
+    });
+
+
+
+</script>
+
+
+</body>
+</html>

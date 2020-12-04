@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://animateplus.com/examples/accordion/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <link rel="stylesheet" href="/publish/navigs/accordionanimateplus/css/abc.css">
+
+
+
+  <script>
+
+    import animate from "/animateplus.js";
+
+
+    animate ({
+      elements: "",//Определяет элементы DOM для анимации.
+      transform: ["rotate(0turn)", "rotate(1turn)"],
+      easing: "out-elastic 1.4 0.2",//Определяет кривую ускорения вашей анимации.(circle)
+      duration: 1000,//Определяет продолжительность вашей анимации в миллисекундах.
+      delay: 0,//Определяет задержку вашей анимации в миллисекундах.
+      blur: {x: 20, y: 2},//Имитирует эффект размытия в движении.
+      direction: "normal",//Определяет направление анимации. (reverse or alternate)
+      loop: true,//Определяет, должна ли анимация повторяться.
+      speed: 1, //Определяет скорость воспроизведения анимации.
+      optimize: false,//Принудительное аппаратное ускорение во время анимации, если установлено значение true.
+      change: progress => document.body.textContent = `${Math.round(progress * 100)}%`,//Определяет обратный вызов, вызываемый для каждого кадра анимации.
+      r: [0, 50],
+      fill: ["#80f", "#fc0"],
+
+
+
+
+
+    });
+
+  </script>
+</head>
+<body>
+<ul id="accordion" style="transform: translateY(0px);">
+  <li>
+    <button>
+      ES2016
+      <i class="fas fa-user"></i>
+    </button>
+    <div>
+      <ul>
+        <li>Array.prototype.includes
+        </li><li>Exponentiation operator
+      </li></ul>
+    </div>
+  </li>
+  <li>
+    <button style="transform: translateY(0px);">
+      ES2017
+
+    </button>
+    <div>
+      <ul>
+        <li>Async functions
+        </li><li>Shared memory and atomics
+      </li><li>Object.values
+      </li><li>Object.entries
+      </li><li>String padding
+      </li><li>Object.getOwnPropertyDescriptors
+      </li><li>Trailing commas in function parameter lists
+      </li></ul>
+    </div>
+  </li>
+  <li>
+    <button style="transform: translateY(0px);">
+      ES2018
+
+    </button>
+    <div>
+      <ul>
+        <li>Asynchronous iteration
+        </li><li>Rest and spread properties
+      </li><li>New regular expression features
+      </li><li>Promise.prototype.finally
+      </li><li>Template literal revision
+      </li></ul>
+    </div>
+  </li>
+</ul>
+
+<script src="/publish/navigs/accordionanimateplus/js/script.js"></script>
+<script src="/publish/navigs/accordionanimateplus/js/animateplus.js"></script>
+
+</body>
+</html>

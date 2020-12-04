@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery Selectize Demo</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+    <!--CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/render/former/ZGrapesJsWidget/asset/tooltips/tooltipster.bundle.min.css">
+    <!--themes-->
+    <link rel="stylesheet" href="/render/former/ZGrapesJsWidget/asset/tooltips/assets/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css">
+    <link rel="stylesheet" href="/render/former/ZGrapesJsWidget/asset/tooltips/assets/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-borderless.min.css">
+    <!--JS-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/render/former/ZGrapesJsWidget/asset/tooltips/tooltipster.bundle.min.js"></script>
+
+
+</head>
+<body>
+   <!--Basic-->
+
+   <!-- <span class="tooltip" title="This is my span's tooltip message!" style="opacity: 1">Some text</span>
+    <span id="tooltip_content">
+   <img src="/render/inputes/ZInputLatinWidget/image/icon.png" class="tooltip" title="This is my image's tooltip message!"/>
+    </span>-->
+
+<!--Basic level2-->
+   <style>
+       .tooltip_templates{
+           display: none;
+       }
+
+       .tooltip-div {
+           display: flex;
+           flex-direction: column;
+           text-align: center;
+       }
+       .tooltip-img {
+           width: 60px;
+           height: 60px;
+       }
+   </style>
+
+
+   <div id="ZSelect2Widget-tooltip" class="tooltip-div">
+       <div class="tooltip-img">
+           <img class="tooltip-img" src="/render/inputes/ZInputLatinWidget/image/icon.png"/>
+       </div>
+       <div class="tooltip-content">
+           <h4 class="tooltip-title">This is the content of my tooltip!</h4>
+           <p class="tooltip-content">Lorem1asdasdsaLorem1asdasdsaLorem1asdasdsa
+               Lorem1asdasdsaLorem1asdasdsaLorem1asdasdsa
+           </p>
+       </div>
+   </div>
+
+   <div class="tooltip_templates">
+
+       <div id="tooltip_content2">
+           <img src="/render/inputes/ZInputLatinWidget/image/icon.png"/>
+           <strong>This is the content of my tooltip!333333333333</strong>
+       </div>
+
+   <div id="tooltip_content3">
+       <img src="/render/inputes/ZInputLatinWidget/image/icon.png"/>
+       <i class="fab fa-500px"></i>
+       <strong>This is the content of my tooltip!4444444444444444</strong>
+   </div>
+
+   </div>
+
+   <h1 class="rr" data-tooltip-content="#ZSelect2Widget-tooltip">This span has a tooltip with HTML when you hover over it!</h1>
+   <h1 class="rr" data-tooltip-content="#tooltip_content2">This span has a tooltip with HTML when you hover over it!</h1>
+   <h1 class="rr" data-tooltip-content="#tooltip_content3">This span has a tooltip with HTML when you hover over it!</h1>
+
+
+
+<script>
+    $(document).ready(function() {
+        $('.rr').tooltipster({
+            /*Plugins
+    plugins: [
+    'follower',
+    'sideTip',
+    'SVG',
+    'scrollableTip',
+    'discovery',
+    'selectableText',
+    ],
+    */
+            /*Options - Опции*/
+            theme: 'tooltipster-borderless',
+            contentCloning: false,
+            
+            animation: 'fade',
+            delay: 200,
+            anchor: 'bottom-left',/*top-left, top-center, top-right, left-center, left-right, bottom-left, bottom-center, bottom-right*/
+            minWidth: 200,
+            maxWidth: 300,
+            offset: [20, 20],/*[x,y] defaul[15,15]*/
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="/publish/leaflet/publish/leaflet/dist/leaflet.css"
+    />
+    <script src="/publish/leaflet/publish/leaflet/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <style>
+      #map {
+        height: 700px;
+        width: 800px;
+      }
+    </style>
+    <div id="map"></div>
+    <script>
+      var googleStreets = L.tileLayer(
+        "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+        { maxZoom: 20, subdomains: ["mt0", "mt1", "mt2", "mt3"] }
+      );
+      var googleHybrid = L.tileLayer(
+        "http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",
+        {
+          maxZoom: 20,
+          subdomains: ["mt0", "mt1", "mt2", "mt3"]
+        }
+      );
+      var googleTerrain = L.tileLayer(
+        "http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",
+        {
+          maxZoom: 20,
+          subdomains: ["mt0", "mt1", "mt2", "mt3"]
+        }
+      );
+      var baseMaps = {
+        Street: googleStreets,
+        Hybrid: googleHybrid,
+        Terrain: googleTerrain
+      };
+      var map = L.map("map", {
+        center: [39.73, -104.99],
+        zoom: 10,
+        layers: googleTerrain
+      });
+      L.control.layers(baseMaps).addTo(map);
+    </script>
+  </body>
+</html>

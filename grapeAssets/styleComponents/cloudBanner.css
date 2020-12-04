@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.cbp-body-banner {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.cbp-banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("/render/grapeAssets/styleComponents/img/bg.jpg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cbp-banner #text {
+    position: relative;
+    font-size: 12em;
+    font-weight: bold;
+    color: #fff;
+}
+.cbp-banner .cbp-clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+.cbp-banner .cbp-clouds img{
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    animation: animate 5s linear infinite;
+}
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    25%,75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(3);
+    }
+}

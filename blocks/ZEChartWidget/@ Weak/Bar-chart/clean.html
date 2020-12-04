@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/echarts.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-gl@1.1.1/dist/echarts-gl.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts-stat@1.1.1/dist/ecStat.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/dataTool.min.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"
+        type="text/javascript"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/dist/extension/bmap.min.js"
+        type="text/javascript"
+></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    option = null;
+    option = {
+
+        color :'#32adf2' ,
+        title: {
+            show: true,
+            text: "Your name of chart",
+            link: "",
+            target: "blank",
+            textStyle: {
+                color: "#333",
+                fontSize: 15,
+                /**
+                 //      *'normal'
+                 //      *'bold'
+                 //      *'bolder'
+                 //      *'lighter'
+                 //      *100 | 200 | 300 | 400...
+                 //      */
+                fontStyle: "normal",
+                lineHeight: 8,
+                width: 25,
+                height: 25,
+                textBorderColor: "transparent",
+                textBorderWidth: 0,
+                textShadowColor: "2px 2px #ff0000",
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0
+            },
+            subtext: "Your decribtion of chart",
+            sublink: "",
+            subtarget: "blank",
+            subtextStyle: {
+                color: "#333",
+                fontSize: 10,
+                /**
+                 *'normal'
+                 *'bold'
+                 *'bolder'
+                 *'lighter'
+                 *100 | 200 | 300 | 400...
+                 */
+                fontStyle: "normal",
+                lineHeight: 8,
+                width: 15,
+                height: 15,
+                textBorderColor: "transparent",
+                textBorderWidth: 0,
+                textShadowColor: "2px 2px #ff0000",
+                textShadowBlur: 0,
+                textShadowOffsetX: 0,
+                textShadowOffsetY: 0
+            },
+            /**
+             *'auto', 'left', 'right', 'center'
+             */
+            textAlign: "left",
+            /**
+             *'auto', 'top', 'bottom', 'middle'
+             */
+            textVerticalAlign: "auto",
+            triggerEvent: false,
+            padding: 25,
+            itemGap: 10,
+            zlevel: 0,
+            z: 2,
+            left: "20%",
+            top: "20%",
+            right: "20%",
+            bottom: "20%",
+            backgroundColor: "transparent",
+            borderColor: "#ccc",
+            borderWidth: 1,
+        },
+        /*
+        * rounded bar chart
+        * */
+        /*angleAxis: {
+            max: 2,
+            startAngle: 30,
+            splitLine: {
+                show: false
+            }
+        },
+        radiusAxis: {
+            type: 'category',
+            data: [200, 170, 240, 244, 200, 220, 210],
+            z: 10
+        },
+        polar: {
+        },*/
+        legend: {
+            data: ['Bar chart 1'],
+            
+        },
+
+        toolbox: {
+
+            feature: {
+                saveAsImage: {
+                    show: true,
+                    title: 'Save As Image'
+                },
+                dataView: {
+                    show: true,
+                    title: "Data View",
+                    lang: ['data view', 'turn off', 'refresh']
+                },
+                magicType: {
+                    show: true,
+                    type: ['line', 'bar', 'stack', 'tiled'],
+
+                    title: {
+                        line: 'for line charts',
+                        bar: 'for bar charts',
+                        stack: 'for stacked charts',
+                        tiled: 'for tiled charts',
+                    }
+                },
+                brush: {
+                    toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
+
+                    title: {
+                        rect: 'Rectangle selection',
+                        polygon: 'Polygon selection',
+                        lineX: 'Horizontal selection',
+                        lineY: 'Vertical selection',
+                        keep: 'Keep previous selection',
+                        clear: 'Clear selection',
+                    },
+                    xAxisIndex: 0
+                },
+                dataZoom: {
+                    title: {
+                        zoom: 'area zooming',
+                        back: 'restore area zooming'
+                    },
+                    yAxisIndex: 'none'
+                },
+                restore: {
+                    title: "restore"
+                }
+            },
+
+        },
+        visualMap: {
+            orient: 'vertical',
+            left: 'right',
+            min: 10,
+            max: 100,
+            text: ['High Score', 'Low Score'],
+            // Map the score column to color
+            dimension: 0,
+            inRange: {
+                color: ['#D7DA8B', '#E15457']
+            }
+        },
+        xAxis: {
+            data: [200, 170, 240, 244, 200, 220, 210],
+            name: 'X Axis',
+            axisLine: {onZero: true},
+            splitLine: {show: false},
+            splitArea: {show: false}
+        },
+        yAxis: {
+            inverse: false,
+            splitArea: {show: false}
+        },
+        grid: {
+            left: "20%",
+            top: "20%",
+            right: "20%",
+            bottom: "20%",
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                animation: false,
+                label: {
+                    backgroundColor: '#505765'
+                }
+            }
+        },
+        series: [{
+            data: [200, 170, 240, 244, 200, 220, 210],
+            markPoint: {
+                data: [
+                    {type: 'max', name: 'Tue'},
+                    {type: 'min', name: 'Fri'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: 'Wed'}
+                ]
+            },
+            type: 'bar',
+            /*
+            * circle, triangle, rect
+            * */
+            symbol: 'circle',
+            symbolSize: 20,
+            smooth: true,
+            lineStyle: {
+                color: '#ea3221',
+                width: 4,
+                type: 'solid'
+            },
+            itemStyle: {
+                borderWidth: 3,
+                borderColor: '#3212a3',
+                color: '#fa3'
+            }
+        }],
+        animation: true,
+        animationThreshold: 2000,
+        animationDuration: 2000,
+        animationDelay: 0,
+        animationDurationUpdate: 300,
+        /*blendMode: 'source-over',*/
+    };
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>

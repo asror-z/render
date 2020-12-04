@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <style>
+        .item {
+            width: 356px;
+            outline: none;
+            padding: 15px;
+        }
+        .img{
+            position: relative;
+            display: block;
+        }
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+        }
+        .status {
+            font-family: ProximaNovaSemibold, sans-serif;
+            font-size: 12px;
+            display: block;
+            color: #666666;
+        }
+        .status.active i {
+            color: #00a651;
+        }
+        .img:hover {
+            opacity: 0.75;
+        }
+        .icon {
+            position: absolute;
+            width: 60px;
+            right: 20px;
+            bottom: 20px;
+        }
+        .title {
+            font-size: 17px;
+            font-weight: 600;
+            min-height: 70px;
+        }
+        .title a {
+            color: #000000;
+            text-decoration: none;
+        }
+        .title a:hover {
+            color: #ed1c24;
+        }
+        .add-to-cart {
+            padding: 7px 7px 10px 38px;
+            background: #ff0a13 url(./img/basket_white.png) no-repeat left 10px center;
+            background-size: 30px;
+            outline: none !important;
+            color: #ffffff !important;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .add-to-cart:hover {
+            background: #f91019 url(./img/basket_white.png) no-repeat left 7px center;
+            background-size: 36px;
+        }
+        .rating-container .star {
+            display: inline-block;
+            margin: 0 3px;
+            text-align: center;
+
+        }
+        .rating-container .rating {
+            cursor: default;
+            position: relative;
+            vertical-align: middle;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .filled-stars {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: auto;
+            color: #fde16d;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .rating-container .empty-stars {
+            color: #aaa;
+        }
+        .old-price {
+            font-family: CTCSplashRoundedBold, sans-serif;
+            font-size: 14px;
+            color: #333333;
+            text-decoration: line-through;
+        }
+        .price {
+            font-family: CTCSplashRoundedBold, sans-serif;
+            color: #000000;
+            font-size: 28px;
+            font-weight: 600;
+            display: block;
+        }
+        .time-icon {
+            margin-right: 1px;
+            padding: 5px 3px;
+            display: block;
+            background-color: #fede00;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            float: left;
+        }
+        .time-icon i {
+            font-size: 33px;
+        }
+        .count-down {
+            padding: 2px 2px 3px 2px;
+            background-color: #e1e1e1;
+            border: 1px solid #e1e1e1;
+            float: left;
+        }
+        .count-down span {
+            padding: 0 3px;
+            float: left;
+            float: left;
+            font-size: 13px;
+            text-align: center;
+        }
+        .count {
+            padding: 2px 5px 3px 5px;
+            font-size: 13px;
+            float: left;
+            border: 1px solid #e1e1e1;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 h-flex item">
+            <span class="status active"><i class="fa fa-circle"></i> Есть в наличии</span>
+            <div class="img">
+                <a href="demo_files/3502" tabindex="0">
+                    <img class="img-responsive" src="demo_files/Xiaomi_Redmi_8A_Dual_32_Sky_White.jpg" alt="Смартфон Xiaomi Redmi 8A Dual 32 ГБ Sky White">
+                    <img class="icon" src="demo_files/hurry-02-02.svg" alt="Успейте купить">
+                </a>
+            </div>
+
+
+            <h3 class="title"><a href="demo_files/3502" tabindex="0">Смартфон Xiaomi Redmi 8A Dual 32 ГБ Sky White</a></h3>
+            <div class="col-xs-12">
+                <button class="btn pull-right add-to-cart">&nbsp;</button>
+            </div>
+
+            <div class="clearfix"></div>
+
+
+            <div class="rating-container rating-xs rating-animate">
+                <div class="rating">
+                    <span class="empty-stars">
+                        <span class="star">
+                            <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        <span class="star">
+                            <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        <span class="star">
+                            <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        <span class="star">
+                            <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        <span class="star">
+                            <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                    </span>
+                    <span class="filled-stars" style="width: 54.4867%;">
+                        <span class="star">
+                            <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        <span class="star">
+                            <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        <span class="star">
+                            <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        <span class="star">
+                            <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        <span class="star">
+                            <svg class="bi bi-star-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                    </span>
+
+                </div>
+            </div>
+
+
+            <span class="old-price">1 744 000 сум</span>
+            <br>
+            <span class="price">1 430 000 сум</span>
+            <br>
+            <div class="timer">
+                <span class="time-icon">
+                    <i class="fa fa-clock-o"></i>
+                </span>
+                <span id="clock" class="count-down"></span>
+                <span class="count"><b>34</b><br><small>шт.</small></span>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
+
+
+<script>
+    $('#clock').countdown('2020/5/18', function(event) {
+        var $this = $(this).html(event.strftime(''
+            + '<span><b>%D</b><br><small>дней</small></span>'
+            + '<span><b>| %H</b><br><small>часов</small></span>'
+            + '<span><b>: %M</b><br><small>минут</small></span>'
+            + '<span><b>: %S</b><br><small>секунд</small></span>'));
+    });
+</script>
+</body>
+</html>

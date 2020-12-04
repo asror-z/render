@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Filterizr Demo - With jQuery in Bundle</title>
+
+    <!-- Bootstrap -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Filter Controls - Simple Mode -->
+    <div class="row">
+        <!-- A basic setup of simple mode filter controls, all you have to do is use data-filter="all"
+        for an unfiltered gallery and then the values of your categories to filter between them -->
+        <ul class="simplefilter">
+            Simple filter controls:
+            <li class="fltr-controls active" data-filter="all">All</li>
+            <li class="fltr-controls" data-filter="1">Cityscape</li>
+            <li class="fltr-controls" data-filter="2">Landscape</li>
+            <li class="fltr-controls" data-filter="3">Industrial</li>
+            <li class="fltr-controls" data-filter="4">Daylight</li>
+            <li class="fltr-controls" data-filter="5">Nightscape</li>
+        </ul>
+    </div>
+
+    <!-- Filter Controls - Multifilter Mode -->
+    <div class="row">
+        <!-- A basic setup of multifilter controls, when the user toggles a category
+        the corresponding items are rendered or hidden -->
+        <ul class="multifilter">
+            Multifilter controls:
+            <li class="fltr-controls" data-multifilter="1">Cityscape</li>
+            <li class="fltr-controls" data-multifilter="2">Landscape</li>
+            <li class="fltr-controls" data-multifilter="3">Industrial</li>
+        </ul>
+    </div>
+
+    <!-- Shuffle & Sort Controls -->
+    <div class="row">
+        <ul class="sortandshuffle">
+            Sort &amp; Shuffle controls:
+            <!-- Basic shuffle control -->
+            <li class="fltr-controls shuffle-btn" data-shuffle>Shuffle</li>
+            <!-- Basic sort controls consisting of asc/desc button and a select -->
+            <li class="fltr-controls sort-btn active" data-sortAsc>Asc</li>
+            <li class="fltr-controls sort-btn" data-sortDesc>Desc</li>
+            <select class="fltr-controls" data-sortOrder>
+                <option value="index">
+                    Position
+                </option>
+                <option value="sortData">
+                    Description
+                </option>
+            </select>
+        </ul>
+    </div>
+
+    <!-- Search control -->
+    <div class="row search-row">
+        Search control:
+        <input
+                type="text"
+                class="fltr-controls filtr-search"
+                name="filtr-search"
+                data-search
+        />
+    </div>
+
+    <div class="row push-down">
+        <!-- This is the set up of a basic gallery, your items must have the categories they belong to in a data-category
+        attribute, which starts from the value 1 and goes up from there -->
+        <div class="filtr-container">
+            <div class="filtr-item" data-category="1, 5" data-sort="Busy streets">
+                <img
+                        class="img-responsive"
+                        src="./img/city_1.jpg"
+                        alt="sample image"
+                />
+                <span class="item-desc">Busy Streets</span>
+            </div>
+            <div
+                    class="filtr-item"
+                    data-category="2, 5"
+                    data-sort="Luminous night"
+            >
+                <img
+                        class="img-responsive"
+                        src="./img/nature_2.jpg"
+                        alt="sample image"
+                />
+                <span class="item-desc">Luminous night</span>
+            </div>
+            <div class="filtr-item" data-category="1, 4" data-sort="City wonders">
+                <img
+                        class="img-responsive"
+                        src="./img/city_3.jpg"
+                        alt="sample image"
+                />
+                <span class="item-desc">city wonders</span>
+            </div>
+            <div class="filtr-item" data-category="3" data-sort="In production">
+                <img
+                        class="img-responsive"
+                        src="./img/industrial_1.jpg"
+                        alt="sample image"
+                />
+                <span class="item-desc">in production</span>
+            </div>
+            <div
+                    class="filtr-item"
+                    data-category="3, 4"
+                    data-sort="Industrial site"
+            >
+                <img
+                        class="img-responsive"
+                        src="./img/industrial_2.jpg"
+                        alt="sample image"
+                />
+                <span class="item-desc">industrial site</span>
+            </div>
+            <div
+                    class="filtr-item"
+                    data-category="2, 4"
+                    data-sort="Peaceful lake"
+            >
+                <img
+                        class="img-responsive"
+                        src="./img/nature_1.jpg"
+                        alt="sample image"
+                />
+                <span class="item-desc">peaceful lake</span>
+            </div>
+            <div class="filtr-item" data-category="1, 5" data-sort="City lights">
+                <img
+                        class="img-responsive"
+                        src="./img/city_2.jpg"
+                        alt="sample image"
+                />
+                <span class="item-desc">city lights</span>
+            </div>
+            <div class="filtr-item" data-category="2, 4" data-sort="Dreamhouse">
+                <img
+                        class="img-responsive"
+                        src="./img/nature_3.jpg"
+                        alt="sample image"
+                />
+                <span class="item-desc">dreamhouse</span>
+            </div>
+            <div
+                    class="filtr-item"
+                    data-category="3"
+                    data-sort="Restless machines"
+            >
+                <img
+                        class="img-responsive"
+                        src="./img/industrial_3.jpg"
+                        alt="sample image"
+                />
+                <span class="item-desc">restless machines</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/filterizr/2.2.4/jquery.filterizr.min.js"></script>
+
+<script type="text/javascript">
+
+    const simpleFilters = document.querySelectorAll('.simplefilter li');
+    Array.from(simpleFilters).forEach((node) =>
+        node.addEventListener('click', function() {
+            simpleFilters.forEach((filter) => filter.classList.remove('active'));
+            node.classList.add('active');
+        })
+    );
+
+    const multiFilters = document.querySelectorAll('.multifilter li');
+    Array.from(multiFilters).forEach((node) =>
+        node.addEventListener('click', function() {
+            node.classList.toggle('active');
+        })
+    );
+
+    const sortControls = document.querySelectorAll('.sort-btn');
+    Array.from(sortControls).forEach((node) =>
+        node.addEventListener('click', function() {
+            sortControls.forEach((control) => control.classList.remove('active'));
+            node.classList.add('active');
+        })
+    );
+
+    const shuffleControl = document.querySelector('.shuffle-btn');
+    shuffleControl.addEventListener('click', function() {
+        sortControls.forEach((control) => control.classList.remove('active'));
+    });
+
+    // Expose this filterizr as a global for debugging
+    window.filterizr = new window.Filterizr('.filtr-container', {
+        animationDuration: 0.5, // in seconds
+        callbacks: {
+            onFilteringStart: function() { },
+            onFilteringEnd: function() { },
+            onShufflingStart: function() { },
+            onShufflingEnd: function() { },
+            onSortingStart: function() { },
+            onSortingEnd: function() { }
+        },
+        easing: 'ease-out',     /*
+                                  (linear|ease|ease-in|ease-out|ease-in-out|step-start|step-end|steps(int,start|end)|cubic-bezier(n,n,n,n)|initial|inherit)
+        */
+        filter: 'all', // Initial filter
+        filterOutCss: { // Filtering out animation
+            opacity: 0,
+            transform: 'scale(0.5)'
+        },
+        filterInCss: { // Filtering in animation
+            opacity: 1,
+            transform: 'scale(1)'
+        },
+        controlsSelector: '.fltr-controls',
+        /*gridItemsSelector: 'filtr-item',*/
+        multifilterLogicalOperator: 'or',  /*(or|and)*/
+        searchTerm: '', /*String*/
+        setupControls: true, // Should be false if controlsSelector is set
+        gutterPixels: 15,   /*Boolean*/
+        layout: 'packed',  /*(sameSize|sameWidth|sameHeight|packed|horizontal|vertical)*/
+        delay: 50, // Transition delay in ms
+        delayMode: 'alternate', // 'progressive' or 'alternate'
+        spinner: {
+            // This is the only mandatory setting if you simply wish
+            // to enable the built-in spinner
+            enabled: true,
+            // Further (optional) customization options.
+            fillColor: '#2184D0',
+            styles: {
+                height: '75px',
+                margin: '0 auto',
+                width: '75px',
+                'z-index': 2,
+            },
+        }
+        
+
+    });
+
+</script>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://vincentgarreau.com/particles.js/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>particles.js - A lightweight JavaScript library for creating particles</title>
+  
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://vincentgarreau.com/assets/img/favicon.ico">
+  <link href="./demo_files/css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" media="screen" href="./demo_files/master.css">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@VincentGarreeau">
+  <meta name="twitter:image:src" content="https://vincentgarreau.com/particles.js/assets/img/particlesjs-og.png">
+  <meta property="og:title" content="particles.js - A lightweight JavaScript library for creating particles">
+  <meta property="og:site_name" content="particles.js">
+  <meta property="og:url" content="https://vincentgarreau.com/particles.js/">
+  <meta property="og:description" content="A lightweight JavaScript library for creating particles.">
+  <meta property="og:image" content="https://vincentgarreau.com/particles.js/assets/img/particlesjs-og.png">
+<style type="text/css">.dg {
+  /** Clear list styles */
+  /* Auto-place container */
+  /* Auto-placed GUI's */
+  /* Line items that don't contain folders. */
+  /** Folder names */
+  /** Hides closed items */
+  /** Controller row */
+  /** Name-half (left) */
+  /** Controller-half (right) */
+  /** Controller placement */
+  /** Shorter number boxes when slider is present. */
+  /** Ensure the entire boolean and function row shows a hand */ }
+  .dg ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    clear: both; }
+  .dg.ac {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    z-index: 0; }
+  .dg:not(.ac) .main {
+    /** Exclude mains in ac so that we don't hide close button */
+    overflow: hidden; }
+  .dg.main {
+    -webkit-transition: opacity 0.1s linear;
+    -o-transition: opacity 0.1s linear;
+    -moz-transition: opacity 0.1s linear;
+    transition: opacity 0.1s linear; }
+    .dg.main.taller-than-window {
+      overflow-y: auto; }
+      .dg.main.taller-than-window .close-button {
+        opacity: 1;
+        /* TODO, these are style notes */
+        margin-top: -1px;
+        border-top: 1px solid #2c2c2c; }
+    .dg.main ul.closed .close-button {
+      opacity: 1 !important; }
+    .dg.main:hover .close-button,
+    .dg.main .close-button.drag {
+      opacity: 1; }
+    .dg.main .close-button {
+      /*opacity: 0;*/
+      -webkit-transition: opacity 0.1s linear;
+      -o-transition: opacity 0.1s linear;
+      -moz-transition: opacity 0.1s linear;
+      transition: opacity 0.1s linear;
+      border: 0;
+      position: absolute;
+      line-height: 19px;
+      height: 20px;
+      /* TODO, these are style notes */
+      cursor: pointer;
+      text-align: center;
+      background-color: #000; }
+      .dg.main .close-button:hover {
+        background-color: #111; }
+  .dg.a {
+    float: right;
+    margin-right: 15px;
+    overflow-x: hidden; }
+    .dg.a.has-save > ul {
+      margin-top: 27px; }
+      .dg.a.has-save > ul.closed {
+        margin-top: 0; }
+    .dg.a .save-row {
+      position: fixed;
+      top: 0;
+      z-index: 1002; }
+  .dg li {
+    -webkit-transition: height 0.1s ease-out;
+    -o-transition: height 0.1s ease-out;
+    -moz-transition: height 0.1s ease-out;
+    transition: height 0.1s ease-out; }
+  .dg li:not(.folder) {
+    cursor: auto;
+    height: 27px;
+    line-height: 27px;
+    overflow: hidden;
+    padding: 0 4px 0 5px; }
+  .dg li.folder {
+    padding: 0;
+    border-left: 4px solid rgba(0, 0, 0, 0); }
+  .dg li.title {
+    cursor: pointer;
+    margin-left: -4px; }
+  .dg .closed li:not(.title),
+  .dg .closed ul li,
+  .dg .closed ul li > * {
+    height: 0;
+    overflow: hidden;
+    border: 0; }
+  .dg .cr {
+    clear: both;
+    padding-left: 3px;
+    height: 27px; }
+  .dg .property-name {
+    cursor: default;
+    float: left;
+    clear: left;
+    width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .dg .c {
+    float: left;
+    width: 60%; }
+  .dg .c input[type=text] {
+    border: 0;
+    margin-top: 4px;
+    padding: 3px;
+    width: 100%;
+    float: right; }
+  .dg .has-slider input[type=text] {
+    width: 30%;
+    /*display: none;*/
+    margin-left: 0; }
+  .dg .slider {
+    float: left;
+    width: 66%;
+    margin-left: -5px;
+    margin-right: 0;
+    height: 19px;
+    margin-top: 4px; }
+  .dg .slider-fg {
+    height: 100%; }
+  .dg .c input[type=checkbox] {
+    margin-top: 9px; }
+  .dg .c select {
+    margin-top: 5px; }
+  .dg .cr.function,
+  .dg .cr.function .property-name,
+  .dg .cr.function *,
+  .dg .cr.boolean,
+  .dg .cr.boolean * {
+    cursor: pointer; }
+  .dg .selector {
+    display: none;
+    position: absolute;
+    margin-left: -9px;
+    margin-top: 23px;
+    z-index: 10; }
+  .dg .c:hover .selector,
+  .dg .selector.drag {
+    display: block; }
+  .dg li.save-row {
+    padding: 0; }
+    .dg li.save-row .button {
+      display: inline-block;
+      padding: 0px 6px; }
+  .dg.dialogue {
+    background-color: #222;
+    width: 460px;
+    padding: 15px;
+    font-size: 13px;
+    line-height: 15px; }
+
+/* TODO Separate style and structure */
+#dg-new-constructor {
+  padding: 10px;
+  color: #222;
+  font-family: Monaco, monospace;
+  font-size: 10px;
+  border: 0;
+  resize: none;
+  box-shadow: inset 1px 1px 1px #888;
+  word-wrap: break-word;
+  margin: 12px 0;
+  display: block;
+  width: 440px;
+  overflow-y: scroll;
+  height: 100px;
+  position: relative; }
+
+#dg-local-explain {
+  display: none;
+  font-size: 11px;
+  line-height: 17px;
+  border-radius: 3px;
+  background-color: #333;
+  padding: 8px;
+  margin-top: 10px; }
+  #dg-local-explain code {
+    font-size: 10px; }
+
+#dat-gui-save-locally {
+  display: none; }
+
+/** Main type */
+.dg {
+  color: #eee;
+  font: 11px 'Lucida Grande', sans-serif;
+  text-shadow: 0 -1px 0 #111;
+  /** Auto place */
+  /* Controller row, <li> */
+  /** Controllers */ }
+  .dg.main {
+    /** Scrollbar */ }
+    .dg.main::-webkit-scrollbar {
+      width: 5px;
+      background: #1a1a1a; }
+    .dg.main::-webkit-scrollbar-corner {
+      height: 0;
+      display: none; }
+    .dg.main::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: #676767; }
+  .dg li:not(.folder) {
+    background: #1a1a1a;
+    border-bottom: 1px solid #2c2c2c; }
+  .dg li.save-row {
+    line-height: 25px;
+    background: #dad5cb;
+    border: 0; }
+    .dg li.save-row select {
+      margin-left: 5px;
+      width: 108px; }
+    .dg li.save-row .button {
+      margin-left: 5px;
+      margin-top: 1px;
+      border-radius: 2px;
+      font-size: 9px;
+      line-height: 7px;
+      padding: 4px 4px 5px 4px;
+      background: #c5bdad;
+      color: #fff;
+      text-shadow: 0 1px 0 #b0a58f;
+      box-shadow: 0 -1px 0 #b0a58f;
+      cursor: pointer; }
+      .dg li.save-row .button.gears {
+        background: #c5bdad url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAANCAYAAAB/9ZQ7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQJJREFUeNpiYKAU/P//PwGIC/ApCABiBSAW+I8AClAcgKxQ4T9hoMAEUrxx2QSGN6+egDX+/vWT4e7N82AMYoPAx/evwWoYoSYbACX2s7KxCxzcsezDh3evFoDEBYTEEqycggWAzA9AuUSQQgeYPa9fPv6/YWm/Acx5IPb7ty/fw+QZblw67vDs8R0YHyQhgObx+yAJkBqmG5dPPDh1aPOGR/eugW0G4vlIoTIfyFcA+QekhhHJhPdQxbiAIguMBTQZrPD7108M6roWYDFQiIAAv6Aow/1bFwXgis+f2LUAynwoIaNcz8XNx3Dl7MEJUDGQpx9gtQ8YCueB+D26OECAAQDadt7e46D42QAAAABJRU5ErkJggg==) 2px 1px no-repeat;
+        height: 7px;
+        width: 8px; }
+      .dg li.save-row .button:hover {
+        background-color: #bab19e;
+        box-shadow: 0 -1px 0 #b0a58f; }
+  .dg li.folder {
+    border-bottom: 0; }
+  .dg li.title {
+    padding-left: 16px;
+    background: black url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlI+hKgFxoCgAOw==) 6px 10px no-repeat;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+  .dg .closed li.title {
+    background-image: url(data:image/gif;base64,R0lGODlhBQAFAJEAAP////Pz8////////yH5BAEAAAIALAAAAAAFAAUAAAIIlGIWqMCbWAEAOw==); }
+  .dg .cr.boolean {
+    border-left: 3px solid #806787; }
+  .dg .cr.function {
+    border-left: 3px solid #e61d5f; }
+  .dg .cr.number {
+    border-left: 3px solid #2fa1d6; }
+    .dg .cr.number input[type=text] {
+      color: #2fa1d6; }
+  .dg .cr.string {
+    border-left: 3px solid #1ed36f; }
+    .dg .cr.string input[type=text] {
+      color: #1ed36f; }
+  .dg .cr.function:hover, .dg .cr.boolean:hover {
+    background: #111; }
+  .dg .c input[type=text] {
+    background: #303030;
+    outline: none; }
+    .dg .c input[type=text]:hover {
+      background: #3c3c3c; }
+    .dg .c input[type=text]:focus {
+      background: #494949;
+      color: #fff; }
+  .dg .c .slider {
+    background: #303030;
+    cursor: ew-resize; }
+  .dg .c .slider-fg {
+    background: #2fa1d6; }
+  .dg .c .slider:hover {
+    background: #3c3c3c; }
+    .dg .c .slider:hover .slider-fg {
+      background: #44abda; }
+</style></head>
+<body class="loaded">
+
+<!-- icons -->
+<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-codepen-button" viewBox="0 0 1523 1024">
+  <title>codepen-button</title>
+  <path class="path1" d="M880.598 461.621h409.431v93.091h-409.431v-93.091z"></path>
+  <path class="path2" d="M1263.802 508.166c-68.092-68.092-100.547-202.744-103.212-296.164 93.353 125.427 214.676 234.818 361.455 296.164-146.779 58.74-262.753 174.749-361.455 296.164 8.014-100.030 32.455-221.455 103.212-296.164v0z"></path>
+  <path class="path3" d="M247.969 462.983v90.383l67.559-45.191-67.559-45.191z"></path>
+  <path class="path4" d="M481.162 397.38v-125.952l-211.579 141.041 94.513 63.226 117.066-78.315z"></path>
+  <path class="path5" d="M746.75 412.469l-211.579-141.041v125.952l117.075 78.315 94.504-63.226z"></path>
+  <path class="path6" d="M269.583 603.872l211.579 141.041v-125.944l-117.066-78.298-94.513 63.2z"></path>
+  <path class="path7" d="M535.171 618.97v125.944l211.579-141.041-94.504-63.2-117.075 78.298z"></path>
+  <path class="path8" d="M508.166 444.289l-95.503 63.886 95.503 63.886 95.511-63.886-95.511-63.886z"></path>
+  <path class="path9" d="M508.166 0c-280.644 0-508.166 227.514-508.166 508.175s227.523 508.166 508.166 508.166c280.661 0 508.175-227.506 508.175-508.166s-227.514-508.175-508.175-508.175v0zM822.374 603.906c0 1.193-0.085 2.361-0.237 3.537-0.059 0.381-0.152 0.779-0.212 1.159-0.144 0.762-0.271 1.523-0.474 2.268-0.118 0.449-0.279 0.88-0.423 1.303-0.212 0.66-0.432 1.32-0.694 1.98-0.178 0.449-0.406 0.88-0.601 1.303-0.288 0.609-0.584 1.21-0.914 1.803-0.237 0.415-0.516 0.829-0.77 1.236-0.364 0.559-0.736 1.109-1.142 1.633-0.296 0.415-0.601 0.796-0.931 1.176-0.423 0.499-0.872 0.99-1.337 1.456-0.355 0.364-0.702 0.728-1.075 1.058-0.491 0.449-1.007 0.88-1.54 1.286-0.398 0.313-0.796 0.626-1.219 0.922-0.161 0.102-0.296 0.228-0.457 0.33l-287.202 191.488c-4.536 3.021-9.749 4.545-14.988 4.545-5.213 0-10.435-1.523-14.979-4.545l-287.194-191.471c-0.152-0.102-0.288-0.228-0.44-0.33-0.423-0.296-0.829-0.609-1.227-0.922-0.525-0.415-1.041-0.846-1.532-1.286-0.372-0.33-0.728-0.694-1.083-1.058-0.474-0.465-0.906-0.956-1.346-1.456-0.313-0.381-0.626-0.762-0.922-1.176-0.398-0.525-0.779-1.075-1.134-1.633-0.271-0.415-0.525-0.829-0.779-1.236-0.33-0.592-0.626-1.193-0.914-1.803-0.203-0.432-0.415-0.863-0.601-1.303-0.262-0.66-0.491-1.32-0.694-1.98-0.152-0.432-0.296-0.863-0.423-1.303-0.195-0.745-0.33-1.506-0.474-2.268-0.068-0.381-0.169-0.779-0.212-1.159-0.161-1.176-0.245-2.344-0.245-3.537v-191.488c0-1.193 0.093-2.361 0.245-3.521 0.051-0.398 0.152-0.779 0.212-1.176 0.144-0.762 0.271-1.523 0.474-2.268 0.127-0.449 0.271-0.88 0.423-1.303 0.203-0.66 0.432-1.32 0.694-1.963 0.186-0.449 0.398-0.889 0.601-1.32 0.288-0.609 0.584-1.21 0.914-1.786 0.245-0.432 0.508-0.846 0.779-1.252 0.355-0.559 0.736-1.109 1.134-1.633 0.296-0.398 0.609-0.796 0.922-1.176 0.44-0.499 0.88-0.99 1.346-1.456 0.355-0.364 0.711-0.728 1.083-1.058 0.491-0.449 0.999-0.88 1.532-1.286 0.398-0.313 0.804-0.626 1.227-0.922 0.152-0.102 0.288-0.228 0.44-0.33l287.211-191.471c9.072-6.051 20.886-6.051 29.958 0l287.202 191.471c0.161 0.102 0.296 0.228 0.457 0.33 0.423 0.296 0.821 0.609 1.219 0.922 0.525 0.415 1.049 0.846 1.54 1.286 0.372 0.33 0.719 0.694 1.075 1.058 0.474 0.465 0.914 0.956 1.337 1.456 0.33 0.381 0.635 0.779 0.931 1.176 0.406 0.525 0.779 1.075 1.142 1.633 0.254 0.415 0.525 0.829 0.77 1.252 0.33 0.575 0.626 1.176 0.914 1.786 0.195 0.432 0.423 0.88 0.601 1.32 0.262 0.643 0.482 1.303 0.694 1.963 0.144 0.432 0.305 0.863 0.423 1.303 0.195 0.745 0.33 1.506 0.474 2.268 0.068 0.398 0.161 0.779 0.212 1.176 0.161 1.159 0.237 2.327 0.237 3.521v191.471h-0.008z"></path>
+  <path class="path10" d="M768.372 553.366v-90.383l-67.55 45.191 67.55 45.191z"></path>
+</symbol>
+<symbol id="icon-download" viewBox="0 0 1024 1024">
+  <title>download</title>
+  <path class="path1" d="M1024 512c0-282.77-229.23-512-512-512s-512 229.23-512 512 229.23 512 512 512 512-229.23 512-512zM96 512c0-229.75 186.25-416 416-416s416 186.25 416 416-186.25 416-416 416-416-186.25-416-416zM557.254 813.256l256-256.002c24.994-24.992 24.994-65.514 0-90.508s-65.516-24.994-90.51 0l-146.744 146.744v-357.49c0-35.346-28.654-64-64-64s-64 28.654-64 64v357.49l-146.744-146.746c-24.994-24.994-65.518-24.994-90.512 0-12.496 12.498-18.744 28.878-18.744 45.256s6.248 32.758 18.744 45.254l256 256.002c24.994 24.992 65.518 24.992 90.51 0z"></path>
+</symbol>
+<symbol id="icon-github" viewBox="0 0 1024 1024">
+  <title>github</title>
+  <path class="path1" d="M512 0c-282.77 0-512 229.23-512 512s229.23 512 512 512 512-229.23 512-512-229.23-512-512-512zM816.056 816.056c-39.518 39.516-85.512 70.532-136.708 92.186-13.006 5.5-26.214 10.328-39.6 14.492v-76.734c0-40.334-13.834-70-41.5-89 17.334-1.666 33.25-4 47.75-7s29.834-7.334 46-13 30.666-12.416 43.5-20.25 25.166-18 37-30.5 21.75-26.666 29.75-42.5 14.334-34.834 19-57 7-46.584 7-73.25c0-51.666-16.834-95.666-50.5-132 15.334-40 13.666-83.5-5-130.5l-12.5-1.5c-8.666-1-24.25 2.666-46.75 11s-47.75 22-75.75 41c-39.666-11-80.834-16.5-123.5-16.5-43 0-84 5.5-123 16.5-17.666-12-34.416-21.916-50.25-29.75s-28.5-13.166-38-16-18.334-4.584-26.5-5.25-13.416-0.834-15.75-0.5-4 0.666-5 1c-18.666 47.334-20.334 90.834-5 130.5-33.666 36.334-50.5 80.334-50.5 132 0 26.666 2.334 51.084 7 73.25s11 41.166 19 57 17.916 30 29.75 42.5 24.166 22.666 37 30.5 27.334 14.584 43.5 20.25 31.5 10 46 13 30.416 5.334 47.75 7c-27.334 18.666-41 48.334-41 89v78.23c-15.098-4.494-29.98-9.804-44.6-15.988-51.194-21.654-97.188-52.67-136.706-92.186-39.516-39.518-70.534-85.512-92.186-136.708-22.398-52.958-33.756-109.262-33.756-167.348s11.358-114.39 33.758-167.35c21.654-51.194 52.67-97.188 92.186-136.706s85.512-70.534 136.706-92.186c52.96-22.4 109.264-33.758 167.35-33.758s114.39 11.358 167.35 33.758c51.196 21.654 97.19 52.67 136.708 92.186 39.516 39.516 70.532 85.512 92.186 136.706 22.398 52.96 33.756 109.264 33.756 167.35s-11.358 114.39-33.758 167.35c-21.654 51.194-52.67 97.19-92.186 136.706z"></path>
+</symbol>
+</defs>
+</svg>
+
+<!-- panel -->
+<div class="panel" style="display: block;">
+	<h1>particles.js</h1>
+  <span class="r-version">v2.0.0</span>
+	<h2>A lightweight JavaScript library for creating particles</h2>
+	<ul>
+		<li onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;GitHub&#39;, &#39;click&#39;);">
+      <a href="https://github.com/VincentGarreau/particles.js/" target="_blank">
+        <span class="label">GitHub</span>
+        <div class="svg-wrap">
+          <svg class="icon-github">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use>
+          </svg>
+        </div>
+      </a>
+    </li>
+		<li onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Download&#39;, &#39;click&#39;);">
+      <a download="" href="https://github.com/VincentGarreau/particles.js/archive/master.zip">
+        <span class="label">Download</span>
+        <div class="svg-wrap">
+          <svg class="icon-download">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-download"></use>
+          </svg>
+        </div>
+      </a>
+    </li>
+	</ul>
+	
+</div>
+
+<!-- mask -->
+<!-- <img src="https://dl.dropboxusercontent.com/u/19580440/particlesjs-assets/worldmap-mask.png" style="display:block;position:absolute;z-index:100;top:0;left:0;width:100%" alt=""> -->
+
+<!-- particles.js container -->
+<div id="particles-js" style="background-color: rgb(182, 25, 36); background-image: url(&quot;&quot;); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;"><canvas class="particles-js-canvas-el" width="1364" height="602" style="width: 100%; height: 100%;"></canvas></div>
+
+<!-- count particles -->
+<div class="count-particles">
+  <span class="js-count-particles">83</span> particles
+</div>
+
+<div class="box-top">
+  
+  <div class="box-presets">
+    <span class="select-label js-dp-label js-dp-label-presets" data-dp="presets">Default</span>
+    <ul id="js-select-preset" class="select-dropdown js-dp-dropdown" data-dp="presets">
+      <li data-val="default">Default</li>
+      <li data-val="nasa">NASA</li>
+      <li data-val="bubble">Bubble</li>
+      <li data-val="snow">Snow</li>
+      <li data-val="nyancat2">Nyan Cat</li>
+    </ul>
+  </div>
+
+  <div class="box-codepen js-box-codepen">
+    <span class="codepen-label">CodePen</span>
+    <div class="codepen-button js-codepen-button">
+      <div class="svg-wrap">
+        <svg class="icon-codepen-button">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-codepen-button"></use>
+        </svg>
+      </div>
+    </div>
+    <form action="https://codepen.io/pen/define" method="POST" target="_blank">
+      <input id="data-input" type="hidden" name="data" value="">
+      <input class="codepen-submit-bt" type="submit">
+    </form>
+  </div>
+
+  <div class="box-share">
+    <span class="select-label js-dp-label" data-dp="share">Share</span>
+    <ul id="js-share" class="select-dropdown js-dp-dropdown" data-dp="share" style="display: none;">
+      <li>
+        <a target="_blank" href="http://twitter.com/?status=particles.js%20-%20A%20lightweight%20JavaScript%20library%20for%20creating%20particles%20https://vincentgarreau.com/particles.js%20%23javascript%20%23particles%20%23html5%20%23webdesign">Twitter</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://www.facebook.com/dialog/feed?app_id=799880490102556&amp;link=https://vincentgarreau.com/particles.js&amp;picture=https://vincentgarreau.com/particles.js/assets/img/particlesjs-og.png&amp;name=particles.js&amp;description=particles.js%20-%20A%20lightweight%20JavaScript%20library%20for%20creating%20particles&amp;redirect_uri=https://vincentgarreau.com/particles.js">Facebook</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://plus.google.com/share?url=https://vincentgarreau.com/particles.js">Google+</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://vincentgarreau.com/particles.js&amp;title=particles.js&amp;summary=A%20lightweight%20JavaScript%20library%20for%20creating%20particles&amp;source=https://vincentgarreau.com/particles.js">LinkedIn</a>
+      </li>
+      <li>
+        <a target="_blank" href="http://www.pinterest.com/pin/create/button/?url=https://vincentgarreau.com/particles.js&amp;media=https://vincentgarreau.com/particles.js/assets/img/particlesjs-og.png&amp;description=particles.js%20-%20A%20lightweight%20JavaScript%20library%20for%20creating%20particles%20https://vincentgarreau.com/particles.js" data-pin-do="buttonPin" data-pin-config="above">Pinterest</a>
+      </li>
+      <li>
+        <a target="_blank" href="mailto:steve@jobs.com?subject=particles.js%20-%20A%20lightweight%20JavaScript%20library%20for%20creating%20particles&amp;body=particles.js%20-%20A%20lightweight%20JavaScript%20library%20for%20creating%20particles%20https://vincentgarreau.com/particles.js">Email</a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="box-bottom js-box-bottom" style="display: none;">
+    
+  <div class="box-github">
+    <a href="https://github.com/VincentGarreau/particles.js/" target="_blank">
+      <span class="label">particles.js</span>
+      <div class="svg-wrap">
+        <svg class="icon-github">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-github"></use>
+        </svg>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+
+<!-- loader -->
+<div id="loader" style="display: none;"></div>
+
+<!-- lib -->
+<script async="" src="./demo_files/analytics.js.download"></script><script src="./demo_files/particles.js.download"></script>
+<script src="./demo_files/stats.js.download"></script>
+<script src="./demo_files/dat.gui.js.download"></script>
+<script src="./demo_files/jquery.min.js.download"></script>
+
+<!-- dat.GUI app config -->
+<script src="./demo_files/gui.js.download"></script>
+
+<!-- CodePen config -->
+<script src="./demo_files/codepen.js.download"></script>
+
+
+<!-- analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9631766-8', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<div class="dg ac"><div class="dg main a" style="width: 340px;"><div style="width: 6px; margin-left: -3px; height: 168px; cursor: ew-resize; position: absolute;"></div><ul style="height: auto; max-height: 497px;"><li class="folder"><div class="dg"><ul class="closed"><li class="title">particles</li><li class="folder"><div class="dg"><ul class="closed"><li class="title">number</li><li class="cr number has-slider"><div><span class="property-name">value</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 13.3333%;"></div></div></div></div></li><li class="cr boolean"><div><span class="property-name">density.enable</span><div class="c"><input type="checkbox" checked="checked"></div></div></li><li class="cr number has-slider"><div><span class="property-name">density.value_area</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 8%;"></div></div></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">color</li><li class="cr string color" style="border-left-color: rgb(255, 255, 255);"><div><span class="property-name">value (single string)</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(0, 0, 0); border: 0px; font-weight: bold; text-shadow: rgba(255, 255, 255, 0.7) 0px 1px 1px; background-color: rgb(255, 255, 255);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: -7px; margin-top: -7px; background-color: rgb(255, 255, 255);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 0, 0) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; display: inline-block; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 100px;"></div></div></div></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">shape</li><li class="folder"><div class="dg"><ul class="closed"><li class="title">stroke</li><li class="cr number has-slider"><div><span class="property-name">stroke.width</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 0%;"></div></div></div></div></li><li class="cr string color" style="border-left-color: rgb(0, 0, 0);"><div><span class="property-name">stroke.color</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(255, 255, 255); border: 0px; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 1px; background-color: rgb(0, 0, 0);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: -7px; margin-top: 93px; background-color: rgb(0, 0, 0);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 0, 0) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; display: inline-block; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 100px;"></div></div></div></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">polygon</li><li class="cr number has-slider"><div><span class="property-name">polygon.nb_sides</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 22.2222%;"></div></div></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">image</li><li class="cr string"><div><span class="property-name">image.src</span><div class="c"><input type="text"></div></div></li><li class="cr number"><div><span class="property-name">image.width</span><div class="c"><input type="text"></div></div></li><li class="cr number"><div><span class="property-name">image.height</span><div class="c"><input type="text"></div></div></li></ul></div></li><li class="cr string"><div><span class="property-name">type</span><div class="c"><select><option value="circle">circle</option><option value="edge">edge</option><option value="triangle">triangle</option><option value="polygon">polygon</option><option value="star">star</option><option value="image">image</option></select></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">size</li><li class="folder"><div class="dg"><ul class="closed"><li class="title">anim</li><li class="cr boolean"><div><span class="property-name">anim.enable</span><div class="c"><input type="checkbox"></div></div></li><li class="cr number has-slider"><div><span class="property-name">anim.speed</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 13.3333%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">anim.size_min</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 0.1%;"></div></div></div></div></li><li class="cr boolean"><div><span class="property-name">anim.sync</span><div class="c"><input type="checkbox"></div></div></li></ul></div></li><li class="cr number has-slider"><div><span class="property-name">value</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 0.6%;"></div></div></div></div></li><li class="cr boolean"><div><span class="property-name">random</span><div class="c"><input type="checkbox" checked="checked"></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">opacity</li><li class="folder"><div class="dg"><ul class="closed"><li class="title">anim</li><li class="cr boolean"><div><span class="property-name">anim.enable</span><div class="c"><input type="checkbox"></div></div></li><li class="cr number has-slider"><div><span class="property-name">anim.speed</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 10%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">anim.opacity_min</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 10%;"></div></div></div></div></li><li class="cr boolean"><div><span class="property-name">anim.sync</span><div class="c"><input type="checkbox"></div></div></li></ul></div></li><li class="cr number has-slider"><div><span class="property-name">value</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 50%;"></div></div></div></div></li><li class="cr boolean"><div><span class="property-name">random</span><div class="c"><input type="checkbox"></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">line_linked</li><li class="cr boolean"><div><span class="property-name">enable_auto</span><div class="c"><input type="checkbox" checked="checked"></div></div></li><li class="cr number has-slider"><div><span class="property-name">distance</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 7.5%;"></div></div></div></div></li><li class="cr string color" style="border-left-color: rgb(255, 255, 255);"><div><span class="property-name">color</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(0, 0, 0); border: 0px; font-weight: bold; text-shadow: rgba(255, 255, 255, 0.7) 0px 1px 1px; background-color: rgb(255, 255, 255);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: -7px; margin-top: -7px; background-color: rgb(255, 255, 255);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 0, 0) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; display: inline-block; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 100px;"></div></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">opacity</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 40%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">width</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 5%;"></div></div></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">move</li><li class="cr boolean"><div><span class="property-name">enable</span><div class="c"><input type="checkbox" checked="checked"></div></div></li><li class="cr string"><div><span class="property-name">direction</span><div class="c"><select><option value="none">none</option><option value="top">top</option><option value="top-right">top-right</option><option value="right">right</option><option value="bottom-right">bottom-right</option><option value="bottom">bottom</option><option value="bottom-left">bottom-left</option><option value="left">left</option><option value="top-left">top-left</option></select></div></div></li><li class="cr boolean"><div><span class="property-name">random</span><div class="c"><input type="checkbox"></div></div></li><li class="cr boolean"><div><span class="property-name">straight</span><div class="c"><input type="checkbox"></div></div></li><li class="cr number has-slider"><div><span class="property-name">speed</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 3%;"></div></div></div></div></li><li class="cr string"><div><span class="property-name">out_mode</span><div class="c"><select><option value="out">out</option><option value="bounce">bounce</option></select></div></div></li><li class="cr boolean"><div><span class="property-name">attract.enable</span><div class="c"><input type="checkbox"></div></div></li><li class="cr number has-slider"><div><span class="property-name">attract.rotateX</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 6%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">attract.rotateY</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 12%;"></div></div></div></div></li></ul></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">interactivity</li><li class="folder"><div class="dg"><ul class="closed"><li class="title">onhover</li><li class="cr boolean"><div><span class="property-name">enable</span><div class="c"><input type="checkbox" checked="checked"></div></div></li><li class="cr string"><div><span class="property-name">mode</span><div class="c"><select><option value="grab">grab</option><option value="bubble">bubble</option><option value="repulse">repulse</option></select></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">onclick</li><li class="cr boolean"><div><span class="property-name">enable</span><div class="c"><input type="checkbox" checked="checked"></div></div></li><li class="cr string"><div><span class="property-name">mode</span><div class="c"><select><option value="push">push</option><option value="remove">remove</option><option value="bubble">bubble</option><option value="repulse">repulse</option></select></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">modes</li><li class="folder"><div class="dg"><ul class="closed"><li class="title">grab</li><li class="folder"><div class="dg"><ul class="closed"><li class="title">line_linked</li><li class="cr number has-slider"><div><span class="property-name">opacity</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 100%;"></div></div></div></div></li></ul></div></li><li class="cr number has-slider"><div><span class="property-name">distance</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 26.6667%;"></div></div></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">bubble</li><li class="cr number has-slider"><div><span class="property-name">distance</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 26.6667%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">size</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 8%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">opacity</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 800%;"></div></div></div></div></li><li class="cr number has-slider"><div><span class="property-name">duration (sec)</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 20%;"></div></div></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">repulse</li><li class="cr number has-slider"><div><span class="property-name">distance</span><div class="c"><div><input type="text"></div><div class="slider"><div class="slider-fg" style="width: 20%;"></div></div></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">push</li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">remove</li></ul></div></li></ul></div></li><li class="cr string"><div><span class="property-name">detect_on</span><div class="c"><select><option value="window">window</option><option value="canvas">canvas</option></select></div></div></li></ul></div></li><li class="folder"><div class="dg"><ul class="closed"><li class="title">page background (css)</li><li class="cr string color" style="border-left-color: rgb(182, 25, 36);"><div><span class="property-name">background-color</span><div class="c"><input type="text" style="outline: none; text-align: center; color: rgb(255, 255, 255); border: 0px; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 1px; background-color: rgb(182, 25, 36);"><div class="selector" style="width: 122px; height: 102px; padding: 3px; background-color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 3px;"><div class="field-knob" style="position: absolute; width: 12px; height: 12px; border: 2px solid rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px; border-radius: 12px; z-index: 1; margin-left: 79.2637px; margin-top: 21.6275px; background-color: rgb(182, 25, 36);"></div><div class="saturation-field" style="width: 100px; height: 100px; border: 1px solid rgb(85, 85, 85); margin-right: 3px; display: inline-block; cursor: pointer; background: -webkit-linear-gradient(left, rgb(255, 255, 255) 0%, rgb(255, 0, 17) 100%);"><div style="width: 100%; height: 100%; background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);"></div></div><div class="hue-field" style="width: 15px; height: 100px; display: inline-block; border: 1px solid rgb(85, 85, 85); cursor: ns-resize; background: -webkit-linear-gradient(top, rgb(255, 0, 0) 0%, rgb(255, 0, 255) 17%, rgb(0, 0, 255) 34%, rgb(0, 255, 255) 50%, rgb(0, 255, 0) 67%, rgb(255, 255, 0) 84%, rgb(255, 0, 0) 100%);"><div class="hue-knob" style="position: absolute; width: 15px; height: 2px; border-right: 4px solid rgb(255, 255, 255); z-index: 1; margin-top: 1.16773px;"></div></div></div></div></div></li><li class="cr string"><div><span class="property-name">background-image url</span><div class="c"><input type="text"></div></div></li><li class="cr string"><div><span class="property-name">background-size</span><div class="c"><input type="text"></div></div></li><li class="cr string"><div><span class="property-name">background-position</span><div class="c"><input type="text"></div></div></li><li class="cr string"><div><span class="property-name">background-repeat</span><div class="c"><input type="text"></div></div></li><li class="cr boolean"><div><span class="property-name">hide card</span><div class="c"><input type="checkbox"></div></div></li></ul></div></li><li class="cr boolean"><div><span class="property-name">retina_detect</span><div class="c"><input type="checkbox" checked="checked"></div></div></li><li class="cr function"><div><span class="property-name">→ Export image (png)</span><div class="c"><div class="button"></div></div></div></li><li class="cr function"><div><span class="property-name">→ Download current config (json)</span><div class="c"><div class="button"></div></div></div></li></ul><div class="close-button" style="width: 340px;">Close Controls</div></div></div><div id="stats" style="width: 80px; opacity: 0.9; cursor: pointer; position: absolute; left: 0px; top: 0px;"><div id="fps" style="padding: 0px 0px 3px 3px; text-align: left; background-color: rgb(0, 0, 34); display: block;"><div id="fpsText" style="color: rgb(0, 255, 255); font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: bold; line-height: 15px;">32 FPS (0-32)</div><div id="fpsGraph" style="position: relative; width: 74px; height: 30px; background-color: rgb(0, 255, 255);"><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.7px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.7px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span><span style="width: 1px; height: 20.4px; float: left; background-color: rgb(17, 17, 51);"></span></div></div><div id="ms" style="padding: 0px 0px 3px 3px; text-align: left; background-color: rgb(0, 34, 0); display: none;"><div id="msText" style="color: rgb(0, 255, 0); font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: bold; line-height: 15px;">0 MS (0-1)</div><div id="msGraph" style="position: relative; width: 74px; height: 30px; background-color: rgb(0, 255, 0);"><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(17, 51, 17);"></span></div></div></div></body></html>

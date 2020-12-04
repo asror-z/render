@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/frozen.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        #chartdiv {
+            width: 100%;
+            height: 600px
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div id="chartdiv"></div>
+
+<script>
+
+
+
+    am4core.useTheme(am4themes_frozen);
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+
+    // Create map instance
+    var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+
+
+
+    var data = [
+        {
+            "id": "UZ",
+            "fill": am4core.color("#ff9f64"),
+            "value": 100,
+            "table": 400
+        },
+        {
+            "id": "AD",
+            "fill": am4core.color("#ffa500"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AE",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AF",
+            "fill": am4core.color("#c098cc"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AG",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AI",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AL",
+            "fill": am4core.color("#fefeb3"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AM",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AO",
+            "fill": am4core.color("#068F71"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AQ",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AR",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AS",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AT",
+            "fill": am4core.color("#976c4e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AU",
+            "fill": am4core.color("#f6f86e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AW",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AX",
+            "fill": am4core.color("#ffa500"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "AZ",
+            "fill": am4core.color("#ff9f64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BA",
+            "fill": am4core.color("#ff9f64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BB",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BD",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BE",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BF",
+            "fill": am4core.color("#f6f86e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BG",
+            "fill": am4core.color("#f6f86e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BH",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BI",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BJ",
+            "fill": am4core.color("#E76A64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BL",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BM",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BN",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BO",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BQ",
+            "fill": am4core.color("#f6f86e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BR",
+            "fill": am4core.color("#efb2b2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BS",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BT",
+            "fill": am4core.color("#f6f86e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BV",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BW",
+            "fill": am4core.color("#f6f86e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BY",
+            "fill": am4core.color("#ADECE3"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "BZ",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CA",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CC",
+            "fill": am4core.color("#f5d4a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CD",
+            "fill": am4core.color("#F49494"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CF",
+            "fill": am4core.color("#fec6c6"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CG",
+            "fill": am4core.color("#ff9f64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CH",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CI",
+            "fill": am4core.color("#f5d4a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CK",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CL",
+            "fill": am4core.color("#fefeb3"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CM",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CN",
+            "fill": am4core.color("#fefeb3"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CO",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CR",
+            "fill": am4core.color("#f5d4a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CU",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CV",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CW",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CX",
+            "fill": am4core.color("#ffa500"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CY",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "CZ",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "DE",
+            "fill": am4core.color("#c6c1c1"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "DJ",
+            "fill": am4core.color("#ff9f64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "DK",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "DM",
+            "fill": am4core.color("#ffa500"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "DO",
+            "fill": am4core.color("#90EE90"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "DZ",
+            "fill": am4core.color("#fefeb3"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "EC",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "EE",
+            "fill": am4core.color("#f5d4a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "EG",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "EH",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "ER",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "ES",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "ET",
+            "fill": am4core.color("#6ec8ae"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "FI",
+            "fill": am4core.color("#c5ee89"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "FJ",
+            "fill": am4core.color("#ffa500"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "FK",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "FM",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "FO",
+            "fill": am4core.color("#ffa500"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "FR",
+            "fill": am4core.color("#c098cc"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GA",
+            "fill": am4core.color("#DBF68D"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GB",
+            "fill": am4core.color("#ff9f64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GB-CHA",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GD",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GE",
+            "fill": am4core.color("#90EE90"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GF",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GG",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GH",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GI",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GL",
+            "fill": am4core.color("#d6bddf"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GM",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GN",
+            "fill": am4core.color("#976c4e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GP",
+            "fill": am4core.color("#ffa500"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GQ",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GR",
+            "fill": am4core.color("#976c4e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GS",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GT",
+            "fill": am4core.color("#E76A64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GU",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GW",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "GY",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "HK",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "HM",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "HN",
+            "fill": am4core.color("#E8CA8E"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "HR",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "HT",
+            "fill": am4core.color("#ffa500"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "HU",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "ID",
+            "fill": am4core.color("#e0a9a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "IE",
+            "fill": am4core.color("#c9e4a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "IL",
+            "fill": am4core.color("#ff0000"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "IM",
+            "fill": am4core.color("#f5d4a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "IN",
+            "fill": am4core.color("#fec6c6"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "IO",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "IQ",
+            "fill": am4core.color("#BB8518"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "IR",
+            "fill": am4core.color("#DDDF95"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "IS",
+            "fill": am4core.color("#d9d981"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "IT",
+            "fill": am4core.color("#f6f86e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "JE",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "JM",
+            "fill": am4core.color("#f5d4a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "JO",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "JP",
+            "fill": am4core.color("#f6f86e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KE",
+            "fill": am4core.color("#fefeb3"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KG",
+            "fill": am4core.color("#E76A64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KH",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KI",
+            "fill": am4core.color("#e60026"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KM",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KN",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KP",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KR",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KT",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KW",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KY",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "KZ",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LA",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LB",
+            "fill": am4core.color("#90EE90"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LC",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LI",
+            "fill": am4core.color("#e60026"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LK",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LR",
+            "fill": am4core.color("#ff9f64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LS",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LT",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LU",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LV",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "LY",
+            "fill": am4core.color("#fec6c6"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MA",
+            "fill": am4core.color("#f5d4a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MC",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MD",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "ME",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MF",
+            "fill": am4core.color("#b3b3b3"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MG",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MH",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MK",
+            "fill": am4core.color("#e60026"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "ML",
+            "fill": am4core.color("#F1B3F9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MM",
+            "fill": am4core.color("#f5d4a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MN",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MO",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MP",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MQ",
+            "fill": am4core.color("#b3b3b3"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MR",
+            "fill": am4core.color("#ff9f64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MS",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MT",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MU",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MV",
+            "fill": am4core.color("#b3b3b3"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MW",
+            "fill": am4core.color("#E76A64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MX",
+            "fill": am4core.color("#e0a9a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MY",
+            "fill": am4core.color("#87CEFA"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "MZ",
+            "fill": am4core.color("#FFCD60"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NA",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NC",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NE",
+            "fill": am4core.color("#6ec8ae"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NF",
+            "fill": am4core.color("#e60026"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NG",
+            "fill": am4core.color("#6ec8ae"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NI",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NL",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NO",
+            "fill": am4core.color("#fca10d"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NP",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NR",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NU",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "NZ",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "OM",
+            "fill": am4core.color("#C09CC9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PA",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PE",
+            "fill": am4core.color("#CDAD74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PF",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PG",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PH",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PK",
+            "fill": am4core.color("#ED5E17"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PL",
+            "fill": am4core.color("#c4ef97"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PM",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PN",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PR",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PS",
+            "fill": am4core.color("#e60026"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PT",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PW",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "PY",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "QA",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "RE",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "RO",
+            "fill": am4core.color("#ff9f64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "RS",
+            "fill": am4core.color("#90EE90"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "RU",
+            "fill": am4core.color("#e0a9a2"),
+            "value": 101,
+            "table": 500
+        },
+        {
+            "id": "RW",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SA",
+            "fill": am4core.color("#c4c0c5"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SB",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SC",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SD",
+            "fill": am4core.color("#F55252"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SE",
+            "fill": am4core.color("#d6dfe7"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SG",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SH",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SI",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SJ",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SK",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SL",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SM",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SN",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SO",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SR",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SS",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "ST",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SV",
+            "fill": am4core.color("#a9a118"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SX",
+            "fill": am4core.color("#caea7e"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SY",
+            "fill": am4core.color("#90EE90"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "SZ",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TC",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TD",
+            "fill": am4core.color("#DAF7A6"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TF",
+            "fill": am4core.color("#e60026"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TG",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TH",
+            "fill": am4core.color("#f1f172"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TJ",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TK",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TL",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TM",
+            "fill": am4core.color("#ffff74"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TN",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TO",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TR",
+            "fill": am4core.color("#619164"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TT",
+            "fill": am4core.color("#e60026"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TV",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TW",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "TZ",
+            "fill": am4core.color("#F55252"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "UA",
+            "fill": am4core.color("#c098cc"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "UG",
+            "fill": am4core.color("#c098cc"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "UM",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "US",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "UY",
+            "fill": am4core.color("#ff9f64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "VA",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "VC",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "VE",
+            "fill": am4core.color("#719695"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "VG",
+            "fill": am4core.color("#e60026"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "VI",
+            "fill": am4core.color("#F38C10"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "VN",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "VU",
+            "fill": am4core.color("#00cc00"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "WF",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "WS",
+            "fill": am4core.color("#d595eb"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "YE",
+            "fill": am4core.color("#E76A64"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "YT",
+            "fill": am4core.color("#f5d4a2"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "ZA",
+            "fill": am4core.color("#62a567"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "ZM",
+            "fill": am4core.color("#D8F2A4"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "ZW",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        },
+        {
+            "id": "XK",
+            "fill": am4core.color("#d9d9d9"),
+            "value": 100,
+            "table": 500
+        }
+    ];
+    // Set map definition
+    chart.geodata = am4geodata_worldLow;
+
+    // Set projection
+    chart.projection = new am4maps.projections.Miller();
+
+    // Create map polygon series
+    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    polygonSeries.exclude = ["AQ"];
+    polygonSeries.useGeodata = true;
+    polygonSeries.nonScalingStroke = true;
+    polygonSeries.strokeWidth = 0.5;
+    polygonSeries.calculateVisualCenter = true;
+
+    polygonSeries.data = data;
+
+
+    var polygonTemplate = polygonSeries.mapPolygons.template;
+    polygonTemplate.tooltipText = "{name}";
+    polygonTemplate.tooltipText = `{name} : \r\n {value}`;
+
+    polygonTemplate.propertyFields.fill = "fill";
+
+
+    polygonTemplate.events.on("hit", function(ev){
+        var idCountry = ev.target.dataItem.dataContext.id;
+
+        var name = ev.target.dataItem.dataContext.name;
+        var value = ev.target.dataItem.dataContext.value;
+        var table = ev.target.dataItem.dataContext.table;
+
+        {hit}
+
+    });
+
+
+    let linkContainer = chart.createChild(am4core.Container);
+    linkContainer.isMeasured = false;
+    linkContainer.layout = "horizontal";
+    linkContainer.x = am4core.percent(50);
+    linkContainer.y = am4core.percent(90);
+    linkContainer.horizontalCenter = "middle";
+
+    let equirectangular= linkContainer.createChild(am4core.TextLink);
+    equirectangular.margin(10,10,10,10);
+    equirectangular.text = "Equirectangular";
+    equirectangular.events.on("hit", function(){
+        chart.projection = new am4maps.projections.Projection();
+    });
+
+    let mercator = linkContainer.createChild(am4core.TextLink);
+    mercator.text = "Mercator";
+    mercator.margin(10,10,10,10);
+    mercator.events.on("hit", function(){
+        chart.projection = new am4maps.projections.Mercator();
+    });
+
+    let miller = linkContainer.createChild(am4core.TextLink);
+    miller.margin(10,10,10,10);
+    miller.text = "Miller";
+    miller.events.on("hit", function(){
+        chart.projection = new am4maps.projections.Miller();
+    });
+
+    let eckert = linkContainer.createChild(am4core.TextLink);
+    eckert.margin(10,10,10,10);
+    eckert.text = "Eckert 6";
+    eckert.events.on("hit", function(){
+        chart.projection = new am4maps.projections.Eckert6();
+    });
+
+    let orthographic = linkContainer.createChild(am4core.TextLink);
+    orthographic.margin(10,10,10,10);
+    orthographic.text = "Orthographic";
+    orthographic.events.on("hit", function(){
+        chart.projection = new am4maps.projections.Orthographic();
+        chart.panBehavior = "rotateLongLat";
+    });
+
+
+
+    var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+    imageSeries.data = data;
+    imageSeries.dataFields.value = "value";
+    var imageTemplate = imageSeries.mapImages.template;
+    imageTemplate.nonScaling = true
+
+    var circle = imageTemplate.createChild(am4core.Circle);
+    circle.fillOpacity = 0.7;
+    circle.propertyFields.fill = am4core.color("#e33");
+    circle.tooltipText = "{name}: [bold]{value}[/]";
+
+
+    imageSeries.heatRules.push({
+        "target": circle,
+        "property": "radius",
+        "min": 4,
+        "max": 10,
+        "dataField": "value"
+    });
+
+    imageTemplate.adapter.add("latitude", function(latitude, target) {
+        var polygon = polygonSeries.getPolygonById(target.dataItem.dataContext.id);
+        if(polygon){
+            return polygon.visualLatitude;
+        }
+        return latitude;
+    })
+
+    imageTemplate.adapter.add("longitude", function(longitude, target) {
+        var polygon = polygonSeries.getPolygonById(target.dataItem.dataContext.id);
+        if(polygon){
+            return polygon.visualLongitude;
+        }
+        return longitude;
+    })
+</script>
+</body>
+</html>

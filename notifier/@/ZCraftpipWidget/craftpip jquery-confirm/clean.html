@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.11.0/css/mdb.lite.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+    <style>
+
+
+    @media (min-width: 992px) {
+        .main {
+            margin-left: 33.33333333%;
+        }
+
+    }
+    </style>
+</head>
+<body>
+<div class="row mt-3 ">
+<div class="main col-md-12">
+    <button class="example2 btn btn-primary">example confirm</button>
+    <script type="text/javascript">
+        $('.example2').on('click', function () {
+            $.confirm({
+                title: 'Confirm!',
+                content: 'Simple confirm!',
+                buttons: {
+                    confirm: function () {
+                        $.alert('Confirmed!');
+                    },
+                    cancel: function () {
+                        $.alert('Canceled!');
+                    },
+                    somethingElse: {
+                        text: 'Something else',
+                        btnClass: 'btn-blue',
+                        keys: [
+                            'enter',
+                            'shift'
+                        ],
+                        action: function () {
+                            this.$content // reference to the content
+                            $.alert('Something else?');
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</div>
+</div>
+</body>
+</html>

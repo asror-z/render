@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://seiyria.com/bootstrap-slider/#example-1 -->
+<html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Examples for bootstrap-slider plugin">
+    <meta name="author" content="">
+
+    <title>Slider for Bootstrap Examples Page</title>
+
+    <!-- core CSS -->
+    <link href="/publish/yarner/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="./demo_files/bootstrap-slider.css" rel="stylesheet">
+    <!-- Hightlight.js Theme Styles -->
+    <link href="./demo_files/highlightjs-github-theme.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+
+    	/* Space out content a bit */
+			body {
+			  padding-top: 20px;
+			  padding-bottom: 20px;
+			}
+
+			h1 small {
+				font-size: 51%;
+			}
+
+			table {
+				border-collapse: collapse;
+				width: 100%; 
+			}
+
+			th, td {
+				text-align: left;
+				padding: 5px;
+			}
+
+			tr:nth-child(even){background-color: #e5e5e5}
+
+			th {
+				background-color: #00008B;
+				color: white;
+			}
+
+			/* Everything but the jumbotron gets side spacing for mobile first views */
+			.header,
+			.marketing,
+			.footer {
+			  padding-left: 15px;
+			  padding-right: 15px;
+			}
+
+			/* Custom page header */
+			.header {
+			  border-bottom: 1px solid #e5e5e5;
+			}
+			/* Make the masthead heading the same height as the navigation */
+			.header h3 {
+			  margin-top: 0;
+			  margin-bottom: 0;
+			  line-height: 40px;
+			  padding-bottom: 19px;
+			}
+
+			/* Custom page footer */
+			.footer {
+			  padding-top: 19px;
+			  color: #777;
+			  border-top: 1px solid #e5e5e5;
+			}
+
+			/* Customize container */
+			.container {
+				min-width: 640px;
+			}
+			@media (min-width: 768px) {
+			  .container {
+			    max-width: 1000px;
+			  }
+			}
+			.container-narrow > hr {
+			  margin: 30px 0;
+			}
+
+			/* Main marketing message and sign up button */
+			.title {
+			  text-align: center;
+			  border-bottom: 1px solid #e5e5e5;
+			}
+
+			/* Responsive: Portrait tablets and up */
+			@media screen and (min-width: 768px) {
+			  /* Remove the padding we set earlier */
+			  .header,
+			  .footer {
+			    padding-left: 0;
+			    padding-right: 0;
+			  }
+			  /* Space out the masthead */
+			  .header {
+			    margin-bottom: 30px;
+			  }
+			  /* Remove the bottom border on the jumbotron for visual effect */
+			  .title {
+			    border-bottom: 0;
+			  }
+			}
+
+			.well {
+				background-color: #E0E0E0;
+			}
+
+			.slider-example {
+				padding-top: 10px;
+				padding-bottom: 55px;
+				margin: 35px 0;
+			}
+
+			#destroyEx5Slider, #ex6CurrentSliderValLabel, #ex7-enabled {
+				margin-left: 45px;
+			}
+
+			#ex6SliderVal {
+				color: green;
+			}
+
+			#slider12a .slider-track-high, #slider12c .slider-track-high {
+				background: green;
+			}
+
+			#slider12b .slider-track-low, #slider12c .slider-track-low {
+				background: red;
+			}
+
+			#slider12c .slider-selection {
+				background: yellow;
+			}
+
+			#slider22 .slider-selection {
+				background: #2196f3;
+			}
+
+			#slider22 .slider-rangeHighlight {
+				background: #f70616;
+			}
+        
+			#slider22 .slider-rangeHighlight.category1 {
+				background: #FF9900;
+			}
+        
+			#slider22 .slider-rangeHighlight.category2 {
+				background: #99CC00;
+			}
+
+    </style>
+
+    <style type="text/css">
+			/* Example 1 custom styles */
+			#ex1Slider .slider-selection {
+   			background: #BABABA;
+  		}
+
+    	/* Example 3 custom styles */
+			#RGB {
+    		height: 20px;
+    		background: rgb(128, 128, 128);
+  		}
+			#RC .slider-selection {
+			    background: #FF8282;
+			}
+			#RC .slider-handle {
+				background: red;
+			}
+			#GC .slider-selection {
+				background: #428041;
+			}
+			#GC .slider-handle {
+				background: green;
+			}
+			#BC .slider-selection {
+				background: #8283FF;
+			}
+			#BC .slider-handle {
+				border-bottom-color: blue;
+			}
+			#R, #G, #B {
+				width: 300px;
+			}
+    </style>
+	
+	<script type="text/javascript" src="./demo_files/modernizr.js.download"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- Highlight.js Styles -->
+  </head>
+
+  <body style="">
+
+    <div class="container">
+
+      <div id="top" class="jumbotron">
+        <h1>Slider for Bootstrap <small>bootstrap-slider.js</small></h1>
+        <p class="lead">Examples for the <a target="_blank" href="https://github.com/seiyria/bootstrap-slider">bootstrap-slider</a> component.</p><p>
+      </p></div>
+	
+	  <table>
+		<tbody><tr>
+		  <th>Example Link</th>
+		  <th>Example Description</th>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-1">Example 1</a></td>
+		  <td>Basic example with custom formatter and colored selected region via CSS</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-2">Example 2</a></td>
+		  <td>Range selector, options specified via data attribute</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-3">Example 3</a></td>
+		  <td>Using events to work with the values and style the selection and handles via CSS. The tooltip is disabled and diferent shapes for the handles</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-4">Example 4</a></td>
+		  <td>Vertical Slider with reversed values (largest to smallest)</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-5">Example 5</a></td>
+		  <td>Destroy instance of slider by calling destroy() method on slider instance via JavaScript</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-6">Example 6</a></td>
+		  <td>Able to bind to 'slide' JQuery event on slider, which is triggered whenever the slider is used</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-7">Example 7</a></td>
+		  <td>Sliders can be enabled and disabled</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-8">Example 8</a></td>
+		  <td>Tooltip can always be displayed</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-9">Example 9</a></td>
+		  <td>Precision (number of places after the decimal) can be specified</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-10">Example 10</a></td>
+		  <td>Setting custom handlers</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-11">Example 11</a></td>
+		  <td>Using a custom step interval</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-12">Example 12</a></td>
+		  <td>Coloring the low and high track segments</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-13">Example 13</a></td>
+		  <td>Using tick marks and labels</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-14">Example 14</a></td>
+		  <td>Using tick marks at specific positions</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-15">Example 15</a></td>
+		  <td>With a logarithmic scale</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-16">Example 16</a></td>
+		  <td>Focus the slider handle after a value changes</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-17">Example 17</a></td>
+		  <td>Unusual tooltip positions</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-18">Example 18</a></td>
+		  <td>Accessibility with ARIA labels</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-19">Example 19</a></td>
+		  <td>Auto-Register data-provide="slider" Elements</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-20">Example 20</a></td>
+		  <td>Slider-Elements initially hidden</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-21">Example 21</a></td>
+		  <td>Create an input element with the <strong>data-provide="slider"</strong> attribute automatically turns it into a slider. Options can be supplied via <strong>data-slider-</strong> attributes</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-22">Example 22</a></td>
+		  <td>Highlight ranges on slider with <strong>rangeHighlights</strong> attribute</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-23">Example 23</a></td>
+		  <td>Using tick marks at specific positions</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-24">Example 24</a></td>
+		  <td>rtl mode (auto)</td>
+		</tr>
+		<tr>
+		  <td><a href="https://seiyria.com/bootstrap-slider/#example-25">Example 25</a></td>
+		  <td>Lock selection to ticks</td>
+		</tr>
+		<tr>
+			<td><a href="https://seiyria.com/bootstrap-slider/#example-26">Example 26</a></td>
+			<td>Refresh method with optional `options` object</td>
+		</tr>
+      </tbody></table>
+	  
+      <div class="examples">
+      	<div id="example-1" class="slider-example">
+      		<h3>Example 1: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>Basic example with custom formatter and colored selected region via CSS.</p>
+      		<div class="well">
+				<div class="slider slider-horizontal" id="ex1Slider"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 100%;"></div><div class="slider-track-high" style="right: 0px; width: 0%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Current value: 20</div></div><div class="tooltip tooltip-min top" role="presentation" style="display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max top" role="presentation" style="display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="20" aria-valuenow="20" aria-valuetext="Current value: 20" tabindex="0" style="left: 100%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" aria-valuetext="Current value: 0" tabindex="0" style="left: 0%;"></div></div><input id="ex1" data-slider-id="ex1Slider" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" data-value="20" value="20" style="display: none;">
+			</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex1"</span> <span class="hljs-attr">data-slider-id</span>=<span class="hljs-string">'ex1Slider'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"14"</span>/&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">'#ex1'</span>).slider({
+	<span class="hljs-attr">formatter</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>{
+		<span class="hljs-keyword">return</span> <span class="hljs-string">'Current value: '</span> + value;
+	}
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">'#ex1'</span>, {
+	<span class="hljs-attr">formatter</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>{
+		<span class="hljs-keyword">return</span> <span class="hljs-string">'Current value: '</span> + value;
+	}
+});
+</code></pre>
+
+<h5>CSS</h5>
+<pre><code class="css hljs">
+<span class="hljs-selector-id">#ex1Slider</span> <span class="hljs-selector-class">.slider-selection</span> {
+	<span class="hljs-attribute">background</span>: <span class="hljs-number">#BABABA</span>;
+}
+</code></pre>
+      	</div>
+
+      	<div id="example-2" class="slider-example">
+      		<h3>Example 2: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>Range selector, options specified via data attribute.</p>
+      		<div class="well">
+      			Filter by price interval: <b>€ 10</b> <div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 24.2424%;"></div><div class="slider-selection" style="left: 24.2424%; width: 20.202%;"></div><div class="slider-track-high" style="right: 0px; width: 55.5556%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 34.3434%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">250 : 450</div></div><div class="tooltip tooltip-min top" role="presentation" style="left: 24.2424%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">250</div></div><div class="tooltip tooltip-max top" role="presentation" style="left: 44.4444%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">450</div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="10" aria-valuemax="1000" aria-valuenow="250" tabindex="0" style="left: 24.2424%;"></div><div class="slider-handle max-slider-handle round" role="slider" aria-valuemin="10" aria-valuemax="1000" aria-valuenow="450" tabindex="0" style="left: 44.4444%;"></div></div><input id="ex2" type="text" class="span2" value="250,450" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]" data-value="250,450" style="display: none;"> <b>€ 1000</b>
+      		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+Filter by price interval: <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>€ 10<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex2"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"span2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"1000"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"5"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"[250,450]"</span>/&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>€ 1000<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex2"</span>).slider({});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">'#ex2'</span>, {});
+</code></pre>
+      	</div>
+
+      	<div id="example-3" class="slider-example">
+      		<h3>Example 3: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>Using events to work with the values and style the selection and handles via CSS. The tooltip is disabled and diferent shapes for the handles.</p>
+      		<div class="well">
+      			<p>
+	        	<b>R</b> <div class="slider slider-horizontal" id="RC"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 50.1961%;"></div><div class="slider-track-high" style="right: 0px; width: 49.8039%;"></div></div><div class="tooltip tooltip-main top hide" role="presentation" style="left: 50.1961%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">128</div></div><div class="tooltip tooltip-min top hide" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max hide top" role="presentation" style=""><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle" role="slider" aria-valuemin="0" aria-valuemax="255" aria-valuenow="128" tabindex="0" style="left: 50.1961%;"></div><div class="slider-handle max-slider-handle hide" role="slider" aria-valuemin="0" aria-valuemax="255" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input type="text" class="span2" value="128" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" data-value="128" style="display: none;">
+	            </p>
+	            <p>
+	            <b>G</b> <div class="slider slider-horizontal" id="GC"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 50.1961%;"></div><div class="slider-track-high" style="right: 0px; width: 49.8039%;"></div></div><div class="tooltip tooltip-main top hide" role="presentation" style="left: 50.1961%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">128</div></div><div class="tooltip tooltip-min top hide" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max hide top" role="presentation" style=""><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="255" aria-valuenow="128" tabindex="0" style="left: 50.1961%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="255" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input type="text" class="span2" value="128" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="GC" id="G" data-slider-tooltip="hide" data-slider-handle="round" data-value="128" style="display: none;">
+	            </p>
+	            <p>
+	            <b>B</b> <div class="slider slider-horizontal" id="BC"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 50.1961%;"></div><div class="slider-track-high" style="right: 0px; width: 49.8039%;"></div></div><div class="tooltip tooltip-main top hide" role="presentation" style="left: 50.1961%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">128</div></div><div class="tooltip tooltip-min top hide" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max hide top" role="presentation" style=""><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle triangle" role="slider" aria-valuemin="0" aria-valuemax="255" aria-valuenow="128" tabindex="0" style="left: 50.1961%;"></div><div class="slider-handle max-slider-handle triangle hide" role="slider" aria-valuemin="0" aria-valuemax="255" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input type="text" class="span2" value="128" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="BC" id="B" data-slider-tooltip="hide" data-slider-handle="triangle" data-value="128" style="display: none;">
+	            </p>
+	            <div id="RGB"></div>
+      		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>R<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"span2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"255"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"128"</span> <span class="hljs-attr">data-slider-id</span>=<span class="hljs-string">"RC"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"R"</span> <span class="hljs-attr">data-slider-tooltip</span>=<span class="hljs-string">"hide"</span> <span class="hljs-attr">data-slider-handle</span>=<span class="hljs-string">"square"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>G<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"span2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"255"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"128"</span> <span class="hljs-attr">data-slider-id</span>=<span class="hljs-string">"GC"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"G"</span> <span class="hljs-attr">data-slider-tooltip</span>=<span class="hljs-string">"hide"</span> <span class="hljs-attr">data-slider-handle</span>=<span class="hljs-string">"round"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"span2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"255"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"128"</span> <span class="hljs-attr">data-slider-id</span>=<span class="hljs-string">"BC"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"B"</span> <span class="hljs-attr">data-slider-tooltip</span>=<span class="hljs-string">"hide"</span> <span class="hljs-attr">data-slider-handle</span>=<span class="hljs-string">"triangle"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"RGB"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-keyword">var</span> RGBChange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+	$(<span class="hljs-string">'#RGB'</span>).css(<span class="hljs-string">'background'</span>, <span class="hljs-string">'rgb('</span>+r.getValue()+<span class="hljs-string">','</span>+g.getValue()+<span class="hljs-string">','</span>+b.getValue()+<span class="hljs-string">')'</span>)
+};
+
+<span class="hljs-keyword">var</span> r = $(<span class="hljs-string">'#R'</span>).slider()
+		.on(<span class="hljs-string">'slide'</span>, RGBChange)
+		.data(<span class="hljs-string">'slider'</span>);
+<span class="hljs-keyword">var</span> g = $(<span class="hljs-string">'#G'</span>).slider()
+		.on(<span class="hljs-string">'slide'</span>, RGBChange)
+		.data(<span class="hljs-string">'slider'</span>);
+<span class="hljs-keyword">var</span> b = $(<span class="hljs-string">'#B'</span>).slider()
+		.on(<span class="hljs-string">'slide'</span>, RGBChange)
+		.data(<span class="hljs-string">'slider'</span>);
+</code></pre>
+
+<h5>CSS</h5>
+<pre><code class="css hljs">
+<span class="hljs-selector-id">#RGB</span> {
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">20px</span>;
+	<span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgb</span>(128, 128, 128);
+}
+<span class="hljs-selector-id">#RC</span> <span class="hljs-selector-class">.slider-selection</span> {
+	<span class="hljs-attribute">background</span>: <span class="hljs-number">#FF8282</span>;
+}
+<span class="hljs-selector-id">#RC</span> <span class="hljs-selector-class">.slider-handle</span> {
+	<span class="hljs-attribute">background</span>: red;
+}
+<span class="hljs-selector-id">#GC</span> <span class="hljs-selector-class">.slider-selection</span> {
+	<span class="hljs-attribute">background</span>: <span class="hljs-number">#428041</span>;
+}
+<span class="hljs-selector-id">#GC</span> <span class="hljs-selector-class">.slider-handle</span> {
+	<span class="hljs-attribute">background</span>: green;
+}
+<span class="hljs-selector-id">#BC</span> <span class="hljs-selector-class">.slider-selection</span> {
+	<span class="hljs-attribute">background</span>: <span class="hljs-number">#8283FF</span>;
+}
+<span class="hljs-selector-id">#BC</span> <span class="hljs-selector-class">.slider-handle</span> {
+	<span class="hljs-attribute">border-bottom-color</span>: blue;
+}
+<span class="hljs-selector-id">#R</span>, <span class="hljs-selector-id">#G</span>, <span class="hljs-selector-id">#B</span> {
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;
+}
+</code></pre>
+      	</div>
+
+      	<div id="example-4" class="slider-example">
+      		<h3>Example 4: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>Vertical Slider with reversed values (largest to smallest).</p>
+      		<div class="well">
+      			<div class="slider slider-vertical" id=""><div class="slider-track"><div class="slider-track-low" style="top: 0px; height: 0%;"></div><div class="slider-selection" style="top: 0%; height: 92%;"></div><div class="slider-track-high" style="bottom: 0px; height: 8%;"></div></div><div class="tooltip tooltip-main right" role="presentation" style="left: 100%; top: 92%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">-3</div></div><div class="tooltip tooltip-min right" role="presentation" style="left: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max right" role="presentation" style="left: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="-5" aria-valuemax="20" aria-valuenow="-3" tabindex="0" style="top: 92%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="-5" aria-valuemax="20" aria-valuenow="-5" tabindex="0" style="top: 0%;"></div></div><input id="ex4" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="-3" data-slider-orientation="vertical" data-value="-3" value="-3" style="display: none;">
+      		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex4"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"-5"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"-3"</span> <span class="hljs-attr">data-slider-orientation</span>=<span class="hljs-string">"vertical"</span>/&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex4"</span>).slider({
+	<span class="hljs-attr">reversed</span> : <span class="hljs-literal">true</span>
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex4"</span>, {
+	<span class="hljs-attr">reversed</span> : <span class="hljs-literal">true</span>
+});
+</code></pre>
+      	</div>
+
+      	<div id="example-5" class="slider-example">
+      		<h3>Example 5: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>Destroy instance of slider by calling destroy() method on slider instance via JavaScript.</p>
+      		<div class="well">
+      			<div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 20%;"></div><div class="slider-track-high" style="right: 0px; width: 80%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 20%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">0</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="-5" aria-valuemax="20" aria-valuenow="0" tabindex="0" style="left: 20%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="-5" aria-valuemax="20" aria-valuenow="-5" tabindex="0" style="left: 0%;"></div></div><input id="ex5" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="0" data-value="0" value="0" style="display: none;">
+      			<button id="destroyEx5Slider" class="btn btn-danger">Click to Destroy</button>
+      		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex5"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"-5"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"0"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"destroyEx5Slider"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'btn btn-danger'</span>&gt;</span>Click to Destroy<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex5"</span>).slider();
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">'#ex5'</span>);
+
+$(<span class="hljs-string">"#destroyEx5Slider"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+	<span class="hljs-comment">// With JQuery</span>
+	$(<span class="hljs-string">"#ex5"</span>).slider(<span class="hljs-string">'destroy'</span>);
+
+	<span class="hljs-comment">// Without JQuery</span>
+	slider.destroy();
+});
+</code></pre>
+      	</div>
+
+      	<div id="example-6" class="slider-example">
+      		<h3>Example 6: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>Able to bind to 'slide' JQuery event on slider, which is triggered whenever the slider is used.</p>
+      		<div class="well">
+      			<div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 32%;"></div><div class="slider-track-high" style="right: 0px; width: 68%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 32%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">3</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="-5" aria-valuemax="20" aria-valuenow="3" tabindex="0" style="left: 32%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="-5" aria-valuemax="20" aria-valuenow="-5" tabindex="0" style="left: 0%;"></div></div><input id="ex6" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="3" data-value="3" value="3" style="display: none;">
+      			<span id="ex6CurrentSliderValLabel">Current Slider Value: <span id="ex6SliderVal">3</span></span>
+      		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex6"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"-5"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"3"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex6CurrentSliderValLabel"</span>&gt;</span>Current Slider Value: <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex6SliderVal"</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex6"</span>).slider();
+$(<span class="hljs-string">"#ex6"</span>).on(<span class="hljs-string">"slide"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">slideEvt</span>) </span>{
+	$(<span class="hljs-string">"#ex6SliderVal"</span>).text(slideEvt.value);
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex6"</span>);
+slider.on(<span class="hljs-string">"slide"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">sliderValue</span>) </span>{
+	<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"ex6SliderVal"</span>).textContent = sliderValue;
+});
+</code></pre>
+
+
+            
+      	</div>
+
+      	<div id="example-7" class="slider-example">
+      		<h3>Example 7: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>Sliders can be enabled and disabled.</p>
+      		<div class="well">
+      			<div class="slider slider-horizontal slider-disabled" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 25%;"></div><div class="slider-track-high" style="right: 0px; width: 75%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 25%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">5</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="20" aria-valuenow="5" style="left: 25%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" style="left: 0%;"></div></div><input id="ex7" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="5" data-slider-enabled="false" data-value="5" value="5" style="display: none;">
+      			<input id="ex7-enabled" type="checkbox"> Enabled
+      		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex7"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"5"</span> <span class="hljs-attr">data-slider-enabled</span>=<span class="hljs-string">"false"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex7-enabled"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span>/&gt;</span> Enabled
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex7"</span>).slider();
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex7"</span>);
+
+$(<span class="hljs-string">"#ex7-enabled"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.checked) {
+		<span class="hljs-comment">// With JQuery</span>
+		$(<span class="hljs-string">"#ex7"</span>).slider(<span class="hljs-string">"enable"</span>);
+
+		<span class="hljs-comment">// Without JQuery</span>
+		slider.enable();
+	}
+	<span class="hljs-keyword">else</span> {
+		<span class="hljs-comment">// With JQuery</span>
+		$(<span class="hljs-string">"#ex7"</span>).slider(<span class="hljs-string">"disable"</span>);
+
+		<span class="hljs-comment">// Without JQuery</span>
+		slider.disable();
+	}
+});
+</code></pre>
+      	</div>
+
+      <div id="example-8" class="slider-example">
+      		<h3>Example 8: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>Tooltip can always be displayed.</p>
+      		<div class="well">
+  				<div class="slider slider-horizontal" id="ex1Slider"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 70%;"></div><div class="slider-track-high" style="right: 0px; width: 30%;"></div></div><div class="tooltip tooltip-main top in" role="presentation" style="left: 70%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">14</div></div><div class="tooltip tooltip-min top" role="presentation" style="display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max top" role="presentation" style="display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="20" aria-valuenow="14" tabindex="0" style="left: 70%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex8" data-slider-id="ex1Slider" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" data-value="14" value="14" style="display: none;">
+      		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex8"</span> <span class="hljs-attr">data-slider-id</span>=<span class="hljs-string">'ex1Slider'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"14"</span>/&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex8"</span>).slider({
+	<span class="hljs-attr">tooltip</span>: <span class="hljs-string">'always'</span>
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex8"</span>, {
+	<span class="hljs-attr">tooltip</span>: <span class="hljs-string">'always'</span>
+});
+</code></pre>
+      	</div>
+
+      <div id="example-9" class="slider-example">
+      		<h3>Example 9: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>Precision (number of places after the decimal) can be specified.</p>
+      		<div class="well">
+  				<div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 81.2%;"></div><div class="slider-track-high" style="right: 0px; width: 18.8%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 81.2%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">8.12</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="8.12" tabindex="0" style="left: 81.2%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex9" type="text" data-value="8.12" value="8.12" style="display: none;">
+      		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex9"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>/&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex9"</span>).slider({
+	<span class="hljs-attr">precision</span>: <span class="hljs-number">2</span>,
+	<span class="hljs-attr">value</span>: <span class="hljs-number">8.115</span> <span class="hljs-comment">// Slider will instantiate showing 8.12 due to specified precision</span>
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex9"</span>, {
+	<span class="hljs-attr">precision</span>: <span class="hljs-number">2</span>,
+	<span class="hljs-attr">value</span>: <span class="hljs-number">8.115</span> <span class="hljs-comment">// Slider will instantiate showing 8.12 due to specified precision</span>
+});
+</code></pre>
+      	</div>
+<div id="example-10" class="slider-example">
+    <h3>Example 10: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+    <p>Setting custom handlers.</p>
+    <div class="well">
+    <div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 50%;"></div><div class="slider-track-high" style="right: 0px; width: 50%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 50%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">5</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle custom" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="5" tabindex="0" style="left: 50%;"></div><div class="slider-handle max-slider-handle custom hide" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex10" type="text" data-slider-handle="custom" data-value="5" value="5" style="display: none;">
+    </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex10"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-handle</span>=<span class="hljs-string">"custom"</span>/&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex10"</span>).slider({});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex10"</span>, {});
+</code></pre>
+
+<h5>CSS</h5>
+<pre><code class="css hljs">
+<span class="hljs-selector-class">.slider-handle</span><span class="hljs-selector-class">.custom</span> {
+	<span class="hljs-attribute">background</span>: transparent none;
+	<span class="hljs-comment">/* You can customize the handle and set a background image */</span>
+}
+
+<span class="hljs-comment">/* Or display content like unicode characters or fontawesome icons */</span>
+<span class="hljs-selector-class">.slider-handle</span><span class="hljs-selector-class">.custom</span><span class="hljs-selector-pseudo">::before</span> {
+	<span class="hljs-attribute">line-height</span>: <span class="hljs-number">20px</span>;
+	<span class="hljs-attribute">font-size</span>: <span class="hljs-number">20px</span>;
+	<span class="hljs-attribute">content</span>: <span class="hljs-string">'\2605'</span>; <span class="hljs-comment">/*unicode star character*/</span>
+	<span class="hljs-attribute">color</span>: <span class="hljs-number">#726204</span>;
+}
+</code></pre>
+  </div>
+
+  <div id="example-11" class="slider-example">
+      <h3>Example 11: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      <p>Using a custom step interval.</p>
+      <div class="well">
+      <div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 0.0025%;"></div><div class="slider-track-high" style="right: 0px; width: 99.9975%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 0.0025%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">5</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle custom" role="slider" aria-valuemin="0" aria-valuemax="200000" aria-valuenow="5" tabindex="0" style="left: 0.0025%;"></div><div class="slider-handle max-slider-handle custom hide" role="slider" aria-valuemin="0" aria-valuemax="200000" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex11" type="text" data-slider-handle="custom" data-value="5" value="5" style="display: none;">
+      </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex11"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-handle</span>=<span class="hljs-string">"custom"</span>/&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex11"</span>).slider({<span class="hljs-attr">step</span>: <span class="hljs-number">20000</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">200000</span>});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex11"</span>, {
+	<span class="hljs-attr">step</span>: <span class="hljs-number">20000</span>,
+	<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">200000</span>
+});
+</code></pre>
+  </div>
+
+  <div id="example-12" class="slider-example">
+    <h3>Example 12: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+    <p>Coloring the low and high track segments.</p>
+	<div class="well">
+      Single-value slider, high track:<br>
+      <div class="slider slider-horizontal" id="slider12a"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 50%;"></div><div class="slider-track-high" style="right: 0px; width: 50%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 50%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">5</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="5" tabindex="0" style="left: 50%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex12a" type="text" data-value="5" value="5" style="display: none;"><br>
+      Note that there is no low track on the single-value slider.  The
+      area lesser than the value of the handle is the selection.
+      <br><br>
+      Range slider, low track:<br>
+      <div class="slider slider-horizontal" id="slider12b"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 30%;"></div><div class="slider-selection" style="left: 30%; width: 40%;"></div><div class="slider-track-high" style="right: 0px; width: 30%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 50%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">3 : 7</div></div><div class="tooltip tooltip-min top" role="presentation" style="left: 30%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">3</div></div><div class="tooltip tooltip-max top" role="presentation" style="left: 70%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">7</div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="3" tabindex="0" style="left: 30%;"></div><div class="slider-handle max-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="7" tabindex="0" style="left: 70%;"></div></div><input id="ex12b" type="text" data-value="3,7" value="3,7" style="display: none;">
+      <br><br>
+      Range slider, low and high tracks, and selection:<br>
+      <div class="slider slider-horizontal" id="slider12c"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 30%;"></div><div class="slider-selection" style="left: 30%; width: 40%;"></div><div class="slider-track-high" style="right: 0px; width: 30%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 50%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">3 : 7</div></div><div class="tooltip tooltip-min top" role="presentation" style="left: 30%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">3</div></div><div class="tooltip tooltip-max top" role="presentation" style="left: 70%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">7</div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="3" tabindex="0" style="left: 30%;"></div><div class="slider-handle max-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="7" tabindex="0" style="left: 70%;"></div></div><input id="ex12c" type="text" data-value="3,7" value="3,7" style="display: none;">
+    </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-comment">&lt;!-- Single-value slider, high track: --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex12a"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+Note that there is no low track on the single-value slider. The area to lesser than the value of the handle is the selection.
+
+<span class="hljs-comment">&lt;!-- Range slider, low track: --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex12b"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Range slider, low and high tracks, and selection: --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex12c"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex12a"</span>).slider({ <span class="hljs-attr">id</span>: <span class="hljs-string">"slider12a"</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">value</span>: <span class="hljs-number">5</span> });
+$(<span class="hljs-string">"#ex12b"</span>).slider({ <span class="hljs-attr">id</span>: <span class="hljs-string">"slider12b"</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">range</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">value</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">7</span>] });
+$(<span class="hljs-string">"#ex12c"</span>).slider({ <span class="hljs-attr">id</span>: <span class="hljs-string">"slider12c"</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">range</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">value</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">7</span>] });
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> sliderA = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex12a"</span>, { <span class="hljs-attr">id</span>: <span class="hljs-string">"slider12a"</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">value</span>: <span class="hljs-number">5</span> });
+<span class="hljs-keyword">var</span> sliderB = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex12b"</span>, { <span class="hljs-attr">id</span>: <span class="hljs-string">"slider12b"</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">range</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">value</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">7</span>] });
+<span class="hljs-keyword">var</span> sliderC = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex12c"</span>, { <span class="hljs-attr">id</span>: <span class="hljs-string">"slider12c"</span>, <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">range</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">value</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">7</span>] });
+</code></pre>
+
+<h5>CSS</h5>
+<pre><code class="css hljs">
+<span class="hljs-selector-id">#slider12a</span> <span class="hljs-selector-class">.slider-track-high</span>, <span class="hljs-selector-id">#slider12c</span> <span class="hljs-selector-class">.slider-track-high</span> {
+	<span class="hljs-attribute">background</span>: green;
+}
+
+<span class="hljs-selector-id">#slider12b</span> <span class="hljs-selector-class">.slider-track-low</span>, <span class="hljs-selector-id">#slider12c</span> <span class="hljs-selector-class">.slider-track-low</span> {
+	<span class="hljs-attribute">background</span>: red;
+}
+
+<span class="hljs-selector-id">#slider12c</span> <span class="hljs-selector-class">.slider-selection</span> {
+	<span class="hljs-attribute">background</span>: yellow;
+}
+</code></pre>
+  </div>
+
+  <div id="example-13" class="slider-example">
+      <h3>Example 13: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      <p>Using tick marks and labels.</p>
+      <div class="well">
+      <div class="slider slider-horizontal" id="" style="margin-bottom: 24px;"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection tick-slider-selection" style="left: 0%; width: 50%;"></div><div class="slider-track-high" style="right: 0px; width: 50%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 50%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">200</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-tick-label-container" style="margin-left: -26.25px;"><div class="slider-tick-label label-in-selection" style="width: 52.5px;">$0</div><div class="slider-tick-label label-in-selection" style="width: 52.5px;">$100</div><div class="slider-tick-label label-in-selection label-is-selection" style="width: 52.5px;">$200</div><div class="slider-tick-label" style="width: 52.5px;">$300</div><div class="slider-tick-label" style="width: 52.5px;">$400</div></div><div class="slider-tick-container"><div class="slider-tick round in-selection" style="left: 0%;"></div><div class="slider-tick round in-selection" style="left: 25%;"></div><div class="slider-tick round in-selection" style="left: 50%;"></div><div class="slider-tick round" style="left: 75%;"></div><div class="slider-tick round" style="left: 100%;"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="200" tabindex="0" style="left: 50%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex13" type="text" data-value="200" value="200" style="display: none;">
+      </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex13"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-ticks</span>=<span class="hljs-string">"[0, 100, 200, 300, 400]"</span> <span class="hljs-attr">data-slider-ticks-snap-bounds</span>=<span class="hljs-string">"30"</span> <span class="hljs-attr">data-slider-ticks-labels</span>=<span class="hljs-string">'["$0", "$100", "$200", "$300", "$400"]'</span>/&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex13"</span>).slider({
+    <span class="hljs-attr">ticks</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">300</span>, <span class="hljs-number">400</span>],
+    <span class="hljs-attr">ticks_labels</span>: [<span class="hljs-string">'$0'</span>, <span class="hljs-string">'$100'</span>, <span class="hljs-string">'$200'</span>, <span class="hljs-string">'$300'</span>, <span class="hljs-string">'$400'</span>],
+    <span class="hljs-attr">ticks_snap_bounds</span>: <span class="hljs-number">30</span>
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex13"</span>, {
+    <span class="hljs-attr">ticks</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">300</span>, <span class="hljs-number">400</span>],
+    <span class="hljs-attr">ticks_labels</span>: [<span class="hljs-string">'$0'</span>, <span class="hljs-string">'$100'</span>, <span class="hljs-string">'$200'</span>, <span class="hljs-string">'$300'</span>, <span class="hljs-string">'$400'</span>],
+    <span class="hljs-attr">ticks_snap_bounds</span>: <span class="hljs-number">30</span>
+});
+
+</code></pre>
+  </div>
+
+	<div id="example-14" class="slider-example">
+      <h3>Example 14: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      <p>Using tick marks at specific positions.</p>
+      <div class="well">
+      <div class="slider slider-horizontal" id="" style="margin-bottom: 24px;"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection tick-slider-selection" style="left: 0%; width: 70%;"></div><div class="slider-track-high" style="right: 0px; width: 30%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 70%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">200</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-tick-label-container"><div class="slider-tick-label label-in-selection" style="width: 52.5px; position: absolute; left: 0%; margin-left: -26.25px;">$0</div><div class="slider-tick-label label-in-selection" style="width: 52.5px; position: absolute; left: 30%; margin-left: -26.25px;">$100</div><div class="slider-tick-label label-in-selection label-is-selection" style="width: 52.5px; position: absolute; left: 70%; margin-left: -26.25px;">$200</div><div class="slider-tick-label" style="width: 52.5px; position: absolute; left: 90%; margin-left: -26.25px;">$300</div><div class="slider-tick-label" style="width: 52.5px; position: absolute; left: 100%; margin-left: -26.25px;">$400</div></div><div class="slider-tick-container"><div class="slider-tick round in-selection" style="left: 0%;"></div><div class="slider-tick round in-selection" style="left: 30%;"></div><div class="slider-tick round in-selection" style="left: 70%;"></div><div class="slider-tick round" style="left: 90%;"></div><div class="slider-tick round" style="left: 100%;"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="200" tabindex="0" style="left: 70%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex14" type="text" data-value="200" value="200" style="display: none;">
+      </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex14"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-ticks</span>=<span class="hljs-string">"[0, 100, 200, 300, 400]"</span> <span class="hljs-attr">data-slider-ticks-snap-bounds</span>=<span class="hljs-string">"30"</span> <span class="hljs-attr">data-slider-ticks-labels</span>=<span class="hljs-string">'["$0", "$100", "$200", "$300", "$400"]'</span> <span class="hljs-attr">data-slider-ticks-positions</span>=<span class="hljs-string">"[0, 30, 70, 90, 100]"</span> /&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex14"</span>).slider({
+    <span class="hljs-attr">ticks</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">300</span>, <span class="hljs-number">400</span>],
+    <span class="hljs-attr">ticks_positions</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">70</span>, <span class="hljs-number">90</span>, <span class="hljs-number">100</span>],
+    <span class="hljs-attr">ticks_labels</span>: [<span class="hljs-string">'$0'</span>, <span class="hljs-string">'$100'</span>, <span class="hljs-string">'$200'</span>, <span class="hljs-string">'$300'</span>, <span class="hljs-string">'$400'</span>],
+    <span class="hljs-attr">ticks_snap_bounds</span>: <span class="hljs-number">30</span>
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex14"</span>, {
+    <span class="hljs-attr">ticks</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">300</span>, <span class="hljs-number">400</span>],
+    <span class="hljs-attr">ticks_positions</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">70</span>, <span class="hljs-number">90</span>, <span class="hljs-number">100</span>],
+    <span class="hljs-attr">ticks_labels</span>: [<span class="hljs-string">'$0'</span>, <span class="hljs-string">'$100'</span>, <span class="hljs-string">'$200'</span>, <span class="hljs-string">'$300'</span>, <span class="hljs-string">'$400'</span>],
+    <span class="hljs-attr">ticks_snap_bounds</span>: <span class="hljs-number">30</span>
+});
+</code></pre>
+	</div>
+
+      	<div id="example-15" class="slider-example">
+      		<h3>Example 15: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>With a logarithmic scale.</p>
+      		<div class="well">
+						<div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 0%;"></div><div class="slider-track-high" style="right: 0px; width: 100%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 0%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">10</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="10" aria-valuemax="1000" aria-valuenow="10" tabindex="0" style="left: 0%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="10" aria-valuemax="1000" aria-valuenow="10" tabindex="0" style="left: 0%;"></div></div><input id="ex15" type="text" data-slider-min="1000" data-slider-max="10000000" data-slider-step="5" data-value="10" value="10" style="display: none;">
+      		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex15"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"1000"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"10000000"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"5"</span> /&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex15"</span>).slider({
+	<span class="hljs-attr">min</span>: <span class="hljs-number">1000</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">10000000</span>,
+	<span class="hljs-attr">scale</span>: <span class="hljs-string">'logarithmic'</span>,
+	<span class="hljs-attr">step</span>: <span class="hljs-number">10</span>
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">'#ex15'</span>, {
+	<span class="hljs-attr">min</span>: <span class="hljs-number">1000</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">10000000</span>,
+	<span class="hljs-attr">scale</span>: <span class="hljs-string">'logarithmic'</span>,
+	<span class="hljs-attr">step</span>: <span class="hljs-number">10</span>
+});
+</code></pre>
+
+      </div>
+
+      <div id="example-16" class="slider-example">
+        <h3>Example 16: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+        <p>Focus the slider handle after a value change.</p>
+        <div class="well">
+          Single-value slider:<br>
+          <div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 0%;"></div><div class="slider-track-high" style="right: 0px; width: 100%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 0%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">0</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="left: 0%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex16a" type="text" data-value="0" value="0" style="display: none;"><br>
+          <br><br>
+          Range slider:<br>
+          <div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 100%;"></div><div class="slider-track-high" style="right: 0px; width: 0%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 50%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">0 : 10</div></div><div class="tooltip tooltip-min top" role="presentation" style="left: 0%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">0</div></div><div class="tooltip tooltip-max top" role="presentation" style="left: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">10</div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="left: 0%;"></div><div class="slider-handle max-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="10" tabindex="0" style="left: 100%;"></div></div><input id="ex16b" type="text" data-value="0,10" value="0,10" style="display: none;">
+        </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-comment">&lt;!-- Single-value slider: --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex16a"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Range slider: --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex16b"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+Note that the slider handle that caused the value change is focused.
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex16a"</span>).slider({ <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">value</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">focus</span>: <span class="hljs-literal">true</span> });
+$(<span class="hljs-string">"#ex16b"</span>).slider({ <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">value</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">10</span>], <span class="hljs-attr">focus</span>: <span class="hljs-literal">true</span> });
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> sliderA = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex16a"</span>, { <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">value</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">focus</span>: <span class="hljs-literal">true</span> });
+<span class="hljs-keyword">var</span> sliderB = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex16b"</span>, { <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">value</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">10</span>], <span class="hljs-attr">focus</span>: <span class="hljs-literal">true</span> });
+</code></pre>
+      </div>
+
+      <div id="example-17" class="slider-example">
+      		<h3>Example 17: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+      		<p>Unusual tooltip positions.</p>
+
+      		<div class="well">
+      			Horizontal slider with tooltip on the bottom<br><br>
+      			<div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 0%;"></div><div class="slider-track-high" style="right: 0px; width: 100%;"></div></div><div class="tooltip tooltip-main bottom" role="presentation" style="top: 22px; left: 0%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">0</div></div><div class="tooltip tooltip-min bottom" role="presentation" style="top: 22px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max top" role="presentation" style="bottom: 22px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="left: 0%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex17a" type="text" data-value="0" value="0" style="display: none;"><br><br><br>
+
+      			Vertical slider with tooltip on the left<br><br>
+      			<div class="slider slider-vertical" id=""><div class="slider-track"><div class="slider-track-low" style="top: 0px; height: 0%;"></div><div class="slider-selection" style="top: 0%; height: 0%;"></div><div class="slider-track-high" style="bottom: 0px; height: 100%;"></div></div><div class="tooltip tooltip-main left" role="presentation" style="right: 100%; top: 0%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">0</div></div><div class="tooltip tooltip-min left" role="presentation" style="right: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max left" role="presentation" style="right: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="top: 0%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" tabindex="0" style="top: 0%;"></div></div><input id="ex17b" type="text" data-value="0" value="0" style="display: none;">
+      		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex17a"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex17b"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>/&gt;</span>
+</code></pre>
+
+<h5>JS</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex17a"</span>).slider({
+	<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">10</span>,
+	<span class="hljs-attr">value</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">tooltip_position</span>:<span class="hljs-string">'bottom'</span>
+});
+$(<span class="hljs-string">"#ex17b"</span>).slider({
+	<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">10</span>,
+	<span class="hljs-attr">value</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">orientation</span>: <span class="hljs-string">'vertical'</span>,
+	<span class="hljs-attr">tooltip_position</span>:<span class="hljs-string">'left'</span>
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> sliderA = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex17a"</span>, {
+	<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">10</span>,
+	<span class="hljs-attr">value</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">tooltip_position</span>:<span class="hljs-string">'bottom'</span>
+});
+
+<span class="hljs-keyword">var</span> sliderB = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex17b"</span>, {
+	<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">10</span>,
+	<span class="hljs-attr">value</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">orientation</span>: <span class="hljs-string">'vertical'</span>,
+	<span class="hljs-attr">tooltip_position</span>:<span class="hljs-string">'left'</span>
+});
+</code></pre>
+
+      </div>
+
+      <div id="example-18" class="slider-example">
+        <h3>Example 18: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+        <p>Accessibility with ARIA labels.</p>
+
+        <div class="well">
+          Slider with single value and label:<br><br>
+          <span id="ex18-label-1" class="hidden">
+            Example slider label
+          </span>
+          <div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 50%;"></div><div class="slider-track-high" style="right: 0px; width: 50%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 50%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">5</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-labelledby="ex18-label-1" aria-valuenow="5" tabindex="0" style="left: 50%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="10" aria-labelledby="ex18-label-1" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex18a" type="text" data-value="5" value="5" style="display: none;"><br><br><br>
+
+          Range slider with multiple labels:<br><br>
+          <span id="ex18-label-2a" class="hidden">
+            Example low value
+          </span>
+          <span id="ex18-label-2b" class="hidden">
+            Example high value
+          </span>
+          <div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 30%;"></div><div class="slider-selection" style="left: 30%; width: 30%;"></div><div class="slider-track-high" style="right: 0px; width: 40%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 45%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">3 : 6</div></div><div class="tooltip tooltip-min top" role="presentation" style="left: 30%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">3</div></div><div class="tooltip tooltip-max top" role="presentation" style="left: 60%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">6</div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-labelledby="ex18-label-2a" aria-valuenow="3" tabindex="0" style="left: 30%;"></div><div class="slider-handle max-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-labelledby="ex18-label-2b" aria-valuenow="6" tabindex="0" style="left: 60%;"></div></div><input id="ex18b" type="text" data-value="3,6" value="3,6" style="display: none;">
+        </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex18-label-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hidden"</span>&gt;</span>Example slider label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex18a"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>/&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex18-label-2a"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hidden"</span>&gt;</span>Example low value<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex18-label-2b"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hidden"</span>&gt;</span>Example high value<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex18b"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>/&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex18a"</span>).slider({
+	<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">10</span>,
+	<span class="hljs-attr">value</span>: <span class="hljs-number">5</span>,
+	<span class="hljs-attr">labelledby</span>: <span class="hljs-string">'ex18-label-1'</span>
+});
+$(<span class="hljs-string">"#ex18b"</span>).slider({
+	<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">10</span>,
+	<span class="hljs-attr">value</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">6</span>],
+	<span class="hljs-attr">labelledby</span>: [<span class="hljs-string">'ex18-label-2a'</span>, <span class="hljs-string">'ex18-label-2b'</span>]
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> sliderA = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex18a"</span>, {
+	<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">10</span>,
+	<span class="hljs-attr">value</span>: <span class="hljs-number">5</span>,
+	<span class="hljs-attr">labelledby</span>: <span class="hljs-string">'ex18-label-1'</span>
+});
+<span class="hljs-keyword">var</span> sliderB = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex18b"</span>, {
+	<span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+	<span class="hljs-attr">max</span>: <span class="hljs-number">10</span>,
+	<span class="hljs-attr">value</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">6</span>],
+	<span class="hljs-attr">labelledby</span>: [<span class="hljs-string">'ex18-label-2a'</span>, <span class="hljs-string">'ex18-label-2b'</span>]
+});
+</code></pre>
+      </div>
+
+      <div id="example-19" class="slider-example">
+        <h3>Example 19: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+        <p>Auto-Register data-provide="slider" Elements.</p>
+
+        <div class="well">
+          Slider-Element not accompanied by any custom Javascript:<br><br>
+          <span id="ex18-label-1" class="hidden">
+            Example slider label
+          </span>
+          <div class="slider slider-horizontal" id="" style="margin-bottom: 24px;"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection tick-slider-selection" style="left: 0%; width: 100%;"></div><div class="slider-track-high" style="right: 0px; width: 0%;"></div></div><div class="tooltip tooltip-main top hide" role="presentation" style="left: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">3</div></div><div class="tooltip tooltip-min top hide" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max hide top" role="presentation" style=""><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-tick-label-container" style="margin-left: -52.5px;"><div class="slider-tick-label label-in-selection" style="width: 105px;">short</div><div class="slider-tick-label label-in-selection" style="width: 105px;">medium</div><div class="slider-tick-label label-in-selection label-is-selection" style="width: 105px;">long</div></div><div class="slider-tick-container"><div class="slider-tick round in-selection" style="left: 0%;"></div><div class="slider-tick round in-selection" style="left: 50%;"></div><div class="slider-tick round in-selection" style="left: 100%;"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="1" aria-valuemax="3" aria-valuenow="3" tabindex="0" style="left: 100%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" tabindex="0" style="left: 0%;"></div></div><input id="ex19" type="text" data-provide="slider" data-slider-ticks="[1, 2, 3]" data-slider-ticks-labels="[&quot;short&quot;, &quot;medium&quot;, &quot;long&quot;]" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="3" data-slider-tooltip="hide" data-value="3" value="3" style="display: none;">
+        </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+ <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex18-label-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hidden"</span>&gt;</span>Example slider label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex19"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+              <span class="hljs-attr">data-provide</span>=<span class="hljs-string">"slider"</span>
+              <span class="hljs-attr">data-slider-ticks</span>=<span class="hljs-string">"[1, 2, 3]"</span>
+              <span class="hljs-attr">data-slider-ticks-labels</span>=<span class="hljs-string">'["short", "medium", "long"]'</span>
+              <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"1"</span>
+              <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"3"</span>
+              <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span>
+              <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"3"</span>
+              <span class="hljs-attr">data-slider-tooltip</span>=<span class="hljs-string">"hide"</span> /&gt;</span>
+</code></pre>
+      </div>
+
+      <div id="example-20" class="slider-example">
+        <h3>Example 20: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+        <p>Slider-Elements initially hidden.</p>
+
+        <a class="btn btn-primary" href="https://seiyria.com/bootstrap-slider/" id="ex20a">Show</a>
+        <br><br>
+        <div class="well" style="display: none">
+          Slider-Element initially hidden, revealed by Javascript:<br><br>
+          <span id="ex18-label-1" class="hidden">
+            Example slider label
+          </span>
+          <div class="slider slider-horizontal" id="" style="margin-bottom: 0px;"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection tick-slider-selection" style="left: 0%; width: 100%;"></div><div class="slider-track-high" style="right: 0px; width: 0%;"></div></div><div class="tooltip tooltip-main top hide" role="presentation" style="left: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">3</div></div><div class="tooltip tooltip-min top hide" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max top hide" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-tick-label-container" style="margin-left: 0px;"><div class="slider-tick-label label-in-selection" style="width: 0px;">short</div><div class="slider-tick-label label-in-selection" style="width: 0px;">medium</div><div class="slider-tick-label label-in-selection label-is-selection" style="width: 0px;">long</div></div><div class="slider-tick-container"><div class="slider-tick round in-selection" style="left: 0%;"></div><div class="slider-tick round in-selection" style="left: 50%;"></div><div class="slider-tick round in-selection" style="left: 100%;"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="1" aria-valuemax="3" aria-valuenow="3" tabindex="0" style="left: 100%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" tabindex="0" style="left: 0%;"></div></div><input id="ex20" type="text" data-provide="slider" data-slider-ticks="[1, 2, 3]" data-slider-ticks-labels="[&quot;short&quot;, &quot;medium&quot;, &quot;long&quot;]" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="3" data-slider-tooltip="hide" data-value="3" value="3" style="display: none;">
+        </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+ <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex20a"</span>&gt;</span>Show<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"well"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex18-label-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hidden"</span>&gt;</span>Example slider label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex19"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+                  <span class="hljs-attr">data-provide</span>=<span class="hljs-string">"slider"</span>
+                  <span class="hljs-attr">data-slider-ticks</span>=<span class="hljs-string">"[1, 2, 3]"</span>
+                  <span class="hljs-attr">data-slider-ticks-labels</span>=<span class="hljs-string">'["short", "medium", "long"]'</span>
+                  <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"1"</span>
+                  <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"3"</span>
+                  <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span>
+                  <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"3"</span>
+                  <span class="hljs-attr">data-slider-tooltip</span>=<span class="hljs-string">"hide"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+ $(<span class="hljs-string">'#ex20a'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+      $(<span class="hljs-string">'#ex20a'</span>)
+          .parent()
+          .find(<span class="hljs-string">' &gt;.well'</span>)
+          .toggle()
+          .find(<span class="hljs-string">'input'</span>)
+          .slider(<span class="hljs-string">'relayout'</span>);
+      e.preventDefault();
+  });
+</code></pre>
+      </div>
+
+      <div id="example-21" class="slider-example">
+        <h3>Example 21: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+        <p>Create an input element with the <strong>data-provide="slider"</strong> attribute automatically turns it into a slider. Options can be supplied via <strong>data-slider-</strong> attributes.</p>
+
+        <div class="well">
+	      	<div class="slider slider-horizontal" id="" style="margin-bottom: 24px;"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection tick-slider-selection" style="left: 0%; width: 100%;"></div><div class="slider-track-high" style="right: 0px; width: 0%;"></div></div><div class="tooltip tooltip-main top hide" role="presentation" style="left: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">3</div></div><div class="tooltip tooltip-min top hide" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max hide top" role="presentation" style=""><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-tick-label-container" style="margin-left: -52.5px;"><div class="slider-tick-label label-in-selection" style="width: 105px;">short</div><div class="slider-tick-label label-in-selection" style="width: 105px;">medium</div><div class="slider-tick-label label-in-selection label-is-selection" style="width: 105px;">long</div></div><div class="slider-tick-container"><div class="slider-tick round in-selection" style="left: 0%;"></div><div class="slider-tick round in-selection" style="left: 50%;"></div><div class="slider-tick round in-selection" style="left: 100%;"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="1" aria-valuemax="3" aria-valuenow="3" tabindex="0" style="left: 100%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" tabindex="0" style="left: 0%;"></div></div><input id="ex21" type="text" data-provide="slider" data-slider-ticks="[1, 2, 3]" data-slider-ticks-labels="[&quot;short&quot;, &quot;medium&quot;, &quot;long&quot;]" data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="3" data-slider-tooltip="hide" data-value="3" value="3" style="display: none;">
+        </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+ <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex21"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+          <span class="hljs-attr">data-provide</span>=<span class="hljs-string">"slider"</span>
+          <span class="hljs-attr">data-slider-ticks</span>=<span class="hljs-string">"[1, 2, 3]"</span>
+          <span class="hljs-attr">data-slider-ticks-labels</span>=<span class="hljs-string">'["short", "medium", "long"]'</span>
+          <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"1"</span>
+          <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"3"</span>
+          <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span>
+          <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"3"</span>
+          <span class="hljs-attr">data-slider-tooltip</span>=<span class="hljs-string">"hide"</span> /&gt;</span>
+</code></pre>
+      </div>
+
+    <div id="example-22" class="slider-example">
+		  <h3>Example 22: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+		  <p>Highlight ranges on slider with <strong>rangeHighlights</strong> attribute.</p>
+
+		  <div class="well">
+			  <div class="slider slider-horizontal" id="slider22"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 70%;"></div><div class="slider-track-high" style="right: 0px; width: 30%;"></div><div class="slider-rangeHighlight slider-selection category1" style="left: 10%; width: 15%;"></div><div class="slider-rangeHighlight slider-selection category2" style="left: 35%; width: 5%;"></div><div class="slider-rangeHighlight slider-selection " style="left: 85%; width: 10%;"></div><div class="slider-rangeHighlight slider-selection " style="display: none;"></div><div class="slider-rangeHighlight slider-selection " style="display: none;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 70%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">14</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="20" aria-valuenow="14" tabindex="0" style="left: 70%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex22" type="text" data-slider-id="slider22" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" data-slider-rangehighlights="[{ &quot;start&quot;: 2, &quot;end&quot;: 5, &quot;class&quot;: &quot;category1&quot; },
+					                               { &quot;start&quot;: 7, &quot;end&quot;: 8, &quot;class&quot;: &quot;category2&quot; },
+					                               { &quot;start&quot;: 17, &quot;end&quot;: 19 },
+					                               { &quot;start&quot;: 17, &quot;end&quot;: 24 },
+					                               { &quot;start&quot;: -3, &quot;end&quot;: 19 }]" data-value="14" value="14" style="display: none;">
+		  </div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex22"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+     <span class="hljs-attr">data-slider-id</span>=<span class="hljs-string">"slider22"</span>
+     <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"0"</span>
+     <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"20"</span>
+     <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span>
+     <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"14"</span>
+     <span class="hljs-attr">data-slider-rangeHighlights</span>=<span class="hljs-string">'[{ "start": 2, "end": 5, "class": "category1" },
+                                   { "start": 7, "end": 8, "class": "category2" },
+                                   { "start": 17, "end": 19 },
+                                   { "start": 17, "end": 24 }, //not visible -  out of slider range
+                                   { "start": -3, "end": 19 }]'</span> /&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">'#ex22'</span>).slider({
+    <span class="hljs-attr">id</span>: <span class="hljs-string">'slider22'</span>,
+    <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">max</span>: <span class="hljs-number">20</span>,
+    <span class="hljs-attr">step</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">value</span>: <span class="hljs-number">14</span>,
+    <span class="hljs-attr">rangeHighlights</span>: [{ <span class="hljs-string">"start"</span>: <span class="hljs-number">2</span>, <span class="hljs-string">"end"</span>: <span class="hljs-number">5</span>, <span class="hljs-string">"class"</span>: <span class="hljs-string">"category1"</span> },
+                      { <span class="hljs-string">"start"</span>: <span class="hljs-number">7</span>, <span class="hljs-string">"end"</span>: <span class="hljs-number">8</span>, <span class="hljs-string">"class"</span>: <span class="hljs-string">"category2"</span> },
+                      { <span class="hljs-string">"start"</span>: <span class="hljs-number">17</span>, <span class="hljs-string">"end"</span>: <span class="hljs-number">19</span> },
+                      { <span class="hljs-string">"start"</span>: <span class="hljs-number">17</span>, <span class="hljs-string">"end"</span>: <span class="hljs-number">24</span> },
+                      { <span class="hljs-string">"start"</span>: <span class="hljs-number">-3</span>, <span class="hljs-string">"end"</span>: <span class="hljs-number">19</span> }]});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex22"</span>, {
+    <span class="hljs-attr">id</span>: <span class="hljs-string">'slider22'</span>,
+    <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">max</span>: <span class="hljs-number">20</span>,
+    <span class="hljs-attr">step</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">value</span>: <span class="hljs-number">14</span>,
+    <span class="hljs-attr">rangeHighlights</span>: [{ <span class="hljs-string">"start"</span>: <span class="hljs-number">2</span>, <span class="hljs-string">"end"</span>: <span class="hljs-number">5</span>, <span class="hljs-string">"class"</span>: <span class="hljs-string">"category1"</span> },
+                      { <span class="hljs-string">"start"</span>: <span class="hljs-number">7</span>, <span class="hljs-string">"end"</span>: <span class="hljs-number">8</span>, <span class="hljs-string">"class"</span>: <span class="hljs-string">"category2"</span> },
+                      { <span class="hljs-string">"start"</span>: <span class="hljs-number">17</span>, <span class="hljs-string">"end"</span>: <span class="hljs-number">19</span> },
+                      { <span class="hljs-string">"start"</span>: <span class="hljs-number">17</span>, <span class="hljs-string">"end"</span>: <span class="hljs-number">24</span> },
+                      { <span class="hljs-string">"start"</span>: <span class="hljs-number">-3</span>, <span class="hljs-string">"end"</span>: <span class="hljs-number">19</span> }]});
+</code></pre>
+
+<h5>CSS</h5>
+<pre><code class="css hljs">
+<span class="hljs-selector-id">#slider22</span> <span class="hljs-selector-class">.slider-selection</span> {
+	<span class="hljs-attribute">background</span>: <span class="hljs-number">#81bfde</span>;
+}
+
+<span class="hljs-selector-id">#slider22</span> <span class="hljs-selector-class">.slider-rangeHighlight</span> {
+	<span class="hljs-attribute">background</span>: <span class="hljs-number">#f70616</span>;
+}
+
+<span class="hljs-selector-id">#slider22</span> <span class="hljs-selector-class">.slider-rangeHighlight</span><span class="hljs-selector-class">.category1</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#FF9900</span>;
+}
+
+<span class="hljs-selector-id">#slider22</span> <span class="hljs-selector-class">.slider-rangeHighlight</span><span class="hljs-selector-class">.category2</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#99CC00</span>;
+}
+
+</code></pre>
+	  </div>
+
+	  	<div id="example-23" class="slider-example">
+		<h3>Example 23: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+		<p>Using tick marks at specific positions.</p>
+		<div class="well">
+		<div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection tick-slider-selection" style="left: 0%; width: 100%;"></div><div class="slider-track-high" style="right: 0px; width: 0%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Current value: 4</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-tick-container"><div class="slider-tick round in-selection" style="left: 0%;"></div><div class="slider-tick round in-selection" style="left: 30%;"></div><div class="slider-tick round in-selection" style="left: 70%;"></div><div class="slider-tick round in-selection" style="left: 90%;"></div><div class="slider-tick round in-selection" style="left: 100%;"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="4" aria-valuetext="Current value: 4" tabindex="0" style="left: 100%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" aria-valuetext="Current value: 0" tabindex="0" style="left: 0%;"></div></div><input id="ex23" type="text" data-value="4" value="4" style="display: none;">
+		</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex23"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-ticks</span>=<span class="hljs-string">"[0, 1, 2, 3, 4]"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"0.01"</span> <span class="hljs-attr">data-slider-ticks-snap-bounds</span>=<span class="hljs-string">"200"</span> <span class="hljs-attr">data-slider-ticks-tooltip</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">ticks_positions</span>=<span class="hljs-string">"[0, 30, 60, 70, 90, 100]"</span> /&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex23"</span>).slider({
+    <span class="hljs-attr">ticks</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+    <span class="hljs-attr">ticks_positions</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">90</span>, <span class="hljs-number">100</span>],
+    <span class="hljs-attr">ticks_snap_bounds</span>: <span class="hljs-number">200</span>,
+	<span class="hljs-attr">formatter</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>{
+		<span class="hljs-keyword">return</span> <span class="hljs-string">'Current value: '</span> + value;
+	},
+	<span class="hljs-attr">ticks_tooltip</span>: <span class="hljs-literal">true</span>,
+	<span class="hljs-attr">step</span>: <span class="hljs-number">0.01</span>
+});
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">"#ex23"</span>, {
+    <span class="hljs-attr">ticks</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+	<span class="hljs-attr">ticks_positions</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">30</span>, <span class="hljs-number">70</span>, <span class="hljs-number">90</span>, <span class="hljs-number">100</span>],
+    <span class="hljs-attr">ticks_snap_bounds</span>: <span class="hljs-number">200</span>,
+	<span class="hljs-attr">formatter</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>{
+		<span class="hljs-keyword">return</span> <span class="hljs-string">'Current value: '</span> + value;
+	},
+	<span class="hljs-attr">ticks_tooltip</span>: <span class="hljs-literal">true</span>,
+	<span class="hljs-attr">step</span>: <span class="hljs-number">0.01</span>
+});
+</code></pre>
+	</div>
+
+			<div id="example-24" class="slider-example">
+				<h3>Example 24: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+				<p>rtl mode (auto).</p>
+				<div class="well" dir="rtl">
+					<span>-5</span>
+						<div class="slider slider-horizontal slider-rtl" id=""><div class="slider-track"><div class="slider-track-low" style="right: 0px; width: 0%;"></div><div class="slider-selection" style="right: 0%; width: 76%;"></div><div class="slider-track-high" style="left: 0px; width: 24%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="right: 76%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">14</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="-5" aria-valuemax="20" aria-valuenow="14" tabindex="0" style="right: 76%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="-5" aria-valuemax="20" aria-valuenow="-5" tabindex="0" style="right: 0%;"></div></div><input id="ex24" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="14" data-value="14" value="14" style="display: none;">
+					<span>20</span>
+				</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'well'</span> <span class="hljs-attr">dir</span> =<span class="hljs-string">"rtl"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>-5<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>20<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex24"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"-5"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"14"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex24"</span>).slider({});
+</code></pre>
+			</div>
+
+		  <div id="example-25" class="slider-example">
+			  <h3>Example 25: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+			  <p>Lock selection to ticks</p>
+			  <div class="well">
+				  <div class="slider slider-horizontal" id=""><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection tick-slider-selection" style="left: 0%; width: 100%;"></div><div class="slider-track-high" style="right: 0px; width: 0%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 50%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">1 : 100</div></div><div class="tooltip tooltip-min top" role="presentation" style="left: 0%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">1</div></div><div class="tooltip tooltip-max top" role="presentation" style="left: 100%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">100</div></div><div class="slider-tick-container"><div class="slider-tick round in-selection" style="left: 0%;"></div><div class="slider-tick round in-selection" style="left: 49.4949%;"></div><div class="slider-tick round in-selection" style="left: 100%;"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1" tabindex="0" style="left: 0%;"></div><div class="slider-handle max-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="10" aria-valuenow="100" tabindex="0" style="left: 100%;"></div></div><input id="ex25" type="text" data-value="1,100" value="1,100" style="display: none;">
+			  </div>
+			  <h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex25"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"[1, 100]"</span> <span class="hljs-attr">data-slider-ticks</span>=<span class="hljs-string">"[1, 50, 100]"</span> <span class="hljs-attr">data-slider-lock-to-ticks</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+</code></pre>
+
+			  <h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">"#ex25"</span>).slider({
+	<span class="hljs-attr">value</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">100</span>],
+	<span class="hljs-attr">ticks</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>],
+	<span class="hljs-attr">lock_to_ticks</span>: <span class="hljs-literal">true</span>
+});
+</code></pre>
+		  </div>
+
+			<div id="example-26" class="slider-example">
+				<h3>Example 26: <a href="https://seiyria.com/bootstrap-slider/#top"><small>Back to Top</small></a></h3>
+				<p>Refresh method with optional `options` object</p>
+				<div class="well">
+					<div class="slider slider-horizontal" id="ex26Slider"><div class="slider-track"><div class="slider-track-low" style="left: 0px; width: 0%;"></div><div class="slider-selection" style="left: 0%; width: 50%;"></div><div class="slider-track-high" style="right: 0px; width: 50%;"></div></div><div class="tooltip tooltip-main top" role="presentation" style="left: 50%;"><div class="tooltip-arrow"></div><div class="tooltip-inner">10</div></div><div class="tooltip tooltip-min top" role="presentation"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="tooltip tooltip-max bottom" role="presentation" style="top: 18px;"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div class="slider-handle min-slider-handle round" role="slider" aria-valuemin="0" aria-valuemax="20" aria-valuenow="10" tabindex="0" style="left: 50%;"></div><div class="slider-handle max-slider-handle round hide" role="slider" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0" tabindex="0" style="left: 0%;"></div></div><input id="ex26" data-slider-id="ex26Slider" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="10" data-value="10" value="10" style="display: none;">
+					<button id="ex26_Refresh" class="btn btn-primary">Refresh</button>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="ex26_UseCurrentVal">
+						<label class="form-check-label" for="ex26_UseCurrentVal">
+							Use Current Value
+						</label>
+					</div>
+				</div>
+<h5>HTML</h5>
+<pre><code class="html hljs xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ex26"</span> <span class="hljs-attr">data-slider-id</span>=<span class="hljs-string">"ex26Slider"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">data-slider-min</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">data-slider-max</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">data-slider-step</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">data-slider-value</span>=<span class="hljs-string">"10"</span>/&gt;</span>
+</code></pre>
+
+<h5>JavaScript</h5>
+<pre><code class="js hljs javascript">
+<span class="hljs-comment">// With JQuery</span>
+$(<span class="hljs-string">'#ex26'</span>).slider(<span class="hljs-string">'refresh'</span>, { <span class="hljs-attr">useCurrentValue</span>: <span class="hljs-literal">true</span> });
+
+<span class="hljs-comment">// Without JQuery</span>
+<span class="hljs-keyword">var</span> slider = <span class="hljs-keyword">new</span> Slider(<span class="hljs-string">'#ex26'</span>);
+slider.refresh({ <span class="hljs-attr">useCurrentValue</span>: <span class="hljs-literal">true</span> });
+</code></pre>
+			</div> <!-- /example-26 -->
+
+	  </div> <!-- /examples -->
+    </div> <!-- /container -->
+
+
+    <!-- core JavaScript
+    ================================================== -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./demo_files/bootstrap-slider.js.download"></script>
+    <script type="text/javascript" src="./demo_files/highlight.min.js.download"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		/* Example 1 */
+	    	$('#ex1').slider({
+	          	formatter: function(value) {
+	            	return 'Current value: ' + value;
+	          	}
+	        });
+
+	    	/* Example 2 */
+	        $("#ex2").slider({});
+
+	        /* Example 3 */
+	        var RGBChange = function() {
+	          $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
+	        };
+
+	        var r = $('#R').slider()
+	                	.on('slide', RGBChange)
+	                	.data('slider');
+	        var g = $('#G').slider()
+	                	.on('slide', RGBChange)
+	                	.data('slider');
+	        var b = $('#B').slider()
+	                	.on('slide', RGBChange)
+	                	.data('slider');
+
+	        /* Example 4 */
+	        $("#ex4").slider({
+	        	reversed : true
+	        });
+
+	        /* Example 5 */
+	        $("#ex5").slider();
+			$("#destroyEx5Slider").click(function() {
+				$("#ex5").slider('destroy');
+			});
+
+			/* Example 6 */
+			$("#ex6").slider();
+			$("#ex6").on('slide', function(slideEvt) {
+				$("#ex6SliderVal").text(slideEvt.value);
+			});
+
+			/* Example 7 */
+			$("#ex7").slider();
+			$("#ex7-enabled").click(function() {
+				if(this.checked) {
+					$("#ex7").slider("enable");
+				}
+				else {
+					$("#ex7").slider("disable");
+				}
+			});
+
+			/* Example 8 */
+			$("#ex8").slider({
+				tooltip: 'always'
+			});
+
+			/* Example 9 */
+			$("#ex9").slider({
+				precision: 2,
+				value: 8.115
+			});
+
+	      	/* Example 10 */
+	      	$("#ex10").slider({});
+
+	      	/* Example 11 */
+	      	$("#ex11").slider({
+		        step: 20000,
+		        min: 0,
+		        max: 200000
+	      	});
+
+			/* Example 12 */
+			$("#ex12a").slider({
+				id: "slider12a",
+				min: 0,
+				max: 10,
+				value: 5
+            });
+			$("#ex12b").slider({
+				id: "slider12b",
+				min: 0,
+				max: 10,
+				range: true,
+				value: [ 3, 7 ]
+			});
+			$("#ex12c").slider({
+				id: "slider12c",
+				min: 0,
+				max: 10,
+				range: true,
+				value: [ 3, 7 ]
+			});
+
+			/* Example 13 */
+			$("#ex13").slider({
+				ticks: [0, 100, 200, 300, 400],
+				ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
+				ticks_snap_bounds: 30,
+				value: 200
+			});
+
+			/* Example 14 */
+			$("#ex14").slider({
+				ticks: [0, 100, 200, 300, 400],
+				ticks_labels: ['$0', '$100', '$200', '$300', '$400'],
+				ticks_positions: [0, 30, 70, 90, 100],
+				ticks_snap_bounds: 20,
+				value: 200,
+			});
+
+			/* Example 15 */
+			$("#ex15").slider({
+				min: 10,
+				max: 1000,
+				scale: 'logarithmic',
+				step: 10
+			});
+
+			/* Example 16 */
+			$("#ex16a").slider({
+				min  : 0,
+				max  : 10,
+				value: 0,
+				focus: true
+			});
+			$("#ex16b").slider({
+				min  : 0,
+				max  : 10,
+				value: [ 0, 10 ],
+				focus: true
+			});
+
+			/* Example 17 */
+			$("#ex17a").slider({
+				min  : 0,
+				max  : 10,
+				value: 0,
+				tooltip_position:'bottom'
+			});
+			$("#ex17b").slider({
+				min  : 0,
+				max  : 10,
+				value: 0,
+				orientation: 'vertical',
+				tooltip_position:'left'
+			});
+
+			/* Example 18 */
+			$('#ex18a').slider({
+				min  : 0,
+				max  : 10,
+				value: 5,
+				labelledby: 'ex18-label-1'
+			});
+
+			$('#ex18b').slider({
+				min  : 0,
+				max  : 10,
+				value: [3, 6],
+				labelledby: ['ex18-label-2a', 'ex18-label-2b']
+			});
+
+			$('#ex20a').on('click', function(e) {
+				$('#ex20a')
+					.parent()
+					.find(' >.well')
+					.toggle()
+					.find('input')
+					.slider('relayout');
+				e.preventDefault();
+			});
+
+			/* Example 22 */
+            $('#ex22').slider({});
+
+			/* Example 23 */
+            $('#ex23').slider({
+				ticks: [0, 1, 2, 3, 4],
+				ticks_positions: [0, 30, 70, 90, 100],
+				formatter: function(value) {
+					return 'Current value: ' + value;
+				},
+				step: 0.01,
+				ticks_tooltip: true
+			});
+
+			/* example 24 */
+			$('#ex24').slider({});
+
+			/* example 25 */
+			$("#ex25").slider({
+				value: [1, 100],
+				ticks: [1, 50, 100],
+				lock_to_ticks: true
+			});
+
+			/* example 26 */
+			$('#ex26').slider();
+
+			$('#ex26_Refresh').on('click', function() {
+				if ($('#ex26_UseCurrentVal').prop('checked')) {
+					$('#ex26').slider('refresh', { useCurrentValue: true });
+				}
+				else {
+					$('#ex26').slider('refresh');
+				}
+			});
+		});
+    </script>
+    <!-- Placed at the end of the document so the pages load faster -->
+  
+
+</body></html>

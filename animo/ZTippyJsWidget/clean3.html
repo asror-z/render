@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.2.3/animations/scale.css"/>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+    <style>
+        .css-f0o5i {
+            -webkit-tap-highlight-color: transparent;
+            font-family: inherit;
+            line-height: 1.15;
+            overflow: visible;
+            text-transform: none;
+            -webkit-appearance: button;
+            border: 2px dashed #5183f5;
+            will-change: opacity;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.1s;
+            outline: 0px;
+            margin: 100px 100px;
+            background: white;
+            color: #5183f5;
+            width: 200px;
+        }
+
+        .css-f0o5i:hover {
+            background: #5183f5;
+            color: white;
+        }
+    </style>
+    <title>FollowCursor</title>
+</head>
+<body>
+<button class="css-f0o5i">Text1</button>
+<script>
+    tippy('.css-f0o5i', {
+        content: 'My button',
+        followCursor: true,
+        followCursor: 'horizontal'
+    });
+
+</script>
+</body>
+</html>

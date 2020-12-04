@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.1-rc1/lazysizes.min.js" async=""></script>
+    <style>
+        .blur-up {
+            -webkit-filter: blur(5px);
+            filter: blur(5px);
+            transition: filter 400ms, -webkit-filter 400ms;
+        }
+
+        .blur-up.lazyloaded {
+            -webkit-filter: blur(0);
+            filter: blur(0);
+        }
+    </style>
+    <!-- ... -->
+    <style>
+        .fade-box .lazyload,
+        .fade-box .lazyloading {
+            opacity: 0;
+            transition: opacity 400ms;
+        }
+
+        .fade-box img.lazyloaded {
+            opacity: 1;
+        }
+    </style>
+    <style>
+        .no-js img.lazyload {
+            display: none;
+        }
+    </style>
+    <style>
+        .lazyload,
+        .lazyloading {
+            opacity: 0;
+        }
+        .lazyloaded {
+            opacity: 1;
+            transition: opacity 300ms;
+        }
+    </style>
+    <style>
+        .ratio-container {
+            position: relative;
+        }
+        .ratio-container:after {
+            content: '';
+            display: block;
+            height: 0;
+            width: 100%;
+            /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
+            padding-bottom: 42.86%;
+        }
+        .ratio-container > * {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
+    <style>
+        .ratio-box {
+            position: relative;
+            height: 0;
+            display: block;
+            width: 100%;
+            /* padding-bottom is calculated and rendered in to HTML */
+        }
+
+        .ratio-box img,
+        .ratio-box iframe,
+        .ratio-box video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
+    <style>
+        .ratio-container {
+            position: relative;
+        }
+        .ratio-container:after {
+            content: '';
+            display: block;
+            height: 0;
+            width: 100%;
+            /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
+            padding-bottom: 56.25%;
+            content: "";
+        }
+        .ratio-container > * {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* unknown ration variation */
+        .unknown-ratio-container > * {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+
+    <img data-src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" class="lazyload" />
+          <img  data-sizes="auto"
+            data-src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg"
+            data-srcset="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 300w,
+        https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 600w,
+        https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 900w" class="lazyload" />
+    <iframe frameborder="0"
+            class="lazyload"
+            allowfullscreen=""
+            data-src="//www.youtube.com/embed/ZfV-aYdU4uE">
+    </iframe>
+    <img data-srcset="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 2x" class="lazyload" />
+    <img
+            data-sizes="auto"
+            data-srcset="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 300w,
+	    https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 600w,
+	    https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 900w"
+            class="lazyload" />
+    <img
+            class="lazyload"
+            data-srcset="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 1x, data:image/jpeg;base64,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 2x"
+            alt="my image" />
+    <img class="lazyload"
+         data-srcset="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 1x, https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 2x"
+         alt="my image" />
+    <img
+            data-sizes="auto"
+            data-srcset="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 300w,
+	    https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 600w,
+	    https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 900w"
+            class="lazyload" />
+    <img
+            data-sizes="auto"
+            src=""
+            data-srcset="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 220w,
+    https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 300w,
+    https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 600w,
+    https://klike.net/uploads/posts/2019-06/1560661436_1.jpg 900w" class="lazyload" />
+
+    <!-- or non-responsive: -->
+    <img src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" data-src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" class="lazyload" />
+
+
+
+    <img src="" data-src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" class="lazyload blur-up" />
+
+
+    <div class="ratio-box fade-box">
+        <img src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" />
+        <img data-src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg" class="lazyload" />
+    </div>
+    <img
+            src="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg"
+            srcset="data:https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-srcset="https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 600w,
+		https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 220w,
+	    https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 300w,
+	    https://bipbap.ru/wp-content/uploads/2017/04/priroda_kartinki_foto_03.jpg 900w"
+            data-sizes="auto"
+            class="lazyload" />
+    <noscript>
+        <img src="https://klike.net/uploads/posts/2019-06/1560661436_1.jpg" />
+    </noscript>
+    <img src="https://klike.net/uploads/posts/2019-06/1560661436_1.jpg" data-src="https://klike.net/uploads/posts/2019-06/1560661436_1.jpg" class="lazyload" />
+
+    <div class="teaser lazyload" data-expand="-20">
+        <img data-src="https://klike.net/uploads/posts/2018-07/1531640449_1.jpg" class="lazyload" />
+        <h1>Teaser Title</h1>
+        <p>...</p>
+    </div>
+
+    <picture>
+        <!--[if IE 9]><video style="display: none;><![endif]-->
+        <source
+                data-srcset="http://placehold.it/500x600/11e87f/fff"
+                media="--small" />
+        <source
+                data-srcset="http://placehold.it/700x300"
+                media="--medium" />
+        <source
+                data-srcset="http://placehold.it/1400x600/e8117f/fff"
+                media="--large" />
+        <source
+                data-srcset="http://placehold.it/1800x900/117fe8/fff" />
+        <!--[if IE 9]></video><![endif]-->
+        <img
+
+                data-src="http://placehold.it/1400x600/e8117f/fff"
+                class="lazyload"
+                alt="image with artdirection" />
+    </picture>
+
+    <div class="slider lazyload lazypreload"></div>
+    
+    <div class="chart lazyload" data-expand="-10"></div>
+    <img
+
+            style="width: 350px; height: 150px;"
+            data-srcset="https://klike.net/uploads/posts/2018-07/1531640449_1.jpg 1x,
+    https://klike.net/uploads/posts/2018-07/1531640449_1.jpg 2x"
+            data-src="https://klike.net/uploads/posts/2018-07/1531640449_1.jpg"
+            class="lazyload" />
+    <div class="ratio-container">
+    <img
+
+                data-sizes="auto"
+                data-srcset="https://klike.net/uploads/posts/2018-07/1531640449_1.jpg 175w,
+        https://klike.net/uploads/posts/2018-07/1531640449_1.jpg 350w,
+        https://klike.net/uploads/posts/2018-07/1531640449_1.jpg 700w,
+        https://klike.net/uploads/posts/2018-07/1531640449_1.jpg 1400w"
+                data-src="https://klike.net/uploads/posts/2018-07/1531640449_1.jpg"
+                class="lazyload" />
+    </div>
+
+    <div class="ratio-box" style="padding-bottom: 42.85% /* calc(75 / 175 * 100%)*/;">
+        <img
+
+                data-sizes="auto"
+                data-srcset="http://placehold.it/175x75 175w,
+        http://placehold.it/350x150 350w,
+        http://placehold.it/700x300 700w,
+        http://placehold.it/1400x600 1400w"
+                data-src="http://placehold.it/700x300"
+                class="lazyload" />
+    </div>
+    <div class="ratio-container unknown-ratio-container">
+        <img
+
+                data-src="http://placehold.it/350x150"
+                class="lazyload" />
+    </div>
+    <img
+            data-sizes="auto"
+
+            data-srcset="https://www.tripzaza.com/ru/destinations/files/2018/08/shutterstock_605105897-e1534228891646.jpg 300w,
+    https://www.tripzaza.com/ru/destinations/files/2018/08/shutterstock_605105897-e1534228891646.jpg 600w,
+   https://www.tripzaza.com/ru/destinations/files/2018/08/shutterstock_605105897-e1534228891646.jpg 900w"
+            data-src="https://www.tripzaza.com/ru/destinations/files/2018/08/shutterstock_605105897-e1534228891646.jpg"
+            class="lazyload" />
+
+    <!-- or non-responsive: -->
+    <img
+            data-src="https://www.tripzaza.com/ru/destinations/files/2018/08/shutterstock_605105897-e1534228891646.jpg"
+            class="lazyload" />
+
+    <script>
+        window.lazySizesConfig = window.lazySizesConfig || {};
+        window.lazySizesConfig.customMedia = {
+            '--small': '(max-width: 480px)',
+            '--medium': '(max-width: 900px)',
+            '--large': '(max-width: 1400px)',
+        };
+    </script>
+    <script>
+        window.lazySizesConfig = window.lazySizesConfig || {};
+        window.lazySizesConfig.init = false;
+        window.lazySizesConfig.lazyClass = 'lazy';
+        lazySizesConfig.srcAttr = 'data-original';
+        lazySizesConfig.loadMode = 1;
+        document.addEventListener('lazybeforeunveil', function(e){
+
+            var bg = e.target.getAttribute('data-bg');
+            if(bg){
+                e.target.style.backgroundImage = 'url(' + bg + ')';
+            }
+        });
+    </script>
+
+
+    
+</body>
+</html>

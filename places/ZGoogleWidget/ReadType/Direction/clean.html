@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <script>
+        function initMap() {
+            var directionsService = new google.maps.DirectionsService;
+            var directionsRenderer = new google.maps.DirectionsRenderer;
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 6,
+                center: {lat: 41.85, lng: -87.65}
+            });
+            directionsRenderer.setMap(map);
+
+            document.getElementById('submit').addEventListener('click', function() {
+                calculateAndDisplayRoute(directionsService, directionsRenderer);
+            });
+        }
+
+        function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+            var waypts = [];
+            var checkboxArray = document.getElementById('waypoints');
+            for (var i = 0; i < checkboxArray.length; i++) {
+                if (checkboxArray.options[i].selected) {
+                    waypts.push({
+                        location: checkboxArray[i].value,
+                        stopover: true
+                    });
+                }
+            }
+
+            directionsService.route({
+                origin: document.getElementById('start').value,
+                destination: document.getElementById('end').value,
+                waypoints: waypts,
+                optimizeWaypoints: true,
+                travelMode: 'DRIVING'
+            }, function(response, status) {
+                if (status === 'OK') {
+                    directionsRenderer.setDirections(response);
+                    var route = response.routes[0];
+                    var summaryPanel = document.getElementById('directions-panel');
+                    summaryPanel.innerHTML = '';
+                    // For each route, display summary information.
+                    for (var i = 0; i < route.legs.length; i++) {
+                        var routeSegment = i + 1;
+                        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+                            '</b><br>';
+                        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+                        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+                        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+                    }
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <strong>Start: </strong>
+    <select id="start">
+        <option value="penn station, new york, ny">Penn Station</option>
+        <option value="grand central station, new york, ny">Grand Central Station</option>
+        <option value="625 8th Avenue New York NY 10018">Port Authority Bus Terminal</option>
+        <option value="staten island ferry terminal, new york, ny">Staten Island Ferry Terminal</option>
+        <option value="101 E 125th Street, New York, NY">Harlem - 125th St Station</option>
+    </select>
+    <strong>End: </strong>
+    <select id="end" onchange="calcRoute();">
+        <option value="260 Broadway New York NY 10007">City Hall</option>
+        <option value="W 49th St & 5th Ave, New York, NY 10020">Rockefeller Center</option>
+        <option value="moma, New York, NY">MOMA</option>
+        <option value="350 5th Ave, New York, NY, 10118">Empire State Building</option>
+        <option value="253 West 125th Street, New York, NY">Apollo Theatre</option>
+        <option value="1 Wall St, New York, NY">Wall St</option>
+    </select>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<script src="SIPml-api.js?svn=230" type="text/javascript" defer></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/sipml@2.1.4/SIPml-api.js"></script>
+    <script src="corePhone.js" type="text/javascript" defer></script>
+    <script type="text/javascript" src="./assets/js/jquery.js" defer></script>
+    <script src="phonePopupUI.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" type="text/css" href="phonePopupUI.css">
+</head>
+<body>
+    Иванов Иван
+    <p> счётчик страниц:&nbsp;<label id="window_count_label"></label> </p>
+    <div id="popup">
+        <div id="popup_bar">
+            Телефон
+            <span id="btn_close"> [X] </span>
+        </div>
+        <p>
+            Номер:
+            <input id="phone_popup_number" type="text" size="16">
+        </p>
+        <p>
+            <input type="button" disabled id="btnCall" value="Call" onclick='call();' />
+            <input type="button" disabled id="btnHangUp" value="HangUp" onclick='hangup();' />
+        </p>
+
+        <div style="font-size:10pt;">
+        <p>
+            соединение с сервером:&nbsp;
+            <label id="txtRegStatus"></label>
+        </p>
+        <p>
+            статус звонка:&nbsp;
+            <label id="txtCallStatus"></label>
+        </p>
+        <p>
+            состояние:&nbsp;
+            <label id="txtState"></label>
+        </p>
+        </div>
+    </div>
+    <p>
+        <input type="button" value="post" onclick='post();' />
+        post result:&nbsp;
+        <label id="postResult"></label>
+    </p>
+    <p><label id="postRun"></label></p>
+    <p><label id="postCallback"></label></p>
+    <script>
+        function postCallback(data){
+            document.getElementById('postResult').value = document.getElementById('postResult').innerHTML = data.toString();
+            document.getElementById('postCallback').value = document.getElementById('postCallback').innerHTML = "callback";
+            console.log("callback");
+        }
+        function post(){
+            $.ajax({
+                type: 'POST',
+                url: 'http://192.168.0.105/vtigercrm/phone_js_data/server_info.php',
+                data: 'hard123hard',
+                success: postCallback(),
+                //dataType: "json",
+                //format: "json"
+            });
+            $.post("http://192.168.0.105/vtigercrm/phone_js_data/server_info.php", function(data) {
+                alert("Data Loaded: " + data.toString());
+            });
+            console.log("post");
+            document.getElementById('postRun').value = document.getElementById('postRun').innerHTML = "post run ok";
+        }
+    </script>
+    <div id="aside_popup_phone">
+        <input type="button" id="btnShowHidePopup" value="Телефон" onclick='show_hide_popup();' />
+    </div>
+    <p>
+        <input type="button" id="btnRegister" value="Register" onclick='register();' />
+        <input type="button" id="btnUnRegister" value="Unregister" onclick='unregister();' />
+    </p>
+
+    <audio id="audio_remote" autoplay="autoplay"></audio>
+    <audio id="ringtone" loop src="sounds/ringtone.wav"></audio>
+    <audio id="ringbacktone" loop src="sounds/ringbacktone.wav"></audio>
+</body>
+</html>

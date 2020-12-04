@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>jQuery UI Multiselect</title>
+    <link rel="stylesheet" href="demo_files/common.css" type="text/css">
+
+    <link type="text/css" rel="stylesheet" href="demo_files/jquery-ui.css">
+
+    <link type="text/css" href="demo_files/ui.css" rel="stylesheet">
+
+    <script type="text/javascript" src="demo_files/jquery_002.js"></script>
+    <script type="text/javascript" src="demo_files/jquery-ui.js"></script>
+    <script type="text/javascript" src="demo_files/jquery.js"></script>
+    <script type="text/javascript" src="demo_files/jquery_003.js"></script>
+    <script type="text/javascript" src="demo_files/ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.localise('ui-multiselect', {/*language: 'en',*/ path: 'js/locale/'});
+            $(".multiselect").multiselect();
+            $('#switcher').themeswitcher();
+        });
+    </script>
+</head>
+<body>
+<a href="http://github.com/michael/multiselect"><img style="position: absolute; top: 0; right: 0; border: 0;"
+                                                     src="demo_files/forkme_right_white_ffffff.png"
+                                                     alt="Fork me on GitHub"></a>
+
+<div id="wrapper">
+    <div id="header">
+        <h1>jQuery UI Multiselect</h1>
+        <p>
+            Another attempt of a <em>sortable</em>, <em>searchable</em> multiple select widget
+        </p>
+
+        <ul id="nav">
+            <li><a href="http://quasipartikel.at/2009/05/10/jqueryui-multiselect/">Blogpost</a></li>
+            <li><a href="http://github.com/michael/multiselect">Source</a></li>
+            <li><a href="http://github.com/michael/multiselect/zipball/master">Download</a></li>
+            <li><a href="http://github.com/michael/multiselect/issues">Bugs</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <p>
+            It depends on <a href="http://jquery.com/">jQuery 1.5</a> and <a href="http://jqueryui.com/">jQuery UI
+            1.8</a>.
+            The widget is styleable using <a href="http://jqueryui.com/themeroller/" title="jQuery UI Themeroller">Themeroller</a>.
+            It works in an <em>unobtrusive</em> fashion, by just turning html multiple select inputs into a sexier
+            equivalent. There's no extra markup needed.
+        </p>
+
+        <ul>
+            <li>For installation instructions please have a look at the corresponding <a
+                    href="http://www.quasipartikel.at/2009/05/10/jqueryui-multiselect/">blogpost</a></li>
+            <li>Source code is available at <a href="http://github.com/michael/multiselect/" title="Social Coding">Github</a>
+            </li>
+            <li>In case you are looking for the original version, it has been moved <a
+                    href="http://quasipartikel.at/multiselect_original/">here</a></li>
+        </ul>
+        <br>
+
+        <form action="index.html">
+            <select id="countries" class="multiselect" multiple="multiple" name="countries[]" style="display: none;">
+                <option value="AFG">Afghanistan</option>
+                <option value="ALB">Albania</option>
+                <option value="DZA">Algeria</option>
+                <option value="AND">Andorra</option>
+                <option value="ARG">Argentina</option>
+                <option value="ARM">Armenia</option>
+                <option value="ABW">Aruba</option>
+                <option value="AUS">Australia</option>
+                <option value="AUT" selected="selected">Austria</option>
+
+                <option value="AZE">Azerbaijan</option>
+                <option value="BGD">Bangladesh</option>
+                <option value="BLR">Belarus</option>
+                <option value="BEL">Belgium</option>
+                <option value="BIH">Bosnia and Herzegovina</option>
+                <option value="BRA">Brazil</option>
+                <option value="BRN">Brunei</option>
+                <option value="BGR">Bulgaria</option>
+                <option value="CAN">Canada</option>
+
+                <option value="CHN">China</option>
+                <option value="COL">Colombia</option>
+                <option value="HRV">Croatia</option>
+                <option value="CYP">Cyprus</option>
+                <option value="CZE">Czech Republic</option>
+                <option value="DNK">Denmark</option>
+                <option value="EGY">Egypt</option>
+                <option value="EST">Estonia</option>
+                <option value="FIN">Finland</option>
+
+                <option value="FRA">France</option>
+                <option value="GEO">Georgia</option>
+                <option value="DEU" selected="selected">Germany</option>
+                <option value="GRC">Greece</option>
+                <option value="HKG">Hong Kong</option>
+                <option value="HUN">Hungary</option>
+                <option value="ISL">Iceland</option>
+                <option value="IND">India</option>
+                <option value="IDN">Indonesia</option>
+
+                <option value="IRN">Iran</option>
+                <option value="IRL">Ireland</option>
+                <option value="ISR">Israel</option>
+                <option value="ITA">Italy</option>
+                <option value="JPN">Japan</option>
+                <option value="JOR">Jordan</option>
+                <option value="KAZ">Kazakhstan</option>
+                <option value="KWT">Kuwait</option>
+                <option value="KGZ">Kyrgyzstan</option>
+
+                <option value="LVA">Latvia</option>
+                <option value="LBN">Lebanon</option>
+                <option value="LIE">Liechtenstein</option>
+                <option value="LTU">Lithuania</option>
+                <option value="LUX">Luxembourg</option>
+                <option value="MAC">Macau</option>
+                <option value="MKD">Macedonia</option>
+                <option value="MYS">Malaysia</option>
+                <option value="MLT">Malta</option>
+
+                <option value="MEX">Mexico</option>
+                <option value="MDA">Moldova</option>
+                <option value="MNG">Mongolia</option>
+                <option value="NLD" selected="selected">Netherlands</option>
+                <option value="NZL">New Zealand</option>
+                <option value="NGA">Nigeria</option>
+                <option value="NOR">Norway</option>
+                <option value="PER">Peru</option>
+                <option value="PHL">Philippines</option>
+
+                <option value="POL">Poland</option>
+                <option value="PRT">Portugal</option>
+                <option value="QAT">Qatar</option>
+                <option value="ROU">Romania</option>
+                <option value="RUS">Russia</option>
+                <option value="SMR">San Marino</option>
+                <option value="SAU">Saudi Arabia</option>
+                <option value="CSG">Serbia and Montenegro</option>
+                <option value="SGP">Singapore</option>
+
+                <option value="SVK">Slovakia</option>
+                <option value="SVN">Slovenia</option>
+                <option value="ZAF">South Africa</option>
+                <option value="KOR">South Korea</option>
+                <option value="ESP">Spain</option>
+                <option value="LKA">Sri Lanka</option>
+                <option value="SWE">Sweden</option>
+                <option value="CHE">Switzerland</option>
+                <option value="SYR">Syria</option>
+
+                <option value="TWN">Taiwan</option>
+                <option value="TJK">Tajikistan</option>
+                <option value="THA">Thailand</option>
+                <option value="TUR">Turkey</option>
+                <option value="TKM">Turkmenistan</option>
+                <option value="UKR">Ukraine</option>
+                <option value="ARE">United Arab Emirates</option>
+                <option value="GBR">United Kingdom</option>
+                <option value="USA" selected="selected">United States</option>
+
+                <option value="UZB">Uzbekistan</option>
+                <option value="VAT">Vatican City</option>
+                <option value="VNM">Vietnam</option>
+            </select>
+            <div class="ui-multiselect ui-helper-clearfix ui-widget" style="width: 459px;">
+                <div class="selected" style="width: 274px;">
+                    <div class="actions ui-widget-header ui-helper-clearfix"><span class="count">4 items selected</span><a
+                            href="#" class="remove-all">Remove all</a></div>
+                    <ul class="selected connected-list ui-sortable" style="height: 169px;">
+                        <li class="ui-helper-hidden-accessible" style=""></li>
+                        <li class="ui-state-default ui-element" title="Austria" style=""><span
+                                class="ui-icon ui-icon-arrowthick-2-n-s"></span>Austria<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-minus"></span></a></li>
+                        <li class="ui-state-default ui-element" title="Germany" style=""><span
+                                class="ui-icon ui-icon-arrowthick-2-n-s"></span>Germany<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-minus"></span></a></li>
+                        <li class="ui-state-default ui-element" title="Netherlands" style=""><span
+                                class="ui-icon ui-icon-arrowthick-2-n-s"></span>Netherlands<a href="#"
+                                                                                              class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-minus"></span></a></li>
+                        <li class="ui-state-default ui-element" title="United States" style=""><span
+                                class="ui-icon ui-icon-arrowthick-2-n-s"></span>United States<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-minus"></span></a></li>
+                    </ul>
+                </div>
+                <div class="available" style="width: 183px;">
+                    <div class="actions ui-widget-header ui-helper-clearfix"><input type="text"
+                                                                                    class="search empty ui-widget-content ui-corner-all"><a
+                            href="#" class="add-all">Add all</a></div>
+                    <ul class="available connected-list" style="height: 169px;">
+                        <li class="ui-helper-hidden-accessible"></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Afghanistan" style=""><span
+                                class="ui-helper-hidden"></span>Afghanistan<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Albania" style=""><span
+                                class="ui-helper-hidden"></span>Albania<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Algeria" style=""><span
+                                class="ui-helper-hidden"></span>Algeria<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Andorra" style=""><span
+                                class="ui-helper-hidden"></span>Andorra<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Argentina" style=""><span
+                                class="ui-helper-hidden"></span>Argentina<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Armenia" style=""><span
+                                class="ui-helper-hidden"></span>Armenia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Aruba" style=""><span
+                                class="ui-helper-hidden"></span>Aruba<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Australia" style=""><span
+                                class="ui-helper-hidden"></span>Australia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Azerbaijan" style=""><span
+                                class="ui-helper-hidden"></span>Azerbaijan<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Bangladesh" style=""><span
+                                class="ui-helper-hidden"></span>Bangladesh<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Belarus" style=""><span
+                                class="ui-helper-hidden"></span>Belarus<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Belgium" style=""><span
+                                class="ui-helper-hidden"></span>Belgium<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Bosnia and Herzegovina" style="">
+                            <span class="ui-helper-hidden"></span>Bosnia and Herzegovina<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Brazil" style=""><span
+                                class="ui-helper-hidden"></span>Brazil<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Brunei" style=""><span
+                                class="ui-helper-hidden"></span>Brunei<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Bulgaria" style=""><span
+                                class="ui-helper-hidden"></span>Bulgaria<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Canada" style=""><span
+                                class="ui-helper-hidden"></span>Canada<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="China" style=""><span
+                                class="ui-helper-hidden"></span>China<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Colombia" style=""><span
+                                class="ui-helper-hidden"></span>Colombia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Croatia" style=""><span
+                                class="ui-helper-hidden"></span>Croatia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Cyprus" style=""><span
+                                class="ui-helper-hidden"></span>Cyprus<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Czech Republic" style=""><span
+                                class="ui-helper-hidden"></span>Czech Republic<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Denmark" style=""><span
+                                class="ui-helper-hidden"></span>Denmark<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Egypt" style=""><span
+                                class="ui-helper-hidden"></span>Egypt<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Estonia" style=""><span
+                                class="ui-helper-hidden"></span>Estonia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Finland" style=""><span
+                                class="ui-helper-hidden"></span>Finland<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="France" style=""><span
+                                class="ui-helper-hidden"></span>France<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Georgia" style=""><span
+                                class="ui-helper-hidden"></span>Georgia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Greece" style=""><span
+                                class="ui-helper-hidden"></span>Greece<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Hong Kong" style=""><span
+                                class="ui-helper-hidden"></span>Hong Kong<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Hungary" style=""><span
+                                class="ui-helper-hidden"></span>Hungary<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Iceland" style=""><span
+                                class="ui-helper-hidden"></span>Iceland<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="India" style=""><span
+                                class="ui-helper-hidden"></span>India<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Indonesia" style=""><span
+                                class="ui-helper-hidden"></span>Indonesia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Iran" style=""><span
+                                class="ui-helper-hidden"></span>Iran<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Ireland" style=""><span
+                                class="ui-helper-hidden"></span>Ireland<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Israel" style=""><span
+                                class="ui-helper-hidden"></span>Israel<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Italy" style=""><span
+                                class="ui-helper-hidden"></span>Italy<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Japan" style=""><span
+                                class="ui-helper-hidden"></span>Japan<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Jordan" style=""><span
+                                class="ui-helper-hidden"></span>Jordan<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Kazakhstan" style=""><span
+                                class="ui-helper-hidden"></span>Kazakhstan<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Kuwait" style=""><span
+                                class="ui-helper-hidden"></span>Kuwait<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Kyrgyzstan" style=""><span
+                                class="ui-helper-hidden"></span>Kyrgyzstan<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Latvia" style=""><span
+                                class="ui-helper-hidden"></span>Latvia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Lebanon" style=""><span
+                                class="ui-helper-hidden"></span>Lebanon<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Liechtenstein" style=""><span
+                                class="ui-helper-hidden"></span>Liechtenstein<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Lithuania" style=""><span
+                                class="ui-helper-hidden"></span>Lithuania<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Luxembourg" style=""><span
+                                class="ui-helper-hidden"></span>Luxembourg<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Macau" style=""><span
+                                class="ui-helper-hidden"></span>Macau<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Macedonia" style=""><span
+                                class="ui-helper-hidden"></span>Macedonia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Malaysia" style=""><span
+                                class="ui-helper-hidden"></span>Malaysia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Malta" style=""><span
+                                class="ui-helper-hidden"></span>Malta<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Mexico" style=""><span
+                                class="ui-helper-hidden"></span>Mexico<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Moldova" style=""><span
+                                class="ui-helper-hidden"></span>Moldova<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Mongolia" style=""><span
+                                class="ui-helper-hidden"></span>Mongolia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="New Zealand" style=""><span
+                                class="ui-helper-hidden"></span>New Zealand<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Nigeria" style=""><span
+                                class="ui-helper-hidden"></span>Nigeria<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Norway" style=""><span
+                                class="ui-helper-hidden"></span>Norway<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Peru" style=""><span
+                                class="ui-helper-hidden"></span>Peru<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Philippines" style=""><span
+                                class="ui-helper-hidden"></span>Philippines<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Poland" style=""><span
+                                class="ui-helper-hidden"></span>Poland<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Portugal" style=""><span
+                                class="ui-helper-hidden"></span>Portugal<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Qatar" style=""><span
+                                class="ui-helper-hidden"></span>Qatar<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Romania" style=""><span
+                                class="ui-helper-hidden"></span>Romania<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Russia" style=""><span
+                                class="ui-helper-hidden"></span>Russia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="San Marino" style=""><span
+                                class="ui-helper-hidden"></span>San Marino<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Saudi Arabia" style=""><span
+                                class="ui-helper-hidden"></span>Saudi Arabia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Serbia and Montenegro" style="">
+                            <span class="ui-helper-hidden"></span>Serbia and Montenegro<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Singapore" style=""><span
+                                class="ui-helper-hidden"></span>Singapore<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Slovakia" style=""><span
+                                class="ui-helper-hidden"></span>Slovakia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Slovenia" style=""><span
+                                class="ui-helper-hidden"></span>Slovenia<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="South Africa" style=""><span
+                                class="ui-helper-hidden"></span>South Africa<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="South Korea" style=""><span
+                                class="ui-helper-hidden"></span>South Korea<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Spain" style=""><span
+                                class="ui-helper-hidden"></span>Spain<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Sri Lanka" style=""><span
+                                class="ui-helper-hidden"></span>Sri Lanka<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Sweden" style=""><span
+                                class="ui-helper-hidden"></span>Sweden<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Switzerland" style=""><span
+                                class="ui-helper-hidden"></span>Switzerland<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Syria" style=""><span
+                                class="ui-helper-hidden"></span>Syria<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Taiwan" style=""><span
+                                class="ui-helper-hidden"></span>Taiwan<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Tajikistan" style=""><span
+                                class="ui-helper-hidden"></span>Tajikistan<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Thailand" style=""><span
+                                class="ui-helper-hidden"></span>Thailand<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Turkey" style=""><span
+                                class="ui-helper-hidden"></span>Turkey<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Turkmenistan" style=""><span
+                                class="ui-helper-hidden"></span>Turkmenistan<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Ukraine" style=""><span
+                                class="ui-helper-hidden"></span>Ukraine<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="United Arab Emirates" style=""><span
+                                class="ui-helper-hidden"></span>United Arab Emirates<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="United Kingdom" style=""><span
+                                class="ui-helper-hidden"></span>United Kingdom<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Uzbekistan" style=""><span
+                                class="ui-helper-hidden"></span>Uzbekistan<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Vatican City" style=""><span
+                                class="ui-helper-hidden"></span>Vatican City<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                        <li class="ui-state-default ui-element ui-draggable" title="Vietnam" style=""><span
+                                class="ui-helper-hidden"></span>Vietnam<a href="#" class="action"><span
+                                class="ui-corner-all ui-icon ui-icon-plus"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <input type="submit" value="Submit Form">
+        </form>
+
+        <script type="text/javascript" src="demo_files/a.htm">
+        </script>
+        <div id="switcher"></div>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Search within available options, if there are a lots of them</li>
+            <li>Displaying counts of selected and available items</li>
+            <li>Select All / Deselect All Buttons</li>
+            <li>Dragging items from the available list to the selected list directly</li>
+        </ul>
+
+        <h2>Contributors</h2>
+        <ul>
+            <li><a href="http://github.com/michael/multiselect/">Michael Aufreiter</a></li>
+            <li><a href="http://github.com/yanickrochon/multiselect">Yanick Rochon</a></li>
+        </ul>
+        <p></p>
+        <h2>Misc</h2>
+        <p>
+            There are no limitations. Do whatever you want with this plugin.
+            If you did some nice modifications, just let me know (via Github). I'd be happy to include them.
+        </p>
+        <h2>Other active projects</h2>
+        <ul>
+            <li><a href="http://quasipartikel.at/proper">PROPER™ — Semantic Richtext Editor</a> <small
+                    style="color: red;">NEW!</small></li>
+            <li><a href="http://substance.io/">Substance — Open Documents For The Web</a> <small style="color: red;">NEW!</small>
+            </li>
+            <li><a href="http://substance.io/#michael/data-js">Data.js — Javascript Data Manipulation</a> <small
+                    style="color: red;">NEW!</small></li>
+            <li><a href="http://quasipartikel.at/donut">DONUT™ - Radial Navigator</a></li>
+        </ul>
+    </div>
+
+    <div id="footer">
+        <p class="left">A <a href="http://quasipartikel.at/">Quasipartikel</a> Production</p>
+        <p class="right">Template adopted from <a
+                href="http://orderedlist.com/demos/fancy-zoom-jquery/">orderedlist.com</a></p>
+        <br class="clear">
+    </div>
+</div>
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script src="demo_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-10368067-1");
+        pageTracker._trackPageview();
+    } catch (err) {
+    }</script>
+
+
+</body>
+</html>

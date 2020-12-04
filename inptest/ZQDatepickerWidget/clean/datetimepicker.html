@@ -1,0 +1,57 @@
+<html lang="en" class="">
+<head>
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/css/datepicker.css">
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/css/iconfont.css">
+  <style>
+    .p20{padding:20px; }
+    .mt20{margin-top:20px; }
+    .mt40{margin-top:40px; }
+    .mt10{margin-top:10px; }
+    .hide{display: none; }
+    .c999{color:#999; font-size:12px; }
+    
+  </style>
+</head>
+<body>
+ 
+
+  <div class="mt40">
+        <div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(❤️New) English version. </font><font style="vertical-align: inherit;">Year, month, day, hour, minute and second single selection, minimum value: 2018-01-01 04:00:00, maximum value: 2019-04-29 20:59:59 </font></font><span class="c999"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(YYYY-MM-DD HH: mm: ss single)</font></font></span>
+        </div>
+        <div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-en mt10">
+          <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+          <input type="text" autocomplete="off" name="" placeholder="choose date" class="c-datepicker-data-input">
+        </div>
+      </div>
+
+
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/plugins/jquery.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/plugins/moment.min.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/datepicker.all.js"></script>
+  <script src="https://cdn.statically.io/gh/qiuyaofan/datepicker/af09df99/js/datepicker.en.js"></script>
+  <script type="text/javascript">
+          //Hour, minute, second, year, month, day, single
+        $('.J-datepicker-en').datePicker({
+          format: 'YYYY-MM-DD HH:mm:ss',
+          hasShortcut: true,
+          min: '2018-01-01 04:00:00',
+          max: '2022-04-29 20:59:59',
+          language: 'en',
+          shortcutOptions: [{
+            name: 'today',
+            day: '0'
+          }, {
+            name: 'yesterday',
+            day: '-1',
+            time: '00:00:00'
+          }, {
+            name: 'last week',
+            day: '-7'
+          }],
+          hide: function () {
+            console.info(this)
+          }
+        });
+      </script>
+    </body>
+    </html>

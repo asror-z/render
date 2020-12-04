@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form Helper by Otabek Nosirov</title>
+
+    <!--FORM HELPER links /*obdev*/-->
+
+    <link rel="stylesheet" href="https://rawcdn.githack.com/twbs/bootstrap/b9bc5beb1de82b3a97f6374fc429cb8f292bd18e/dist/css/bootstrap.min.css">
+
+</head>
+
+<!--FORM HELPER style /*obdev*/-->
+
+
+<style type="text/css">
+    h1, h2, h3 { margin-top: 3rem; }
+</style>
+
+<body>
+
+<!--FORM HELPER html /*obdev*/-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Populate Form</h2>
+            <form id="myForm" action="https://www.jqueryscript.net/demo/Populate-Form-With-Data-Object-jQuery-formHelper/" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="check1" value="1">
+                        Check me out
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="select1">Simple Select</label>
+                    <select name="select1" id="select1" class="form-control">
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="select2">Multiple Select</label>
+                    <select name="select2[]" id="select2" size="10" multiple="" class="form-control">
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                    </select>
+                </div>
+                <div class="form-check">
+                    <label>Multiple (Array) </label>
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="check[]" value="1">
+                        Option 1
+                    </label>
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="check[]" value="2">
+                        Option 2
+                    </label>
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="check[]" value="3">
+                        Option 3
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Check/Uncheck All</h2>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="masterCheck1"> Master check 1
+                </label>
+            </div>
+            <form id="myForm2">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="check1[]" value="a"> A
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="check1[]" value="b"> B
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="check1[]" value="c"> C
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="masterCheck2"> Master check 2
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--FORM HELPER script /*obdev*/-->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<script src="https://rawcdn.githack.com/twbs/bootstrap/b9bc5beb1de82b3a97f6374fc429cb8f292bd18e/dist/js/bootstrap.min.js"></script>
+
+<script src="https://rawcdn.githack.com/davicotico/jQuery-Form-Helper/51c2431fcd9102291eafca525746be1dad1bf7de/jquery.formHelper.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var values = {
+            username: "jQueryScript", //simple text
+            email: "admin@jQueryScript.net", //simple text
+            check1: "1", //simple checkbox
+            check: ["1", 3], //multiple checkbox
+            select1: "c", //simple select
+            select2: ['a', 'c'] //multiple select
+        };
+        $('#myForm').populateForm(values);
+
+        $('#myForm2').checkAll('check1', $('#masterCheck1'));
+        $('#myForm2').checkAll('check1', $('#masterCheck2'));
+
+
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class=" js">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    
+<br>
+<br>
+<br>
+
+    <form class="kr js-expandable-search">
+        <label class="sr-only" for="searchInputX">Search</label>
+        <input class="reset ki js-expandable-search__input"type="search" name="searchInputX"id="searchInputX" placeholder="Search...">
+        <button class="reset ko">
+            <svg class="icon" viewBox="0 0 24 24">
+                <title>Search</title>
+                <g stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"stroke="currentColor" fill="none" stroke-miterlimit="10">
+                    <line x1="22" y1="22" x2="15.656" y2="15.656"></line>
+                    <circle cx="10" cy="10" r="8"></circle>
+                </g>
+            </svg>
+        </button>
+    </form>
+
+<style>
+
+.reset {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    color: inherit;
+    line-height: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+:root {
+    --space-unit: 1em;
+}
+:root {
+    --shadow-md: 0 1px 8px rgba(0, 0, 0, .085), 0 8px 24px rgba(0, 0, 0, .1);
+    --bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1)
+}
+.sr-only {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    white-space: nowrap
+}
+
+/* ----------------------------------------------------------------- */
+
+:root, [data-theme=default] {
+    --color-primary-dark: hsl(220, 90%, 46%);
+    --color-primary: hsl(220, 90%, 56%);
+    --color-primary-light: hsl(220, 90%, 66%);
+}
+
+:root {
+    --expandable-search-size-compact: 2.2em;
+    --expandable-search-size-expanded: 10em;
+    --expandable-search-icon-size: 1.2em
+}
+
+.kr {
+    position: relative;
+    display: inline-block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.ki {
+    width: 2.2em;
+    height: 2.2em;
+    padding: 0;
+    color: transparent;
+    overflow: hidden;
+    border-radius: 50em;
+    transition: width .3s cubic-bezier(.215, .61, .355, 1), box-shadow .3s, background-color .3s;
+}
+
+.ki::-webkit-input-placeholder {
+    color: transparent
+}
+
+.ki::-moz-placeholder {
+    opacity: 0;
+    color: transparent
+}
+
+.ki:-ms-input-placeholder {
+    color: transparent
+}
+
+.ki:-moz-placeholder {
+    color: transparent
+}
+
+.ki:hover {
+    background-color: #f2f2f2;
+    cursor: pointer
+}
+
+.ki:focus, .ki.ks {
+    background-color: #fff;
+    width: 10em;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: .75em;
+    outline: none;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, .085), 0 8px 24px rgba(0, 0, 0, .1), 0 0 0 2px #2a6df4;
+    color: #1c1c21;
+    cursor: auto;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto
+}
+
+.ki:focus::-webkit-input-placeholder, .ki.ks::-webkit-input-placeholder {
+    color: #79797c;
+}
+
+.ki:focus::-moz-placeholder, .ki.ks::-moz-placeholder {
+    opacity: 1;
+    color: #79797c;
+}
+
+.ki:focus:-ms-input-placeholder, .ki.ks:-ms-input-placeholder {
+    color: #79797c;
+}
+
+.ki:focus:-moz-placeholder, .ki.ks:-moz-placeholder {
+    color: #79797c;
+}
+
+.ki:focus + .ko {
+    pointer-events: auto
+}
+
+.ki::-webkit-search-decoration, .ki::-webkit-search-cancel-button, .ki::-webkit-search-results-button, .ki::-webkit-search-results-decoration {
+    display: none
+}
+
+.ko {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: calc(2.2em - 4px);
+    height: calc(2.2em - 4px);
+    border-radius: 50em;
+    z-index: 1;
+    pointer-events: none;
+    transition: background-color .3s
+}
+
+.ko .icon {
+    font-size: 1.2em;
+}
+
+.ko:hover {
+    background-color: #f2f2f2;
+}
+
+.ko:focus {
+    outline: none;
+    background-color: rgba(42, 109, 244, .15);
+}
+
+</style>
+
+</body>
+</html>

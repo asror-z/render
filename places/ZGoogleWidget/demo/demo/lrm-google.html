@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LRM Google</title>
+    <link rel="stylesheet" href="/publish/leaflet/publish/lrm-google-master/bower_components/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="/publish/leaflet/publish/lrm-google-master/bower_components/leaflet/dist/leaflet.css" />
+</head>
+<body>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<AIzaSyBkxS5l87lclaC6MIWSGejdCXL13wSShRo>"></script>
+<script src="/publish/leaflet/publish/lrm-google-master/bower_components/leaflet/dist/leaflet.js"></script>
+<script src="/publish/leaflet/publish/lrm-google-master/bower_components/leaflet/dist/leaflet-src.js"></script>
+<script>
+
+console.log(L.Routing.Google)
+    L.Routing.control({
+        waypoints: [
+            L.latLng(1.350794, 103.835950),
+            L.latLng(1.392755, 103.913670)
+        ],
+        router: new L.Routing.Google(),
+        lineOptions: {
+            styles: [
+                {color: 'black', opacity: 0.3, weight: 11},
+                {color: 'white', opacity: 0.9, weight: 9},
+                {color: 'blue', opacity: 1, weight: 3}
+            ]
+        }
+    }).addTo(map);
+</script>
+</body>
+</html>

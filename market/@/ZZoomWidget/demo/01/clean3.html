@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- get jQuery from the google apis or use your own -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- CSS STYLE-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/xzoom@1.0.14/dist/xzoom.css" media="all"/>
+
+    <!-- XZOOM JQUERY PLUGIN  -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/xzoom@1.0.14/dist/xzoom.min.js"></script>
+
+</head>
+
+<body>
+
+    <img class="xzoom" src="path/to/preview_image_01.jpg" xoriginal="path/to/original_image_01.jpg" />
+
+    <div class="xzoom-thumbs">
+    <a href="path/to/original_image_01.jpg">
+        <img class="xzoom-gallery" width="80" src="path/to/thumbs_image_01.jpg" xpreview="path/to/preview_image_01.jpg">
+    </a>
+    <a href="path/to/original_image_02.jpg">
+        <img class="xzoom-gallery" width="80" src="path/to/preview_image_02.jpg">
+    </a>
+    <a href="path/to/original_image_03.jpg">
+        <img class="xzoom-gallery" width="80" src="path/to/preview_image_03.jpg">
+    </a>
+    <a href="path/to/original_image_04.jpg">
+        <img class="xzoom-gallery" width="80" src="path/to/preview_image_04.jpg">
+    </a>
+    </div>
+    <script>
+        $(".xzoom, .xzoom-gallery").xzoom({tint: '#333', Xoffset: 15});
+    </script>
+</body>
+</html>

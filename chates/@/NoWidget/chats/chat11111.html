@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <title>Hello, world!</title>
+</head>
+<body>
+<style>
+    body {
+
+        text-align: center;
+        padding: 0 1em 1em;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+        margin-top: 35px;
+    }
+
+
+    input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    .row {
+        display: -webkit-box;
+        display: flex;
+    }
+
+    .row .col {
+        -webkit-box-flex: 1;
+        flex: 1;
+    }
+
+    .row .col:last-child {
+        margin-left: 1em;
+    }
+
+    /* Accordion styles */
+    .tabs {
+        border-radius: 8px;
+        overflow: hidden;
+        /* box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);*/
+    }
+
+    .tab {
+        width: 100%;
+        color: #000000;
+        overflow: hidden;
+    }
+
+    .tab-label {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        padding: 1em;
+        background: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+        /* Icon */
+    }
+
+    .tab-label:hover {
+        background: #feffef;
+    }
+
+    .tab-label::after {
+        content: "\276F";
+        width: 1em;
+        height: 1em;
+        text-align: center;
+        -webkit-transition: all .35s;
+        transition: all .35s;
+    }
+
+    .tab-content {
+        max-height: 0;
+        padding: 0 1em;
+        color: #2c3e50;
+        background: white;
+        -webkit-transition: all .35s;
+        transition: all .35s;
+    }
+
+    .tab-close {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+        padding: 1em;
+        font-size: 0.75em;
+        background: #ffffff;
+        cursor: pointer;
+    }
+
+    .tab-close:hover {
+        color: #feffef;
+        background: #ffffff;
+    }
+
+    input:checked + .tab-label {
+        background: #ffffff;
+    }
+
+    input:checked + .tab-label::after {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    input:checked ~ .tab-content {
+        max-height: 100vh;
+        padding: 1em;
+
+    }
+
+    .img-box-user {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #d8dee4;
+
+    }
+
+    .img-box-user h1 {
+        color: #000000;
+        font-size: 20px;
+
+    }
+
+    .img-box-user h1:hover {
+        text-decoration: underline;
+    }
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 d-flex flex-column align-items-center">
+            <div class="img-box-user">
+
+                <!-- <img src="">-->
+
+            </div>
+            <h1> Samer Entizaar</h1>
+            <div class="tabs">
+                <div class="tab">
+                    <input type="checkbox" id="chck1">
+                    <label class="tab-label" for="chck1">Item 1</label>
+                    <div class="tab-content">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, reiciendis!
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="checkbox" id="chck2">
+                    <label class="tab-label" for="chck2">Item 2</label>
+                    <div class="tab-content">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. A, in!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>stacked-bar3d</title>
+  <link rel="stylesheet" type="text/css" href="https://echarts.apache.org/examples/vendors/bootstrap/css/bootstrap.css">
+  <link rel="shortcut icon" href="https://echarts.apache.org/examples/images/favicon.png">
+  <link rel="stylesheet" type="text/css" href="https://echarts.apache.org/examples/stylesheets/main.css?_v_=1578303601742">
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+  
+</head>
+<body>
+  <script>
+    $.getScript(ROOT_PATH + 'vendors/simplex.js').done(function () {
+
+
+function generateData() {
+    var data = [];
+    var noise = new SimplexNoise(Math.random);
+    for (var i = 0; i <= 10; i++) {
+        for (var j = 0; j <= 10; j++) {
+            var value = noise.noise2D(i / 5, j / 5);
+            data.push([i, j, value * 2 + 4]);
+        }
+    }
+    return data;
+}
+
+var series = [];
+for (var i = 0; i < 10; i++) {
+    series.push({
+        type: 'bar3D',
+        data: generateData(),
+        stack: 'stack',
+        shading: 'lambert',
+        emphasis: {
+            label: {
+                show: false
+            }
+        }
+    });
+}
+
+myChart.setOption({
+    xAxis3D: {
+        type: 'value'
+    },
+    yAxis3D: {
+        type: 'value'
+    },
+    zAxis3D: {
+        type: 'value'
+    },
+    grid3D: {
+        viewControl: {
+            // autoRotate: true
+        },
+        light: {
+            main: {
+                shadow: true,
+                quality: 'ultra',
+                intensity: 1.5
+            }
+        }
+    },
+    series: series
+});
+
+});
+  </script>
+</body>
+</html>

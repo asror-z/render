@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css\</title>
+    <link rel="stylesheet" href="/publish/yarner/animate.css/animate.min.css">
+</head>
+<body>
+<h1 class="headShake">Example</h1>
+
+<script>
+    const element =  document.querySelector('.my-element')
+    element.classList.add('animated', 'bounceOutLeft')
+
+    function animateCSS(element, animationName, callback) {
+        const node = document.querySelector(element)
+        node.classList.add('animated', animationName)
+
+        function handleAnimationEnd() {
+            node.classList.remove('animated', animationName)
+            node.removeEventListener('animationend', handleAnimationEnd)
+
+            if (typeof callback === 'function') callback()
+        }
+
+        node.addEventListener('animationend', handleAnimationEnd)
+    }
+
+    animateCSS('.my-element', 'bounce')
+
+    // or
+    animateCSS('.my-element', 'bounce', function() {
+        // Do something after animation
+    })
+</script>
+
+
+<div class="animated bounce delay-1s">Example</div>
+<div class="animated bounce delay-2s">Example</div>
+<div class="animated bounce delay-3s">Example</div>
+<div class="animated bounce delay-4s">Example</div>
+<div class="animated bounce delay-5s">Example</div>
+
+<div class="animated bounce slow">Example</div>
+<div class="animated bounce slower">Example</div>
+<div class="animated bounce fast">Example</div>
+<div class="animated bounce faster">Example</div>
+
+
+</body>
+</html>

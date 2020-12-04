@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://jquery.eisbehr.de/lazy/ -->
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>jQuery Lazy - Delayed Content, Image and Background Lazy Loader</title>
+  
+  <meta name="language" content="en">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lazy is a fast, feature-rich, extensible and lightweight delayed content loading plugin for jQuery &amp; Zepto.">
+  <meta name="keywords" content="lazy, lazyload, lazy loading, jquery, zepto, speed, delayed, plugin">
+  <meta name="author" content="Daniel &#39;Eisbehr&#39; Kern">
+  <meta name="publisher" content="Daniel &#39;Eisbehr&#39; Kern">
+  <meta name="revisit-after" content="5">
+  <meta name="robots" content="INDEX,FOLLOW">
+  <meta property="og:title" content="Delayed Content, Image and Background Lazy Loader">
+  <meta property="og:description" content="Lazy is a fast, feature-rich, extensible and lightweight delayed content loading plugin for jQuery &amp; Zepto.">
+  <meta property="og:site_name" content="jQuery Lazy">
+  <meta property="og:url" content="http://jquery.eisbehr.de/lazy/">
+  <meta property="og:image" content="http://jquery.eisbehr.de/lazy/images/fb.jpg">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="http://jquery.eisbehr.de/lazy/">
+  <link rel="shortcut icon" href="http://jquery.eisbehr.de/lazy/images/favicon.ico">
+  <link id="theme-style" rel="stylesheet" href="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/styles.css">
+  <script src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/cb=gapi.loaded_1" async=""></script><script src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/cb=gapi(1).loaded_0" async=""></script><script src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/sdk.js.download" async="" crossorigin="anonymous"></script><script id="twitter-wjs" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/widgets.js.download"></script><script id="facebook-jssdk" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/sdk.js(1).download"></script><script async="" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/analytics.js.download"></script><script type="text/javascript" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/jquery.js.download"></script>
+  <!--[if lt IE 9]>
+  <script src="js/min/iefix.js"></script>
+  <![endif]-->
+<script type="text/javascript" async="" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/embed.js(1).download"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.15d8f2a22cfa6b9f96345c682b01a08f.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.b9167d06dc7bd01b59d6d6332d6aafa1.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.3c28b73070ee14be97ecb734e8aca3b4.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"><script charset="utf-8" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/button.a657e8de41cd5e7b38cde1f36c9ab9c2.js.download"></script></head>
+<body data-spy="scroll">
+  <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+  <script>
+  window.___gcfg={lang:'en-US'};window.___c='home';
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)};i[r].l=1*new Date();a=s.createElement(o);
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create','UA-68442735-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');
+  (function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;
+  js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);}(document,'script','facebook-jssdk'));
+  </script>
+  <header id="header" class="header">
+    <div class="container">
+      <h1 class="logo pull-left">
+        <a class="scrollto" href="http://jquery.eisbehr.de/lazy/#promo">
+          <span class="logo-title">jQuery.Lazy();</span>
+        </a>
+      </h1>
+      <nav id="main-nav" class="main-nav navbar-right">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="nav-item sr-only active"><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#promo">Home</a></li>
+            <li class="nav-item"><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#about">About</a></li>
+            <li class="nav-item"><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#features">Features</a></li>
+            <li class="nav-item dropdown">
+              <a class="scrollto dropdown-toggle" href="http://jquery.eisbehr.de/lazy/#docs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Get Started <i class="fa fa-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li class=""><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#installation">Installation</a></li>
+                <li class=""><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#basic-usage">Basic Usage</a></li>
+                <li class=""><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#configuration">Configuration</a></li>
+                <li class=""><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#callbacks">Callbacks &amp; Events</a></li>
+                <li class=""><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#public-functions">Public Functions</a></li>
+                <li class=""><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#custom-loaders">Custom Loaders</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#plugins">Plugins</a></li>
+            <li class="nav-item"><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#examples">Examples</a></li>
+            <li class="nav-item"><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#license">License</a></li>
+            <li class="nav-item last"><a class="scrollto" href="http://jquery.eisbehr.de/lazy/#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section id="promo" class="promo section offset-header">
+    <div class="container text-center">
+      <h2 class="title">jQuery <span class="highlight">Lazy</span></h2>
+      <p class="intro">A lightweight but powerful delayed content, image and background lazy-loading plugin for jQuery &amp; Zepto</p>
+      <div class="btns">
+        <a class="btn btn-cta-primary" href="http://jquery.eisbehr.de/lazy/example_basic-usage" title="basic usage example">Demo</a>
+        <a class="btn btn-cta-secondary" href="https://github.com/eisbehr-/jquery.lazy/archive/master.zip" target="_blank" title="download latest release">Download 1.7.9</a>
+      </div>
+      <ul class="meta list-inline">
+        <li><a href="http://github.com/eisbehr-/jquery.lazy" target="_blank" title="view source on github">View on GitHub</a></li>
+        <li><a href="http://www.npmjs.org/package/jquery-lazy" target="_blank" title="open project page on npm page">View on NPM</a></li>
+        <li><a href="http://bower.io/search/?q=jquery-lazy" target="_blank" title="open project search on bower">View on Bower</a></li>
+      </ul>
+    </div>
+    <div class="social-media">
+      <div class="social-media-inner container text-center">
+        <ul class="list-inline">
+          <li class="twitter-tweet">
+            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 61px; height: 20px;" title="Twitter Tweet Button" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/tweet_button.7303c29a8108bca4ac5c9ef008ed8164.en.html" __idm_frm__="595"></iframe>
+            <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');
+            </script>
+          </li>
+          <li class="facebook-like"><div class="fb-like fb_iframe_widget" data-href="http://jquery.eisbehr.de/lazy/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=&amp;container_width=0&amp;href=http%3A%2F%2Fjquery.eisbehr.de%2Flazy%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=true&amp;show_faces=false"><span style="vertical-align: bottom; width: 134px; height: 20px;"><iframe name="f4d8fec909b3" width="1000px" height="1000px" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/like.html" style="border: none; visibility: visible; width: 134px; height: 20px;" __idm_frm__="590" class=""></iframe></span></div></li>
+          <li class="github-star"><iframe src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/github-btn.html" width="100" height="20"></iframe></li>
+          <li class="github-fork"><iframe src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/github-btn(1).html" width="100" height="20"></iframe></li>
+          <li class="gplus-like"><div class="gplus-btn item"><div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I0_1582125909830" name="I0_1582125909830" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/fastbutton.html" data-gapiattached="true"></iframe></div><div class="g-plusone" data-size="medium" data-annotation="bubble" data-width="300" data-gapiscan="true" data-onload="true" data-gapistub="true"></div></div></li>
+          <li class="donate">
+            <form id="donate-top" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="FFL6VQJCUZMXC">
+              <input type="image" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/btn_donate_SM.gif" name="submit" alt="PayPal - The safer, easier way to pay online.">
+              <img alt="" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/pixel.gif" width="1" height="1">
+            </form>
+		  </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="about section">
+    <div class="container">
+      <h2 class="title text-center">What is Lazy?</h2>
+      <p class="intro text-center">
+        Lazy is a fast, feature-rich, extensible and lightweight delayed content loading plugin for jQuery &amp; Zepto.
+        It's designed to speed up page loading times and decrease traffic to your customers and users by only loading the content in view.
+      </p>
+      <div class="row">
+        <div class="item col-md-4 col-sm-6 col-xs-12">
+          <div class="icon-holder">
+            <i class="fa fa-rocket"></i>
+		  </div>
+		  <div class="content">
+		    <h3 class="sub-title">Designed for everything</h3>
+            <p>Lazy supports images and backgrounds by default or any other content by plugins and custom loaders you like to implement.</p>
+		  </div>
+		</div>
+		<div class="item col-md-4 col-sm-6 col-xs-12">
+		  <div class="icon-holder">
+		    <i class="fa fa-clock-o"></i>
+		  </div>
+		  <div class="content">
+		    <h3 class="sub-title">It's a time saver</h3>
+		    <p>Lazy will decrease your development time and save traffic and loading times for your users and customers.</p>
+		  </div>
+		</div>
+		<div class="item col-md-4 col-sm-6 col-xs-12">
+		  <div class="icon-holder">
+		    <i class="fa fa-arrows"></i>
+		  </div>
+		  <div class="content">
+		    <h3 class="sub-title">Scroll in every way</h3>
+		    <p>You can use Lazy in all vertical and horizontal scroll ways, it will only load the elements in threshold.</p>
+		  </div>
+		</div>
+		<div class="clearfix visible-md"></div>    
+		<div class="item col-md-4 col-sm-6 col-xs-12">
+		  <div class="icon-holder">
+		    <i class="fa fa-tablet"></i>
+		  </div>
+		  <div class="content">
+		    <h3 class="sub-title">Mobile-friendly</h3>
+		    <p>Lazy works well on every tested mobile devices so far and supports retina and other high density displays as well.</p>
+		  </div>
+		</div>      
+		<div class="item col-md-4 col-sm-6 col-xs-12">
+		  <div class="icon-holder">
+		    <i class="fa fa-code"></i>
+		  </div>
+		  <div class="content">
+		    <h3 class="sub-title">Easy to customise</h3>
+		    <p>Lazy delivers a mighty configuration, many callbacks, public functions and custom loaders for full control on everything.</p>
+		  </div>
+		</div>
+		<div class="item col-md-4 col-sm-6 col-xs-12">
+		  <div class="icon-holder">
+		    <i class="fa fa-github"></i>
+		  </div>
+		  <div class="content">
+		    <h3 class="sub-title">Fully free &amp; open source</h3>
+		    <p>All sources are available on GitHub. Feel free to report bugs, ask for new features or even contribute to Lazy by yourself there!</p>
+		  </div>
+		</div>
+      </div>
+      <h3 class="sub-title text-center">Wide compatibility range</h3>
+      <p class="text-center compatibility">
+        <i class="fa fa-android fa-3x"></i>
+        <i class="fa fa-chrome fa-3x"></i>
+        <i class="fa fa-apple fa-3x"></i>
+        <i class="fa fa-safari fa-3x"></i>
+        <i class="fa fa-windows fa-3x"></i>
+        <i class="fa fa-internet-explorer fa-3x"></i>
+        <i class="fa fa-opera fa-3x"></i>
+        <i class="fa fa-firefox fa-3x"></i>
+      </p>
+    </div>
+  </section>
+  <section id="features" class="features section">
+    <div class="container text-center">
+      <h2 class="title">Features</h2>
+      <div class="row">
+          <div class="item col-md-6 col-sm-6 col-xs-12">
+            <ul class="feature-list list-unstyled">
+              <li><i class="fa fa-check"></i> Retina support</li>
+              <li><i class="fa fa-check"></i> Fully open source</li>
+              <li><i class="fa fa-check"></i> Scroll in all directions</li>
+              <li><i class="fa fa-check"></i> Different callbacks</li>
+              <li><i class="fa fa-check"></i> Implement custom loaders</li>
+              <li><i class="fa fa-check"></i> Image placeholders</li>
+              <li><i class="fa fa-check"></i> Use effects</li>
+              <li><i class="fa fa-check"></i> Supports srcset</li>
+			</ul>
+          </div>
+          <div class="item col-md-6 col-sm-6 col-xs-12">
+            <ul class="feature-list list-unstyled">
+              <li><i class="fa fa-check"></i> Throttled</li>
+              <li><i class="fa fa-check"></i> Public functions</li>
+              <li><i class="fa fa-check"></i> Delayed loading</li>
+              <li><i class="fa fa-check"></i> Many instances</li>
+              <li><i class="fa fa-check"></i> Use inside containers</li>
+              <li><i class="fa fa-check"></i> Event support</li>
+              <li><i class="fa fa-check"></i> Mighty configuration</li>
+              <li><i class="fa fa-check"></i> Zepto compatible</li>
+			</ul>
+          </div>
+      </div>
+	</div>
+  </section>
+  <section id="docs" class="docs section">
+    <div class="container">
+      <div class="docs-inner">
+        <h2 class="title text-center">Get Started</h2>
+        <div id="installation" class="block">
+          <h3 class="sub-title text-center">Installation</h3>
+          <p>First of all, you will need a copy of <a href="http://code.jquery.com/jquery-latest.js" target="_blank">jQuery</a> or <a href="http://zeptojs.com/zepto.js" target="_blank">Zepto</a> to use Lazy successfully in your project. If you get this you can install Lazy by different ways. Select your favorite below.</p>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#self">Self Hosted</a></li>
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#cdn">CDN</a></li>
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#package">Package Managers</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="self" class="tab-pane fade in active">
+              <p><a href="https://github.com/eisbehr-/jquery.lazy/archive/master.zip" target="_blank">Download</a> and save one of two available files to include Lazy to your page, either the <a href="https://raw.github.com/eisbehr-/jquery.lazy/master/jquery.lazy.js" target="_blank">development</a> or the <a href="https://raw.github.com/eisbehr-/jquery.lazy/master/jquery.lazy.min.js" target="_blank">minified</a> version beside of jQuery.</p>
+              <div class="code-block">
+                <pre class=" language-markup"><code class=" language-markup">
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jquery.lazy.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+                </code></pre>
+              </div>
+            </div>
+            <div id="cdn" class="tab-pane fade">
+              <p>Lazy and all <a class="scrollto" href="http://jquery.eisbehr.de/lazy/#plugins">Plugins</a> are available over <a href="http://cdnjs.com/" target="_blank">cdnjs</a> and <a href="http://jsdelivr.com/" target="_blank">jsDelivr</a> CDN and can be directly included to every page.</p>
+              <div class="code-block">
+                <pre class=" language-markup"><code class=" language-markup">
+    <span class="token comment" spellcheck="true">&lt;!-- jsDeliver --&gt;</span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//cdn.jsdelivr.net/jquery.lazy/1.7.9/jquery.lazy.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//cdn.jsdelivr.net/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+
+    <span class="token comment" spellcheck="true">&lt;!-- cdnjs --&gt;</span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+                </code></pre>
+              </div>
+            </div>
+            <div id="package" class="tab-pane fade">
+              <p>Lazy is even available through <a href="http://www.npmjs.org/package/jquery-lazy" target="_blank">NPM</a> and <a href="http://bower.io/search/?q=jquery-lazy" target="_blank">Bower</a>. Just use one of the following commands below:</p>
+              <div class="code-block">
+                <pre class=" language-bash"><code class=" language-bash">
+    $ <span class="token keyword">npm</span> <span class="token function">install</span> jquery<span class="token operator">-</span>lazy
+    $ <span class="token keyword">bower</span> <span class="token function">install</span> jquery<span class="token operator">-</span>lazy
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="basic-usage" class="block">
+          <h3 class="sub-title text-center">Basic Usage</h3>
+          <p>
+            The basic usage of Lazy ist pretty easy.
+            Just prepare your elements and add a little snippet to your page.
+          </p>
+          <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#html">HTML</a></li>
+            <li class="active"><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#javascript">JavaScript</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="html" class="tab-pane fade">
+              <p>
+                Prepare the elements you want to lazy load. 
+                By default add a <em>data-src</em> attribute to elements containing the loadable image or a <em>data-loader</em> attribute to elements witch shall use a plugin or custom loaders.
+              </p>
+              <div class="code-block">
+                <pre class=" language-markup"><code class=" language-markup">
+    <span class="token comment" spellcheck="true">&lt;!-- load images the lazy way --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span> <span class="token attr-name">data-src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>path/to/image.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment" spellcheck="true">&lt;!-- load background images of other element types --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span> <span class="token attr-name">data-src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>path/to/image.jpg<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                </code></pre>
+              </div>    
+            </div>
+            <div id="javascript" class="tab-pane fade in active">
+              <p>
+                Start using Lazy by calling it after page load.
+                Try to use a most exact jQuery selector as possible for better performance.
+              </p>
+              <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.lazy'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="configuration" class="block">
+          <h3 class="sub-title text-center">Configuration</h3>
+          <p>
+            Lazy comes with a bunch of easy to use configuration options by default, to control nearly every behavior as you like.
+            The following parameters are available on every instance:
+          </p>
+          <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#config-general">General</a></li>
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#config-attributes">Attributes</a></li>
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#config-effects">Effects</a></li>
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#config-throttle">Throttle</a></li>
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#config-callbacks">Callbacks</a></li>
+            <li class="active"><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#config-example">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="config-general" class="tab-pane fade">
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Default</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>name</td>
+                      <td class="success">string</td>
+                      <td class="default">lazy</td>
+                      <td class="description">Internal name, used for namespaces and bindings.</td>
+                    </tr>
+                    <tr>
+                      <td>chainable</td>
+                      <td class="info">boolean</td>
+                      <td class="default">true</td>
+                      <td class="description">By default Lazy is chainable and will return all elements. If set to <em>false</em> Lazy will return the created plugin instance itself for further use.</td>
+                    </tr>
+                    <tr>
+                      <td>autoDestroy</td>
+                      <td class="info">boolean</td>
+                      <td class="default">true</td>
+                      <td class="description">Will automatically destroy the instance when no further elements are available to handle.</td>
+                    </tr>
+                    <tr>
+                      <td>bind</td>
+                      <td class="success">string</td>
+                      <td class="default">load</td>
+                      <td class="description">If set to <em>load</em> Lazy starts working directly after page load. If you want to use Lazy on own events set it to <em>event</em>.</td>
+                    </tr>
+                    <tr>
+                      <td>threshold</td>
+                      <td class="warning">integer</td>
+                      <td class="default">500</td>
+                      <td class="description">Amount of pixels below the viewport, in which all images gets loaded before the user sees them.</td>
+                    </tr>
+                    <tr>
+                      <td>visibleOnly</td>
+                      <td class="info">boolean</td>
+                      <td class="default">false</td>
+                      <td class="description">Determine if only visible elements should be load.</td>
+                    </tr>
+                    <tr>
+                      <td>appendScroll</td>
+                      <td class="danger">object</td>
+                      <td class="default">window</td>
+                      <td class="description">An element to listen on for scroll events, useful when images are stored in a container.</td>
+                    </tr>
+                    <tr>
+                      <td>scrollDirection</td>
+                      <td class="success">string</td>
+                      <td class="default">both</td>
+                      <td class="description">Determines the handles scroll direction. Possible values are <em>both</em>, <em>vertical</em> and <em>horizontal</em>.</td>
+                    </tr>
+                    <tr>
+                      <td>imageBase</td>
+                      <td class="success">string</td>
+                      <td class="default">null</td>
+                      <td class="description">If defined this will be used as base path for all images loaded by this instance.</td>
+                    </tr>
+                    <tr>
+                      <td>defaultImage</td>
+                      <td class="success">string</td>
+                      <td class="default">blank image</td>
+                      <td class="description">Base64 image string, set as default image source for every image without a predefined source attribute.</td>
+                    </tr>
+                    <tr>
+                      <td>placeholder</td>
+                      <td class="success">string</td>
+                      <td class="default">null</td>
+                      <td class="description">Base64 image string, set a background on every element as loading placeholder.</td>
+                    </tr>
+                    <tr>
+                      <td>delay</td>
+                      <td class="warning">integer</td>
+                      <td class="default">-1</td>
+                      <td class="description">If you want to load all elements at once after page load, then you can specify a delay time in milliseconds.</td>
+                    </tr>
+                    <tr>
+                      <td>combined</td>
+                      <td class="info">boolean</td>
+                      <td class="default">false</td>
+                      <td class="description">With this parameter, Lazy will combine the event driven and delayed element loading.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="config-attributes" class="tab-pane fade">
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Default</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>attribute</td>
+                      <td class="success">string</td>
+                      <td class="default">data-src</td>
+                      <td class="description">Name of the image tag <em>src</em> attribute, where the image path is stored.</td>
+                    </tr>
+                    <tr>
+                      <td>srcsetAttribute</td>
+                      <td class="success">string</td>
+                      <td class="default">data-srcset</td>
+                      <td class="description">Name of the image tag <em>srcset</em> attribute, where the source set is stored.</td>
+                    </tr>
+                    <tr>
+                      <td>sizesAttribute</td>
+                      <td class="success">string</td>
+                      <td class="default">data-sizes</td>
+                      <td class="description">Name of the image tag <em>sizes</em> attribute, where the size definition for source set is stored.</td>
+                    </tr>
+                    <tr>
+                      <td>retinaAttribute</td>
+                      <td class="success">string</td>
+                      <td class="default">data-retina</td>
+                      <td class="description">Name of the image tag attribute, where the path for optional retina image is stored.</td>
+                    </tr>
+                    <tr>
+                      <td>loaderAttribute</td>
+                      <td class="success">string</td>
+                      <td class="default">data-loader</td>
+                      <td class="description">Name or the element attribute, where the identifier of the plugin or customer loader is sored.</td>
+                    </tr>
+                    <tr>
+                      <td>imageBaseAttribute</td>
+                      <td class="success">string</td>
+                      <td class="default">data-imagebase</td>
+                      <td class="description">Name ot the image tag element, where the specific image base is stored. This will overwrite the global <em>imageBase</em> config.</td>
+                    </tr>
+                    <tr>
+                      <td>removeAttribute</td>
+                      <td class="info">boolean</td>
+                      <td class="default">true</td>
+                      <td class="description">Determine if the attribute should be removed from the element after loading.</td>
+                    </tr>
+                    <tr>
+                      <td>handledName</td>
+                      <td class="success">string</td>
+                      <td class="default">handled</td>
+                      <td class="description">Name of the element tag data attribute, to determine if element is already handled.</td>
+                    </tr>
+                    <tr>
+                      <td>loadedName</td>
+                      <td class="success">string</td>
+                      <td class="default">loaded</td>
+                      <td class="description">Name of the element tag data attribute, to determine if element is already loaded.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="config-effects" class="tab-pane fade">
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Default</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>effect</td>
+                      <td class="success">string</td>
+                      <td class="default">show</td>
+                      <td class="description">Function name of the effect you want to use to show the loaded images, like <em>show</em> or <em>fadein</em>.</td>
+                    </tr>
+                    <tr>
+                      <td>effectTime</td>
+                      <td class="warning">integer</td>
+                      <td class="default">0</td>
+                      <td class="description">Time in milliseconds the effect should use to view the image.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="config-throttle" class="tab-pane fade">
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Default</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>enableThrottle</td>
+                      <td class="info">boolean</td>
+                      <td class="default">true</td>
+                      <td class="description">Throttle down the loading calls on scrolling event.</td>
+                    </tr>
+                    <tr>
+                      <td>throttle</td>
+                      <td class="warning">integer</td>
+                      <td class="default">250</td>
+                      <td class="description">Time in milliseconds the throttle will use to limit the loading calls.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="config-callbacks" class="tab-pane fade">
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Default</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>beforeLoad</td>
+                      <td class="danger">function</td>
+                      <td class="default">undefined</td>
+                      <td class="description">Callback function, which will be called before the element gets loaded. Has current element and response function as parameters. <em>this</em> is the current Lazy instance.</td>
+                    </tr>
+                    <tr>
+                      <td>afterLoad</td>
+                      <td class="danger">function</td>
+                      <td class="default">undefined</td>
+                      <td class="description">Callback function, which will be called after the element was loaded. Has current element and response function as parameters. <em>this</em> is the current Lazy instance.</td>
+                    </tr>
+                    <tr>
+                      <td>onLoad</td>
+                      <td class="danger">function</td>
+                      <td class="default">undefined</td>
+                      <td class="description">Callback function, which will be called if the element could not be loaded. Has current element and response function as parameters. <em>this</em> is the current Lazy instance.</td>
+                    </tr>
+                    <tr>
+                      <td>onFinishedAll</td>
+                      <td class="danger">function</td>
+                      <td class="default">undefined</td>
+                      <td class="description">Callback function, which will be called after all elements was loaded or returned an error. This callback has no parameters. <em>this</em> is the current Lazy instance.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="config-example" class="tab-pane fade in active">
+              <p>Configure your Lazy instances with an initial configuration object:</p>
+              <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.lazy'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// your configuration goes here</span>
+        scrollDirection<span class="token punctuation">:</span> <span class="token string">'vertical'</span><span class="token punctuation">,</span>
+        effect<span class="token punctuation">:</span> <span class="token string">'fadeIn'</span><span class="token punctuation">,</span>
+        visibleOnly<span class="token punctuation">:</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+        onError<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'error loading '</span> <span class="token operator">+</span> element<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                </code></pre>
+              </div>
+              <p>&nbsp;</p>
+              <p>
+                Or read and change the configuration live at runtime with the public <em>config</em> function.
+                Please note the <em>chainable</em> parameter!
+              </p>
+              <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token keyword">var</span> lazy <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.lazy'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token punctuation">{</span> chainable<span class="token punctuation">:</span> <span class="token keyword">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> attributeName <span class="token operator">=</span> lazy<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token string">'attribute'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// get</span>
+    lazy<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token string">'effect'</span><span class="token punctuation">,</span> <span class="token string">'show'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">// set</span>
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="callbacks" class="block">
+          <h3 class="sub-title text-center">Callbacks &amp; Events</h3>
+          <p>
+            Lazy comes with a bunch of callbacks and events you can assign to.
+            Just add them by initialization configuration to your instances
+          </p>
+          <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#callback-events">Callbacks / Events</a></li>
+            <li class="active"><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#callback-example">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="callback-events" class="tab-pane fade">
+              <p>
+                An list of all callbacks available by default:
+              </p>
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Parameters</th>
+                      <th>Trigger</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>beforeLoad</td>
+                      <td class="default">{<i class="text-danger">object</i>} element</td>
+                      <td class="description">before an element is about to be handled</td>
+                    </tr>
+                    <tr>
+                      <td>afterLoad</td>
+                      <td class="default">{<i class="text-danger">object</i>} element</td>
+                      <td class="description">after an element was handled successfully</td>
+                    </tr>
+                    <tr>
+                      <td>onError</td>
+                      <td class="default">{<i class="text-danger">object</i>} element</td>
+                      <td class="description">whenever an element could not be handled</td>
+                    </tr>
+                    <tr>
+                      <td>onFinishedAll</td>
+                      <td class="default"><i class="text-muted">none</i></td>
+                      <td class="description">after all items in this instance was handled or returned an error</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="callback-example" class="tab-pane fade in active">
+              <p>
+                Simply attach a function to all callbacks you want to use by initialisation.
+                The <em>element</em> parameter is already an jQuery or Zepto object, so you can use it directly like <em>element.addClass('handled')</em>.
+              </p>
+              <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".lazy"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        beforeLoad<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// called before an elements gets handled</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        afterLoad<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// called after an element was successfully handled</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        onError<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// called whenever an element could not be handled</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        onFinishedAll<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// called once all elements was handled</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                </code></pre>
+              </div>
+              <p>&nbsp;</p>
+              <p>
+                <em>this</em> is the current Lazy instance itself, so you can access everything like public function or configuration directly.
+              </p>
+              <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">".lazy"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        onFinishedAll<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token string">"autoDestroy"</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="public-functions" class="block">
+          <h3 class="sub-title text-center">Public Functions &amp; Instances</h3>
+          <p>
+            Lazy supports multiple parallel instances.
+            Just initialize them with different selectors and possible different configurations.
+          </p>
+          <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#functions-list">Public Functions</a></li>
+            <li class="active"><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#functions-example">Example</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="functions-list" class="tab-pane fade">
+              <p>
+                An list of all available public functions:
+              </p>
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Parameter</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>config</td>
+                      <td class="default">{<i class="text-success">string</i>} entryName[, {<i class="text-success">string</i>} newValue]</td>
+                      <td class="description">get or set an configuration entry</td>
+                    </tr>
+                    <tr>
+                      <td>addItems</td>
+                      <td class="default">{<i class="text-success">string</i>|<i class="text-danger">object</i>} items</td>
+                      <td class="description">add new items to current instance</td>
+                    </tr>
+                    <tr>
+                      <td>getItems</td>
+                      <td class="default"><i class="text-muted">none</i></td>
+                      <td class="description">get all unhandled items left of current instance</td>
+                    </tr>
+                    <tr>
+                      <td>update</td>
+                      <td class="default">[{<i class="text-primary">boolean</i>} useThrottle]</td>
+                      <td class="description">loads all elements in current viewport</td>
+                    </tr>
+                    <tr>
+                      <td>force</td>
+                      <td class="default">{<i class="text-success">string</i>|<i class="text-danger">object</i>} items</td>
+                      <td class="description">force loading of specific items ignoring the viewport</td>
+                    </tr>
+                    <tr>
+                      <td>loadAll</td>
+                      <td class="default"><i class="text-muted">none</i></td>
+                      <td class="description">loads all remaining available elements from this instance</td>
+                    </tr>
+                    <tr>
+                      <td>destroy</td>
+                      <td class="default"><i class="text-muted">none</i></td>
+                      <td class="description">unbinds all events and stop execution directly</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="functions-example" class="tab-pane fade in active">
+              <p>
+                To access an instances public functions you can initialize them in an object oriented manner or grab the instance bind to every element by default.
+              </p>
+              <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token comment" spellcheck="true">// object oriented way, note the chainable parameter</span>
+    <span class="token keyword">var</span> instance <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.lazy'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token punctuation">{</span> chainable<span class="token punctuation">:</span> <span class="token keyword">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// grab from elements</span>
+    <span class="token comment" spellcheck="true">// only works well if you use same selector or a single instance overall</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.lazy'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> instance <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.lazy'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">"plugin_lazy"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                </code></pre>
+              </div>
+              <p>&nbsp;</p>
+              <p>
+                The public functions <em>config</em> and <em>addItems</em> has some multiple functionality.
+              </p>
+              <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token comment" spellcheck="true">// 'config' can receive entries or set them to a new value</span>
+    <span class="token keyword">var</span> value <span class="token operator">=</span> instance<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token string">'attribute'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    instance<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token string">'attribute'</span><span class="token punctuation">,</span> <span class="token string">'data-new-attribute'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 'addItems' works with an jQuery object or any selector</span>
+    <span class="token comment" spellcheck="true">// so these two lines have the exact same result</span>
+    instance<span class="token punctuation">.</span><span class="token function">addItems</span><span class="token punctuation">(</span><span class="token string">'img.new-items'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    instance<span class="token punctuation">.</span><span class="token function">addItems</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'img.new-items'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="custom-loaders" class="block last">
+          <h3 class="sub-title text-center">Custom Loaders</h3>
+          <p>
+            With the custom loaders option there is a powerful solution to load every contents the Lazy way. 
+            The plugin will handle everything, you just create a loading method witch got triggered whenever the element hits the visibility threshold. 
+            It's still possible to load images and custom loaders in the same Lazy instance.
+          </p>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#loaders-example">Example</a></li>
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#loaders-response">Response</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="loaders-example" class="tab-pane fade in active">
+              <p>
+                To use a custom loader just define a <em>name</em> and <em>function</em> inside the Lazy initialisation.
+                The first parameter is always a jQuery or Zepto DOM object, representing the element you want to lazy load.
+              </p>
+              <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.lazy'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        customLoaderName<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            element<span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">'element handled by "customLoaderName"'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            element<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        asyncLoader<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                element<span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span><span class="token string">'element handled by "asyncLoader"'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">response</span><span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                </code></pre>
+              </div>
+              <p>&nbsp;</p>
+              <p>
+                 Pass the loader name you want to use for this element to the <em>data-loader</em> attribute of those who should be lazy loaded.
+                 You can mix custom loaders and images in the same Lazy instance as well.
+              </p>
+              <div class="code-block">
+                <pre class=" language-markup"><code class=" language-markup">
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span> <span class="token attr-name">data-loader</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>customLoaderName<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span> <span class="token attr-name">data-src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>path/to/image.jpg<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span> <span class="token attr-name">data-loader</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>customLoaderName<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span> <span class="token attr-name">data-loader</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>asyncLoader<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+                </code></pre>
+              </div>
+            </div>
+            <div id="loaders-response" class="tab-pane fade">
+              <p>
+                Custom loaders can respond it's state back to the plugin.
+                This is highly necessary when you want to use one of the callbacks <em>afterLoad</em>, <em>onError</em> or <em>onFinishedAll</em> beside of your loaders.
+              </p>
+              <p>
+                Therefor you can either use jQuery's build-in functions <em>load</em> and <em>error</em>, or the response function, given as second parameter to your custom loaders.
+                Both ways do exactly the same, so you only had to choose one of them.
+              </p>
+              <p>
+                <strong>Note:</strong>
+                Zepto could not use the function <em>load</em> and may throw errors in the console.
+                Use the <em>response</em> function instead, if you're working with Zepto.
+			  </p>
+              <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token comment" spellcheck="true">// jQuery's build-in functions</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.lazy'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        successLoader<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            element<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        errorLoader<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            element<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                </code></pre>
+              </div>
+              <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token comment" spellcheck="true">// response callback function</span>
+    <span class="token comment" spellcheck="true">// best use for working with Zepto</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.lazy'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        successLoader<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">response</span><span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        errorLoader<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">response</span><span class="token punctuation">(</span><span class="token keyword">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="plugins" class="plugins section">
+    <div class="container">
+      <div class="plugins-inner">
+        <h2 class="title text-center">Plugins</h2>
+		<div class="block">
+		  <h3 class="sub-title text-center">How to use Plugins</h3>
+		  <p>
+		    The loader plugins for Lazy can be used whenever you want to extend the basic functionality by default or globally for many instances of Lazy.
+		  </p>
+		  <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#plugins-use">HTML</a></li>
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#plugins-available">Available Plugins</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="plugins-use" class="tab-pane fade in active">
+              <p>
+                Just add the plugins you want to use or a combined file, containing all plugins, to your page and all instances can use the plugins from now on.
+			  </p>
+              <div class="code-block">
+                <pre class=" language-markup"><code class=" language-markup">
+    <span class="token comment" spellcheck="true">&lt;!-- as single plugin files --&gt;</span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jquery.lazy.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>plugins/jquery.lazy.ajax.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>plugins/jquery.lazy.av.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>plugins/jquery.lazy.iframe.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>plugins/jquery.lazy.noop.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>plugins/jquery.lazy.picture.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>plugins/jquery.lazy.script.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>plugins/jquery.lazy.vimeo.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>plugins/jquery.lazy.youtube.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+
+    <span class="token comment" spellcheck="true">&lt;!-- or combined in one plugin file --&gt;</span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jquery.lazy.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+    <span class="token script language-javascript"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jquery.lazy.plugins.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></span>
+			    </code></pre>
+			  </div>
+              <p>&nbsp;</p>
+              <p>
+                Using a plugin on an element is just the same as with custom loaders.
+                Add the attribute <em>data-loader</em> (<i>by default</i>) with the plugin name to the specific elements.
+			  </p>
+              <div class="code-block">
+                <pre class=" language-markup"><code class=" language-markup">
+    <span class="token comment" spellcheck="true">&lt;!-- element will be handled by 'ajax' plugin --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-loader</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ajax<span class="token punctuation">"</span></span> <span class="token attr-name">data-src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file.html<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+			    </code></pre>
+			  </div>
+			  <p>&nbsp;</p>
+			  <p>
+			    If you create or use a plugin witch is set to specific html element types by default, like our AV plugin, there is no need to add a <em>data-loader</em> attribute.
+			  </p>
+              <div class="code-block">
+                <pre class=" language-markup"><code class=" language-markup">
+    <span class="token comment" spellcheck="true">&lt;!-- this element will automatically be handled by the 'av' plugin --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>audio</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data-src</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file.ogg<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>audio/ogg<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>data-src</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data-src</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file.mp3<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>audio/mp3<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>data-src</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data-src</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file.wav<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>audio/wav<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>data-src</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>audio</span><span class="token punctuation">&gt;</span></span>
+			    </code></pre>
+			  </div>
+			</div>
+            <div id="plugins-available" class="tab-pane fade">
+              <p>
+                A list of all available plugins, created by the Lazy developers.
+                For more details about the single plugins, take a look in the <a href="https://github.com/eisbehr-/jquery.lazy/tree/master/plugins" target="_blank">plugin folder</a> inside the Lazy GitHub repository.
+			  </p>
+              <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Aliases</th>
+                      <th>Parameter</th>
+                      <th>Default For</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>AJAX</td>
+                      <td class="default">ajax, get, post</td>
+                      <td class="default">data-src, data-method, data-type</td>
+                      <td class="default"><i class="text-muted">-</i></td>
+                    </tr>
+                    <tr>
+                      <td>AV</td>
+                      <td class="default">av, audio, video</td>
+                      <td class="default">data-src, data-poster</td>
+                      <td class="default">&lt;audio&gt;, &lt;video&gt;</td>
+                    </tr>
+                    <tr>
+                      <td>iFrame</td>
+                      <td class="default">frame, iframe</td>
+                      <td class="default">data-src, data-error-detect</td>
+                      <td class="default">&lt;iframe&gt;</td>
+                    </tr>
+                    <tr>
+                      <td>NOOP</td>
+                      <td class="default">noop, noop-success, noop-error</td>
+                      <td class="default"><i class="text-muted">-</i></td>
+                      <td class="default"><i class="text-muted">-</i></td>
+                    </tr>
+                    <tr>
+                      <td>Picture</td>
+                      <td class="default">pic, picture</td>
+                      <td class="default">data-src, data-srcset, data-media, data-sizes</td>
+                      <td class="default">&lt;picture&gt;</td>
+                    </tr>
+                    <tr>
+                      <td>Script</td>
+                      <td class="default">js, javascript, script</td>
+                      <td class="default">data-src</td>
+                      <td class="default">&lt;script&gt;</td>
+                    </tr>
+                    <tr>
+                      <td>Vimeo</td>
+                      <td class="default">vimeo</td>
+                      <td class="default">data-src</td>
+                      <td class="default"><i class="text-muted">-</i></td>
+                    </tr>
+                    <tr>
+                      <td>YouTube</td>
+                      <td class="default">yt, youtube</td>
+                      <td class="default">data-src</td>
+                      <td class="default"><i class="text-muted">-</i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+			</div>
+          </div>
+		</div>
+        <div class="block last">
+          <h3 class="sub-title text-center">Create own Loader Plugins</h3>
+          <p>
+            If you want to, you can easily create own loader plugins.
+            Just use jQuery or Zepto's public function <em>Lazy</em> to create and register them.
+          </p>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#plugins-js">JavaScript</a></li>
+            <li><a data-toggle="tab" href="http://jquery.eisbehr.de/lazy/#plugins-zepto">Using Zepto</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="plugins-js" class="tab-pane fade in active">
+              <p>
+                The first parameter is the name of your plugin as <em>string</em>, or an <em>array</em> of names / aliases.
+                Second parameter is the loader function, witch is the same as in <a class="scrollto" href="http://jquery.eisbehr.de/lazy/#custom-loaders">custom loaders</a>.
+                Best practice is to wrap everything by an <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression" target="_blank">IIFE</a>.
+			  </p>
+			  <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>$<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        $<span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token string">'pluginName'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// add your whole logic here</span>
+
+            <span class="token comment" spellcheck="true">// 'this' is the current instance of Lazy</span>
+            <span class="token comment" spellcheck="true">// so it's possible to access all public functions, like:</span>
+            <span class="token keyword">var</span> imageBase <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token string">'imageBase'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">window</span><span class="token punctuation">.</span>jQuery <span class="token operator">||</span> <span class="token keyword">window</span><span class="token punctuation">.</span>Zepto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			    </code></pre>
+              </div>
+              <p>&nbsp;</p>
+              <p>
+                The optional second parameter gives you the ability to register a plugin by default to html element types.
+                When you do this, there is no need to set the <em>data-loader</em> attribute on each element you want to use this loader on.
+              </p>
+              <p>
+                But keep in mind, if you register an plugin on often used elements, like <em>&lt;div&gt;</em>, Lazy will try to handle each of them, every time!
+                If you want to do so anyway, use a most specific selector for jQuery or Zepto.
+			  </p>
+			  <div class="code-block">
+                <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>$<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        $<span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token string">'av'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'audio'</span><span class="token punctuation">,</span> <span class="token string">'video'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// this plugin will automatically handle '&lt;audio&gt;' and '&lt;video&gt; elements,</span>
+            <span class="token comment" spellcheck="true">// even when no 'data-loader' attribute was set on the elements</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">window</span><span class="token punctuation">.</span>jQuery <span class="token operator">||</span> <span class="token keyword">window</span><span class="token punctuation">.</span>Zepto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			    </code></pre>
+			  </div>
+            </div>
+            <div id="plugins-zepto" class="tab-pane fade">
+              <p>
+                Working with Zepto has a little special behavior.
+                Zepto could not use the function <em>load</em> on elements and may throw errors in the console.
+                Use the response function instead, if you're working with Zepto or writing a plugin for publicity.
+			  </p>
+              <pre class=" language-javascript"><code class=" language-javascript">
+    <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>$<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        $<span class="token punctuation">.</span><span class="token function">Lazy</span><span class="token punctuation">(</span><span class="token string">'pluginName'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span> loaded <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            	<span class="token comment" spellcheck="true">// is the same as 'element.load();'</span>
+            	<span class="token function">response</span><span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// is the same as 'element.error();'</span>
+            	<span class="token function">response</span><span class="token punctuation">(</span><span class="token keyword">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">window</span><span class="token punctuation">.</span>jQuery <span class="token operator">||</span> <span class="token keyword">window</span><span class="token punctuation">.</span>Zepto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			  </code></pre>
+            </div>
+          </div>
+        </div>
+	  </div>
+	</div>
+  </section>
+  <section id="examples" class="examples section">
+    <div class="container">
+      <div class="examples-inner">
+        <h2 class="title text-center">Examples</h2>
+        <div class="block last">
+          <div class="row">
+            <div class="item col-md-6 col-sm-6 col-xs-12">
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_basic-usage" title="see how to use lazy out of the box">basic usage</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_bottom-to-top-scrolling#bottom" title="scroll the opposite way, from the bottom up">bottom-to-top scrolling</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_delayed-loading" title="load all elements by a delayed time">delayed loading</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_combine-basic-and-delayed-loading" title="mix up different lazy loadings">combine basic &amp; delayed loading</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_show-a-loading-image" title="show a loading animation for elements with longer loading time">show a loading image</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_disabled-javascript-fallback" title="show images even to users with disabled javascript">disabled javascript fallback</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_throttle-demonstration" title="a simple demonstration shows how throttle works">throttle demonstration</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_heavy-usage" title="let lazy handle a huge amount of elements">heavy usage</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_instances-and-public-functions" title="create many instances and use it&#39;s functions">instances &amp; public functions</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_base-path" title="define a base for all images">use a base path for all images</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_use-srcset-and-sizes" title="use source sets and sizes with lazy for loading responsive images">use 'srcset' and 'sizes' for responsive images</a>
+            </div>
+            <div class="item col-md-6 col-sm-6 col-xs-12">
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_use-other-attributes" title="use another names to store information">use other attributes</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_load-elements-by-events" title="trigger lazy loading by events beside page load itself">load elements by events</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_callback-functions" title="use callbacks for a more dynamic user experince or control">callback functions</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_make-use-of-effects" title="everybody love effects, use them with lazy">make use of effects</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_load-background-images" title="just not only load images, even backgrounds">load background images</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_elements-inside-a-container" title="lazy load elements in containers">elements inside a container</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_retina-image-support" title="show better images on high density displays">retina image support</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_horizontal-scroll" title="scroll your elements horizontal">horizontal scroll</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_use-custom-loaders" title="load any content with your own custom loaders">use custom loaders</a>
+              <a class="btn btn-cta-primary btn-full" href="http://jquery.eisbehr.de/lazy/example_create-own-plugin" title="create your own plugin for lazy loading other content">create your own loader plugin</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="license" class="license section">
+    <div class="container">
+      <div class="license-inner">
+        <h2 class="title text-center">License</h2>
+        <div class="info text-center">
+          <p>This plugin is made by Daniel '<a href="http://eisbehr.net/" rel="nofollow" target="_blank">Eisbehr</a>' Kern and is <strong>100% FREE</strong> under <a href="http://www.opensource.org/licenses/mit-license.php" rel="nofollow" target="_blank">MIT</a> and / or <a href="http://www.gnu.org/licenses/gpl-2.0.html" rel="nofollow" target="_blank">GPL-2.0</a> license.</p>
+        </div>
+        <div class="cta-container">
+          <div class="speech-bubble">                    
+            <p class="intro">If you are feeling generous and want to show your support, you can buy me a beer or coffee via the PayPal donate button below. :)</p>
+            <div class="icon-holder text-center">
+              <i class="fa fa-smile-o"></i>
+            </div>
+          </div>
+          <div class="btn-container text-center">
+            <form id="donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="FFL6VQJCUZMXC">
+              <input type="image" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online.">
+              <img alt="" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/pixel.gif" width="1" height="1">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="contact section has-pattern">
+    <div class="container">
+      <div class="contact-inner">
+        <h2 class="title text-center">Contact</h2>
+        <p class="intro text-center">
+          I hope you will find this plugin useful.
+          <br>
+          Feel free to get in touch with me if you have any questions or suggestions.</p>
+        <div class="author-message">
+          <div class="profile">
+            <img class="img-responsive" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/profile.png" alt="Eisbehr">
+          </div>
+          <div class="speech-bubble">
+            <h3 class="sub-title">Want to get in contact with me?</h3>
+            <p>
+              You can join me and the project on <a href="http://github.com/eisbehr-/jquery.lazy" target="_blank">GitHub</a> or use the <a class="scrollto" href="http://jquery.eisbehr.de/lazy/#comments">Comments</a> below.
+              Please report <a href="http://github.com/eisbehr-/jquery.lazy/issues" target="_blank">bugs</a> only on GitHub, just create an issue there.
+              <br><br>
+              I'll appreciate your support!
+            </p>
+          </div>
+        </div>
+        <h3 id="comments" class="title text-center">Comments</h3>
+        <div id="disqus_thread"><iframe id="dsq-app3778" name="dsq-app3778" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 8103px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe><iframe id="indicator-north" name="indicator-north" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 760px !important; border: none !important; overflow: hidden !important; top: 0px !important; min-width: 760px !important; max-width: 760px !important; position: fixed !important; z-index: 2147483646 !important; height: 0px !important; min-height: 0px !important; max-height: 0px !important; display: none !important;" __idm_frm__="597" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/saved_resource(1).html"></iframe><iframe id="indicator-south" name="indicator-south" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" style="width: 760px !important; border: none !important; overflow: hidden !important; bottom: 0px !important; min-width: 760px !important; max-width: 760px !important; position: fixed !important; z-index: 2147483646 !important; height: 0px !important; min-height: 0px !important; max-height: 0px !important; display: none !important;" __idm_frm__="598" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/saved_resource(2).html"></iframe></div>
+        <script type="text/javascript">
+	      var disqus_shortname="jquerylazy";(function(){var dsq=document.createElement('script');
+	      dsq.type='text/javascript';dsq.async=true;dsq.src='http://'+disqus_shortname+'.disqus.com/embed.js';
+	  	  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();
+        </script>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container text-center">
+      <small class="copyright">
+        Made with <i class="fa fa-heart"></i> by Daniel '<a href="http://eisbehr.net/" target="_blank" rel="nofollow">Eisbehr</a>' Kern - 
+        Layout by <a href="http://themes.3rdwavemedia.com/" target="_blank" rel="nofollow">Xiaoying Riley</a>
+      </small>
+    </div>
+  </footer>
+  <script type="text/javascript" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/jquery.lazy.min.js.download"></script>
+  <script type="text/javascript" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/footer.js.download"></script>
+  <script type="text/javascript" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/platform.js.download" async="" defer="" gapi_processed="true"></script>
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/widget_iframe.7303c29a8108bca4ac5c9ef008ed8164.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe __idm_frm__="593" style="display: none;" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/saved_resource(3).html"></iframe><iframe name="oauth2relay254248221" id="oauth2relay254248221" src="./jQuery Lazy - Delayed Content, Image and Background Lazy Loader_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

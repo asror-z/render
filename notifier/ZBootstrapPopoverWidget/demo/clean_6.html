@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+
+    <!-- -------------------------- -->
+    <!-- ---------  Assets ----------->
+
+    <!-- ---------  Styles ----------->
+
+    <link rel="stylesheet" href="/publish/yarner/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/publish/yarner/font-awesome/css/font-awesome.css">
+
+    <link rel="stylesheet" href="/publish/yarner/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/publish/theme/mdbpro/css/mdb.min.css">
+
+    <link href="/publish/theme/vendroid/CSS/theme.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/publish/theme/vendroid/CSS/theme-responsive.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/publish/asrorz/css/ALL.css">
+
+
+
+    <!-- ---------  Scripts ----------->
+
+    <script type="text/javascript" src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/publish/yarner/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+
+    <script type="text/javascript" src="/publish/yarner/mobile-detect/mobile-detect.min.js"></script>
+
+    <script src="/publish/yarner/cookiejs/dist/cookie.min.js"></script>
+
+    <script type="text/javascript" src="/publish/asrorz/js/ALL.js"></script>
+
+
+
+    <link rel="stylesheet" href="/publish/yarner/mburger-css/dist/mburger.css">
+    <!--<link rel="stylesheet" href="/publish/menus/mmenu/mmenuextension.css">-->
+
+
+    <!-- -------------------------- -->
+    <!-- ---------  Assets ----------->
+
+</head>
+
+<style>
+    .container {padding:20px;}
+    .form-control {width:120px;}
+    .popover {max-width:400px;}
+</style>
+<body>
+<div class="container">
+    <h3>Bootstrap 3 Popover HTML Example</h3>
+    <ul class="list-unstyled">
+        <li><a data-placement="bottom" data-toggle="popover" data-container="body" data-placement="left" type="button" data-html="true" href="#" id="login"><span class="glyphicon glyphicon-search" style="margin:3px 0 0 0"></span></a></li>
+        <div id="popover-content" class="hide">
+            <form class="form-inline" role="form">
+                <div class="form-group">
+                    <input class="headerSearch search-query" id="str" name="str" type="text" placeholder="Search..." />
+                    <span class="glyphicon glyphicon-search" style="margin:3px 8px 0 -20px;"></span>
+                    <input class="btn btn-primary btn-xs" id="phSearchButton" type="submit" value="Search" />
+                    <input class="btn btn-primary btn-xs" id="searchButton" type="submit" value="Dictionary" />
+                </div>
+            </form>
+        </div>
+    </ul>
+</div>
+
+
+<script>
+$(function () {
+
+    $("[data-toggle=popover]").popover({
+        html: true,
+        content: function() {
+            return $('#popover-content').children().html();
+
+        }
+    });
+})
+
+</script>
+</body>
+</html>

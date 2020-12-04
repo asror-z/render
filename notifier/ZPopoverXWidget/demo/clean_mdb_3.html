@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/publish/yarner/bootstrap-popover-x/css/bootstrap-popover-x.min.css">
+
+
+
+
+
+    <!-- ---------  Scripts ----------->
+
+    <script type="text/javascript" src="/publish/yarner/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/publish/yarner/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <script type="text/javascript" src="/publish/yarner/mobile-detect/mobile-detect.min.js"></script>
+
+    <script src="/publish/yarner/cookiejs/dist/cookie.min.js"></script>
+    <script type="text/javascript" src="/publish/theme/vendroid/js/theme.js"></script>
+
+    <script type="text/javascript" src="/publish/asrorz/js/ALL.js"></script>
+    <script type="text/javascript" src="/publish/asrorz/js/<?=App?>.js"></script>
+
+
+
+    <link rel="stylesheet" href="/publish/yarner/mburger-css/dist/mburger.css">
+
+
+    <script type="text/javascript" src="/publish/yarner/bootstrap-popover-x/js/bootstrap-popover-x.min.js"></script>
+</head>
+<body>
+
+    <div class="container pt-5 mt-5">
+        <button type="button" id="kv-btn-2" class="btn btn-secondary btn-lg">Launch 2</button>
+
+        <!-- PopoverX content -->
+        <div id="myPopover6" class="popover popover-x popover-default">
+            <div class="arrow"></div>
+            <div class="popover-header popover-title"><button type="button" class="close" data-dismiss="popover-x"><i class="fa fa-close"></i></button>My Header</div>
+            <div class="popover-body popover-content">
+                <p class="text-justify">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#kv-btn-2').popoverButton({
+                trigger: 'click', // click | keyup | hover | focus | manual
+                target: '#myPopover6',
+                placement : 'bottom bottom-right', // right | left | top | bottom | top-left | top-right | bottom-left | bottom-right | left-top | left-bottom	| right-top | right-bottom | auto | auto-top | auto-right | auto-bottom | auto-left | horizontal | vertical
+            });
+            $('#kv-btn-2').on('click.popoverX', function () {
+                 console.log('click');
+            });
+
+            $('#myPopover6').popoverX({
+
+                closeOpenPopovers : true,
+                autoPlaceSmallScreen : true,
+                smallScreenWidth : 200,
+                keyboard : true,
+                show : false,
+                backdrop : null,
+                remote : ''
+            });
+        });
+    </script>
+</body>
+</html>

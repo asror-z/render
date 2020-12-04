@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+    
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style3.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+
+
+
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="block_item or2">
+            <div class="right_block">
+                <div class="opacity mt-3">
+                    <div class="number text-center border w-10">
+                        <div class="mb-2 mt-2 control_btn">
+                            <button type="button" id="call-audio-btn" class="btn btn-success btn-rounded">
+                                <i class="fas white-ic fa-phone"></i></button>
+                            <button type="button" id="hangup-btn" class="btn btn-success btn-rounded">
+                                <i class="fab red-ic fa-xbox"></i></button>
+                            <button type="button" id="answer-btn" class="btn btn-success btn-rounded">
+                                <i class="fas white-ic fa-phone-volume"></i></button>
+                        </div>
+                        <div class="" id="output-lbl">Ready</div>
+                        <div class="ml-4 mr-4">
+                            <div class=" md-form input-with-post-icon mt-lg-1">
+                                <i class=" fas dark-ic fa-user input-prefix text-center "></i>
+                                <input type="text" id="call-to" class=" text-dark text-center">
+                                <label for="call-to"></label>
+                            </div>
+                        </div>
+                        <div class=" buuton-goup mb-lg-4 mb-3 text-center">
+                            <a type="button" class="btn btn-floating btn-rounded" value="1"
+                               onclick="dis('1')">1</a>
+                            <!--  onclick="dis('2')" -->
+                            <a type="button" class="btn btn-floating" value="2"
+                               onclick="dis('2')">2</a>
+                            <a type="button" class="btn btn-floating" value="3"
+                               onclick="dis('3')">3</a>
+                            <br>
+                            <a type="button" class="btn btn-floating " value="4"
+                               onclick="dis('4')">4</a>
+                            <a type="button" class="btn btn-floating" value="5"
+                               onclick="dis('5')">5</a>
+                            <a type="button" class="btn btn-floating" value="6"
+                               onclick="dis('6')">6</a>
+                            <br>
+                            <a type="button" class="btn btn-floating" value="7"
+                               onclick="dis('7')">7</a>
+                            <a type="button" class="btn btn-floating" value="8"
+                               onclick="dis('8')">8</a>
+                            <a type="button" class="btn btn-floating" value="9"
+                               onclick="dis('9')">9</a>
+                            <br>
+                            <a type="button" class="btn btn-floating" value="+"
+                               onclick="dis('+')">+</a>
+                            <a type="button" class="btn btn-floating" value="0"
+                               onclick="dis('0')">0</a>
+                            <a type="button" class="btn btn-floating" value="c" onclick="clr()">
+                                x</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Bootstrap Sidebar</h3>
+        </div>
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+
+            </div>
+        </nav>
+
+
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+<!-- jQuery Custom Scroller CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
+
+        $('#dismiss, .overlay').on('click', function () {
+            $('#sidebar').removeClass('active');
+            $('.overlay').removeClass('active');
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').addClass('active');
+            $('.overlay').addClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
+
+    function dis(val) {
+        document.getElementById("call-to").value += val
+    }
+
+    function clr() {
+        document.getElementById("call-to").value = ""
+    }
+</script>
+</body>

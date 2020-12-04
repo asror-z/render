@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./jQuery DuplicateElement Plugin Demo_files/bootstrap.min.css">
+
+
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+    <script src="./jQuery DuplicateElement Plugin Demo_files/duplicateFields.min.js.download"
+            type="text/javascript"></script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('#additional-field-model').duplicateElement({
+                "class_remove": ".remove-this-field",
+                "class_create": ".create-new-field"
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div class="container">
+
+    <form name="demo">
+
+        <div id="additional-field-model">
+            <div class="form-group">
+                <div class="col-md-6 col-sm-12">
+                    <label class="col-md-12 control-label" for="field-a">Field A</label>
+                    <div class="input-group">
+                        <select id="field-a" name="field-a" class="form-control input-md" required="">
+                            <option disabled="" selected="">Select ...</option>
+                            <option>Option A</option>
+                            <option>Option B</option>
+                            <option>Option C</option>
+                            <option>Option D</option>
+                        </select>
+                        <span class="input-group-addon"> Help text</span>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-5">
+                    <label class="col-md-12 control-label" for="field-b">Field A</label>
+                    <div class="input-group">
+                        <input id="field-b" name="field-b" type="text" placeholder="field b"
+                               class="form-control input-md" value="" required="">
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-7 text-right">
+                    <label class="col-xs-12 control-label" for="field-c"><br></label>
+                    <a href="javascript:void(0);" class="btn btn-warning remove-this-field" style="display: none;">
+                        <i class="fa fa-remove"></i>
+                        <span class="hidden-xs"> Delete </span>
+                    </a>
+                    <a href="javascript:void(0);" class="btn btn-success create-new-field"
+                       style="display: inline-block;">
+                        <i class="fa fa-plus"></i>
+                        <span class="hidden-xs"> Duplicate </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+</body>
+
+</html>

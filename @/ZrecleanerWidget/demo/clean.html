@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+        img {
+            opacity: 0;
+            transition: opacity .333s ease-in;
+        }
+
+        img.lazy-loaded {
+            opacity: 1;
+        }
+    </style>
+
+</head>
+<body>
+
+<!--data-src="image-to-lazy-load.png"-->
+
+<img src="/Recliner.js _ Sourcey_files/recliner-80x107.png"  width="333" height="333" />
+<div data-src="http://sourcey.com" style="width:333px;height:333px">
+    Loading, be patient damnit!
+</div>
+<div data-src="http://sourcey.com" style="width:333px;height:333px">
+    Loading, be patient damnit!
+</div>
+
+
+
+<!--<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+<!--<script src="recliner.min.js"></script>-->
+<script>
+    $(window).trigger("lazyupdate");
+$(function() {
+      $(".lazy").recliner({
+         attrib: "data-src",
+         throttle: 300,
+         threshold: 100,
+         live: true
+      });
+});
+$(document).on('lazyshow', '.lazy', function() {
+    var $e = $(this);
+    // do something with the loaded element...
+    console.log('lazyshow', $e);
+});
+</script>
+
+
+
+</body>
+</html>

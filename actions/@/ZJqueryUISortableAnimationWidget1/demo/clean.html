@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>jQuery UI Sortable Animation</title>
+<body>
+
+<ul id="sortable" class="jqui-s-a-container ui-sortable">
+
+    <li class="jqui-s-a-container__item ui-sortable-handle" style="">Item 5</li>
+    <li class="jqui-s-a-container__item ui-sortable-handle" style="">Item 7</li>
+    <li class="jqui-s-a-container__item ui-sortable-handle" style="">Item 3</li>
+    <li class="jqui-s-a-container__item ui-sortable-handle" style="">Item 2</li>
+
+    <li class="jqui-s-a-container__item ui-sortable-handle" style="">Item 4</li>
+    <li class="jqui-s-a-container__item ui-sortable-handle" style="">Item 1</li>
+
+    <li class="jqui-s-a-container__item ui-sortable-handle" style="">Item 6</li>
+
+</ul>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdn.statically.io/gh/egorshar/jquery-ui-sortable-animation/59e3c2b9/jquery.ui.sortable-animation.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#sortable').sortable({
+            axis: 'y',
+            containment: 'parent',
+            animation: 200,
+        });
+    });
+</script>
+</body>
+</html>

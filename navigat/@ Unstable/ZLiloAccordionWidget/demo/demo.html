@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://ricioli.github.io/lilo-accordion/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    
+    <meta name="description" content="Plugin de accordion em jquery. Simples, leve e personalizável">
+    <meta name="keywords" content="plugin,jquery,accordion,javascript,js">
+    <meta name="author" content="Alex Ricioli, Elton Pongilo">
+    <title>Lilo Accordion | Simples, leve e personalizavel.</title>
+    <link rel="shortcut icon" href="https://ricioli.github.io/lilo-accordion/img/icon.jpg">
+    <link rel="stylesheet" href="./demo_files/style.css">
+    <link rel="stylesheet" href="./demo_files/lilo-accordion.css">
+    <link href="./demo_files/css" rel="stylesheet">
+    <link rel="stylesheet" href="./demo_files/prism.css">
+  </head>
+  <body>
+    <main>
+      <header class="header flex middle-xs center-xs">
+        <div class="text-center in-space-b-xl">
+          <h1 class="text-header">LILO ACCORDION</h1>
+          <a href="https://github.com/ricioli/lilo-accordion/archive/master.zip" class="btn btn-primary out-space-h-xs out-space-t-lg">DOWNLOAD</a>
+          <a href="https://github.com/ricioli/lilo-accordion" class="btn btn-ghost out-space-h-xs out-space-t-lg" target="_blank">GITHUB</a>
+        </div>
+      </header>
+      <section class="about in-space-t-xxl in-space-b-xxl">
+        <div class="container flex in-space-md">
+          <div class="whole-xs four-md in-space-md">
+            <h2 class="text-lg in-space-b-md">
+              Plugin de accordion em jquery. Simples, leve e personalizável.
+            </h2>
+          </div>
+          <div class="whole-xs eight-md in-space-md">
+            Lilo accordion é um plugin de jquery simples de ser implementado, e que não está atrelado a nenhum estilo predefinido, permitindo uma flexibilidade de personalização. O plugin contém as funcionalidades necessárias para os diversos comportamentos de um accordion.
+          </div>
+        </div>
+      </section>
+      <section class="how-to-use in-space-t-xl in-space-b-xxl">
+        <header class="whole-xs in-space-lg">
+          <h3 class="text-xl text-center">Como usar?</h3>
+        </header>
+        <div class="in-space-md">
+          <div id="how-to-use-accordion" class="how-to-use-accordion">
+            <div class="in-space-lg lilo-accordion-control" style="display: block;">
+              <span class="text-sm text-secundary in-space-r-md">01</span>
+              <span class="text-md">Monte a estrutura</span>
+              <img src="./demo_files/arrow.svg" alt="" width="24" height="24" class="icon-arrow">
+            </div>
+            <div class="in-space-h-lg in-space-b-lg lilo-accordion-content" style="display: none;">
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>your-class<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lilo-accordion-control<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Controle 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lilo-accordion-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Conteúdo 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lilo-accordion-control<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Controle 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lilo-accordion-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Conteúdo 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lilo-accordion-control<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Controle 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lilo-accordion-content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Conteúdo 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre>
+            </div>
+            <hr>
+            <div class="in-space-lg lilo-accordion-control" style="display: block;">
+              <span class="text-sm text-secundary in-space-r-md">02</span>
+              <span class="text-md">Mova o lilo para o projeto</span>
+              <img src="./demo_files/arrow.svg" alt="" width="24" height="24" class="icon-arrow">
+            </div>
+            <div class="in-space-h-lg in-space-b-lg in-space-b-lg lilo-accordion-content" style="display: none;">
+<span class="text-sm text-secundary in-space-b-sm">Faça o download e mova a pasta <strong>dist</strong> com os arquivos <strong>.css</strong> e <strong>.js</strong> para o seu projeto</span>
+<img src="./demo_files/move-folder.png" alt="" class="block in-space-t-md">
+            </div>
+            <hr>
+            <div class="in-space-lg lilo-accordion-control" style="display: block;">
+              <span class="text-sm text-secundary in-space-r-md">03</span>
+              <span class="text-md">Linque a folha de estilo</span>
+              <img src="./demo_files/arrow.svg" alt="" width="24" height="24" class="icon-arrow">
+            </div>
+            <div class="in-space-h-lg in-space-b-lg lilo-accordion-content" style="display: none;">
+<span class="text-sm text-secundary">Adicione o <strong>lilo-accordion.css</strong> dentro da tag <strong>&lt;head&gt;</strong></span>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dist/css/lilo-accordion.min.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></code></pre>
+            </div>
+            <hr>
+            <div class="in-space-lg lilo-accordion-control" style="display: block;">
+              <span class="text-sm text-secundary in-space-r-md">04</span>
+              <span class="text-md">Adicione o script do plugin</span>
+              <img src="./demo_files/arrow.svg" alt="" width="24" height="24" class="icon-arrow">
+            </div>
+            <div class="in-space-h-lg in-space-b-lg lilo-accordion-content" style="display: none;">
+<span class="text-sm text-secundary">Adicione o <strong>Jquery</strong> e depois o <strong>jquery.lilo.accordion.js</strong> antes da tag <strong>&lt;body&gt;</strong></span>
+<pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://code.jquery.com/jquery-3.3.1.min.js<span class="token punctuation">"</span></span> <span class="token attr-name">integrity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=<span class="token punctuation">"</span></span> <span class="token attr-name">crossorigin</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>anonymous<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dist/js/jquery.lilo.accordion.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre>
+            </div>
+            <hr>
+            <div class="in-space-lg lilo-accordion-control" style="display: block;">
+              <span class="text-sm text-secundary in-space-r-md">05</span>
+              <span class="text-md">Inicialize o accordion</span>
+              <img src="./demo_files/arrow.svg" alt="" width="24" height="24" class="icon-arrow">
+            </div>
+            <div class="in-space-h-lg in-space-b-lg lilo-accordion-content" style="display: none;">
+<span class="text-sm text-secundary">Inicialize o seu accordion em seu arquivo de scripts ou na sua tag de script inline</span>
+<pre class=" language-javascript"><code class=" language-javascript"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ready</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.your-class'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">liloAccordion</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    setting<span class="token operator">-</span>name<span class="token punctuation">:</span> setting<span class="token operator">-</span>value
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+            </div>
+            <hr>
+            <div class="in-space-lg lilo-accordion-control" style="display: block;">
+              <span class="text-sm text-secundary in-space-r-md">06</span>
+              <span class="text-md">Conferindo o resultado</span>
+              <img src="./demo_files/arrow.svg" alt="" width="24" height="24" class="icon-arrow">
+            </div>
+            <div class="in-space-h-lg in-space-b-lg lilo-accordion-content" style="display: none;">
+              <div class="cp_embed_wrapper"><iframe name="cp_embed_1" src="./demo_files/YaOLze.html" scrolling="no" frameborder="0" height="265" allowtransparency="true" allowfullscreen="true" allowpaymentrequest="true" title="Lilo Accordion" class="cp_embed_iframe " style="width: 100%; overflow:hidden; display:block;" id="cp_embed_YaOLze"></iframe></div>
+<script async="" src="./demo_files/ei.js.download"></script>
+            </div>
+            <div class="this-is-accordion">
+              <img src="./demo_files/arrow.png" alt="">
+              <span class="text-md text-secundary">Este accordion está usando o Lilo :)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="in-space-t-xxl in-space-b-xxl">
+        <header class="whole-xs in-space-lg">
+          <h3 class="text-xl text-center">Configurações</h3>
+        </header>
+        <div class="container flex">
+          <div class="whole-xs half-md in-space-md">
+            <div class="config-box">
+              <h4 class="text-md">Manter apenas um item aberto</h4>
+              <span class="text-sm text-secundary">Apenas um item do accordion ficará aberto</span>
+              <span class="text-sm text-secundary block in-space-t-md">Parâmetro: onlyOneActive</span>
+              <span class="text-sm text-secundary block">Tipo: boolean</span>
+              <span class="text-sm text-secundary block">Padrão: true</span>
+            </div>
+          </div>
+          <div class="whole-xs half-md in-space-md">
+            <div class="config-box">
+              <h4 class="text-md">Deixar o primeiro item aberto</h4>
+              <span class="text-sm text-secundary">Ao carregar a página o primeiro item do accordion já vem aberto</span>
+              <span class="text-sm text-secundary block in-space-t-md">Parâmetro: initFirstActive</span>
+              <span class="text-sm text-secundary block">Tipo: boolean</span>
+              <span class="text-sm text-secundary block">Padrão: true</span>
+            </div>
+          </div>
+          <div class="whole-xs half-md in-space-md">
+            <div class="config-box">
+              <h4 class="text-md">Desativar o plugin</h4>
+              <span class="text-sm">Ideal para sites que precisam do accordion no mobile e não no desktop</span>
+              <span class="text-sm text-secundary block in-space-t-md">Parâmetro: destructor</span>
+              <span class="text-sm text-secundary block">Tipo: boolean</span>
+              <span class="text-sm text-secundary block">Padrão: false</span>
+            </div>
+          </div>
+          <div class="whole-xs half-md in-space-md">
+            <div class="config-box">
+              <h4 class="text-md">Ocultar os controles</h4>
+              <span class="text-sm text-secundary">Este item funciona se o plugin accordion estiver desativado</span>
+              <span class="text-sm text-secundary block in-space-t-md">Parâmetro: hideControl</span>
+              <span class="text-sm text-secundary block">Tipo: boolean</span>
+              <span class="text-sm text-secundary block">Padrão: false</span>
+            </div>
+          </div>
+          <div class="whole-xs half-md in-space-md">
+            <div class="config-box">
+              <h4 class="text-md">Fechar o atual e abrir o próximo</h4>
+              <span class="text-sm text-secundary">Ao clicar no controle do item aberto,  fecha o item atual e abre o próximo</span>
+              <span class="text-sm text-secundary block in-space-t-md">Parâmetro: openNextOnClose</span>
+              <span class="text-sm text-secundary block">Tipo: boolean</span>
+              <span class="text-sm text-secundary block">Padrão: false</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer in-space-v-lg">
+        <div class="container">
+          <div class="flex between-xs in-space-h-sm in-space-v-lg">
+            <span class="text-sm text-primary">Desenvolvido por <a href="https://github.com/ricioli" class="text-link text-primary">Alex Ricioli</a> e <a href="https://www.behance.net/pongilo" class="text-link text-primary">Elton Pongilo</a></span>
+            <span class="text-sm text-primary">Versão 1.2.0</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script src="./demo_files/jquery-3.3.1.js.download"></script>
+    <script src="./demo_files/jquery.lilo.accordion.js.download"></script>
+    <script src="./demo_files/prism.js.download"></script>
+    <script async="" src="./demo_files/ei.js.download"></script>
+    <script src="./demo_files/scripts.js.download"></script>
+  
+
+</body></html>

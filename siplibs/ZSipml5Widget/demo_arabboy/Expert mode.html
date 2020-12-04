@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Expert mode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Keywords" content="doubango, VoIP, HTML5, WebRTC, RTCWeb, SIP, IMS, Video chat, VP8 ">
+    <meta name="Description" content="HTML5 SIP client using WebRTC framework">
+    <meta name="author" content="Doubango Telecom">
+    <link href="./Expert mode_files/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+        body
+        {
+            padding-top: 80px;
+            padding-bottom: 40px;
+        }
+    </style>
+    <link href="./Expert mode_files/bootstrap-responsive.css" rel="stylesheet">
+
+      <!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="https://www.doubango.org/sipml5/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.doubango.org/sipml5/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.doubango.org/sipml5/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="https://www.doubango.org/sipml5/assets/ico/apple-touch-icon-57-precomposed.png">
+    <script src="expert.js"></script>
+</head>
+
+     
+
+<body>
+    <div class="container">
+        <div class="span7 well">
+            <label align="center" id="txtInfo"> </label>
+            <h2> Expert settings</h2>
+            <br>
+            <table style="width: 100%">
+                <tbody><tr>
+                    <td>
+                        <label style="height: 100%">Disable Video:</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="cbVideoDisable">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">Enable RTCWeb Breaker</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="cbRTCWebBreaker">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">WebSocket Server URL</label>
+                    </td>
+                    <td>
+                        <input type="text" style="width: 100%; height: 100%" id="txtWebsocketServerUrl" value="" placeholder="e.g. ws://sipml5.org:5062">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">SIP outbound Proxy URL</label>
+                    </td>
+                    <td>
+                        <input type="text" style="width: 100%; height: 100%" id="txtSIPOutboundProxyUrl" value="" placeholder="e.g. udp://sipml5.org:5060">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">ICE Servers</label>
+                    </td>
+                    <td>
+                        <input type="text" style="width: 100%; height: 100%" id="txtIceServers" value="" placeholder="e.g. [{ url: &#39;stun:stun.l.google.com:19302&#39;}, { url:&#39;turn:user@numb.viagenie.ca&#39;, credential:&#39;myPassword&#39;}]">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">Max bandwidth (kbps)</label>
+                    </td>
+                    <td>
+                        <input type="text" style="width: 100%; height: 100%" id="txtBandwidth" value="" placeholder="{ audio:64, video:512 }">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">Video size</label>
+                    </td>
+                    <td>
+                        <input type="text" style="width: 100%; height: 100%" id="txtSizeVideo" value="" placeholder="{ minWidth: 640, minHeight:480, maxWidth: 640, maxHeight:480 }">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">Disable 3GPP Early IMS</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="cbEarlyIMS">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">Disable debug messages</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="cbDebugMessages">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">Cache the media stream</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="cbCacheMediaStream">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="height: 100%">Disable Call button options:</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="cbCallButtonOptions">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        <input type="button" class="btn-success" id="btnSave" value="Save" onclick="settingsSave();">
+                        &nbsp;
+                        <input type="button" class="btn-danger" id="btnRevert" value="Revert" onclick="settingsRevert();">
+                    </td>
+               </tr>
+
+            </tbody></table>
+        </div>
+    </div>
+
+  
+
+
+</body></html>

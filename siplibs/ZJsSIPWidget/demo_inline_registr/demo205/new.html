@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>btn</title>
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+
+    <!--    **************-->
+    <link rel="stylesheet" href="./try demo_files/tryit-jssip.css">
+    <!--    **************-->
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--    **************-->
+    <script>
+        (function (f) {
+            if (typeof exports === "object" && typeof module !== "undefined") {
+                module.exports = f()
+            } else if (typeof define === "function" && define.amd) {
+                define([], f)
+            } else {
+                var g;
+                if (typeof window !== "undefined") {
+                    g = window
+                } else if (typeof global !== "undefined") {
+                    g = global
+                } else if (typeof self !== "undefined") {
+                    g = self
+                } else {
+                    g = this
+                }
+                g.antiglobal = f()
+            }
+        })(function () {
+            var define, module, exports;
+            return (function e(t, n, r) {
+                function s(o, u) {
+                    if (!n[o]) {
+                        if (!t[o]) {
+                            var a = typeof require == "function" && require;
+                            if (!u && a) return a(o, !0);
+                            if (i) return i(o, !0);
+                            var f = new Error("Cannot find module '" + o + "'");
+                            throw f.code = "MODULE_NOT_FOUND", f
+                        }
+                        var l = n[o] = {exports: {}};
+                        t[o][0].call(l.exports, function (e) {
+                            var n = t[o][1][e];
+                            return s(n ? n : e)
+                        }, l, l.exports, e, t, n, r)
+                    }
+                    return n[o].exports
+                }
+
+                var i = typeof require == "function" && require;
+                for (var o = 0; o < r.length; o++) s(r[o]);
+                return s
+            })({
+                1: [function (require, module, exports) {
+                    (function (global) {
+                        var lastGlobals = getGlobals();
+                        var doLog = true;
+                        var doThrow = false;
+
+                        function antiglobal() {
+                            var globals = getGlobals(); // Get current globals
+                            var givenGlobals = Array.prototype.slice.call(arguments);
+                            var newGlobals = [];
+                            var removedGlobals = [];
+                            var changed = false;
+                            var i, len, elem;
+
+                            for (i = 0, len = globals.length; i < len; i++) {
+                                elem = globals[i];
+
+                                if (lastGlobals.indexOf(elem) === -1 && givenGlobals.indexOf(elem) === -1) {
+                                    newGlobals.push(elem);
+                                    changed = true;
+                                }
+                            }
+
+                            for (i = 0, len = lastGlobals.length; i < len; i++) {
+                                elem = lastGlobals[i];
+
+                                if (globals.indexOf(elem) === -1) {
+                                    removedGlobals.push(elem);
+                                    changed = true;
+                                }
+                            }
+
+                            // Update lastGlobals
+                            lastGlobals = globals.concat(givenGlobals);
+
+                            if (changed) {
+                                var msg = 'antiglobal() | globals do not match:';
+
+                                for (i = 0, len = newGlobals.length; i < len; i++) {
+                                    elem = newGlobals[i];
+                                    msg = msg + '\n+ ' + elem;
+                                }
+
+                                for (i = 0, len = removedGlobals.length; i < len; i++) {
+                                    elem = removedGlobals[i];
+                                    msg = msg + '\n- ' + elem;
+                                }
+
+                                if (doLog)
+                                    // console.error(msg);
+                                    if (doThrow)
+                                        throw new Error(msg);
+                            }
+
+                            return !changed;
+                        }
+
+                        /**
+                         * Reset current globals
+                         */
+                        antiglobal.reset = function () {
+                            lastGlobals = getGlobals();
+                        };
+
+                        /**
+                         * Public properties
+                         */
+                        Object.defineProperties(antiglobal,
+                            {
+                                log:
+                                    {
+                                        get: function () {
+                                            return doLog;
+                                        },
+                                        set: function (bool) {
+                                            doLog = Boolean(bool);
+                                        }
+                                    },
+                                throw:
+                                    {
+                                        get: function () {
+                                            return doThrow;
+                                        },
+                                        set: function (bool) {
+                                            doThrow = Boolean(bool);
+                                        }
+                                    }
+                            });
+
+                        /**
+                         * Private API
+                         */
+
+                        function getGlobals() {
+                            var globals = [];
+
+                            for (var key in global) {
+                                if (global.hasOwnProperty(key)) {
+                                    // Ignore this module
+                                    if (key !== 'antiglobal')
+                                        globals.push(key);
+                                }
+                            }
+
+                            return globals;
+                        }
+
+                        module.exports = antiglobal;
+
+                    }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+                }, {}]
+            }, {}, [1])(1)
+        });
+    </script>
+    <script>
+        // Set debug
+        window.localStorage.setItem('debug', '* -engine* -socket* *ERROR* *WARN*');
+
+        // Set antiglobal
+        window.antiglobal('___browserSync___oldSocketIo', 'JSON3', 'io', '___browserSync___', '__core-js_shared__', 'MediaStream', 'RTCPeerConnection', 'callstats', 'jssipCallstats');
+        setInterval(window.antiglobal, 5000);
+    </script>
+    <script src="./try demo_files/callstats.min.js.download"></script>
+    <script src="./try demo_files/callstats-jssip.min.js.download"></script>
+
+    <script>
+        // Uncomment and fill the SETTINGS object in order to use hardcoded settings
+        //
+        // You don't need to set display_name nor uri, they can be set via HTTP form in
+        // the Login section of the web
+        //
+        // window.SETTINGS =
+        // {
+        // 	display_name        : null,
+        // 	uri                 : null,
+        // 	password            : null,
+        // 	socket              :
+        // 	{
+        // 		uri           : 'wss://sip.yourdomain.com',
+        // 		via_transport : 'auto',
+        // 	},
+        // 	registrar_server    : null,
+        // 	contact_uri         : null,
+        // 	authorization_user  : null,
+        // 	instance_id         : null,
+        // 	session_timers      : true,
+        // 	use_preloaded_route : false,
+        // 	pcConfig            :
+        // 	{
+        // 		rtcpMuxPolicy : 'negotiate',
+        // 		iceServers    :
+        // 		[
+        // 			{ urls : [ 'stun:stun.l.google.com:19302' ] }
+        // 		]
+        // 	},
+        // 	callstats           :
+        // 	{
+        // 		enabled   : false,
+        // 		AppID     : null,
+        // 		AppSecret : null
+        // 	}
+        // };
+    </script>
+
+    <script src="./try demo_files/tryit-jssip.js"></script>
+
+    <!--    **************-->
+</head>
+<body>
+
+<!--<div class="container ">
+    <div class="row input justify-content-center">
+        <div class="col-lg-4 col-6 mt-5">
+            <div class="opacity mr-lg-3 ml-lg-3">
+                <div class="number text-center border w-10">
+                    <div class="uri-container">
+                        <div class=" md-form input-with-post-icon ml-5 mr-5 mt-lg-5">
+                            <i class=" fas white-ic fa-user input-prefix text-center "></i>
+                            <input type="text" id="undefined-SIPURIorusername-undefined-7653"
+                                   class="form-control text-white text-center">
+                            <label for="undefined-SIPURIorusername-undefined-7653"></label>
+                        </div>
+                    </div>
+                    <div class=" buuton-goup mb-lg-4 mb-3">
+                        <a type="button" class="btn-floating btn-lg btn-default" value="1" onclick="dis('1')">1</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="2" onclick="dis('2')">2</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="3" onclick="dis('3')">3</a>
+                        <br>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="4" onclick="dis('4')">4</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="5" onclick="dis('5')">5</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="6" onclick="dis('6')">6</a>
+                        <br>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="7" onclick="dis('7')">7</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="8" onclick="dis('8')">8</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="9" onclick="dis('9')">9</a>
+                        <br>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="+" onclick="dis('+')">+</a>
+                        <a type="button" class="btn-floating btn-lg btn-default" value="0" onclick="dis('0')">0</a>
+                        <a type="button" class="btn-floating btn-lg btn-secondary" value="c" onclick="clr()">
+                            <i class="fas red-ic fa-backspace"></i></a>
+                        <div class="mb-lg-5 mb-4 mt-lg-4 mt-3">
+                            <a type="button" class="btn btn-success btn-rounded btn-default" value="c" onclick="clr()">
+                                <i class="fas success-ic fa-phone"></i></a>
+                            <a type="button" class="btn btn-success btn-rounded btn-default" value="c" onclick="clr()">
+                                <i class="fas success-ic fa-video"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>-->
+<div id="tryit-jssip-container">
+
+</div>
+
+<div id="tryit-jssip-media-query-detector"></div>
+
+
+<style>
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    body {
+        height: auto;
+    }
+
+    .topbar {
+        display: none !important;
+    }
+
+    /*#tryit-jssip-container [data-component='Dialer']{
+        display: none;
+    }*/
+</style>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+
+<script>
+    //function for displaying values
+    function dis(val) {
+        document.getElementById("undefined-SIPURIorusername-undefined-35085").value += val
+    }
+
+    //function for evaluation
+    /* function solve()
+     {
+         let x = document.getElementById("edu").value
+         let y = eval(x)
+         document.getElementById("edu").value = y
+     }*/
+    //function for clearing the display
+    function clr() {
+        document.getElementById("undefined-SIPURIorusername-undefined-35085").value = ""
+    }
+</script>
+
+</body>
+</html>

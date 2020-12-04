@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Maps Routing</title>
+    <link rel=”stylesheet” type=”text/css” href=”/publish/leaflet/publish/leaflet/dist/leaflet.css”>
+    <script src="/publish/leaflet/publish/leaflet/dist/leaflet.js"></script>
+    <style>
+        #myMap {
+            width: 600px;
+            height: 550px;
+        }
+    </style>
+</head>
+<body>
+<div id=”myMap”></div>
+<script>
+
+    var mymap = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    }).addTo(mymap);
+
+    var customicon = L.icon({
+        iconUrl: 'customicon.png', //image file
+        iconSize: [38, 95], // size of the icon
+    });
+    var marker = L.marker([51.5, -0.09], {icon: customicon}).addTo(mymap)
+    marker.bindPopup('I am marker.')
+    marker.openPopup();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://pqina.github.io/filepond-plugin-image-preview/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilePond Plugin Image Preview Demo</title>
+    <link href="/publish/yarner/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="/publish/yarner/filepond/dist/filepond-image-preview.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="filepond--root filepond--hopper" data-style-button-remove-item-position="left" data-style-button-process-item-position="right" data-style-load-indicator-position="right" data-style-progress-indicator-position="right" style="height: 76px;"><input class="filepond--browser" type="file" id="filepond--browser-qhdfhb3zp" aria-controls="filepond--assistant-qhdfhb3zp" aria-labelledby="filepond--drop-label-qhdfhb3zp" name="filepond"><div class="filepond--drop-label" style="transform: translate3d(0px, 0px, 0px); opacity: 1;"><label for="filepond--browser-qhdfhb3zp" id="filepond--drop-label-qhdfhb3zp" aria-hidden="true">Drag &amp; Drop your files or <span class="filepond--label-action" tabindex="0">Browse</span></label></div><div class="filepond--list-scroller" style="transform: translate3d(0px, 0px, 0px);"><ul class="filepond--list" role="list"></ul></div><div class="filepond--panel filepond--panel-root" data-scalable="true"><div class="filepond--panel-top filepond--panel-root"></div><div class="filepond--panel-center filepond--panel-root" style="transform: translate3d(0px, 8px, 0px) scale3d(1, 0.6, 1);"></div><div class="filepond--panel-bottom filepond--panel-root" style="transform: translate3d(0px, 68px, 0px);"></div></div><span class="filepond--assistant" id="filepond--assistant-qhdfhb3zp" role="status" aria-live="polite" aria-relevant="additions"></span><div class="filepond--drip"></div></div>
+    
+    <script src="demo_files/filepond-plugin-file-metadata.js"></script>
+    <script src="demo_files/filepond-plugin-image-crop.js"></script>
+    
+    <script src="demo_files/filepond-plugin-image-preview.js"></script>
+    <script src="demo_files/filepond.js"></script>
+    
+    <script>
+        // Register the plugin with FilePond
+        FilePond.registerPlugin(
+            FilePondPluginFileMetadata, 
+            FilePondPluginImageCrop,
+            FilePondPluginImagePreview
+        );
+        
+        // Get a reference to the file input element
+        const inputElement = document.querySelector('input[type="file"]');
+
+        // Create the FilePond instance
+        const pond = FilePond.create(inputElement, {
+            imageCropAspectRatio: '1:1',
+            fileMetadataObject: {
+                'markup': [
+                    [
+                        'rect', {
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            height: '60px',
+                            backgroundColor: 'rgba(0,0,0,.5)'
+                        },
+                    ],
+                    [
+                        'image', {
+                            right: '10px',
+                            bottom: '10px',
+                            width: '128px',
+                            height: '34px',
+                            src: './filepond-logo.svg',
+                            fit: 'contain'
+                        }
+                    ]
+                ]
+            }
+        });
+    </script>
+
+
+</body></html>

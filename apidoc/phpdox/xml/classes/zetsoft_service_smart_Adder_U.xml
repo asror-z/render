@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="zetsoft\service\smart\Adder_U" namespace="zetsoft\service\smart" name="Adder_U" abstract="false" final="false" start="34" end="1571">
+  <file path="D:/Develop/Projects/ALL/asrorz/zetsoft/service/smart" file="Adder_U.php" realpath="D:/Develop/Projects/ALL/asrorz/zetsoft/service/smart/Adder_U.php" size="50556" time="2020-09-18T10:55:58+05:00" unixtime="1600408558" sha1="9ddd1f65957f25b8febddb4853ed8ebc68afc768" relative="Adder_U.php"/>
+  <docblock>
+    <description compact="Class Adder"/>
+    <package value="zetsoft\service\smart yangi proyekt yaratish, klon qilish servisi"/>
+  </docblock>
+  <extends full="zetsoft\system\kernels\ZFrame" namespace="zetsoft\system\kernels" name="ZFrame" unresolved="true"/>
+  <member name="data" visibility="public" static="false" line="43">
+    <docblock>
+      <description/>
+      <var type="object">Proyektni fayllarini o'zida jamlash uchun o'zgaruvchi<type full="zetsoft\service\smart\$data" namespace="zetsoft\service\smart" name="$data"/></var>
+    </docblock>
+  </member>
+  <member name="rootDir" visibility="public" static="false" line="50">
+    <docblock>
+      <description/>
+      <var type="object">Proyekt joylashgan direktoriya uchun o'zgaruvchi<type full="zetsoft\service\smart\$rootDir" namespace="zetsoft\service\smart" name="$rootDir"/></var>
+    </docblock>
+  </member>
+  <member name="newName" visibility="public" static="false" line="56">
+    <docblock>
+      <description/>
+      <var type="object">Yaratilayotgan proyektni nomi uchun o'zgaruvchi<type full="zetsoft\service\smart\$newName" namespace="zetsoft\service\smart" name="$newName"/></var>
+    </docblock>
+  </member>
+  <member name="oldName" visibility="public" static="false" line="62">
+    <docblock>
+      <description/>
+      <var type="object">nusxa olinadigan proyekt nomi uchun o'zgaruvchi<type full="zetsoft\service\smart\$oldName" namespace="zetsoft\service\smart" name="$oldName"/></var>
+    </docblock>
+  </member>
+  <member name="domain" visibility="public" static="false" line="68">
+    <docblock>
+      <description/>
+      <var type="object">yangi proyekga qo'shimcha domain yaratish uchun o'zgaruvchi<type full="zetsoft\service\smart\$domain" namespace="zetsoft\service\smart" name="$domain"/></var>
+    </docblock>
+  </member>
+  <member name="dbname" default="'db_dilshod_01'" type="string" visibility="public" static="false" line="76">
+    <docblock>
+      <description/>
+      <var type="object">yaratilayotgan yangi proyektga DB uchun o'zgaruvchi<type full="zetsoft\service\smart\$dbname" namespace="zetsoft\service\smart" name="$dbname"/></var>
+    </docblock>
+  </member>
+  <member name="theme_dbname" default="'db41'" type="string" visibility="public" static="false" line="78"/>
+  <member name="theme_dbUsername" visibility="public" static="false" line="79"/>
+  <member name="theme_dbpassword" default="'serverpass1234'" type="string" visibility="public" static="false" line="80"/>
+  <member name="confTpl" visibility="private" static="false" line="86">
+    <docblock>
+      <description/>
+      <var type="object">yaratilayotgan proyekt vhost fayliga shablon uchun o'zgaruvchi<type full="zetsoft\service\smart\$confTpl" namespace="zetsoft\service\smart" name="$confTpl"/></var>
+    </docblock>
+  </member>
+  <constant type="array" name="mode" value=""/>
+  <constant type="array" name="path" value=""/>
+  <member name="appName" default="'Umid'" type="string" visibility="public" static="false" line="112"/>
+  <member name="theme" default="'test'" type="string" visibility="public" static="false" line="113"/>
+  <member name="app" visibility="public" static="false" line="114"/>
+  <member name="domains" default="" type="array" visibility="public" static="false" line="116"/>
+  <member name="createdFiles" default="" type="array" visibility="public" static="false" line="118"/>
+  <member name="confFolders" default="" type="array" visibility="public" static="false" line="120"/>
+  <method name="init" start="147" end="157" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="$this-&gt;dbname = 'db_' . $this-&gt;appName . '_01';" line="149"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$this-&gt;app = PageApp::find()" line="150"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="-&gt;where([" line="151"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="'name' =&gt; $this-&gt;appName" line="152"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="])-&gt;one();" line="153"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if (empty($this-&gt;app))" line="154"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Az::error('This project not found in DB');" line="155"/>
+    </inline>
+  </method>
+  <method name="run" start="159" end="162" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="appClone" start="164" end="183" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="createCmd" start="187" end="193" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="cloneFolders" start="195" end="202" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="createAppIndex" start="204" end="218" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="createAppConf" start="220" end="226" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="createEnv" start="228" end="268" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="createDb" start="275" end="288" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Boshlang'ich db yaratish"/>
+      <throws type="object">
+        <type full="\yii\db\Exception" namespace="\yii\db" name="Exception"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="createSql" start="290" end="315" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="path" byreference="false" type="object" default="Root . '/render/sql/test.sql">
+      <type full="expression" namespace="" name="expression"/>
+    </parameter>
+  </method>
+  <method name="restoreDb" start="317" end="341" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="path" byreference="false" type="object" default="Root . '/render/sql/test.sql">
+      <type full="expression" namespace="" name="expression"/>
+    </parameter>
+  </method>
+  <method name="createConnectionFile" start="343" end="350" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="dropDb" start="356" end="370" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="DB o'chirish"/>
+      <throws type="object">
+        <type full="\yii\db\Exception" namespace="\yii\db" name="Exception"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="fillDb" start="376" end="387" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="DBda tablitsalar yaratish"/>
+    </docblock>
+  </method>
+  <method name="callPageRunCmd" start="393" end="402" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="page/run --app comandasini chaqirish"/>
+    </docblock>
+  </method>
+  <method name="updateNgnix" start="409" end="496" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="vhost conf va appssl directory qo'shish"/>
+      <param type="object" variable="$revert">
+        <type full="zetsoft\service\smart\bool" namespace="zetsoft\service\smart" name="bool"/>
+      </param>
+    </docblock>
+    <parameter name="revert" byreference="false" type="boolean" default="false"/>
+  </method>
+  <method name="load" start="504" end="935" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="file sistemasini yaratish"/>
+      <param type="null" variable="$mode"/>
+    </docblock>
+    <parameter name="mode" byreference="false" type="{unknown}" default="NULL"/>
+    <inline>
+      <comment value="configs/cmd +" line="512"/>
+      <comment value="configs/data +" line="527"/>
+      <comment value="configs/env +" line="545"/>
+      <comment value="configs/web +" line="569"/>
+      <comment value="zetsoft/blocks +" line="583"/>
+      <comment value="cncmd +" line="603"/>
+      <comment value="cnweb +" line="616"/>
+      <comment value="models" line="650"/>
+      <comment value="zetsoft/dbcore" line="685"/>
+      <comment value="zetsoft/dbdata" line="701"/>
+      <comment value="zetsoft/dbitem" line="718"/>
+      <comment value="former" line="748"/>
+      <comment value="inserts" line="764"/>
+      <comment value="$items[] = function (AppItem $item) use ($mode) {" line="765"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;generate = &quot;/inserts/$this-&gt;app/.gitkeep&quot;;" line="766"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;generatePath = &quot;/inserts/$this-&gt;app&quot;;" line="767"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;templatePath = &quot;/inserts/Azk/All&quot;;" line="768"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if ($mode === self::mode['clone']) {" line="769"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;dirOnly = true;" line="770"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;sourceDir = &quot;/inserts/$this-&gt;oldName&quot;;" line="771"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="772"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;replace = [" line="773"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$this-&gt;oldName =&gt; $this-&gt;app" line="774"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="];" line="775"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="return $item;" line="776"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="};" line="777"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$inserts_azk_all_sub_dirs = glob($this-&gt;rootDir . '/inserts/Azk/All/*');" line="778"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if (count($inserts_azk_all_sub_dirs) &gt; 0) {" line="779"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="foreach ($inserts_azk_all_sub_dirs as $dir) {" line="780"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$temp_dir = substr($dir, 55);" line="781"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$items[] = function (AppItem $item) use ($dir, $this-&gt;app, $mode, $temp_dir) {" line="782"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;generate = &quot;/inserts/$this-&gt;app/.gitkeep&quot;;" line="783"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;generatePath = &quot;/inserts/$this-&gt;app&quot;;" line="784"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;template = $temp_dir;" line="785"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;templatePath = &quot;/inserts/Azk/All/&quot;;" line="786"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;replace = [" line="787"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="'{app}' =&gt; $this-&gt;app" line="788"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="];" line="789"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="return $item;" line="790"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="};" line="791"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="792"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="793"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$inserts_branch_sub_dirs = $branch ? ZFileHelper::findFiles($this-&gt;rootDir . '/inserts/Azk/' . $branch) : ZFileHelper::findFiles($this-&gt;rootDir . '/inserts/Azk/corporate');" line="794"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$temp_path = $branch ? &quot;/inserts/Azk/$branch/&quot; : &quot;/inserts/Azk/corporate/&quot;;" line="795"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if (count($inserts_branch_sub_dirs) &gt; 0) {" line="796"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="foreach ($inserts_branch_sub_dirs as $dir) {" line="797"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$items[] = function (AppItem $item) use ($dir, $this-&gt;app, $mode, $branch, $temp_path) {" line="798"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;generate = &quot;/inserts/$this-&gt;app/.gitkeep&quot;;" line="799"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;generatePath = &quot;/inserts/$this-&gt;app&quot;;" line="800"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;templatePath = $temp_path;" line="801"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;template = basename($dir);" line="802"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;replace = [" line="803"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="'{app}' =&gt; $this-&gt;app" line="804"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="];" line="805"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="return $item;" line="806"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="};" line="807"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="808"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="809"/>
+      <comment value="$items[] = function (AppItem $item) use ($mode) {" line="820"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;generate = &quot;/layouts/$this-&gt;app/.gitkeep&quot;;" line="821"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;generatePath = &quot;/layouts/$this-&gt;app&quot;;" line="822"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;sourceDir = &quot;/layouts/Azk/ALL/&quot;;" line="823"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if ($mode === self::mode['clone']) {" line="824"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;dirOnly = true;" line="825"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;sourceDir = &quot;/layouts/$this-&gt;oldName&quot;;" line="826"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="827"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="return $item;" line="828"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="};" line="829"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$temp_path_layouts = $this-&gt;branch ? &quot;/layouts/Azk/$this-&gt;branch&quot; : &quot;/layouts/Azk/corporate&quot;;" line="830"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$items[] = function (AppItem $item) use ($mode, $temp_path_layouts) {" line="831"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;generate = &quot;/layouts/$this-&gt;app/.gitkeep&quot;;" line="832"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;generatePath = &quot;/layouts/$this-&gt;app&quot;;" line="833"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;sourceDir = $temp_path_layouts;" line="834"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$item-&gt;dirOnly = true;" line="835"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="return $item;" line="836"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="};" line="837"/>
+      <comment value="service/App" line="869"/>
+      <comment value="$temp_path = $this-&gt;branch ? &quot;/webhtm/Azk/$this-&gt;branch&quot; : &quot;/webhtm/Azk/corporate&quot;;" line="918"/>
+    </inline>
+  </method>
+  <method name="create" start="945" end="949" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="yangi ilova yaratish"/>
+    </docblock>
+  </method>
+  <method name="createById" start="956" end="963" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="berilgan id bo'yicha file sistemasini yaratish"/>
+      <param variable="$id"/>
+    </docblock>
+    <parameter name="id" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="createApply" start="969" end="978" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="DB va tablitsalar yaratish"/>
+    </docblock>
+  </method>
+  <method name="createNginx" start="984" end="997" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="hosts fayilga domainlarni qo'shish"/>
+    </docblock>
+  </method>
+  <method name="make" start="1003" end="1016" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="file sistemasini yaratish"/>
+    </docblock>
+    <inline>
+      <comment value="updating /service/ALL/App.php and" line="1013"/>
+      <comment value="launch norms" line="1014"/>
+    </inline>
+  </method>
+  <method name="nginxConf" start="1020" end="1043" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="customConf" start="1045" end="1061" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="path" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="updateHosts" start="1063" end="1088" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="restartNginx" start="1090" end="1143" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="$process = new Process($cmd);" line="1092"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$process-&gt;run(static function ($type, $buffer){" line="1093"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if (Process::ERR === $type) {" line="1094"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="vdd('Error on changing directory: ' . $buffer);" line="1095"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="} else {" line="1096"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$cmd = ['d:\Develop\Projects\ALL\server\nginx\nginx -t.cmd'];" line="1097"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$process = new Process($cmd);" line="1098"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$process-&gt;run(static function ($type, $buffer){" line="1099"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if (Process::ERR === $type) {" line="1100"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="vdd('Error with Nginx: ' . $buffer);" line="1101"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="} else {" line="1102"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$cmd = ['d:\Develop\Projects\ALL\server\nginx\nssm-reset.cmd'];" line="1103"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$process = new Process($cmd);" line="1104"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$process-&gt;run(static function ($type, $buffer){" line="1105"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if (Process::ERR === $type) {" line="1106"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="vdd('Error with Nginx restarting: ' . $buffer);" line="1107"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="} else {" line="1108"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Az::debug('Nginx restared successfuly!');" line="1109"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="1110"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="});" line="1111"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="1112"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="});" line="1113"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="1114"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="});" line="1115"/>
+      <comment value="$proc = new SymfonyProcess();" line="1117"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$a = $proc-&gt;run($cmd," line="1118"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="function ($output, $pid){" line="1119"/>
+      <comment value="}," line="1137"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="function ($output, $pid){" line="1138"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="vd('Error 1 |' . $pid);" line="1139"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="},);" line="1140"/>
+      <comment value="vd($a);" line="1141"/>
+      <comment value="vdd($proc);" line="1142"/>
+    </inline>
+  </method>
+  <method name="addToHosts" start="1150" end="1192" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="hosts fayilga domainlarni qo'shish"/>
+    </docblock>
+  </method>
+  <method name="addToHostprofiles" start="1198" end="1232" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="hostprofiles fayiliga domainlarni qo'shish"/>
+    </docblock>
+  </method>
+  <method name="addDomainNameIntoHosts" start="1238" end="1242" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="hosts va hostfiles fayillariga domainlarni qo'shish"/>
+    </docblock>
+  </method>
+  <method name="moveToRecycle" start="1252" end="1291" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="Berilgan app fayil sistemasini recycle papkasiga ko'chirish"/>
+      <param variable="$app"/>
+    </docblock>
+    <parameter name="app" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="removeToRecycle" start="1299" end="1311" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="berilgan app fayil sistemasini recycle papkasiga ko'chirish"/>
+      <param variable="$app"/>
+    </docblock>
+    <parameter name="app" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="clone" start="1322" end="1350" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="mavjud proyectni clon qilish"/>
+      <throws type="object">
+        <type full="\yii\db\Exception" namespace="\yii\db" name="Exception"/>
+      </throws>
+    </docblock>
+    <inline>
+      <comment value="updating /service/ALL/App.php and" line="1329"/>
+      <comment value="launch norms" line="1330"/>
+    </inline>
+  </method>
+  <method name="appCopy" start="1357" end="1400" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="proyectni file sistemasini nusxalash clone metodda chaqiriladi"/>
+    </docblock>
+  </method>
+  <method name="insertApplyFunc" start="1408" end="1418" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="insert/apply --app comandasini ishga tushuradi proyektni modellari asosida tablitsalar yaratish"/>
+    </docblock>
+  </method>
+  <method name="insertCreateFunc" start="1425" end="1437" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="insert/create --app commandasini ishga tushurish yangi proyektga modellar yasash"/>
+    </docblock>
+  </method>
+  <method name="insertCloneFolder" start="1443" end="1476" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="mavjud proyektni modellarini tablitaslarini nusxa olish"/>
+    </docblock>
+  </method>
+  <method name="extract" start="1482" end="1498" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="if (!file_exists($app_destination))" line="1487"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$boot-&gt;mklink($app_destination);" line="1488"/>
+      <comment value="actions" line="1490"/>
+      <comment value="vdd($app_destination . &quot;/actions&quot;);" line="1495"/>
+      <comment value="symlink($actions_dir, $app_destination );" line="1496"/>
+    </inline>
+  </method>
+  <method name="test" start="1503" end="1511" abstract="false" final="false" static="false" visibility="public">
+    <return type="void" nullable="false"/>
+    <inline>
+      <comment value="$this-&gt;testClone();" line="1508"/>
+      <comment value="$this-&gt;testCreate();" line="1509"/>
+      <comment value="$this-&gt;testRemoveToRecycle($app);" line="1510"/>
+    </inline>
+  </method>
+  <method name="testCreate" start="1513" end="1517" abstract="false" final="false" static="false" visibility="public">
+    <return type="void" nullable="false"/>
+  </method>
+  <method name="testRemoveToRecycle" start="1519" end="1522" abstract="false" final="false" static="false" visibility="public">
+    <return type="void" nullable="false"/>
+    <parameter name="app" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="testClone" start="1524" end="1529" abstract="false" final="false" static="false" visibility="public">
+    <return type="void" nullable="false"/>
+  </method>
+  <method name="checkNginx" start="1533" end="1569" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="$process = new Process(['d:/Develop/Projects/ALL/server/nginx/nginx -t']);" line="1535"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$process-&gt;run(function ($type, $buffer) {" line="1536"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if (Process::ERR === $type) {" line="1537"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="echo 'ERR &gt; '.$buffer;" line="1538"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="} else {" line="1539"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="chdir('d:\Develop\Projects\ALL\server\nginx\\');" line="1540"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Az::$app-&gt;utility-&gt;execs-&gt;exec(&quot;net stop Zetsoft_Nginx&quot;);" line="1541"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Az::$app-&gt;utility-&gt;execs-&gt;exec(&quot;net start Zetsoft_Nginx&quot;);*" line="1542"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="1543"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="});" line="1544"/>
+      <comment value="shell_exec(&quot;net stop Zetsoft_Nginx&quot;);" line="1547"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="shell_exec(&quot;net start Zetsoft_Nginx&quot;);" line="1548"/>
+      <comment value="Az::$app-&gt;utility-&gt;execs-&gt;exec(&quot;net stop Zetsoft_Nginx&quot;);" line="1549"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Az::$app-&gt;utility-&gt;execs-&gt;exec(&quot;net start Zetsoft_Nginx&quot;);" line="1550"/>
+      <comment value="Az::$app-&gt;utility-&gt;execs-&gt;exec(&quot;net stop Zetsoft_Nginx&quot;);" line="1560"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$start_time = time();" line="1561"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="while (true) {" line="1562"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if ((time() - $start_time) &gt; 5) {" line="1563"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="Az::$app-&gt;utility-&gt;execs-&gt;exec(&quot;net start Zetsoft_Nginx&quot;);" line="1564"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="return false; // timeout, function took longer than 5 seconds" line="1565"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="1566"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="1567"/>
+    </inline>
+  </method>
+</class>

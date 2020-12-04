@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- jsPanel CSS -->
+    <link href="https://cdn.statically.io/gh/Flyer53/jsPanel4/master/es6module/jspanel.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- jsPanel JavaScript -->
+
+</head>
+<body>
+
+
+
+<div class="container">
+    <button type="button" class="btn btn-primary">Primary</button>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.statically.io/gh/Flyer53/jsPanel4/2f5e756f/source/jspanel.js" charset="utf-8"></script>
+<script src="https://cdn.statically.io/gh/Flyer53/jsPanel4/master/source/extensions/contextmenu/jspanel.contextmenu.js" charset="utf-8"></script>
+<script src="https://cdn.statically.io/gh/Flyer53/jsPanel4/master/source/extensions/datepicker/jspanel.datepicker.js" charset="utf-8"></script>
+<script src="https://cdn.statically.io/gh/Flyer53/jsPanel4/master/dist/extensions/dock/jspanel.dock.min.js" charset="utf-8"></script>
+<script src="https://cdn.statically.io/gh/Flyer53/jsPanel4/master/dist/extensions/hint/jspanel.hint.min.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+    $('.btn').on('click', function () {
+        jsPanel.hint.create({
+            position:    'center-top 0 15 down',
+            contentSize: '330 auto',
+            content:     '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore ...</p>',
+            theme:       'success filled',
+            headerTitle: '<i class="fa fa-check"></i> Success'
+        });
+        // window.setTimeout(function () {
+        //   jsPanel.hint.create({
+        //     position:    'center-top 0 15 down',
+        //     contentSize: '330 auto',
+        //     content:     '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore ...</p>',
+        //     theme:       'danger filledlight',
+        //     headerTitle: '<i class="fa fa-exclamation-triangle"></i> Error'
+        //   });
+        // }, 1000);
+        // window.setTimeout(function () {
+        //   jsPanel.hint.create({
+        //     position:    'center-top 0 15 down',
+        //     contentSize: '330 auto',
+        //     content:     '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore ...</p>',
+        //     theme:       'info filled',
+        //     headerTitle: '<i class="fa fa-info-circle"></i> Info'
+        //   });
+        // }, 2000);
+    });
+
+</script>
+</body>
+</html>

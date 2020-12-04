@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SipLib test</title>
+  </head>
+  <body>
+    <h3 id="caller" hidden></h3>
+    <div>
+      <input id="accept-call" type="button" value="Accept incoming call" hidden />
+      <input id="reject-call" type="button" value="Reject incoming call" hidden />
+      <input id="out" type="button" value="Call out" />
+      <input id="reconfigure" type="button" value="Reconfigure" />
+      <input id="register" type="button" value="Register" />
+      <input id="unregister" type="button" value="Unregister" />
+      <input id="subscribe" type="button" value="Subscribe" />
+      <input id="resubscribe" type="button" value="Resubscribe" />
+      <input id="unsubscribe" type="button" value="Unsubscribe" />
+    </div>
+    <div id="in-call" hidden>
+      <input id="bye" type="button" value="Bye now..." />
+      <input id="hold" type="button" value="Hold" />
+      <input id="unhold" type="button" value="Unhold" />
+      <input id="blindtransfer" type="button" value="Blind transfer" />
+      <input id="attendedtransfer" type="button" value="Attended transfer" />
+      MOS: <span id="mos"></span>
+      <div>
+        <input id="dtmf-0" type="button" value="0" />
+        <input id="dtmf-1" type="button" value="1" />
+        <input id="dtmf-2" type="button" value="2" />
+        <input id="dtmf-3" type="button" value="3" />
+        <input id="dtmf-4" type="button" value="4" />
+        <input id="dtmf-5" type="button" value="5" />
+        <input id="dtmf-6" type="button" value="6" />
+        <input id="dtmf-7" type="button" value="7" />
+        <input id="dtmf-8" type="button" value="8" />
+        <input id="dtmf-9" type="button" value="9" />
+        <input id="dtmf-star" type="button" value="*" />
+        <input id="dtmf-hash" type="button" value="#" />
+      </div>
+    </div>
+    <div>
+      Input volume:
+      <input id="inVol" type="range" min="0" max="10" value="10" />
+      <input id="inMute" type="checkbox" />
+    </div>
+    <div>
+      Output volume:
+      <input id="outVol" type="range" min="0" max="10" value="10" />
+      <input id="outMute" type="checkbox" />
+    </div>
+    <h4>Devices</h4>
+    <div>
+      <div>
+        Input:
+        <select id="input"></select>
+      </div>
+      <div>
+        Output:
+        <select id="output"></select>
+      </div>
+      <button id="play">Test output</button>
+    </div>
+    <br />
+    Active sessions: <span id="sessions-count">0</span>
+    <script type="module" src="./demo.js"></script>
+  </body>
+</html>

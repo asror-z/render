@@ -1,0 +1,188 @@
+<html>
+<head>
+    <title>OnSip</title>
+    <link rel="stylesheet" href="https://cdn.statically.io/gh/onsip/sipjs-examples/master/demo-phone/css/style.css"/>
+</head>
+
+<style>
+    .session {
+        width: 300px;
+        border: none;
+        display: inline-block;
+        padding: 10px;
+    }
+
+    #session-list {
+        display: inline-flex;
+    }
+
+    #ua {
+        padding: 20px;
+        border: none;
+    }
+
+    ul .uri {
+        display: none;
+    }
+
+    #templates li {
+        display: inline-flex;
+    }
+
+    .session .dtmf, .session .dtmf * {
+        display: none;
+    }
+</style>
+
+<body>
+
+<!-- Configuration Prompt -->
+<form id="config-form" action="">
+    <label>Your Name <input type="text" name="displayName" placeholder="John Doe"/></label>
+    <label>SIP URI <input type="text" name="uri" placeholder="john@example.com"/></label>
+    <label>Auth Username <input type="text" name="authorizationUser" placeholder="example_john"/></label>
+    <label>Password <input type="password" name="password"/></label>
+    <label>WS Server <input type="text" name="wsServers" placeholder="wss://edge.sip.onsip.com"/></label>
+    <input type="submit" name="configSubmit" value="Create UA"/>
+</form>
+
+<!-- UA Control Form -->
+<div id="ua">
+    <div id="ua-status">Disconnected</div>
+    <button style="display: none" id="ua-register">Register</button>
+    <form id="new-session-form" action="">
+        <label>Enable Video <input type="checkbox" id="ua-video" checked/></label>
+        <input type="text" id="ua-uri" placeholder="extension"/>
+        <input type="submit" id="ua-invite-submit" value="Call"/>
+        <input style="display: none" type="submit" id="ua-message-submit" value="Begin Chat"/>
+    </form>
+</div>
+<ul id="session-list"></ul>
+
+<!-- Templates to clone Sessions and Messages -->
+<ul id="templates">
+    <li id="session-template" class="template session">
+        <h2><strong class="display-name"></strong> <span class="uri"></span></h2>
+        <button class="green">Green</button>
+        <button class="red">Red</button>
+        <form class="dtmf" action="">
+            <label>DTMF <input type="text" maxlength="1"/></label>
+            <input type="submit" value="Send"/>
+        </form>
+        <video autoplay>Video Disabled or Unavailable</video>
+        <ul class="messages"></ul>
+        <form style="display: none" class="message-form" action="">
+            <input type="text" placeholder="Type to send a message"/><input type="submit" value="Send"/>
+        </form>
+    </li>
+</ul>
+
+<script src="https://cdn.statically.io/gh/onsip/sipjs-examples/master/demo-phone/js/ua.js"></script>
+<script src="https://cdn.statically.io/gh/onsip/sipjs-examples/master/demo-phone/js/sip-0.5.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.min.js"></script>
+
+<script>
+    window.onload = function () {
+        ua.register();
+    };
+    var ua;
+    var sessionUIs = {};
+    var config = {
+        userAgentString: 'SIP.js/0.5.0-devel BB',
+        traceSip: true,
+        register: false
+    };
+    config['displayName'] = '200';
+    config['uri'] = '200@10.10.3.30:5160';
+    config['authorizationUser'] = '200';
+    config['password'] = '200';
+    config['wsServers'] = 'wss://10.10.3.30:8089/ws';
+    config['configSubmit'] = 'Create UA';
+
+    (function(SIP){
+
+// Default MediaStreamManager provides single-use streams created with getUserMedia
+        var MediaStreamManager = function MediaStreamManager (defaultConstraints) {
+            this.setConstraints(defaultConstraints);
+        };
+        MediaStreamManager.prototype = {
+            'acquire': function acquire (onSuccess, onFailure, constraints) {
+                constraints = constraints || this.constraints;
+                SIP.WebRTC.getUserMedia(constraints, onSuccess, onFailure);
+            },
+
+            'release': function release (stream) {
+                if (stream) {
+                    stream.getTracks().forEach(function (track) { track.stop(); });
+                }
+            },
+
+            'setConstraints': function setConstraints (constraints) {
+                // Assume audio/video if no default constraints passed.
+                this.constraints = constraints || {audio: true, video: true};
+            }
+        };
+
+// A MediaStreamManager that reuses a given MediaStream in parallel, giving it out freely.
+        MediaStreamManager.ofStream = function ofStream (stream) {
+            this.stream = stream;
+        };
+        MediaStreamManager.ofStream.prototype = Object.create(MediaStreamManager.prototype, {
+            'acquire': {value: function acquire (onSuccess) {
+                    onSuccess(this.stream);
+                }},
+
+            // don't stop the stream
+            'release': {value: function release () {} }
+        });
+
+        MediaStreamManager.cast = function cast (obj) {
+            if (!obj) {
+                return new MediaStreamManager();
+            }
+
+            if (obj instanceof MediaStreamManager) {
+                return obj;
+            }
+
+            if (SIP.WebRTC.MediaStream && obj instanceof SIP.WebRTC.MediaStream) {
+                return new MediaStreamManager.ofStream(obj);
+            }
+
+            // if it's not a stream or a manager, assume it's a constraints object
+            return new MediaStreamManager(obj);
+        };
+
+// Return since it will be assigned to a variable.
+        return MediaStreamManager;
+    }(SIP));
+
+    ua = new SIP.UA(config);
+
+    ua.on('connected', function () {
+        elements.uaStatus.innerHTML = 'Connected (Unregistered)';
+    });
+
+    ua.on('registered', function () {
+        elements.registerButton.innerHTML = 'Unregister';
+        elements.uaStatus.innerHTML = 'Connected (Registered)';
+    });
+
+    ua.on('unregistered', function () {
+        elements.registerButton.innerHTML = 'Register';
+        elements.uaStatus.innerHTML = 'Connected (Unregistered)';
+    });
+
+    ua.on('invite', function (session) {
+        createNewSessionUI(session.remoteIdentity.uri, session);
+    });
+
+    ua.on('message', function (message) {
+        if (!sessionUIs[message.remoteIdentity.uri]) {
+            createNewSessionUI(message.remoteIdentity.uri, null, message);
+        }
+    });
+    document.body.className = 'started';
+</script>
+</body>
+</html>
